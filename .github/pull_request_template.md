@@ -1,6 +1,6 @@
 ### This pull request closes:
 
-✔️ Closes Linear Issue: [DEV-<!-- Insert issue number here -->](https://linear.app/omnihost/issue/DEV-)
+✅  Closes DEV-
 
 ### Which service(s) does this issue affect:
 
