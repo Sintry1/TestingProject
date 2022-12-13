@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "omnihost",
+            "prefix": "frontend",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "omnihost",
+            "prefix": "frontend",
             "style": "kebab-case"
           }
         ]

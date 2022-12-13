@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@omnihost/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@omnihost/interfaces": ["libs/interfaces/src/index.ts"],
+      "@omnihost/local-storage": ["libs/local-storage/src/index.ts"],
+      "@omnihost/models": ["libs/models/src/index.ts"],
+      "@omnihost/task-generator": ["libs/task-generator/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

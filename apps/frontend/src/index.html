@@ -2,12 +2,45 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Frontend</title>
+    <title>Omnihost Systems</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Load environment variables -->
+    <script>
+      (function (d, s, id) {
+        if (d.getElementById(id)) {
+          if (window.__TOMORROW__) {
+            window.__TOMORROW__.renderWidget();
+          }
+          return;
+        }
+        const fjs = d.getElementsByTagName(s)[0];
+        const js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js';
+
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'tomorrow-sdk');
+    </script>
+    <script src="assets/env.js"></script>
   </head>
-  <body>
-    <omnihost-root></omnihost-root>
+  <body class="mat-typography">
+    <frontend-root></frontend-root>
   </body>
 </html>
