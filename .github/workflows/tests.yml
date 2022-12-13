@@ -1,0 +1,23 @@
+# Run the existing tests
+# Triggered on pull requests
+name: Tests CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+
+      - name: Install and test the applications
+        run: |
+          npm ci
+          npm run test:ci
