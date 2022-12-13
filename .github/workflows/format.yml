@@ -27,4 +27,4 @@ jobs:
           npm ci
 
       - name: Format-check codebase
-        run: npm run format:check:ts -- --base=origin/${{ github.event.pull_request.base.ref }}
+        run: npm run format:check -- --base=origin/${{ github.event.pull_request.base.ref }}
