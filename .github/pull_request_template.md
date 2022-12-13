@@ -1,6 +1,6 @@
 ### This pull request closes:
 
-✅  Closes Linear Issue: <https://linear.app/workspace/issue/DEV-><num>
+✅  Closes DEV-
 
 ### Which service(s) does this issue affect:
 
