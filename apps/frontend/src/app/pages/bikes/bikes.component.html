@@ -118,17 +118,6 @@
           *matCellDef="let element"
           (click)="openDialogEdit(element)"
         >
-          {{ element.completedAt }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="completedAt">
-        <th mat-header-cell *matHeaderCellDef>Returned</th>
-        <td
-          mat-cell
-          *matCellDef="let element"
-          (click)="openDialogEdit(element)"
-        >
           {{
             element.completedAt
               ? (element.completedAt | date : 'dd/MM HH:mm')
