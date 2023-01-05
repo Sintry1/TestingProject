@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IDocument } from '@omnihost/interfaces';
+import { ICreateDocumentRequest, IDocument } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class CreateDocumentDialogComponent implements OnInit {
   createDocumentForm = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
+  uploadedFile?: File;
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
@@ -54,19 +55,28 @@ export class CreateDocumentDialogComponent implements OnInit {
     }
   }
 
+  uploadImages($event: any) {
+    this.uploadedFile = $event.target.files[0];
+  }
+
   createDocument(): void {
     this.isLoading = true;
-    const doc: IDocument = {
-      documentId: 'placeholder',
+
+    if(this.uploadedFile === undefined) {
+      this.snackBar.open('No file has been uploaded!', 'Thanks', { duration: 5000 });
+      return;
+    }
+
+    const doc: ICreateDocumentRequest & { document: File } = {
       title: this.createDocumentForm.get('title')?.value,
       comments: this.createDocumentForm.get('comments')?.value,
       showOnDashboard: this.showOnDashboard,
-      documentName: 'skrt',
+      document: this.uploadedFile,
     };
 
     this.documentService.createDocument(doc).subscribe({
       next: () => {
-        this.snackBar.open('Bike added!', 'Thanks', { duration: 5000 });
+        this.snackBar.open('Document added!', 'Thanks', { duration: 5000 });
         document.location.reload();
         this.dialog.closeAll();
         this.isLoading = false;

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   DocumentSortOptions,
+  ICreateDocumentRequest,
   IDocument,
   IGetDocumentByIdResponse,
   IUpdateDocumentRequest,
@@ -31,8 +32,16 @@ export class DocumentsService {
     );
   }
 
-  public createDocument(params: IDocument): Observable<IDocument> {
-    return this.http.post<IDocument>(`${env.apiUrl}/documents`, params);
+  public createDocument(
+    params: ICreateDocumentRequest & { document: File }
+  ): Observable<ICreateDocumentRequest & { document: File }> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data')
+    return this.http.post<ICreateDocumentRequest & { document: File }>(
+      `${env.apiUrl}/documents`,
+      params,
+      { headers },
+    );
   }
 
   public getDocumentById(id: string): Observable<IGetDocumentByIdResponse> {

@@ -47,7 +47,20 @@
     </mat-error>
   </mat-form-field>
 
-  <button class="secondary-btn full-width" mat-raised-button type="button">
+  <input
+    style="display: none"
+    #fileUpload
+    type="file"
+    multiple
+    (change)="uploadImages($event)"
+    accept="application/pdf, application/msword, application/vnd.openxmlformats"
+  />
+  <button
+    class="secondary-btn full-width"
+    mat-raised-button
+    type="button"
+    (click)="fileUpload.click()"
+  >
     Upload file
   </button>
 
