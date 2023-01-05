@@ -74,6 +74,8 @@ export class CreateDocumentDialogComponent implements OnInit {
       document: this.uploadedFile,
     };
 
+    console.log(doc);
+
     this.documentService.createDocument(doc).subscribe({
       next: () => {
         this.snackBar.open('Document added!', 'Thanks', { duration: 5000 });

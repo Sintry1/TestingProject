@@ -35,12 +35,17 @@ export class DocumentsService {
   public createDocument(
     params: ICreateDocumentRequest & { document: File }
   ): Observable<ICreateDocumentRequest & { document: File }> {
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'multipart/form-data')
+
+    const formData = new FormData(); 
+    for (const key in params) {
+      if (Object.prototype.hasOwnProperty.call(params, key)) {
+        formData.append(key, params[key]);
+      }
+    }
+    
     return this.http.post<ICreateDocumentRequest & { document: File }>(
       `${env.apiUrl}/documents`,
-      params,
-      { headers },
+      formData,
     );
   }
 
