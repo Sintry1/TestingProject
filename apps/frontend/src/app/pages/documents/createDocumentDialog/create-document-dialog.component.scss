@@ -6,6 +6,20 @@
   font-weight: 900;
 }
 
-.full-width {
+.full-width, .remove-btn {
   margin-bottom: 1em;
+
+  &.no-margin {
+    margin-bottom: 0;
+  }
+}
+
+
+
+.document-container {
+  display: flex;
+}
+
+.remove-btn {
+  margin-left: 1em;
 }
