@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ICreateDocumentRequest, IDocument } from '@omnihost/interfaces';
+import { ICreateDocumentRequest } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -58,10 +58,10 @@ export class CreateDocumentDialogComponent implements OnInit {
   showDocument(name: string): string {
     const fileName = name.split('.')[0];
 
-    if(fileName.length > 20) {
-      return fileName.slice(0,20).trim() + '... (.' + name.split('.')[1] + ')';
+    if (fileName.length > 20) {
+      return fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')';
     } else {
-      return name
+      return name;
     }
   }
 
@@ -72,8 +72,10 @@ export class CreateDocumentDialogComponent implements OnInit {
   createDocument(): void {
     this.isLoading = true;
 
-    if(this.uploadedFile === undefined) {
-      this.snackBar.open('No file has been uploaded!', 'Thanks', { duration: 5000 });
+    if (this.uploadedFile === undefined) {
+      this.snackBar.open('No file has been uploaded!', 'Thanks', {
+        duration: 5000,
+      });
       return;
     }
 

@@ -6,15 +6,14 @@
   font-weight: 900;
 }
 
-.full-width, .remove-btn {
+.full-width,
+.remove-btn {
   margin-bottom: 1em;
 
   &.no-margin {
     margin-bottom: 0;
   }
 }
-
-
 
 .document-container {
   display: flex;

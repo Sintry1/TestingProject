@@ -35,6 +35,7 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/updateLongTermDi
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     DocumentWidgetComponent,
     SeeDocumentDialogComponent,
     CreateDocumentDialogComponent,
+    UpdateDocumentDialogComponent,
   ],
   imports: [
     BrowserModule,
