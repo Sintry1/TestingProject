@@ -35,17 +35,16 @@ export class DocumentsService {
   public createDocument(
     params: ICreateDocumentRequest & { document: File }
   ): Observable<ICreateDocumentRequest & { document: File }> {
-
-    const formData = new FormData(); 
+    const formData = new FormData();
     for (const key in params) {
       if (Object.prototype.hasOwnProperty.call(params, key)) {
         formData.append(key, params[key]);
       }
     }
-    
+
     return this.http.post<ICreateDocumentRequest & { document: File }>(
       `${env.apiUrl}/documents`,
-      formData,
+      formData
     );
   }
 
@@ -72,6 +71,6 @@ export class DocumentsService {
   }
 
   public deleteDocument(documentId: string): Observable<boolean> {
-    return this.http.delete<boolean>(`${env.apiUrl}/documents/${documentId}`)
+    return this.http.delete<boolean>(`${env.apiUrl}/documents/${documentId}`);
   }
 }

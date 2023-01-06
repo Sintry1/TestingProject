@@ -39,6 +39,7 @@
     ></textarea>
   </mat-form-field>
 
+  <!-- File actions -->
   <div class="document-container">
     <input
       style="display: none"
@@ -62,6 +63,7 @@
       }}
     </button>
 
+    <!-- Remove file btn / Upload file btn -->
     <button
       class="secondary-btn remove-btn"
       mat-raised-button
@@ -71,7 +73,6 @@
     >
       X
     </button>
-
     <button
       class="secondary-btn remove-btn"
       mat-raised-button
@@ -86,23 +87,6 @@
       />
     </button>
   </div>
-
-  <input
-    style="display: none"
-    #fileUpload
-    type="file"
-    multiple
-    (change)="uploadDocument($event)"
-    accept="application/pdf, application/msword, application/vnd.openxmlformats"
-  />
-  <button
-    class="secondary-btn full-width"
-    mat-raised-button
-    type="button"
-    (click)="fileUpload.click()"
-  >
-    Update file
-  </button>
 
   <label class="checkbox-container">
     Show on dashboard
@@ -127,6 +111,7 @@
       class="danger-btn"
       mat-raised-button
       type="button"
+      (click)="deleteDocument()"
     >
       Delete
     </button>

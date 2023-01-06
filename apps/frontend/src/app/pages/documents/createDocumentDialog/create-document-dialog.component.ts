@@ -58,11 +58,9 @@ export class CreateDocumentDialogComponent implements OnInit {
   getDocumentName(name: string): string {
     const fileName = name.split('.')[0];
 
-    if (fileName.length > 20) {
-      return fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')';
-    } else {
-      return name;
-    }
+    return fileName.length > 20
+      ? fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')'
+      : name;
   }
 
   uploadDocument($event: any) {
