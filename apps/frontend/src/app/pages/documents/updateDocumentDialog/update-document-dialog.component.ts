@@ -12,7 +12,6 @@ import {
 } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IGetDocumentByIdResponse } from '@omnihost/interfaces';
 import { IDocument, IUpdateDocumentRequest } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 
@@ -21,7 +20,7 @@ import { DocumentsService } from '../../../services/documents.service';
   templateUrl: './update-document-dialog.component.html',
   styleUrls: [
     '../../../../assets/styles/dialog.scss',
-    './update-document-dialog.component.scss',
+    '../../../../assets/styles/document-dialog.scss',
     '../../../../assets/styles/checkbox.scss',
   ],
 })

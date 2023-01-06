@@ -14,7 +14,7 @@ import { DocumentsService } from '../../../services/documents.service';
   templateUrl: './create-document-dialog.component.html',
   styleUrls: [
     '../../../../assets/styles/dialog.scss',
-    './create-document-dialog.component.scss',
+    '../../../../assets/styles/document-dialog.scss',
     '../../../../assets/styles/checkbox.scss',
   ],
 })
