@@ -40,8 +40,13 @@
   </mat-form-field>
 
   <div class="document-container" *ngIf="uploadedFile">
-    <button class="document-btn full-width" mat-raised-button type="button">
-      {{ showDocument(uploadedFile.name) }}
+    <button
+      class="document-btn full-width"
+      mat-raised-button
+      type="button"
+      disabled="true"
+    >
+      {{ getDocumentName(uploadedFile.name) }}
     </button>
     <button
       class="secondary-btn remove-btn"

@@ -55,7 +55,7 @@ export class CreateDocumentDialogComponent implements OnInit {
     }
   }
 
-  showDocument(name: string): string {
+  getDocumentName(name: string): string {
     const fileName = name.split('.')[0];
 
     if (fileName.length > 20) {

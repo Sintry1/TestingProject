@@ -12,11 +12,8 @@ import {
 } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  IDocument,
-  ILuggage,
-  IUpdateDocumentRequest,
-} from '@omnihost/interfaces';
+import { IGetDocumentByIdResponse } from '@omnihost/interfaces';
+import { IDocument, IUpdateDocumentRequest } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -67,7 +64,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
     }
   }
 
-  showDocument(name: string): string {
+  getDocumentName(name: string): string {
     const fileName = name.split('.')[0];
 
     if (fileName.length > 20) {

@@ -3,7 +3,7 @@
   (ngSubmit)="onSubmit()"
   class="dialog-container"
 >
-  <h1>Add document</h1>
+  <h1>Update document</h1>
   <hr />
 
   <div class="dialog-row"></div>
@@ -39,9 +39,14 @@
     ></textarea>
   </mat-form-field>
 
-  <div class="document-container" *ngIf="uploadedFile">
-    <button class="document-btn full-width" mat-raised-button type="button">
-      {{ showDocument(uploadedFile.name) }}
+  <div class="document-container" *ngIf="data">
+    <button
+      class="document-btn full-width"
+      mat-raised-button
+      type="button"
+      disabled="true"
+    >
+      {{ getDocumentName(data.documentName) }}
     </button>
     <button
       class="secondary-btn remove-btn"
@@ -67,7 +72,7 @@
     type="button"
     (click)="fileUpload.click()"
   >
-    Upload file
+    Update file
   </button>
 
   <label class="checkbox-container">
@@ -90,7 +95,7 @@
       Cancel
     </button>
     <button class="action-btn" mat-raised-button type="submit">
-      Add document
+      Update document
     </button>
   </div>
 </form>
