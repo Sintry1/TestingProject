@@ -53,13 +53,15 @@
       class="document-btn full-width"
       mat-raised-button
       type="button"
-      [disabled]="data !== undefined"
+      [disabled]="!documentHasChanged"
       (click)="fileUpload.click()"
     >
       {{
-        data === undefined
+        !documentHasChanged
+          ? getDocumentName(data.documentName)
+          : uploadedNewFile === undefined
           ? 'No file uploaded'
-          : getDocumentName(data.documentName)
+          : getDocumentName(uploadedNewFile.name)
       }}
     </button>
 
@@ -69,7 +71,7 @@
       mat-raised-button
       type="button"
       (click)="removeFile()"
-      *ngIf="data !== undefined"
+      *ngIf="!documentHasChanged"
     >
       X
     </button>
@@ -78,7 +80,7 @@
       mat-raised-button
       type="button"
       (click)="fileUpload.click()"
-      *ngIf="data === undefined"
+      *ngIf="documentHasChanged"
     >
       <img
         src="assets/icons/upload-white-icon.svg"
