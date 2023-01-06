@@ -39,22 +39,51 @@
     ></textarea>
   </mat-form-field>
 
-  <div class="document-container" *ngIf="data">
+  <div class="document-container">
+    <input
+      style="display: none"
+      #fileUpload
+      type="file"
+      multiple
+      (change)="uploadDocument($event)"
+      accept="application/pdf, application/msword, application/vnd.openxmlformats"
+    />
     <button
       class="document-btn full-width"
       mat-raised-button
       type="button"
-      disabled="true"
+      [disabled]="data !== undefined"
+      (click)="fileUpload.click()"
     >
-      {{ getDocumentName(data.documentName) }}
+      {{
+        data === undefined
+          ? 'No file uploaded'
+          : getDocumentName(data.documentName)
+      }}
     </button>
+
     <button
       class="secondary-btn remove-btn"
       mat-raised-button
       type="button"
-      (click)="uploadedFile = undefined"
+      (click)="removeFile()"
+      *ngIf="data !== undefined"
     >
       X
+    </button>
+
+    <button
+      class="secondary-btn remove-btn"
+      mat-raised-button
+      type="button"
+      (click)="fileUpload.click()"
+      *ngIf="data === undefined"
+    >
+      <img
+        src="assets/icons/upload-white-icon.svg"
+        alt="upload icon"
+        class="icon"
+      />
     </button>
   </div>
 

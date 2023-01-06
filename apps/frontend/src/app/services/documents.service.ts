@@ -70,4 +70,8 @@ export class DocumentsService {
   ): Observable<IDocument> {
     return this.http.patch<IDocument>(`${env.apiUrl}/documents/${id}`, params);
   }
+
+  public deleteDocument(documentId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${env.apiUrl}/documents/${documentId}`)
+  }
 }

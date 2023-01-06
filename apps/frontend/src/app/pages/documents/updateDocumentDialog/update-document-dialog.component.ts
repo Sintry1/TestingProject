@@ -29,6 +29,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
   showOnDashboard = false;
   isLoading = false;
   uploadedFile?: File;
+  changeDocument = false;
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
@@ -73,24 +74,48 @@ export class UpdateDocumentDialogComponent implements OnInit {
     }
   }
 
-  uploadDocument($event: any) {
+  removeFile(): void {
+    if (confirm('Are you sure you wish to remove this document?')) {
+      console.log('deleting file');
+    } else {
+      console.log('not deleting file');
+    }
+  }
+
+  deleteDocument(): void {
+    if (confirm('Are you sure you wish to delete this document?')) {
+      this.isLoading = true;
+
+      this.documentService.deleteDocument(this.data.documentId).subscribe({
+        next: () => {
+          this.snackBar.open('Document deleted!', 'Thanks', {
+            duration: 5000,
+          });
+          document.location.reload();
+          this.dialog.closeAll();
+          this.isLoading = false;
+        },
+        error: (err) => {
+          console.error(err);
+          this.snackBar.open(
+            'Failed to delete document, please try again.',
+            'Okay',
+            {
+              duration: 15000,
+            }
+          );
+          this.isLoading = false;
+        },
+      });
+    }
+  }
+
+  uploadDocument($event: any): void {
     this.uploadedFile = $event.target.files[0];
   }
 
   createDocument(): void {
     this.isLoading = true;
-
-    if (this.uploadedFile === undefined) {
-      this.snackBar.open(
-        'No file attached. Please attach a file and try again!',
-        'Thanks',
-        {
-          duration: 5000,
-        }
-      );
-      this.isLoading = false;
-      return;
-    }
 
     const doc: IUpdateDocumentRequest = {
       title: this.updateDocumentForm.get('title')?.value,
