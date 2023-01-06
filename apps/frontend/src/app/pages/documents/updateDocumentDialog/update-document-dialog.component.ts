@@ -28,8 +28,8 @@ export class UpdateDocumentDialogComponent implements OnInit {
   updateDocumentForm = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
-  uploadedFile?: File;
-  changeDocument = false;
+  uploadedNewFile?: File;
+  documentHasChanged = false;
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
@@ -60,7 +60,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
         this.commentsInput.nativeElement.focus();
       }
     } else {
-      this.createDocument();
+      this.updateDocument();
     }
   }
 
@@ -77,6 +77,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
   removeFile(): void {
     if (confirm('Are you sure you wish to remove this document?')) {
       console.log('deleting file');
+      this.documentHasChanged = true;
     } else {
       console.log('not deleting file');
     }
@@ -111,11 +112,34 @@ export class UpdateDocumentDialogComponent implements OnInit {
   }
 
   uploadDocument($event: any): void {
-    this.uploadedFile = $event.target.files[0];
+    this.uploadedNewFile = $event.target.files[0];
   }
 
-  createDocument(): void {
+  updateDocument(): void {
     this.isLoading = true;
+
+    // Update file
+    if (this.documentHasChanged && this.uploadedNewFile) {
+      this.documentService
+        .updateDocumentFile(this.data.documentId, this.uploadedNewFile)
+        .subscribe({
+          next: () => {
+            this.snackBar.open('Document file has been updated!', 'Thanks', {
+              duration: 5000,
+            });
+          },
+          error: (err) => {
+            console.error(err);
+            this.snackBar.open(
+              'Failed to update document file, please try again.',
+              'Okay',
+              {
+                duration: 10000,
+              }
+            );
+          },
+        });
+    }
 
     const doc: IUpdateDocumentRequest = {
       title: this.updateDocumentForm.get('title')?.value,
@@ -123,8 +147,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
       showOnDashboard: this.showOnDashboard,
     };
 
-    console.log(doc);
-
+    // Update document info
     this.documentService.updateDocument(this.data.documentId, doc).subscribe({
       next: () => {
         this.snackBar.open('Document information updated!', 'Thanks', {
