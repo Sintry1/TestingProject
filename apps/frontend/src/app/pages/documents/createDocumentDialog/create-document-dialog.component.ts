@@ -73,9 +73,14 @@ export class CreateDocumentDialogComponent implements OnInit {
     this.isLoading = true;
 
     if (this.uploadedFile === undefined) {
-      this.snackBar.open('No file has been uploaded!', 'Thanks', {
-        duration: 5000,
-      });
+      this.snackBar.open(
+        'No file attached. Please attach a file and try again!',
+        'Thanks',
+        {
+          duration: 5000,
+        }
+      );
+      this.isLoading = false;
       return;
     }
 
@@ -85,8 +90,6 @@ export class CreateDocumentDialogComponent implements OnInit {
       showOnDashboard: this.showOnDashboard,
       document: this.uploadedFile,
     };
-
-    console.log(doc);
 
     this.documentService.createDocument(doc).subscribe({
       next: () => {
