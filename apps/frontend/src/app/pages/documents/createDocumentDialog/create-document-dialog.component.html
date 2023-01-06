@@ -47,12 +47,16 @@
     </mat-error>
   </mat-form-field>
 
+  <button class="document-btn full-width" mat-raised-button type="button" *ngIf="uploadedFile">
+    {{ showDocument(uploadedFile.name) }}
+  </button>
+
   <input
     style="display: none"
     #fileUpload
     type="file"
     multiple
-    (change)="uploadImages($event)"
+    (change)="uploadDocument($event)"
     accept="application/pdf, application/msword, application/vnd.openxmlformats"
   />
   <button
@@ -62,10 +66,6 @@
     (click)="fileUpload.click()"
   >
     Upload file
-  </button>
-
-  <button class="document-btn full-width" mat-raised-button type="button">
-    No file uploaded
   </button>
 
   <label class="checkbox-container">

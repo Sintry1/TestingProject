@@ -55,7 +55,17 @@ export class CreateDocumentDialogComponent implements OnInit {
     }
   }
 
-  uploadImages($event: any) {
+  showDocument(name: string): string {
+    const fileName = name.split('.')[0];
+
+    if(fileName.length > 20) {
+      return fileName.slice(0,20).trim() + '... (.' + name.split('.')[1] + ')';
+    } else {
+      return name
+    }
+  }
+
+  uploadDocument($event: any) {
     this.uploadedFile = $event.target.files[0];
   }
 
