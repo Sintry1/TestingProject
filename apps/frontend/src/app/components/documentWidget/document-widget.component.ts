@@ -25,4 +25,12 @@ export class DocumentWidgetComponent {
       data: this.document,
     });
   }
+
+  displayTitle() {
+    if (this.document.title.length > 27) {
+      return this.document.title.substring(0, 24) + '...';
+    } else {
+      return this.document.title;
+    }
+  }
 }

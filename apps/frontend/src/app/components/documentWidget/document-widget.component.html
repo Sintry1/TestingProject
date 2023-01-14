@@ -1,7 +1,7 @@
 <section class="document-widget-container">
   <div class="text-container">
     <div class="title-container">
-      <div class="title"><h2>{{ document.title }}</h2> <div class="show-on-dashboard" *ngIf="document.showOnDashboard">Dashboard <mat-icon>check_circle_outline</mat-icon></div></div>
+      <div class="title"><h2>{{ displayTitle() }}</h2> <div class="show-on-dashboard" *ngIf="document.showOnDashboard">Dashboard <mat-icon>check_circle_outline</mat-icon></div></div>
       <hr />
     </div>
     <div class="content-container">
