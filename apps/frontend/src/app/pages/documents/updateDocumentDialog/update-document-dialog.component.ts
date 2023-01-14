@@ -33,6 +33,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
+  @ViewChild('fileUpload') fileUpload!: ElementRef;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: IDocument,
@@ -69,7 +70,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
     if(!this.documentHasChanged) {
       fileName = this.data.documentName
     } else {
-      fileName = this.uploadedNewFile?.name || 'noName.nan'
+      fileName = this.uploadedNewFile?.name || '-'
     }
 
     const name = fileName;
@@ -78,15 +79,6 @@ export class UpdateDocumentDialogComponent implements OnInit {
       return fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')';
     } else {
       return name;
-    }
-  }
-
-  removeFile(): void {
-    if (confirm('Are you sure you wish to remove this document?')) {
-      console.log('deleting file');
-      this.documentHasChanged = true;
-    } else {
-      console.log('not deleting file');
     }
   }
 
@@ -115,6 +107,16 @@ export class UpdateDocumentDialogComponent implements OnInit {
           this.isLoading = false;
         },
       });
+    }
+  }
+
+  areYouSure(): void {
+    if (confirm('Are you sure you wish to remove this document?')) {
+      console.log('deleting file');
+      this.documentHasChanged = true;
+      this.fileUpload.nativeElement.click();
+    } else {
+      console.log('not deleting file');
     }
   }
 
