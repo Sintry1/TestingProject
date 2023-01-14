@@ -7,7 +7,7 @@ import {
   UpdateBikeRequest,
 } from '@omnihost/interfaces';
 import { Bike } from '@omnihost/models';
-import { Between, Like, Repository } from 'typeorm';
+import { Between, ILike, Repository } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -32,7 +32,7 @@ export class BikesService {
       completedAt: filterStatus(status),
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return this.bikeRepo.find({
       where: [

@@ -8,7 +8,7 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
-import { Between, LessThan, Like, Repository } from 'typeorm';
+import { Between, LessThan, ILike, Repository } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -45,7 +45,7 @@ export class LuggagesService {
       location,
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return await this.luggageRepo.find({
       where:
