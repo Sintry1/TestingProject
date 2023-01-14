@@ -8,7 +8,7 @@ import {
 } from '@omnihost/interfaces';
 import { Document } from '@omnihost/models';
 import 'multer';
-import { Like, Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class DocumentsService {
       showOnDashboard,
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return this.documentRepo.find({
       where: { ...baseConditions, title: searchCondition }, // This particular query does not support multiple where clauses
