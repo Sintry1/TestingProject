@@ -1,6 +1,6 @@
 .dialog-section {
   width: 75vw;
-  min-height: 85vh;
+  min-height: 80vh;
   height: max-content;
 
   .title-container {
@@ -10,11 +10,15 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
+
+    h2 {
+      margin-bottom: 0;
+    }
   }
 
   iframe {
     width: 75vw;
-    height: 85vh;
+    height: 80vh;
   }
 
   .spinner-full-size {
