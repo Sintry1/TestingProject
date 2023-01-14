@@ -28,6 +28,6 @@ dangleterre.omnihost.app, dev.omnihost.app {
 }
 
 api.dangleterre.omnihost.app, api.dev.omnihost.app {
-        reverse_proxy api-frontend:3333
+        reverse_proxy omnihost-api:3333
 }
 
