@@ -1,7 +1,14 @@
 <h1>Documents</h1>
 <hr />
 <div class="document-container">
-    <div *ngFor="let document of documentList" class="dashboard-document">
-        <frontend-document-widget [document]="document"></frontend-document-widget>
-      </div>
+  <div *ngFor="let document of documentList" class="dashboard-document">
+    <h2>{{ displayTitle(document.title) }}</h2>
+    <button
+      mat-raised-button
+      class="action-btn"
+      (click)="openSeeDocumentDialog(document.documentId)"
+    >
+      View <mat-icon aria-hidden="false">remove_red_eye</mat-icon>
+    </button>
+  </div>
 </div>

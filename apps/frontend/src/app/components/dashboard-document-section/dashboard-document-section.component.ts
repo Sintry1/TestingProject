@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
 import { DocumentsService } from '../../services/documents.service';
+import { SeeDocumentDialogComponent } from '../documentWidget/seeDocumentDialog/see-document-dialog.component';
 
 @Component({
   selector: 'frontend-dashboard-document-section',
@@ -13,7 +15,8 @@ export class DashboardDocumentSectionComponent implements OnInit {
 
   constructor(
     private documentsService: DocumentsService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -28,5 +31,19 @@ export class DashboardDocumentSectionComponent implements OnInit {
         });
       },
     });
+  }
+
+  openSeeDocumentDialog(documentId: string): void {
+    this.dialog.open(SeeDocumentDialogComponent, {
+      data: documentId,
+    });
+  }
+
+  displayTitle(title: string) {
+    if (title.length > 23) {
+      return title.substring(0, 20) + '...';
+    } else {
+      return title;
+    }
   }
 }

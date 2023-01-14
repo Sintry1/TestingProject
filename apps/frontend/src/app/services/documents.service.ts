@@ -53,7 +53,7 @@ export class DocumentsService {
 
   public getDashboardDocuments(): Observable<IDocument[]> {
     return this.http.get<IDocument[]>(
-      `${env.apiUrl}/documents?showOnDashboard=true`
+      `${env.apiUrl}/documents?showOnDashboard=true&sortBy=${DocumentSortOptions.LAST_VIEWED_AT}&sortOrder=${SortOrder.ASCENDING}`
     );
   }
 

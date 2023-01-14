@@ -4,7 +4,7 @@
   align-items: flex-start;
   justify-content: space-between;
   row-gap: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: var(--border);
   border-radius: 5px;
   padding: 0.75em;
   padding-top: 0.5em;

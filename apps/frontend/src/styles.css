@@ -3,6 +3,9 @@
   /* Sizes */
   --navbar-height: 64px;
 
+  /* Border */
+  --border: 1px solid rgba(0, 0, 0, 0.2);
+
   /* Colors */
   --extra-light-grey: #f1f1f1;
   --danger-red: #F34D4D;
