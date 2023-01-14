@@ -36,7 +36,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
-import { DashboardDocumentSectionComponent } from './components/dashboard-document-section/dashboard-document-section.component';
+import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
 
 @NgModule({
   declarations: [

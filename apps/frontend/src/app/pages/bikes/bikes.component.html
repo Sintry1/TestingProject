@@ -2,22 +2,6 @@
   <div class="table-actions">
     <div>
       <mat-form-field
-        autocomplete="off"
-        class="remove-error-message"
-        appearance="fill"
-      >
-        <mat-label>Search</mat-label>
-        <input
-          type="text"
-          aria-label="search"
-          placeholder="Search ..."
-          matInput
-          [(ngModel)]="search"
-          (change)="fetchBikeList()"
-        />
-      </mat-form-field>
-
-      <mat-form-field
         appearance="fill"
         style="width: 150px"
         class="remove-error-message"
@@ -32,6 +16,22 @@
           <mat-option value="room">Room nr.</mat-option>
           <mat-option value="reservedBy">Reserved by</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field
+        autocomplete="off"
+        class="remove-error-message"
+        appearance="fill"
+      >
+        <mat-label>Search</mat-label>
+        <input
+          type="text"
+          aria-label="search"
+          placeholder="Search ..."
+          matInput
+          [(ngModel)]="search"
+          (change)="fetchBikeList()"
+        />
       </mat-form-field>
     </div>
 
@@ -143,6 +143,7 @@
           mat-cell
           *matCellDef="let element"
           (click)="openDialogEdit(element)"
+          class="comments-field"
         >
           {{ element.comments ? element.comments : '-' }}
         </td>

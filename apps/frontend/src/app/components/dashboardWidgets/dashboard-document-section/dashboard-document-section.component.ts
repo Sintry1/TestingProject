@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
-import { DocumentsService } from '../../services/documents.service';
-import { SeeDocumentDialogComponent } from '../documentWidget/seeDocumentDialog/see-document-dialog.component';
+import { DocumentsService } from '../../../services/documents.service';
+import { SeeDocumentDialogComponent } from '../../documentWidget/seeDocumentDialog/see-document-dialog.component';
 
 @Component({
   selector: 'frontend-dashboard-document-section',

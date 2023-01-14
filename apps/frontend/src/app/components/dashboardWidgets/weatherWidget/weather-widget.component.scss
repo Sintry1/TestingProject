@@ -10,13 +10,6 @@
   width: 100%;
   z-index: 1;
   height: 22px;
-
-  &.bottom {
-    position: relative;
-    height: 26px;
-    bottom: 26px;
-    background-color: white;
-  }
 }
 
 #clickBlock,
@@ -24,8 +17,4 @@
   width: 100%;
   position: absolute;
   z-index: 10;
-}
-
-#weatherContainer {
-  height: 200px;
 }

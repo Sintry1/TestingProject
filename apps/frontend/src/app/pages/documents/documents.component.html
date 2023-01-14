@@ -1,17 +1,6 @@
 <main>
   <div class="actions">
     <div>
-      <mat-form-field appearance="fill" class="remove-error-message">
-        <mat-label>Search</mat-label>
-        <input
-          type="text"
-          aria-label="search"
-          [(ngModel)]="search"
-          placeholder="Search ..."
-          (change)="fetchDocuments()"
-          matInput
-        />
-      </mat-form-field>
       <mat-form-field
         autocomplete="off"
         appearance="fill"
@@ -25,6 +14,18 @@
           <mat-option value="createdAt">Created at</mat-option>
           <mat-option value="name">Name</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="remove-error-message">
+        <mat-label>Search</mat-label>
+        <input
+          type="text"
+          aria-label="search"
+          [(ngModel)]="search"
+          placeholder="Search ..."
+          (change)="fetchDocuments()"
+          matInput
+        />
       </mat-form-field>
     </div>
 
