@@ -56,3 +56,13 @@ h1 {
       }
     }
 }
+
+.btn-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: white;
+}

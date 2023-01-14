@@ -64,8 +64,15 @@ export class UpdateDocumentDialogComponent implements OnInit {
     }
   }
 
-  getDocumentName(name: string): string {
-    const fileName = name.split('.')[0];
+  getDocumentName(): string {
+    let fileName;
+    if(!this.documentHasChanged) {
+      fileName = this.data.documentName
+    } else {
+      fileName = this.uploadedNewFile?.name || 'noName.nan'
+    }
+
+    const name = fileName;
 
     if (fileName.length > 20) {
       return fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')';

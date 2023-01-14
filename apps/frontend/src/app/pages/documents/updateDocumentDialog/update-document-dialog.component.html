@@ -53,15 +53,10 @@
       class="document-btn full-width"
       mat-raised-button
       type="button"
-      [disabled]="!documentHasChanged"
       (click)="fileUpload.click()"
     >
       {{
-        !documentHasChanged
-          ? getDocumentName(data.documentName)
-          : uploadedNewFile === undefined
-          ? 'No file uploaded'
-          : getDocumentName(uploadedNewFile.name)
+        getDocumentName()
       }}
     </button>
 
@@ -118,7 +113,10 @@
       Delete
     </button>
     <button class="action-btn" mat-raised-button type="submit">
-      Update document
+      <div *ngIf="!isLoading">Update document</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
     </button>
   </div>
 </form>
