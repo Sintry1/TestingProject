@@ -51,6 +51,12 @@ export class DocumentsService {
     );
   }
 
+  public getDashboardDocuments(): Observable<IDocument[]> {
+    return this.http.get<IDocument[]>(
+      `${env.apiUrl}/documents?showOnDashboard=true`
+    );
+  }
+
   public getDocumentFile(url: string): Observable<Blob> {
     let headers = new HttpHeaders();
     headers = headers.set('Accept', 'application/pdf');

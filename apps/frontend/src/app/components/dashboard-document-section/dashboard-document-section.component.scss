@@ -1,0 +1,21 @@
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border: none;
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+.document-container {
+    width: 100%;
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+
+.dashboard-document {
+    width: 400px;
+    min-width: 400px;
+}
