@@ -2,6 +2,7 @@
   [formGroup]="updateLongTermForm"
   (ngSubmit)="onSubmit()"
   class="dialog-container"
+  data-cy="long-term-update-dialog"
 >
   <h1>Update long term</h1>
   <hr />
@@ -18,6 +19,7 @@
       matInput
       placeholder="123"
       maxlength="10"
+      data-cy="input-field-room"
     />
     <mat-error
       *ngIf="
@@ -227,6 +229,7 @@
       mat-raised-button
       mat-dialog-close
       type="button"
+      data-cy="update-dialog-cancel-button"
     >
       Cancel
     </button>
