@@ -15,7 +15,8 @@ import {
   SignupRequest,
 } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
-import { JwtAuthGuard } from './jwt-auth.guard';
+import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
+import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
 import { JwtInfo } from './jwt-info.decorator';
 import { LocalAuthGuard } from './local-auth.guard';
 
@@ -46,7 +47,7 @@ export class AuthController {
   }
 
   @Post('refresh')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtRefreshAuthGuard)
   @ApiOperation({
     summary: `Obtain a new token pair and remove the old one`,
   })
@@ -64,7 +65,7 @@ export class AuthController {
 
   @Post('logout')
   @HttpCode(202)
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAccessAuthGuard)
   @ApiOperation({
     summary: `Remove the the given user from the list of authenticated users`,
   })

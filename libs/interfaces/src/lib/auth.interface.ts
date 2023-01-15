@@ -26,6 +26,7 @@ export interface IJwtInfo {
     userId: string;
     role: Role;
     email: string;
+    tokenType: string;
   };
   token: string;
 }

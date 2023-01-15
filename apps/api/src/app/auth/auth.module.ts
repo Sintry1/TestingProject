@@ -8,7 +8,8 @@ import { AnonymousStrategy } from './anonymous.strategy';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
-import { JwtStrategy } from './jwt.strategy';
+import { AccessTokenJwtStrategy } from './jwt-access.strategy';
+import { RefreshTokenJwtStrategy } from './jwt-refresh.strategy';
 import { LocalStrategy } from './local.strategy';
 import { RolesGuard } from './roles.guards';
 
@@ -26,7 +27,8 @@ import { RolesGuard } from './roles.guards';
   providers: [
     AuthService,
     LocalStrategy,
-    JwtStrategy,
+    AccessTokenJwtStrategy,
+    RefreshTokenJwtStrategy,
     {
       provide: APP_GUARD,
       useClass: RolesGuard,
