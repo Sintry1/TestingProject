@@ -9,7 +9,7 @@
   </div>
   <hr />
 
-  <table mat-table [dataSource]="morningTasks">
+  <table mat-table [dataSource]="morningTasks" *ngIf="isLoading">
     <ng-container matColumnDef="time">
       <th mat-header-cell *matHeaderCellDef>Time</th>
       <td mat-cell *matCellDef="let task" class="small-field">
@@ -60,6 +60,10 @@
     <tr mat-row *matRowDef="let row; columns: headerRow"></tr>
   </table>
 
+  <div class="table-spinner-full-size" *ngIf="!isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+  </div>
+
   <br />
 
   <!-- Evening Section -->
@@ -72,7 +76,7 @@
   </div>
   <hr />
 
-  <table mat-table [dataSource]="eveningTasks">
+  <table mat-table [dataSource]="eveningTasks" *ngIf="isLoading">
     <ng-container matColumnDef="time">
       <th mat-header-cell *matHeaderCellDef>Time</th>
       <td mat-cell *matCellDef="let item" class="small-field">
@@ -122,4 +126,8 @@
     <tr mat-header-row *matHeaderRowDef="headerRow"></tr>
     <tr mat-row *matRowDef="let row; columns: headerRow"></tr>
   </table>
+
+  <div class="table-spinner-full-size" *ngIf="!isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+  </div>
 </main>
