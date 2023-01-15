@@ -65,17 +65,17 @@ export class AssignmentsComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.ASSIGNMENTS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   createAssignment(): void {
-    this.dialog.open(CreateAssignmentDialogComponent, { width: '500px' });
+    this.dialog.open(CreateAssignmentDialogComponent, { width: '600px' });
   }
 
   editAssignment(assignment: IAssignment): void {
     this.dialog.open(UpdateAssignmentDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: assignment,
     });
   }

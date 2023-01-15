@@ -84,17 +84,17 @@ export class CarsComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '500px' });
+    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
   }
 
   openDialogEdit(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: carListEntry,
     });
   }

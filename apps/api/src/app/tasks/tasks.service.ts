@@ -8,7 +8,7 @@ import {
   UpdateTaskRequest,
 } from '@omnihost/interfaces';
 import { Task } from '@omnihost/models';
-import { Between, Like, Repository } from 'typeorm';
+import { Between, ILike, Repository } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -34,7 +34,7 @@ export class TasksService {
       completedAt: filterStatus(status),
       listName,
     };
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     const tasks = await this.taskRepo.find({
       where: [

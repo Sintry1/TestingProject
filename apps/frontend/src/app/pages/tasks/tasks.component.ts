@@ -62,13 +62,13 @@ export class TasksComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.TASKS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openEditTaskDialog(task: ITask): void {
     this.dialog.open(EditTaskDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: task,
     });
   }

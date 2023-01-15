@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IDocument } from '@omnihost/interfaces';
+import { UpdateDocumentDialogComponent } from '../../pages/documents/updateDocumentDialog/update-document-dialog.component';
 import { SeeDocumentDialogComponent } from './seeDocumentDialog/see-document-dialog.component';
 
 @Component({
@@ -17,5 +18,19 @@ export class DocumentWidgetComponent {
     this.dialog.open(SeeDocumentDialogComponent, {
       data: documentId,
     });
+  }
+
+  updateDocumentDialog(): void {
+    this.dialog.open(UpdateDocumentDialogComponent, {
+      data: this.document,
+    });
+  }
+
+  displayTitle() {
+    if (this.document.title.length > 27) {
+      return this.document.title.substring(0, 24) + '...';
+    } else {
+      return this.document.title;
+    }
   }
 }
