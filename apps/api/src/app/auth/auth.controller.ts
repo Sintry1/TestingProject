@@ -45,13 +45,30 @@ export class AuthController {
     return this.authService.signup(signupRequestDto);
   }
 
+  @Post('refresh')
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({
+    summary: `Obtain a new token pair and remove the old one`,
+  })
+  @ApiOkResponse({ type: LoginResponse })
+  async refresh(@JwtInfo() jwt: IJwtInfo) {
+    this.authService.logout(jwt.token);
+
+    return this.authService.login({
+      email: jwt.payload.email,
+      userId: jwt.payload.userId,
+      role: jwt.payload.role,
+      password: '',
+    });
+  }
+
   @Post('logout')
   @HttpCode(202)
   @UseGuards(JwtAuthGuard)
   @ApiOperation({
     summary: `Remove the the given user from the list of authenticated users`,
   })
-  async logout(@JwtInfo() user: IJwtInfo) {
-    this.authService.logout(user.token);
+  async logout(@JwtInfo() jwt: IJwtInfo) {
+    this.authService.logout(jwt.token);
   }
 }
