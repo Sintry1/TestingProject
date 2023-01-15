@@ -44,7 +44,7 @@ export class TokensService {
 
   async deleteOldTokens(): Promise<void> {
     const nextWeek = new Date();
-    nextWeek.setDate(nextWeek.getDate() - 1);
+    nextWeek.setDate(nextWeek.getDate() + 7);
     const foundTokens = await this.tokenRepo.find({
       where: { createdAt: MoreThan(nextWeek) },
     });
