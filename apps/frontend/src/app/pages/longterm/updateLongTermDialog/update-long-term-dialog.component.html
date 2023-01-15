@@ -128,13 +128,11 @@
       appearance="fill"
     >
       <mat-label class="input-label">BB in LR</mat-label>
-      <input
-        #bbLr
-        type="text"
-        formControlName="bbLr"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateLongTermForm.get('bbLr')?.invalid &&
@@ -147,13 +145,11 @@
 
     <mat-form-field autocomplete="off" class="input" appearance="fill">
       <mat-label class="input-label">Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="LR1"
-      />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateLongTermForm.get('location')?.invalid &&
@@ -172,13 +168,11 @@
       appearance="fill"
     >
       <mat-label class="input-label">BB out</mat-label>
-      <input
-        #bbOut
-        type="text"
-        formControlName="bbOut"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateLongTermForm.get('bbOut')?.invalid &&

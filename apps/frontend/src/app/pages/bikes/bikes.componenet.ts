@@ -30,6 +30,7 @@ export class BikesComponent implements OnInit {
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
+  isLoading = false;
 
   bikeColumns = [
     'room',
@@ -60,6 +61,8 @@ export class BikesComponent implements OnInit {
   }
 
   fetchBikeList(): void {
+    this.isLoading = true;
+
     this.bikeService
       .getBike(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
@@ -70,8 +73,10 @@ export class BikesComponent implements OnInit {
             false,
             this.displayDate
           );
+          this.isLoading = false;
         },
         error: (error) => {
+          this.isLoading = false;
           console.error(error);
           this.snackBar.open(
             'Bike data has failed to load, please try checking your connection.',

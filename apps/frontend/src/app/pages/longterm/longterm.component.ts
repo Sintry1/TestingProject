@@ -73,6 +73,7 @@ export class LongtermComponent implements OnInit {
             this.showAll,
             this.displayDate
           );
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;

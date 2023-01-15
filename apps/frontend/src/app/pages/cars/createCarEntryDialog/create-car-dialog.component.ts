@@ -8,6 +8,10 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarService } from '../../../services/car.service';
+import {
+  bellBoyInitials,
+  carLocation,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-car-dialog',
@@ -21,6 +25,9 @@ export class CreateCarDialogComponent {
   createCarForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;

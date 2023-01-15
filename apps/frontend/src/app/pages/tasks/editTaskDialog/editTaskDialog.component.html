@@ -4,13 +4,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Initials</mat-label>
-      <input
-        #initials
-        type="text"
-        formControlName="initials"
-        matInput
-        placeholder="DS"
-      />
+      <mat-select [(value)]="data.initials" formControlName="initials">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty"
       >

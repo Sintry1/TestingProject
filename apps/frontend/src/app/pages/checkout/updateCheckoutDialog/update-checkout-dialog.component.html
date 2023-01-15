@@ -87,13 +87,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB down</mat-label>
-      <input
-        #bbDown
-        type="text"
-        formControlName="bbDown"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select [(value)]="data.bbDown" formControlName="bbDown">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateCheckoutForm.get('bbDown')?.invalid &&
@@ -108,13 +106,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="LR1"
-      />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateCheckoutForm.get('location')?.invalid &&
@@ -127,13 +123,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB in LR</mat-label>
-      <input
-        #bbLr
-        type="text"
-        formControlName="bbLr"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateCheckoutForm.get('bbLr')?.invalid &&
@@ -148,7 +142,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB out</mat-label>
-      <input type="text" formControlName="bbOut" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateCheckoutForm.get('bbOut')?.invalid &&

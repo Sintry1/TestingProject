@@ -51,7 +51,7 @@
   <hr />
 
   <div class="table-height">
-    <table mat-table [dataSource]="filteredCarList">
+    <table mat-table [dataSource]="filteredCarList" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td
@@ -257,5 +257,9 @@
         *matRowDef="let row; columns: carColumns"
       ></tr>
     </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>
