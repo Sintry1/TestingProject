@@ -37,6 +37,8 @@ import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDi
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
 import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
+
 
 @NgModule({
   declarations: [
@@ -72,6 +74,7 @@ import { DashboardDocumentSectionComponent } from './components/dashboardWidgets
     CreateDocumentDialogComponent,
     UpdateDocumentDialogComponent,
     DashboardDocumentSectionComponent,
+    DashboardLinksComponent,
   ],
   imports: [
     BrowserModule,
