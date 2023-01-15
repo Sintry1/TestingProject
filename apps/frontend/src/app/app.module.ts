@@ -39,6 +39,10 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/updateLongTermDi
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
+import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +79,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     CreateDocumentDialogComponent,
     UpdateDocumentDialogComponent,
     DashboardDocumentSectionComponent,
+    DashboardLinksComponent,
   ],
   imports: [
     BrowserModule,
