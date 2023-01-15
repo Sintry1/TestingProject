@@ -16,8 +16,8 @@ import {
 } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
+import { JwtInfo } from './jwt-info.decorator';
 import { LocalAuthGuard } from './local-auth.guard';
-import { AuthUser } from './user.decorator';
 
 @ApiTags('Authentication')
 @Controller('auth')
@@ -51,7 +51,7 @@ export class AuthController {
   @ApiOperation({
     summary: `Remove the the given user from the list of authenticated users`,
   })
-  async logout(@AuthUser() user: IJwtInfo) {
+  async logout(@JwtInfo() user: IJwtInfo) {
     this.authService.logout(user.token);
   }
 }
