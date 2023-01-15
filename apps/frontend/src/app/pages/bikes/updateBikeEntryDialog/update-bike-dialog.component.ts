@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
@@ -13,10 +9,7 @@ import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
   selector: 'frontend-update-bike-dialog',
   templateUrl: './update-bike-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class UpdateBikeDialogComponent {
   updateBikeForm: UntypedFormGroup;
@@ -44,13 +37,9 @@ export class UpdateBikeDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       nrOfBikes: new UntypedFormControl(data.nrOfBikes, [Validators.required]),
-      pickUpTime: new UntypedFormControl(data.pickUpTime, [
-        Validators.required,
-      ]),
+      pickUpTime: new UntypedFormControl(data.pickUpTime, [Validators.required]),
       name: new UntypedFormControl(data.name, [Validators.required]),
-      reservedBy: new UntypedFormControl(data.reservedBy, [
-        Validators.required,
-      ]),
+      reservedBy: new UntypedFormControl(data.reservedBy, [Validators.required]),
       comments: new UntypedFormControl(data.comments, []),
       completedAt: new UntypedFormControl(data.completedAt, []),
     });

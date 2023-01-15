@@ -9,9 +9,7 @@
           {{ initials }}
         </mat-option>
       </mat-select>
-      <mat-error
-        *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty"
-      >
+      <mat-error *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -24,10 +22,7 @@
         placeholder="dd/MM HH:mm"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAt)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(completedAt)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #completedAt
         [showSpinners]="true"
@@ -49,17 +44,8 @@
       reset
     </button>
 
-    <button
-      mat-raised-button
-      class="secondary-btn"
-      type="button"
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button mat-raised-button class="secondary-btn" type="button" mat-dialog-close>Cancel</button>
 
-    <button mat-raised-button class="action-btn" type="submit">
-      Complete Task
-    </button>
+    <button mat-raised-button class="action-btn" type="submit">Complete Task</button>
   </div>
 </form>

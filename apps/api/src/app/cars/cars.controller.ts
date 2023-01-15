@@ -91,10 +91,7 @@ export class CarsController {
   })
   @ApiCreatedResponse({ type: Car })
   @HttpCode(200)
-  async updateCar(
-    @Param('carId', ParseUUIDPipe) carId: string,
-    @Body() carData: UpdateCarRequest
-  ) {
+  async updateCar(@Param('carId', ParseUUIDPipe) carId: string, @Body() carData: UpdateCarRequest) {
     return this.carsService.updateCar(carId, carData);
   }
 }

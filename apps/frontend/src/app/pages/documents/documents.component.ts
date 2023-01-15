@@ -1,21 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  DocumentSortOptions,
-  IDocument,
-  SortOrder,
-} from '@omnihost/interfaces';
+import { DocumentSortOptions, IDocument, SortOrder } from '@omnihost/interfaces';
 import { DocumentsService } from '../../services/documents.service';
 import { CreateDocumentDialogComponent } from './createDocumentDialog/create-document-dialog.component';
 
 @Component({
   selector: 'frontend-documents',
   templateUrl: './documents.component.html',
-  styleUrls: [
-    './documents.component.scss',
-    '../../../assets/styles/table.scss',
-  ],
+  styleUrls: ['./documents.component.scss', '../../../assets/styles/table.scss'],
 })
 export class DocumentsComponent implements OnInit {
   documentList: IDocument[] = [];
@@ -37,21 +30,19 @@ export class DocumentsComponent implements OnInit {
   fetchDocuments(): void {
     this.isLoading = true;
 
-    this.documentService
-      .getDocuments(this.sortBy, this.sortOrder, this.search)
-      .subscribe({
-        next: (documents) => {
-          this.documentList = documents;
-          this.isLoading = false;
-        },
-        error: (error) => {
-          console.error(error);
-          this.snackBar.open('Documents have failed to load', 'Okay', {
-            duration: 10000,
-          });
-          this.isLoading = false;
-        },
-      });
+    this.documentService.getDocuments(this.sortBy, this.sortOrder, this.search).subscribe({
+      next: (documents) => {
+        this.documentList = documents;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error(error);
+        this.snackBar.open('Documents have failed to load', 'Okay', {
+          duration: 10000,
+        });
+        this.isLoading = false;
+      },
+    });
   }
 
   openCreateDocumentDialog(): void {

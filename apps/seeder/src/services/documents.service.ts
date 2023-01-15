@@ -17,9 +17,7 @@ export class DocumentsSeederService {
 
   create(): Array<Promise<Document>> {
     // The file that will be uploaded to Linode
-    const documentBuffer = fs.readFileSync(
-      path.join(__dirname, '/assets/document.pdf')
-    );
+    const documentBuffer = fs.readFileSync(path.join(__dirname, '/assets/document.pdf'));
 
     return documents.map(async (document: IDocument) => {
       try {

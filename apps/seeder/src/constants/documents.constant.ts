@@ -6,18 +6,12 @@ export const documents: IDocument[] = [
     title: 'Major Banks',
     comments: 'In hac habitasse platea dictumst.',
     lastViewedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document1.pdf',
     createdAt: new Date(
-      new Date('9/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('9/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -26,18 +20,12 @@ export const documents: IDocument[] = [
     comments:
       'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.',
     lastViewedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document2.pdf',
     createdAt: new Date(
-      new Date('9/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('9/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -45,18 +33,12 @@ export const documents: IDocument[] = [
     title: 'n/a',
     comments: 'Etiam vel augue.',
     lastViewedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document3.pdf',
     createdAt: new Date(
-      new Date('2/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -67,10 +49,7 @@ export const documents: IDocument[] = [
     showOnDashboard: true,
     documentName: 'document4.pdf',
     createdAt: new Date(
-      new Date('5/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('5/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -78,18 +57,12 @@ export const documents: IDocument[] = [
     title: 'Trucking Freight/Courier Services',
     comments: null,
     lastViewedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document5.pdf',
     createdAt: new Date(
-      new Date('7/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('7/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -97,18 +70,12 @@ export const documents: IDocument[] = [
     title: 'Industrial Machinery/Components',
     comments: null,
     lastViewedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document6.pdf',
     createdAt: new Date(
-      new Date('1/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -116,38 +83,25 @@ export const documents: IDocument[] = [
     title: 'Savings Institutions',
     comments: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
     lastViewedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document7.pdf',
     createdAt: new Date(
-      new Date('6/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('6/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     documentId: 'ec5e3b0e-e556-4e7e-8f1d-60da7102ebed',
     title: 'Computer Software: Prepackaged Software',
-    comments:
-      'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',
+    comments: 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',
     lastViewedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document8.pdf',
     createdAt: new Date(
-      new Date('2/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -155,18 +109,12 @@ export const documents: IDocument[] = [
     title: 'Real Estate Investment Trusts',
     comments: 'Mauris ullamcorper purus sit amet nulla.',
     lastViewedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document9.pdf',
     createdAt: new Date(
-      new Date('7/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('7/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -174,18 +122,12 @@ export const documents: IDocument[] = [
     title: 'EDP Services',
     comments: 'Praesent id massa id nisl venenatis lacinia.',
     lastViewedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document10.pdf',
     createdAt: new Date(
-      new Date('8/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('8/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -196,10 +138,7 @@ export const documents: IDocument[] = [
     showOnDashboard: false,
     documentName: 'document11.pdf',
     createdAt: new Date(
-      new Date('5/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('5/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -207,38 +146,25 @@ export const documents: IDocument[] = [
     title: 'Computer Software: Prepackaged Software',
     comments: null,
     lastViewedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document12.pdf',
     createdAt: new Date(
-      new Date('2/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     documentId: '6bd2fa9d-0036-408d-91f7-4fbfc2dc1ab2',
     title: 'Metal Fabrications',
-    comments:
-      'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
+    comments: 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
     lastViewedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document13.pdf',
     createdAt: new Date(
-      new Date('8/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('8/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -246,18 +172,12 @@ export const documents: IDocument[] = [
     title: 'Diversified Commercial Services',
     comments: null,
     lastViewedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document14.pdf',
     createdAt: new Date(
-      new Date('9/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('9/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -269,10 +189,7 @@ export const documents: IDocument[] = [
     showOnDashboard: false,
     documentName: 'document15.pdf',
     createdAt: new Date(
-      new Date('12/31/2021').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2021').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -280,18 +197,12 @@ export const documents: IDocument[] = [
     title: 'Telecommunications Equipment',
     comments: 'Cras in purus eu magna vulputate luctus.',
     lastViewedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document16.pdf',
     createdAt: new Date(
-      new Date('6/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('6/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -299,18 +210,12 @@ export const documents: IDocument[] = [
     title: 'n/a',
     comments: 'Maecenas pulvinar lobortis est.',
     lastViewedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: true,
     documentName: 'document17.pdf',
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -322,10 +227,7 @@ export const documents: IDocument[] = [
     showOnDashboard: false,
     documentName: 'document18.pdf',
     createdAt: new Date(
-      new Date('10/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('10/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -333,18 +235,12 @@ export const documents: IDocument[] = [
     title: 'Industrial Machinery/Components',
     comments: 'Donec ut dolor.',
     lastViewedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document19.pdf',
     createdAt: new Date(
-      new Date('6/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('6/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -352,18 +248,12 @@ export const documents: IDocument[] = [
     title: 'Apparel',
     comments: null,
     lastViewedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     showOnDashboard: false,
     documentName: 'document20.pdf',
     createdAt: new Date(
-      new Date('8/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('8/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
 ];

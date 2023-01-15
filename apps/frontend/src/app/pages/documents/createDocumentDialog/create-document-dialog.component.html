@@ -1,33 +1,15 @@
-<form
-  [formGroup]="createDocumentForm"
-  (ngSubmit)="onSubmit()"
-  class="dialog-container"
->
+<form [formGroup]="createDocumentForm" (ngSubmit)="onSubmit()" class="dialog-container">
   <h1>Add document</h1>
   <hr />
 
   <div class="dialog-row"></div>
 
-  <mat-form-field
-    appearance="fill"
-    autocomplete="off"
-    class="full-width no-margin"
-  >
+  <mat-form-field appearance="fill" autocomplete="off" class="full-width no-margin">
     <mat-label>Title</mat-label>
-    <input
-      #title
-      type="text"
-      formControlName="title"
-      matInput
-      placeholder="Document title"
-    />
+    <input #title type="text" formControlName="title" matInput placeholder="Document title" />
   </mat-form-field>
 
-  <mat-form-field
-    autocomplete="off"
-    appearance="fill"
-    class="full-width no-margin"
-  >
+  <mat-form-field autocomplete="off" appearance="fill" class="full-width no-margin">
     <mat-label>Comments</mat-label>
     <textarea
       #comments
@@ -55,11 +37,7 @@
       [disabled]="uploadedFile !== undefined"
       (click)="fileUpload.click()"
     >
-      {{
-        uploadedFile === undefined
-          ? 'No file uploaded'
-          : getDocumentName(uploadedFile.name)
-      }}
+      {{ uploadedFile === undefined ? 'No file uploaded' : getDocumentName(uploadedFile.name) }}
     </button>
 
     <button
@@ -78,11 +56,7 @@
       (click)="fileUpload.click()"
       *ngIf="uploadedFile === undefined"
     >
-      <img
-        src="assets/icons/upload-white-icon.svg"
-        alt="upload icon"
-        class="icon"
-      />
+      <img src="assets/icons/upload-white-icon.svg" alt="upload icon" class="icon" />
     </button>
   </div>
 
@@ -97,20 +71,11 @@
   </label>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      mat-raised-button
-      mat-dialog-close
-      type="button"
-    >
-      Cancel
-    </button>
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
     <button class="action-btn" mat-raised-button type="submit">
       <div *ngIf="!isLoading">Add document</div>
       <div *ngIf="isLoading" class="btn-spinner">
-        <mat-icon
-          ><mat-spinner diameter="21" color="white"></mat-spinner
-        ></mat-icon>
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>
     </button>
   </div>

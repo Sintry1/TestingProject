@@ -25,9 +25,7 @@ export class CarsService {
     sortOrder: SortOrder | undefined
   ) {
     const baseConditions = {
-      createdAt: LessThanOrEqual<Date>(
-        new Date(createdAt.setUTCHours(23, 59, 59, 999))
-      ),
+      createdAt: LessThanOrEqual<Date>(new Date(createdAt.setUTCHours(23, 59, 59, 999))),
       completedAt: filterStatus(status),
     };
 

@@ -8,10 +8,7 @@ import { DocumentsService } from '../../../services/documents.service';
 @Component({
   selector: 'frontend-see-document-dialog',
   templateUrl: './see-document-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    './see-document-dialog.component.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', './see-document-dialog.component.scss'],
 })
 export class SeeDocumentDialogComponent implements OnInit {
   document?: IGetDocumentByIdResponse;

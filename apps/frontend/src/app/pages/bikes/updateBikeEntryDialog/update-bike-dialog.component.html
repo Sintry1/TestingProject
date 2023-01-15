@@ -5,38 +5,16 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Room nr.</mat-label>
-      <input
-        #room
-        type="text"
-        formControlName="room"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          updateBikeForm.get('room')?.invalid &&
-          updateBikeForm.get('room')?.dirty
-        "
-      >
+      <input #room type="text" formControlName="room" matInput placeholder="123" />
+      <mat-error *ngIf="updateBikeForm.get('room')?.invalid && updateBikeForm.get('room')?.dirty">
         Must be a number from 100-999
       </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Name</mat-label>
-      <input
-        #name
-        type="text"
-        formControlName="name"
-        matInput
-        placeholder="Madsen"
-      />
-      <mat-error
-        *ngIf="
-          updateBikeForm.get('name')?.invalid &&
-          updateBikeForm.get('name')?.dirty
-        "
-      >
+      <input #name type="text" formControlName="name" matInput placeholder="Madsen" />
+      <mat-error *ngIf="updateBikeForm.get('name')?.invalid && updateBikeForm.get('name')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -45,18 +23,9 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Number of bikes</mat-label>
-      <input
-        #nrOfBikes
-        type="number"
-        formControlName="nrOfBikes"
-        matInput
-        placeholder="123"
-      />
+      <input #nrOfBikes type="number" formControlName="nrOfBikes" matInput placeholder="123" />
       <mat-error
-        *ngIf="
-          updateBikeForm.get('nrOfBikes')?.invalid &&
-          updateBikeForm.get('nrOfBikes')?.dirty
-        "
+        *ngIf="updateBikeForm.get('nrOfBikes')?.invalid && updateBikeForm.get('nrOfBikes')?.dirty"
       >
         Must be a number from 1-99
       </mat-error>
@@ -65,18 +34,12 @@
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Reserved by</mat-label>
       <mat-select [(value)]="data.reservedBy" formControlName="reservedBy">
-        <mat-option
-          *ngFor="let reservedBy of bikeListReserved"
-          [value]="reservedBy"
-        >
+        <mat-option *ngFor="let reservedBy of bikeListReserved" [value]="reservedBy">
           {{ reservedBy }}
         </mat-option>
       </mat-select>
       <mat-error
-        *ngIf="
-          updateBikeForm.get('reservedBy')?.invalid &&
-          updateBikeForm.get('reservedBy')?.dirty
-        "
+        *ngIf="updateBikeForm.get('reservedBy')?.invalid && updateBikeForm.get('reservedBy')?.dirty"
       >
         Required
       </mat-error>
@@ -92,10 +55,7 @@
         placeholder="HH:mm"
         formControlName="pickUpTime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickUpTimePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(pickUpTimePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #pickUpTimePicker
         [showSpinners]="true"
@@ -104,10 +64,7 @@
       >
       </ngx-mat-datetime-picker>
       <mat-error
-        *ngIf="
-          updateBikeForm.get('pickUpTime')?.invalid &&
-          updateBikeForm.get('pickUpTime')?.dirty
-        "
+        *ngIf="updateBikeForm.get('pickUpTime')?.invalid && updateBikeForm.get('pickUpTime')?.dirty"
       >
         Required
       </mat-error>
@@ -121,10 +78,7 @@
         placeholder="HH:mm"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAtPicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(completedAtPicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #completedAtPicker
         [showSpinners]="true"
@@ -137,13 +91,7 @@
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
     <mat-label>Comments</mat-label>
-    <input
-      #comments
-      type="text"
-      formControlName="comments"
-      matInput
-      placeholder="Comments"
-    />
+    <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
   </mat-form-field>
 
   <label class="checkbox-container">
@@ -157,14 +105,7 @@
   </label>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      type="button"
-      mat-raised-button
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
     <button class="action-btn" mat-flat-button type="submit">Update</button>
   </div>

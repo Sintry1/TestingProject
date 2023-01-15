@@ -10,9 +10,7 @@
     [ngClass]="{ collapsed: sidebarCollapsed }"
   >
     <div class="sidebar-header" *ngIf="!sidebarCollapsed">
-      <h3 class="username" [ngClass]="{ collapsible: sidebarCollapsed }">
-        Frederik Vagner
-      </h3>
+      <h3 class="username" [ngClass]="{ collapsible: sidebarCollapsed }">Frederik Vagner</h3>
       <h5 class="username" [ngClass]="{ collapsible: sidebarCollapsed }">
         frederik.vagner@omnihost.com
       </h5>
@@ -26,11 +24,7 @@
           [ngClass]="title === 'Dashboard' ? 'active-nav' : ''"
         >
           <mat-icon aria-hidden="false">dashboard</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Dashboard</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Dashboard</span>
         </button>
         <button
           mat-list-item
@@ -38,11 +32,7 @@
           [ngClass]="title === 'Check In' ? 'active-nav' : ''"
         >
           <mat-icon aria-hidden="false">assignment_returned</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Check in</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Check in</span>
         </button>
         <button
           mat-list-item
@@ -50,11 +40,7 @@
           [ngClass]="title === 'Check Out' ? 'active-nav' : ''"
         >
           <mat-icon aria-hidden="false">assignment_return</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Check out</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Check out</span>
         </button>
         <button
           mat-list-item
@@ -62,11 +48,7 @@
           routerLink="/car-list"
         >
           <mat-icon aria-hidden="false">directions_car</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Car List</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Car List</span>
         </button>
         <button
           mat-list-item
@@ -74,11 +56,7 @@
           [ngClass]="title === 'Long Term' ? 'active-nav' : ''"
         >
           <mat-icon aria-hidden="false">receipt_long</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Long Term</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Long Term</span>
         </button>
         <button
           mat-list-item
@@ -86,9 +64,7 @@
           routerLink="/daily-tasks"
         >
           <mat-icon aria-hidden="false">event</mat-icon>
-          <span
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            class="side-nav-item"
+          <span [ngClass]="{ collapsible: sidebarCollapsed }" class="side-nav-item"
             >Daily Tasks</span
           >
         </button>
@@ -98,9 +74,7 @@
           routerLink="/assignments"
         >
           <mat-icon aria-hidden="false">assignment_turned_in</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }"
             >BB Assignments</span
           >
         </button>
@@ -110,9 +84,7 @@
           [ngClass]="title === 'Bike Sheet' ? 'active-nav' : ''"
           routerLink="/bikes"
         >
-          <mat-icon aria-hidden="false" data-cy="icon"
-            >directions_bike</mat-icon
-          >
+          <mat-icon aria-hidden="false" data-cy="icon">directions_bike</mat-icon>
           <span
             class="side-nav-item"
             [ngClass]="{ collapsible: sidebarCollapsed }"
@@ -126,11 +98,7 @@
           routerLink="/documents"
         >
           <mat-icon aria-hidden="false">library_books</mat-icon>
-          <span
-            class="side-nav-item"
-            [ngClass]="{ collapsible: sidebarCollapsed }"
-            >Documents</span
-          >
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Documents</span>
         </button>
       </mat-action-list>
     </div>
@@ -146,52 +114,26 @@
     <div id="navbar">
       <div class="page-title">
         <div [ngSwitch]="title">
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Dashboard'"
-            >dashboard</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Account'"
-            >book</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Luggage List'"
-            >receipt_long</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Car List'"
-            >directions_car</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Check Out'"
-            >assignment_return</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Check In'"
-            >assignment_returned</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Daily Tasks'"
-            >event</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Long Term'"
-            >receipt_long</mat-icon
-          >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Documents'"
-            >library_books</mat-icon
-          >
-          <mat-icon
-            aria-hidden="false"
-            *ngSwitchCase="'Bell Boy Assignment Sheet'"
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Dashboard'">dashboard</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Account'">book</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Luggage List'">receipt_long</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Car List'">directions_car</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Check Out'">assignment_return</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Check In'">assignment_returned</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Daily Tasks'">event</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Long Term'">receipt_long</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Documents'">library_books</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Bell Boy Assignment Sheet'"
             >assignment_turned_in</mat-icon
           >
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Bike Sheet'"
-            >fact_check</mat-icon
-          >
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Bike Sheet'">fact_check</mat-icon>
           <mat-icon aria-hidden="false" *ngSwitchDefault>report</mat-icon>
         </div>
         <h1 class="title">{{ title }}</h1>
       </div>
 
       <div class="top-nav-actions">
-        <mat-form-field
-          autocomplete="off"
-          appearance="fill"
-          class="remove-error-message"
-        >
+        <mat-form-field autocomplete="off" appearance="fill" class="remove-error-message">
           <mat-label>Display Date</mat-label>
           <input
             matInput
@@ -200,10 +142,7 @@
             [(ngModel)]="displayDate"
             (dateChange)="onDisplayDateChange()"
           />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="$any(displayDatePicker)"
-          ></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="$any(displayDatePicker)"></mat-datepicker-toggle>
           <ngx-mat-datetime-picker
             #displayDatePicker
             [showSpinners]="true"

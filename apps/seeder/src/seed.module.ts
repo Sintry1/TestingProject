@@ -1,14 +1,6 @@
 import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  Assignment,
-  Bike,
-  Car,
-  Document,
-  Luggage,
-  Task,
-  User,
-} from '@omnihost/models';
+import { Assignment, Bike, Car, Document, Luggage, Task, User } from '@omnihost/models';
 import { TaskGenerator } from '@omnihost/task-generator';
 import { configService } from './config.service';
 import { SeedService } from './seed.service';
@@ -27,15 +19,7 @@ export class SeedModule {
       module: SeedModule,
       imports: [
         TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
-        TypeOrmModule.forFeature([
-          User,
-          Luggage,
-          Car,
-          Task,
-          Assignment,
-          Document,
-          Bike,
-        ]),
+        TypeOrmModule.forFeature([User, Luggage, Car, Task, Assignment, Document, Bike]),
       ],
       providers: [
         Logger,

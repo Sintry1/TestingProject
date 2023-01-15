@@ -73,12 +73,7 @@ export class DocumentsController {
     @Query('sortOrder')
     sortOrder: SortOrder
   ) {
-    return this.documentsService.findAll(
-      toBool(showOnDashboard),
-      search,
-      sortBy,
-      sortOrder
-    );
+    return this.documentsService.findAll(toBool(showOnDashboard), search, sortBy, sortOrder);
   }
 
   @Get(':documentId')
@@ -87,13 +82,9 @@ export class DocumentsController {
   })
   @ApiOkResponse({ type: GetDocumentByIdResponse })
   @HttpCode(200)
-  async getDocumentById(
-    @Param('documentId', ParseUUIDPipe) documentId: string
-  ) {
+  async getDocumentById(@Param('documentId', ParseUUIDPipe) documentId: string) {
     const document = await this.documentsService.findById(documentId);
-    const signedUrl = await this.documentsService.getFileLink(
-      document.documentName
-    );
+    const signedUrl = await this.documentsService.getFileLink(document.documentName);
     return { ...document, downloadUrl: signedUrl.url };
   }
 

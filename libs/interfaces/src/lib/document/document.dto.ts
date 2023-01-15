@@ -2,16 +2,9 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { IUpdateAssignmentRequest } from '../assignment/assignment.interface';
 import { CompletedAtResponse } from '../base.dto';
-import {
-  ICreateDocumentRequest,
-  IDocument,
-  IGetDocumentByIdResponse,
-} from './document.interface';
+import { ICreateDocumentRequest, IDocument, IGetDocumentByIdResponse } from './document.interface';
 
-export class GetDocumentResponse
-  extends CompletedAtResponse
-  implements IDocument
-{
+export class GetDocumentResponse extends CompletedAtResponse implements IDocument {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   documentId!: string;
 

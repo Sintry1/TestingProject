@@ -1,10 +1,6 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsNotEmpty } from 'class-validator';
-import {
-  ILoginRequest,
-  ILoginResponse,
-  ISignupRequest,
-} from './auth.interface';
+import { ILoginRequest, ILoginResponse, ISignupRequest } from './auth.interface';
 import { Role } from './role.enum';
 
 export class LoginRequest implements ILoginRequest {

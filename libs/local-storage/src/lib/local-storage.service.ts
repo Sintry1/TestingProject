@@ -73,9 +73,7 @@ export class LocalStorageService implements OnDestroy {
     if (this.isLocalStorageSupported) {
       const item = localStorage.getItem(key);
       if (item !== null) {
-        return (this.cache[key] = new BehaviorSubject<T | null>(
-          JSON.parse(item)
-        ));
+        return (this.cache[key] = new BehaviorSubject<T | null>(JSON.parse(item)));
       } else {
         return new BehaviorSubject<T | null>(null);
       }

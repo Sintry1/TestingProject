@@ -5,27 +5,17 @@ export const assignments: IAssignment[] = [
     assignmentId: '7fb26c0c-5244-4801-9705-5837d0ef9466',
     room: '961',
     task: null,
-    comments:
-      'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
+    comments: 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
     receivedBy: 'reception',
     performedBy: 'mt',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -36,22 +26,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yv',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -62,22 +43,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ut',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -88,22 +60,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sg',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -114,22 +77,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ge',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -140,17 +94,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lb',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -161,22 +109,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cw',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -187,22 +126,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ki',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -213,17 +143,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'eg',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -234,17 +158,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zj',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -255,17 +173,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hs',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -277,17 +189,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -298,17 +204,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -319,17 +219,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -340,17 +234,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -361,44 +249,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '6f02d539-5c02-46a7-9f90-62326bc4c535',
     room: '491',
     task: 'RM',
-    comments:
-      'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
+    comments: 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -409,22 +281,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zw',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -435,22 +298,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'la',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -461,17 +315,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vh',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -482,22 +330,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bv',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -508,22 +347,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cl',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -534,22 +364,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lr',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -560,17 +381,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 've',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -581,22 +396,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -607,22 +413,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ug',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -633,22 +430,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qo',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -659,22 +447,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -685,17 +464,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ml',
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -706,22 +479,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bv',
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -732,22 +496,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mh',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -759,22 +514,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mg',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -785,22 +531,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vz',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -811,17 +548,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xh',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -832,17 +563,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wv',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -853,22 +578,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'li',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -879,17 +595,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'in',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -900,17 +610,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qx',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -921,22 +625,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vt',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -947,17 +642,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yq',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -968,17 +657,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'uq',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -989,17 +672,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1010,22 +687,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tq',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1037,22 +705,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1063,22 +722,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gs',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1089,17 +739,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wa',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1110,22 +754,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'me',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1136,22 +771,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qw',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1162,22 +788,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ot',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1188,17 +805,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1209,17 +820,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rb',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1230,17 +835,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zf',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1251,17 +850,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1272,44 +865,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'aw',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '06253669-9a16-4e33-9601-d7c438a5c47d',
     room: '845',
     task: 'RA',
-    comments:
-      'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',
+    comments: 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',
     receivedBy: 'guest',
     performedBy: 'ua',
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1320,22 +897,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gn',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1346,17 +914,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cx',
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1367,22 +929,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1393,17 +946,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ro',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1414,22 +961,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ly',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1440,17 +978,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xp',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1461,17 +993,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mm',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1482,22 +1008,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hq',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1508,22 +1025,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lq',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1534,22 +1042,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wf',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1560,17 +1059,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wt',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1581,17 +1074,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dq',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1602,22 +1089,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'av',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1628,17 +1106,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wy',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1649,22 +1121,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1675,22 +1138,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1701,22 +1155,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'co',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1727,22 +1172,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1753,22 +1189,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lz',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1779,22 +1206,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yg',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1805,22 +1223,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fy',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1831,22 +1240,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ql',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1857,22 +1257,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1884,17 +1275,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cl',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1905,22 +1290,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tp',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1931,22 +1307,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kz',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1957,22 +1324,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mr',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -1983,22 +1341,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zw',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2009,22 +1358,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fm',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2035,22 +1375,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'op',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2061,17 +1392,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wd',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2082,22 +1407,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kf',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2109,22 +1425,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vs',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2135,17 +1442,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'my',
     receivedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2156,22 +1457,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ay',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2182,17 +1474,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pv',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2203,17 +1489,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oh',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2224,22 +1504,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'za',
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2250,44 +1521,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gn',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '47067ccc-d31a-4d8d-bf12-54054c243c97',
     room: '402',
     task: 'RA',
-    comments:
-      'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
+    comments: 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
     receivedBy: 'reception',
     performedBy: 'if',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2298,22 +1553,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ye',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2324,17 +1570,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gl',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2345,22 +1585,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2371,22 +1602,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'eu',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2397,17 +1619,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2418,17 +1634,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'th',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2439,17 +1649,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rh',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2460,22 +1664,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fs',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2486,22 +1681,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oo',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2512,22 +1698,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fk',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2538,22 +1715,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'df',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2564,22 +1732,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'uh',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2590,22 +1749,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jo',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2616,22 +1766,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tq',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2642,22 +1783,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'it',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2668,44 +1800,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ud',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'af8f03d8-e4e4-416d-857a-06d3c8ff43c5',
     room: null,
     task: 'RM',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'reception',
     performedBy: 'yw',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2717,17 +1833,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'st',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2738,22 +1848,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2764,17 +1865,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hp',
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2786,17 +1881,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2807,22 +1896,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rp',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2833,17 +1913,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rz',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2854,22 +1928,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2881,17 +1946,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cd',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2902,22 +1961,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fj',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2928,22 +1978,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2954,22 +1995,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cd',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -2980,17 +2012,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3001,22 +2027,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3028,17 +2045,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3049,22 +2060,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3075,22 +2077,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'we',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3101,22 +2094,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ac',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3127,17 +2111,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zr',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3148,17 +2126,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vm',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3169,17 +2141,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3190,17 +2156,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xc',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3211,17 +2171,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rd',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3232,17 +2186,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mi',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3253,44 +2201,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mt',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '212816b1-2a42-456b-9db9-72ab557850ff',
     room: '804',
     task: 'RA',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3301,22 +2233,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sp',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3328,22 +2251,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'aw',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3354,22 +2268,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iz',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3380,22 +2285,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hs',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3406,17 +2302,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'im',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3427,22 +2317,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sv',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3453,22 +2334,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3479,22 +2351,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3505,22 +2368,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sb',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3531,17 +2385,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'di',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3552,22 +2400,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'de',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3578,17 +2417,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bi',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3599,17 +2432,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'we',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3620,17 +2447,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dp',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3642,17 +2463,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mk',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3663,17 +2478,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3684,22 +2493,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'br',
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3710,22 +2510,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sc',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3736,22 +2527,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kj',
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3762,17 +2544,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cg',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3783,22 +2559,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yd',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3810,22 +2577,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3836,22 +2594,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ke',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3862,22 +2611,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qa',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3888,22 +2628,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tt',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3914,22 +2645,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gc',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3940,22 +2662,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iy',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3966,22 +2679,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tt',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -3992,17 +2696,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tv',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4013,22 +2711,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'px',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4039,22 +2728,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4065,22 +2745,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kc',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4091,22 +2762,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nt',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4117,17 +2779,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4138,22 +2794,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4164,22 +2811,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'st',
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4190,17 +2828,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fi',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4211,22 +2843,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wv',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4237,22 +2860,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'su',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4263,22 +2877,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fr',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4289,22 +2894,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mf',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4315,17 +2911,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'me',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4336,22 +2926,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vk',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4362,17 +2943,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oe',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4383,17 +2958,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xd',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4404,22 +2973,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4430,22 +2990,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4456,22 +3007,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hb',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4482,17 +3024,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dz',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4504,22 +3040,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fg',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4530,22 +3057,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'va',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4556,17 +3074,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xg',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4577,17 +3089,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4598,22 +3104,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sg',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4624,22 +3121,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xu',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4650,17 +3138,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4671,22 +3153,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gh',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4697,22 +3170,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4723,22 +3187,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gs',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4749,17 +3204,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mt',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4770,22 +3219,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sv',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4796,22 +3236,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rd',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4822,22 +3253,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4848,17 +3270,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cm',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4869,22 +3285,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oo',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4895,22 +3302,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ta',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4921,17 +3319,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 've',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4942,22 +3334,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ld',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4968,22 +3351,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bn',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -4994,22 +3368,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wm',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5020,17 +3385,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qj',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5041,17 +3400,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hf',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5062,22 +3415,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uv',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5088,44 +3432,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '16a00e24-2462-4e1f-a22f-549bea08196f',
     room: '983',
     task: null,
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'guest',
     performedBy: 'hg',
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5136,22 +3464,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jh',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5162,22 +3481,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wh',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5188,22 +3498,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rn',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5214,17 +3515,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zg',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5235,22 +3530,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wz',
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5261,17 +3547,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5282,22 +3562,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yq',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5308,22 +3579,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'km',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5334,17 +3596,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rw',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5355,17 +3611,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'po',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5376,22 +3626,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5402,22 +3643,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5428,17 +3660,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sp',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5449,22 +3675,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gb',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5475,22 +3692,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5501,22 +3709,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ga',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5527,17 +3726,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vl',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5548,22 +3741,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5575,17 +3759,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'np',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5596,17 +3774,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5617,22 +3789,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fy',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5643,22 +3806,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lb',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5669,17 +3823,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5690,17 +3838,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'te',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5711,17 +3853,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kj',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5732,17 +3868,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ik',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5753,17 +3883,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5774,17 +3898,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hd',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5795,17 +3913,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'og',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5816,17 +3928,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bb',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5837,17 +3943,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tc',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5858,17 +3958,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dn',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5879,17 +3973,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'he',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5900,22 +3988,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nf',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5927,17 +4006,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ww',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5948,22 +4021,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'en',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -5974,22 +4038,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yc',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6000,22 +4055,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nu',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6026,22 +4072,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qg',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6052,22 +4089,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yd',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6078,22 +4106,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qf',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6104,22 +4123,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lv',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6130,17 +4140,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oc',
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6151,22 +4155,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6177,22 +4172,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qu',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6203,17 +4189,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'io',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6224,22 +4204,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ch',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6250,22 +4221,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tk',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6276,22 +4238,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bf',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6302,17 +4255,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ut',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6323,22 +4270,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6349,17 +4287,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zo',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6370,22 +4302,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vm',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6396,17 +4319,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yq',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6417,22 +4334,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gq',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6443,17 +4351,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'eo',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6464,22 +4366,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sn',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6490,17 +4383,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6511,22 +4398,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rh',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6538,22 +4416,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6564,22 +4433,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6590,17 +4450,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ue',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6611,22 +4465,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bt',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6637,22 +4482,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ab',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6663,22 +4499,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6689,22 +4516,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'er',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6715,22 +4533,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tx',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6741,22 +4550,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6767,22 +4567,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fs',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6793,44 +4584,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tg',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '1a867002-d19d-44d9-a64c-687838736898',
     room: null,
     task: null,
-    comments:
-      'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
+    comments: 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
     receivedBy: 'guest',
     performedBy: 'fo',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6841,22 +4616,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6868,22 +4634,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cq',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6894,22 +4651,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iq',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6921,22 +4669,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xo',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6947,17 +4686,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yd',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6968,22 +4701,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wa',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -6994,17 +4718,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7015,22 +4733,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zi',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7041,17 +4750,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lx',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7062,17 +4765,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ha',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7083,44 +4780,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'ebc2a545-a5b4-4090-b302-849117f69160',
     room: '272',
     task: 'RM',
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'reception',
     performedBy: 'rq',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7131,17 +4812,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7153,22 +4828,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ho',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7179,22 +4845,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'um',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7205,17 +4862,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7226,17 +4877,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ce',
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7247,17 +4892,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7268,17 +4907,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ey',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7290,22 +4923,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7316,22 +4940,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pj',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7342,22 +4957,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mr',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7368,22 +4974,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dw',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7394,22 +4991,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bb',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7420,17 +5008,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'si',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7441,22 +5023,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hp',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7467,17 +5040,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nj',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7488,22 +5055,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7514,17 +5072,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nv',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7535,22 +5087,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'go',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7561,22 +5104,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oy',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7587,22 +5121,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ys',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7613,22 +5138,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wn',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7639,17 +5155,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ka',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7660,22 +5170,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tx',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7686,49 +5187,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'ae385a8a-638e-452b-b068-504357750f90',
     room: '213',
     task: 'RM',
-    comments:
-      'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
+    comments: 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
     receivedBy: 'reception',
     performedBy: 'yh',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7739,22 +5221,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'za',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7765,49 +5238,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ai',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '31cd5572-49a1-4de1-9d03-3778b81fb09e',
     room: '133',
     task: 'RA',
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'reception',
     performedBy: 'dw',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7818,17 +5272,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pu',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7839,22 +5287,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hs',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7865,22 +5304,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jq',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7891,22 +5321,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mf',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7917,22 +5338,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7943,22 +5355,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xo',
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7969,22 +5372,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ch',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -7995,22 +5389,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'us',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8021,17 +5406,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dx',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8042,22 +5421,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zb',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8068,17 +5438,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8089,22 +5453,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mg',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8115,17 +5470,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8137,22 +5486,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mc',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8164,17 +5504,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nx',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8185,17 +5519,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yb',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8206,22 +5534,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zv',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8232,22 +5551,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gg',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8258,22 +5568,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8284,22 +5585,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'er',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8310,22 +5602,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dq',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8336,22 +5619,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mq',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8362,17 +5636,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8383,22 +5651,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ev',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8409,22 +5668,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ay',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8435,22 +5685,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mp',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8461,22 +5702,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rj',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8487,17 +5719,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pn',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8508,22 +5734,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dd',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8534,17 +5751,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8555,22 +5766,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8581,22 +5783,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ns',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8607,17 +5800,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'li',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8628,22 +5815,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rg',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8655,17 +5833,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mn',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8676,22 +5848,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'da',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8702,17 +5865,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'js',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8723,17 +5880,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'at',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8744,22 +5895,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yw',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8771,17 +5913,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ns',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8792,17 +5928,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8813,17 +5943,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ke',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8834,22 +5958,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dd',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8861,17 +5976,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fx',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8882,22 +5991,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ks',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8908,17 +6008,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sd',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8929,17 +6023,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ae',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8950,17 +6038,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yb',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8971,22 +6053,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tp',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -8997,22 +6070,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nn',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9023,17 +6087,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xc',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9044,22 +6102,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yv',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9070,22 +6119,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9096,22 +6136,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bh',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9122,22 +6153,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ny',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9148,22 +6170,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cy',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9174,17 +6187,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hx',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9195,17 +6202,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xz',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9216,22 +6217,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oc',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9242,22 +6234,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cn',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9268,22 +6251,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oz',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9294,17 +6268,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ln',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9315,22 +6283,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rt',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9341,17 +6300,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yc',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9362,17 +6315,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dk',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9383,22 +6330,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bf',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9409,17 +6347,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ye',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9430,17 +6362,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xn',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9451,22 +6377,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9477,22 +6394,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mf',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9503,22 +6411,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ip',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9529,22 +6428,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9555,22 +6445,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9581,22 +6462,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'do',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9608,22 +6480,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vc',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9634,22 +6497,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'af',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9660,22 +6514,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fl',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9686,17 +6531,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cb',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9707,17 +6546,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iq',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9728,17 +6561,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oi',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9749,22 +6576,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ed',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9775,22 +6593,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rh',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9801,17 +6610,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yd',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9822,22 +6625,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mt',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9848,17 +6642,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kk',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9869,22 +6657,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ly',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9895,22 +6674,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nd',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9921,17 +6691,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zl',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9942,22 +6706,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nz',
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9969,22 +6724,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -9995,22 +6741,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'of',
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10021,22 +6758,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sw',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10047,17 +6775,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bc',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10068,17 +6790,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sq',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10089,17 +6805,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ii',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10110,22 +6820,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zk',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10136,22 +6837,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ai',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10162,17 +6854,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'se',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10183,22 +6869,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'aa',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10209,22 +6886,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sp',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10235,22 +6903,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rq',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10261,22 +6920,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'il',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10287,22 +6937,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zy',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10313,17 +6954,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yx',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10334,22 +6969,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xa',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10360,17 +6986,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'aa',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10381,17 +7001,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oe',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10402,22 +7016,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'et',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10428,49 +7033,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vh',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '7cacf153-0573-42c2-84c0-f30c5ef401f6',
     room: '110',
     task: null,
-    comments:
-      'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
+    comments: 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
     receivedBy: 'reception',
     performedBy: 'fo',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10481,22 +7067,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rq',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10507,22 +7084,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ep',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10534,17 +7102,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oj',
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10555,22 +7117,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10581,22 +7134,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kr',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10607,17 +7151,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10628,22 +7166,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'll',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10654,17 +7183,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10675,22 +7198,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pt',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10701,22 +7215,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ot',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10727,22 +7232,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dj',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10753,22 +7249,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10779,22 +7266,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'uc',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10805,22 +7283,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fs',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10831,22 +7300,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'se',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10857,22 +7317,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hu',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10883,17 +7334,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ih',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10904,39 +7349,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hj',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '6fe822e2-438b-4bf1-837e-da47e83773d4',
     room: '206',
     task: 'RM',
-    comments:
-      'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
+    comments: 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
     receivedBy: 'reception',
     performedBy: 'ta',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10947,17 +7379,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mo',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10968,17 +7394,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'or',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -10989,17 +7409,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'es',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11010,22 +7424,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nv',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11036,22 +7441,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gw',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11062,17 +7458,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qq',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11083,17 +7473,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ya',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11104,22 +7488,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bf',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11130,22 +7505,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11157,22 +7523,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11183,17 +7540,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mm',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11204,22 +7555,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zl',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11230,49 +7572,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sw',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '93abacce-51b1-4fbd-9a84-3f4aa265bb99',
     room: '350',
     task: null,
-    comments:
-      'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
+    comments: 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
     receivedBy: 'reception',
     performedBy: 'gd',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11283,17 +7606,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hg',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11304,22 +7621,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'em',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11330,22 +7638,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'iv',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11357,17 +7656,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11378,17 +7671,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sy',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11399,22 +7686,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11425,17 +7703,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vv',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11446,22 +7718,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mp',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11472,22 +7735,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tb',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11498,17 +7752,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bs',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11519,17 +7767,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oi',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11540,22 +7782,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pa',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11566,22 +7799,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zt',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11592,22 +7816,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sk',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11618,17 +7833,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11639,22 +7848,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nv',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11665,22 +7865,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11691,22 +7882,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mh',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11717,22 +7899,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pn',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11743,22 +7916,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'na',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11769,22 +7933,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ma',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11795,22 +7950,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bd',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11821,22 +7967,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ne',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11847,17 +7984,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ny',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11868,22 +7999,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11894,22 +8016,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11920,22 +8033,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11946,22 +8050,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11972,22 +8067,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fw',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -11998,17 +8084,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12019,22 +8099,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ng',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12045,17 +8116,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12066,22 +8131,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vg',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12092,22 +8148,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yf',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12118,22 +8165,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'us',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12144,22 +8182,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ae',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12171,22 +8200,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'na',
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12197,22 +8217,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12223,22 +8234,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kl',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12250,22 +8252,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12276,17 +8269,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12297,22 +8284,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dt',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12323,22 +8301,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12349,22 +8318,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jb',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12375,22 +8335,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ej',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12401,22 +8352,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nu',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12427,22 +8369,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pz',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12453,22 +8386,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'un',
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12479,17 +8403,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uu',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12500,22 +8418,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yk',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12526,22 +8435,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fs',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12552,22 +8452,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kg',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12578,22 +8469,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12604,17 +8486,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12625,22 +8501,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'is',
     receivedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12651,17 +8518,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ah',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12672,39 +8533,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hb',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'c81d84e3-7f40-4ef8-9497-49dc5966b66d',
     room: '497',
     task: null,
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'guest',
     performedBy: 'ov',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12715,22 +8563,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xh',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12741,22 +8580,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qe',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12767,22 +8597,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'im',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12793,49 +8614,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vl',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '598ca947-d3a7-4df0-ab0e-baeefb5a323e',
     room: null,
     task: 'RM',
-    comments:
-      'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
+    comments: 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
     receivedBy: 'reception',
     performedBy: 'ob',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12846,17 +8648,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bw',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12867,22 +8663,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rf',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12893,22 +8680,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dz',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12919,22 +8697,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kk',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12945,17 +8714,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12966,17 +8729,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iw',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -12987,22 +8744,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vd',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13013,22 +8761,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cu',
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13039,17 +8778,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ap',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13060,17 +8793,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ia',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13081,49 +8808,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qs',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'cd9144a0-fc42-4207-8f2d-7a7bfec43d19',
     room: '993',
     task: null,
-    comments:
-      'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
+    comments: 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
     receivedBy: 'reception',
     performedBy: 'sz',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13134,22 +8842,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yu',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13160,22 +8859,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pu',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13186,22 +8876,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bm',
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13212,22 +8893,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cr',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13238,22 +8910,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'os',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13264,22 +8927,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'er',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13290,22 +8944,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zc',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13316,22 +8961,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13342,22 +8978,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13368,22 +8995,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qt',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13394,22 +9012,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ek',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13420,22 +9029,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qi',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13446,22 +9046,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yj',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13472,17 +9063,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qc',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13493,22 +9078,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sj',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13519,17 +9095,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hz',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13540,17 +9110,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'un',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13562,17 +9126,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gs',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13583,17 +9141,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wt',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13604,22 +9156,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pz',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13630,22 +9173,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bg',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13656,22 +9190,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vs',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13682,17 +9207,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tq',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13703,17 +9222,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jb',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13724,17 +9237,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xi',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13745,17 +9252,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13766,17 +9267,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ql',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13787,49 +9282,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zp',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '56d56a2e-ddb2-494b-a790-bd299b6b4c2d',
     room: '384',
     task: 'RA',
-    comments:
-      'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
+    comments: 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
     receivedBy: 'guest',
     performedBy: 'cn',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13840,17 +9316,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rw',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13862,22 +9332,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13888,22 +9349,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dc',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13914,22 +9366,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ou',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13940,22 +9383,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jx',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13966,22 +9400,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'he',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -13992,17 +9417,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'az',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14013,17 +9432,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cm',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14034,17 +9447,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rw',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14055,22 +9462,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14081,22 +9479,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hi',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14107,22 +9496,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rz',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14133,17 +9513,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'iw',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14154,22 +9528,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xy',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14180,17 +9545,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'on',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14201,22 +9560,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'up',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14227,17 +9577,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wm',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14248,17 +9592,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mn',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14269,17 +9607,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'le',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14290,17 +9622,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'is',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14311,17 +9637,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14332,22 +9652,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xr',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14358,17 +9669,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bm',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14380,22 +9685,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ej',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14406,22 +9702,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pi',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14432,17 +9719,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lj',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14453,39 +9734,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ch',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'fe242a6d-468f-4a04-9dfb-6710ab22b11f',
     room: '082',
     task: 'RM',
-    comments:
-      'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
+    comments: 'Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14496,22 +9764,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'te',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14522,17 +9781,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14543,22 +9796,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fi',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14569,17 +9813,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kf',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14590,22 +9828,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wz',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14616,22 +9845,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yt',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14642,17 +9862,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tu',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14663,17 +9877,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kh',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14684,22 +9892,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rh',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14710,22 +9909,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14736,22 +9926,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zg',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14762,22 +9943,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ha',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14788,22 +9960,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mu',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14814,17 +9977,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zt',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14835,22 +9992,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rd',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14861,22 +10009,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qj',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14887,22 +10026,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zx',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14913,22 +10043,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lx',
     receivedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14939,22 +10060,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wl',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14965,17 +10077,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xb',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -14986,17 +10092,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ut',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15007,22 +10107,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rt',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15033,17 +10124,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15054,17 +10139,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15076,22 +10155,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ug',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15102,17 +10172,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ae',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15123,17 +10187,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15144,44 +10202,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gm',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'ce7d318a-f682-434d-b8b2-391e0e806f74',
     room: '440',
     task: 'RA',
-    comments:
-      'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
+    comments: 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
     receivedBy: 'reception',
     performedBy: 'jh',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15192,66 +10234,43 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vx',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'eb32e6c3-b725-4950-8407-16b96371e842',
     room: '052',
     task: 'RA',
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'guest',
     performedBy: 'wd',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '3c6dc12a-1b6d-478a-a26b-f92f404db71f',
     room: null,
     task: null,
-    comments:
-      'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
+    comments: 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
     receivedBy: 'guest',
     performedBy: 'gy',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15262,17 +10281,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'us',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15283,17 +10296,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xv',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15304,22 +10311,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jg',
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15330,22 +10328,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xx',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15356,17 +10345,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15377,17 +10360,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lu',
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15398,22 +10375,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bu',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15424,22 +10392,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ox',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15450,22 +10409,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jw',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15476,22 +10426,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wl',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15502,22 +10443,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ns',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15528,22 +10460,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ro',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15554,22 +10477,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zq',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15580,17 +10494,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uw',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15601,17 +10509,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15622,17 +10524,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rw',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15643,22 +10539,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15669,22 +10556,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qb',
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15695,39 +10573,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pn',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '2f48b2b8-0f76-456c-b50a-9ed7deee63a4',
     room: '162',
     task: 'RM',
-    comments:
-      'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
+    comments: 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15738,17 +10603,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sn',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15759,17 +10618,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ii',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15780,22 +10633,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ae',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15806,17 +10650,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lc',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15827,22 +10665,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bx',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15853,22 +10682,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hg',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15879,17 +10699,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wo',
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15900,22 +10714,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uf',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15926,22 +10731,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ns',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15952,22 +10748,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ao',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -15978,22 +10765,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pb',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16004,22 +10782,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'su',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16031,22 +10800,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wy',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16058,17 +10818,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 're',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16079,22 +10833,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16105,22 +10850,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cf',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16131,17 +10867,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16152,22 +10882,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dc',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16178,22 +10899,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bd',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16204,22 +10916,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16230,22 +10933,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kl',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16256,22 +10950,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kc',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16283,17 +10968,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ge',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16304,17 +10983,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kh',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16325,22 +10998,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yc',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16351,22 +11015,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sv',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16377,22 +11032,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vt',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16403,17 +11049,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16424,17 +11064,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wq',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16445,17 +11079,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sa',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16466,22 +11094,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16492,17 +11111,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bu',
     receivedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16513,22 +11126,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jp',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16539,17 +11143,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zs',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16560,17 +11158,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ek',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16581,22 +11173,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16607,44 +11190,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bw',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '5eceabe8-a4e1-421c-9cbf-ba44630a4afa',
     room: null,
     task: 'RM',
-    comments:
-      'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
+    comments: 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
     receivedBy: 'reception',
     performedBy: 'mk',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16655,22 +11222,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hj',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16681,22 +11239,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nn',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16707,17 +11256,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fm',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16728,22 +11271,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16754,22 +11288,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qy',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16780,22 +11305,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bf',
     receivedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16806,22 +11322,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pv',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16832,17 +11339,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'id',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16853,22 +11354,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xo',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16879,22 +11371,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vi',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16905,17 +11388,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wn',
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16926,17 +11403,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'km',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16947,22 +11418,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fk',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16973,22 +11435,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -16999,17 +11452,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jw',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17020,22 +11467,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xy',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17046,22 +11484,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'iu',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17072,22 +11501,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cg',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17098,17 +11518,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nr',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17119,22 +11533,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ns',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17145,22 +11550,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17171,22 +11567,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dd',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17197,22 +11584,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vg',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17223,22 +11601,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'eu',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17249,22 +11618,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lk',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17275,22 +11635,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vb',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17301,22 +11652,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qz',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17327,17 +11669,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17349,17 +11685,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lr',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17370,17 +11700,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tw',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17391,17 +11715,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cx',
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17412,17 +11730,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dr',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17433,22 +11745,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17459,22 +11762,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sv',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17485,44 +11779,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jy',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'a204c0d3-410c-4a71-9e6b-117456bde090',
     room: '071',
     task: 'RM',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'reception',
     performedBy: 'hl',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17533,17 +11811,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pq',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17554,17 +11826,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vj',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17575,17 +11841,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fg',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17596,22 +11856,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17623,22 +11874,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17649,17 +11891,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pn',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17670,17 +11906,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17691,22 +11921,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17717,17 +11938,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jg',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17738,17 +11953,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cm',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17759,22 +11968,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xc',
     receivedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17785,22 +11985,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ep',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17811,17 +12002,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ka',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17832,17 +12017,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17853,22 +12032,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vq',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17879,17 +12049,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cg',
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17900,17 +12064,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'iu',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17921,22 +12079,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ga',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17947,17 +12096,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'as',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17968,22 +12111,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'sl',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -17994,17 +12128,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 're',
     receivedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18015,22 +12143,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cd',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18041,22 +12160,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ca',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18067,22 +12177,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wu',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18093,22 +12194,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'en',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18120,17 +12212,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ks',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18141,17 +12227,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nz',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18162,22 +12242,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sz',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18189,44 +12260,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'e9e3efb8-4a06-43fb-997b-af11dfcff1f0',
     room: '355',
     task: 'RA',
-    comments:
-      'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
+    comments: 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
     receivedBy: 'reception',
     performedBy: 'oc',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18237,44 +12292,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hy',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'ec1e7a52-6d89-496d-9c09-85af8447771e',
     room: '260',
     task: 'RA',
-    comments:
-      'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
+    comments: 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
     receivedBy: 'guest',
     performedBy: 'ea',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18285,22 +12324,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kl',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18311,17 +12341,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ti',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18332,22 +12356,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dv',
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/12/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/12/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18358,49 +12373,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'as',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '2f40f943-1471-4dc4-9a44-9ff786b9a014',
     room: '705',
     task: 'RA',
-    comments:
-      'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
+    comments: 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',
     receivedBy: 'guest',
     performedBy: 'ea',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18411,17 +12407,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'an',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18432,17 +12422,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'om',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18453,49 +12437,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tb',
     receivedAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '53317538-844e-4c4b-9446-f79bad98e29d',
     room: null,
     task: 'RM',
-    comments:
-      'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
+    comments: 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
     receivedBy: 'reception',
     performedBy: 'tf',
     receivedAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18506,22 +12471,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hj',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18532,22 +12488,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ik',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18558,22 +12505,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'zz',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18584,17 +12522,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ue',
     receivedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18605,22 +12537,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fw',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18631,22 +12554,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'vc',
     receivedAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18657,17 +12571,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ix',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18678,17 +12586,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hq',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18699,17 +12601,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 're',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18720,17 +12616,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jv',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18741,17 +12631,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ep',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18762,44 +12646,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '450fb764-4f0d-4b08-86b7-bdfe899a87eb',
     room: null,
     task: 'RM',
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'guest',
     performedBy: 'uv',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18810,22 +12678,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'nx',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18836,17 +12695,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18857,22 +12710,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nm',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18883,22 +12727,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ba',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18909,22 +12744,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ec',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18935,17 +12761,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18956,17 +12776,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'iw',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -18977,44 +12791,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jt',
     receivedAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '25583877-9bdb-4d4d-be28-e69caeb32d03',
     room: '253',
     task: null,
-    comments:
-      'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
+    comments: 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
     receivedBy: 'guest',
     performedBy: 'pi',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19025,17 +12823,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xh',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19046,66 +12838,43 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'el',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'f1bbdc71-5429-4f8a-8b78-c08843d11921',
     room: null,
     task: null,
-    comments:
-      'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
+    comments: 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
     receivedBy: 'guest',
     performedBy: 'wy',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '11373c2b-77e5-41a1-95e7-cc8f2e3bdf68',
     room: '337',
     task: null,
-    comments:
-      'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
+    comments: 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
     receivedBy: 'reception',
     performedBy: 'dm',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19117,22 +12886,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wu',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19144,22 +12904,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ka',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19170,22 +12921,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mz',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19196,17 +12938,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 've',
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19217,22 +12953,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rd',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19243,17 +12970,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'fq',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19264,17 +12985,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'il',
     receivedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19285,17 +13000,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ei',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19306,76 +13015,47 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fp',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '2c2b7dba-20f1-42ea-8f0e-0e42ec4b7be1',
     room: '205',
     task: 'RA',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'guest',
     performedBy: 'ld',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '0c1200d6-dc04-4cb3-9964-b4274792a8ef',
     room: '083',
     task: 'RA',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'reception',
     performedBy: 'lh',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19386,22 +13066,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jw',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19412,22 +13083,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yb',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19438,22 +13100,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'id',
     receivedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19464,22 +13117,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19490,22 +13134,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'lr',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19516,22 +13151,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ak',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19542,22 +13168,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ct',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19568,22 +13185,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'py',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19594,22 +13202,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dh',
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19620,22 +13219,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mg',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19646,22 +13236,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19672,22 +13253,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'av',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19698,17 +13270,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ws',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19719,22 +13285,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ms',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19745,22 +13302,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19771,44 +13319,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '6e6d626b-603f-4b2d-9af5-d0e865c4b583',
     room: '122',
     task: 'RA',
-    comments:
-      'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
+    comments: 'Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
     receivedBy: 'guest',
     performedBy: 'vy',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19819,22 +13351,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ed',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19845,17 +13368,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ro',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19866,22 +13383,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yj',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19892,17 +13400,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sd',
     receivedAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19913,22 +13415,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tb',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19939,22 +13432,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tm',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19965,22 +13449,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bc',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -19992,17 +13467,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mj',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20013,17 +13482,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rb',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20034,22 +13497,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bf',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20060,22 +13514,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20086,22 +13531,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rt',
     receivedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20112,22 +13548,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20138,22 +13565,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gf',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20164,22 +13582,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'du',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20191,22 +13600,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kq',
     receivedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20217,17 +13617,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20238,17 +13632,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rf',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20259,17 +13647,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20280,22 +13662,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'az',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20306,22 +13679,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/27/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/27/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20332,22 +13696,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mg',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20358,22 +13713,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ar',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20384,22 +13730,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mu',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20410,22 +13747,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bj',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20436,17 +13764,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kt',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20457,17 +13779,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cz',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20478,17 +13794,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kr',
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20499,17 +13809,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oh',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20520,17 +13824,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dj',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20542,17 +13840,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ld',
     receivedAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20563,22 +13855,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'se',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20589,22 +13872,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yg',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20615,22 +13889,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20641,22 +13906,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ho',
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20667,17 +13923,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20688,49 +13938,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gz',
     receivedAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '747f0074-0392-4d59-a0ca-e69faba3841a',
     room: '555',
     task: null,
-    comments:
-      'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
+    comments: 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20741,17 +13972,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bi',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20762,17 +13987,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20783,17 +14002,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'bp',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20804,22 +14017,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xz',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20830,17 +14034,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'pr',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20852,17 +14050,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nl',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20873,17 +14065,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wz',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20894,17 +14080,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sc',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20915,17 +14095,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hw',
     receivedAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/4/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/4/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20936,22 +14110,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dy',
     receivedAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/29/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/29/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20962,22 +14127,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ku',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -20988,17 +14144,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wz',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21009,22 +14159,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'vx',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21035,17 +14176,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ak',
     receivedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21056,17 +14191,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hu',
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21077,17 +14206,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qp',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21098,22 +14221,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pv',
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21124,22 +14238,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uq',
     receivedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21150,39 +14255,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xw',
     receivedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '402e9eb8-ab17-4247-b8a6-198d1ffdd25e',
     room: '900',
     task: 'RA',
-    comments:
-      'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
+    comments: 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
     receivedBy: 'guest',
     performedBy: 'gg',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21193,22 +14285,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ts',
     receivedAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21219,17 +14302,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'pt',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21240,22 +14317,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'as',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21266,17 +14334,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'on',
     receivedAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21287,17 +14349,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'my',
     receivedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21308,17 +14364,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'jz',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21329,17 +14379,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tj',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21350,49 +14394,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sh',
     receivedAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'cc0ac4cc-edaa-4b95-b7f0-9bf5fb9df46d',
     room: '459',
     task: 'RM',
-    comments:
-      'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
+    comments: 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
     receivedBy: 'reception',
     performedBy: 'ap',
     receivedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21403,44 +14428,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'mv',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '4a7cdbb4-dc67-4a38-8609-28f9bb211604',
     room: '025',
     task: null,
-    comments:
-      'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
+    comments: 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.',
     receivedBy: 'reception',
     performedBy: 'nb',
     receivedAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21451,22 +14460,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ht',
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21477,22 +14477,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21503,22 +14494,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'dp',
     receivedAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/27/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/27/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/20/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/20/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21529,22 +14511,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ew',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21555,22 +14528,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'hy',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21581,17 +14545,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21602,17 +14560,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ey',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21623,17 +14575,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bd',
     receivedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21644,22 +14590,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sr',
     receivedAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21670,17 +14607,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'jq',
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21691,22 +14622,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cy',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21717,17 +14639,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bj',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21738,22 +14654,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mf',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21764,17 +14671,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uc',
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21785,22 +14686,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qw',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21811,22 +14703,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zo',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21837,17 +14720,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21858,17 +14735,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oy',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21879,22 +14750,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yd',
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21905,22 +14767,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21931,22 +14784,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yf',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21958,17 +14802,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yf',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -21979,17 +14817,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qg',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22000,22 +14832,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ah',
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22026,17 +14849,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/31/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/31/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22047,17 +14864,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oy',
     receivedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22068,22 +14879,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uh',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22094,22 +14896,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ec',
     receivedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22120,17 +14913,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22141,49 +14928,30 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wc',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '889dd8bd-ee53-48fe-811f-0734ba55a809',
     room: '249',
     task: 'RA',
-    comments:
-      'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
+    comments: 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.',
     receivedBy: 'reception',
     performedBy: 'vx',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22194,22 +14962,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qh',
     receivedAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22220,22 +14979,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rf',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22246,17 +14996,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22267,39 +15011,26 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kv',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'd0e19cd6-d268-4a01-8ae1-1703b57a0e26',
     room: null,
     task: null,
-    comments:
-      'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
+    comments: 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla.',
     receivedBy: 'reception',
     performedBy: 'ym',
     receivedAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22310,17 +15041,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gh',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22331,22 +15056,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xk',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22357,22 +15073,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ij',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22383,22 +15090,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/20/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/20/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22409,22 +15107,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cf',
     receivedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/26/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/26/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22435,22 +15124,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'bt',
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22462,22 +15142,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wa',
     receivedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22488,17 +15159,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'qu',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22509,22 +15174,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ct',
     receivedAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/19/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/19/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/12/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/12/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22536,17 +15192,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ak',
     receivedAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/16/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/16/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22557,17 +15207,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rq',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22578,22 +15222,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/2/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/2/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22604,22 +15239,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22630,22 +15256,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'cx',
     receivedAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/31/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/31/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22656,22 +15273,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'zl',
     receivedAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22682,22 +15290,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'se',
     receivedAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/26/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/26/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/19/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/19/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22708,17 +15307,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hm',
     receivedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22729,22 +15322,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'lg',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/25/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/25/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22755,22 +15339,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ci',
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/14/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/14/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22781,22 +15356,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'dx',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22807,22 +15373,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rz',
     receivedAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/10/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/10/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/3/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/3/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22833,17 +15390,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ih',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22855,17 +15406,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'oc',
     receivedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22876,22 +15421,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'cj',
     receivedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22902,17 +15438,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tr',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22923,17 +15453,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oh',
     receivedAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/29/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/29/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22944,17 +15468,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/5/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/5/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22965,22 +15483,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'wa',
     receivedAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/8/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/8/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -22991,22 +15500,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'hu',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23017,22 +15517,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'kf',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23043,22 +15534,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23069,22 +15551,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'qe',
     receivedAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23095,22 +15568,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oj',
     receivedAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/5/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/5/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23121,17 +15585,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'tu',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23142,22 +15600,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23168,22 +15617,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ok',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23194,17 +15634,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'gy',
     receivedAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/23/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/23/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23215,17 +15649,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ot',
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23236,17 +15664,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'kb',
     receivedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23257,22 +15679,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oz',
     receivedAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/1/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/1/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/25/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/25/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23283,22 +15696,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'gl',
     receivedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/28/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/28/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23309,17 +15713,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/22/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/22/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23330,17 +15728,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/17/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/17/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23351,44 +15743,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mq',
     receivedAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/18/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/18/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/11/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/11/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: 'fab38a92-afc5-41ce-82c6-99ab07d26810',
     room: '751',
     task: 'RA',
-    comments:
-      'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
+    comments: 'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.',
     receivedBy: 'reception',
     performedBy: 'wu',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23399,17 +15775,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'xm',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23420,22 +15790,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'oe',
     receivedAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/13/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/13/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/6/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/6/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23446,17 +15807,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wm',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23467,22 +15822,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23493,17 +15839,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/13/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/13/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23514,22 +15854,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/24/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/24/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23540,22 +15871,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ct',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23566,22 +15888,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'fb',
     receivedAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/9/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/9/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/2/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/2/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23592,17 +15905,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23613,44 +15920,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'xq',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '5ee275f0-2006-4d54-8263-d2f5781dcf52',
     room: '646',
     task: 'RM',
-    comments:
-      'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
+    comments: 'Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
     receivedBy: 'reception',
     performedBy: 'nc',
     receivedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23661,17 +15952,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'tq',
     receivedAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/18/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/18/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23682,17 +15967,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nn',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23703,22 +15982,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'nj',
     receivedAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23729,22 +15999,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'wb',
     receivedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/21/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/21/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23755,22 +16016,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/30/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/30/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/23/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/23/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23781,22 +16033,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'rv',
     receivedAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23807,22 +16050,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'uy',
     receivedAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/1/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/1/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23833,22 +16067,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'ct',
     receivedAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/21/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/21/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23859,17 +16084,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'mg',
     receivedAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('12/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23880,22 +16099,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'rf',
     receivedAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/22/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/22/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/15/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/15/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23906,22 +16116,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'yk',
     receivedAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/14/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/14/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/7/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/7/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23932,22 +16133,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/10/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/10/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/3/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/3/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23958,22 +16150,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ou',
     receivedAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/9/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/9/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -23984,22 +16167,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'yv',
     receivedAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('11/15/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/15/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('11/8/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/8/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -24011,17 +16185,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ok',
     receivedAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('11/16/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('11/16/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -24032,44 +16200,28 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'sz',
     receivedAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/28/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/28/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
     assignmentId: '53f88226-98d9-4a66-8096-3a246a3c431e',
     room: '053',
     task: null,
-    comments:
-      'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
+    comments: 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.',
     receivedBy: 'reception',
     performedBy: 'gx',
     receivedAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('2/6/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('2/6/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/30/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/30/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -24080,22 +16232,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'guest',
     performedBy: 'ft',
     receivedAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('12/11/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/11/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('12/4/2022').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('12/4/2022').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -24106,22 +16249,13 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: 'og',
     receivedAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: new Date(
-      new Date('1/24/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/24/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     createdAt: new Date(
-      new Date('1/17/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/17/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
   {
@@ -24132,17 +16266,11 @@ export const assignments: IAssignment[] = [
     receivedBy: 'reception',
     performedBy: null,
     receivedAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
     completedAt: null,
     createdAt: new Date(
-      new Date('1/7/2023').setHours(
-        Math.random() * (23 - 2) + 2,
-        Math.random() * (59 - 1) + 1
-      )
+      new Date('1/7/2023').setHours(Math.random() * (23 - 2) + 2, Math.random() * (59 - 1) + 1)
     ),
   },
 ];

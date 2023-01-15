@@ -1,18 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
-import {
-  bellBoyInitials,
-  carLocation,
-} from '../../../utils/dropdown-selection';
+import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-car-dialog',
@@ -53,16 +46,10 @@ export class UpdateCarDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      arrivalDate: new UntypedFormControl(data.arrivalDate, [
-        Validators.required,
-      ]),
-      departureDate: new UntypedFormControl(data.departureDate, [
-        Validators.required,
-      ]),
+      arrivalDate: new UntypedFormControl(data.arrivalDate, [Validators.required]),
+      departureDate: new UntypedFormControl(data.departureDate, [Validators.required]),
       name: new UntypedFormControl(data.name, [Validators.required]),
-      licensePlate: new UntypedFormControl(data.licensePlate, [
-        Validators.required,
-      ]),
+      licensePlate: new UntypedFormControl(data.licensePlate, [Validators.required]),
       expirationDate: new UntypedFormControl(data.expirationDate, []),
       pickUpTime: new UntypedFormControl(data.pickUpTime, []),
       deliveryTime: new UntypedFormControl(data.deliveryTime, []),
@@ -109,9 +96,7 @@ export class UpdateCarDialogComponent {
         licensePlate: this.updateCarForm.get('licensePlate')?.value
           ? this.updateCarForm.get('licensePlate')?.value.toUpperCase()
           : '',
-        expirationDate: new Date(
-          this.updateCarForm.get('expirationDate')?.value
-        ),
+        expirationDate: new Date(this.updateCarForm.get('expirationDate')?.value),
         pickUpTime: new Date(this.updateCarForm.get('pickUpTime')?.value),
         deliveryTime: new Date(this.updateCarForm.get('deliveryTime')?.value),
         bbDown: this.updateCarForm.get('bbDown')?.value
