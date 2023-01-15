@@ -14,7 +14,7 @@ COPY . .
 # Install python because Mac M1 seems to be missing it
 RUN apk --no-cache add --virtual .builds-deps build-base python3
 # Run npm install inside container
-RUN npm install --legacy-peer-deps --ommit=dev
+RUN npm install --legacy-peer-deps --omit=dev
 RUN npm install typescript
 
 # Execute this command in the docker container
