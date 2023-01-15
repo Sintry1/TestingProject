@@ -9,6 +9,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import {
+  bellBoyInitials,
+  luggageLocation,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-long-term-dialog',
@@ -20,6 +24,9 @@ import { LuggageService } from '../../../services/luggage.service';
 })
 export class CreateLongTermDialogComponent implements OnInit {
   createLongTermForm = new UntypedFormGroup({});
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
