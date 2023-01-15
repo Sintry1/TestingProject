@@ -11,6 +11,7 @@ import { AssignmentsService } from '../../../services/assignments.service';
 import {
   bellBoyInitials,
   bbAssignmentTask,
+  bbAssignmentReceivedBy
 } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -25,6 +26,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
+  bbAssignmentReceivedBy = bbAssignmentReceivedBy;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;

@@ -47,13 +47,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Received by</mat-label>
-      <input
-        #receivedBy
-        type="text"
-        formControlName="receivedBy"
-        matInput
-        placeholder="TJ"
-      />
+      <mat-select  formControlName="receivedBy">
+        <mat-option *ngFor="let receivedBy of bbAssignmentReceivedBy" [value]="receivedBy">
+          {{ receivedBy }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createAssignmentForm.get('receivedBy')?.invalid &&
