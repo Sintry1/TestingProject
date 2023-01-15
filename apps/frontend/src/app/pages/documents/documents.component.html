@@ -40,13 +40,16 @@
   <hr />
 
   <section class="documents-container">
-    <div class="documents-grid">
+    <div class="documents-grid" *ngIf="!isLoading">
       <div *ngFor="let document of documentList" class="documents-grid-item">
         <frontend-document-widget
           class="document-widget-wrapper"
           [document]="document"
         ></frontend-document-widget>
       </div>
+    </div>
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
     </div>
   </section>
 </main>
