@@ -65,6 +65,7 @@ export class CheckinComponent implements OnInit {
       .subscribe({
         next: (luggage) => {
           this.checkinLuggage = orderByCompletedStatus(luggage);
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;

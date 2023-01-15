@@ -47,7 +47,7 @@
   <hr />
 
   <div class="table-height">
-    <table mat-table [dataSource]="checkinLuggage">
+    <table mat-table [dataSource]="checkinLuggage" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td mat-cell *matCellDef="let item">{{ item.room }}</td>
@@ -112,5 +112,9 @@
         (click)="openCheckinEditDialog(row)"
       ></tr>
     </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>

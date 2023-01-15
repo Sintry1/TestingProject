@@ -31,6 +31,7 @@ export class CarsComponent implements OnInit {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
+  isLoading = false;
 
   carColumns = [
     'room',
@@ -104,6 +105,8 @@ export class CarsComponent implements OnInit {
   }
 
   fetchCarList(): void {
+    this.isLoading = true;
+
     this.carService
       .getCar(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
@@ -114,8 +117,10 @@ export class CarsComponent implements OnInit {
             this.showAll,
             this.displayDate
           );
+          this.isLoading = false;
         },
         error: (error) => {
+          this.isLoading = false;
           console.error(error);
           this.snackBar.open(
             'Check Out data have failed to load, please try checking your connection.',
