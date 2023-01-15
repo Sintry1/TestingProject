@@ -64,13 +64,14 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Reserved by</mat-label>
-      <input
-        #reservedBy
-        type="text"
-        formControlName="reservedBy"
-        matInput
-        placeholder="Guest"
-      />
+      <mat-select [(value)]="data.reservedBy" formControlName="reservedBy">
+        <mat-option
+          *ngFor="let reservedBy of bikeListReserved"
+          [value]="reservedBy"
+        >
+          {{ reservedBy }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateBikeForm.get('reservedBy')?.invalid &&

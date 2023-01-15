@@ -68,7 +68,10 @@
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Received by</mat-label>
       <mat-select [(value)]="data.receivedBy" formControlName="receivedBy">
-        <mat-option *ngFor="let receivedBy of bbAssignmentReceivedBy" [value]="receivedBy">
+        <mat-option
+          *ngFor="let receivedBy of bbAssignmentReceivedBy"
+          [value]="receivedBy"
+        >
           {{ receivedBy }}
         </mat-option>
       </mat-select>

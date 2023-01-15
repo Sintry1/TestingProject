@@ -11,7 +11,7 @@ import { AssignmentsService } from '../../../services/assignments.service';
 import {
   bellBoyInitials,
   bbAssignmentTask,
-  bbAssignmentReceivedBy
+  bbAssignmentReceivedBy,
 } from '../../../utils/dropdown-selection';
 
 @Component({
