@@ -10,6 +10,7 @@ import {
   Query,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,16 +20,20 @@ import {
 import {
   AssignmentSortOptions,
   CreateAssignmentRequest,
+  Role,
   SortOrder,
   UpdateAssignmentRequest,
 } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { AssignmentsService } from './assignments.service';
 
 @ApiTags('Assignments')
 @Controller('assignments')
+@ApiBearerAuth()
+@Roles(Role.user, Role.manager)
 export class AssignmentsController {
   constructor(private assignmentsService: AssignmentsService) {}
 

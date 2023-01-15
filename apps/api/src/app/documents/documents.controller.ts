@@ -16,6 +16,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -27,11 +28,13 @@ import {
   DeleteDocumentResponse,
   DocumentSortOptions,
   GetDocumentByIdResponse,
+  Role,
   SortOrder,
   UpdateDocumentRequest,
 } from '@omnihost/interfaces';
 import { Document } from '@omnihost/models';
 import 'multer';
+import { Roles } from '../auth/roles.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { DocumentsService } from './documents.service';
 
@@ -40,6 +43,8 @@ const FILE_TYPES = /(pdf|docx)\b/;
 
 @ApiTags('Documents')
 @Controller('documents')
+@ApiBearerAuth()
+@Roles(Role.user, Role.manager)
 export class DocumentsController {
   constructor(private documentsService: DocumentsService) {}
 

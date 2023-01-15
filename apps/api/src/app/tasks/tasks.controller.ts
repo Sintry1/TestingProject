@@ -10,6 +10,7 @@ import {
   Query,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,17 +20,21 @@ import {
 import {
   CreateTaskRequest,
   GetTasksResponse,
+  Role,
   SortOrder,
   TaskSortOptions,
   UpdateTaskRequest,
 } from '@omnihost/interfaces';
 import { Task } from '@omnihost/models';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { TasksService } from './tasks.service';
 
 @ApiTags('Tasks')
 @Controller('tasks')
+@ApiBearerAuth()
+@Roles(Role.user, Role.manager)
 export class TasksController {
   constructor(private tasksService: TasksService) {}
 
