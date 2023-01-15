@@ -6,6 +6,7 @@ import {
   Document,
   Luggage,
   Task,
+  Token,
   User,
 } from '@omnihost/models';
 
@@ -49,7 +50,7 @@ class ConfigService {
       password: this.getValue('POSTGRES_PASSWORD', false) || 'root',
       database: this.getValue('POSTGRES_DATABASE', false) || 'omnihost',
 
-      entities: [User, Luggage, Car, Task, Assignment, Document, Bike],
+      entities: [User, Token, Luggage, Car, Task, Assignment, Document, Bike],
     };
   }
 }
