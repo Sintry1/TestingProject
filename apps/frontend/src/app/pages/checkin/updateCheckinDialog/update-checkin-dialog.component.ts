@@ -13,7 +13,10 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import { bellBoyInitials } from '../../../utils/dropdown-selection';
+import {
+  bellBoyInitials,
+  luggageLocation,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
@@ -30,6 +33,7 @@ export class UpdateCheckinDialogComponent {
   luggageId: string;
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
+  luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

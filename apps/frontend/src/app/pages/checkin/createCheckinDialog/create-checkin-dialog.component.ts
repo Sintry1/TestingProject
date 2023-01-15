@@ -9,7 +9,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import { bellBoyInitials } from '../../../utils/dropdown-selection';
+import {
+  bellBoyInitials,
+  luggageLocation,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-checkin-dialog',
@@ -25,6 +28,7 @@ export class CreateCheckinDialogComponent {
   isLoading = false;
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
+  luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

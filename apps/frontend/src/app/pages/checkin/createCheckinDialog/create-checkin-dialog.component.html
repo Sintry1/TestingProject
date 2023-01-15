@@ -137,13 +137,11 @@
 
     <mat-form-field autocomplete="off" class="input" appearance="fill">
       <mat-label>Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="LR1"
-      />
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createCheckinForm.get('location')?.invalid &&

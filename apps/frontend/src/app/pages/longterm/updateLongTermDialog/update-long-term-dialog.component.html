@@ -143,13 +143,11 @@
 
     <mat-form-field autocomplete="off" class="input" appearance="fill">
       <mat-label class="input-label">Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="LR1"
-      />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateLongTermForm.get('location')?.invalid &&
