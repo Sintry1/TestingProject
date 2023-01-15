@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
+import { BikesComponent } from './pages/bikes/bikes.componenet';
 import { CarsComponent } from './pages/cars/cars.component';
 import { CheckinComponent } from './pages/checkin/checkin.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
+import { LoginComponent } from './pages/login/login.component';
 import { LongtermComponent } from './pages/longterm/longterm.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { BikesComponent } from './pages/bikes/bikes.componenet';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,

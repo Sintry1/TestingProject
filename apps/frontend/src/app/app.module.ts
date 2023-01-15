@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
 import { WeatherWidgetComponent } from './components/dashboardWidgets/weatherWidget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/documentWidget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/documentWidget/seeDocumentDialog/see-document-dialog.component';
@@ -29,18 +30,19 @@ import { UpdateCheckoutDialogComponent } from './pages/checkout/updateCheckoutDi
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateDocumentDialogComponent } from './pages/documents/createDocumentDialog/create-document-dialog.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
+import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
+import { LoginComponent } from './pages/login/login.component';
 import { CreateLongTermDialogComponent } from './pages/longterm/createLongTermDialog/create-long-term-dialog.component';
 import { LongtermComponent } from './pages/longterm/longterm.component';
 import { UpdateLongTermDialogComponent } from './pages/longterm/updateLongTermDialog/update-long-term-dialog.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
-import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     DashboardComponent,
     PageNotFoundComponent,
     CarsComponent,
