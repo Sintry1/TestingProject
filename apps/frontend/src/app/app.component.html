@@ -187,33 +187,16 @@
       </div>
 
       <div class="top-nav-actions">
-        <input type="date" [(ngModel)]="displayDate" />
-        <!-- <mat-form-field REMOVE
-          autocomplete="off"
-          appearance="fill"
-          class="remove-error-message"
-        >
+        <mat-form-field class="remove-error-message">
           <mat-label>Display Date</mat-label>
           <input
+            onclick="this.showPicker()"
             matInput
-            [ngxMatDatetimePicker]="displayDatePicker"
-            placeholder="dd/MM"
+            type="date"
             [(ngModel)]="displayDate"
-            (dateChange)="onDisplayDateChange()"
+            (ngModelChange)="onDisplayDateChange($event)"
           />
-          
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="$any(displayDatePicker)"
-          ></mat-datepicker-toggle>
-          <ngx-mat-datetime-picker
-            #displayDatePicker
-            [showSpinners]="true"
-            [showSeconds]="false"
-            [touchUi]="true"
-          >
-          </ngx-mat-datetime-picker>
-        </mat-form-field> -->
+        </mat-form-field>
         <button
           mat-flat-button
           class="navbar-item"

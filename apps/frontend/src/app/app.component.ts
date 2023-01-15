@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
 import { DisplayDateService } from './services/display-date.service';
+import { toDateInputString, toDateObject } from './utils/date.util';
 
 @Component({
   selector: 'frontend-root',
@@ -11,7 +12,7 @@ import { DisplayDateService } from './services/display-date.service';
 export class AppComponent {
   title = 'Omnihost Systems';
   sidebarCollapsed = true;
-  displayDate = new Date();
+  displayDate = toDateInputString(new Date());
 
   constructor(
     public router: Router,
@@ -20,7 +21,9 @@ export class AppComponent {
   ) {
     this.displayDateService
       .getDisplayDateSubject()
-      .subscribe((date) => (this.displayDate = new Date(date)));
+      .subscribe(
+        (date) => (this.displayDate = toDateInputString(new Date(date)))
+      );
 
     this.router.events.subscribe(async (val) => {
       if (val instanceof NavigationEnd) {
@@ -82,7 +85,8 @@ export class AppComponent {
     });
   }
 
-  onDisplayDateChange() {
-    this.displayDateService.setDisplayDate(this.displayDate);
+  onDisplayDateChange(date: string) {
+    this.displayDate = date;
+    this.displayDateService.setDisplayDate(toDateObject(date));
   }
 }
