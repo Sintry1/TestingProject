@@ -83,20 +83,20 @@ export class CheckinComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_IN,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCheckinEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: luggage,
     });
   }
 
   openCheckinCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 }

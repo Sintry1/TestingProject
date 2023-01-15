@@ -83,20 +83,20 @@ export class CheckoutComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCheckoutEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: luggage,
     });
   }
 
   openCheckoutCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 }
