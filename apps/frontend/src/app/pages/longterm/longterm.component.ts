@@ -87,20 +87,20 @@ export class LongtermComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
-      width: '500px',
+      width: '600px',
     });
   }
 
   editLongTermListEntry(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: luggage,
     });
   }
 
   createLongTermEntry(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 

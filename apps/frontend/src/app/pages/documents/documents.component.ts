@@ -51,7 +51,7 @@ export class DocumentsComponent implements OnInit {
 
   openCreateDocumentDialog(): void {
     this.dialog.open(CreateDocumentDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 }

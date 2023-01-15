@@ -6,7 +6,7 @@ import {
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { IDocument } from '@omnihost/interfaces';
+import { ICreateDocumentRequest } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -14,7 +14,7 @@ import { DocumentsService } from '../../../services/documents.service';
   templateUrl: './create-document-dialog.component.html',
   styleUrls: [
     '../../../../assets/styles/dialog.scss',
-    './create-document-dialog.component.scss',
+    '../../../../assets/styles/document-dialog.scss',
     '../../../../assets/styles/checkbox.scss',
   ],
 })
@@ -22,6 +22,7 @@ export class CreateDocumentDialogComponent implements OnInit {
   createDocumentForm = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
+  uploadedFile?: File;
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
@@ -54,19 +55,44 @@ export class CreateDocumentDialogComponent implements OnInit {
     }
   }
 
+  getDocumentName(name: string): string {
+    const fileName = name.split('.')[0];
+
+    return fileName.length > 20
+      ? fileName.slice(0, 20).trim() + '... (.' + name.split('.')[1] + ')'
+      : name;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  uploadDocument($event: any) {
+    this.uploadedFile = $event.target.files[0];
+  }
+
   createDocument(): void {
     this.isLoading = true;
-    const doc: IDocument = {
-      documentId: 'placeholder',
+
+    if (this.uploadedFile === undefined) {
+      this.snackBar.open(
+        'No file attached. Please attach a file and try again!',
+        'Thanks',
+        {
+          duration: 5000,
+        }
+      );
+      this.isLoading = false;
+      return;
+    }
+
+    const doc: ICreateDocumentRequest & { document: File } = {
       title: this.createDocumentForm.get('title')?.value,
       comments: this.createDocumentForm.get('comments')?.value,
       showOnDashboard: this.showOnDashboard,
-      documentName: 'skrt',
+      document: this.uploadedFile,
     };
 
     this.documentService.createDocument(doc).subscribe({
       next: () => {
-        this.snackBar.open('Bike added!', 'Thanks', { duration: 5000 });
+        this.snackBar.open('Document added!', 'Thanks', { duration: 5000 });
         document.location.reload();
         this.dialog.closeAll();
         this.isLoading = false;

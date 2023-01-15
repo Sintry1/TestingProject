@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   DocumentSortOptions,
+  ICreateDocumentRequest,
   IDocument,
   IGetDocumentByIdResponse,
   IUpdateDocumentRequest,
@@ -31,13 +32,28 @@ export class DocumentsService {
     );
   }
 
-  public createDocument(params: IDocument): Observable<IDocument> {
-    return this.http.post<IDocument>(`${env.apiUrl}/documents`, params);
+  public createDocument(
+    params: ICreateDocumentRequest & { document: File }
+  ): Observable<IDocument> {
+    const formData = new FormData();
+    for (const key in params) {
+      if (Object.prototype.hasOwnProperty.call(params, key)) {
+        formData.append(key, params[key]);
+      }
+    }
+
+    return this.http.post<IDocument>(`${env.apiUrl}/documents`, formData);
   }
 
   public getDocumentById(id: string): Observable<IGetDocumentByIdResponse> {
     return this.http.get<IGetDocumentByIdResponse>(
       `${env.apiUrl}/documents/${id}`
+    );
+  }
+
+  public getDashboardDocuments(): Observable<IDocument[]> {
+    return this.http.get<IDocument[]>(
+      `${env.apiUrl}/documents?showOnDashboard=true&sortBy=${DocumentSortOptions.LAST_VIEWED_AT}&sortOrder=${SortOrder.ASCENDING}`
     );
   }
 
@@ -55,5 +71,22 @@ export class DocumentsService {
     params: IUpdateDocumentRequest
   ): Observable<IDocument> {
     return this.http.patch<IDocument>(`${env.apiUrl}/documents/${id}`, params);
+  }
+
+  public updateDocumentFile(
+    documentId: string,
+    document: File
+  ): Observable<IDocument> {
+    const formData = new FormData();
+    formData.append('document', document);
+
+    return this.http.patch<IDocument>(
+      `${env.apiUrl}/documents/file/${documentId}`,
+      formData
+    );
+  }
+
+  public deleteDocument(documentId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${env.apiUrl}/documents/${documentId}`);
   }
 }

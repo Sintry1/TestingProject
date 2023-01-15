@@ -105,17 +105,17 @@ export class BikesComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.BIKES,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { width: '500px' });
+    this.dialog.open(CreateBikeDialogComponent, { width: '600px' });
   }
 
   openDialogEdit(bikeListEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: bikeListEntry,
     });
   }
