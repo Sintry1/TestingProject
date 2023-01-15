@@ -1,10 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Token } from '@omnihost/models';
-import { Repository } from 'typeorm';
+import { MoreThan, Repository } from 'typeorm';
 
 @Injectable()
 export class TokensService {
+  private readonly logger = new Logger(TokensService.name);
+
   constructor(
     @InjectRepository(Token)
     private readonly tokenRepo: Repository<Token>
@@ -38,5 +40,17 @@ export class TokensService {
   async deleteByToken(token: string): Promise<void> {
     const foundPair = await this.findByToken(token);
     this.tokenRepo.remove(foundPair);
+  }
+
+  async deleteOldTokens(): Promise<void> {
+    const nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() - 1);
+    const foundTokens = await this.tokenRepo.find({
+      where: { createdAt: MoreThan(nextWeek) },
+    });
+    if (foundTokens.length > 0) {
+      this.logger.log(`Deleting ${foundTokens.length} expired tokens`);
+      this.tokenRepo.remove(foundTokens);
+    }
   }
 }
