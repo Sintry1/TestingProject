@@ -3,7 +3,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
-  IJwtInfo,
   ILoginResponse,
   ISignupRequest,
   ISignupResponse,
@@ -50,12 +49,12 @@ export class AuthService {
    * @returns generated JWT.
    */
   async login(user: IUser): Promise<ILoginResponse> {
-    const payload: IJwtInfo = {
+    const payload = {
       email: user.email,
       userId: user.userId,
       role: user.role,
     };
-    const accessToken = this.jwtService.sign(payload, { expiresIn: '30m' });
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '10s' });
     const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
     this.tokensService.create(accessToken, refreshToken);
     return {
@@ -92,8 +91,16 @@ export class AuthService {
   }
 
   /**
+   * Removes a token pair associated with the given token.
+   * @param token an access token.
+   */
+  async logout(token: string): Promise<void> {
+    this.tokensService.deleteByToken(token);
+  }
+
+  /**
    * Hashes and salts the plaintext password using bcrypt.
-   * @param password plaitext password to hash.
+   * @param password plain text password to hash.
    * @returns encoded password.
    */
   async encodePassword(password: string): Promise<string> {
@@ -102,7 +109,7 @@ export class AuthService {
   }
 
   /**
-   * Compares the plainttest password and a hash to verify that they match.
+   * Compares the plaint text password and a hash to verify that they match.
    * @param password plaintext password.
    * @param hash password hashed with bcrypt.
    * @returns whether the strings match.

@@ -9,12 +9,15 @@ import {
 } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import {
+  IJwtInfo,
   LoginRequest,
   LoginResponse,
   SignupRequest,
 } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
+import { JwtAuthGuard } from './jwt-auth.guard';
 import { LocalAuthGuard } from './local-auth.guard';
+import { AuthUser } from './user.decorator';
 
 @ApiTags('Authentication')
 @Controller('auth')
@@ -40,5 +43,15 @@ export class AuthController {
   @ApiOkResponse({ type: LoginResponse })
   async signup(@Body() signupRequestDto: SignupRequest) {
     return this.authService.signup(signupRequestDto);
+  }
+
+  @Post('logout')
+  @HttpCode(202)
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({
+    summary: `Remove the the given user from the list of authenticated users`,
+  })
+  async logout(@AuthUser() user: IJwtInfo) {
+    this.authService.logout(user.token);
   }
 }
