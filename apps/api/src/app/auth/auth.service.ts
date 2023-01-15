@@ -110,7 +110,7 @@ export class AuthService {
   }
 
   /**
-   * Hashes and salts the plaintext password using bcrypt.
+   * Hashes and salts the plain text password using bcrypt.
    * @param password plain text password to hash.
    * @returns encoded password.
    */
@@ -120,12 +120,12 @@ export class AuthService {
   }
 
   /**
-   * Compares the plaint text password and a hash to verify that they match.
-   * @param password plaintext password.
+   * Compares the plain text password and a hash to verify that they match.
+   * @param password plain text password.
    * @param hash password hashed with bcrypt.
    * @returns whether the strings match.
    */
-  async compareHashes(password, hash): Promise<boolean> {
+  async compareHashes(password: string, hash: string): Promise<boolean> {
     return await bcrypt.compare(password, hash);
   }
 }
