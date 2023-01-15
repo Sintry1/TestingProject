@@ -8,10 +8,7 @@ import { TokensService } from '../tokens/tokens.service';
 import { jwtConstants } from './constants';
 
 @Injectable()
-export class AccessTokenJwtStrategy extends PassportStrategy(
-  Strategy,
-  'jwt-access'
-) {
+export class AccessTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-access') {
   private readonly logger = new Logger(AccessTokenJwtStrategy.name);
   constructor(private tokensService: TokensService) {
     super({
@@ -26,10 +23,7 @@ export class AccessTokenJwtStrategy extends PassportStrategy(
     const token = req.get('Authorization').replace('Bearer', '').trim();
     // Check that the token is a access token
     if (payload.tokenType !== 'access') {
-      this.logger.warn(
-        `Refresh token was used for a Access Token-only endpoint`,
-        token
-      );
+      this.logger.warn(`Auth failed: Refresh token was used for a Access Token-only endpoint`, token);
       throw new UnauthorizedException();
     }
     try {
@@ -44,10 +38,7 @@ export class AccessTokenJwtStrategy extends PassportStrategy(
         token,
       };
     } catch (error) {
-      this.logger.warn(
-        `Jwt validation failed since the token doesn't exist in the database`,
-        token
-      );
+      this.logger.warn(`Auth failed: the token doesn't exist in the database`, token);
       throw new UnauthorizedException();
     }
   }

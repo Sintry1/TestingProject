@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
   ILoginResponse,
@@ -16,6 +16,7 @@ import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
   constructor(
     private usersService: UsersService,
     private readonly jwtService: JwtService,
@@ -84,6 +85,9 @@ export class AuthService {
       // ignore the exception
     }
     if (foundUser) {
+      this.logger.warn(
+        `An attempt was made to sign up using an already registered email: ${email}`
+      );
       throw new BadRequestException(
         `This email is already taken. Try adding some random digits to it 👍`
       );
@@ -93,6 +97,7 @@ export class AuthService {
       email: email,
       password: hashedPassword,
     });
+    this.logger.log(`Registered new user with id ${user.userId}`);
     return await this.login(user);
   }
 

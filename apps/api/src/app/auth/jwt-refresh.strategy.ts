@@ -27,7 +27,7 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(
     // Check that the token is a refresh token
     if (payload.tokenType !== 'refresh') {
       this.logger.warn(
-        `Access token was used for a Refresh Token-only endpoint`,
+        `Auth failed: Access token was used for a Refresh Token-only endpoint`,
         token
       );
       throw new UnauthorizedException();
@@ -45,7 +45,7 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(
       };
     } catch (error) {
       this.logger.warn(
-        `Jwt validation failed since the token doesn't exist in the database`,
+        `Auth failed: token doesn't exist in the database`,
         token
       );
       throw new UnauthorizedException();

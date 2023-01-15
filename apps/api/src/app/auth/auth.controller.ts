@@ -3,6 +3,7 @@ import {
   Body,
   Controller,
   HttpCode,
+  Logger,
   Post,
   Request,
   UseGuards,
@@ -18,6 +19,7 @@ import { LocalAuthGuard } from './local-auth.guard';
 @ApiTags('Authentication')
 @Controller('auth')
 export class AuthController {
+  private readonly logger = new Logger(AuthController.name);
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
@@ -29,6 +31,7 @@ export class AuthController {
   @HttpCode(200)
   async login(@Request() req, @Body() LoginRequest: LoginRequest) {
     // uses the passport library logic to obtain the user
+    this.logger.verbose(`Logging in user ${req.user.userId}`);
     return this.authService.login(req.user);
   }
 
@@ -49,8 +52,8 @@ export class AuthController {
   })
   @ApiOkResponse({ type: LoginResponse })
   async refresh(@JwtInfo() jwt: IJwtInfo) {
+    this.logger.verbose(`Refreshing the tokens for user ${jwt.payload.userId}`);
     this.authService.logout(jwt.token);
-
     return this.authService.login({
       email: jwt.payload.email,
       userId: jwt.payload.userId,
@@ -66,6 +69,7 @@ export class AuthController {
     summary: `Remove the the given user from the list of authenticated users`,
   })
   async logout(@JwtInfo() jwt: IJwtInfo) {
+    this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
     this.authService.logout(jwt.token);
   }
 }
