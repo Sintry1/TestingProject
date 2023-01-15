@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AssignmentsModule } from './assignments/assignments.module';
 import { AuthModule } from './auth/auth.module';
+import { BikeModule } from './bikes/bikes.module';
 import { CarsModule } from './cars/cars.module';
 import { configService } from './config/config.service';
 import { DocumentsModule } from './documents/documents.module';
@@ -14,7 +15,6 @@ import { LuggagesModule } from './luggages/luggages.module';
 import { LoggerMiddleware } from './middleware/logging.middleware';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
-import { BikeModule } from './bikes/bikes.module';
 
 @Module({
   imports: [

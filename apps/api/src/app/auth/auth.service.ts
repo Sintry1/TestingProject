@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
-  IJwtInfo,
   ILoginResponse,
   ISignupRequest,
   ISignupResponse,
@@ -12,13 +11,16 @@ import {
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
+import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
   constructor(
     private usersService: UsersService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private tokensService: TokensService
   ) {}
 
   /**
@@ -48,13 +50,23 @@ export class AuthService {
    * @returns generated JWT.
    */
   async login(user: IUser): Promise<ILoginResponse> {
-    const payload: IJwtInfo = {
+    const payload = {
       email: user.email,
       userId: user.userId,
       role: user.role,
     };
+    const accessToken = this.jwtService.sign(
+      { ...payload, tokenType: 'access' },
+      { expiresIn: '30m' }
+    );
+    const refreshToken = this.jwtService.sign(
+      { ...payload, tokenType: 'refresh' },
+      { expiresIn: '7d' }
+    );
+    this.tokensService.create(accessToken, refreshToken);
     return {
-      accessToken: this.jwtService.sign(payload),
+      accessToken,
+      refreshToken,
       role: user.role,
     };
   }
@@ -73,6 +85,9 @@ export class AuthService {
       // ignore the exception
     }
     if (foundUser) {
+      this.logger.warn(
+        `An attempt was made to sign up using an already registered email: ${email}`
+      );
       throw new BadRequestException(
         `This email is already taken. Try adding some random digits to it 👍`
       );
@@ -82,12 +97,21 @@ export class AuthService {
       email: email,
       password: hashedPassword,
     });
+    this.logger.log(`Registered new user with id ${user.userId}`);
     return await this.login(user);
   }
 
   /**
-   * Hashes and salts the plaintext password using bcrypt.
-   * @param password plaitext password to hash.
+   * Removes a token pair associated with the given token.
+   * @param token an access token.
+   */
+  async logout(token: string): Promise<void> {
+    this.tokensService.deleteByToken(token);
+  }
+
+  /**
+   * Hashes and salts the plain text password using bcrypt.
+   * @param password plain text password to hash.
    * @returns encoded password.
    */
   async encodePassword(password: string): Promise<string> {
@@ -96,12 +120,12 @@ export class AuthService {
   }
 
   /**
-   * Compares the plainttest password and a hash to verify that they match.
-   * @param password plaintext password.
+   * Compares the plain text password and a hash to verify that they match.
+   * @param password plain text password.
    * @param hash password hashed with bcrypt.
    * @returns whether the strings match.
    */
-  async compareHashes(password, hash): Promise<boolean> {
+  async compareHashes(password: string, hash: string): Promise<boolean> {
     return await bcrypt.compare(password, hash);
   }
 }

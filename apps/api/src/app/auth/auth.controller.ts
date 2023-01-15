@@ -3,22 +3,23 @@ import {
   Body,
   Controller,
   HttpCode,
+  Logger,
   Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import {
-  LoginRequest,
-  LoginResponse,
-  SignupRequest,
-} from '@omnihost/interfaces';
+import { IJwtInfo, LoginRequest, LoginResponse } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
+import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
+import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
+import { JwtInfo } from './jwt-info.decorator';
 import { LocalAuthGuard } from './local-auth.guard';
 
 @ApiTags('Authentication')
 @Controller('auth')
 export class AuthController {
+  private readonly logger = new Logger(AuthController.name);
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
@@ -30,15 +31,45 @@ export class AuthController {
   @HttpCode(200)
   async login(@Request() req, @Body() LoginRequest: LoginRequest) {
     // uses the passport library logic to obtain the user
+    this.logger.verbose(`Logging in user ${req.user.userId}`);
     return this.authService.login(req.user);
   }
 
-  @Post('signup')
+  // Commented out signup endpoint since we right now don't offer an ability to sign up
+  // @Post('signup')
+  // @ApiOperation({
+  //   summary: `Register a new user`,
+  // })
+  // @ApiOkResponse({ type: LoginResponse })
+  // async signup(@Body() signupRequestDto: SignupRequest) {
+  //   return this.authService.signup(signupRequestDto);
+  // }
+
+  @Post('refresh')
+  @UseGuards(JwtRefreshAuthGuard)
   @ApiOperation({
-    summary: `Register a new user`,
+    summary: `Obtain a new token pair and remove the old one`,
   })
   @ApiOkResponse({ type: LoginResponse })
-  async signup(@Body() signupRequestDto: SignupRequest) {
-    return this.authService.signup(signupRequestDto);
+  async refresh(@JwtInfo() jwt: IJwtInfo) {
+    this.logger.verbose(`Refreshing the tokens for user ${jwt.payload.userId}`);
+    this.authService.logout(jwt.token);
+    return this.authService.login({
+      email: jwt.payload.email,
+      userId: jwt.payload.userId,
+      role: jwt.payload.role,
+      password: '',
+    });
+  }
+
+  @Post('logout')
+  @HttpCode(202)
+  @UseGuards(JwtAccessAuthGuard)
+  @ApiOperation({
+    summary: `Remove the the given user from the list of authenticated users`,
+  })
+  async logout(@JwtInfo() jwt: IJwtInfo) {
+    this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
+    this.authService.logout(jwt.token);
   }
 }

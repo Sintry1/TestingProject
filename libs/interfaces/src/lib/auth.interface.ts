@@ -7,6 +7,7 @@ export interface ILoginRequest {
 
 export interface ILoginResponse {
   accessToken: string;
+  refreshToken?: string;
   role: Role;
 }
 
@@ -21,9 +22,13 @@ export interface ISignupResponse {
 }
 
 export interface IJwtInfo {
-  userId: string;
-  role: Role;
-  email: string;
+  payload: {
+    userId: string;
+    role: Role;
+    email: string;
+    tokenType: string;
+  };
+  token: string;
 }
 
 export interface IAuthUser {
