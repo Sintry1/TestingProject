@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'frontend-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
   @ViewChild('email') emailInput!: ElementRef;
   @ViewChild('password') passwordInput!: ElementRef;
 
-  constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = new UntypedFormGroup({
@@ -39,6 +44,26 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.isLoading = true;
     this.loginForm.disable();
-    console.warn(`WIP - login method is not implemented yet`);
+    this.authService
+      .login({
+        email: this.loginForm.get('email')?.value,
+        password: this.loginForm.get('password')?.value,
+      })
+      .subscribe({
+        next: (response) => {
+          this.authService.saveAccessInfo(response);
+          this.isLoading = false;
+          this.loginForm.enable();
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error(error);
+          this.snackBar.open('Failed to log in', 'Okay', {
+            duration: 10000,
+          });
+          this.isLoading = false;
+          this.loginForm.enable();
+        },
+      });
   }
 }
