@@ -32,18 +32,26 @@ export class AuthService {
   ) {}
 
   /**
-   * Perform a login request to the API
-   * @param params user credentials
-   * @returns observable of the API request
+   * Perform a login request to the API.
+   * @param params user credentials.
+   * @returns observable of the API request.
    */
   login(params: ILoginRequest): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>(`${env.apiUrl}/auth/login`, params);
   }
 
   /**
-   * Remove the logged in user information from local storage and API
+   * Perform a refresh access token request to the API.
+   * @returns observable of the API request.
    */
-  public async logout() {
+  refreshAccessInfo(): Observable<ILoginResponse> {
+    return this.http.post<ILoginResponse>(`${env.apiUrl}/auth/refresh`, {});
+  }
+
+  /**
+   * Remove the logged in user information from local storage and API.
+   */
+  public logout() {
     this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
     console.log('Redirecting to the login page...');
@@ -51,7 +59,7 @@ export class AuthService {
   }
 
   /**
-   * Save access information to local storage
+   * Save access information to local storage.
    * @param accessInfo information used for authentication like the access token.
    */
   public saveAccessInfo(loginResponse: ILoginResponse): void {
