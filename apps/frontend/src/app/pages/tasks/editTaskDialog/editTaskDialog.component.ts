@@ -61,11 +61,9 @@ export class EditTaskDialogComponent {
 
   updateTask(): void {
     this.isLoading = true;
-    console.log('initiails', this.selectedValue);
-
     this.service
       .updateTask(this.taskId, {
-        initials: this.selectedValue, // this.form.get('initials')?.value.toUpperCase(),
+        initials: this.selectedValue,
         completedAt: new Date(this.form.get('completedAt')?.value),
       })
       .subscribe({
