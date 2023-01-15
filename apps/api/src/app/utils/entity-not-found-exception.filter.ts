@@ -1,4 +1,4 @@
-import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
 import { Response } from 'express';
 import { EntityNotFoundError } from 'typeorm/error/EntityNotFoundError';
 
@@ -8,7 +8,9 @@ import { EntityNotFoundError } from 'typeorm/error/EntityNotFoundError';
  */
 @Catch(EntityNotFoundError)
 export class EntityNotFoundExceptionFilter implements ExceptionFilter {
+  private readonly logger = new Logger(EntityNotFoundError.name);
   public catch(exception: EntityNotFoundError, host: ArgumentsHost) {
+    this.logger.warn(`Entity Not Found exception caught: ${exception.message}`);
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
     return response.status(404).json({
