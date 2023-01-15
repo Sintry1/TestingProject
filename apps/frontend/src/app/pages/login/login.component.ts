@@ -20,7 +20,13 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private snackBar: MatSnackBar,
     private router: Router
-  ) {}
+  ) {
+    if (this.authService.getAccessInfo()) {
+      this.isLoading = true;
+      console.log('You are already logged in - redirecting to dashboard');
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
     this.loginForm = new UntypedFormGroup({

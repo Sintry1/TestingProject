@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
 import { BikesComponent } from './pages/bikes/bikes.componenet';
 import { CarsComponent } from './pages/cars/cars.component';
@@ -20,40 +21,49 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'checkin',
     component: CheckinComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'checkout',
     component: CheckoutComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'long-term',
     component: LongtermComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'car-list',
     component: CarsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'daily-tasks',
     component: TasksComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'assignments',
     component: AssignmentsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'bikes',
     component: BikesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'documents',
     component: DocumentsComponent,
+    canActivate: [AuthGuard],
   },
-  { path: '', pathMatch: 'full', redirectTo: 'dashboard' }, // Redirect to dashboard page
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard', canActivate: [AuthGuard] }, // Redirect to dashboard page
   { path: '**', component: PageNotFoundComponent }, // PageNotFound for all other page requests
 ];
 

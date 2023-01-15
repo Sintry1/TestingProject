@@ -43,9 +43,10 @@ export class AuthService {
   /**
    * Remove the logged in user information from local storage and API
    */
-  public logout(): void {
-    this.http.post(`${env.apiUrl}/auth/logout`, {});
+  public async logout() {
+    this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
+    console.log('Redirecting to the login page...');
     this.router.navigate(['/login']);
   }
 
@@ -68,7 +69,7 @@ export class AuthService {
    */
   public getAccessInfo(): IAccessInfo | null {
     const accessInfo = this.localStorageService.getItem<IAccessInfo>(LocalStorageVars.accessInfo);
-    if (accessInfo) {
+    if (accessInfo && accessInfo.getValue()) {
       return accessInfo.getValue();
     }
     return null;
