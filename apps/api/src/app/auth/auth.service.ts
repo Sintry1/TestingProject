@@ -12,13 +12,15 @@ import {
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
+import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    private tokensService: TokensService
   ) {}
 
   /**
@@ -53,8 +55,12 @@ export class AuthService {
       userId: user.userId,
       role: user.role,
     };
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '30m' });
+    const refreshToken = this.jwtService.sign(payload, { expiresIn: '7d' });
+    this.tokensService.create(accessToken, refreshToken);
     return {
-      accessToken: this.jwtService.sign(payload),
+      accessToken,
+      refreshToken,
       role: user.role,
     };
   }

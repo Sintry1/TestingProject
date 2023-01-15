@@ -7,6 +7,7 @@ export interface ILoginRequest {
 
 export interface ILoginResponse {
   accessToken: string;
+  refreshToken?: string;
   role: Role;
 }
 

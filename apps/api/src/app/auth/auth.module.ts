@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { TokensModule } from '../tokens/tokens.module';
 import { UsersModule } from '../users/users.module';
 import { AnonymousStrategy } from './anonymous.strategy';
 import { AuthController } from './auth.controller';
@@ -14,6 +15,7 @@ import { RolesGuard } from './roles.guards';
 @Module({
   imports: [
     UsersModule,
+    TokensModule,
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
