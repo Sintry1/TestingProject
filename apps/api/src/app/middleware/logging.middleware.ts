@@ -5,10 +5,13 @@ import { NextFunction, Request, Response } from 'express';
 export class LoggerMiddleware implements NestMiddleware {
   use(request: Request, response: Response, next: NextFunction): void {
     const { method, originalUrl, body } = request;
-    const { statusCode } = response;
 
     response.on('close', () => {
-      if (Object.keys(body).length > 0) {
+      const { statusCode } = response;
+      if (
+        Object.keys(body).length > 0 &&
+        !ignoreBodyForRoutes.includes(originalUrl)
+      ) {
         Logger.verbose(`${method} ${originalUrl} : ${statusCode}`, body);
       } else {
         Logger.verbose(`${method} ${originalUrl} : ${statusCode}`);
@@ -18,3 +21,5 @@ export class LoggerMiddleware implements NestMiddleware {
     next();
   }
 }
+
+const ignoreBodyForRoutes = ['/auth/login', '/auth/signup'];
