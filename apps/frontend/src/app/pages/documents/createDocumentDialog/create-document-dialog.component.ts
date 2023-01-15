@@ -63,6 +63,7 @@ export class CreateDocumentDialogComponent implements OnInit {
       : name;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   uploadDocument($event: any) {
     this.uploadedFile = $event.target.files[0];
   }

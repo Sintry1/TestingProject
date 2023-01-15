@@ -67,10 +67,10 @@ export class UpdateDocumentDialogComponent implements OnInit {
 
   getDocumentName(): string {
     let fileName;
-    if(!this.documentHasChanged) {
-      fileName = this.data.documentName
+    if (!this.documentHasChanged) {
+      fileName = this.data.documentName;
     } else {
-      fileName = this.uploadedNewFile?.name || '-'
+      fileName = this.uploadedNewFile?.name || '-';
     }
 
     const name = fileName;
@@ -120,6 +120,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   uploadDocument($event: any): void {
     this.uploadedNewFile = $event.target.files[0];
   }
