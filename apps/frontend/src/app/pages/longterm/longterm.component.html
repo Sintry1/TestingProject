@@ -41,6 +41,7 @@
         mat-raised-button
         class="action-btn"
         (click)="createLongTermEntry()"
+        data-cy="long-term-create-dialog-button"
       >
         Add long term
       </button>
@@ -135,6 +136,7 @@
         *matRowDef="let row; columns: displayedColumns"
         (click)="editLongTermListEntry(row)"
         [ngClass]="row.completedAt ? 'completed' : ''"
+        data-cy="long-term-list-entry"
       ></tr>
     </table>
   </div>

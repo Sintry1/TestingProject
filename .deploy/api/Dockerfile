@@ -3,7 +3,7 @@ WORKDIR /app/builder
 COPY . .
 # Install python because Mac M1 seems to be missing it
 RUN apk --no-cache add --virtual .builds-deps build-base python3
-RUN npm i --production
+RUN npm i --omit=dev
 
 RUN npx nx build api --skip-nx-cache
 
