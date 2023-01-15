@@ -1,4 +1,4 @@
-#content-wrapper{
+#content-wrapper {
   background-color: var(--main-blue);
   height: 100vh;
   width: 100vw;
@@ -11,7 +11,7 @@
   align-items: center;
 }
 
-.title-wrapper{
+.title-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,10 +23,9 @@
     font-size: xx-large;
   }
   .subtitle {
-
     font-size: x-large;
   }
-  hr{
+  hr {
     width: 100%;
   }
 }
@@ -44,7 +43,7 @@
 .white-input {
   color: black;
   ::ng-deep .mat-form-field-flex {
-  background-color: #F0F0F1;
+    background-color: #f0f0f1;
   }
   ::ng-deep .mat-form-field-wrapper {
     background-color: var(--main-blue);
@@ -52,9 +51,9 @@
 }
 
 .half-width {
-    width: 50%;
-    min-width: 50px;
-    margin-bottom: 0.5em;
+  width: 50%;
+  min-width: 50px;
+  margin-bottom: 0.5em;
 }
 
 .action-btn {

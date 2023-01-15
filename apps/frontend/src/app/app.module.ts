@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
 import { WeatherWidgetComponent } from './components/dashboardWidgets/weatherWidget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/documentWidget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/documentWidget/seeDocumentDialog/see-document-dialog.component';
@@ -39,10 +40,6 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/updateLongTermDi
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/editTaskDialog/editTaskDialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
-import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
-import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
-import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
-
 
 @NgModule({
   declarations: [
