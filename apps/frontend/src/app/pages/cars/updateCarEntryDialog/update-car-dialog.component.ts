@@ -9,7 +9,10 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
-import { bellBoyInitials } from '../../../utils/dropdown-selection';
+import {
+  bellBoyInitials,
+  carLocation,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-car-dialog',
@@ -23,6 +26,7 @@ export class UpdateCarDialogComponent {
   guestHasApproved = false;
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
+  carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;

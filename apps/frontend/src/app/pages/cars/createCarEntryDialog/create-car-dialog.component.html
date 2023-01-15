@@ -229,13 +229,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="Front of hotel"
-      />
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let location of carLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createCarForm.get('location')?.invalid &&
