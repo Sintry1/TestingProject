@@ -1,13 +1,39 @@
-.logo-image {
-  height: inherit;
-  width: inherit;
-  border: solid;
-  border-radius: 10px;
-  border-color: black;
-}
+section {
+  .link-title-container {
+    -webkit-transform: rotate(-90deg); /* Safari and Chrome */
+    -moz-transform: rotate(-90deg);   /* Firefox */
+    -ms-transform: rotate(-90deg);   /* IE 9 */
+    -o-transform: rotate(-90deg);   /* Opera */
+    transform: rotate(-90deg);
+    width: 60px;
+    position: relative;
+    left: -15px;
+    top: 50px;
 
-.logo-a {
-  width: 200px;
-  height: 100px;
-  margin: 20px;
+    h2 {
+      margin-bottom: 0;
+      text-align: center;
+      font-size: medium;
+    }
+
+    hr {
+      margin-top: 0.1em;
+      border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
+      border: none;
+      margin-top: 0;
+    }
+  }
+
+  .links-container {
+    margin-left: 3em;
+    display: flex;
+    gap: 1em;
+
+    a img {
+      height: 40px;
+      border: var(--border);
+      border-radius: 5px;
+      padding: 5px;
+    }
+  }
 }
