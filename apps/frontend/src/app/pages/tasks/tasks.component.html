@@ -12,7 +12,9 @@
   <table mat-table [dataSource]="morningTasks">
     <ng-container matColumnDef="time">
       <th mat-header-cell *matHeaderCellDef>Time</th>
-      <td mat-cell *matCellDef="let task" class="small-field">{{ task.time }}</td>
+      <td mat-cell *matCellDef="let task" class="small-field">
+        {{ task.time }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="task">
       <th mat-header-cell *matHeaderCellDef>Task</th>
@@ -73,7 +75,9 @@
   <table mat-table [dataSource]="eveningTasks">
     <ng-container matColumnDef="time">
       <th mat-header-cell *matHeaderCellDef>Time</th>
-      <td mat-cell *matCellDef="let item" class="small-field">{{ item.time }}</td>
+      <td mat-cell *matCellDef="let item" class="small-field">
+        {{ item.time }}
+      </td>
     </ng-container>
     <ng-container matColumnDef="task">
       <th mat-header-cell *matHeaderCellDef>Task</th>
