@@ -83,7 +83,8 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="pickUpTime">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>Pick up time</mat-label>
       <input
         matInput
@@ -110,9 +111,10 @@
       >
         Required
       </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="completedAtPicker">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>Returned</mat-label>
       <input
         matInput
@@ -131,7 +133,7 @@
         [touchUi]="true"
       >
       </ngx-mat-datetime-picker>
-    </mat-form-field>
+    </mat-form-field> -->
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">

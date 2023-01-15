@@ -17,7 +17,8 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="arrivalTime">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>Time of arrival</mat-label>
       <input
         matInput
@@ -36,7 +37,7 @@
         [touchUi]="true"
       >
       </ngx-mat-datetime-picker>
-    </mat-form-field>
+    </mat-form-field> -->
     <!-- <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Room status</mat-label>
       <mat-select
@@ -125,7 +126,8 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="completedAt">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>In room time</mat-label>
       <input
         matInput
@@ -152,7 +154,7 @@
       <mat-error *ngIf="form.get('bbOut')?.invalid && form.get('bbOut')?.dirty">
         Required
       </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">

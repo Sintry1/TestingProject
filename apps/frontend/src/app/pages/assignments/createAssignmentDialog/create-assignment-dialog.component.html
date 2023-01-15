@@ -88,7 +88,8 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="receivedAt">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>Time received</mat-label>
       <input
         matInput
@@ -108,9 +109,10 @@
         [touchUi]="true"
       >
       </ngx-mat-datetime-picker>
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <mat-form-field autocomplete="off" appearance="fill">
+    <input type="date" formControlName="completedAt">
+    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
       <mat-label>Time performed</mat-label>
       <input
         matInput
@@ -137,7 +139,7 @@
       >
         Invalid time
       </mat-error>
-    </mat-form-field>
+    </mat-form-field> -->
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
