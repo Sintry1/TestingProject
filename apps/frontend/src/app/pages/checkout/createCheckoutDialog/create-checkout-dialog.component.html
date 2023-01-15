@@ -87,13 +87,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB down</mat-label>
-      <input
-        #bbDown
-        type="text"
-        formControlName="bbDown"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select formControlName="bbDown">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createCheckoutForm.get('bbDown')?.invalid &&
@@ -127,13 +125,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB in LR</mat-label>
-      <input
-        #bbLr
-        type="text"
-        formControlName="bbLr"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createCheckoutForm.get('bbLr')?.invalid &&
@@ -148,7 +144,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input" appearance="fill">
       <mat-label>BB Out</mat-label>
-      <input type="text" formControlName="bbOut" matInput placeholder="JD" />
+      <mat-select formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createCheckoutForm.get('bbOut')?.invalid &&

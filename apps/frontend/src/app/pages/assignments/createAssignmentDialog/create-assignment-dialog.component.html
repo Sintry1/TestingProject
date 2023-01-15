@@ -68,14 +68,11 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Performed by</mat-label>
-      <input
-        #performedBy
-        type="text"
-        formControlName="performedBy"
-        matInput
-        placeholder="FV"
-        maxlength="100"
-      />
+      <mat-select formControlName="performedBy">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createAssignmentForm.get('performedBy')?.invalid &&

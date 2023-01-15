@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-checkin-dialog',
@@ -22,6 +23,8 @@ export class CreateCheckinDialogComponent {
   createCheckinForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

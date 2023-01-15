@@ -15,6 +15,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-long-term-dialog',
@@ -28,6 +29,8 @@ export class UpdateLongTermDialogComponent implements OnInit {
   updateLongTermForm = new UntypedFormGroup({});
   guestHasApproved = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

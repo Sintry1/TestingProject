@@ -146,13 +146,11 @@
       appearance="fill"
     >
       <mat-label class="input-label">BB in LR</mat-label>
-      <input
-        #bbLr
-        type="text"
-        formControlName="bbLr"
-        matInput
-        placeholder="JD"
-      />
+      <mat-select formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createLongTermForm.get('bbLr')?.invalid &&

@@ -8,6 +8,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
+import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-assignment-dialog',
@@ -18,6 +19,8 @@ export class CreateAssignmentDialogComponent implements OnInit {
   createAssignmentForm = new UntypedFormGroup({});
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;

@@ -13,6 +13,7 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask } from '@omnihost/interfaces';
 import { TasksService } from '../../../services/tasks.service';
+import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-edit-task-dialog',
@@ -28,6 +29,9 @@ export class EditTaskDialogComponent {
   isLoading = false;
   taskId: string;
   isTaskComplete = false;
+
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
 
   @ViewChild('initials') initialsInput!: ElementRef;
 
@@ -57,9 +61,11 @@ export class EditTaskDialogComponent {
 
   updateTask(): void {
     this.isLoading = true;
+    console.log('initiails', this.selectedValue);
+
     this.service
       .updateTask(this.taskId, {
-        initials: this.form.get('initials')?.value.toUpperCase(),
+        initials: this.selectedValue, // this.form.get('initials')?.value.toUpperCase(),
         completedAt: new Date(this.form.get('completedAt')?.value),
       })
       .subscribe({
