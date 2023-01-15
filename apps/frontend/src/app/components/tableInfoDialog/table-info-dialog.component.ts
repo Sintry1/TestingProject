@@ -5,10 +5,7 @@ import { TableInfoOptions } from '@omnihost/interfaces';
 @Component({
   selector: 'frontend-table-info-dialog',
   templateUrl: './table-info-dialog.component.html',
-  styleUrls: [
-    './table-info-dialog.component.scss',
-    '../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['./table-info-dialog.component.scss', '../../../assets/styles/dialog.scss'],
 })
 export class TableInfoDialogComponent {
   tableName: TableInfoOptions;

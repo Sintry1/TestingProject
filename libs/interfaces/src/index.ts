@@ -19,7 +19,7 @@ export * from './lib/car/car.interface';
 export * from './lib/bike/bike.interface';
 export * from './lib/assignment/assignment.interface';
 export * from './lib/document/document.interface';
-export * from './lib/token.interface'
+export * from './lib/token.interface';
 
 // Enums
 export * from './lib/role.enum';

@@ -1,45 +1,20 @@
-<form
-  (ngSubmit)="onSubmit()"
-  [formGroup]="updateCarForm"
-  class="dialog-container"
->
+<form (ngSubmit)="onSubmit()" [formGroup]="updateCarForm" class="dialog-container">
   <h1>Update Car</h1>
   <hr />
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Room nr.</mat-label>
-      <input
-        #room
-        type="number"
-        formControlName="room"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('room')?.invalid && updateCarForm.get('room')?.dirty
-        "
-      >
+      <input #room type="number" formControlName="room" matInput placeholder="123" />
+      <mat-error *ngIf="updateCarForm.get('room')?.invalid && updateCarForm.get('room')?.dirty">
         Must be a number from 100-999
       </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Tag nr.</mat-label>
-      <input
-        #tagNr
-        type="number"
-        formControlName="tagNr"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('tagNr')?.invalid &&
-          updateCarForm.get('tagNr')?.dirty
-        "
-      >
+      <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
+      <mat-error *ngIf="updateCarForm.get('tagNr')?.invalid && updateCarForm.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -55,10 +30,7 @@
         placeholder="dd/MM HH:mm"
         formControlName="arrivalDate"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(arrivalDatePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(arrivalDatePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #arrivalDatePicker
         [showSpinners]="true"
@@ -67,10 +39,7 @@
       >
       </ngx-mat-datetime-picker>
       <mat-error
-        *ngIf="
-          updateCarForm.get('arrivalDate')?.invalid &&
-          updateCarForm.get('arrivalDate')?.dirty
-        "
+        *ngIf="updateCarForm.get('arrivalDate')?.invalid && updateCarForm.get('arrivalDate')?.dirty"
       >
         Required
       </mat-error>
@@ -85,10 +54,7 @@
         formControlName="departureDate"
         placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(departureDatePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(departureDatePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #departureDatePicker
         [showSpinners]="true"
@@ -98,8 +64,7 @@
       </ngx-mat-datetime-picker>
       <mat-error
         *ngIf="
-          updateCarForm.get('departureDate')?.invalid &&
-          updateCarForm.get('departureDate')?.dirty
+          updateCarForm.get('departureDate')?.invalid && updateCarForm.get('departureDate')?.dirty
         "
       >
         Required
@@ -109,18 +74,8 @@
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
     <mat-label>Name</mat-label>
-    <input
-      #name
-      type="text"
-      formControlName="name"
-      matInput
-      placeholder="Johnson"
-    />
-    <mat-error
-      *ngIf="
-        updateCarForm.get('name')?.invalid && updateCarForm.get('name')?.dirty
-      "
-    >
+    <input #name type="text" formControlName="name" matInput placeholder="Johnson" />
+    <mat-error *ngIf="updateCarForm.get('name')?.invalid && updateCarForm.get('name')?.dirty">
       Required
     </mat-error>
   </mat-form-field>
@@ -137,8 +92,7 @@
       />
       <mat-error
         *ngIf="
-          updateCarForm.get('licensePlate')?.invalid &&
-          updateCarForm.get('licensePlate')?.dirty
+          updateCarForm.get('licensePlate')?.invalid && updateCarForm.get('licensePlate')?.dirty
         "
       >
         Required
@@ -155,10 +109,7 @@
         matInput
         placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(expirationDatePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(expirationDatePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #expirationDatePicker
         [showSpinners]="true"
@@ -168,8 +119,7 @@
       </ngx-mat-datetime-picker>
       <mat-error
         *ngIf="
-          updateCarForm.get('expirationDate')?.invalid &&
-          updateCarForm.get('expirationDate')?.dirty
+          updateCarForm.get('expirationDate')?.invalid && updateCarForm.get('expirationDate')?.dirty
         "
       >
         Required
@@ -187,10 +137,7 @@
         formControlName="pickUpTime"
         placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickUpTimePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(pickUpTimePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #pickUpTimePicker
         [showSpinners]="true"
@@ -199,10 +146,7 @@
       >
       </ngx-mat-datetime-picker>
       <mat-error
-        *ngIf="
-          updateCarForm.get('pickUpTime')?.invalid &&
-          updateCarForm.get('pickUpTime')?.dirty
-        "
+        *ngIf="updateCarForm.get('pickUpTime')?.invalid && updateCarForm.get('pickUpTime')?.dirty"
       >
         Required
       </mat-error>
@@ -217,10 +161,7 @@
         formControlName="deliveryTime"
         placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(deliveryTimePicker)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(deliveryTimePicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #deliveryTimePicker
         [showSpinners]="true"
@@ -230,8 +171,7 @@
       </ngx-mat-datetime-picker>
       <mat-error
         *ngIf="
-          updateCarForm.get('deliveryTime')?.invalid &&
-          updateCarForm.get('deliveryTime')?.dirty
+          updateCarForm.get('deliveryTime')?.invalid && updateCarForm.get('deliveryTime')?.dirty
         "
       >
         Required
@@ -247,12 +187,7 @@
           {{ initials }}
         </mat-option>
       </mat-select>
-      <mat-error
-        *ngIf="
-          updateCarForm.get('bbDown')?.invalid &&
-          updateCarForm.get('bbDown')?.dirty
-        "
-      >
+      <mat-error *ngIf="updateCarForm.get('bbDown')?.invalid && updateCarForm.get('bbDown')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -264,11 +199,7 @@
           {{ initials }}
         </mat-option>
       </mat-select>
-      <mat-error
-        *ngIf="
-          updateCarForm.get('bbUp')?.invalid && updateCarForm.get('bbUp')?.dirty
-        "
-      >
+      <mat-error *ngIf="updateCarForm.get('bbUp')?.invalid && updateCarForm.get('bbUp')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -283,10 +214,7 @@
         </mat-option>
       </mat-select>
       <mat-error
-        *ngIf="
-          updateCarForm.get('location')?.invalid &&
-          updateCarForm.get('location')?.dirty
-        "
+        *ngIf="updateCarForm.get('location')?.invalid && updateCarForm.get('location')?.dirty"
       >
         Required
       </mat-error>
@@ -294,17 +222,9 @@
 
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Parking lot</mat-label>
-      <input
-        type="text"
-        formControlName="parkingLot"
-        matInput
-        placeholder="Front of hotel"
-      />
+      <input type="text" formControlName="parkingLot" matInput placeholder="Front of hotel" />
       <mat-error
-        *ngIf="
-          updateCarForm.get('parkingLot')?.invalid &&
-          updateCarForm.get('parkingLot')?.dirty
-        "
+        *ngIf="updateCarForm.get('parkingLot')?.invalid && updateCarForm.get('parkingLot')?.dirty"
       >
         Required
       </mat-error>
@@ -313,32 +233,16 @@
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
     <mat-label>Comments</mat-label>
-    <input
-      #comments
-      type="text"
-      formControlName="comments"
-      matInput
-      placeholder="Comments"
-    />
+    <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
     <mat-error
-      *ngIf="
-        updateCarForm.get('comments')?.invalid &&
-        updateCarForm.get('comments')?.dirty
-      "
+      *ngIf="updateCarForm.get('comments')?.invalid && updateCarForm.get('comments')?.dirty"
     >
       Required
     </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      type="button"
-      mat-raised-button
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
     <button class="action-btn" mat-flat-button type="submit">Update</button>
   </div>

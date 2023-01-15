@@ -8,10 +8,7 @@ export class LoggerMiddleware implements NestMiddleware {
 
     response.on('close', () => {
       const { statusCode } = response;
-      if (
-        Object.keys(body).length > 0 &&
-        !ignoreBodyForRoutes.includes(originalUrl)
-      ) {
+      if (Object.keys(body).length > 0 && !ignoreBodyForRoutes.includes(originalUrl)) {
         Logger.verbose(`${method} ${originalUrl} : ${statusCode}`, body);
       } else {
         Logger.verbose(`${method} ${originalUrl} : ${statusCode}`);

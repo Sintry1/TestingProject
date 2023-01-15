@@ -1,4 +1,3 @@
-
 ## Docker Compose
 
 Run `docker compose up --build` to run the services.\

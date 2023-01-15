@@ -56,10 +56,7 @@ export class DocumentsService {
     }
   }
 
-  async createDocument(
-    documentData: CreateDocumentRequest,
-    document: Express.Multer.File
-  ) {
+  async createDocument(documentData: CreateDocumentRequest, document: Express.Multer.File) {
     try {
       await this.fileService.uploadFile(document.buffer, document.originalname);
     } catch (error) {
@@ -75,10 +72,7 @@ export class DocumentsService {
     });
   }
 
-  async updateDocument(
-    documentId: string,
-    documentData: UpdateDocumentRequest
-  ) {
+  async updateDocument(documentId: string, documentData: UpdateDocumentRequest) {
     const document = await this.documentRepo.findOneByOrFail({ documentId });
 
     for (const key in documentData) {
@@ -90,17 +84,11 @@ export class DocumentsService {
     return await this.documentRepo.save(document);
   }
 
-  async updateDocumentFile(
-    documentId: string,
-    documentFile: Express.Multer.File
-  ) {
+  async updateDocumentFile(documentId: string, documentFile: Express.Multer.File) {
     const document = await this.documentRepo.findOneByOrFail({ documentId });
 
     try {
-      await this.fileService.uploadFile(
-        documentFile.buffer,
-        documentFile.originalname
-      );
+      await this.fileService.uploadFile(documentFile.buffer, documentFile.originalname);
     } catch (error) {
       throw new HttpException(
         'Failed to upload the document. Please try again later.',

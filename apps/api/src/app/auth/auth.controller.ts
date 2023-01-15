@@ -1,13 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  Body,
-  Controller,
-  HttpCode,
-  Logger,
-  Post,
-  Request,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, HttpCode, Logger, Post, Request, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { IJwtInfo, LoginRequest, LoginResponse } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';

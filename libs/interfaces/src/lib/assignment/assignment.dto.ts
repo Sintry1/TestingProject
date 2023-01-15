@@ -1,9 +1,6 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
-import {
-  ICreateAssignmentRequest,
-  IUpdateAssignmentRequest,
-} from './assignment.interface';
+import { ICreateAssignmentRequest, IUpdateAssignmentRequest } from './assignment.interface';
 
 export class CreateAssignmentRequest implements ICreateAssignmentRequest {
   @ApiModelProperty({ example: '211' })

@@ -8,10 +8,7 @@ import { TokensService } from '../tokens/tokens.service';
 import { jwtConstants } from './constants';
 
 @Injectable()
-export class RefreshTokenJwtStrategy extends PassportStrategy(
-  Strategy,
-  'jwt-refresh'
-) {
+export class RefreshTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-refresh') {
   private readonly logger = new Logger(RefreshTokenJwtStrategy.name);
   constructor(private tokensService: TokensService) {
     super({
@@ -44,10 +41,7 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(
         token,
       };
     } catch (error) {
-      this.logger.warn(
-        `Auth failed: token doesn't exist in the database`,
-        token
-      );
+      this.logger.warn(`Auth failed: token doesn't exist in the database`, token);
       throw new UnauthorizedException();
     }
   }

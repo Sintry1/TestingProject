@@ -1,15 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  Inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument, IUpdateDocumentRequest } from '@omnihost/interfaces';
@@ -97,13 +87,9 @@ export class UpdateDocumentDialogComponent implements OnInit {
         },
         error: (err) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to delete document, please try again.',
-            'Okay',
-            {
-              duration: 15000,
-            }
-          );
+          this.snackBar.open('Failed to delete document, please try again.', 'Okay', {
+            duration: 15000,
+          });
           this.isLoading = false;
         },
       });
@@ -140,13 +126,9 @@ export class UpdateDocumentDialogComponent implements OnInit {
           },
           error: (err) => {
             console.error(err);
-            this.snackBar.open(
-              'Failed to update document file, please try again.',
-              'Okay',
-              {
-                duration: 10000,
-              }
-            );
+            this.snackBar.open('Failed to update document file, please try again.', 'Okay', {
+              duration: 10000,
+            });
           },
         });
     }
@@ -169,13 +151,9 @@ export class UpdateDocumentDialogComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.snackBar.open(
-          'Failed to update document information, please try again.',
-          'Okay',
-          {
-            duration: 15000,
-          }
-        );
+        this.snackBar.open('Failed to update document information, please try again.', 'Okay', {
+          duration: 15000,
+        });
         this.isLoading = false;
       },
     });

@@ -97,9 +97,6 @@ export class AssignmentsController {
     @Param('assignmentId', ParseUUIDPipe) assignmentId: string,
     @Body() assignmentData: UpdateAssignmentRequest
   ) {
-    return this.assignmentsService.updateAssignment(
-      assignmentId,
-      assignmentData
-    );
+    return this.assignmentsService.updateAssignment(assignmentId, assignmentData);
   }
 }

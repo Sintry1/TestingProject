@@ -1,26 +1,13 @@
-<form
-  [formGroup]="createAssignmentForm"
-  (ngSubmit)="onSubmit()"
-  class="dialog-container"
->
+<form [formGroup]="createAssignmentForm" (ngSubmit)="onSubmit()" class="dialog-container">
   <h1>Add assignment</h1>
   <hr />
 
   <div class="dialog-row">
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input
-        #room
-        type="number"
-        formControlName="room"
-        matInput
-        placeholder="123"
-      />
+      <input #room type="number" formControlName="room" matInput placeholder="123" />
       <mat-error
-        *ngIf="
-          createAssignmentForm.get('room')?.invalid &&
-          createAssignmentForm.get('room')?.dirty
-        "
+        *ngIf="createAssignmentForm.get('room')?.invalid && createAssignmentForm.get('room')?.dirty"
       >
         Must be a number from 100-999
       </mat-error>
@@ -34,10 +21,7 @@
         </mat-option>
       </mat-select>
       <mat-error
-        *ngIf="
-          createAssignmentForm.get('task')?.invalid &&
-          createAssignmentForm.get('task')?.dirty
-        "
+        *ngIf="createAssignmentForm.get('task')?.invalid && createAssignmentForm.get('task')?.dirty"
       >
         Can't be more than 20 characters
       </mat-error>
@@ -48,10 +32,7 @@
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Received by</mat-label>
       <mat-select formControlName="receivedBy">
-        <mat-option
-          *ngFor="let receivedBy of bbAssignmentReceivedBy"
-          [value]="receivedBy"
-        >
+        <mat-option *ngFor="let receivedBy of bbAssignmentReceivedBy" [value]="receivedBy">
           {{ receivedBy }}
         </mat-option>
       </mat-select>
@@ -93,10 +74,7 @@
         formControlName="receivedAt"
         [max]="maxDatetime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(receivedAt)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(receivedAt)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #receivedAt
         [showSpinners]="true"
@@ -114,10 +92,7 @@
         placeholder="dd/MM HH:mm"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAt)"
-      ></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(completedAt)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
         #completedAt
         [showSpinners]="true"
@@ -147,8 +122,7 @@
     ></textarea>
     <mat-error
       *ngIf="
-        createAssignmentForm.get('comments')?.invalid &&
-        createAssignmentForm.get('comments')?.dirty
+        createAssignmentForm.get('comments')?.invalid && createAssignmentForm.get('comments')?.dirty
       "
     >
       Can't be more than 1000 characters
@@ -156,16 +130,7 @@
   </mat-form-field>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      mat-raised-button
-      mat-dialog-close
-      type="button"
-    >
-      Cancel
-    </button>
-    <button class="action-btn" mat-raised-button type="submit">
-      Add assignment
-    </button>
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">Add assignment</button>
   </div>
 </form>

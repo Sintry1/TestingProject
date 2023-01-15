@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 # # INFO
 # All $VARIABLES are currently stored in a .env file on the same level as this
 # document, please remember to populate it.
@@ -63,9 +63,9 @@ services:
       POSTGRES_DB: ${POSTGRES_DATABASE:-omnihost}
       PGDATA: /data/postgres
     volumes:
-       - postgres:/data/postgres
+      - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - '5432:5432'
     networks:
       - omnihost-net
     restart: unless-stopped

@@ -1,26 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import {
-  bellBoyInitials,
-  luggageLocation,
-} from '../../../utils/dropdown-selection';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-checkout-dialog',
   templateUrl: './create-checkout-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class CreateCheckoutDialogComponent {
   createCheckoutForm: UntypedFormGroup;
@@ -90,9 +80,7 @@ export class CreateCheckoutDialogComponent {
         room: this.createCheckoutForm.get('room')?.value,
         // roomReady: this.createCheckoutForm.get('roomReady')?.value,
         name: this.createCheckoutForm.get('name')?.value,
-        arrivalTime: new Date(
-          this.createCheckoutForm.get('arrivalTime')?.value
-        ),
+        arrivalTime: new Date(this.createCheckoutForm.get('arrivalTime')?.value),
         bags: this.createCheckoutForm.get('bags')?.value,
         tagNr: this.createCheckoutForm.get('tagNr')?.value,
         bbLr: this.createCheckoutForm.get('bbLr')?.value

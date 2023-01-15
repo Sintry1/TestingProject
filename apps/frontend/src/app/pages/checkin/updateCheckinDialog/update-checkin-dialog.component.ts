@@ -1,30 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import {
-  bellBoyInitials,
-  luggageLocation,
-} from '../../../utils/dropdown-selection';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
   templateUrl: './update-checkin-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateCheckinDialogComponent {
   form: UntypedFormGroup;
@@ -60,9 +46,7 @@ export class UpdateCheckinDialogComponent {
       //   Validators.required,
       // ]),
       name: new UntypedFormControl(data.name, [Validators.required]),
-      arrivalTime: new UntypedFormControl(data.arrivalTime, [
-        Validators.required,
-      ]),
+      arrivalTime: new UntypedFormControl(data.arrivalTime, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
       bbLr: new UntypedFormControl(data.bbLr, [Validators.required]),
@@ -103,12 +87,8 @@ export class UpdateCheckinDialogComponent {
         arrivalTime: new Date(this.form.get('arrivalTime')?.value),
         bags: this.form.get('bags')?.value,
         tagNr: this.form.get('tagNr')?.value,
-        bbLr: this.form.get('bbLr')?.value
-          ? this.form.get('bbLr')?.value.toUpperCase()
-          : '',
-        bbOut: this.form.get('bbOut')?.value
-          ? this.form.get('bbOut')?.value.toUpperCase()
-          : '',
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value.toUpperCase() : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value.toUpperCase() : '',
         location: this.form.get('location')?.value
           ? this.form.get('location')?.value.toUpperCase()
           : '',

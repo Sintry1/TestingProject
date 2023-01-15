@@ -1,14 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import {
-  Assignment,
-  Bike,
-  Car,
-  Document,
-  Luggage,
-  Task,
-  Token,
-  User,
-} from '@omnihost/models';
+import { Assignment, Bike, Car, Document, Luggage, Task, Token, User } from '@omnihost/models';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();

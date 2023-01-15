@@ -1,30 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import {
-  bellBoyInitials,
-  luggageLocation,
-} from '../../../utils/dropdown-selection';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-checkout-dialog',
   templateUrl: './update-checkout-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateCheckoutDialogComponent {
   updateCheckoutForm: UntypedFormGroup;

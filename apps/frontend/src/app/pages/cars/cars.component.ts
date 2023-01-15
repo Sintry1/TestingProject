@@ -2,12 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  CarSortOptions,
-  ICar,
-  SortOrder,
-  TableInfoOptions,
-} from '@omnihost/interfaces';
+import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
@@ -18,10 +13,7 @@ import { UpdateCarDialogComponent } from './updateCarEntryDialog/update-car-dial
 @Component({
   selector: 'frontend-cars',
   templateUrl: './cars.component.html',
-  styleUrls: [
-    '../../../assets/styles/table.scss',
-    '../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
 export class CarsComponent implements OnInit {
   filteredCarList: ICar[] = [];
@@ -107,30 +99,28 @@ export class CarsComponent implements OnInit {
   fetchCarList(): void {
     this.isLoading = true;
 
-    this.carService
-      .getCar(this.displayDate, this.sortBy, this.sortOrder, this.search)
-      .subscribe({
-        next: (cars) => {
-          this.originalCarList = cars;
-          this.filteredCarList = filterByCompletedAtAndOrderResults(
-            this.originalCarList,
-            this.showAll,
-            this.displayDate
-          );
-          this.isLoading = false;
-        },
-        error: (error) => {
-          this.isLoading = false;
-          console.error(error);
-          this.snackBar.open(
-            'Check Out data have failed to load, please try checking your connection.',
-            'Okay',
-            {
-              duration: 10000,
-            }
-          );
-        },
-      });
+    this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
+      next: (cars) => {
+        this.originalCarList = cars;
+        this.filteredCarList = filterByCompletedAtAndOrderResults(
+          this.originalCarList,
+          this.showAll,
+          this.displayDate
+        );
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.isLoading = false;
+        console.error(error);
+        this.snackBar.open(
+          'Check Out data have failed to load, please try checking your connection.',
+          'Okay',
+          {
+            duration: 10000,
+          }
+        );
+      },
+    });
   }
 
   toggleShowAll(): void {

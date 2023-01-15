@@ -46,9 +46,7 @@ export class DocumentsService {
   }
 
   public getDocumentById(id: string): Observable<IGetDocumentByIdResponse> {
-    return this.http.get<IGetDocumentByIdResponse>(
-      `${env.apiUrl}/documents/${id}`
-    );
+    return this.http.get<IGetDocumentByIdResponse>(`${env.apiUrl}/documents/${id}`);
   }
 
   public getDashboardDocuments(): Observable<IDocument[]> {
@@ -66,24 +64,15 @@ export class DocumentsService {
     });
   }
 
-  public updateDocument(
-    id: string,
-    params: IUpdateDocumentRequest
-  ): Observable<IDocument> {
+  public updateDocument(id: string, params: IUpdateDocumentRequest): Observable<IDocument> {
     return this.http.patch<IDocument>(`${env.apiUrl}/documents/${id}`, params);
   }
 
-  public updateDocumentFile(
-    documentId: string,
-    document: File
-  ): Observable<IDocument> {
+  public updateDocumentFile(documentId: string, document: File): Observable<IDocument> {
     const formData = new FormData();
     formData.append('document', document);
 
-    return this.http.patch<IDocument>(
-      `${env.apiUrl}/documents/file/${documentId}`,
-      formData
-    );
+    return this.http.patch<IDocument>(`${env.apiUrl}/documents/file/${documentId}`, formData);
   }
 
   public deleteDocument(documentId: string): Observable<boolean> {

@@ -79,9 +79,7 @@ export class SeedService {
       }
 
       if (dbType === 'postgres') {
-        const truncateSql = `TRUNCATE TABLE ${tables.join(
-          ','
-        )} RESTART IDENTITY CASCADE;`;
+        const truncateSql = `TRUNCATE TABLE ${tables.join(',')} RESTART IDENTITY CASCADE;`;
         await this.dataSource.query(truncateSql);
       }
 

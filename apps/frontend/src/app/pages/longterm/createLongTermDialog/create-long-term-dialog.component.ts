@@ -1,26 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import {
-  bellBoyInitials,
-  luggageLocation,
-} from '../../../utils/dropdown-selection';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-long-term-dialog',
   templateUrl: './create-long-term-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class CreateLongTermDialogComponent implements OnInit {
   createLongTermForm = new UntypedFormGroup({});

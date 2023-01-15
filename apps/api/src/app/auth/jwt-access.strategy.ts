@@ -23,7 +23,10 @@ export class AccessTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-acce
     const token = req.get('Authorization').replace('Bearer', '').trim();
     // Check that the token is a access token
     if (payload.tokenType !== 'access') {
-      this.logger.warn(`Auth failed: Refresh token was used for a Access Token-only endpoint`, token);
+      this.logger.warn(
+        `Auth failed: Refresh token was used for a Access Token-only endpoint`,
+        token
+      );
       throw new UnauthorizedException();
     }
     try {

@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeService } from '../../../services/bikes.service';
@@ -12,10 +8,7 @@ import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
   selector: 'frontend-create-bike-dialog',
   templateUrl: './create-bike-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class CreateBikeDialogComponent {
   createBikeForm: UntypedFormGroup;
@@ -85,13 +78,9 @@ export class CreateBikeDialogComponent {
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to create bike, please try again.',
-            'Okay',
-            {
-              duration: 15000,
-            }
-          );
+          this.snackBar.open('Failed to create bike, please try again.', 'Okay', {
+            duration: 15000,
+          });
           this.isLoading = false;
         },
       });
