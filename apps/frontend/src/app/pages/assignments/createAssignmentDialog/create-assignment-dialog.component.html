@@ -28,13 +28,11 @@
 
     <mat-form-field appearance="fill" autocomplete="off">
       <mat-label>Task</mat-label>
-      <input
-        #task
-        type="text"
-        formControlName="task"
-        matInput
-        placeholder="RA"
-      />
+      <mat-select formControlName="task">
+        <mat-option *ngFor="let task of bbAssignmentTask" [value]="task">
+          {{ task }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createAssignmentForm.get('task')?.invalid &&

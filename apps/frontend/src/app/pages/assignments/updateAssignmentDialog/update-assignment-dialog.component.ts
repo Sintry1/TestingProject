@@ -15,7 +15,10 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment } from '@omnihost/interfaces';
 import { AssignmentsService } from '../../../services/assignments.service';
-import { bellBoyInitials } from '../../../utils/dropdown-selection';
+import {
+  bellBoyInitials,
+  bbAssignmentTask,
+} from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-assignment-dialog',
@@ -31,6 +34,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
 
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
+  bbAssignmentTask = bbAssignmentTask;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
