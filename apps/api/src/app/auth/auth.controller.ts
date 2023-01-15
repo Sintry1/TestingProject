@@ -8,12 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import {
-  IJwtInfo,
-  LoginRequest,
-  LoginResponse,
-  SignupRequest,
-} from '@omnihost/interfaces';
+import { IJwtInfo, LoginRequest, LoginResponse } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
 import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
 import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
@@ -37,14 +32,15 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
-  @Post('signup')
-  @ApiOperation({
-    summary: `Register a new user`,
-  })
-  @ApiOkResponse({ type: LoginResponse })
-  async signup(@Body() signupRequestDto: SignupRequest) {
-    return this.authService.signup(signupRequestDto);
-  }
+  // Commented out signup endpoint since we right now don't offer an ability to sign up
+  // @Post('signup')
+  // @ApiOperation({
+  //   summary: `Register a new user`,
+  // })
+  // @ApiOkResponse({ type: LoginResponse })
+  // async signup(@Body() signupRequestDto: SignupRequest) {
+  //   return this.authService.signup(signupRequestDto);
+  // }
 
   @Post('refresh')
   @UseGuards(JwtRefreshAuthGuard)
