@@ -23,7 +23,11 @@ export class AuthController {
   @HttpCode(200)
   async login(@Request() req, @Body() LoginRequest: LoginRequest) {
     // uses the passport library logic to obtain the user
-    this.logger.verbose(`Logging in user ${req.user.userId}`);
+    this.logger.verbose(
+      `Logging in user ${req.user.userId}${
+        req.user.email.endsWith('-mgmt') ? '. User is a manager!' : ''
+      }`
+    );
     return this.authService.login(req.user);
   }
 
