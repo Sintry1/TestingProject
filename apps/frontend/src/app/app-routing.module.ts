@@ -64,7 +64,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard', canActivate: [AuthGuard] }, // Redirect to dashboard page
-  { path: '**', component: PageNotFoundComponent }, // PageNotFound for all other page requests
+  { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] }, // PageNotFound for all other page requests
 ];
 
 @NgModule({
