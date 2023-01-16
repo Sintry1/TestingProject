@@ -27,6 +27,7 @@ export class AuthGuard implements CanActivate {
     // If both tokens are expired - log the user out
     if (accessInfo.refreshToken && this.authService.isJwtExpired(accessInfo.refreshToken)) {
       console.warn('Your session has expired, logging you out');
+      this.authService.logout();
       this.router.navigate(['/login']);
       return false;
     }

@@ -21,14 +21,15 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) {
+    // Check if the user is already logged in
     if (this.authService.getAccessInfo()) {
-      this.isLoading = true;
       console.log('You are already logged in - redirecting to dashboard');
       this.router.navigate(['/']);
     }
   }
 
   ngOnInit(): void {
+    this.isLoading = false;
     this.loginForm = new UntypedFormGroup({
       email: new UntypedFormControl('', [Validators.required, Validators.email]),
       password: new UntypedFormControl('', [Validators.maxLength(100), Validators.required]),
@@ -64,11 +65,11 @@ export class LoginComponent implements OnInit {
         },
         error: (error) => {
           console.error(error);
+          this.isLoading = false;
+          this.loginForm.enable();
           this.snackBar.open('Failed to log in', 'Okay', {
             duration: 10000,
           });
-          this.isLoading = false;
-          this.loginForm.enable();
         },
       });
   }
