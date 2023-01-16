@@ -8,6 +8,7 @@ import {
   ISignupResponse,
   IUser,
   LoginRequest,
+  Role,
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
@@ -61,7 +62,7 @@ export class AuthService {
     );
     // Only create the refresh token for non-management users
     let refreshToken = null;
-    if (!user.email.endsWith(`-mgmt`)) {
+    if (user.role !== Role.manager) {
       refreshToken = this.jwtService.sign(
         { ...payload, tokenType: 'refresh' },
         { expiresIn: '7d' }
