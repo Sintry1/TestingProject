@@ -59,10 +59,15 @@ export class AuthService {
       { ...payload, tokenType: 'access' },
       { expiresIn: '30m' }
     );
-    const refreshToken = this.jwtService.sign(
-      { ...payload, tokenType: 'refresh' },
-      { expiresIn: '7d' }
-    );
+    // Only create the refresh token for non-management users
+    let refreshToken = null;
+    if (!user.email.endsWith(`-mgmt`)) {
+      refreshToken = this.jwtService.sign(
+        { ...payload, tokenType: 'refresh' },
+        { expiresIn: '7d' }
+      );
+    }
+
     this.tokensService.create(accessToken, refreshToken);
     return {
       accessToken,
