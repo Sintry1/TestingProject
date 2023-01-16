@@ -7,7 +7,16 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILoginResponse } from '@omnihost/interfaces';
-import { BehaviorSubject, EMPTY, finalize, Observable, switchMap, take, tap } from 'rxjs';
+import {
+  BehaviorSubject,
+  catchError,
+  EMPTY,
+  finalize,
+  Observable,
+  switchMap,
+  take,
+  tap,
+} from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable()
@@ -70,6 +79,11 @@ export class AuthInterceptor implements HttpInterceptor {
       return this.authService.refreshAccessInfo().pipe(
         tap((response: ILoginResponse) => {
           this.authService.saveAccessInfo(response);
+        }),
+        catchError((response) => {
+          console.error(`Failed to refresh the access information, logging you out`, response);
+          this.authService.logout();
+          return EMPTY;
         }),
         switchMap(() => {
           this.refreshTokenSubject.next(null);
