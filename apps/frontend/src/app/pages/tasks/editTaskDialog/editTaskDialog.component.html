@@ -18,27 +18,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="completedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Completed At</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="completedAt"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAt)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #completedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <div class="dialog-row actions-section">

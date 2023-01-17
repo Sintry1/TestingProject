@@ -97,27 +97,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="dateNeeded">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Date needed</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="dateNeeded"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="dateNeeded"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(dateNeeded)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #dateNeeded
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <div class="dialog-row">
@@ -188,28 +176,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="dateOut">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Date out</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Date Out</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="dateOut"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="dateOut"
-        [max]="maxDatetime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(dateOut)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #dateOut
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field appearance="fill" class="full-width">

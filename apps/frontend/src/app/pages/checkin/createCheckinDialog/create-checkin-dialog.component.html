@@ -26,37 +26,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="arrivalTime">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Time of arrival</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Time of Arrival</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="pickerArrival"
-        placeholder="dd/MM HH:mm"
+        type="time"
         formControlName="arrivalTime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickerArrival)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #pickerArrival
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
-
-    <!-- <mat-form-field autocomplete="off" appearance="fill">
-      <mat-label>Room status</mat-label>
-      <mat-select
-        formControlName="roomReady"
-      >
-        <mat-option value="false">Not ready</mat-option>
-        <mat-option value="true">Ready</mat-option>
-      </mat-select>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
@@ -172,27 +150,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="completedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>In room time</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="pickerCompletedAt"
-        placeholder="dd/MM HH:mm"
+        type="time"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickerCompletedAt)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #pickerCompletedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" class="full-width" appearance="fill">

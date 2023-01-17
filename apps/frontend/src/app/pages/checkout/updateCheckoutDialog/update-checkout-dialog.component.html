@@ -159,27 +159,15 @@
       </mat-error>
     </mat-form-field>
 
-    <input type="date" formControlName="completedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Out time</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Time out</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="pickerCompletedAt"
-        placeholder="dd/MM HH:mm"
+        type="time"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickerCompletedAt)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #pickerCompletedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">

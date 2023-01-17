@@ -13,6 +13,7 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { toDateObject, toTimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
@@ -37,7 +38,7 @@ export class UpdateCheckinDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateCheckinDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ILuggage,
+    @Inject(MAT_DIALOG_DATA) public data: ILuggage, // TODO: fix - date types mismatch
     private service: LuggageService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
@@ -51,17 +52,21 @@ export class UpdateCheckinDialogComponent {
       ]),
       // roomReady: new UntypedFormControl(data.roomReady?.toString(), [
       //   Validators.required,
-      // ]),
+      // ]), // TODO: remove if not needed.
       name: new UntypedFormControl(data.name, [Validators.required]),
-      arrivalTime: new UntypedFormControl(data.arrivalTime, [
-        Validators.required,
-      ]),
+      arrivalTime: new UntypedFormControl(
+        data.arrivalTime ? toTimeInputString(new Date(data.arrivalTime)) : '',
+        [Validators.required]
+      ),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
       bbLr: new UntypedFormControl(data.bbLr, [Validators.required]),
       bbOut: new UntypedFormControl(data.bbOut, []),
       location: new UntypedFormControl(data.location, [Validators.required]),
-      completedAt: new UntypedFormControl(data.completedAt, []),
+      completedAt: new UntypedFormControl(
+        data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
+        []
+      ),
       comments: new UntypedFormControl(data.comments, []),
     });
   }
@@ -93,7 +98,7 @@ export class UpdateCheckinDialogComponent {
         room: this.form.get('room')?.value,
         // roomReady: this.form.get('roomReady')?.value,
         name: this.form.get('name')?.value,
-        arrivalTime: new Date(this.form.get('arrivalTime')?.value),
+        arrivalTime: toDateObject(this.form.get('arrivalTime')?.value),
         bags: this.form.get('bags')?.value,
         tagNr: this.form.get('tagNr')?.value,
         bbLr: this.form.get('bbLr')?.value
@@ -105,7 +110,7 @@ export class UpdateCheckinDialogComponent {
         location: this.form.get('location')?.value
           ? this.form.get('location')?.value.toUpperCase()
           : '',
-        completedAt: this.form.get('completedAt')?.value,
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
         comments: this.form.get('comments')?.value,
       })
       .subscribe({
