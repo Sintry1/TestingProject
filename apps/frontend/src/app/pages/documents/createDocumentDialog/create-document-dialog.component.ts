@@ -21,7 +21,6 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
   showOnDashboard = false;
   isLoading = false;
   uploadedFile?: File;
-  dialogData;
 
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
@@ -31,10 +30,8 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
     private documentService: DocumentsService,
     private dialog: MatDialog,
     private authService: AuthService,
-    @Inject(MAT_DIALOG_DATA) public data: { managerAccessRequired: boolean }
-  ) {
-    this.dialogData = data;
-  }
+    @Inject(MAT_DIALOG_DATA) public dialogData: { managerAccessRequired: boolean }
+  ) {}
 
   ngOnInit(): void {
     this.createDocumentForm = new UntypedFormGroup({
