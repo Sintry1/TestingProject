@@ -21,7 +21,8 @@ export class ManagerAccessDialogComponent {
     private dialog: MatDialog,
     private authService: AuthService,
     public dialogRef: MatDialogRef<ManagerAccessDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { component?: ComponentType<unknown>; width: string }
+    @Inject(MAT_DIALOG_DATA)
+    public data: { component?: ComponentType<unknown>; width: string; componentData: unknown }
   ) {
     this.dialogData = data;
     this.isLoading = false;
@@ -60,7 +61,7 @@ export class ManagerAccessDialogComponent {
           if (this.dialogData && this.dialogData.component) {
             this.dialog.open(this.dialogData.component, {
               width: this.dialogData.width,
-              data: { managerAccessRequired: true },
+              data: { managerAccessRequired: true, componentData: this.dialogData.componentData },
             });
           }
           this.dialogRef.close();

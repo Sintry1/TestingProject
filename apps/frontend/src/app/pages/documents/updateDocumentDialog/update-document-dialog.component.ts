@@ -1,8 +1,10 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument, IUpdateDocumentRequest } from '@omnihost/interfaces';
+import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
+import { AuthService } from '../../../services/auth.service';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { DocumentsService } from '../../../services/documents.service';
     '../../../../assets/styles/checkbox.scss',
   ],
 })
-export class UpdateDocumentDialogComponent implements OnInit {
+export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
   updateDocumentForm = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
@@ -26,21 +28,27 @@ export class UpdateDocumentDialogComponent implements OnInit {
   @ViewChild('fileUpload') fileUpload!: ElementRef;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: IDocument,
     private snackBar: MatSnackBar,
     private documentService: DocumentsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService,
+    @Inject(MAT_DIALOG_DATA)
+    public dialogData: { managerAccessRequired: boolean; componentData: IDocument }
   ) {}
 
   ngOnInit(): void {
     this.updateDocumentForm = new UntypedFormGroup({
-      title: new UntypedFormControl(this.data.title, [Validators.required]),
-      comments: new UntypedFormControl(this.data.comments, [
+      title: new UntypedFormControl(this.dialogData.componentData.title, [Validators.required]),
+      comments: new UntypedFormControl(this.dialogData.componentData.comments, [
         Validators.maxLength(1000),
         Validators.required,
       ]),
     });
-    this.showOnDashboard = this.data.showOnDashboard;
+    this.showOnDashboard = this.dialogData.componentData.showOnDashboard;
+  }
+
+  ngOnDestroy() {
+    this.authService.removeManagerInfo();
   }
 
   onSubmit(): void {
@@ -51,14 +59,35 @@ export class UpdateDocumentDialogComponent implements OnInit {
         this.commentsInput.nativeElement.focus();
       }
     } else {
-      this.updateDocument();
+      // Check if manager access is required, and if it is present and valid
+      if (this.dialogData.managerAccessRequired) {
+        const managerInfo = this.authService.getManagerInfo();
+        if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+          console.warn('Manager access has expired, re-prompting for password');
+          const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+            width: '600px',
+          });
+          // Once the manager access dialog is closed, re-submit the form and check the logic again
+          managerDialogRef.afterClosed().subscribe({
+            next: () => {
+              this.onSubmit();
+            },
+          });
+        } else {
+          // Manager access information is correct, perform the action
+          this.updateDocument();
+        }
+      } else {
+        // No manager access needed, perform the action
+        this.updateDocument();
+      }
     }
   }
 
   getDocumentName(): string {
     let fileName;
     if (!this.documentHasChanged) {
-      fileName = this.data.documentName;
+      fileName = this.dialogData.componentData.documentName;
     } else {
       fileName = this.uploadedNewFile?.name || '-';
     }
@@ -73,14 +102,33 @@ export class UpdateDocumentDialogComponent implements OnInit {
   }
 
   deleteDocument(): void {
+    // Check if manager access is required, and if it is present and valid
+    if (this.dialogData.managerAccessRequired) {
+      const managerInfo = this.authService.getManagerInfo();
+      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+        console.warn('Manager access has expired, re-prompting for password');
+        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+          width: '600px',
+        });
+        // Once the manager access dialog is closed, re-submit the form and check the logic again
+        managerDialogRef.afterClosed().subscribe({
+          next: () => {
+            this.deleteDocument();
+          },
+        });
+        return;
+      }
+    }
+    // Confirm the deletion
     if (confirm('Are you sure you wish to delete this document?')) {
       this.isLoading = true;
 
-      this.documentService.deleteDocument(this.data.documentId).subscribe({
+      this.documentService.deleteDocument(this.dialogData.componentData.documentId).subscribe({
         next: () => {
           this.snackBar.open('Document deleted!', 'Thanks', {
             duration: 5000,
           });
+          this.authService.removeManagerInfo();
           document.location.reload();
           this.dialog.closeAll();
           this.isLoading = false;
@@ -117,7 +165,7 @@ export class UpdateDocumentDialogComponent implements OnInit {
     // Update file
     if (this.documentHasChanged && this.uploadedNewFile) {
       this.documentService
-        .updateDocumentFile(this.data.documentId, this.uploadedNewFile)
+        .updateDocumentFile(this.dialogData.componentData.documentId, this.uploadedNewFile)
         .subscribe({
           next: () => {
             this.snackBar.open('Document file has been updated!', 'Thanks', {
@@ -140,11 +188,12 @@ export class UpdateDocumentDialogComponent implements OnInit {
     };
 
     // Update document info
-    this.documentService.updateDocument(this.data.documentId, doc).subscribe({
+    this.documentService.updateDocument(this.dialogData.componentData.documentId, doc).subscribe({
       next: () => {
         this.snackBar.open('Document information updated!', 'Thanks', {
           duration: 5000,
         });
+        this.authService.removeManagerInfo();
         document.location.reload();
         this.dialog.closeAll();
         this.isLoading = false;
