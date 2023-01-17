@@ -11,6 +11,7 @@ import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard
 import { WeatherWidgetComponent } from './components/dashboardWidgets/weatherWidget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/documentWidget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/documentWidget/seeDocumentDialog/see-document-dialog.component';
+import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/tableInfoDialog/table-info-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
@@ -45,6 +46,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    ManagerAccessDialogComponent,
     DashboardComponent,
     PageNotFoundComponent,
     CarsComponent,
