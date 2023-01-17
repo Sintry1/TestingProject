@@ -9,6 +9,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
 import { BikeService } from '../../../services/bikes.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-bike-dialog',
@@ -34,7 +35,7 @@ export class UpdateBikeDialogComponent {
     private bikeService: BikeService,
     private snackbar: MatSnackBar,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: IBike
+    @Inject(MAT_DIALOG_DATA) public data: IBike // TODO: Fix - Dates are strings not Date objects.
   ) {
     this.updateBikeForm = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [
@@ -43,15 +44,21 @@ export class UpdateBikeDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       nrOfBikes: new UntypedFormControl(data.nrOfBikes, [Validators.required]),
-      pickUpTime: new UntypedFormControl(data.pickUpTime, [
-        Validators.required,
-      ]),
+      pickUpTime: new UntypedFormControl(
+        data.pickUpTime ? toDatetimeInputString(new Date(data.pickUpTime)) : '',
+        [Validators.required]
+      ),
       name: new UntypedFormControl(data.name, [Validators.required]),
       reservedBy: new UntypedFormControl(data.reservedBy, [
         Validators.required,
       ]),
       comments: new UntypedFormControl(data.comments, []),
-      completedAt: new UntypedFormControl(data.completedAt, []),
+      completedAt: new UntypedFormControl(
+        data.completedAt
+          ? toDatetimeInputString(new Date(data.completedAt))
+          : '',
+        []
+      ),
     });
     this.bikeFormCompleted = data.bikeFormCompleted ?? false;
   }
@@ -79,12 +86,14 @@ export class UpdateBikeDialogComponent {
       .updateBike(this.data.bikeId, {
         room: this.updateBikeForm.get('room')?.value,
         nrOfBikes: this.updateBikeForm.get('nrOfBikes')?.value,
-        pickUpTime: new Date(this.updateBikeForm.get('pickUpTime')?.value),
+        pickUpTime: toDateObject(this.updateBikeForm.get('pickUpTime')?.value),
         name: this.updateBikeForm.get('name')?.value,
         reservedBy: this.updateBikeForm.get('reservedBy')?.value,
         bikeFormCompleted: this.bikeFormCompleted,
         comments: this.updateBikeForm.get('comments')?.value,
-        completedAt: this.updateBikeForm.get('completedAt')?.value,
+        completedAt: toDateObject(
+          this.updateBikeForm.get('completedAt')?.value
+        ),
       })
       .subscribe({
         next: () => {

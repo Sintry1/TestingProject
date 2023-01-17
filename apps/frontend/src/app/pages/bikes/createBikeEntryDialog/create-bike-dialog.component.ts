@@ -8,6 +8,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeService } from '../../../services/bikes.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-create-bike-dialog',
@@ -39,11 +40,13 @@ export class CreateBikeDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       nrOfBikes: new UntypedFormControl('', [Validators.required]),
-      pickUpTime: new UntypedFormControl(new Date(), [Validators.required]),
+      pickUpTime: new UntypedFormControl(toDatetimeInputString(new Date()), [
+        Validators.required,
+      ]),
       name: new UntypedFormControl('', [Validators.required]),
       reservedBy: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', []),
-      completedAt: new UntypedFormControl(null, []),
+      completedAt: new UntypedFormControl('', []),
     });
   }
 
@@ -68,12 +71,14 @@ export class CreateBikeDialogComponent {
       .createBike({
         room: this.createBikeForm.get('room')?.value,
         nrOfBikes: this.createBikeForm.get('nrOfBikes')?.value,
-        pickUpTime: new Date(this.createBikeForm.get('pickUpTime')?.value),
+        pickUpTime: toDateObject(this.createBikeForm.get('pickUpTime')?.value),
         name: this.createBikeForm.get('name')?.value,
         reservedBy: this.createBikeForm.get('reservedBy')?.value,
         bikeFormCompleted: this.bikeFormCompleted,
         comments: this.createBikeForm.get('comments')?.value,
-        completedAt: this.createBikeForm.get('completedAt')?.value,
+        completedAt: toDateObject(
+          this.createBikeForm.get('completedAt')?.value
+        ),
       })
       .subscribe({
         next: () => {

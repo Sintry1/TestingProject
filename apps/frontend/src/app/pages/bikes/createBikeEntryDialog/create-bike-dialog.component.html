@@ -83,57 +83,25 @@
   </div>
 
   <div class="dialog-row">
-    <input type="date" formControlName="pickUpTime">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Pick up time</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="pickUpTimePicker"
-        placeholder="HH:mm"
+        type="datetime-local"
         formControlName="pickUpTime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickUpTimePicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #pickUpTimePicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createBikeForm.get('pickUpTime')?.invalid &&
-          createBikeForm.get('pickUpTime')?.dirty
-        "
-      >
-        Required
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
 
-    <input type="date" formControlName="completedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Returned</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Completed At</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="completedAtPicker"
-        placeholder="HH:mm"
+        type="datetime-local"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAtPicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #completedAtPicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
