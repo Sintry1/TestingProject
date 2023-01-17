@@ -1,5 +1,6 @@
 import { ComponentType } from '@angular/cdk/portal';
 import { Component, Inject } from '@angular/core';
+import { UntypedFormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -9,6 +10,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class ManagerAccessDialogComponent {
   nextDialogInfo: { component: ComponentType<unknown>; width: string };
+  managerAccessForm = new UntypedFormGroup({});
+  isLoading = false;
 
   constructor(
     private dialog: MatDialog,
@@ -18,7 +21,7 @@ export class ManagerAccessDialogComponent {
     this.nextDialogInfo = data;
   }
 
-  submit() {
+  onSubmit() {
     this.dialog.open(this.nextDialogInfo.component, { width: this.nextDialogInfo.width });
     this.dialogRef.close();
   }

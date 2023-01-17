@@ -1,6 +1,29 @@
-<h1>Hello Manager</h1>
-<br />
-<input type="password" placeholder="Your manager password" />
-<br />
-<br />
-<button type="submit" (click)="submit()">Confirm Access</button>
+<form [formGroup]="managerAccessForm" (ngSubmit)="onSubmit()" class="dialog-container">
+  <h1>Manager access</h1>
+  <hr />
+
+  <mat-form-field autocomplete="off" appearance="fill" class="full-width">
+    <mat-label>Password</mat-label>
+    <input #room type="password" formControlName="password" matInput />
+    <mat-error
+      *ngIf="managerAccessForm.get('password')?.invalid && managerAccessForm.get('password')?.dirty"
+    >
+      Error message TBD
+    </mat-error>
+  </mat-form-field>
+
+  <p class="description-text">
+    * Some functions require approval from the manager. Please write the account password to
+    continue with this action.
+  </p>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Continue</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>
