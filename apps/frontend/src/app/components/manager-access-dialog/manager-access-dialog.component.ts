@@ -1,7 +1,8 @@
 import { ComponentType } from '@angular/cdk/portal';
-import { Component, Inject } from '@angular/core';
-import { UntypedFormGroup } from '@angular/forms';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'frontend-manager-access-dialog',
@@ -11,18 +12,62 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 export class ManagerAccessDialogComponent {
   nextDialogInfo: { component: ComponentType<unknown>; width: string };
   managerAccessForm = new UntypedFormGroup({});
+  errorMessage: string | null;
   isLoading = false;
+
+  @ViewChild('password') passwordInput!: ElementRef;
 
   constructor(
     private dialog: MatDialog,
+    private authService: AuthService,
     public dialogRef: MatDialogRef<ManagerAccessDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { component: ComponentType<unknown>; width: string }
   ) {
     this.nextDialogInfo = data;
+    this.isLoading = false;
+    this.errorMessage = null;
+    this.managerAccessForm = new UntypedFormGroup({
+      password: new UntypedFormControl(null, [Validators.required, Validators.maxLength(100)]),
+    });
   }
 
   onSubmit() {
-    this.dialog.open(this.nextDialogInfo.component, { width: this.nextDialogInfo.width });
-    this.dialogRef.close();
+    if (!this.managerAccessForm.valid) {
+      if (this.managerAccessForm.get('password')?.invalid) {
+        this.passwordInput.nativeElement.focus();
+      }
+    } else {
+      this.login();
+    }
+  }
+
+  login() {
+    this.isLoading = true;
+    this.managerAccessForm.disable();
+    this.authService
+      .login({
+        email: this.authService.getAccessInfo()?.user.email + '-mgmt',
+        password: this.managerAccessForm.get('password')?.value,
+      })
+      .subscribe({
+        next: (response) => {
+          this.authService.saveManagerInfo(response);
+          // Clean the form
+          this.isLoading = false;
+          this.managerAccessForm.enable();
+          this.errorMessage = null;
+          // Open the target dialog
+          this.dialog.open(this.nextDialogInfo.component, { width: this.nextDialogInfo.width });
+          this.dialogRef.close();
+        },
+        error: (error) => {
+          console.warn(error);
+          this.isLoading = false;
+          this.errorMessage = 'Access denied';
+          this.managerAccessForm.get('password')?.setValue(null);
+          this.managerAccessForm.enable();
+          this.passwordInput.nativeElement.focus();
+        },
+      });
   }
 }

@@ -4,11 +4,9 @@
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
     <mat-label>Password</mat-label>
-    <input #room type="password" formControlName="password" matInput />
-    <mat-error
-      *ngIf="managerAccessForm.get('password')?.invalid && managerAccessForm.get('password')?.dirty"
-    >
-      Error message TBD
+    <input #password type="password" formControlName="password" matInput required />
+    <mat-error *ngIf="errorMessage !== null">
+      {{ errorMessage ? errorMessage : 'Required' }}
     </mat-error>
   </mat-form-field>
 

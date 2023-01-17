@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
@@ -89,7 +90,10 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     BrowserAnimationsModule,
     materialModules,
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -5,6 +5,7 @@ import {
   IAccessInfo,
   ILoginRequest,
   ILoginResponse,
+  IManagerAccessInfo,
   LocalStorageVars,
   Role,
 } from '@omnihost/interfaces';
@@ -54,13 +55,14 @@ export class AuthService {
   public logout() {
     this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
+    this.localStorageService.removeItem(LocalStorageVars.managerInfo);
     console.log('Redirecting to the login page...');
     this.router.navigate(['/login']);
   }
 
   /**
    * Save access information to local storage.
-   * @param accessInfo information used for authentication like the access token.
+   * @param loginResponse access information returned by the API call.
    */
   public saveAccessInfo(loginResponse: ILoginResponse): void {
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
@@ -81,6 +83,40 @@ export class AuthService {
       return accessInfo.getValue();
     }
     return null;
+  }
+
+  /**
+   * Save access information of a manager user to local storage.
+   * @param loginResponse access information returned by the API call.
+   */
+  public saveManagerInfo(loginResponse: ILoginResponse): void {
+    this.removeManagerInfo();
+    this.localStorageService.setItem<IManagerAccessInfo>(LocalStorageVars.managerInfo, {
+      accessToken: loginResponse.accessToken,
+    });
+  }
+
+  /**
+   * Get manager access information for authentication. The data comes from local storage.
+   * @returns manager access information needed for authentication and authorization. Returns null if no information is found.
+   */
+  public getManagerInfo(): IManagerAccessInfo | null {
+    const accessInfo = this.localStorageService.getItem<IManagerAccessInfo>(
+      LocalStorageVars.managerInfo
+    );
+    if (accessInfo && accessInfo.getValue()) {
+      return accessInfo.getValue();
+    }
+    return null;
+  }
+
+  /**
+   * Remove the manager access information from local storage and API.
+   */
+  public removeManagerInfo(): void {
+    this.localStorageService.removeItem(LocalStorageVars.managerInfo);
+    this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
+    console.log('Ending manager access...');
   }
 
   /**
