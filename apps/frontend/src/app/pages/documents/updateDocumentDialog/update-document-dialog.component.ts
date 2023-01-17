@@ -59,28 +59,23 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
         this.commentsInput.nativeElement.focus();
       }
     } else {
-      // Check if manager access is required, and if it is present and valid
-      if (this.dialogData.managerAccessRequired) {
-        const managerInfo = this.authService.getManagerInfo();
-        if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
-          console.warn('Manager access has expired, re-prompting for password');
-          const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-            width: '600px',
-          });
-          // Once the manager access dialog is closed, re-submit the form and check the logic again
-          managerDialogRef.afterClosed().subscribe({
-            next: () => {
-              this.onSubmit();
-            },
-          });
-        } else {
-          // Manager access information is correct, perform the action
-          this.updateDocument();
-        }
-      } else {
-        // No manager access needed, perform the action
-        this.updateDocument();
+      // Check if manager access is present and valid
+      const managerInfo = this.authService.getManagerInfo();
+      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+        console.warn('Manager access has expired, re-prompting for password');
+        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+          width: '600px',
+        });
+        // Once the manager access dialog is closed, re-submit the form and check the logic again
+        managerDialogRef.afterClosed().subscribe({
+          next: () => {
+            this.onSubmit();
+          },
+        });
+        return;
       }
+      // Manager access information is correct, perform the action
+      this.updateDocument();
     }
   }
 
@@ -102,22 +97,20 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
   }
 
   deleteDocument(): void {
-    // Check if manager access is required, and if it is present and valid
-    if (this.dialogData.managerAccessRequired) {
-      const managerInfo = this.authService.getManagerInfo();
-      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
-        console.warn('Manager access has expired, re-prompting for password');
-        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-          width: '600px',
-        });
-        // Once the manager access dialog is closed, re-submit the form and check the logic again
-        managerDialogRef.afterClosed().subscribe({
-          next: () => {
-            this.deleteDocument();
-          },
-        });
-        return;
-      }
+    // Check if manager access is present and valid
+    const managerInfo = this.authService.getManagerInfo();
+    if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+      console.warn('Manager access has expired, re-prompting for password');
+      const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+        width: '600px',
+      });
+      // Once the manager access dialog is closed, re-submit the form and check the logic again
+      managerDialogRef.afterClosed().subscribe({
+        next: () => {
+          this.deleteDocument();
+        },
+      });
+      return;
     }
     // Confirm the deletion
     if (confirm('Are you sure you wish to delete this document?')) {
