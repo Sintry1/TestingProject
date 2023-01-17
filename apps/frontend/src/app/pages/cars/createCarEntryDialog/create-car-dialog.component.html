@@ -46,67 +46,25 @@
   </div>
 
   <div class="dialog-row">
-    <input type="date" formControlName="arrivalDate">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Arrival Date</mat-label>
       <input
-        #arrivalDate
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="arrivalDatePicker"
-        placeholder="dd/MM"
+        type="date"
         formControlName="arrivalDate"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(arrivalDatePicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #arrivalDatePicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createCarForm.get('arrivalDate')?.invalid &&
-          createCarForm.get('arrivalDate')?.dirty
-        "
-      >
-        Required
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
 
-    <input type="date" formControlName="departureDate">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Departure Date</mat-label>
       <input
-        #departureDate
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="departureDatePicker"
+        type="date"
         formControlName="departureDate"
-        placeholder="dd/MM"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(departureDatePicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #departureDatePicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createCarForm.get('departureDate')?.invalid &&
-          createCarForm.get('departureDate')?.dirty
-        "
-      >
-        Required
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <div class="dialog-row">
@@ -149,68 +107,25 @@
   </div>
 
   <div class="dialog-row">
-    <input type="date" formControlName="expirationDate">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
+    <mat-form-field class="remove-error-message">
       <mat-label>Expiration Date</mat-label>
       <input
-        #expirationDate
-        type="text"
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
         formControlName="expirationDate"
-        [ngxMatDatetimePicker]="expirationDatePicker"
-        matInput
-        placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(expirationDatePicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #expirationDatePicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createCarForm.get('expirationDate')?.invalid &&
-          createCarForm.get('expirationDate')?.dirty
-        "
-      >
-        Required
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
 
-    <input type="date" formControlName="pickupTime">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Pick Up Time</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Pick up time</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        type="text"
-        [ngxMatDatetimePicker]="pickUpTimePicker"
+        type="datetime-local"
         formControlName="pickUpTime"
-        placeholder="dd/MM HH:mm"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(pickUpTimePicker)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #pickUpTimePicker
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createCarForm.get('pickUpTime')?.invalid &&
-          createCarForm.get('pickUpTime')?.dirty
-        "
-      >
-        Required
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <div class="dialog-row">
