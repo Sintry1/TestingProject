@@ -8,6 +8,7 @@ import {
   ISignupResponse,
   IUser,
   LoginRequest,
+  Role,
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
@@ -59,10 +60,15 @@ export class AuthService {
       { ...payload, tokenType: 'access' },
       { expiresIn: '30m' }
     );
-    const refreshToken = this.jwtService.sign(
-      { ...payload, tokenType: 'refresh' },
-      { expiresIn: '7d' }
-    );
+    // Only create the refresh token for non-management users
+    let refreshToken = null;
+    if (user.role !== Role.manager) {
+      refreshToken = this.jwtService.sign(
+        { ...payload, tokenType: 'refresh' },
+        { expiresIn: '7d' }
+      );
+    }
+
     this.tokensService.create(accessToken, refreshToken);
     return {
       accessToken,

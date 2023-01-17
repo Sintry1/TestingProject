@@ -1,8 +1,7 @@
 <!-- Only content unaffected by the sidenav should be placed outside of mat-sidenav-container -->
-<mat-sidenav-container autosize class="body-container">
+<mat-sidenav-container autosize class="body-container" *ngIf="router.url !== '/login'">
   <!-- Sidebar -->
   <mat-sidenav
-    *ngIf="router.url !== '/login'"
     mode="side"
     disableClose
     opened
@@ -174,3 +173,5 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<router-outlet *ngIf="router.url === '/login'"></router-outlet>

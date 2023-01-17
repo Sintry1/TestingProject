@@ -1,3 +1,3 @@
 export enum LocalStorageVars {
-  authUser = 'authUser',
+  accessInfo = 'accessInfo',
 }

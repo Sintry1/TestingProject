@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 import { DisplayDateService } from './services/display-date.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class AppComponent {
   constructor(
     public router: Router,
     private displayDateService: DisplayDateService,
+    private authService: AuthService,
     private snackBar: MatSnackBar
   ) {
     this.displayDateService
@@ -77,7 +79,8 @@ export class AppComponent {
    * Remove the logged in user information from local storage and API
    */
   logout() {
-    this.snackBar.open('You have logged out', `You're joking, right?`, {
+    this.authService.logout();
+    this.snackBar.open('You have logged out', undefined, {
       duration: 5000,
     });
   }

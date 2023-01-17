@@ -38,8 +38,12 @@ export class TokensService {
    * @param token an access token or a refresh token.
    */
   async deleteByToken(token: string): Promise<void> {
-    const foundPair = await this.findByToken(token);
-    this.tokenRepo.remove(foundPair);
+    try {
+      const foundPair = await this.findByToken(token);
+      this.tokenRepo.remove(foundPair);
+    } catch (error) {
+      console.error(`An Unexpected error occurred while deleting a token`, error);
+    }
   }
 
   async deleteOldTokens(): Promise<void> {
