@@ -134,6 +134,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
-    <button class="action-btn" mat-raised-button type="submit">Add long term</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">long term</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

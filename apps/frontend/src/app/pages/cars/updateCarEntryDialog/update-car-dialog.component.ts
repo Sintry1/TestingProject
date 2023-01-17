@@ -86,6 +86,7 @@ export class UpdateCarDialogComponent {
   }
 
   updateCarListEntry(): void {
+    this.isLoading = true;
     this.carService
       .updateCar(this.data.carId, {
         room: this.updateCarForm.get('room')?.value,

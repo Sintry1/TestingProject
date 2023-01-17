@@ -75,6 +75,7 @@ export class CreateCarDialogComponent {
   }
 
   createCarListEntry(): void {
+    this.isLoading = true;
     this.carService
       .createCar({
         room: this.createCarForm.get('room')?.value,
