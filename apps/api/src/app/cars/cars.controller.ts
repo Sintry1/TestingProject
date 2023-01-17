@@ -10,6 +10,7 @@ import {
   Query,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,16 +20,20 @@ import {
 import {
   CarSortOptions,
   CreateCarRequest,
+  Role,
   SortOrder,
   UpdateCarRequest,
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
 
 @ApiTags('Cars')
 @Controller('cars')
+@ApiBearerAuth()
+@Roles(Role.user, Role.manager)
 export class CarsController {
   constructor(private carsService: CarsService) {}
 

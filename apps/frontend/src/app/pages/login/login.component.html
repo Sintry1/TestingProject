@@ -1,0 +1,27 @@
+<div id="content-wrapper">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form">
+    <div class="title-wrapper">
+      <span class="title">OMNIHOST</span>
+      <hr />
+      <span class="subtitle"> Systems</span>
+    </div>
+    <div class="dialog-row"></div>
+
+    <mat-form-field appearance="fill" autocomplete="off" class="full-width no-margin white-input">
+      <mat-label>Email</mat-label>
+      <input #email type="email" formControlName="email" matInput placeholder="Email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" autocomplete="off" class="full-width no-margin white-input">
+      <mat-label>Password</mat-label>
+      <input #password type="password" formControlName="password" matInput placeholder="Password" />
+    </mat-form-field>
+
+    <button class="action-btn half-width" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Login</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </form>
+</div>
