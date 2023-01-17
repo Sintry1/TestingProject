@@ -117,6 +117,7 @@ export class DocumentsController {
   }
 
   @Patch(':documentId')
+  @Roles(Role.manager)
   @ApiOperation({
     summary: 'Update a document entry.',
   })
@@ -130,6 +131,7 @@ export class DocumentsController {
   }
 
   @Patch('/file/:documentId')
+  @Roles(Role.manager)
   @ApiOperation({
     summary: 'Upload a new file for the document entry.',
   })
@@ -152,6 +154,7 @@ export class DocumentsController {
   }
 
   @Delete(':documentId')
+  @Roles(Role.manager)
   @ApiOperation({ summary: 'Delete a document entry.' })
   @ApiOkResponse({ type: DeleteDocumentResponse })
   @HttpCode(200)
