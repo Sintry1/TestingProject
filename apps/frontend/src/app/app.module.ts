@@ -11,7 +11,7 @@ import { DashboardLinksComponent } from './components/dashboard-widgets/dashboar
 import { WeatherWidgetComponent } from './components/dashboard-widgets/weather-widget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/document-widget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/document-widget/see-document-dialog/see-document-dialog.component';
-import { TableInfoDialogComponent } from './components/tableInfoDialog/table-info-dialog.component';
+import { TableInfoDialogComponent } from './components/table-info-dialog/table-info-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
