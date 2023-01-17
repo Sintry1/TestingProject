@@ -6,7 +6,14 @@ import { AppModule } from './app/app.module';
 import { EntityNotFoundExceptionFilter } from './app/utils/entity-not-found-exception.filter';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule);
+
+  app.enableCors({
+    allowedHeaders: '*',
+    origin: process.env.GLOBAL_CORS_ALLOWED_ORIGIN,
+    credentials: true,
+  });
+
   const port = process.env.PORT || 3333;
 
   app.useGlobalFilters(new EntityNotFoundExceptionFilter());

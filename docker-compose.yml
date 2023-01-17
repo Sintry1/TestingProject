@@ -36,6 +36,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-root}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE:-omnihost}
+      GLOBAL_CORS_ALLOWED_ORIGIN: ${GLOBAL_CORS_ALLOWED_ORIGIN}
+      JWT_SECRET: ${JWT_SECRET}
     networks:
       - omnihost-net
     ports:
