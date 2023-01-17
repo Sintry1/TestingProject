@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Body, Controller, HttpCode, Logger, Post, Request, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { IJwtInfo, LoginRequest, LoginResponse } from '@omnihost/interfaces';
+import { IJwtInfo, LoginRequest, LoginResponse, Role } from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
 import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
 import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
@@ -23,7 +23,11 @@ export class AuthController {
   @HttpCode(200)
   async login(@Request() req, @Body() LoginRequest: LoginRequest) {
     // uses the passport library logic to obtain the user
-    this.logger.verbose(`Logging in user ${req.user.userId}`);
+    this.logger.verbose(
+      `Logging in user ${req.user.userId}${
+        req.user.role === Role.manager ? '. User is a manager!' : ''
+      }`
+    );
     return this.authService.login(req.user);
   }
 
