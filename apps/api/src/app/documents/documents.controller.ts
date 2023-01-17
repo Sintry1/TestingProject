@@ -94,6 +94,7 @@ export class DocumentsController {
   }
 
   @Post()
+  @Roles(Role.manager)
   @ApiOperation({
     summary: 'Create a document entry.',
   })
