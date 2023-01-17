@@ -7,8 +7,8 @@ import { TableInfoDialogComponent } from '../../components/table-info-dialog/tab
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
-import { CreateCarDialogComponent } from './createCarEntryDialog/create-car-dialog.component';
-import { UpdateCarDialogComponent } from './updateCarEntryDialog/update-car-dialog.component';
+import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
+import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
 
 @Component({
   selector: 'frontend-cars',

@@ -6,8 +6,8 @@ import { TableInfoDialogComponent } from '../../components/table-info-dialog/tab
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { CreateCheckoutDialogComponent } from './createCheckoutDialog/create-checkout-dialog.component';
-import { UpdateCheckoutDialogComponent } from './updateCheckoutDialog/update-checkout-dialog.component';
+import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
+import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
 
 @Component({
   selector: 'frontend-checkin',

@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DocumentSortOptions, IDocument, SortOrder } from '@omnihost/interfaces';
 import { DocumentsService } from '../../services/documents.service';
-import { CreateDocumentDialogComponent } from './createDocumentDialog/create-document-dialog.component';
+import { CreateDocumentDialogComponent } from './create-document-dialog/create-document-dialog.component';
 
 @Component({
   selector: 'frontend-documents',

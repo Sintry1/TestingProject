@@ -7,8 +7,8 @@ import { TableInfoDialogComponent } from '../../components/table-info-dialog/tab
 import { BikeService } from '../../services/bikes.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
-import { CreateBikeDialogComponent } from './createBikeEntryDialog/create-bike-dialog.component';
-import { UpdateBikeDialogComponent } from './updateBikeEntryDialog/update-bike-dialog.component';
+import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
+import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
 
 @Component({
   selector: 'frontend-bikes',

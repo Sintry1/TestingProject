@@ -6,7 +6,7 @@ import { TableInfoDialogComponent } from '../../components/table-info-dialog/tab
 import { DisplayDateService } from '../../services/display-date.service';
 import { TasksService } from '../../services/tasks.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { EditTaskDialogComponent } from './editTaskDialog/editTaskDialog.component';
+import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.component';
 
 @Component({
   selector: 'frontend-tasks',
