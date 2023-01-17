@@ -65,6 +65,7 @@ export class UpdateBikeDialogComponent {
   }
 
   updateBikeListEntry(): void {
+    this.isLoading = true;
     this.bikeService
       .updateBike(this.data.bikeId, {
         room: this.updateBikeForm.get('room')?.value,

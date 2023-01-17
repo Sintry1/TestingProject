@@ -194,6 +194,11 @@
   <div class="dialog-row">
     <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
-    <button class="action-btn" mat-flat-button type="submit">Add Car</button>
+    <button class="action-btn" mat-flat-button type="submit">
+      <div *ngIf="!isLoading">Add Car</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>
