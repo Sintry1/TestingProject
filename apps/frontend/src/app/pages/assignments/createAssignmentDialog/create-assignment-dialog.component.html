@@ -88,58 +88,25 @@
   </div>
 
   <div class="dialog-row">
-    <input type="date" formControlName="receivedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Time received</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Received At</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="receivedAt"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="receivedAt"
-        [max]="maxDatetime"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(receivedAt)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #receivedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-    </mat-form-field> -->
+    </mat-form-field>
 
-    <input type="date" formControlName="completedAt">
-    <!-- <mat-form-field autocomplete="off" appearance="fill"> REMOVE
-      <mat-label>Time performed</mat-label>
+    <mat-form-field class="remove-error-message">
+      <mat-label>Completed At</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="completedAt"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle
-        matSuffix
-        [for]="$any(completedAt)"
-      ></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #completedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
-      <mat-error
-        *ngIf="
-          createAssignmentForm.get('completedAt')?.invalid &&
-          createAssignmentForm.get('completedAt')?.dirty
-        "
-      >
-        Invalid time
-      </mat-error>
-    </mat-form-field> -->
+    </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">

@@ -15,6 +15,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment } from '@omnihost/interfaces';
 import { AssignmentsService } from '../../../services/assignments.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-assignment-dialog',
@@ -40,7 +41,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
     private assignmentService: AssignmentsService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: IAssignment
+    @Inject(MAT_DIALOG_DATA) public data: IAssignment // TODO: Look into fixing this: misrepresentation of data: receivedAt and completedAt are not actually Date objects, but strings
   ) {}
 
   ngOnInit(): void {
@@ -64,10 +65,15 @@ export class UpdateAssignmentDialogComponent implements OnInit {
       performedBy: new UntypedFormControl(this.data.performedBy ?? '', [
         Validators.maxLength(20),
       ]),
-      receivedAt: new UntypedFormControl(this.data.receivedAt, [
-        Validators.required,
-      ]),
-      completedAt: new UntypedFormControl(this.data.completedAt ?? ''),
+      receivedAt: new UntypedFormControl(
+        toDatetimeInputString(new Date(this.data.receivedAt)),
+        [Validators.required]
+      ),
+      completedAt: new UntypedFormControl(
+        this.data.completedAt
+          ? toDatetimeInputString(new Date(this.data.completedAt))
+          : ''
+      ),
     });
   }
 
@@ -101,8 +107,12 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         performedBy: this.updateAssignmentForm.get('performedBy')?.value
           ? this.updateAssignmentForm.get('performedBy')?.value.toUpperCase()
           : '',
-        receivedAt: this.updateAssignmentForm.get('receivedAt')?.value,
-        completedAt: this.updateAssignmentForm.get('completedAt')?.value,
+        receivedAt: toDateObject(
+          this.updateAssignmentForm.get('receivedAt')?.value
+        ),
+        completedAt: toDateObject(
+          this.updateAssignmentForm.get('completedAt')?.value
+        ),
       })
       .subscribe({
         next: () => {

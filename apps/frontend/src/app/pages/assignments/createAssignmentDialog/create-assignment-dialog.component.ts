@@ -8,6 +8,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-create-assignment-dialog',
@@ -45,7 +46,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
         Validators.required,
       ]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
-      receivedAt: new UntypedFormControl(new Date(), [
+      receivedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
         Validators.required,
         Validators.maxLength(20),
       ]),
@@ -88,8 +89,12 @@ export class CreateAssignmentDialogComponent implements OnInit {
         performedBy: this.createAssignmentForm.get('performedBy')?.value
           ? this.createAssignmentForm.get('performedBy')?.value.toUpperCase()
           : '',
-        receivedAt: this.createAssignmentForm.get('receivedAt')?.value,
-        completedAt: this.createAssignmentForm.get('completedAt')?.value,
+        receivedAt: toDateObject(
+          this.createAssignmentForm.get('receivedAt')?.value
+        ),
+        completedAt: toDateObject(
+          this.createAssignmentForm.get('completedAt')?.value
+        ),
       })
       .subscribe({
         next: () => {
