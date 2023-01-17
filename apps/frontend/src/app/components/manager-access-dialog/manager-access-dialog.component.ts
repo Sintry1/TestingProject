@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./manager-access-dialog.component.scss', '../../../assets/styles/dialog.scss'],
 })
 export class ManagerAccessDialogComponent {
-  nextDialogInfo: { component: ComponentType<unknown>; width: string };
+  dialogData;
   managerAccessForm = new UntypedFormGroup({});
   errorMessage: string | null;
   isLoading = false;
@@ -21,9 +21,9 @@ export class ManagerAccessDialogComponent {
     private dialog: MatDialog,
     private authService: AuthService,
     public dialogRef: MatDialogRef<ManagerAccessDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { component: ComponentType<unknown>; width: string }
+    @Inject(MAT_DIALOG_DATA) public data: { component?: ComponentType<unknown>; width: string }
   ) {
-    this.nextDialogInfo = data;
+    this.dialogData = data;
     this.isLoading = false;
     this.errorMessage = null;
     this.managerAccessForm = new UntypedFormGroup({
@@ -56,8 +56,13 @@ export class ManagerAccessDialogComponent {
           this.isLoading = false;
           this.managerAccessForm.enable();
           this.errorMessage = null;
-          // Open the target dialog
-          this.dialog.open(this.nextDialogInfo.component, { width: this.nextDialogInfo.width });
+          // Open the target dialog if it is specified
+          if (this.dialogData && this.dialogData.component) {
+            this.dialog.open(this.dialogData.component, {
+              width: this.dialogData.width,
+              data: { managerAccessRequired: true },
+            });
+          }
           this.dialogRef.close();
         },
         error: (error) => {

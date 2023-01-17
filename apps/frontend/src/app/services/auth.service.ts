@@ -53,7 +53,11 @@ export class AuthService {
    * Remove the logged in user information from local storage and API.
    */
   public logout() {
-    this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
+    // Call the API and remove the token if it is still valid
+    const accessInfo = this.getAccessInfo();
+    if (accessInfo && !this.isJwtExpired(accessInfo.accessToken)) {
+      this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
+    }
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
     this.localStorageService.removeItem(LocalStorageVars.managerInfo);
     console.log('Redirecting to the login page...');
@@ -90,7 +94,7 @@ export class AuthService {
    * @param loginResponse access information returned by the API call.
    */
   public saveManagerInfo(loginResponse: ILoginResponse): void {
-    this.removeManagerInfo();
+    this.localStorageService.removeItem(LocalStorageVars.managerInfo);
     this.localStorageService.setItem<IManagerAccessInfo>(LocalStorageVars.managerInfo, {
       accessToken: loginResponse.accessToken,
     });
@@ -114,8 +118,13 @@ export class AuthService {
    * Remove the manager access information from local storage and API.
    */
   public removeManagerInfo(): void {
+    // Call the API and remove the token if it is still valid
+    const managerInfo = this.getManagerInfo();
+    if (managerInfo && !this.isJwtExpired(managerInfo.accessToken)) {
+      this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
+    }
+    // Remove the manager info from local storage
     this.localStorageService.removeItem(LocalStorageVars.managerInfo);
-    this.http.post(`${env.apiUrl}/auth/logout`, {}).subscribe();
     console.log('Ending manager access...');
   }
 

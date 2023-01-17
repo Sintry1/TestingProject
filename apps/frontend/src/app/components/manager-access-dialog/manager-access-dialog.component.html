@@ -2,6 +2,8 @@
   <h1>Manager access</h1>
   <hr />
 
+  <p *ngIf="!dialogData">Your access has expired!</p>
+
   <mat-form-field autocomplete="off" appearance="fill" class="full-width">
     <mat-label>Password</mat-label>
     <input #password type="password" formControlName="password" matInput required />
