@@ -1,5 +1,22 @@
 import { IAssignment } from '@omnihost/interfaces';
 
+export const assignmentComments = [
+  'Unclog the toilet',
+  'Clean up a broken glass',
+  'Clean up a broken plate',
+  'Clean up a broken bottle',
+  'Help guest with a cold shower',
+  'Oil a bike',
+  'Renew car parking ticket',
+  'Reorganize books in the reading area',
+  'Fix the wifi',
+  'Set up Omnihost on another ipad',
+  'Replace a lightbulb. Requires a manager to be present',
+  'Recharge the electric bikes',
+  'Organize the bikes',
+  'Put a "wet floor" sign by the bathroom',
+];
+
 export const assignments: IAssignment[] = [
   {
     assignmentId: '7fb26c0c-5244-4801-9705-5837d0ef9466',
