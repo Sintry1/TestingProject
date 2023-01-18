@@ -1,8 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICreateDocumentRequest } from '@omnihost/interfaces';
+import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
+import { AuthService } from '../../../services/auth.service';
 import { DocumentsService } from '../../../services/documents.service';
 
 @Component({
@@ -14,7 +16,7 @@ import { DocumentsService } from '../../../services/documents.service';
     '../../../../assets/styles/checkbox.scss',
   ],
 })
-export class CreateDocumentDialogComponent implements OnInit {
+export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
   createDocumentForm = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
@@ -26,7 +28,9 @@ export class CreateDocumentDialogComponent implements OnInit {
   constructor(
     private snackBar: MatSnackBar,
     private documentService: DocumentsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService,
+    @Inject(MAT_DIALOG_DATA) public dialogData: { managerAccessRequired: boolean }
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +38,10 @@ export class CreateDocumentDialogComponent implements OnInit {
       title: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
+  }
+
+  ngOnDestroy() {
+    this.authService.removeManagerInfo();
   }
 
   onSubmit(): void {
@@ -44,7 +52,23 @@ export class CreateDocumentDialogComponent implements OnInit {
         this.commentsInput.nativeElement.focus();
       }
     } else {
-      this.createDocument();
+      // Check if manager access is present and valid
+      const managerInfo = this.authService.getManagerInfo();
+      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+        console.warn('Manager access has expired, re-prompting for password');
+        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+          width: '600px',
+        });
+        // Once the manager access dialog is closed, re-submit the form and check the logic again
+        managerDialogRef.afterClosed().subscribe({
+          next: () => {
+            this.onSubmit();
+          },
+        });
+      } else {
+        // Manager access information is correct, perform the action
+        this.createDocument();
+      }
     }
   }
 
@@ -85,6 +109,7 @@ export class CreateDocumentDialogComponent implements OnInit {
         document.location.reload();
         this.dialog.closeAll();
         this.isLoading = false;
+        this.authService.removeManagerInfo();
       },
       error: (err) => {
         console.error(err);

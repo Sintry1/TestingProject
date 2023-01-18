@@ -40,6 +40,9 @@ export interface IAccessInfo {
   accessToken: string;
   refreshToken?: string;
 }
+export interface IManagerAccessInfo {
+  accessToken: string;
+}
 
 export interface IAuthUser {
   accessToken: string;

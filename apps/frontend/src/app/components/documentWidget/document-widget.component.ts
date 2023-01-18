@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IDocument } from '@omnihost/interfaces';
 import { UpdateDocumentDialogComponent } from '../../pages/documents/updateDocumentDialog/update-document-dialog.component';
+import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-access-dialog.component';
 import { SeeDocumentDialogComponent } from './seeDocumentDialog/see-document-dialog.component';
 
 @Component({
@@ -21,8 +22,13 @@ export class DocumentWidgetComponent {
   }
 
   updateDocumentDialog(): void {
-    this.dialog.open(UpdateDocumentDialogComponent, {
-      data: this.document,
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '600px',
+      data: {
+        component: UpdateDocumentDialogComponent,
+        componentData: this.document,
+        width: '600px',
+      },
     });
   }
 

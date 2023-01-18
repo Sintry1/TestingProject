@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
@@ -11,6 +12,7 @@ import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard
 import { WeatherWidgetComponent } from './components/dashboardWidgets/weatherWidget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/documentWidget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/documentWidget/seeDocumentDialog/see-document-dialog.component';
+import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/tableInfoDialog/table-info-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
@@ -45,6 +47,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
   declarations: [
     AppComponent,
     LoginComponent,
+    ManagerAccessDialogComponent,
     DashboardComponent,
     PageNotFoundComponent,
     CarsComponent,
@@ -87,7 +90,10 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     BrowserAnimationsModule,
     materialModules,
   ],
-  providers: [authInterceptorProviders],
+  providers: [
+    authInterceptorProviders,
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
