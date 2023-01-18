@@ -1,5 +1,7 @@
 import { IBike } from '@omnihost/interfaces';
 
+export const bikeComments = ['For a child'];
+
 export const bikes: IBike[] = [
   {
     createdAt: new Date(

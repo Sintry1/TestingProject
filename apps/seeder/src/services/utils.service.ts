@@ -26,7 +26,7 @@ export function getRandomInt(min: number, max: number) {
  * @returns a boolean.
  */
 export function getRandomBoolean() {
-  return Math.random() > 0.5;
+  return Math.random() < 0.5;
 }
 
 /**
@@ -36,5 +36,5 @@ export function getRandomBoolean() {
  * @example getRandomChance(0.3) // 30% chance of being true
  */
 export function getRandomChance(chance: number) {
-  return Math.random() > chance;
+  return Math.random() < chance;
 }
