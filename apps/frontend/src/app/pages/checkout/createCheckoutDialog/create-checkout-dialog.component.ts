@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { toDateObject } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -17,7 +18,6 @@ export class CreateCheckoutDialogComponent {
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
@@ -45,7 +45,7 @@ export class CreateCheckoutDialogComponent {
       bbLr: new UntypedFormControl('', [Validators.required]),
       bbDown: new UntypedFormControl('', [Validators.required]),
       bbOut: new UntypedFormControl('', []),
-      completedAt: new UntypedFormControl(null, []),
+      completedAt: new UntypedFormControl('', []),
       location: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', []),
     });
@@ -92,7 +92,7 @@ export class CreateCheckoutDialogComponent {
         bbOut: this.createCheckoutForm.get('bbOut')?.value
           ? this.createCheckoutForm.get('bbOut')?.value
           : '',
-        completedAt: this.createCheckoutForm.get('completedAt')?.value,
+        completedAt: toDateObject(this.createCheckoutForm.get('completedAt')?.value),
         location: this.createCheckoutForm.get('location')?.value
           ? this.createCheckoutForm.get('location')?.value
           : '',

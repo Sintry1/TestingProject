@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { toDateObject } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -15,7 +16,6 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
 export class CreateLongTermDialogComponent implements OnInit {
   createLongTermForm = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
   isLoading = false;
 
@@ -81,11 +81,11 @@ export class CreateLongTermDialogComponent implements OnInit {
         room: this.createLongTermForm.get('room')?.value,
         // roomReady: false,
         name: this.createLongTermForm.get('name')?.value,
-        arrivalTime: this.createLongTermForm.get('dateIn')?.value,
+        arrivalTime: toDateObject(this.createLongTermForm.get('dateIn')?.value),
         bags: this.createLongTermForm.get('bags')?.value,
         comments: this.createLongTermForm.get('comments')?.value,
         tagNr: this.createLongTermForm.get('tagNr')?.value,
-        dateNeeded: this.createLongTermForm.get('dateNeeded')?.value,
+        dateNeeded: toDateObject(this.createLongTermForm.get('dateNeeded')?.value),
         bbLr: this.createLongTermForm.get('bbLr')?.value
           ? this.createLongTermForm.get('bbLr')?.value
           : '',

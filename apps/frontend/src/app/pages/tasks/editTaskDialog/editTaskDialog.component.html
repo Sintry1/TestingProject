@@ -2,7 +2,7 @@
   <h1>Complete Task</h1>
   <hr />
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" appearance="fill">
+    <mat-form-field autocomplete="off">
       <mat-label>Initials</mat-label>
       <mat-select [(value)]="data.initials" formControlName="initials">
         <mat-option *ngFor="let initials of bbInitials" [value]="initials">
@@ -14,22 +14,14 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" appearance="fill">
+    <mat-form-field class="remove-error-message">
       <mat-label>Completed At</mat-label>
       <input
+        onclick="this.showPicker()"
         matInput
-        [ngxMatDatetimePicker]="completedAt"
-        placeholder="dd/MM HH:mm"
+        type="datetime-local"
         formControlName="completedAt"
       />
-      <mat-datepicker-toggle matSuffix [for]="$any(completedAt)"></mat-datepicker-toggle>
-      <ngx-mat-datetime-picker
-        #completedAt
-        [showSpinners]="true"
-        [showSeconds]="false"
-        [touchUi]="true"
-      >
-      </ngx-mat-datetime-picker>
     </mat-form-field>
   </div>
 
