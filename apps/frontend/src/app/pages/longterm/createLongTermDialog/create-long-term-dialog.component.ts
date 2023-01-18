@@ -88,10 +88,10 @@ export class CreateLongTermDialogComponent implements OnInit {
         tagNr: this.createLongTermForm.get('tagNr')?.value,
         dateNeeded: toDateObject(this.createLongTermForm.get('dateNeeded')?.value),
         bbLr: this.createLongTermForm.get('bbLr')?.value
-          ? this.createLongTermForm.get('bbLr')?.value.toUpperCase()
+          ? this.createLongTermForm.get('bbLr')?.value
           : '',
         location: this.createLongTermForm.get('location')?.value
-          ? this.createLongTermForm.get('location')?.value.toUpperCase()
+          ? this.createLongTermForm.get('location')?.value
           : '',
         luggageType: LuggageType.LONG_TERM,
       })

@@ -85,24 +85,20 @@ export class CreateCarDialogComponent {
         departureDate: toDateObject(this.createCarForm.get('departureDate')?.value),
         name: this.createCarForm.get('name')?.value,
         licensePlate: this.createCarForm.get('licensePlate')?.value
-          ? this.createCarForm.get('licensePlate')?.value.toUpperCase()
+          ? this.createCarForm.get('licensePlate')?.value
           : '',
         expirationDate: toDateObject(this.createCarForm.get('expirationDate')?.value),
         pickUpTime: toDateObject(this.createCarForm.get('pickUpTime')?.value),
         deliveryTime: new Date(this.createCarForm.get('deliveryTime')?.value),
         bbDown: this.createCarForm.get('bbDown')?.value
-          ? this.createCarForm.get('bbDown')?.value.toUpperCase()
+          ? this.createCarForm.get('bbDown')?.value
           : '',
-        bbUp: this.createCarForm.get('bbUp')?.value
-          ? this.createCarForm.get('bbUp')?.value.toUpperCase()
-          : '',
+        bbUp: this.createCarForm.get('bbUp')?.value ? this.createCarForm.get('bbUp')?.value : '',
         location: this.createCarForm.get('location')?.value
-          ? this.createCarForm.get('location')?.value.toUpperCase()
+          ? this.createCarForm.get('location')?.value
           : '',
         parkingLot: this.createCarForm.get('parkingLot')?.value,
-        bbOut: this.createCarForm.get('bbOut')?.value
-          ? this.createCarForm.get('bbOut')?.value.toUpperCase()
-          : '',
+        bbOut: this.createCarForm.get('bbOut')?.value ? this.createCarForm.get('bbOut')?.value : '',
         comments: this.createCarForm.get('comments')?.value,
         charged: false,
       })

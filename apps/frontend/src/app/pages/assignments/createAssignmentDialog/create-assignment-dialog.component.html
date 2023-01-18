@@ -30,16 +30,16 @@
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
-      <mat-label>Received by</mat-label>
-      <mat-select formControlName="receivedBy">
-        <mat-option *ngFor="let receivedBy of bbAssignmentReceivedBy" [value]="receivedBy">
-          {{ receivedBy }}
+      <mat-label>Requested by</mat-label>
+      <mat-select formControlName="requestedBy">
+        <mat-option *ngFor="let requestedBy of bbAssignmentRequestedBy" [value]="requestedBy">
+          {{ requestedBy }}
         </mat-option>
       </mat-select>
       <mat-error
         *ngIf="
-          createAssignmentForm.get('receivedBy')?.invalid &&
-          createAssignmentForm.get('receivedBy')?.dirty
+          createAssignmentForm.get('requestedBy')?.invalid &&
+          createAssignmentForm.get('requestedBy')?.dirty
         "
       >
         Can't be more than 20 characters
@@ -71,12 +71,12 @@
         onclick="this.showPicker()"
         matInput
         type="datetime-local"
-        formControlName="receivedAt"
+        formControlName="requestedAt"
       />
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
-      <mat-label>Time performed</mat-label>
+      <mat-label>Performed at</mat-label>
       <input
         onclick="this.showPicker()"
         matInput

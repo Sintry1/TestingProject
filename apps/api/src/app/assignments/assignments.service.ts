@@ -39,7 +39,7 @@ export class AssignmentsService {
     return await this.assignmentRepo.find({
       where: [
         { ...baseConditions, task: searchCondition },
-        { ...baseConditions, receivedBy: searchCondition },
+        { ...baseConditions, requestedBy: searchCondition },
         { ...baseConditions, performedBy: searchCondition },
         { ...baseConditions, comments: searchCondition },
       ],
@@ -70,8 +70,8 @@ export class AssignmentsService {
     sortOrder: SortOrder | undefined
   ) {
     switch (sortBy) {
-      case AssignmentSortOptions.RECEIVED_AT:
-        return { receivedAt: sortOrder };
+      case AssignmentSortOptions.REQUESTED_AT:
+        return { requestedAt: sortOrder };
       case AssignmentSortOptions.COMPLETED_AT:
         return { completedAt: sortOrder };
       default:

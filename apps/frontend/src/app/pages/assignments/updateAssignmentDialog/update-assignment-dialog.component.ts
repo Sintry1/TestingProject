@@ -7,9 +7,9 @@ import { IAssignment } from '@omnihost/interfaces';
 import { AssignmentsService } from '../../../services/assignments.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import {
-  bellBoyInitials,
+  bbAssignmentRequestedBy,
   bbAssignmentTask,
-  bbAssignmentReceivedBy,
+  bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -24,14 +24,14 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
-  bbAssignmentReceivedBy = bbAssignmentReceivedBy;
+  bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
-  @ViewChild('receivedBy') receivedByInput!: ElementRef;
-  @ViewChild('receivedAt') receivedAtInput!: ElementRef;
+  @ViewChild('requestedBy') requestedByInput!: ElementRef;
+  @ViewChild('requestedAt') requestedAtInput!: ElementRef;
   @ViewChild('performedBy') performedByInput!: ElementRef;
   @ViewChild('completedAt') completedAtInput!: ElementRef;
 
@@ -53,12 +53,12 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         Validators.maxLength(1000),
         Validators.required,
       ]),
-      receivedBy: new UntypedFormControl(this.data.receivedBy, [
+      requestedBy: new UntypedFormControl(this.data.requestedBy, [
         Validators.maxLength(20),
         Validators.required,
       ]),
       performedBy: new UntypedFormControl(this.data.performedBy ?? '', [Validators.maxLength(20)]),
-      receivedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.receivedAt)), [
+      requestedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.requestedAt)), [
         Validators.required,
       ]),
       completedAt: new UntypedFormControl(
@@ -75,8 +75,8 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         this.taskInput.nativeElement.focus();
       } else if (this.updateAssignmentForm.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
-      } else if (this.updateAssignmentForm.get('receivedBy')?.invalid) {
-        this.receivedByInput.nativeElement.focus();
+      } else if (this.updateAssignmentForm.get('requestedBy')?.invalid) {
+        this.requestedByInput.nativeElement.focus();
       } else if (this.updateAssignmentForm.get('performedBy')?.invalid) {
         this.performedByInput.nativeElement.focus();
       }
@@ -92,13 +92,13 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         room: this.updateAssignmentForm.get('room')?.value,
         task: this.updateAssignmentForm.get('task')?.value,
         comments: this.updateAssignmentForm.get('comments')?.value,
-        receivedBy: this.updateAssignmentForm.get('receivedBy')?.value
-          ? this.updateAssignmentForm.get('receivedBy')?.value.toUpperCase()
+        requestedBy: this.updateAssignmentForm.get('requestedBy')?.value
+          ? this.updateAssignmentForm.get('requestedBy')?.value
           : '',
         performedBy: this.updateAssignmentForm.get('performedBy')?.value
-          ? this.updateAssignmentForm.get('performedBy')?.value.toUpperCase()
+          ? this.updateAssignmentForm.get('performedBy')?.value
           : '',
-        receivedAt: toDateObject(this.updateAssignmentForm.get('receivedAt')?.value),
+        requestedAt: toDateObject(this.updateAssignmentForm.get('requestedAt')?.value),
         completedAt: toDateObject(this.updateAssignmentForm.get('completedAt')?.value),
       })
       .subscribe({

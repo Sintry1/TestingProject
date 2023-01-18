@@ -1,4 +1,4 @@
 export enum AssignmentSortOptions {
-  RECEIVED_AT = 'receivedAt',
+  REQUESTED_AT = 'requestedAt',
   COMPLETED_AT = 'completedAt',
 }
