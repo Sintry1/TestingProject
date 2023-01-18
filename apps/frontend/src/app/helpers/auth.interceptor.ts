@@ -104,6 +104,18 @@ export class AuthInterceptor implements HttpInterceptor {
       // Do nothing since the request doesn't need to be authenticated
       return request;
     }
+
+    // Check if there is manager access information present, and use it instead.
+    const managerAccessInfo = this.authService.getManagerInfo();
+    if (managerAccessInfo !== null) {
+      // Do nothing since the request doesn't need to be authenticated
+      return request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${managerAccessInfo.accessToken}`,
+        },
+      });
+    }
+
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${accessInfo.accessToken}`,
