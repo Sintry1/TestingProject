@@ -22,13 +22,13 @@
       <mat-label>Date in</mat-label>
       <input
         matInput
-        [ngxMatDatetimePicker]="arrivalTimePicker"
+        [ngxMatDatetimePicker]="dateInPicker"
         placeholder="dd/MM HH:mm"
-        formControlName="arrivalTime"
+        formControlName="dateIn"
       />
-      <mat-datepicker-toggle matSuffix [for]="$any(arrivalTimePicker)"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="$any(dateInPicker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker
-        #arrivalTimePicker
+        #dateInPicker
         [showSpinners]="true"
         [showSeconds]="false"
         [touchUi]="true"
