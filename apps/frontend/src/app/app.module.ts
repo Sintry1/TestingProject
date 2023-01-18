@@ -39,7 +39,6 @@ import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentD
 import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
