@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import {
   bbAssignmentRequestedBy,
   bbAssignmentTask,
@@ -20,7 +21,6 @@ export class CreateAssignmentDialogComponent implements OnInit {
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
 
@@ -44,7 +44,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
       task: new UntypedFormControl('', Validators.maxLength(20)),
       requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
-      requestedAt: new UntypedFormControl(new Date(), [
+      requestedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
         Validators.required,
         Validators.maxLength(20),
       ]),
@@ -84,8 +84,8 @@ export class CreateAssignmentDialogComponent implements OnInit {
         performedBy: this.createAssignmentForm.get('performedBy')?.value
           ? this.createAssignmentForm.get('performedBy')?.value
           : '',
-        requestedAt: this.createAssignmentForm.get('requestedAt')?.value,
-        completedAt: this.createAssignmentForm.get('completedAt')?.value,
+        requestedAt: toDateObject(this.createAssignmentForm.get('requestedAt')?.value),
+        completedAt: toDateObject(this.createAssignmentForm.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

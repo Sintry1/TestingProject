@@ -44,6 +44,8 @@
   color: black;
   ::ng-deep .mat-form-field-flex {
     background-color: #f0f0f1;
+    padding: 3px;
+    border-radius: 3px 3px 0 0;
   }
   ::ng-deep .mat-form-field-wrapper {
     background-color: var(--main-blue);

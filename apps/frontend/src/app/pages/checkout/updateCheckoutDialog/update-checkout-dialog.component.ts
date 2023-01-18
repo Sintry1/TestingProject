@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { toDateObject, toTimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -17,7 +18,6 @@ export class UpdateCheckoutDialogComponent {
   isLoading = false;
   luggageId: string;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
@@ -30,7 +30,7 @@ export class UpdateCheckoutDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateCheckoutDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ILuggage,
+    @Inject(MAT_DIALOG_DATA) public data: ILuggage, // TODO: Fix - date type
     private service: LuggageService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
@@ -45,7 +45,10 @@ export class UpdateCheckoutDialogComponent {
       bbDown: new UntypedFormControl(data.bbDown, [Validators.required]),
       bbOut: new UntypedFormControl(data.bbOut, []),
       location: new UntypedFormControl(data.location, [Validators.required]),
-      completedAt: new UntypedFormControl(data.completedAt, []),
+      completedAt: new UntypedFormControl(
+        data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
+        []
+      ),
       comments: new UntypedFormControl(data.comments, []),
     });
   }
@@ -92,7 +95,7 @@ export class UpdateCheckoutDialogComponent {
         location: this.updateCheckoutForm.get('location')?.value
           ? this.updateCheckoutForm.get('location')?.value
           : '',
-        completedAt: this.updateCheckoutForm.get('completedAt')?.value,
+        completedAt: toDateObject(this.updateCheckoutForm.get('completedAt')?.value),
         comments: this.updateCheckoutForm.get('comments')?.value,
       })
       .subscribe({

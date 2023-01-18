@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarService } from '../../../services/car.service';
+import { toDateObject } from '../../../utils/date.util';
 import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -16,7 +17,6 @@ export class CreateCarDialogComponent {
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
@@ -80,14 +80,14 @@ export class CreateCarDialogComponent {
       .createCar({
         room: this.createCarForm.get('room')?.value,
         tagNr: this.createCarForm.get('tagNr')?.value,
-        arrivalDate: new Date(this.createCarForm.get('arrivalDate')?.value),
-        departureDate: new Date(this.createCarForm.get('departureDate')?.value),
+        arrivalDate: toDateObject(this.createCarForm.get('arrivalDate')?.value),
+        departureDate: toDateObject(this.createCarForm.get('departureDate')?.value),
         name: this.createCarForm.get('name')?.value,
         licensePlate: this.createCarForm.get('licensePlate')?.value
           ? this.createCarForm.get('licensePlate')?.value
           : '',
-        expirationDate: new Date(this.createCarForm.get('expirationDate')?.value),
-        pickUpTime: new Date(this.createCarForm.get('pickUpTime')?.value),
+        expirationDate: toDateObject(this.createCarForm.get('expirationDate')?.value),
+        pickUpTime: toDateObject(this.createCarForm.get('pickUpTime')?.value),
         deliveryTime: new Date(this.createCarForm.get('deliveryTime')?.value),
         bbDown: this.createCarForm.get('bbDown')?.value
           ? this.createCarForm.get('bbDown')?.value

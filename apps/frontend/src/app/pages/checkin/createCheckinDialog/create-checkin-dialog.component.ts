@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { toDateObject, toTimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -17,7 +18,6 @@ export class CreateCheckinDialogComponent {
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
@@ -40,13 +40,13 @@ export class CreateCheckinDialogComponent {
       ]),
       // roomReady: new UntypedFormControl('false', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
-      arrivalTime: new UntypedFormControl(new Date(), [Validators.required]),
+      arrivalTime: new UntypedFormControl(toTimeInputString(new Date()), [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
       tagNr: new UntypedFormControl('', [Validators.required]),
       bbLr: new UntypedFormControl('', [Validators.required]),
       location: new UntypedFormControl('', [Validators.required]),
       bbOut: new UntypedFormControl('', []),
-      completedAt: new UntypedFormControl(null, []),
+      completedAt: new UntypedFormControl('', []),
       comments: new UntypedFormControl('', []),
     });
   }
@@ -78,7 +78,7 @@ export class CreateCheckinDialogComponent {
         room: this.createCheckinForm.get('room')?.value,
         // roomReady: this.createCheckinForm.get('roomReady')?.value,
         name: this.createCheckinForm.get('name')?.value,
-        arrivalTime: new Date(this.createCheckinForm.get('arrivalTime')?.value),
+        arrivalTime: toDateObject(this.createCheckinForm.get('arrivalTime')?.value),
         bags: this.createCheckinForm.get('bags')?.value,
         tagNr: this.createCheckinForm.get('tagNr')?.value,
         bbLr: this.createCheckinForm.get('bbLr')?.value
@@ -90,7 +90,7 @@ export class CreateCheckinDialogComponent {
         bbOut: this.createCheckinForm.get('bbOut')?.value
           ? this.createCheckinForm.get('bbOut')?.value
           : '',
-        completedAt: this.createCheckinForm.get('completedAt')?.value,
+        completedAt: toDateObject(this.createCheckinForm.get('completedAt')?.value),
         comments: this.createCheckinForm.get('comments')?.value,
         luggageType: LuggageType.CHECKIN,
       })
