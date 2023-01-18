@@ -63,7 +63,7 @@ export class CarsSeederService {
           bbDown: getRandom(bellBoyInitials), // who took it from hotel to parking
           bbUp: completed ? getRandom(bellBoyInitials) : null, // who took it from parking to hotel
           location: parkingLocation,
-          parkingLot: completed ? null : getRandomInt(5, 40).toString(), // random parking lot number
+          parkingLot: getRandomInt(5, 40).toString(), // random parking lot number
           bbOut: completed ? getRandom(bellBoyInitials) : null, // who gave it to the guest
           comments: getRandomChance(0.4) ? getRandom(carComments) : null,
           charged: completed, // if the customer has been billed. All completed cars are billed
