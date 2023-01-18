@@ -6,9 +6,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment } from '@omnihost/interfaces';
 import { AssignmentsService } from '../../../services/assignments.service';
 import {
-  bellBoyInitials,
-  bbAssignmentTask,
   bbAssignmentRequestedBy,
+  bbAssignmentTask,
+  bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -88,10 +88,10 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         task: this.updateAssignmentForm.get('task')?.value,
         comments: this.updateAssignmentForm.get('comments')?.value,
         requestedBy: this.updateAssignmentForm.get('requestedBy')?.value
-          ? this.updateAssignmentForm.get('requestedBy')?.value.toUpperCase()
+          ? this.updateAssignmentForm.get('requestedBy')?.value
           : '',
         performedBy: this.updateAssignmentForm.get('performedBy')?.value
-          ? this.updateAssignmentForm.get('performedBy')?.value.toUpperCase()
+          ? this.updateAssignmentForm.get('performedBy')?.value
           : '',
         requestedAt: this.updateAssignmentForm.get('requestedAt')?.value,
         completedAt: this.updateAssignmentForm.get('completedAt')?.value,

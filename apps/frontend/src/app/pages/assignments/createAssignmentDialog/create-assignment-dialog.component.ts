@@ -5,9 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
 import {
-  bellBoyInitials,
-  bbAssignmentTask,
   bbAssignmentRequestedBy,
+  bbAssignmentTask,
+  bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -79,10 +79,10 @@ export class CreateAssignmentDialogComponent implements OnInit {
         task: this.createAssignmentForm.get('task')?.value,
         comments: this.createAssignmentForm.get('comments')?.value,
         requestedBy: this.createAssignmentForm.get('requestedBy')?.value
-          ? this.createAssignmentForm.get('requestedBy')?.value.toUpperCase()
+          ? this.createAssignmentForm.get('requestedBy')?.value
           : '',
         performedBy: this.createAssignmentForm.get('performedBy')?.value
-          ? this.createAssignmentForm.get('performedBy')?.value.toUpperCase()
+          ? this.createAssignmentForm.get('performedBy')?.value
           : '',
         requestedAt: this.createAssignmentForm.get('requestedAt')?.value,
         completedAt: this.createAssignmentForm.get('completedAt')?.value,

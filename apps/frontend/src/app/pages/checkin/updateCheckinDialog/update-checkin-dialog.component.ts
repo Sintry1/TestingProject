@@ -87,11 +87,9 @@ export class UpdateCheckinDialogComponent {
         arrivalTime: new Date(this.form.get('arrivalTime')?.value),
         bags: this.form.get('bags')?.value,
         tagNr: this.form.get('tagNr')?.value,
-        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value.toUpperCase() : '',
-        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value.toUpperCase() : '',
-        location: this.form.get('location')?.value
-          ? this.form.get('location')?.value.toUpperCase()
-          : '',
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
         completedAt: this.form.get('completedAt')?.value,
         comments: this.form.get('comments')?.value,
       })
