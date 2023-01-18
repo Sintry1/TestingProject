@@ -21,7 +21,6 @@ export function toDateInputString(date: Date) {
 }
 
 export function toDatetimeInputString(date: Date) {
-  console.log(date, typeof date);
   const { day, month, year, hour, minute } = getDateParts(date);
   const datetimeString = `${year}-${month}-${day}T${hour}:${minute}`;
 
