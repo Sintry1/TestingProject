@@ -23,8 +23,8 @@ export class AssignmentsComponent implements OnInit {
     'room',
     'task',
     'comments',
-    'receivedBy',
-    'receivedAt',
+    'requestedBy',
+    'requestedAt',
     'performedBy',
     'completedAt',
   ];
