@@ -46,6 +46,11 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(request);
     }
 
+    // Don't include the access token in the linode object storage requests
+    if (request.url.includes('linodeobjects.com')) {
+      return next.handle(request);
+    }
+
     // If the request is to refresh the tokens, use the refresh token instead of the access token
     if (request.url.includes('/auth/refresh')) {
       // Check if the token is still valid. Logout if not
@@ -104,6 +109,18 @@ export class AuthInterceptor implements HttpInterceptor {
       // Do nothing since the request doesn't need to be authenticated
       return request;
     }
+
+    // Check if there is manager access information present, and use it instead.
+    const managerAccessInfo = this.authService.getManagerInfo();
+    if (managerAccessInfo !== null) {
+      // Do nothing since the request doesn't need to be authenticated
+      return request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${managerAccessInfo.accessToken}`,
+        },
+      });
+    }
+
     return request.clone({
       setHeaders: {
         Authorization: `Bearer ${accessInfo.accessToken}`,
