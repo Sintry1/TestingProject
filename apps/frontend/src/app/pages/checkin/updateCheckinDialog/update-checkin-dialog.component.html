@@ -69,7 +69,7 @@
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" class="input" appearance="fill">
+    <mat-form-field autocomplete="off" class="input">
       <mat-label>BB Up</mat-label>
       <mat-select [(value)]="data.bbOut" formControlName="bbOut">
         <mat-option *ngFor="let initials of bbInitials" [value]="initials">

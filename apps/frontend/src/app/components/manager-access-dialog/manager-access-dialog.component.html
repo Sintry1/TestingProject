@@ -4,7 +4,7 @@
 
   <p *ngIf="!dialogData">Your access has expired!</p>
 
-  <mat-form-field autocomplete="off" appearance="fill" class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Password</mat-label>
     <input #password type="password" formControlName="password" matInput required />
     <mat-error *ngIf="errorMessage !== null">
