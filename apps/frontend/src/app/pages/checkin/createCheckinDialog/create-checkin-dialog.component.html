@@ -33,9 +33,7 @@
 
     <!-- <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>Room status</mat-label>
-      <mat-select
-        formControlName="roomReady"
-      >
+      <mat-select formControlName="roomReady">
         <mat-option value="false">Not ready</mat-option>
         <mat-option value="true">Ready</mat-option>
       </mat-select>
@@ -77,7 +75,7 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" appearance="fill">
       <mat-label>BB in LR</mat-label>
-      <mat-select formControlName="bbLR">
+      <mat-select #bbLr formControlName="bbLr">
         <mat-option *ngFor="let initials of bbInitials" [value]="initials">
           {{ initials }}
         </mat-option>
@@ -91,7 +89,7 @@
 
     <mat-form-field autocomplete="off" class="input" appearance="fill">
       <mat-label>Location</mat-label>
-      <mat-select formControlName="location">
+      <mat-select #location formControlName="location">
         <mat-option *ngFor="let location of luggageLocation" [value]="location">
           {{ location }}
         </mat-option>
@@ -152,7 +150,11 @@
 
   <div class="dialog-row">
     <button mat-raised-button class="secondary-btn" mat-dialog-close>Cancel</button>
-
-    <button mat-raised-button class="action-btn" type="submit">Add check in</button>
+    <button mat-raised-button class="action-btn" type="submit">
+      <div *ngIf="!isLoading">Add check in</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

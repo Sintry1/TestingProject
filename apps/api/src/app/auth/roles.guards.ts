@@ -1,4 +1,10 @@
-import { CanActivate, ExecutionContext, Injectable, Logger } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { Role } from '@omnihost/interfaces';
@@ -28,7 +34,7 @@ export class RolesGuard implements CanActivate {
     // validate that the request contains the jwt access token
     if (!headers || !headers.authorization) {
       this.logger.warn(`Auth failed: request is missing the access token`);
-      return false;
+      throw new UnauthorizedException();
     }
 
     // extract information from the access token
@@ -38,8 +44,8 @@ export class RolesGuard implements CanActivate {
 
     // validate that the token contains an email
     if (!jwt) {
-      this.logger.warn(`Auth failed: jwt body is missing`);
-      return false;
+      this.logger.warn(`Auth failed: invalid or missing JWT`);
+      throw new UnauthorizedException();
     }
 
     if (!jwt.email) {

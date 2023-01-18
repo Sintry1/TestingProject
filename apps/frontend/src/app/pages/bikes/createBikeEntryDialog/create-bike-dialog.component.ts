@@ -58,6 +58,7 @@ export class CreateBikeDialogComponent {
   }
 
   createBikeListEntry(): void {
+    this.isLoading = true;
     this.bikeService
       .createBike({
         room: this.createBikeForm.get('room')?.value,

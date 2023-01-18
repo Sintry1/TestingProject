@@ -19,6 +19,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   luggageLocation = luggageLocation;
   selectedValue: string | undefined;
+  isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -78,6 +79,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
   }
 
   updateLongTermEntry(): void {
+    this.isLoading = true;
     this.luggageService
       .update(this.data.luggageId, {
         room: this.updateLongTermForm.get('room')?.value,
@@ -104,12 +106,14 @@ export class UpdateLongTermDialogComponent implements OnInit {
           });
           document.location.reload();
           this.dialog.closeAll();
+          this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 10000,
           });
+          this.isLoading = false;
         },
       });
   }

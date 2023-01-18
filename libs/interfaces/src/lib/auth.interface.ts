@@ -31,6 +31,16 @@ export interface IJwtInfo {
   token: string;
 }
 
+export interface IAccessInfo {
+  user: {
+    userId: string;
+    email: string;
+    role: Role;
+  };
+  accessToken: string;
+  refreshToken?: string;
+}
+
 export interface IAuthUser {
   accessToken: string;
   roles: string[];

@@ -124,6 +124,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button type="submit" class="action-btn">Update</button>
+    <button mat-raised-button type="submit" class="action-btn">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

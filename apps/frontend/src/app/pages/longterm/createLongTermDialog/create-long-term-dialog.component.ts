@@ -17,6 +17,7 @@ export class CreateLongTermDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
   luggageLocation = luggageLocation;
+  isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -73,7 +74,9 @@ export class CreateLongTermDialogComponent implements OnInit {
   }
 
   createLongTermEntry(): void {
+    this.isLoading = true;
     this.luggageService
+
       .create({
         room: this.createLongTermForm.get('room')?.value,
         // roomReady: false,
@@ -91,19 +94,23 @@ export class CreateLongTermDialogComponent implements OnInit {
           : '',
         luggageType: LuggageType.LONG_TERM,
       })
+
       .subscribe({
         next: () => {
           this.snackBar.open('Long term item created!', 'Thanks', {
             duration: 5000,
           });
+
           document.location.reload();
           this.dialog.closeAll();
+          this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
           this.snackBar.open('Failed to create, please try again.', 'Okay', {
             duration: 10000,
           });
+          this.isLoading = false;
         },
       });
   }

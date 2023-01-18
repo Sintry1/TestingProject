@@ -24,6 +24,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
   bbAssignmentReceivedBy = bbAssignmentReceivedBy;
+  isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -80,6 +81,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   }
 
   updateAssignment(): void {
+    this.isLoading = true;
     this.assignmentService
       .updateAssignment(this.data.assignmentId, {
         room: this.updateAssignmentForm.get('room')?.value,
@@ -101,12 +103,14 @@ export class UpdateAssignmentDialogComponent implements OnInit {
           });
           document.location.reload();
           this.dialog.closeAll();
+          this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
           this.snackBar.open('Failed to update assignment, please try again.', 'Okay', {
             duration: 10000,
           });
+          this.isLoading = false;
         },
       });
   }
