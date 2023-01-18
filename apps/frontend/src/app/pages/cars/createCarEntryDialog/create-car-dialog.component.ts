@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarService } from '../../../services/car.service';
+import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 import { toDateObject } from '../../../utils/date.util';
 
 @Component({
@@ -15,6 +16,9 @@ export class CreateCarDialogComponent {
   createCarForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
@@ -72,6 +76,7 @@ export class CreateCarDialogComponent {
   }
 
   createCarListEntry(): void {
+    this.isLoading = true;
     this.carService
       .createCar({
         room: this.createCarForm.get('room')?.value,

@@ -1,4 +1,9 @@
-<form [formGroup]="createLongTermForm" (ngSubmit)="onSubmit()" class="dialog-container">
+<form
+  [formGroup]="createLongTermForm"
+  (ngSubmit)="onSubmit()"
+  class="dialog-container"
+  data-cy="long-term-create-dialog"
+>
   <h1>Add long term</h1>
   <hr />
 
@@ -71,7 +76,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input one-third">
       <mat-label class="input-label">BB in LR</mat-label>
-      <input #bbLr type="text" formControlName="bbLr" matInput placeholder="JD" />
+      <mat-select formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="createLongTermForm.get('bbLr')?.invalid && createLongTermForm.get('bbLr')?.dirty"
       >
@@ -81,7 +90,11 @@
 
     <mat-form-field autocomplete="off" class="input">
       <mat-label class="input-label">Location</mat-label>
-      <input #location type="text" formControlName="location" matInput placeholder="LR1" />
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createLongTermForm.get('location')?.invalid && createLongTermForm.get('location')?.dirty
@@ -105,6 +118,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
-    <button class="action-btn" mat-raised-button type="submit">Add long term</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">long term</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

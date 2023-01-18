@@ -95,7 +95,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB down</mat-label>
-      <input #bbDown type="text" formControlName="bbDown" matInput placeholder="FV" />
+      <mat-select [(value)]="data.bbDown" formControlName="bbDown">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="updateCarForm.get('bbDown')?.invalid && updateCarForm.get('bbDown')?.dirty">
         Required
       </mat-error>
@@ -103,7 +107,11 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>BB up</mat-label>
-      <input #bbUp type="text" formControlName="bbUp" matInput placeholder="FV" />
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="updateCarForm.get('bbUp')?.invalid && updateCarForm.get('bbUp')?.dirty">
         Required
       </mat-error>
@@ -113,13 +121,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <input
-        #location
-        type="text"
-        formControlName="location"
-        matInput
-        placeholder="Front of hotel"
-      />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of carLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateCarForm.get('location')?.invalid && updateCarForm.get('location')?.dirty"
       >
@@ -151,6 +157,11 @@
   <div class="dialog-row">
     <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
-    <button class="action-btn" mat-flat-button type="submit">Update</button>
+    <button class="action-btn" mat-flat-button type="submit">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

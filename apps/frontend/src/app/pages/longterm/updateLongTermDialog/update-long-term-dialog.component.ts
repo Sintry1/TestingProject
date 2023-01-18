@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
 import { toDatetimeInputString, toDateObject } from '../../../utils/date.util';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-long-term-dialog',
@@ -16,6 +17,10 @@ export class UpdateLongTermDialogComponent implements OnInit {
   updateLongTermForm = new UntypedFormGroup({});
   guestHasApproved = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
+  bbInitials = bellBoyInitials;
+  luggageLocation = luggageLocation;
+  selectedValue: string | undefined;
+  isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -84,6 +89,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
   }
 
   updateLongTermEntry(): void {
+    this.isLoading = true;
     this.luggageService
       .update(this.data.luggageId, {
         room: this.updateLongTermForm.get('room')?.value,
@@ -110,12 +116,14 @@ export class UpdateLongTermDialogComponent implements OnInit {
           });
           document.location.reload();
           this.dialog.closeAll();
+          this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 10000,
           });
+          this.isLoading = false;
         },
       });
   }

@@ -1,4 +1,9 @@
-<form [formGroup]="updateLongTermForm" (ngSubmit)="onSubmit()" class="dialog-container">
+<form
+  [formGroup]="updateLongTermForm"
+  (ngSubmit)="onSubmit()"
+  class="dialog-container"
+  data-cy="long-term-update-dialog"
+>
   <h1>Update long term</h1>
   <hr />
 
@@ -7,7 +12,15 @@
 
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Room nr.</mat-label>
-    <input #room type="number" formControlName="room" matInput placeholder="123" maxlength="10" />
+    <input
+      #room
+      type="number"
+      formControlName="room"
+      matInput
+      placeholder="123"
+      maxlength="10"
+      data-cy="input-field-room"
+    />
     <mat-error
       *ngIf="updateLongTermForm.get('room')?.invalid && updateLongTermForm.get('room')?.dirty"
     >
@@ -62,7 +75,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input one-third">
       <mat-label class="input-label">BB in LR</mat-label>
-      <input #bbLr type="text" formControlName="bbLr" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateLongTermForm.get('bbLr')?.invalid && updateLongTermForm.get('bbLr')?.dirty"
       >
@@ -72,7 +89,11 @@
 
     <mat-form-field autocomplete="off" class="input">
       <mat-label class="input-label">Location</mat-label>
-      <input #location type="text" formControlName="location" matInput placeholder="LR1" />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateLongTermForm.get('location')?.invalid && updateLongTermForm.get('location')?.dirty
@@ -86,7 +107,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input one-third">
       <mat-label class="input-label">BB out</mat-label>
-      <input #bbOut type="text" formControlName="bbOut" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateLongTermForm.get('bbOut')?.invalid && updateLongTermForm.get('bbOut')?.dirty"
       >
@@ -112,7 +137,20 @@
   </mat-form-field>
 
   <div class="dialog-row">
-    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
-    <button class="action-btn" mat-raised-button type="submit">Update</button>
+    <button
+      class="secondary-btn"
+      mat-raised-button
+      mat-dialog-close
+      type="button"
+      data-cy="update-dialog-cancel-button"
+    >
+      Cancel
+    </button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

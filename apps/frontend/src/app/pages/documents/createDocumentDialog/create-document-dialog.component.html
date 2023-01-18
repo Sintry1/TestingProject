@@ -4,17 +4,12 @@
 
   <div class="dialog-row"></div>
 
-  <mat-form-field autocomplete="off" class="full-width">
+  <mat-form-field autocomplete="off" class="full-width no-margin">
     <mat-label>Title</mat-label>
     <input #title type="text" formControlName="title" matInput placeholder="Document title" />
-    <mat-error
-      *ngIf="createDocumentForm.get('title')?.invalid && createDocumentForm.get('title')?.dirty"
-    >
-      Required
-    </mat-error>
   </mat-form-field>
 
-  <mat-form-field autocomplete="off" class="full-width">
+  <mat-form-field autocomplete="off" class="full-width no-margin">
     <mat-label>Comments</mat-label>
     <textarea
       #comments
@@ -24,18 +19,46 @@
       formControlName="comments"
       placeholder="Describe the document"
     ></textarea>
-    <mat-error
-      *ngIf="
-        createDocumentForm.get('comments')?.invalid && createDocumentForm.get('comments')?.dirty
-      "
-    >
-      Can't be more than 1000 characters
-    </mat-error>
   </mat-form-field>
 
-  <button class="secondary-btn full-width" mat-raised-button type="button">Upload file</button>
+  <div class="document-container">
+    <input
+      style="display: none"
+      #fileUpload
+      type="file"
+      multiple
+      (change)="uploadDocument($event)"
+      accept="application/pdf, application/msword, application/vnd.openxmlformats"
+    />
+    <button
+      class="document-btn full-width"
+      mat-raised-button
+      type="button"
+      [disabled]="uploadedFile !== undefined"
+      (click)="fileUpload.click()"
+    >
+      {{ uploadedFile === undefined ? 'No file uploaded' : getDocumentName(uploadedFile.name) }}
+    </button>
 
-  <button class="document-btn full-width" mat-raised-button type="button">No file uploaded</button>
+    <button
+      class="secondary-btn remove-btn"
+      mat-raised-button
+      type="button"
+      (click)="uploadedFile = undefined"
+      *ngIf="uploadedFile !== undefined"
+    >
+      X
+    </button>
+    <button
+      class="secondary-btn remove-btn"
+      mat-raised-button
+      type="button"
+      (click)="fileUpload.click()"
+      *ngIf="uploadedFile === undefined"
+    >
+      <img src="assets/icons/upload-white-icon.svg" alt="upload icon" class="icon" />
+    </button>
+  </div>
 
   <label class="checkbox-container">
     Show on dashboard
@@ -49,6 +72,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
-    <button class="action-btn" mat-raised-button type="submit">Add document</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Add document</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

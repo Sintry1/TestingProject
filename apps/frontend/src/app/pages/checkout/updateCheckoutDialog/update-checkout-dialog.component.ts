@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-checkout-dialog',
@@ -16,6 +17,9 @@ export class UpdateCheckoutDialogComponent {
   updateCheckoutForm: UntypedFormGroup;
   isLoading = false;
   luggageId: string;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

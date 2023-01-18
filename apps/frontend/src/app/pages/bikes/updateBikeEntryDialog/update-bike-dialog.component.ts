@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
 import { BikeService } from '../../../services/bikes.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-
+import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
   selector: 'frontend-update-bike-dialog',
   templateUrl: './update-bike-dialog.component.html',
@@ -17,6 +17,7 @@ export class UpdateBikeDialogComponent {
   checked = true;
   isLoading = false;
   bikeFormCompleted: boolean;
+  bikeListReserved = bikeListReserved;
 
   @ViewChild('nrOfBikes') nrOfBikesInput!: ElementRef;
   @ViewChild('pickUpTime') pickUpTimeInput!: ElementRef;
@@ -71,6 +72,7 @@ export class UpdateBikeDialogComponent {
   }
 
   updateBikeListEntry(): void {
+    this.isLoading = true;
     this.bikeService
       .updateBike(this.data.bikeId, {
         room: this.updateBikeForm.get('room')?.value,

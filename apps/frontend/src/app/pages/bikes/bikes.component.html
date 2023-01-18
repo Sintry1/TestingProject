@@ -1,19 +1,7 @@
 <main>
   <div class="table-actions">
     <div>
-      <mat-form-field autocomplete="off" class="remove-error-message">
-        <mat-label>Search</mat-label>
-        <input
-          type="text"
-          aria-label="search"
-          placeholder="Search ..."
-          matInput
-          [(ngModel)]="search"
-          (change)="fetchBikeList()"
-        />
-      </mat-form-field>
-
-      <mat-form-field style="width: 150px" class="remove-error-message">
+      <mat-form-field appearance="fill" style="width: 150px" class="remove-error-message">
         <mat-label>Sort By</mat-label>
         <mat-select [(value)]="sortBy" (selectionChange)="fetchBikeList()">
           <mat-option value="createdAt">Created at</mat-option>
@@ -24,6 +12,18 @@
           <mat-option value="room">Room nr.</mat-option>
           <mat-option value="reservedBy">Reserved by</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field autocomplete="off" class="remove-error-message" appearance="fill">
+        <mat-label>Search</mat-label>
+        <input
+          type="text"
+          aria-label="search"
+          placeholder="Search ..."
+          matInput
+          [(ngModel)]="search"
+          (change)="fetchBikeList()"
+        />
       </mat-form-field>
     </div>
 
@@ -37,7 +37,7 @@
   <hr />
 
   <div class="table-height">
-    <table mat-table [dataSource]="filteredBikeList">
+    <table mat-table [dataSource]="filteredBikeList" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
@@ -82,7 +82,12 @@
 
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="openDialogEdit(element)"
+          class="comments-field"
+        >
           {{ element.comments ? element.comments : '-' }}
         </td>
       </ng-container>
@@ -108,5 +113,9 @@
         *matRowDef="let row; columns: bikeColumns"
       ></tr>
     </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>

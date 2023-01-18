@@ -15,7 +15,11 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Task</mat-label>
-      <input #task type="text" formControlName="task" matInput placeholder="RA" />
+      <mat-select formControlName="task">
+        <mat-option *ngFor="let task of bbAssignmentTask" [value]="task">
+          {{ task }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="createAssignmentForm.get('task')?.invalid && createAssignmentForm.get('task')?.dirty"
       >
@@ -27,7 +31,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Received by</mat-label>
-      <input #receivedBy type="text" formControlName="receivedBy" matInput placeholder="TJ" />
+      <mat-select formControlName="receivedBy">
+        <mat-option *ngFor="let receivedBy of bbAssignmentReceivedBy" [value]="receivedBy">
+          {{ receivedBy }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createAssignmentForm.get('receivedBy')?.invalid &&
@@ -40,14 +48,11 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Performed by</mat-label>
-      <input
-        #performedBy
-        type="text"
-        formControlName="performedBy"
-        matInput
-        placeholder="FV"
-        maxlength="100"
-      />
+      <mat-select formControlName="performedBy">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           createAssignmentForm.get('performedBy')?.invalid &&
@@ -101,6 +106,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
-    <button class="action-btn" mat-raised-button type="submit">Add assignment</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">assignment</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

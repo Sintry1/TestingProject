@@ -1,7 +1,17 @@
 <main>
   <div class="table-actions">
     <div>
-      <mat-form-field autocomplete="off" class="remove-error-message">
+      <mat-form-field appearance="fill" style="width: 150px" class="remove-error-message">
+        <mat-label>Sort By</mat-label>
+        <mat-select [(value)]="sortBy" (selectionChange)="fetchCarList()">
+          <mat-option value="createdAt">Created at</mat-option>
+          <mat-option value="expirationDate">Expiration date</mat-option>
+          <mat-option value="deliveryTime">Delivery time</mat-option>
+          <mat-option value="pickUpTime">Pick up time</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field autocomplete="off" class="remove-error-message" appearance="fill">
         <mat-label>Search</mat-label>
         <input
           type="text"
@@ -11,16 +21,6 @@
           (change)="fetchCarList()"
           matInput
         />
-      </mat-form-field>
-
-      <mat-form-field style="width: 150px" class="remove-error-message">
-        <mat-label>Sort By</mat-label>
-        <mat-select [(value)]="sortBy" (selectionChange)="fetchCarList()">
-          <mat-option value="createdAt">Created at</mat-option>
-          <mat-option value="expirationDate">Expiration date</mat-option>
-          <mat-option value="deliveryTime">Delivery time</mat-option>
-          <mat-option value="pickUpTime">Pick up time</mat-option>
-        </mat-select>
       </mat-form-field>
     </div>
 
@@ -35,7 +35,7 @@
   <hr />
 
   <div class="table-height">
-    <table mat-table [dataSource]="filteredCarList">
+    <table mat-table [dataSource]="filteredCarList" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
@@ -136,7 +136,12 @@
 
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="openDialogEdit(element)"
+          class="comments-field"
+        >
           {{ element.comments }}
         </td>
       </ng-container>
@@ -162,5 +167,9 @@
         *matRowDef="let row; columns: carColumns"
       ></tr>
     </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>

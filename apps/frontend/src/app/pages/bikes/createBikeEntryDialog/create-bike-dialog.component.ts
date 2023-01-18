@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeService } from '../../../services/bikes.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-
+import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
   selector: 'frontend-create-bike-dialog',
   templateUrl: './create-bike-dialog.component.html',
@@ -15,6 +15,7 @@ export class CreateBikeDialogComponent {
   createBikeForm: UntypedFormGroup;
   isLoading = false;
   bikeFormCompleted = false;
+  bikeListReserved = bikeListReserved;
 
   @ViewChild('nrOfBikes') nrOfBikesInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -58,6 +59,7 @@ export class CreateBikeDialogComponent {
   }
 
   createBikeListEntry(): void {
+    this.isLoading = true;
     this.bikeService
       .createBike({
         room: this.createBikeForm.get('room')?.value,

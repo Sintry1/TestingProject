@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
 
 @Component({
@@ -17,6 +18,9 @@ export class UpdateCheckinDialogComponent {
   checked = true;
   isLoading = false;
   luggageId: string;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;

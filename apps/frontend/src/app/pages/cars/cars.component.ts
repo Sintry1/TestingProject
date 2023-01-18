@@ -23,6 +23,7 @@ export class CarsComponent implements OnInit {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
+  isLoading = false;
 
   carColumns = [
     'room',
@@ -76,17 +77,17 @@ export class CarsComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '500px' });
+    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
   }
 
   openDialogEdit(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: carListEntry,
     });
   }
@@ -96,6 +97,8 @@ export class CarsComponent implements OnInit {
   }
 
   fetchCarList(): void {
+    this.isLoading = true;
+
     this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
         this.originalCarList = cars;
@@ -104,8 +107,10 @@ export class CarsComponent implements OnInit {
           this.showAll,
           this.displayDate
         );
+        this.isLoading = false;
       },
       error: (error) => {
+        this.isLoading = false;
         console.error(error);
         this.snackBar.open(
           'Check Out data have failed to load, please try checking your connection.',

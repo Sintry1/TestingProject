@@ -7,7 +7,7 @@ import {
   UpdateCarRequest,
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
-import { LessThanOrEqual, Like, Repository } from 'typeorm';
+import { LessThanOrEqual, Repository, ILike } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class CarsService {
       completedAt: filterStatus(status),
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return this.carRepo.find({
       where: [

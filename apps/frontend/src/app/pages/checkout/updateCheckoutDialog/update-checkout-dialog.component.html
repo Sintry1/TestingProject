@@ -47,7 +47,11 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>BB down</mat-label>
-      <input #bbDown type="text" formControlName="bbDown" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbDown" formControlName="bbDown">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateCheckoutForm.get('bbDown')?.invalid && updateCheckoutForm.get('bbDown')?.dirty"
       >
@@ -59,7 +63,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <input #location type="text" formControlName="location" matInput placeholder="LR1" />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="
           updateCheckoutForm.get('location')?.invalid && updateCheckoutForm.get('location')?.dirty
@@ -71,7 +79,11 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>BB in LR</mat-label>
-      <input #bbLr type="text" formControlName="bbLr" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateCheckoutForm.get('bbLr')?.invalid && updateCheckoutForm.get('bbLr')?.dirty"
       >
@@ -83,7 +95,11 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB out</mat-label>
-      <input type="text" formControlName="bbOut" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error
         *ngIf="updateCheckoutForm.get('bbOut')?.invalid && updateCheckoutForm.get('bbOut')?.dirty"
       >
@@ -104,6 +120,11 @@
 
   <div class="dialog-row">
     <button mat-raised-button class="secodary-btn" mat-dialog-close>Cancel</button>
-    <button mat-raised-button class="secondary-btn" type="submit">Update</button>
+    <button mat-raised-button class="secondary-btn" type="submit">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>

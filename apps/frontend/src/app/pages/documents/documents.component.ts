@@ -15,6 +15,7 @@ export class DocumentsComponent implements OnInit {
   sortBy: DocumentSortOptions = DocumentSortOptions.LAST_VIEWED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
+  isLoading = false;
 
   constructor(
     private documentService: DocumentsService,
@@ -27,22 +28,26 @@ export class DocumentsComponent implements OnInit {
   }
 
   fetchDocuments(): void {
+    this.isLoading = true;
+
     this.documentService.getDocuments(this.sortBy, this.sortOrder, this.search).subscribe({
       next: (documents) => {
         this.documentList = documents;
+        this.isLoading = false;
       },
       error: (error) => {
         console.error(error);
         this.snackBar.open('Documents have failed to load', 'Okay', {
           duration: 10000,
         });
+        this.isLoading = false;
       },
     });
   }
 
   openCreateDocumentDialog(): void {
     this.dialog.open(CreateDocumentDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 }

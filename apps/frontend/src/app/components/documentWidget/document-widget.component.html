@@ -1,19 +1,25 @@
 <section class="document-widget-container">
   <div class="text-container">
     <div class="title-container">
-      <h2>{{ document.title }}</h2>
+      <div class="title">
+        <h2>{{ displayTitle() }}</h2>
+        <div class="show-on-dashboard" *ngIf="document.showOnDashboard">
+          Dashboard <mat-icon>check_circle_outline</mat-icon>
+        </div>
+      </div>
       <hr />
     </div>
     <div class="content-container">
       <p>
-        <!-- TODO: remove extra comments before review -->
         {{ document.comments }}
       </p>
     </div>
   </div>
 
   <div class="action-bar-container">
-    <button mat-raised-button class="secondary-btn">Edit</button>
+    <button mat-raised-button class="secondary-btn" (click)="updateDocumentDialog()">
+      Edit <mat-icon>https</mat-icon>
+    </button>
     <button
       mat-raised-button
       class="action-btn"

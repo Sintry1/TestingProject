@@ -6,10 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { DashboardDocumentSectionComponent } from './components/dashboardWidgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardLinksComponent } from './components/dashboardWidgets/dashboard-links/dashboard-links.component';
 import { WeatherWidgetComponent } from './components/dashboardWidgets/weatherWidget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/documentWidget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/documentWidget/seeDocumentDialog/see-document-dialog.component';
 import { TableInfoDialogComponent } from './components/tableInfoDialog/table-info-dialog.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
 import { CreateAssignmentDialogComponent } from './pages/assignments/createAssignmentDialog/create-assignment-dialog.component';
@@ -29,6 +32,8 @@ import { UpdateCheckoutDialogComponent } from './pages/checkout/updateCheckoutDi
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateDocumentDialogComponent } from './pages/documents/createDocumentDialog/create-document-dialog.component';
 import { DocumentsComponent } from './pages/documents/documents.component';
+import { UpdateDocumentDialogComponent } from './pages/documents/updateDocumentDialog/update-document-dialog.component';
+import { LoginComponent } from './pages/login/login.component';
 import { CreateLongTermDialogComponent } from './pages/longterm/createLongTermDialog/create-long-term-dialog.component';
 import { LongtermComponent } from './pages/longterm/longterm.component';
 import { UpdateLongTermDialogComponent } from './pages/longterm/updateLongTermDialog/update-long-term-dialog.component';
@@ -39,6 +44,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     DashboardComponent,
     PageNotFoundComponent,
     CarsComponent,
@@ -68,6 +74,9 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     DocumentWidgetComponent,
     SeeDocumentDialogComponent,
     CreateDocumentDialogComponent,
+    UpdateDocumentDialogComponent,
+    DashboardDocumentSectionComponent,
+    DashboardLinksComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +87,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     BrowserAnimationsModule,
     materialModules,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

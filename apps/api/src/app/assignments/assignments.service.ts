@@ -7,7 +7,7 @@ import {
   UpdateAssignmentRequest,
 } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
-import { Between, Like, Repository } from 'typeorm';
+import { Between, ILike, Repository } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -34,7 +34,7 @@ export class AssignmentsService {
       room,
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return await this.assignmentRepo.find({
       where: [

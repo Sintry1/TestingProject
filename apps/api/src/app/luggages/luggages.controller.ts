@@ -10,6 +10,7 @@ import {
   Query,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -20,16 +21,20 @@ import {
   CreateLuggageRequest,
   LuggageSortOptions,
   LuggageType,
+  Role,
   SortOrder,
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { LuggagesService } from './luggages.service';
 
 @ApiTags('Luggages')
 @Controller('luggages')
+@ApiBearerAuth()
+@Roles(Role.user, Role.manager)
 export class LuggagesController {
   constructor(private luggagesService: LuggagesService) {}
 

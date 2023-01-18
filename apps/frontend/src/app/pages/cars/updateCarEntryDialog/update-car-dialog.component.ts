@@ -5,6 +5,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
+import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
@@ -17,6 +18,9 @@ export class UpdateCarDialogComponent {
   checked = true;
   isLoading = false;
   guestHasApproved = false;
+  bbInitials = bellBoyInitials;
+  selectedValue: string | undefined;
+  carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
@@ -96,6 +100,7 @@ export class UpdateCarDialogComponent {
   }
 
   updateCarListEntry(): void {
+    this.isLoading = true;
     this.carService
       .updateCar(this.data.carId, {
         room: this.updateCarForm.get('room')?.value,

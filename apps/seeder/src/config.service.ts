@@ -1,5 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Assignment, Bike, Car, Document, Luggage, Task, User } from '@omnihost/models';
+import { Assignment, Bike, Car, Document, Luggage, Task, Token, User } from '@omnihost/models';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
@@ -43,7 +43,7 @@ class ConfigService {
       database: this.getValue('POSTGRES_DATABASE', false) || 'omnihost',
       dropSchema: true,
 
-      entities: [User, Luggage, Car, Task, Assignment, Document, Bike],
+      entities: [User, Token, Luggage, Car, Task, Assignment, Document, Bike],
     };
   }
 }

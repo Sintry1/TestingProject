@@ -22,6 +22,7 @@ export class BikesComponent implements OnInit {
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
+  isLoading = false;
 
   bikeColumns = [
     'room',
@@ -52,6 +53,8 @@ export class BikesComponent implements OnInit {
   }
 
   fetchBikeList(): void {
+    this.isLoading = true;
+
     this.bikeService.getBike(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (bikes) => {
         this.originalBikeList = bikes;
@@ -60,8 +63,10 @@ export class BikesComponent implements OnInit {
           false,
           this.displayDate
         );
+        this.isLoading = false;
       },
       error: (error) => {
+        this.isLoading = false;
         console.error(error);
         this.snackBar.open(
           'Bike data has failed to load, please try checking your connection.',
@@ -95,17 +100,17 @@ export class BikesComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.BIKES,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { width: '500px' });
+    this.dialog.open(CreateBikeDialogComponent, { width: '600px' });
   }
 
   openDialogEdit(bikeListEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: bikeListEntry,
     });
   }

@@ -42,13 +42,21 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB in LR</mat-label>
-      <input #bbLr type="text" formControlName="bbLr" matInput placeholder="JD" />
+      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('bbLr')?.invalid && form.get('bbLr')?.dirty"> Required </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <input #location type="text" formControlName="location" matInput placeholder="LR1" />
+      <mat-select [(value)]="data.location" formControlName="location">
+        <mat-option *ngFor="let location of luggageLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
       <mat-error *ngIf="form.get('location')?.invalid && form.get('location')?.dirty">
         Required
       </mat-error>
@@ -69,6 +77,11 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close>Cancel</button>
-    <button mat-raised-button type="submit" class="action-btn">Update</button>
+    <button mat-raised-button type="submit" class="action-btn">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
   </div>
 </form>
