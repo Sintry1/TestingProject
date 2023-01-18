@@ -9,6 +9,10 @@ export interface IBike extends ICompletedAt {
   reservedBy?: string;
   bikeFormCompleted?: boolean;
   comments?: string;
+  bbOut?: string;
+  bbIn?: string;
+  timeOut?: Date | null;
+  timeIn?: Date | null;
 }
 
 export interface ICreateBikeRequest {
@@ -20,6 +24,10 @@ export interface ICreateBikeRequest {
   bikeFormCompleted?: boolean;
   comments?: string;
   completedAt?: Date | null;
+  bbOut?: string;
+  bbIn?: string;
+  timeOut?: Date | null;
+  timeIn?: Date | null;
 }
 
 export interface IUpdateBikeRequest {
@@ -31,4 +39,8 @@ export interface IUpdateBikeRequest {
   bikeFormCompleted?: boolean;
   comments?: string;
   completedAt?: Date | null;
+  bbOut?: string;
+  bbIn?: string;
+  timeOut?: Date | null;
+  timeIn?: Date | null;
 }
