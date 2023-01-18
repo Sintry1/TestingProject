@@ -5,8 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 import { toDateObject } from '../../../utils/date.util';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-create-checkout-dialog',
@@ -18,7 +18,6 @@ export class CreateCheckoutDialogComponent {
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;

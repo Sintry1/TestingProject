@@ -21,7 +21,6 @@ export class CreateAssignmentDialogComponent implements OnInit {
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
 

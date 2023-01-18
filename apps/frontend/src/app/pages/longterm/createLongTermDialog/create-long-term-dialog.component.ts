@@ -16,7 +16,6 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
 export class CreateLongTermDialogComponent implements OnInit {
   createLongTermForm = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
   isLoading = false;
 

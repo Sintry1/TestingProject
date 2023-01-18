@@ -22,7 +22,6 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   maxDatetime = new Date(new Date().getTime() + 50000);
 
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   isLoading = false;

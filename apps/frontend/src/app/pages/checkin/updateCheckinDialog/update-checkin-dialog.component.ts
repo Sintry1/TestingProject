@@ -19,7 +19,6 @@ export class UpdateCheckinDialogComponent {
   isLoading = false;
   luggageId: string;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;

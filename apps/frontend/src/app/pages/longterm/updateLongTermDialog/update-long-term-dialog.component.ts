@@ -5,7 +5,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import { toDatetimeInputString, toDateObject } from '../../../utils/date.util';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -19,7 +19,6 @@ export class UpdateLongTermDialogComponent implements OnInit {
   maxDatetime = new Date(new Date().getTime() + 50000);
   bbInitials = bellBoyInitials;
   luggageLocation = luggageLocation;
-  selectedValue: string | undefined;
   isLoading = false;
 
   @ViewChild('room') roomInput!: ElementRef;

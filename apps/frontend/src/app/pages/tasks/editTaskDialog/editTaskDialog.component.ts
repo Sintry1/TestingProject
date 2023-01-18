@@ -21,7 +21,6 @@ export class EditTaskDialogComponent {
   isTaskComplete = false;
 
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
 
   @ViewChild('initials') initialsInput!: ElementRef;
 

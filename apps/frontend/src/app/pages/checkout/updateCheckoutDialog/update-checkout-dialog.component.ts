@@ -18,7 +18,6 @@ export class UpdateCheckoutDialogComponent {
   isLoading = false;
   luggageId: string;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   luggageLocation = luggageLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
