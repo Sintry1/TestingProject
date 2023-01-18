@@ -1,16 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  Component,
-  ElementRef,
-  Inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
@@ -20,10 +10,7 @@ import { toDatetimeInputString, toDateObject } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-update-long-term-dialog',
   templateUrl: './update-long-term-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateLongTermDialogComponent implements OnInit {
   updateLongTermForm = new UntypedFormGroup({});
@@ -48,9 +35,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
   ngOnInit(): void {
     this.updateLongTermForm = new UntypedFormGroup({
       dateIn: new UntypedFormControl(
-        this.data.createdAt
-          ? toDatetimeInputString(new Date(this.data.createdAt))
-          : '',
+        this.data.createdAt ? toDatetimeInputString(new Date(this.data.createdAt)) : '',
         [Validators.required]
       ),
       room: new UntypedFormControl(this.data.room, [
@@ -63,20 +48,14 @@ export class UpdateLongTermDialogComponent implements OnInit {
       comments: new UntypedFormControl(this.data.comments, []),
       tagNr: new UntypedFormControl(this.data.tagNr, [Validators.required]),
       dateNeeded: new UntypedFormControl(
-        this.data.arrivalTime
-          ? toDatetimeInputString(new Date(this.data.arrivalTime))
-          : '',
+        this.data.arrivalTime ? toDatetimeInputString(new Date(this.data.arrivalTime)) : '',
         []
       ),
       bbLr: new UntypedFormControl(this.data.bbLr, [Validators.required]),
-      location: new UntypedFormControl(this.data.location, [
-        Validators.required,
-      ]),
+      location: new UntypedFormControl(this.data.location, [Validators.required]),
       bbOut: new UntypedFormControl(this.data.bbOut, []),
       dateOut: new UntypedFormControl(
-        this.data.completedAt
-          ? toDatetimeInputString(new Date(this.data.completedAt))
-          : '',
+        this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : '',
         []
       ),
     });
@@ -112,9 +91,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
         bags: this.updateLongTermForm.get('bags')?.value,
         comments: this.updateLongTermForm.get('comments')?.value,
         tagNr: this.updateLongTermForm.get('tagNr')?.value,
-        arrivalTime: toDateObject(
-          this.updateLongTermForm.get('dateNeeded')?.value
-        ),
+        arrivalTime: toDateObject(this.updateLongTermForm.get('dateNeeded')?.value),
         bbLr: this.updateLongTermForm.get('bbLr')?.value
           ? this.updateLongTermForm.get('bbLr')?.value.toUpperCase()
           : '',
@@ -124,9 +101,7 @@ export class UpdateLongTermDialogComponent implements OnInit {
         bbOut: this.updateLongTermForm.get('bbOut')?.value
           ? this.updateLongTermForm.get('bbOut')?.value.toUpperCase()
           : '',
-        completedAt: toDateObject(
-          this.updateLongTermForm.get('dateOut')?.value
-        ),
+        completedAt: toDateObject(this.updateLongTermForm.get('dateOut')?.value),
       })
       .subscribe({
         next: () => {

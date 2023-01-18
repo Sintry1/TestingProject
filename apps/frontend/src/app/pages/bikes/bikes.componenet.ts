@@ -2,12 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  BikeSortOptions,
-  IBike,
-  SortOrder,
-  TableInfoOptions,
-} from '@omnihost/interfaces';
+import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
 import { BikeService } from '../../services/bikes.service';
 import { DisplayDateService } from '../../services/display-date.service';
@@ -18,10 +13,7 @@ import { UpdateBikeDialogComponent } from './updateBikeEntryDialog/update-bike-d
 @Component({
   selector: 'frontend-bikes',
   templateUrl: './bikes.component.html',
-  styleUrls: [
-    '../../../assets/styles/table.scss',
-    '../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
 export class BikesComponent implements OnInit {
   originalBikeList: IBike[] = [];
@@ -60,28 +52,26 @@ export class BikesComponent implements OnInit {
   }
 
   fetchBikeList(): void {
-    this.bikeService
-      .getBike(this.displayDate, this.sortBy, this.sortOrder, this.search)
-      .subscribe({
-        next: (bikes) => {
-          this.originalBikeList = bikes;
-          this.filteredBikeList = filterByCompletedAtAndOrderResults(
-            this.originalBikeList,
-            false,
-            this.displayDate
-          );
-        },
-        error: (error) => {
-          console.error(error);
-          this.snackBar.open(
-            'Bike data has failed to load, please try checking your connection.',
-            'Okay',
-            {
-              duration: 10000,
-            }
-          );
-        },
-      });
+    this.bikeService.getBike(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
+      next: (bikes) => {
+        this.originalBikeList = bikes;
+        this.filteredBikeList = filterByCompletedAtAndOrderResults(
+          this.originalBikeList,
+          false,
+          this.displayDate
+        );
+      },
+      error: (error) => {
+        console.error(error);
+        this.snackBar.open(
+          'Bike data has failed to load, please try checking your connection.',
+          'Okay',
+          {
+            duration: 10000,
+          }
+        );
+      },
+    });
   }
 
   updateBikeFormCompleted(bikeId: string, bikeFormCompleted: boolean): void {

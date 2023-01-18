@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
@@ -14,10 +10,7 @@ import { toDateObject } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-create-long-term-dialog',
   templateUrl: './create-long-term-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class CreateLongTermDialogComponent implements OnInit {
   createLongTermForm = new UntypedFormGroup({});
@@ -86,9 +79,7 @@ export class CreateLongTermDialogComponent implements OnInit {
         bags: this.createLongTermForm.get('bags')?.value,
         comments: this.createLongTermForm.get('comments')?.value,
         tagNr: this.createLongTermForm.get('tagNr')?.value,
-        dateNeeded: toDateObject(
-          this.createLongTermForm.get('dateNeeded')?.value
-        ),
+        dateNeeded: toDateObject(this.createLongTermForm.get('dateNeeded')?.value),
         bbLr: this.createLongTermForm.get('bbLr')?.value
           ? this.createLongTermForm.get('bbLr')?.value.toUpperCase()
           : '',

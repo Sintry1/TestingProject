@@ -36,9 +36,7 @@ export class DocumentsService {
   }
 
   public getDocumentById(id: string): Observable<IGetDocumentByIdResponse> {
-    return this.http.get<IGetDocumentByIdResponse>(
-      `${env.apiUrl}/documents/${id}`
-    );
+    return this.http.get<IGetDocumentByIdResponse>(`${env.apiUrl}/documents/${id}`);
   }
 
   public getDocumentFile(url: string): Observable<Blob> {
@@ -50,10 +48,7 @@ export class DocumentsService {
     });
   }
 
-  public updateDocument(
-    id: string,
-    params: IUpdateDocumentRequest
-  ): Observable<IDocument> {
+  public updateDocument(id: string, params: IUpdateDocumentRequest): Observable<IDocument> {
     return this.http.patch<IDocument>(`${env.apiUrl}/documents/${id}`, params);
   }
 }

@@ -9,10 +9,7 @@ export abstract class BaseResponse implements IBase {
   updatedAt?: Date;
 }
 
-export abstract class CompletedAtResponse
-  extends BaseResponse
-  implements ICompletedAt
-{
+export abstract class CompletedAtResponse extends BaseResponse implements ICompletedAt {
   @ApiModelProperty()
   completedAt?: Date;
 }

@@ -21,9 +21,7 @@ export class AppComponent {
   ) {
     this.displayDateService
       .getDisplayDateSubject()
-      .subscribe(
-        (date) => (this.displayDate = toDateInputString(new Date(date)))
-      );
+      .subscribe((date) => (this.displayDate = toDateInputString(new Date(date))));
 
     this.router.events.subscribe(async (val) => {
       if (val instanceof NavigationEnd) {

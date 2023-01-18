@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarService } from '../../../services/car.service';
@@ -13,10 +9,7 @@ import { toDateObject } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-create-car-dialog',
   templateUrl: './create-car-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class CreateCarDialogComponent {
   createCarForm: UntypedFormGroup;
@@ -84,16 +77,12 @@ export class CreateCarDialogComponent {
         room: this.createCarForm.get('room')?.value,
         tagNr: this.createCarForm.get('tagNr')?.value,
         arrivalDate: toDateObject(this.createCarForm.get('arrivalDate')?.value),
-        departureDate: toDateObject(
-          this.createCarForm.get('departureDate')?.value
-        ),
+        departureDate: toDateObject(this.createCarForm.get('departureDate')?.value),
         name: this.createCarForm.get('name')?.value,
         licensePlate: this.createCarForm.get('licensePlate')?.value
           ? this.createCarForm.get('licensePlate')?.value.toUpperCase()
           : '',
-        expirationDate: toDateObject(
-          this.createCarForm.get('expirationDate')?.value
-        ),
+        expirationDate: toDateObject(this.createCarForm.get('expirationDate')?.value),
         pickUpTime: toDateObject(this.createCarForm.get('pickUpTime')?.value),
         deliveryTime: new Date(this.createCarForm.get('deliveryTime')?.value),
         bbDown: this.createCarForm.get('bbDown')?.value

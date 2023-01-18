@@ -1,9 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
@@ -35,10 +31,7 @@ export class CreateDocumentDialogComponent implements OnInit {
   ngOnInit(): void {
     this.createDocumentForm = new UntypedFormGroup({
       title: new UntypedFormControl('', [Validators.required]),
-      comments: new UntypedFormControl('', [
-        Validators.maxLength(1000),
-        Validators.required,
-      ]),
+      comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
   }
 
@@ -73,13 +66,9 @@ export class CreateDocumentDialogComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.snackBar.open(
-          'Failed to upload document, please try again.',
-          'Okay',
-          {
-            duration: 15000,
-          }
-        );
+        this.snackBar.open('Failed to upload document, please try again.', 'Okay', {
+          duration: 15000,
+        });
         this.isLoading = false;
       },
     });

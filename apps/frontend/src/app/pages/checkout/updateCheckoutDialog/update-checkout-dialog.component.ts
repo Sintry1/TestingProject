@@ -1,15 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
@@ -18,10 +10,7 @@ import { toDateObject, toTimeInputString } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-update-checkout-dialog',
   templateUrl: './update-checkout-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateCheckoutDialogComponent {
   updateCheckoutForm: UntypedFormGroup;
@@ -103,9 +92,7 @@ export class UpdateCheckoutDialogComponent {
         location: this.updateCheckoutForm.get('location')?.value
           ? this.updateCheckoutForm.get('location')?.value.toUpperCase()
           : '',
-        completedAt: toDateObject(
-          this.updateCheckoutForm.get('completedAt')?.value
-        ),
+        completedAt: toDateObject(this.updateCheckoutForm.get('completedAt')?.value),
         comments: this.updateCheckoutForm.get('comments')?.value,
       })
       .subscribe({

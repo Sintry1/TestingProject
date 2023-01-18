@@ -3,79 +3,39 @@
   <hr />
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input
-        #room
-        type="number"
-        formControlName="room"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          createBikeForm.get('room')?.invalid &&
-          createBikeForm.get('room')?.dirty
-        "
-      >
+      <input #room type="number" formControlName="room" matInput placeholder="123" />
+      <mat-error *ngIf="createBikeForm.get('room')?.invalid && createBikeForm.get('room')?.dirty">
         Must be a number from 100-999
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off"  class="full-width">
+    <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Name</mat-label>
-      <input
-        #name
-        type="text"
-        formControlName="name"
-        matInput
-        placeholder="Madsen"
-      />
-      <mat-error
-        *ngIf="
-          createBikeForm.get('name')?.invalid &&
-          createBikeForm.get('name')?.dirty
-        "
-      >
+      <input #name type="text" formControlName="name" matInput placeholder="Madsen" />
+      <mat-error *ngIf="createBikeForm.get('name')?.invalid && createBikeForm.get('name')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Reserved by</mat-label>
-      <input
-        #reservedBy
-        type="text"
-        formControlName="reservedBy"
-        matInput
-        placeholder="Guest"
-      />
+      <input #reservedBy type="text" formControlName="reservedBy" matInput placeholder="Guest" />
       <mat-error
-        *ngIf="
-          createBikeForm.get('reservedBy')?.invalid &&
-          createBikeForm.get('reservedBy')?.dirty
-        "
+        *ngIf="createBikeForm.get('reservedBy')?.invalid && createBikeForm.get('reservedBy')?.dirty"
       >
         Required
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Number of bikes</mat-label>
-      <input
-        #nrOfBikes
-        type="number"
-        formControlName="nrOfBikes"
-        matInput
-        placeholder="1"
-      />
+      <input #nrOfBikes type="number" formControlName="nrOfBikes" matInput placeholder="1" />
       <mat-error
-        *ngIf="
-          createBikeForm.get('nrOfBikes')?.invalid &&
-          createBikeForm.get('nrOfBikes')?.dirty
-        "
+        *ngIf="createBikeForm.get('nrOfBikes')?.invalid && createBikeForm.get('nrOfBikes')?.dirty"
       >
         Must be a number from 1-99
       </mat-error>
@@ -104,15 +64,9 @@
     </mat-form-field>
   </div>
 
-  <mat-form-field autocomplete="off"  class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
-    <input
-      #comments
-      type="text"
-      formControlName="comments"
-      matInput
-      placeholder="Comments"
-    />
+    <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
   </mat-form-field>
 
   <label class="checkbox-container">
@@ -126,14 +80,7 @@
   </label>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      type="button"
-      mat-raised-button
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
     <button class="action-btn" mat-flat-button type="submit">Add Bike</button>
   </div>

@@ -1,16 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import {
-  Component,
-  ElementRef,
-  Inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment } from '@omnihost/interfaces';
@@ -20,10 +10,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-update-assignment-dialog',
   templateUrl: './update-assignment-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateAssignmentDialogComponent implements OnInit {
   updateAssignmentForm = new UntypedFormGroup({});
@@ -50,10 +37,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         Validators.maxLength(50),
         Validators.pattern('^[0-9]*$'),
       ]),
-      task: new UntypedFormControl(
-        this.data.task ?? '',
-        Validators.maxLength(20)
-      ),
+      task: new UntypedFormControl(this.data.task ?? '', Validators.maxLength(20)),
       comments: new UntypedFormControl(this.data.comments, [
         Validators.maxLength(1000),
         Validators.required,
@@ -62,17 +46,12 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         Validators.maxLength(20),
         Validators.required,
       ]),
-      performedBy: new UntypedFormControl(this.data.performedBy ?? '', [
-        Validators.maxLength(20),
+      performedBy: new UntypedFormControl(this.data.performedBy ?? '', [Validators.maxLength(20)]),
+      receivedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.receivedAt)), [
+        Validators.required,
       ]),
-      receivedAt: new UntypedFormControl(
-        toDatetimeInputString(new Date(this.data.receivedAt)),
-        [Validators.required]
-      ),
       completedAt: new UntypedFormControl(
-        this.data.completedAt
-          ? toDatetimeInputString(new Date(this.data.completedAt))
-          : ''
+        this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : ''
       ),
     });
   }
@@ -107,12 +86,8 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         performedBy: this.updateAssignmentForm.get('performedBy')?.value
           ? this.updateAssignmentForm.get('performedBy')?.value.toUpperCase()
           : '',
-        receivedAt: toDateObject(
-          this.updateAssignmentForm.get('receivedAt')?.value
-        ),
-        completedAt: toDateObject(
-          this.updateAssignmentForm.get('completedAt')?.value
-        ),
+        receivedAt: toDateObject(this.updateAssignmentForm.get('receivedAt')?.value),
+        completedAt: toDateObject(this.updateAssignmentForm.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {
@@ -124,11 +99,9 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to update assignment, please try again.',
-            'Okay',
-            { duration: 10000 }
-          );
+          this.snackBar.open('Failed to update assignment, please try again.', 'Okay', {
+            duration: 10000,
+          });
         },
       });
   }

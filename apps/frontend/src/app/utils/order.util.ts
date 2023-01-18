@@ -1,6 +1,4 @@
-export function orderByCompletedStatus<Type extends { completedAt?: Date }>(
-  items: Type[]
-): Type[] {
+export function orderByCompletedStatus<Type extends { completedAt?: Date }>(items: Type[]): Type[] {
   const uncompletedItems = items.filter((item: Type) => !item.completedAt);
   const completedItems = items.filter((item: Type) => item.completedAt);
 
@@ -13,9 +11,11 @@ export function orderByCompletedStatus<Type extends { completedAt?: Date }>(
  * @param showAll whether it should show all completed items or only the ones from the current date.
  * @returns filtered and ordered list.
  */
-export function filterByCompletedAtAndOrderResults<
-  Type extends { completedAt?: Date }
->(items: Type[], showAll: boolean, createdAt: Date): Type[] {
+export function filterByCompletedAtAndOrderResults<Type extends { completedAt?: Date }>(
+  items: Type[],
+  showAll: boolean,
+  createdAt: Date
+): Type[] {
   let orderedItems = orderByCompletedStatus(items);
   const dateStart = new Date(createdAt);
   dateStart.setHours(0);

@@ -1,15 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask } from '@omnihost/interfaces';
 import { TasksService } from '../../../services/tasks.service';
@@ -18,10 +10,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-edit-task-dialog',
   templateUrl: './editTaskDialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/dialog.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class EditTaskDialogComponent {
   form: UntypedFormGroup;
@@ -102,13 +91,9 @@ export class EditTaskDialogComponent {
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to reset task, please try again.',
-            'Okay',
-            {
-              duration: 10000,
-            }
-          );
+          this.snackBar.open('Failed to reset task, please try again.', 'Okay', {
+            duration: 10000,
+          });
           this.isLoading = false;
         },
       });

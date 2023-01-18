@@ -51,10 +51,7 @@ export class AssignmentsService {
     return await this.assignmentRepo.save(assignmentData);
   }
 
-  async updateAssignment(
-    assignmentId: string,
-    assignmentData: UpdateAssignmentRequest
-  ) {
+  async updateAssignment(assignmentId: string, assignmentData: UpdateAssignmentRequest) {
     const assignment = await this.assignmentRepo.findOneByOrFail({
       assignmentId,
     });

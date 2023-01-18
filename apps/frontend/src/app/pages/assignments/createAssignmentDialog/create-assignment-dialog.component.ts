@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
@@ -36,25 +32,16 @@ export class CreateAssignmentDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.createAssignmentForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl('', [Validators.maxLength(50), Validators.pattern('^[0-9]*$')]),
       task: new UntypedFormControl('', Validators.maxLength(20)),
-      receivedBy: new UntypedFormControl('', [
-        Validators.maxLength(20),
-        Validators.required,
-      ]),
+      receivedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
       receivedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
         Validators.required,
         Validators.maxLength(20),
       ]),
       completedAt: new UntypedFormControl(''),
-      comments: new UntypedFormControl('', [
-        Validators.maxLength(1000),
-        Validators.required,
-      ]),
+      comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
   }
 
@@ -89,12 +76,8 @@ export class CreateAssignmentDialogComponent implements OnInit {
         performedBy: this.createAssignmentForm.get('performedBy')?.value
           ? this.createAssignmentForm.get('performedBy')?.value.toUpperCase()
           : '',
-        receivedAt: toDateObject(
-          this.createAssignmentForm.get('receivedAt')?.value
-        ),
-        completedAt: toDateObject(
-          this.createAssignmentForm.get('completedAt')?.value
-        ),
+        receivedAt: toDateObject(this.createAssignmentForm.get('receivedAt')?.value),
+        completedAt: toDateObject(this.createAssignmentForm.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {
@@ -105,11 +88,9 @@ export class CreateAssignmentDialogComponent implements OnInit {
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to add assignment, please try again.',
-            'Okay',
-            { duration: 10000 }
-          );
+          this.snackBar.open('Failed to add assignment, please try again.', 'Okay', {
+            duration: 10000,
+          });
           this.isLoading = false;
         },
       });

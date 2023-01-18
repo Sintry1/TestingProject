@@ -16,10 +16,7 @@ import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private usersService: UsersService,
-    private readonly jwtService: JwtService
-  ) {}
+  constructor(private usersService: UsersService, private readonly jwtService: JwtService) {}
 
   /**
    * Verify that the the login attempt uses valid user credentials.

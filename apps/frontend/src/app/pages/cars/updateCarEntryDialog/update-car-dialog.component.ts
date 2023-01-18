@@ -1,19 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
-import {
-  toDateInputString,
-  toDateObject,
-  toDatetimeInputString,
-} from '../../../utils/date.util';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-car-dialog',
@@ -51,22 +43,16 @@ export class UpdateCarDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      arrivalDate: new UntypedFormControl(
-        toDateInputString(new Date(data.arrivalDate)),
-        [Validators.required]
-      ),
-      departureDate: new UntypedFormControl(
-        toDateInputString(new Date(data.departureDate)),
-        [Validators.required]
-      ),
-      name: new UntypedFormControl(data.name, [Validators.required]),
-      licensePlate: new UntypedFormControl(data.licensePlate, [
+      arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
         Validators.required,
       ]),
+      departureDate: new UntypedFormControl(toDateInputString(new Date(data.departureDate)), [
+        Validators.required,
+      ]),
+      name: new UntypedFormControl(data.name, [Validators.required]),
+      licensePlate: new UntypedFormControl(data.licensePlate, [Validators.required]),
       expirationDate: new UntypedFormControl(
-        data.expirationDate
-          ? toDatetimeInputString(new Date(data.expirationDate))
-          : '',
+        data.expirationDate ? toDatetimeInputString(new Date(data.expirationDate)) : '',
         []
       ),
       pickUpTime: new UntypedFormControl(
@@ -74,9 +60,7 @@ export class UpdateCarDialogComponent {
         []
       ),
       deliveryTime: new UntypedFormControl(
-        data.deliveryTime
-          ? toDatetimeInputString(new Date(data.deliveryTime))
-          : '',
+        data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
         []
       ),
       bbDown: new UntypedFormControl(data.bbDown, []),
@@ -117,20 +101,14 @@ export class UpdateCarDialogComponent {
         room: this.updateCarForm.get('room')?.value,
         tagNr: this.updateCarForm.get('tagNr')?.value,
         arrivalDate: toDateObject(this.updateCarForm.get('arrivalDate')?.value),
-        departureDate: toDateObject(
-          this.updateCarForm.get('departureDate')?.value
-        ),
+        departureDate: toDateObject(this.updateCarForm.get('departureDate')?.value),
         name: this.updateCarForm.get('name')?.value,
         licensePlate: this.updateCarForm.get('licensePlate')?.value
           ? this.updateCarForm.get('licensePlate')?.value.toUpperCase()
           : '',
-        expirationDate: toDateObject(
-          this.updateCarForm.get('expirationDate')?.value
-        ),
+        expirationDate: toDateObject(this.updateCarForm.get('expirationDate')?.value),
         pickUpTime: toDateObject(this.updateCarForm.get('pickUpTime')?.value),
-        deliveryTime: toDateObject(
-          this.updateCarForm.get('deliveryTime')?.value
-        ),
+        deliveryTime: toDateObject(this.updateCarForm.get('deliveryTime')?.value),
         bbDown: this.updateCarForm.get('bbDown')?.value
           ? this.updateCarForm.get('bbDown')?.value.toUpperCase()
           : '',

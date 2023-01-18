@@ -17,9 +17,7 @@ export class TasksService {
    */
   public getTasks(createdAt: Date): Observable<GetTasksResponse> {
     return this.http.get<GetTasksResponse>(
-      `${
-        env.apiUrl
-      }/tasks?createdAt=${createdAt.toISOString()}&sortBy=time&sortOrder=ASC`
+      `${env.apiUrl}/tasks?createdAt=${createdAt.toISOString()}&sortBy=time&sortOrder=ASC`
     );
   }
 

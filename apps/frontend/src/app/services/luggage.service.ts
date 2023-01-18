@@ -55,10 +55,7 @@ export class LuggageService {
     );
   }
 
-  public update(
-    id: string,
-    params: IUpdateLuggageRequest
-  ): Observable<ILuggage> {
+  public update(id: string, params: IUpdateLuggageRequest): Observable<ILuggage> {
     return this.http.patch<ILuggage>(`${env.apiUrl}/luggages/${id}`, params);
   }
 

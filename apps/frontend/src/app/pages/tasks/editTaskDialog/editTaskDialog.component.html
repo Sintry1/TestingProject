@@ -2,18 +2,10 @@
   <h1>Complete Task</h1>
   <hr />
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Initials</mat-label>
-      <input
-        #initials
-        type="text"
-        formControlName="initials"
-        matInput
-        placeholder="DS"
-      />
-      <mat-error
-        *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty"
-      >
+      <input #initials type="text" formControlName="initials" matInput placeholder="DS" />
+      <mat-error *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -40,17 +32,8 @@
       reset
     </button>
 
-    <button
-      mat-raised-button
-      class="secondary-btn"
-      type="button"
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button mat-raised-button class="secondary-btn" type="button" mat-dialog-close>Cancel</button>
 
-    <button mat-raised-button class="action-btn" type="submit">
-      Complete Task
-    </button>
+    <button mat-raised-button class="action-btn" type="submit">Complete Task</button>
   </div>
 </form>

@@ -1,33 +1,20 @@
-<form
-  [formGroup]="createDocumentForm"
-  (ngSubmit)="onSubmit()"
-  class="dialog-container"
->
+<form [formGroup]="createDocumentForm" (ngSubmit)="onSubmit()" class="dialog-container">
   <h1>Add document</h1>
   <hr />
 
   <div class="dialog-row"></div>
 
-  <mat-form-field  autocomplete="off" class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Title</mat-label>
-    <input
-      #title
-      type="text"
-      formControlName="title"
-      matInput
-      placeholder="Document title"
-    />
+    <input #title type="text" formControlName="title" matInput placeholder="Document title" />
     <mat-error
-      *ngIf="
-        createDocumentForm.get('title')?.invalid &&
-        createDocumentForm.get('title')?.dirty
-      "
+      *ngIf="createDocumentForm.get('title')?.invalid && createDocumentForm.get('title')?.dirty"
     >
       Required
     </mat-error>
   </mat-form-field>
 
-  <mat-form-field autocomplete="off"  class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
     <textarea
       #comments
@@ -39,21 +26,16 @@
     ></textarea>
     <mat-error
       *ngIf="
-        createDocumentForm.get('comments')?.invalid &&
-        createDocumentForm.get('comments')?.dirty
+        createDocumentForm.get('comments')?.invalid && createDocumentForm.get('comments')?.dirty
       "
     >
       Can't be more than 1000 characters
     </mat-error>
   </mat-form-field>
 
-  <button class="secondary-btn full-width" mat-raised-button type="button">
-    Upload file
-  </button>
+  <button class="secondary-btn full-width" mat-raised-button type="button">Upload file</button>
 
-  <button class="document-btn full-width" mat-raised-button type="button">
-    No file uploaded
-  </button>
+  <button class="document-btn full-width" mat-raised-button type="button">No file uploaded</button>
 
   <label class="checkbox-container">
     Show on dashboard
@@ -66,16 +48,7 @@
   </label>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      mat-raised-button
-      mat-dialog-close
-      type="button"
-    >
-      Cancel
-    </button>
-    <button class="action-btn" mat-raised-button type="submit">
-      Add document
-    </button>
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">Add document</button>
   </div>
 </form>

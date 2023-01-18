@@ -1,45 +1,20 @@
-<form
-  (ngSubmit)="onSubmit()"
-  [formGroup]="updateCarForm"
-  class="dialog-container"
->
+<form (ngSubmit)="onSubmit()" [formGroup]="updateCarForm" class="dialog-container">
   <h1>Update Car</h1>
   <hr />
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input
-        #room
-        type="number"
-        formControlName="room"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('room')?.invalid && updateCarForm.get('room')?.dirty
-        "
-      >
+      <input #room type="number" formControlName="room" matInput placeholder="123" />
+      <mat-error *ngIf="updateCarForm.get('room')?.invalid && updateCarForm.get('room')?.dirty">
         Must be a number from 100-999
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
-      <input
-        #tagNr
-        type="number"
-        formControlName="tagNr"
-        matInput
-        placeholder="123"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('tagNr')?.invalid &&
-          updateCarForm.get('tagNr')?.dirty
-        "
-      >
+      <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
+      <mat-error *ngIf="updateCarForm.get('tagNr')?.invalid && updateCarForm.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -48,45 +23,25 @@
   <div class="dialog-row">
     <mat-form-field class="remove-error-message">
       <mat-label>Arrival Date</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="date"
-        formControlName="arrivalDate"
-      />
+      <input onclick="this.showPicker()" matInput type="date" formControlName="arrivalDate" />
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
       <mat-label>Departure Date</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="date"
-        formControlName="departureDate"
-      />
+      <input onclick="this.showPicker()" matInput type="date" formControlName="departureDate" />
     </mat-form-field>
   </div>
 
-  <mat-form-field autocomplete="off"  class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Name</mat-label>
-    <input
-      #name
-      type="text"
-      formControlName="name"
-      matInput
-      placeholder="Johnson"
-    />
-    <mat-error
-      *ngIf="
-        updateCarForm.get('name')?.invalid && updateCarForm.get('name')?.dirty
-      "
-    >
+    <input #name type="text" formControlName="name" matInput placeholder="Johnson" />
+    <mat-error *ngIf="updateCarForm.get('name')?.invalid && updateCarForm.get('name')?.dirty">
       Required
     </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>License plate</mat-label>
       <input
         #licensePlate
@@ -97,8 +52,7 @@
       />
       <mat-error
         *ngIf="
-          updateCarForm.get('licensePlate')?.invalid &&
-          updateCarForm.get('licensePlate')?.dirty
+          updateCarForm.get('licensePlate')?.invalid && updateCarForm.get('licensePlate')?.dirty
         "
       >
         Required
@@ -139,46 +93,25 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>BB down</mat-label>
-      <input
-        #bbDown
-        type="text"
-        formControlName="bbDown"
-        matInput
-        placeholder="FV"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('bbDown')?.invalid &&
-          updateCarForm.get('bbDown')?.dirty
-        "
-      >
+      <input #bbDown type="text" formControlName="bbDown" matInput placeholder="FV" />
+      <mat-error *ngIf="updateCarForm.get('bbDown')?.invalid && updateCarForm.get('bbDown')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>BB up</mat-label>
-      <input
-        #bbUp
-        type="text"
-        formControlName="bbUp"
-        matInput
-        placeholder="FV"
-      />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('bbUp')?.invalid && updateCarForm.get('bbUp')?.dirty
-        "
-      >
+      <input #bbUp type="text" formControlName="bbUp" matInput placeholder="FV" />
+      <mat-error *ngIf="updateCarForm.get('bbUp')?.invalid && updateCarForm.get('bbUp')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
       <input
         #location
@@ -188,62 +121,35 @@
         placeholder="Front of hotel"
       />
       <mat-error
-        *ngIf="
-          updateCarForm.get('location')?.invalid &&
-          updateCarForm.get('location')?.dirty
-        "
+        *ngIf="updateCarForm.get('location')?.invalid && updateCarForm.get('location')?.dirty"
       >
         Required
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" >
+    <mat-form-field autocomplete="off">
       <mat-label>Parking lot</mat-label>
-      <input
-        type="text"
-        formControlName="parkingLot"
-        matInput
-        placeholder="Front of hotel"
-      />
+      <input type="text" formControlName="parkingLot" matInput placeholder="Front of hotel" />
       <mat-error
-        *ngIf="
-          updateCarForm.get('parkingLot')?.invalid &&
-          updateCarForm.get('parkingLot')?.dirty
-        "
+        *ngIf="updateCarForm.get('parkingLot')?.invalid && updateCarForm.get('parkingLot')?.dirty"
       >
         Required
       </mat-error>
     </mat-form-field>
   </div>
 
-  <mat-form-field autocomplete="off"  class="full-width">
+  <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
-    <input
-      #comments
-      type="text"
-      formControlName="comments"
-      matInput
-      placeholder="Comments"
-    />
+    <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
     <mat-error
-      *ngIf="
-        updateCarForm.get('comments')?.invalid &&
-        updateCarForm.get('comments')?.dirty
-      "
+      *ngIf="updateCarForm.get('comments')?.invalid && updateCarForm.get('comments')?.dirty"
     >
       Required
     </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
-    <button
-      class="secondary-btn"
-      type="button"
-      mat-raised-button
-      mat-dialog-close
-    >
-      Cancel
-    </button>
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
     <button class="action-btn" mat-flat-button type="submit">Update</button>
   </div>

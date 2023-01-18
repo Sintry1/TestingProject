@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
@@ -14,10 +10,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-update-bike-dialog',
   templateUrl: './update-bike-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class UpdateBikeDialogComponent {
   updateBikeForm: UntypedFormGroup;
@@ -49,14 +42,10 @@ export class UpdateBikeDialogComponent {
         [Validators.required]
       ),
       name: new UntypedFormControl(data.name, [Validators.required]),
-      reservedBy: new UntypedFormControl(data.reservedBy, [
-        Validators.required,
-      ]),
+      reservedBy: new UntypedFormControl(data.reservedBy, [Validators.required]),
       comments: new UntypedFormControl(data.comments, []),
       completedAt: new UntypedFormControl(
-        data.completedAt
-          ? toDatetimeInputString(new Date(data.completedAt))
-          : '',
+        data.completedAt ? toDatetimeInputString(new Date(data.completedAt)) : '',
         []
       ),
     });
@@ -91,9 +80,7 @@ export class UpdateBikeDialogComponent {
         reservedBy: this.updateBikeForm.get('reservedBy')?.value,
         bikeFormCompleted: this.bikeFormCompleted,
         comments: this.updateBikeForm.get('comments')?.value,
-        completedAt: toDateObject(
-          this.updateBikeForm.get('completedAt')?.value
-        ),
+        completedAt: toDateObject(this.updateBikeForm.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

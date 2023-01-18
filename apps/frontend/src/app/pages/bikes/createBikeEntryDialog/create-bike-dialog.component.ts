@@ -1,10 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import {
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeService } from '../../../services/bikes.service';
@@ -13,10 +9,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 @Component({
   selector: 'frontend-create-bike-dialog',
   templateUrl: './create-bike-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class CreateBikeDialogComponent {
   createBikeForm: UntypedFormGroup;
@@ -40,9 +33,7 @@ export class CreateBikeDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       nrOfBikes: new UntypedFormControl('', [Validators.required]),
-      pickUpTime: new UntypedFormControl(toDatetimeInputString(new Date()), [
-        Validators.required,
-      ]),
+      pickUpTime: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       reservedBy: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', []),
@@ -76,9 +67,7 @@ export class CreateBikeDialogComponent {
         reservedBy: this.createBikeForm.get('reservedBy')?.value,
         bikeFormCompleted: this.bikeFormCompleted,
         comments: this.createBikeForm.get('comments')?.value,
-        completedAt: toDateObject(
-          this.createBikeForm.get('completedAt')?.value
-        ),
+        completedAt: toDateObject(this.createBikeForm.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {
@@ -89,13 +78,9 @@ export class CreateBikeDialogComponent {
         },
         error: (err: HttpErrorResponse) => {
           console.error(err);
-          this.snackBar.open(
-            'Failed to create bike, please try again.',
-            'Okay',
-            {
-              duration: 15000,
-            }
-          );
+          this.snackBar.open('Failed to create bike, please try again.', 'Okay', {
+            duration: 15000,
+          });
           this.isLoading = false;
         },
       });
