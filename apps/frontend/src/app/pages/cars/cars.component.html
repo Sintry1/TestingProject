@@ -1,7 +1,7 @@
 <main>
   <div class="table-actions">
     <div>
-      <mat-form-field  style="width: 150px" class="remove-error-message">
+      <mat-form-field style="width: 150px" class="remove-error-message">
         <mat-label>Sort By</mat-label>
         <mat-select [(value)]="sortBy" (selectionChange)="fetchCarList()">
           <mat-option value="createdAt">Created at</mat-option>
@@ -11,7 +11,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field autocomplete="off" class="remove-error-message" >
+      <mat-form-field autocomplete="off" class="remove-error-message">
         <mat-label>Search</mat-label>
         <input
           type="text"
