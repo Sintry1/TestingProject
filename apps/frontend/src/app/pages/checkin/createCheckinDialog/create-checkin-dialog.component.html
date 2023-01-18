@@ -84,7 +84,7 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" class="input" >
+    <mat-form-field autocomplete="off" class="input">
       <mat-label>BB Up</mat-label>
       <mat-select formControlName="bbOut">
         <mat-option *ngFor="let initials of bbInitials" [value]="initials">
@@ -99,7 +99,7 @@
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
-      <mat-label>In room time</mat-label>
+      <mat-label>Time in room</mat-label>
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
     </mat-form-field>
   </div>

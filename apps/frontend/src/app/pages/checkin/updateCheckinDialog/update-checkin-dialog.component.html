@@ -65,8 +65,20 @@
 
   <div class="dialog-row">
     <mat-form-field class="remove-error-message">
-      <mat-label>In room time</mat-label>
+      <mat-label>Time in room</mat-label>
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off" class="input" appearance="fill">
+      <mat-label>BB Up</mat-label>
+      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('bbOut')?.invalid && form.get('bbOut')?.dirty">
+        Required
+      </mat-error>
     </mat-form-field>
   </div>
 
