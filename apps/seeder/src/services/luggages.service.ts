@@ -17,7 +17,7 @@ export class LuggagesSeederService {
   ) {}
 
   create(): Array<Promise<Luggage>> {
-    return this.generateLuggage().map(async (luggage: ILuggage) => {
+    return this.generate().map(async (luggage: ILuggage) => {
       try {
         return await this.repo.save(luggage);
       } catch (error) {
@@ -26,7 +26,7 @@ export class LuggagesSeederService {
     });
   }
 
-  generateLuggage() {
+  generate() {
     // Control variables
     const entriesPerDay = 10;
     const entriesPerDayRandomFactor = 2; // random +/- value for entires
