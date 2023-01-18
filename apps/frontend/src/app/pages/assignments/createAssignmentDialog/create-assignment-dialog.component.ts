@@ -5,9 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
 import {
-  bellBoyInitials,
+  bbAssignmentRequestedBy,
   bbAssignmentTask,
-  bbAssignmentReceivedBy,
+  bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -22,13 +22,13 @@ export class CreateAssignmentDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   selectedValue: string | undefined;
   bbAssignmentTask = bbAssignmentTask;
-  bbAssignmentReceivedBy = bbAssignmentReceivedBy;
+  bbAssignmentRequestedBy = bbAssignmentRequestedBy;
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
-  @ViewChild('receivedBy') receivedByInput!: ElementRef;
-  @ViewChild('receivedAt') receivedAtInput!: ElementRef;
+  @ViewChild('requestedBy') requestedByInput!: ElementRef;
+  @ViewChild('requestedAt') requestedAtInput!: ElementRef;
   @ViewChild('performedBy') performedByInput!: ElementRef;
   @ViewChild('completedAt') completedAtInput!: ElementRef;
 
@@ -42,9 +42,9 @@ export class CreateAssignmentDialogComponent implements OnInit {
     this.createAssignmentForm = new UntypedFormGroup({
       room: new UntypedFormControl('', [Validators.maxLength(50), Validators.pattern('^[0-9]*$')]),
       task: new UntypedFormControl('', Validators.maxLength(20)),
-      receivedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
+      requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
-      receivedAt: new UntypedFormControl(new Date(), [
+      requestedAt: new UntypedFormControl(new Date(), [
         Validators.required,
         Validators.maxLength(20),
       ]),
@@ -61,8 +61,8 @@ export class CreateAssignmentDialogComponent implements OnInit {
         this.taskInput.nativeElement.focus();
       } else if (this.createAssignmentForm.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('receivedBy')?.invalid) {
-        this.receivedByInput.nativeElement.focus();
+      } else if (this.createAssignmentForm.get('requestedBy')?.invalid) {
+        this.requestedByInput.nativeElement.focus();
       } else if (this.createAssignmentForm.get('performedBy')?.invalid) {
         this.performedByInput.nativeElement.focus();
       }
@@ -78,13 +78,13 @@ export class CreateAssignmentDialogComponent implements OnInit {
         room: this.createAssignmentForm.get('room')?.value,
         task: this.createAssignmentForm.get('task')?.value,
         comments: this.createAssignmentForm.get('comments')?.value,
-        receivedBy: this.createAssignmentForm.get('receivedBy')?.value
-          ? this.createAssignmentForm.get('receivedBy')?.value.toUpperCase()
+        requestedBy: this.createAssignmentForm.get('requestedBy')?.value
+          ? this.createAssignmentForm.get('requestedBy')?.value
           : '',
         performedBy: this.createAssignmentForm.get('performedBy')?.value
-          ? this.createAssignmentForm.get('performedBy')?.value.toUpperCase()
+          ? this.createAssignmentForm.get('performedBy')?.value
           : '',
-        receivedAt: this.createAssignmentForm.get('receivedAt')?.value,
+        requestedAt: this.createAssignmentForm.get('requestedAt')?.value,
         completedAt: this.createAssignmentForm.get('completedAt')?.value,
       })
       .subscribe({

@@ -47,6 +47,6 @@ export const bbAssignmentTask: string[] = [
   'Other',
 ];
 
-export const bbAssignmentReceivedBy: string[] = ['Reception', 'Guest', 'Other'];
+export const bbAssignmentRequestedBy: string[] = ['Reception', 'Guest', 'Other'];
 
 export const bikeListReserved: string[] = ['Concierge', 'Reception', 'Guest', 'Other'];

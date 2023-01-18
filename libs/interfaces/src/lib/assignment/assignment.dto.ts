@@ -17,7 +17,7 @@ export class CreateAssignmentRequest implements ICreateAssignmentRequest {
 
   @ApiModelProperty({ example: 'RE' })
   @IsNotEmpty()
-  receivedBy!: string;
+  requestedBy!: string;
 
   @ApiModelProperty({ example: 'FV' })
   @IsOptional()
@@ -26,7 +26,7 @@ export class CreateAssignmentRequest implements ICreateAssignmentRequest {
   @ApiModelProperty({ example: Date.now() })
   @IsNotEmpty()
   @IsDateString()
-  receivedAt!: Date;
+  requestedAt!: Date;
 
   @ApiModelProperty({ example: Date.now() })
   @IsOptional()
@@ -49,7 +49,7 @@ export class UpdateAssignmentRequest implements IUpdateAssignmentRequest {
 
   @ApiModelProperty({ example: 'REC' })
   @IsOptional()
-  receivedBy?: string;
+  requestedBy?: string;
 
   @ApiModelProperty({ example: 'FV' })
   @IsOptional()
@@ -58,7 +58,7 @@ export class UpdateAssignmentRequest implements IUpdateAssignmentRequest {
   @ApiModelProperty({ example: Date.now() })
   @IsOptional()
   @IsDateString()
-  receivedAt?: Date;
+  requestedAt?: Date;
 
   @ApiModelProperty({ example: Date.now() })
   @IsOptional()
