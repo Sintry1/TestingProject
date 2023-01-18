@@ -27,7 +27,6 @@ export function toDatetimeInputString(date: Date) {
   return datetimeString;
 }
 
-// TODO: Add date, datetime, and time format checking to make sure they are correct.
 export function toDateObject(date: string) {
   if (!isTimeString(date)) {
     return new Date(date);
@@ -58,7 +57,6 @@ function toDoubleDigit(number: number) {
   return `0${number}`;
 }
 
-// TODO: Discuss if it is worth changing this to a regex check.
 function isTimeString(string: string) {
   return string.includes(':') && !string.includes('-');
 }

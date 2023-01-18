@@ -5,8 +5,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
+import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
@@ -43,9 +43,6 @@ export class UpdateCheckinDialogComponent {
         Validators.maxLength(10),
         Validators.pattern('^[0-9]*$'),
       ]),
-      // roomReady: new UntypedFormControl(data.roomReady?.toString(), [
-      //   Validators.required,
-      // ]), // TODO: remove if not needed.
       name: new UntypedFormControl(data.name, [Validators.required]),
       arrivalTime: new UntypedFormControl(
         data.arrivalTime ? toTimeInputString(new Date(data.arrivalTime)) : '',
