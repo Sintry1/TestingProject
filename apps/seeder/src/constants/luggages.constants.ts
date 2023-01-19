@@ -15,4 +15,4 @@ export const bags = [
   '5+2',
 ];
 
-export const luggageComments = ['Fragile', 'Broken wheels', 'Keep upright', 'Very heavy'];
+export const luggageComments = ['Fragile', 'Very heavy'];

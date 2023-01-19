@@ -1,14 +1,7 @@
 export const carComments = [
-  'Is scratched on the front',
-  'Is scratched on the left side',
-  'Is scratched on the right side',
-  'Is scratched on the back',
-  'Motorcycle',
-  'Electric Vehicle',
-  'Electric Vehicle',
-  'Electric Vehicle',
-  'Hybrid Vehicle',
-  'Hybrid Vehicle',
+  'Electric - remember chip - guests cable',
+  'Electric - remember chip - hotel cable',
+  'LUX - 2 bellmen required',
 ];
 
 export const licensePlates = [
