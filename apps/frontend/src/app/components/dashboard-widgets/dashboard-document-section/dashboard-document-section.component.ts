@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
-import { SeeDocumentDialogComponent } from '../../documentWidget/seeDocumentDialog/see-document-dialog.component';
+import { SeeDocumentDialogComponent } from '../../document-widget/see-document-dialog/see-document-dialog.component';
 
 @Component({
   selector: 'frontend-dashboard-document-section',
