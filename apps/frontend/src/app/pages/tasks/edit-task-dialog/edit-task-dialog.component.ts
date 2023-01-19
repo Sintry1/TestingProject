@@ -5,6 +5,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask } from '@omnihost/interfaces';
 import { TasksService } from '../../../services/tasks.service';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -20,13 +21,12 @@ export class EditTaskDialogComponent {
   isTaskComplete = false;
 
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
 
   @ViewChild('initials') initialsInput!: ElementRef;
 
   constructor(
     public dialogRef: MatDialogRef<EditTaskDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: ITask,
+    @Inject(MAT_DIALOG_DATA) public data: ITask, // TODO: date type thing again
     private service: TasksService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
@@ -34,7 +34,12 @@ export class EditTaskDialogComponent {
     this.taskId = data.taskId;
     this.form = new UntypedFormGroup({
       initials: new UntypedFormControl(data.initials, [Validators.required]),
-      completedAt: new UntypedFormControl(data.completedAt ?? new Date(), [Validators.required]),
+      completedAt: new UntypedFormControl(
+        data.completedAt
+          ? toDatetimeInputString(new Date(data.completedAt))
+          : toDatetimeInputString(new Date()),
+        [Validators.required]
+      ),
     });
   }
 
@@ -50,8 +55,8 @@ export class EditTaskDialogComponent {
     this.isLoading = true;
     this.service
       .updateTask(this.taskId, {
-        initials: this.selectedValue,
-        completedAt: new Date(this.form.get('completedAt')?.value),
+        initials: this.form.get('initials')?.value,
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

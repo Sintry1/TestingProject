@@ -5,6 +5,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 
 @Component({
@@ -18,7 +19,6 @@ export class UpdateCarDialogComponent {
   isLoading = false;
   guestHasApproved = false;
   bbInitials = bellBoyInitials;
-  selectedValue: string | undefined;
   carLocation = carLocation;
 
   @ViewChild('room') roomInput!: ElementRef;
@@ -37,7 +37,7 @@ export class UpdateCarDialogComponent {
     private carService: CarService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public data: ICar
+    @Inject(MAT_DIALOG_DATA) public data: ICar // TODO: fix - once again, dates are not Date objects, but strings.
   ) {
     this.updateCarForm = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [
@@ -46,13 +46,26 @@ export class UpdateCarDialogComponent {
         Validators.pattern('^[0-9]*$'),
       ]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      arrivalDate: new UntypedFormControl(data.arrivalDate, [Validators.required]),
-      departureDate: new UntypedFormControl(data.departureDate, [Validators.required]),
+      arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
+        Validators.required,
+      ]),
+      departureDate: new UntypedFormControl(toDateInputString(new Date(data.departureDate)), [
+        Validators.required,
+      ]),
       name: new UntypedFormControl(data.name, [Validators.required]),
       licensePlate: new UntypedFormControl(data.licensePlate, [Validators.required]),
-      expirationDate: new UntypedFormControl(data.expirationDate, []),
-      pickUpTime: new UntypedFormControl(data.pickUpTime, []),
-      deliveryTime: new UntypedFormControl(data.deliveryTime, []),
+      expirationDate: new UntypedFormControl(
+        data.expirationDate ? toDatetimeInputString(new Date(data.expirationDate)) : '',
+        []
+      ),
+      pickUpTime: new UntypedFormControl(
+        data.pickUpTime ? toDatetimeInputString(new Date(data.pickUpTime)) : '',
+        []
+      ),
+      deliveryTime: new UntypedFormControl(
+        data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
+        []
+      ),
       bbDown: new UntypedFormControl(data.bbDown, []),
       bbUp: new UntypedFormControl(data.bbUp, []),
       location: new UntypedFormControl(data.location, [Validators.required]),
@@ -91,26 +104,22 @@ export class UpdateCarDialogComponent {
       .updateCar(this.data.carId, {
         room: this.updateCarForm.get('room')?.value,
         tagNr: this.updateCarForm.get('tagNr')?.value,
-        arrivalDate: new Date(this.updateCarForm.get('arrivalDate')?.value),
-        departureDate: new Date(this.updateCarForm.get('departureDate')?.value),
+        arrivalDate: toDateObject(this.updateCarForm.get('arrivalDate')?.value),
+        departureDate: toDateObject(this.updateCarForm.get('departureDate')?.value),
         name: this.updateCarForm.get('name')?.value,
         licensePlate: this.updateCarForm.get('licensePlate')?.value
-          ? this.updateCarForm.get('licensePlate')?.value.toUpperCase()
+          ? this.updateCarForm.get('licensePlate')?.value
           : '',
-        expirationDate: new Date(this.updateCarForm.get('expirationDate')?.value),
-        pickUpTime: new Date(this.updateCarForm.get('pickUpTime')?.value),
-        deliveryTime: new Date(this.updateCarForm.get('deliveryTime')?.value),
+        expirationDate: toDateObject(this.updateCarForm.get('expirationDate')?.value),
+        pickUpTime: toDateObject(this.updateCarForm.get('pickUpTime')?.value),
+        deliveryTime: toDateObject(this.updateCarForm.get('deliveryTime')?.value),
         bbDown: this.updateCarForm.get('bbDown')?.value
-          ? this.updateCarForm.get('bbDown')?.value.toUpperCase()
+          ? this.updateCarForm.get('bbDown')?.value
           : '',
-        bbUp: this.updateCarForm.get('bbUp')?.value
-          ? this.updateCarForm.get('bbUp')?.value.toUpperCase()
-          : '',
+        bbUp: this.updateCarForm.get('bbUp')?.value ? this.updateCarForm.get('bbUp')?.value : '',
         location: this.updateCarForm.get('location')?.value,
         parkingLot: this.updateCarForm.get('parkingLot')?.value,
-        bbOut: this.updateCarForm.get('bbOut')?.value
-          ? this.updateCarForm.get('bbOut')?.value.toUpperCase()
-          : '',
+        bbOut: this.updateCarForm.get('bbOut')?.value ? this.updateCarForm.get('bbOut')?.value : '',
         comments: this.updateCarForm.get('comments')?.value,
         charged: this.updateCarForm.get('charged')?.value,
         completedAt: this.updateCarForm.get('deliveryTime')?.value,

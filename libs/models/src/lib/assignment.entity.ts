@@ -23,7 +23,7 @@ export class Assignment extends CompletedAt implements IAssignment {
 
   @ApiModelProperty({ example: 'REC' })
   @Column()
-  receivedBy!: string;
+  requestedBy!: string;
 
   @ApiModelProperty({ example: 'FV' })
   @Column({ nullable: true })
@@ -31,5 +31,5 @@ export class Assignment extends CompletedAt implements IAssignment {
 
   @ApiModelProperty({ example: Date.now() })
   @Column()
-  receivedAt!: Date;
+  requestedAt!: Date;
 }
