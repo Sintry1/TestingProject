@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IDocument } from '@omnihost/interfaces';
-import { UpdateDocumentDialogComponent } from '../../pages/documents/updateDocumentDialog/update-document-dialog.component';
+import { UpdateDocumentDialogComponent } from '../../pages/documents/update-document-dialog/update-document-dialog.component';
 import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-access-dialog.component';
-import { SeeDocumentDialogComponent } from './seeDocumentDialog/see-document-dialog.component';
+import { SeeDocumentDialogComponent } from './see-document-dialog/see-document-dialog.component';
 
 @Component({
   selector: 'frontend-document-widget',

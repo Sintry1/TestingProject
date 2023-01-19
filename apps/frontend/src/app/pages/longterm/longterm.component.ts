@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
-import { CreateLongTermDialogComponent } from './createLongTermDialog/create-long-term-dialog.component';
-import { UpdateLongTermDialogComponent } from './updateLongTermDialog/update-long-term-dialog.component';
+import { CreateLongTermDialogComponent } from './create-long-term-dialog/create-long-term-dialog.component';
+import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-long-term-dialog.component';
 
 @Component({
   selector: 'frontend-longterm',
