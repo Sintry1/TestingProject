@@ -4,7 +4,7 @@ import { IAssignment } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { assignmentComments } from '../constants/assignments.constants';
+import { assignmentComments } from '../constants/assignments.constant';
 import {
   bbAssignmentRequestedBy,
   bbAssignmentTask,
