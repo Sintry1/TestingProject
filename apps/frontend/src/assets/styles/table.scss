@@ -74,16 +74,6 @@ td.mat-cell {
 }
 
 .mat-row {
-  &:hover {
-    background-color: var(--main-blue-lowest-opacity);
-
-    .car-checkbox {
-      input ~ .checkmark {
-        background-color: #ccc;
-      }
-    }
-  }
-
   > .mat-cell {
     border-right: 1px solid var(--main-blue-low-opacity);
     border-top: 1px solid var(--main-blue-low-opacity);
@@ -100,10 +90,6 @@ td.mat-cell {
 
 .completed {
   background-color: var(--main-blue-lowest-opacity);
-
-  &.mat-row:hover {
-    background-color: var(--main-blue-lower-opacity);
-  }
 }
 
 .remove-error-message {

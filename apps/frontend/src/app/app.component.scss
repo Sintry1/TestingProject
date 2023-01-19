@@ -89,7 +89,6 @@ mat-divider {
   }
 
   .active-nav {
-    &:hover,
     &:focus {
       background: rgb(252, 252, 255) !important;
     }
@@ -120,10 +119,6 @@ mat-divider {
   &:first-of-type {
     margin-right: 0.5em;
   }
-
-  &:hover {
-    background-color: var(--main-blue-lowest-opacity);
-  }
 }
 
 #router-container {
@@ -132,10 +127,6 @@ mat-divider {
 
 .sidebar mat-icon {
   color: white;
-}
-
-.mat-list-item:hover {
-  background: rgba(0, 0, 0, 0.05);
 }
 
 .active-nav {
@@ -150,10 +141,6 @@ mat-divider {
   mat-icon {
     color: var(--main-blue);
     margin-right: 20px;
-  }
-
-  &:hover {
-    background: var(--main-blue-lowest-opacity);
   }
 }
 
