@@ -10,23 +10,27 @@ h2 {
 }
 
 .document-container {
-  width: 100%;
-  display: flex;
-  overflow: scroll;
-  overflow-y: hidden;
-  gap: 1em;
+  overflow-x: auto;
   padding-bottom: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 1em;
 }
 
 .dashboard-document {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  width: 320px;
-  min-width: 320px;
+  min-width: 250px;
   padding: 5px 10px;
   border: var(--border);
   border-radius: 5px;
+
+  h2 {
+    font-size: 1em;
+  }
 }
 
 mat-icon {
