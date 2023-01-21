@@ -12,6 +12,7 @@ import { configService } from './config/config.service';
 import { DocumentsModule } from './documents/documents.module';
 import { FilesModule } from './files/files.module';
 import { LuggagesModule } from './luggages/luggages.module';
+import { MailModule } from './mail/mail.module';
 import { LoggerMiddleware } from './middleware/logging.middleware';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
@@ -21,6 +22,7 @@ import { UsersModule } from './users/users.module';
     ConfigModule.forRoot({ envFilePath: ['../.env', '.env'] }),
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     ScheduleModule.forRoot(),
+    MailModule,
     AuthModule,
     UsersModule,
     LuggagesModule,
