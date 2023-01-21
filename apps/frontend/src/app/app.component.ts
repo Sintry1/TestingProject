@@ -62,8 +62,8 @@ export class AppComponent {
             this.title = 'Documents';
             break;
           case '/announcements':
-          this.title = 'Announcements';
-          break;
+            this.title = 'Announcements';
+            break;
           default:
             this.title = 'Page Not Found';
             break;
