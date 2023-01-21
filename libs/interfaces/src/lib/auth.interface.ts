@@ -25,6 +25,10 @@ export interface IForgotPasswordRequest {
   email: string;
 }
 
+export interface IResetPasswordRequest {
+  password: string;
+}
+
 export interface IJwtInfo {
   payload: {
     userId: string;

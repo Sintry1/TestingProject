@@ -4,6 +4,7 @@ import {
   IForgotPasswordRequest,
   ILoginRequest,
   ILoginResponse,
+  IResetPasswordRequest,
   ISignupRequest,
 } from './auth.interface';
 import { Role } from './role.enum';
@@ -32,6 +33,12 @@ export class ForgotPasswordRequest implements IForgotPasswordRequest {
   @ApiModelProperty()
   @IsNotEmpty()
   email!: string;
+}
+
+export class ResetPasswordRequest implements IResetPasswordRequest {
+  @ApiModelProperty()
+  @IsNotEmpty()
+  password!: string;
 }
 
 export class LoginResponse implements ILoginResponse {

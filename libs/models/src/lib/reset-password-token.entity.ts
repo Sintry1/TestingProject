@@ -1,10 +1,10 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IResetPasswordToken } from '@omnihost/interfaces';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Base } from './base.entity';
+import { CompletedAt } from './base.entity';
 
 @Entity('resetPasswordTokens')
-export class ResetPasswordToken extends Base implements IResetPasswordToken {
+export class ResetPasswordToken extends CompletedAt implements IResetPasswordToken {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   @PrimaryGeneratedColumn('uuid')
   resetPasswordTokenId!: string;
