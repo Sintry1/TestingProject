@@ -28,6 +28,12 @@ export class UsersService {
     return this.userRepo.findOneOrFail({ where: { userId } });
   }
 
+  /**
+   * Update the password of the given user.
+   * @param hashedPassword the encoded password.
+   * @param userId id of the user to update.
+   * @returns updated user.
+   */
   async updatePassword(hashedPassword: string, userId: string): Promise<IUser> {
     const user = await this.findOneById(userId);
     user.password = hashedPassword;

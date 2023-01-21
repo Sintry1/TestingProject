@@ -158,6 +158,11 @@ export class AuthService {
     return false;
   }
 
+  /**
+   * Check if the given reset password token is present in the database, not expired and not completed already.
+   * @param token the token id.
+   * @returns whether the token is valid or not.
+   */
   async isValidResetPasswordToken(token: string): Promise<boolean> {
     try {
       const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
@@ -178,7 +183,12 @@ export class AuthService {
     }
   }
 
-  async updatePasswordByToken(token: string, password: string) {
+  /**
+   * Update the password of the user associated with the given reset password token.
+   * @param token the reset password token id.
+   * @param password the new password.
+   */
+  async updatePasswordByResetPasswordToken(token: string, password: string) {
     try {
       const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
       const user = await this.usersService.findOneById(foundToken.userId);

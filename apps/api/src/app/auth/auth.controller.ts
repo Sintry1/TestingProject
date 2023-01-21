@@ -126,13 +126,10 @@ export class AuthController {
   ) {
     this.logger.verbose(`Processing forgot password request for reset password token '${token}'`);
     if (await this.authService.isValidResetPasswordToken(token)) {
-      await this.authService.updatePasswordByToken(token, body.password);
+      await this.authService.updatePasswordByResetPasswordToken(token, body.password);
       this.logger.log(`Updated password with the reset token '${token}'`);
     } else {
       throw new BadRequestException(`The provided token can't be used to reset the password.`);
     }
   }
-}
-function PUT(arg0: string) {
-  throw new Error('Function not implemented.');
 }
