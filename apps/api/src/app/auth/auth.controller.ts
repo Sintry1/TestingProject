@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Body, Controller, HttpCode, Logger, Post, Request, UseGuards } from '@nestjs/common';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { IJwtInfo, LoginRequest, LoginResponse, Role } from '@omnihost/interfaces';
+import {
+  ForgotPasswordRequest,
+  IJwtInfo,
+  LoginRequest,
+  LoginResponse,
+  Role,
+} from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
 import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
 import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
@@ -67,5 +73,14 @@ export class AuthController {
   async logout(@JwtInfo() jwt: IJwtInfo) {
     this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
     this.authService.logout(jwt.token);
+  }
+
+  @Post('forgot-password')
+  @HttpCode(202)
+  @ApiOperation({
+    summary: `Send a forgot password email to the given email`,
+  })
+  async forgotPassword(@Body() body: ForgotPasswordRequest) {
+    this.logger.verbose(`Setting up forgot password for ${body.email}`);
   }
 }

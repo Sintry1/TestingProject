@@ -21,6 +21,10 @@ export interface ISignupResponse {
   role: Role;
 }
 
+export interface IForgotPasswordRequest {
+  email: string;
+}
+
 export interface IJwtInfo {
   payload: {
     userId: string;

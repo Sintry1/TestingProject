@@ -1,6 +1,11 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsNotEmpty } from 'class-validator';
-import { ILoginRequest, ILoginResponse, ISignupRequest } from './auth.interface';
+import {
+  IForgotPasswordRequest,
+  ILoginRequest,
+  ILoginResponse,
+  ISignupRequest,
+} from './auth.interface';
 import { Role } from './role.enum';
 
 export class LoginRequest implements ILoginRequest {
@@ -21,6 +26,12 @@ export class SignupRequest implements ISignupRequest {
   @ApiModelProperty()
   @IsNotEmpty()
   password!: string;
+}
+
+export class ForgotPasswordRequest implements IForgotPasswordRequest {
+  @ApiModelProperty()
+  @IsNotEmpty()
+  email!: string;
 }
 
 export class LoginResponse implements ILoginResponse {
