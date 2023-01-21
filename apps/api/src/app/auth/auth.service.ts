@@ -12,6 +12,9 @@ import {
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
+import { environment } from '../../environments/environment.prod';
+import { MailService } from '../mail/mail.service';
+import { ResetPasswordTokensService } from '../reset-password-tokens/reset-password-token.service';
 import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
 
@@ -21,7 +24,9 @@ export class AuthService {
   constructor(
     private usersService: UsersService,
     private readonly jwtService: JwtService,
-    private tokensService: TokensService
+    private tokensService: TokensService,
+    private resetPasswordTokenService: ResetPasswordTokensService,
+    private mailService: MailService
   ) {}
 
   /**
@@ -113,6 +118,39 @@ export class AuthService {
    */
   async logout(token: string): Promise<void> {
     this.tokensService.deleteByToken(token);
+  }
+
+  /**
+   * Check that the user exists, and if so send a reset password email.
+   * @param email the email of the user.
+   * @returns whether the email sending succeeded.
+   */
+  async sendResetPasswordEmail(email: string): Promise<boolean> {
+    let user: IUser;
+    try {
+      // Verify that the user exists
+      user = await this.usersService.findOne(email);
+    } catch (error) {
+      this.logger.warn(
+        `Forgot password flow was triggered for a user that is not registered with email '${email}'`
+      );
+      return false;
+    }
+    try {
+      // Set the expiration date one week in the future
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 7);
+      // Get the token and the url to be used by the email
+      const token = await this.resetPasswordTokenService.create(user.userId, expirationDate);
+      const resetPasswordLink =
+        (environment.production ? 'https://dev.omnihost.app' : 'http://localhost:4200') +
+        `/reset-password?token=${token.resetPasswordTokenId}`;
+      // Send the email
+      return this.mailService.sendResetPasswordEmail({ email, resetPasswordLink });
+    } catch (error) {
+      this.logger.error(`An error occurred while sending a reset password email`, error);
+    }
+    return false;
   }
 
   /**

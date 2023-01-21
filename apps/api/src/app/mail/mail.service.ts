@@ -13,18 +13,21 @@ export class MailService {
   }
 
   /**
-   * Send the forgot password email.
+   * Send the reset password email.
    * @param params the email information.
    * @returns whether the email sending succeeded.
    */
-  async sendForgotPasswordEmail(params: { email: string }): Promise<boolean> {
+  async sendResetPasswordEmail(params: {
+    email: string;
+    resetPasswordLink: string;
+  }): Promise<boolean> {
     return this.sendMail({
       to: params.email,
       from: OmnihostEmails.info,
       subject: 'Password reset request',
-      templateId: EmailTemplates.forgotPassword,
+      templateId: EmailTemplates.resetPassword,
       dynamicTemplateData: {
-        forgotPasswordLink: 'http://localhost:4200/forgot',
+        resetPasswordLink: params.resetPasswordLink,
       },
     });
   }

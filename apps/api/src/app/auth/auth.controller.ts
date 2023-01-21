@@ -81,6 +81,11 @@ export class AuthController {
     summary: `Send a forgot password email to the given email`,
   })
   async forgotPassword(@Body() body: ForgotPasswordRequest) {
-    this.logger.verbose(`Setting up forgot password for ${body.email}`);
+    this.logger.verbose(`Processing forgot password request for '${body.email}'`);
+    this.authService.sendResetPasswordEmail(body.email);
+    // Ignore the result of the password sending, and always respond as if the user exists and the sending succeeded
+    return {
+      message: 'Reset password email has been sent',
+    };
   }
 }
