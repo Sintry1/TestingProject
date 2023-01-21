@@ -1,3 +1,3 @@
 export enum OmnihostEmails {
-  info = 'info@omnihost.app',
+  INFO = 'info@omnihost.app',
 }
