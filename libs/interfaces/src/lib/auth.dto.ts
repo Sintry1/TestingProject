@@ -1,5 +1,5 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, MaxLength } from 'class-validator';
 import {
   IForgotPasswordRequest,
   ILoginRequest,
@@ -12,32 +12,38 @@ import { Role } from './role.enum';
 export class LoginRequest implements ILoginRequest {
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(254)
   email!: string;
 
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(120)
   password!: string;
 }
 
 export class SignupRequest implements ISignupRequest {
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(254)
   email!: string;
 
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(120)
   password!: string;
 }
 
 export class ForgotPasswordRequest implements IForgotPasswordRequest {
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(254)
   email!: string;
 }
 
 export class ResetPasswordRequest implements IResetPasswordRequest {
   @ApiModelProperty()
   @IsNotEmpty()
+  @MaxLength(120)
   password!: string;
 }
 
