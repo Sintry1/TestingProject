@@ -17,11 +17,11 @@ import {
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
-import { environment } from '../../environments/environment.prod';
 import { MailService } from '../mail/mail.service';
 import { ResetPasswordTokensService } from '../reset-password-tokens/reset-password-token.service';
 import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
+import { getFrontendUrlFromEnv } from '../utils/links.utils';
 
 @Injectable()
 export class AuthService {
@@ -148,8 +148,7 @@ export class AuthService {
       // Get the token and the url to be used by the email
       const token = await this.resetPasswordTokenService.create(user.userId, expirationDate);
       const resetPasswordLink =
-        (environment.production ? 'https://dev.omnihost.app' : 'http://localhost:4200') +
-        `/reset-password?token=${token.resetPasswordTokenId}`;
+        getFrontendUrlFromEnv() + `/reset-password?token=${token.resetPasswordTokenId}`;
       // Send the email
       return this.mailService.sendResetPasswordEmail({ email, resetPasswordLink });
     } catch (error) {
