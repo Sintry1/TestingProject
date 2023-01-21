@@ -13,11 +13,12 @@ export class MailService {
   }
 
   /**
-   *
-   * @param params
+   * Send the forgot password email.
+   * @param params the email information.
+   * @returns whether the email sending succeeded.
    */
-  async sendForgotPasswordEmail(params: { email: string }) {
-    const transport = await SendGrid.send({
+  async sendForgotPasswordEmail(params: { email: string }): Promise<boolean> {
+    return this.sendMail({
       to: params.email,
       from: OmnihostEmails.info,
       subject: 'Password reset request',
@@ -26,10 +27,30 @@ export class MailService {
         forgotPasswordLink: 'http://localhost:4200/forgot',
       },
     });
-    console.log('transport', transport);
+  }
 
-    // avoid this on production. use log instead :)
-    // this.logger.log(`E-Mail sent to ${mail.to}`);
-    return transport;
+  /**
+   * Send an email with provided data.
+   * @param data the data needed to send a Sendgrid email.
+   * @returns whether the email sending succeeded.
+   */
+  private async sendMail(data: SendGrid.MailDataRequired): Promise<boolean> {
+    try {
+      const mailResponse = await SendGrid.send(data);
+      // Log the response
+      if (
+        mailResponse &&
+        mailResponse.length > 1 &&
+        (mailResponse[0] as { statusCode: number }).statusCode === 202
+      ) {
+        this.logger.log(`Mail with templateId '${data.templateId}' has been sent to ${data.to}`);
+        return true;
+      } else {
+        this.logger.warn(`Failed to send an email via Sendgrid`, data, mailResponse);
+      }
+    } catch (error) {
+      this.logger.error(`An error has occurred while sending an email!`, data, error);
+    }
+    return false;
   }
 }
