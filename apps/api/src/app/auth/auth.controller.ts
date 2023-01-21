@@ -11,7 +11,7 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {
   ForgotPasswordRequest,
   IJwtInfo,
@@ -106,6 +106,8 @@ export class AuthController {
   @ApiOperation({
     summary: `Check if the given reset password token is still valid`,
   })
+  @ApiResponse({ status: 200, description: 'The token is valid' })
+  @ApiResponse({ status: 400, description: `The provided token can't be used` })
   async validateResetPasswordToken(@Param('token', ParseUUIDPipe) token: string) {
     this.logger.verbose(`Validating reset password token '${token}'`);
     if (await this.authService.isValidResetPasswordToken(token)) {
