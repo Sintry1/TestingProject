@@ -108,6 +108,7 @@ export class SeedService {
   // === ENTITY SEEDING METHODS ====
   async seedUsers() {
     try {
+      this.logger.debug(`✔ Seeding users...`);
       const response = await Promise.all(this.usersService.create());
       this.logger.debug(`✅ Users created: ${response.length} 🧔`);
       return response;
@@ -119,6 +120,7 @@ export class SeedService {
 
   async seedLuggages() {
     try {
+      this.logger.debug(`✔ Seeding luggages...`);
       const response = await Promise.all(this.luggagesService.create());
       this.logger.debug(`✅ Luggages created: ${response.length} 💼`);
       return response;
@@ -130,6 +132,7 @@ export class SeedService {
 
   async seedCars() {
     try {
+      this.logger.debug(`✔ Seeding cars...`);
       const response = await Promise.all(this.carsService.create());
       this.logger.debug(`✅ Cars created: ${response.length} 🚕`);
       return response;
@@ -141,8 +144,9 @@ export class SeedService {
 
   async seedTasks() {
     try {
+      this.logger.debug(`✔ Seeding tasks...`);
       const response = await Promise.all(this.tasksService.create());
-      this.logger.debug(`✅ Tasks created: ${response.length} 📄`);
+      this.logger.debug(`✅ Tasks created: ${response.length} 📬`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Tasks failed to seed 🌱`);
@@ -152,8 +156,9 @@ export class SeedService {
 
   async seedAssignments() {
     try {
+      this.logger.debug(`✔ Seeding assignments...`);
       const response = await Promise.all(this.assignmentsService.create());
-      this.logger.debug(`✅ Assignments created: ${response.length} 👩‍🏫`);
+      this.logger.debug(`✅ Assignments created: ${response.length} 📝`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Assignments failed to seed 🌱`);
@@ -163,8 +168,9 @@ export class SeedService {
 
   async seedDocuments() {
     try {
+      this.logger.debug(`✔ Seeding documents...`);
       const response = await Promise.all(this.documentService.create());
-      this.logger.debug(`✅ Documents created: ${response.length} 🗿`);
+      this.logger.debug(`✅ Documents created: ${response.length} 📄`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Documents failed to seed 🌱`);
@@ -174,8 +180,9 @@ export class SeedService {
 
   async seedBikes() {
     try {
+      this.logger.debug(`✔ Seeding bikes... 🏍`);
       const response = await Promise.all(this.bikesService.create());
-      this.logger.debug(`✅ Bikes created: ${response.length} 🗿`);
+      this.logger.debug(`✅ Bikes created: ${response.length} 🏍`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Bikes failed to seed 🌱`);
