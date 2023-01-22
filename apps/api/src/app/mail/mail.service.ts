@@ -23,7 +23,7 @@ export class MailService {
   }): Promise<boolean> {
     return this.sendMail({
       to: params.email,
-      from: OmnihostEmails.INFO,
+      from: OmnihostEmails.NOREPLY,
       subject: 'Password reset request',
       templateId: EmailTemplates.RESET_PASSWORD,
       dynamicTemplateData: {
