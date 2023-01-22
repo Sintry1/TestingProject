@@ -1,5 +1,7 @@
 .body-container {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   width: 100%;
 }
 
@@ -8,6 +10,9 @@
   box-shadow: -7px 0px 24px 8px rgba(0, 0, 0, 0.15);
   color: white;
   background-color: var(--main-blue);
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
   // transition: 0.3s;
 
   .toggle-btn {
@@ -84,15 +89,13 @@ mat-divider {
   }
 
   .active-nav {
-    &:hover,
-    &:focus {
-      background: rgb(252, 252, 255) !important;
-    }
+    background: rgb(252, 252, 255) !important;
   }
 }
 
 .content {
   background-color: white;
+  overflow-x: hidden;
 }
 
 #navbar {
@@ -114,10 +117,6 @@ mat-divider {
   &:first-of-type {
     margin-right: 0.5em;
   }
-
-  &:hover {
-    background-color: var(--main-blue-lowest-opacity);
-  }
 }
 
 #router-container {
@@ -126,10 +125,6 @@ mat-divider {
 
 .sidebar mat-icon {
   color: white;
-}
-
-.mat-list-item:hover {
-  background: rgba(0, 0, 0, 0.05);
 }
 
 .active-nav {
@@ -144,10 +139,6 @@ mat-divider {
   mat-icon {
     color: var(--main-blue);
     margin-right: 20px;
-  }
-
-  &:hover {
-    background: var(--main-blue-lowest-opacity);
   }
 }
 
