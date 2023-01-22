@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { IJwtInfo } from '@omnihost/interfaces';
+import { IJwtInfo, IJwtPayload } from '@omnihost/interfaces';
 import { Request } from 'express';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { TokensService } from '../tokens/tokens.service';
@@ -19,7 +19,7 @@ export class AccessTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-acce
     });
   }
 
-  async validate(req: Request, payload: any): Promise<IJwtInfo> {
+  async validate(req: Request, payload: IJwtPayload): Promise<IJwtInfo> {
     const token = req.get('Authorization').replace('Bearer', '').trim();
     // Check that the token is a access token
     if (payload.tokenType !== 'access') {
