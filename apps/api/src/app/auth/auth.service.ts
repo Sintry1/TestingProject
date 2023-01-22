@@ -142,7 +142,7 @@ export class AuthService {
       return false;
     }
     try {
-      // Set the expiration date one week in the future
+      // Set the expiration date one day in the future
       const expirationDate = new Date();
       expirationDate.setDate(expirationDate.getDate() + 1);
       // Get the token and the url to be used by the email
@@ -167,17 +167,17 @@ export class AuthService {
       const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
       if (foundToken.completedAt) {
         this.logger.warn(
-          `Validation fo reset password token failed: the token has already been used`
+          `Validation of reset password token failed: the token has already been used`
         );
         return false;
       }
       if (foundToken.expiresAt < new Date()) {
-        this.logger.warn(`Validation fo reset password token failed: the token is expired`);
+        this.logger.warn(`Validation of reset password token failed: the token is expired`);
         return false;
       }
       return true;
     } catch (error) {
-      this.logger.warn(`Validation fo reset password token failed: the token doesn't exist`);
+      this.logger.warn(`Validation of reset password token failed: the token doesn't exist`);
       return false;
     }
   }
@@ -194,6 +194,7 @@ export class AuthService {
       const hashedPassword = await this.encodePassword(password);
       await this.usersService.updatePassword(hashedPassword, user.userId);
       this.resetPasswordTokenService.complete(token);
+      this.tokensService.deleteTokensByUserId(user.userId);
     } catch (error) {
       this.logger.error(
         `An error occurred while updating the password of user with reset password token '${token}'`,
