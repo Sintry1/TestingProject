@@ -42,8 +42,7 @@ export class CheckinComponent implements OnInit {
     private readonly luggageService: LuggageService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    private displayDateService: DisplayDateService,
-    private sentryService: SentryService
+    private displayDateService: DisplayDateService
   ) {
     this.displayDateService.getDisplayDateSubject().subscribe((date) => {
       this.displayDate = new Date(date);
@@ -66,7 +65,7 @@ export class CheckinComponent implements OnInit {
         },
         error: (error) => {
           this.isLoading = false;
-          this.sentryService.logError(error);
+          SentryService.logError(error);
           this.snackBar.open('Check In data have failed to load, please reload the page.', 'Okay', {
             duration: 10000,
           });

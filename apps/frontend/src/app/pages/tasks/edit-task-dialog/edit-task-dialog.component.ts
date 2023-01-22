@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask } from '@omnihost/interfaces';
+import { SentryService } from '../../../services/sentry.service';
 import { TasksService } from '../../../services/tasks.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials } from '../../../utils/dropdown-selection';
@@ -67,8 +68,8 @@ export class EditTaskDialogComponent {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 10000,
           });
@@ -92,8 +93,8 @@ export class EditTaskDialogComponent {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to reset task, please try again.', 'Okay', {
             duration: 10000,
           });

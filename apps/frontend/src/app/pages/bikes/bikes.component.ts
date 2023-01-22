@@ -6,6 +6,7 @@ import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/i
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { BikeService } from '../../services/bikes.service';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
@@ -67,7 +68,7 @@ export class BikesComponent implements OnInit {
       },
       error: (error) => {
         this.isLoading = false;
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open(
           'Bike data has failed to load, please try checking your connection.',
           'Okay',
@@ -88,8 +89,8 @@ export class BikesComponent implements OnInit {
         next: () => {
           this.snackbar.open('Bike updated!', 'Thanks', { duration: 5000 });
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackbar.open('Failed to update, please try again.', 'Okay', {
             duration: 15000,
           });

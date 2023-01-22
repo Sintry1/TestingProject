@@ -25,7 +25,7 @@ export class LuggageService {
     return this.http.get<ILuggage[]>(
       `${
         env.apiUrl
-      }/luggages/checkin?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
+      }/luggages/checkin2?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
   }
 
