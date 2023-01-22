@@ -3,6 +3,6 @@
 
   // Environment variables
   window['env']['sentryDsn'] = '';
-  window['env']['sentryTunnel'] = '';
+  window['env']['sentryTunnel'] = null;
   window['env']['apiUrl'] = 'http://localhost:3333';
 })(this);

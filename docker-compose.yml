@@ -58,6 +58,7 @@ services:
 
   postgres:
     container_name: omnihost-postgres
+    restart: unless-stopped
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-root}
@@ -70,7 +71,21 @@ services:
       - '5432:5432'
     networks:
       - omnihost-net
+
+  sentry-tunnel:
+    container_name: omnihost-sentry-tunnel
     restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./.deploy/sentry-tunnel/Dockerfile
+    environment:
+      TUNNEL_ALLOWED_DSNs: ${TUNNEL_ALLOWED_DSNs}
+      TUNNEL_CORS_ALLOWED_ORIGINS: ${TUNNEL_CORS_ALLOWED_ORIGINS}
+      TUNNEL_PORT: 5000
+    networks:
+      - omnihost-net
+    ports:
+      - 5000:5000
 
 # ---------------------------------
 # ------------ NETWORK ------------
