@@ -9,10 +9,6 @@
   -ms-user-select: none;
   user-select: none;
 
-  &:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-
   input {
     position: absolute;
     opacity: 0;
