@@ -15,16 +15,10 @@ Sentry.init({
   integrations: [
     new BrowserTracing({
       tracePropagationTargets: [/(localhost:3333)|(api\.)/], // requests made to api. or localhost:3333 urls
-      routingInstrumentation: Sentry.routingInstrumentation,
-      beforeNavigate: (context) => {
-        return {
-          ...context,
-        };
-      },
     }),
   ],
-  tunnel: environment.sentryTunnel,
   tracesSampleRate: 1.0,
+  tunnel: environment.sentryTunnel,
 });
 
 // Set the user information in Sentry so it gets included in the logs

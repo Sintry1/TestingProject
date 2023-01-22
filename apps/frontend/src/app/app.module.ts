@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -101,12 +101,6 @@ import { SentryService } from './services/sentry.service';
         showDialog: false,
         logErrors: true,
       }),
-    },
-    {
-      provide: APP_INITIALIZER,
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      useFactory: () => () => {},
-      multi: true,
     },
   ],
   bootstrap: [AppComponent],
