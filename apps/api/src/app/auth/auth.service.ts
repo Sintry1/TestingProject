@@ -144,7 +144,7 @@ export class AuthService {
     try {
       // Set the expiration date one week in the future
       const expirationDate = new Date();
-      expirationDate.setDate(expirationDate.getDate() + 7);
+      expirationDate.setDate(expirationDate.getDate() + 1);
       // Get the token and the url to be used by the email
       const token = await this.resetPasswordTokenService.create(user.userId, expirationDate);
       const resetPasswordLink =
