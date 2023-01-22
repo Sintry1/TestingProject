@@ -41,7 +41,7 @@ async function bootstrap() {
     environment: environment.env,
     debug: false,
     tracesSampleRate: 1.0,
-    integrations: [new Integrations.Postgres()],
+    integrations: [new Integrations.Postgres(), new Sentry.Integrations.Http({ tracing: true })],
   });
 
   app.use(Sentry.Handlers.requestHandler());
