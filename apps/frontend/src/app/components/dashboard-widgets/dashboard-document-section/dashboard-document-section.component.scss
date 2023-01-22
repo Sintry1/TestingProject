@@ -10,12 +10,11 @@ h2 {
 }
 
 .document-container {
-  overflow-x: auto;
+  overflow-x: hidden;
   padding-bottom: 0.5em;
+  max-height: calc(150px + 2em);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1em;
 }
 
@@ -24,6 +23,7 @@ h2 {
   align-items: center;
   display: flex;
   min-width: 250px;
+  max-height: 50px;
   padding: 5px 10px;
   border: var(--border);
   border-radius: 5px;

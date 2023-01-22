@@ -89,9 +89,7 @@ mat-divider {
   }
 
   .active-nav {
-    &:focus {
-      background: rgb(252, 252, 255) !important;
-    }
+    background: rgb(252, 252, 255) !important;
   }
 }
 
