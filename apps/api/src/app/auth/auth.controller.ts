@@ -4,6 +4,7 @@ import {
   Body,
   Controller,
   HttpCode,
+  InternalServerErrorException,
   Logger,
   Param,
   ParseUUIDPipe,
@@ -94,11 +95,16 @@ export class AuthController {
   })
   async forgotPassword(@Body() body: ForgotPasswordRequest) {
     this.logger.verbose(`Processing forgot password request for '${body.email}'`);
-    this.authService.sendResetPasswordEmail(body.email);
-    // Ignore the result of the password sending, and always respond as if the user exists and the sending succeeded
-    return {
-      message: 'Reset password email has been sent',
-    };
+    const result = await this.authService.sendResetPasswordEmail(body.email);
+    if (result) {
+      return {
+        message: 'Reset password email has been sent',
+      };
+    } else {
+      throw new InternalServerErrorException(
+        'Failed to send the reset password email. Please try again or contact our support.'
+      );
+    }
   }
 
   @Post('forgot-password/validate-token/:token')
