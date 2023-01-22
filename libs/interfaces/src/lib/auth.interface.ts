@@ -30,13 +30,15 @@ export interface IResetPasswordRequest {
 }
 
 export interface IJwtInfo {
-  payload: {
-    userId: string;
-    role: Role;
-    email: string;
-    tokenType: string;
-  };
+  payload: IJwtPayload;
   token: string;
+}
+
+export interface IJwtPayload {
+  userId: string;
+  role: Role;
+  email: string;
+  tokenType: string;
 }
 
 export interface IAccessInfo {

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Role } from '@omnihost/interfaces';
+import { IJwtPayload } from '@omnihost/interfaces';
 import { Token } from '@omnihost/models';
 import { MoreThan, Repository } from 'typeorm';
 
@@ -58,9 +58,7 @@ export class TokensService {
       const tokens = await this.tokenRepo.find();
       const userTokens = tokens.filter((token) => {
         // extract information from the access token
-        const jwt = <{ email?: string; userId?: string; role?: Role; iat?: number; exp?: number }>(
-          this.jwtService.decode(token.accessToken)
-        );
+        const jwt = <IJwtPayload>this.jwtService.decode(token.accessToken);
         if (jwt.userId === userId) return token;
       });
       this.logger.verbose(`Deleted ${userTokens.length} token pairs of user '${userId}'`);
