@@ -32,5 +32,5 @@ api.dev.omnihost.app {
 }
 
 sentry-tunnel.dev.omnihost.app {
-	reverse_proxy omnihost-sentry-tunnel:8080
+	reverse_proxy omnihost-sentry-tunnel:5000
 }
