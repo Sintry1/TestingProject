@@ -36,32 +36,9 @@
   justify-content: center;
   align-items: center;
 
-  width: 22vw;
+  width: 25vw;
   min-width: 310px;
-}
-
-.white-input {
-  color: black;
-  ::ng-deep .mat-form-field-flex {
-    background-color: #f0f0f1;
-    padding: 3px;
-    border-radius: 3px 3px 0 0;
-  }
-  ::ng-deep .mat-form-field-wrapper {
-    background-color: var(--main-blue);
-  }
-}
-
-.half-width {
-  width: 50%;
-  min-width: 50px;
-  margin-bottom: 0.5em;
-}
-
-.action-btn {
-  font-size: x-large;
-}
-
-.btn-spinner {
-  padding: 10px;
+  padding: 3em;
+  background-color: white;
+  border-radius: 5px;
 }
