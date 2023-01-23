@@ -43,6 +43,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { CreateAnnouncementDialogComponent } from './pages/announcements/create-announcement-dialog/create-announcement-dialog.component';
+import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-announcement-dialog/update-announcement-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import { AnnouncementsComponent } from './pages/announcements/announcements.comp
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
     AnnouncementsComponent,
+    CreateAnnouncementDialogComponent,
+    UpdateAnnouncementDialogComponent,
   ],
   imports: [
     BrowserModule,
