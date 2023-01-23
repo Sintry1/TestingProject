@@ -1,13 +1,13 @@
-<div id="content-wrapper">
+<section>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form">
-    <img class="title-wrapper" src="../../../../assets/full-omni-logo-white-background@svg.svg" />
+    <img src="../../../../assets/full-omni-logo-white-background@svg.svg" />
 
-    <mat-form-field autocomplete="off" class="full-width no-margin white-input">
+    <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Email</mat-label>
       <input #email type="email" formControlName="email" matInput placeholder="Email" />
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" class="full-width no-margin white-input">
+    <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Password</mat-label>
       <input #password type="password" formControlName="password" matInput placeholder="Password" />
     </mat-form-field>
@@ -19,4 +19,4 @@
       </div>
     </button>
   </form>
-</div>
+</section>
