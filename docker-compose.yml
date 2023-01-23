@@ -51,6 +51,9 @@ services:
       dockerfile: ./.deploy/frontend/Dockerfile
     environment:
       API_URL: ${API_URL:-https://api.dev.omnihost.app}
+      FRONTEND_SENTRY_DSN: ${FRONTEND_SENTRY_DSN:-''}
+      FRONTEND_SENTRY_TUNNEL: ${FRONTEND_SENTRY_TUNNEL}
+      FRONTEND_ENVIRONMENT: ${FRONTEND_ENVIRONMENT:-DEVELOPMENT}
     networks:
       - omnihost-net
     ports:
