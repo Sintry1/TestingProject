@@ -12,6 +12,7 @@ if (environment.production) {
 
 Sentry.init({
   dsn: environment.sentryDsn,
+  environment: environment.environment,
   integrations: [
     new BrowserTracing({
       tracePropagationTargets: [/(localhost:3333)|(api\.)/], // requests made to api. or localhost:3333 urls

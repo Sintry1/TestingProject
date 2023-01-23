@@ -3,6 +3,7 @@
   window['env'] = window['env'] || {};
 
   // Environment variables
+  window['env']['environment'] = '${FRONTEND_ENVIRONMENT}';
   window['env']['sentryDsn'] = '${FRONTEND_SENTRY_DSN}';
   window['env']['sentryTunnel'] = '${FRONTEND_SENTRY_TUNNEL}';
   window['env']['apiUrl'] = '${API_URL}';

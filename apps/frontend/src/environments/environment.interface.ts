@@ -1,7 +1,7 @@
 export interface IEnvironment {
   production: boolean;
-  envName: string;
 
+  environment: string;
   sentryDsn: string;
   sentryTunnel: string;
   apiUrl: string;
