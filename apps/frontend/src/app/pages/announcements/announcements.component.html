@@ -13,27 +13,31 @@
     <table mat-table [dataSource]="dataSource" *ngIf="!isLoading">
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+        <td mat-cell *matCellDef="let element" class="comments-field">{{ element.title }}</td>
       </ng-container>
 
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let element">{{ element.comments }}</td>
+        <td mat-cell *matCellDef="let element" class="comments-field">{{ element.comments }}</td>
       </ng-container>
 
       <ng-container matColumnDef="showFrom">
-        <th mat-header-cell *matHeaderCellDef>Shown From</th>
-        <td mat-cell *matCellDef="let element">{{ element.showFrom | date : 'dd/MM' }}</td>
+        <th mat-header-cell *matHeaderCellDef>Show <br />From</th>
+        <td mat-cell *matCellDef="let element" class="small-field">
+          {{ element.showFrom | date : 'dd/MM/YY' }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="shownTo">
-        <th mat-header-cell *matHeaderCellDef>Shown To</th>
-        <td mat-cell *matCellDef="let element">{{ element.shownTo | date : 'dd/MM' }}</td>
+        <th mat-header-cell *matHeaderCellDef>Shown <br />To</th>
+        <td mat-cell *matCellDef="let element" class="small-field">
+          {{ element.shownTo | date : 'dd/MM/YY' }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="images">
         <th mat-header-cell *matHeaderCellDef>Images</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let element" class="small-field">
           <button mat-raised-button class="secondary-btn">
             View <mat-icon aria-hidden="false">remove_red_eye</mat-icon>
           </button>
@@ -42,7 +46,7 @@
 
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let element" class="small-field">
           <button mat-flat-button class="active-btn">Status</button>
         </td>
       </ng-container>
