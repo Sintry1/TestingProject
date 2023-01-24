@@ -6,8 +6,7 @@ const requestLogger = (req, res, next) => {
   const start = process.hrtime();
   next();
   res.on('finish', () => {
-    const durationInMilliseconds =
-      getActualRequestDurationInMilliseconds(start);
+    const durationInMilliseconds = getActualRequestDurationInMilliseconds(start);
     const status = res.statusCode;
     const message = `${method} '${url}' ${status} ${durationInMilliseconds.toLocaleString()} ms`;
     log.info(message);

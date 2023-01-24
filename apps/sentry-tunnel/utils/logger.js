@@ -4,10 +4,7 @@ class log {
   static trace(text, object) {
     const dateTime = new Date().toISOString();
     if (object) {
-      console.info(
-        `[ ${dateTime} ]` + chalk.cyan(' [TRACE] ') + `${text}`,
-        object
-      );
+      console.info(`[ ${dateTime} ]` + chalk.cyan(' [TRACE] ') + `${text}`, object);
     } else {
       console.info(`[ ${dateTime} ]` + chalk.cyan(' [TRACE] ') + `${text}`);
     }
@@ -16,10 +13,7 @@ class log {
   static info(text, object) {
     const dateTime = new Date().toISOString();
     if (object) {
-      console.info(
-        `[ ${dateTime} ]` + chalk.green('  [INFO] ') + `${text}`,
-        object
-      );
+      console.info(`[ ${dateTime} ]` + chalk.green('  [INFO] ') + `${text}`, object);
     } else {
       console.info(`[ ${dateTime} ]` + chalk.green('  [INFO] ') + `${text}`);
     }
@@ -28,10 +22,7 @@ class log {
   static warn(text, object) {
     const dateTime = new Date().toISOString();
     if (object) {
-      console.info(
-        `[ ${dateTime} ]` + chalk.yellow('  [WARN] ') + `${text}`,
-        object
-      );
+      console.info(`[ ${dateTime} ]` + chalk.yellow('  [WARN] ') + `${text}`, object);
     } else {
       console.info(`[ ${dateTime} ]` + chalk.yellow('  [WARN] ') + `${text}`);
     }
@@ -39,10 +30,7 @@ class log {
 
   static error(text, error) {
     const dateTime = new Date().toISOString();
-    console.error(
-      `[ ${dateTime} ]` + chalk.red(' [ERROR] ') + `${text}`,
-      error
-    );
+    console.error(`[ ${dateTime} ]` + chalk.red(' [ERROR] ') + `${text}`, error);
   }
 }
 
