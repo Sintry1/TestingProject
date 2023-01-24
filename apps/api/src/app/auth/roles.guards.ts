@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
-import { Role } from '@omnihost/interfaces';
+import { IJwtPayload, Role } from '@omnihost/interfaces';
 import { UsersService } from '../users/users.service';
 import { ROLES_KEY } from './roles.decorator';
 
@@ -38,9 +38,7 @@ export class RolesGuard implements CanActivate {
     }
 
     // extract information from the access token
-    const jwt = <{ email?: string; id?: string; iat?: number; exp?: number }>(
-      this.jwtService.decode(headers.authorization.replace('Bearer ', ''))
-    );
+    const jwt = <IJwtPayload>this.jwtService.decode(headers.authorization.replace('Bearer ', ''));
 
     // validate that the token contains an email
     if (!jwt) {
