@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as SendGrid from '@sendgrid/mail';
+import { SentryService } from '../utils/sentry.service';
 import { EmailTemplates } from './email-templates.enum';
 import { OmnihostEmails } from './omnihost-emails.enum';
 
@@ -49,10 +50,19 @@ export class MailService {
         this.logger.log(`Mail with templateId '${data.templateId}' has been sent to ${data.to}`);
         return true;
       } else {
-        this.logger.warn(`Failed to send an email via Sendgrid`, data, mailResponse);
+        SentryService.log('warning', `Failed to send an email via Sendgrid`, this.logger, {
+          data: data,
+          sendgridResponse: mailResponse,
+        });
       }
     } catch (error) {
-      this.logger.error(`An error has occurred while sending an email!`, data, error);
+      this.logger.warn(`Failed to send email with the following data:`, data);
+      SentryService.log(
+        'error',
+        `An error has occurred while sending an email!`,
+        this.logger,
+        error
+      );
     }
     return false;
   }
