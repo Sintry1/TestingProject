@@ -18,7 +18,7 @@ Sentry.init({
       tracePropagationTargets: [/(localhost:3333)|(api\.)/], // requests made to api. or localhost:3333 urls
     }),
   ],
-  tracesSampleRate: 1.0,
+  tracesSampleRate: environment.sentryTracingSampleRate,
   tunnel: environment.sentryTunnel,
 });
 

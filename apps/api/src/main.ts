@@ -40,13 +40,17 @@ async function bootstrap() {
     dsn: process.env.API_SENTRY_DSN || '',
     environment: environment.env,
     debug: false,
-    tracesSampleRate: 1.0,
+    tracesSampleRate: parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0,
     integrations: [new Integrations.Postgres(), new Sentry.Integrations.Http({ tracing: true })],
   });
 
   app.use(Sentry.Handlers.requestHandler());
   app.use(Sentry.Handlers.tracingHandler());
-  Logger.log(`Sentry initialized in environment: ${environment.env}`);
+  Logger.log(
+    `Sentry initialized in environment: ${environment.env}. Sample rate: ${
+      parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0
+    }`
+  );
 
   // Swagger Ui
   const config = new DocumentBuilder()
