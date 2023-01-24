@@ -48,12 +48,10 @@ describe('Authentication logic', () => {
   });
 
   describe('When the user is logged in', () => {
-    before(() => {
-      // perform a single call to get the access info
-      cy.login();
-    });
+    // Perform a single call to get the access info
+    before(() => cy.login());
+    // Reuse the access info from the login call
     beforeEach(() => {
-      // Reuse the access info from the login call
       cy.restoreAccessInfoToLocalStorage();
       cy.visit('/');
     });
@@ -83,7 +81,7 @@ describe('Authentication logic', () => {
       cy.url().should('contain', 'login');
     });
 
-    describe('Should show themanager access prompt when', () => {
+    describe('Should show the manager access prompt when', () => {
       it('The add document button is pressed', () => {
         cy.visit('/documents');
         cy.get('[data-cy=documents-add-btn]').click();
