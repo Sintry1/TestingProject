@@ -1,8 +1,4 @@
 // ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
 // For more comprehensive examples of custom
 // commands please read more here:
 // https://on.cypress.io/custom-commands
@@ -12,22 +8,35 @@
 declare namespace Cypress {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface Chainable<Subject> {
-    login(email: string, password: string): void;
+    /**
+     * Perform a login call to the API and save the result to local storage
+     */
+    login(): void;
+    restoreAccessInfoToLocalStorage(): void;
   }
 }
-//
-// -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+
+let accessInfo: unknown = null;
+
+Cypress.Commands.add('login', () => {
+  cy.request('POST', 'http://localhost:3333/auth/login', {
+    email: 'user@example.com',
+    password: 'abcDEF123',
+  }).then((response) => {
+    console.log('response', response);
+    const loginResponse = response.body;
+    accessInfo = {
+      user: atob(loginResponse.accessToken.split('.')[1]),
+      accessToken: loginResponse.accessToken,
+      refreshToken: loginResponse.refreshToken,
+    };
+
+    localStorage.removeItem('accessInfo');
+
+    localStorage.setItem('accessInfo', JSON.stringify(accessInfo));
+  });
 });
-//
-// -- This is a child command --
-// Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('restoreAccessInfoToLocalStorage', () => {
+  localStorage.setItem('accessInfo', JSON.stringify(accessInfo));
+});
