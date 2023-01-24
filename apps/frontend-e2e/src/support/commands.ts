@@ -26,7 +26,7 @@ Cypress.Commands.add('login', () => {
     console.log('response', response);
     const loginResponse = response.body;
     accessInfo = {
-      user: atob(loginResponse.accessToken.split('.')[1]),
+      user: JSON.parse(atob(loginResponse.accessToken.split('.')[1])),
       accessToken: loginResponse.accessToken,
       refreshToken: loginResponse.refreshToken,
     };

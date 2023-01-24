@@ -1,6 +1,7 @@
 const validUser = {
   email: 'user@example.com',
   password: 'abcDEF123',
+  managerPassword: 'abcDEF123',
 };
 
 describe('Authentication logic', () => {
@@ -82,9 +83,40 @@ describe('Authentication logic', () => {
       cy.url().should('contain', 'login');
     });
 
-    describe('Should show the access prompt when', () => {
-      it('The add document button is pressed', () => {});
-      it('The edit document button is pressed', () => {});
+    describe('Should show themanager access prompt when', () => {
+      it('The add document button is pressed', () => {
+        cy.visit('/documents');
+        cy.get('[data-cy=documents-add-btn]').click();
+        cy.get('[data-cy=manager-access-dialog]').should('exist');
+      });
+
+      it('The edit document button is pressed', () => {
+        cy.visit('/documents');
+        cy.get('[data-cy=document-edit-btn]').first().click();
+        cy.get('[data-cy=manager-access-dialog]').should('exist');
+      });
+    });
+
+    describe('When the manager access prompt is filled out', () => {
+      it('Should show the target dialog when the credentials are valid', () => {
+        cy.visit('/documents');
+        cy.get('[data-cy=documents-add-btn]').click();
+        cy.get('[data-cy=manager-access-dialog]').should('exist');
+        cy.get('[data-cy=manager-access-password-input]').type(validUser.managerPassword);
+        cy.get('[data-cy=manager-access-continue-btn]').click();
+        cy.get('[data-cy=manager-access-dialog]').should('not.exist');
+        cy.get('[data-cy=create-document-dialog]').should('exist');
+      });
+
+      it('Should not show the target dialog when the credentials are invalid and keep the prompt open', () => {
+        cy.visit('/documents');
+        cy.get('[data-cy=documents-add-btn]').click();
+        cy.get('[data-cy=manager-access-dialog]').should('exist');
+        cy.get('[data-cy=manager-access-password-input]').type(validUser.managerPassword + 1234);
+        cy.get('[data-cy=manager-access-continue-btn]').click();
+        cy.get('[data-cy=manager-access-dialog]').should('exist');
+        cy.get('[data-cy=create-document-dialog]').should('not.exist');
+      });
     });
   });
 });
