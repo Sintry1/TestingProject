@@ -7,6 +7,7 @@
     opened
     class="sidebar"
     [ngClass]="{ collapsed: sidebarCollapsed }"
+    data-cy="sidebar"
   >
     <div class="sidebar-header" *ngIf="!sidebarCollapsed">
       <h3 class="username" [ngClass]="{ collapsible: sidebarCollapsed }">Frederik Vagner</h3>
@@ -110,7 +111,7 @@
   <!-- Content -->
   <mat-sidenav-content class="content">
     <!-- Navbar -->
-    <div id="navbar">
+    <div id="navbar" data-cy="navbar">
       <div class="page-title">
         <div [ngSwitch]="title">
           <mat-icon aria-hidden="false" *ngSwitchCase="'Dashboard'">dashboard</mat-icon>
@@ -155,6 +156,7 @@
           class="navbar-item"
           *ngIf="router.url !== '/login'"
           (click)="logout()"
+          data-cy="logout-btn"
         >
           Log Out
         </button>
