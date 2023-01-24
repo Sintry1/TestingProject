@@ -1,3 +1,8 @@
+const validUser = {
+  email: 'user@example.com',
+  password: 'abcDEF123',
+};
+
 describe('Authentication logic', () => {
   beforeEach(() => cy.visit('/'));
 
@@ -18,11 +23,27 @@ describe('Authentication logic', () => {
       cy.get('[data-cy=logout-btn]').should('not.exist');
     });
 
-    it('Should show a login form', () => {});
+    it('Should show a login form', () => {
+      cy.get('[data-cy=login-email-input]').should('exist');
+      cy.get('[data-cy=login-password-input]').should('exist');
+      cy.get('[data-cy=login-submit-btn]').should('exist');
+    });
 
-    it('Should log in the user when the form is filled out with correct information ', () => {});
+    it('Should log in the user when the form is filled out with correct information ', () => {
+      cy.get('[data-cy=login-email-input]').type(validUser.email);
+      cy.get('[data-cy=login-password-input]').type(validUser.password);
+      cy.get('[data-cy=login-submit-btn]').click();
+      cy.url().should('not.contain', 'login');
+      cy.get('[data-cy=logout-btn]').should('exist');
+    });
 
-    it('Should not log in the user when the form is filled out with incorrect information ', () => {});
+    it('Should not log in the user when the form is filled out with incorrect information ', () => {
+      cy.get('[data-cy=login-email-input]').type(validUser.email);
+      cy.get('[data-cy=login-password-input]').type(validUser.password + '1234');
+      cy.get('[data-cy=login-submit-btn]').click();
+      cy.url().should('contain', 'login');
+      cy.get('[data-cy=logout-btn]').should('not.exist');
+    });
   });
 
   describe('When the user is logged in', () => {
