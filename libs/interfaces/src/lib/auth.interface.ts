@@ -21,14 +21,24 @@ export interface ISignupResponse {
   role: Role;
 }
 
+export interface IForgotPasswordRequest {
+  email: string;
+}
+
+export interface IResetPasswordRequest {
+  password: string;
+}
+
 export interface IJwtInfo {
-  payload: {
-    userId: string;
-    role: Role;
-    email: string;
-    tokenType: string;
-  };
+  payload: IJwtPayload;
   token: string;
+}
+
+export interface IJwtPayload {
+  userId: string;
+  role: Role;
+  email: string;
+  tokenType: string;
 }
 
 export interface IAccessInfo {

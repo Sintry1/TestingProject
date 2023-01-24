@@ -4,6 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
 import { EntityNotFoundExceptionFilter } from './app/utils/entity-not-found-exception.filter';
+import { environment } from './environments/environment.prod';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -43,7 +44,9 @@ async function bootstrap() {
 
   await app.listen(port);
 
-  Logger.log(`Omnihost API is running on: http://localhost:${port}`);
+  Logger.log(
+    `Omnihost API is running on: http://localhost:${port} in environment: ${environment.env}`
+  );
 }
 
 bootstrap();

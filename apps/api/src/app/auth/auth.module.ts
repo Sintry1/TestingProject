@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { MailModule } from '../mail/mail.module';
+import { ResetPasswordTokensModule } from '../reset-password-tokens/reset-password-tokens.module';
 import { TokensModule } from '../tokens/tokens.module';
 import { UsersModule } from '../users/users.module';
 import { AnonymousStrategy } from './anonymous.strategy';
@@ -17,7 +19,9 @@ import { RolesGuard } from './roles.guards';
   imports: [
     UsersModule,
     TokensModule,
+    ResetPasswordTokensModule,
     PassportModule,
+    MailModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '86400s' },
