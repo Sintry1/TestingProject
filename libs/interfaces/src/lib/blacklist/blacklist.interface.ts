@@ -5,7 +5,7 @@ export interface IBlacklist extends ICompletedAt {
   name?: string;
   comments?: string;
   expiresAt?: Date;
-  files?: string[];
+  files?: File[];
 }
 
 export interface ICreateBlacklistRequest {

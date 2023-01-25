@@ -23,5 +23,5 @@ export class Blacklist extends CompletedAt implements IBlacklist {
 
   @ApiModelProperty({ example: 'dominicSmith.jpg' })
   @Column({ type: 'jsonb', nullable: true })
-  files?: string[];
+  files?: File[];
 }

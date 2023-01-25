@@ -22,7 +22,7 @@ export class GetBlacklistResponse extends CompletedAtResponse implements IBlackl
   expiresAt?: Date;
 
   @ApiModelProperty({ example: 'dominicSmith.jpg' })
-  files?: string[];
+  files?: File[];
 
   @ApiModelProperty({ example: 'declarationOfIndepenence.pdf' })
   documentName!: string;
