@@ -315,6 +315,10 @@ export const tableInfo: tableInfoObject[] = [
         name: 'Comments',
         description: 'If something needs further explanation.',
       },
+      {
+        name: 'Bike form completed',
+        description: 'Whether the bike rental form has been filled out by the guests.',
+      },
     ],
   },
 ];
