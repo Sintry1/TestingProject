@@ -37,7 +37,7 @@ export class UpdateTaskRequest implements IUpdateTask {
   @IsOptional()
   listName?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;

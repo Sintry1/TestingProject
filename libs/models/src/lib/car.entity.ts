@@ -17,11 +17,11 @@ export class Car extends CompletedAt implements ICar {
   @Column()
   room!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column()
   arrivalDate!: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column()
   departureDate!: Date;
 
@@ -33,15 +33,15 @@ export class Car extends CompletedAt implements ICar {
   @Column()
   licensePlate!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column({ nullable: true })
   expirationDate?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column({ nullable: true })
   pickUpTime?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column({ nullable: true })
   deliveryTime?: Date;
 

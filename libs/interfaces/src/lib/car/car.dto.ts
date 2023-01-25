@@ -11,12 +11,12 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsNotEmpty()
   room!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsNotEmpty()
   @IsDateString()
   arrivalDate!: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsNotEmpty()
   @IsDateString()
   departureDate!: Date;
@@ -29,17 +29,17 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsNotEmpty()
   licensePlate!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   expirationDate?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   deliveryTime?: Date;
@@ -72,7 +72,7 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsNotEmpty()
   charged!: boolean;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
@@ -87,12 +87,12 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   arrivalDate?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   departureDate?: Date;
@@ -105,17 +105,17 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsOptional()
   licensePlate?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   expirationDate?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   deliveryTime?: Date;
@@ -148,7 +148,7 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsOptional()
   charged?: boolean;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;

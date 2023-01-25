@@ -29,7 +29,7 @@ export class Assignment extends CompletedAt implements IAssignment {
   @Column({ nullable: true })
   performedBy?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @Column()
   requestedAt!: Date;
 }

@@ -7,7 +7,7 @@ export class CreateBikeRequest implements ICreateBikeRequest {
   @IsOptional()
   nrOfBikes?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date | null;
@@ -32,7 +32,7 @@ export class CreateBikeRequest implements ICreateBikeRequest {
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date | null;
@@ -43,7 +43,7 @@ export class UpdateBikeRequest implements IUpdateBikeRequest {
   @IsOptional()
   nrOfBikes?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date | null;
@@ -68,7 +68,7 @@ export class UpdateBikeRequest implements IUpdateBikeRequest {
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date | null;

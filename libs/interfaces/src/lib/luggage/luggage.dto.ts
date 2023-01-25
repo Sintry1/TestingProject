@@ -21,7 +21,7 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   @IsNotEmpty()
   name!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   arrivalTime?: Date;
@@ -54,12 +54,12 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   dateNeeded?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
@@ -83,7 +83,7 @@ export class UpdateLuggageRequest implements IUpdateLuggageRequest {
   @IsOptional()
   name?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   arrivalTime?: Date;
@@ -116,12 +116,12 @@ export class UpdateLuggageRequest implements IUpdateLuggageRequest {
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   dateNeeded?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;

@@ -23,12 +23,12 @@ export class CreateAssignmentRequest implements ICreateAssignmentRequest {
   @IsOptional()
   performedBy?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsNotEmpty()
   @IsDateString()
   requestedAt!: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
@@ -55,12 +55,12 @@ export class UpdateAssignmentRequest implements IUpdateAssignmentRequest {
   @IsOptional()
   performedBy?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   requestedAt?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
