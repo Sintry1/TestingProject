@@ -7,6 +7,7 @@ export * from './lib/assignment/assignment.dto';
 export * from './lib/task/task.dto';
 export * from './lib/document/document.dto';
 export * from './lib/base.dto';
+export * from './lib/blacklist/blacklist.dto';
 
 // Interfaces
 export * from './lib/auth.interface';
@@ -20,6 +21,7 @@ export * from './lib/bike/bike.interface';
 export * from './lib/assignment/assignment.interface';
 export * from './lib/document/document.interface';
 export * from './lib/token.interface';
+export * from './lib/blacklist/blacklist.interface';
 
 // Enums
 export * from './lib/role.enum';
