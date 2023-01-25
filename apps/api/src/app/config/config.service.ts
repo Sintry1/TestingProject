@@ -1,15 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import {
-  Assignment,
-  Bike,
-  Car,
-  Document,
-  Luggage,
-  ResetPasswordToken,
-  Task,
-  Token,
-  User,
-} from '@omnihost/models';
+import { Assignment, Bike, Blacklist, Car, Document, Luggage, Task, Token, User } from '@omnihost/models';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
@@ -51,7 +41,7 @@ class ConfigService {
       password: this.getValue('POSTGRES_PASSWORD', false) || 'root',
       database: this.getValue('POSTGRES_DATABASE', false) || 'omnihost',
 
-      entities: [User, ResetPasswordToken, Token, Luggage, Car, Task, Assignment, Document, Bike],
+      entities: [User, Token, Luggage, Car, Task, Assignment, Document, Bike, Blacklist],
     };
   }
 }
