@@ -1,13 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateAnnouncementDialogComponent } from './create-announcement-dialog/create-announcement-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateAnnouncementDialogComponent } from './update-announcement-dialog/update-announcement-dialog.component';
-
-enum AnnouncementStatus {
-  FUTURE = 'Future',
-  ACTIVE = 'Active',
-  EXPIRED = 'Expired',
-}
+import { IAnnouncement, AnnouncementStatus } from '@omnihost/interfaces';
 
 @Component({
   selector: 'frontend-announcements',
@@ -88,15 +83,6 @@ export class AnnouncementsComponent {
       new Set([...this.displayAnnouncementList, ...newItems])
     );
   }
-}
-
-export interface IAnnouncement {
-  title: string;
-  comments: string;
-  showFrom: Date;
-  showTo: Date;
-  images: string;
-  status: string;
 }
 
 const today = new Date();
