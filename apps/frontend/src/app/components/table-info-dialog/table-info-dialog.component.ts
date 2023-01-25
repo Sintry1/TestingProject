@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TableInfoOptions } from '@omnihost/interfaces';
-import { tableInfo, tableInfoObject } from './table-info';
+import { tableInfo, tableInfoObject } from './table-info.constant';
 
 @Component({
   selector: 'frontend-table-info-dialog',
