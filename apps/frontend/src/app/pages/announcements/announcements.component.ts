@@ -21,13 +21,20 @@ export class AnnouncementsComponent {
   displayAnnouncementList: IAnnouncement[] = [];
   showFuture = true;
   showActive = true;
-  showExpired = false;
+  showExpired = !true;
   announcementList: IAnnouncement[] = MOCK_DATA;
-  
 
   announcementColumns = ['title', 'comment', 'showFrom', 'showTo', 'images', 'status'];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {
+    this.displayAnnouncementList = this.announcementList.filter(
+      (item) =>
+        this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE ||
+        this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE
+    );
+    this.showFuture = true;
+    this.showActive = true;
+  }
 
   createAnnouncement(): void {
     this.dialog.open(CreateAnnouncementDialogComponent, { width: '800px' });
@@ -40,17 +47,14 @@ export class AnnouncementsComponent {
   }
 
   getStatus(showFrom: Date, showTo: Date): string {
-    const today = new Date();
+    const today = new Date().getTime();
     // FUTURE
-    if (showFrom > today) {
+    if (showFrom.getTime() > today) {
       return AnnouncementStatus.FUTURE;
-      // True if showTo is in the past (showTo < date.now())
-
       // ACTIVE
-    } else if (showFrom <= today && showTo > today) {
+    } else if (showFrom.getTime() <= today && showTo.getTime() > today) {
       return AnnouncementStatus.ACTIVE;
     } else {
-
       // EXPIRED
       return AnnouncementStatus.EXPIRED;
     }
@@ -58,38 +62,32 @@ export class AnnouncementsComponent {
 
   updateList(): void {
     this.displayAnnouncementList = [];
-    console.log("works");
-
-     //check to display future
-     if(this.showFuture) {
-      console.log("adding future");
-      this.displayAnnouncementList = this.displayAnnouncementList.concat(
-        this.announcementList.filter((item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE)
+    const newItems = [];
+    if (this.showFuture) {
+      newItems.push(
+        ...this.announcementList.filter(
+          (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE
+        )
       );
-      console.log("Future items have been added");
     }
-    
-    // check to display active
-    if(this.showActive) {
-      console.log("adding active");
-      this.displayAnnouncementList = this.displayAnnouncementList.concat(
-        this.announcementList.filter((item) => this.getStatus(item.showFrom, item.showTo) !== AnnouncementStatus.ACTIVE)
+    if (this.showActive) {
+      newItems.push(
+        ...this.announcementList.filter(
+          (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE
+        )
       );
-      console.log("Active items have been added");
     }
-
-    //check to display expired
-    if(this.showExpired) {
-      console.log("adding future");
-      this.displayAnnouncementList = this.displayAnnouncementList.concat(
-        this.announcementList.filter((item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.EXPIRED)
+    if (this.showExpired) {
+      newItems.push(
+        ...this.announcementList.filter(
+          (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.EXPIRED
+        )
       );
-      console.log("Expired items have been added");
     }
-   console.log(this.displayAnnouncementList);
-   
+    this.displayAnnouncementList = Array.from(
+      new Set([...this.displayAnnouncementList, ...newItems])
+    );
   }
-  
 }
 
 export interface IAnnouncement {
