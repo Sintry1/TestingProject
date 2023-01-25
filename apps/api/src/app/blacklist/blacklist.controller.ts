@@ -36,13 +36,13 @@ export class BlacklistController {
     return this.blacklistService.fetchAllBlacklist();
   }
 
-  // @Post()
-  // @ApiOperation({
-  //   summary: 'Create a blacklist entry.',
-  // })
-  // @ApiCreatedResponse({ type: Blacklist })
-  // @HttpCode(201)
-  // async createBlacklistk(@Body() blacklistData: CreateBlacklistRequest) {
-  //   return this.blacklistService.createBlacklist(blacklistData);
-  // }
+  @Post()
+  @ApiOperation({
+    summary: 'Create a blacklist entry.',
+  })
+  @ApiCreatedResponse({ type: Blacklist })
+  @HttpCode(201)
+  async createBlacklistk(@Body() blacklistData: CreateBlacklistRequest) {
+    return this.blacklistService.createBlacklist(blacklistData);
+  }
 }

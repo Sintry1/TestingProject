@@ -18,7 +18,7 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
 
   @ApiModelProperty({ example: 'dominicSmith.jpg' })
   @IsOptional()
-  files?: string[];
+  files?: string;
 }
 
 export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
@@ -37,5 +37,5 @@ export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
 
   @ApiModelProperty({ example: 'dominicSmith.jpg ' })
   @IsOptional()
-  files?: string[];
+  files?: string;
 }

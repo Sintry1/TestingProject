@@ -22,6 +22,7 @@ export * from './lib/assignment/assignment.interface';
 export * from './lib/document/document.interface';
 export * from './lib/token.interface';
 export * from './lib/reset-password-token/reset-password-token.interface';
+export * from './lib/blacklist/blacklist.interface';
 
 // Enums
 export * from './lib/role.enum';
