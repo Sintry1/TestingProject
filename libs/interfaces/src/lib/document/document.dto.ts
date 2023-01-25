@@ -3,7 +3,6 @@ import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { IUpdateAssignmentRequest } from '../assignment/assignment.interface';
 import { CompletedAtResponse } from '../base.dto';
 import { ICreateDocumentRequest, IDocument, IGetDocumentByIdResponse } from './document.interface';
-
 export class GetDocumentResponse extends CompletedAtResponse implements IDocument {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   documentId!: string;
@@ -41,6 +40,10 @@ export class CreateDocumentRequest implements ICreateDocumentRequest {
   @ApiModelProperty({ example: true, default: false })
   @IsNotEmpty()
   showOnDashboard!: boolean;
+
+  @ApiModelProperty({ type: 'string', format: 'binary', required: true })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  document?: any;
 }
 
 export class UpdateDocumentRequest implements IUpdateAssignmentRequest {
