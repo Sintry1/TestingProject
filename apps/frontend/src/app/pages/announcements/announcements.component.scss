@@ -1,0 +1,19 @@
+.status {
+  pointer-events: none;
+  cursor: default;
+  color: white;
+
+  &.Active {
+    background: var(--lime-green);
+  }
+
+  &.Expired {
+    background: var(--grey);
+
+  }
+
+  &.Future {
+    background: var(--green);
+
+  }
+}
