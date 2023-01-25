@@ -30,4 +30,10 @@ export class BlacklistService {
 
     return await this.blacklistRepo.save(blacklist);
   }
+
+  async deleteBlacklistEntry(blacklistId: string){
+    const blacklist = await this.blacklistRepo.findOneByOrFail({blacklistId})
+    await this.blacklistRepo.remove(blacklist)
+  }
+
 }

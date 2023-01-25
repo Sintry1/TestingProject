@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   Param,
@@ -14,9 +15,10 @@ import {
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
+  ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateBlacklistRequest, Role, UpdateBlacklistRequest } from '@omnihost/interfaces';
+import { CreateBlacklistRequest, DeleteBlacklistResponse, Role, UpdateBlacklistRequest } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
 import { BlacklistService } from './blacklist.service';
@@ -42,7 +44,19 @@ export class BlacklistController {
   })
   @ApiCreatedResponse({ type: Blacklist })
   @HttpCode(201)
-  async createBlacklistk(@Body() blacklistData: CreateBlacklistRequest) {
+  async createBlacklist(@Body() blacklistData: CreateBlacklistRequest) {
     return this.blacklistService.createBlacklist(blacklistData);
   }
+
+  @Delete(':blacklistId')
+  @ApiOperation({
+    summary: 'Delete a blacklist entry.'
+  })
+  @Roles(Role.manager)
+  @ApiResponse({ type: DeleteBlacklistResponse})
+  @HttpCode(200)
+  async deleteBlacklistEntry(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
+    return this.blacklistService.deleteBlacklistEntry(blacklistId)
+  }
+
 }
