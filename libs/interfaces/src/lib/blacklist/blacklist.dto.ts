@@ -1,8 +1,12 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { CompletedAtResponse } from '../base.dto';
-import { ICreateBlacklistRequest, IUpdateBlacklistRequest, IBlacklist, IGetBlacklistByIdResponse } from './blacklist.interface';
-
+import {
+  ICreateBlacklistRequest,
+  IUpdateBlacklistRequest,
+  IBlacklist,
+  IGetBlacklistByIdResponse,
+} from './blacklist.interface';
 
 export class GetBlacklistResponse extends CompletedAtResponse implements IBlacklist {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })

@@ -15,6 +15,10 @@ export class BlacklistService {
     return await this.blacklistRepo.find();
   }
 
+  async fetchBlacklistbyId(blacklistId) {
+    return await this.blacklistRepo.findOneByOrFail({ blacklistId });
+  }
+
   async createBlacklist(blacklistData: CreateBlacklistRequest) {
     return await this.blacklistRepo.save(blacklistData);
   }
@@ -31,9 +35,8 @@ export class BlacklistService {
     return await this.blacklistRepo.save(blacklist);
   }
 
-  async deleteBlacklistEntry(blacklistId: string){
-    const blacklist = await this.blacklistRepo.findOneByOrFail({blacklistId})
-    await this.blacklistRepo.remove(blacklist)
+  async deleteBlacklistEntry(blacklistId: string) {
+    const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
+    await this.blacklistRepo.remove(blacklist);
   }
-
 }
