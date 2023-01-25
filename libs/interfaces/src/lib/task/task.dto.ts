@@ -3,37 +3,41 @@ import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { ICreateTask, IGetTasks, ITask, IUpdateTask } from './task.interface';
 
 export class CreateTaskRequest implements ICreateTask {
-  @ApiModelProperty({ example: '09.30' })
+  @ApiModelProperty({ example: '07:00' })
   @IsNotEmpty()
   time!: string;
 
-  @ApiModelProperty({ example: 'Clear out trash' })
+  @ApiModelProperty({
+    example: 'Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.',
+  })
   @IsNotEmpty()
   task!: string;
 
-  @ApiModelProperty({ example: 'DS' })
+  @ApiModelProperty({ example: 'EA' })
   @IsNotEmpty()
   initials!: string;
 
-  @ApiModelProperty({ example: 'Midnight' })
+  @ApiModelProperty({ example: 'Evening' })
   @IsNotEmpty()
   listName!: string;
 }
 
 export class UpdateTaskRequest implements IUpdateTask {
-  @ApiModelProperty({ example: '09.30' })
+  @ApiModelProperty({ example: '07:00' })
   @IsOptional()
   time?: string;
 
-  @ApiModelProperty({ example: 'Clear out trash' })
+  @ApiModelProperty({
+    example: 'Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.',
+  })
   @IsOptional()
   task?: string;
 
-  @ApiModelProperty({ example: 'DS' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   initials?: string;
 
-  @ApiModelProperty({ example: 'Midnight' })
+  @ApiModelProperty({ example: 'Morning' })
   @IsOptional()
   listName?: string;
 
@@ -44,11 +48,11 @@ export class UpdateTaskRequest implements IUpdateTask {
 }
 
 export class GetTasksResponse implements IGetTasks {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: ['Morning', 'Evening'] })
   @IsNotEmpty()
   listNames!: string[];
 
-  @ApiModelProperty()
+  @ApiModelProperty({ example: [] })
   @IsNotEmpty()
   tasks!: ITask[];
 }

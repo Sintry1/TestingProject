@@ -10,7 +10,7 @@ import {
 import { Role } from './role.enum';
 
 export class LoginRequest implements ILoginRequest {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: 'user@example.com' })
   @IsNotEmpty()
   @MaxLength(254)
   email!: string;
@@ -22,7 +22,7 @@ export class LoginRequest implements ILoginRequest {
 }
 
 export class SignupRequest implements ISignupRequest {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: 'user@example.com' })
   @IsNotEmpty()
   @MaxLength(254)
   email!: string;
@@ -34,7 +34,7 @@ export class SignupRequest implements ISignupRequest {
 }
 
 export class ForgotPasswordRequest implements IForgotPasswordRequest {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: 'user@example.com' })
   @IsNotEmpty()
   @MaxLength(254)
   email!: string;

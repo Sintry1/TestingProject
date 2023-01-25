@@ -3,11 +3,11 @@ import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { ICreateCarRequest, IUpdateCarRequest } from './car.interface';
 
 export class CreateCarRequest implements ICreateCarRequest {
-  @ApiModelProperty({ example: '2345' })
+  @ApiModelProperty({ example: '1234' })
   @IsNotEmpty()
   tagNr!: string;
 
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @IsNotEmpty()
   room!: string;
 
@@ -21,7 +21,7 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsDateString()
   departureDate!: Date;
 
-  @ApiModelProperty({ example: 'Madsen' })
+  @ApiModelProperty({ example: 'Larsen' })
   @IsNotEmpty()
   name!: string;
 
@@ -44,11 +44,11 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsDateString()
   deliveryTime?: Date;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbDown?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbUp?: string;
 
@@ -56,15 +56,15 @@ export class CreateCarRequest implements ICreateCarRequest {
   @IsNotEmpty()
   location!: string;
 
-  @ApiModelProperty({ example: 'c102' })
+  @ApiModelProperty({ example: '10' })
   @IsOptional()
   parkingLot?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: 'luxurious car' })
+  @ApiModelProperty({ example: 'LUX - 2 bellmen required' })
   @IsOptional()
   comments?: string;
 
@@ -79,11 +79,11 @@ export class CreateCarRequest implements ICreateCarRequest {
 }
 
 export class UpdateCarRequest implements IUpdateCarRequest {
-  @ApiModelProperty({ example: '2345' })
+  @ApiModelProperty({ example: '1234' })
   @IsOptional()
   tagNr?: string;
 
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
@@ -97,7 +97,7 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsDateString()
   departureDate?: Date;
 
-  @ApiModelProperty({ example: 'Madsen' })
+  @ApiModelProperty({ example: 'Larsen' })
   @IsOptional()
   name?: string;
 
@@ -120,11 +120,11 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsDateString()
   deliveryTime?: Date;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbDown?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbUp?: string;
 
@@ -132,15 +132,15 @@ export class UpdateCarRequest implements IUpdateCarRequest {
   @IsOptional()
   location?: string;
 
-  @ApiModelProperty({ example: 'c102' })
+  @ApiModelProperty({ example: '10' })
   @IsOptional()
   parkingLot?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: 'luxurious car' })
+  @ApiModelProperty({ example: 'LUX - 2 bellmen required' })
   @IsOptional()
   comments?: string;
 

@@ -9,11 +9,11 @@ export class Car extends CompletedAt implements ICar {
   @PrimaryGeneratedColumn('uuid')
   carId!: string;
 
-  @ApiModelProperty({ example: '2345' })
+  @ApiModelProperty({ example: '1234' })
   @Column()
   tagNr!: string;
 
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @Column()
   room!: string;
 
@@ -25,7 +25,7 @@ export class Car extends CompletedAt implements ICar {
   @Column()
   departureDate!: Date;
 
-  @ApiModelProperty({ example: 'Madsen' })
+  @ApiModelProperty({ example: 'Larsen' })
   @Column()
   name!: string;
 
@@ -45,11 +45,11 @@ export class Car extends CompletedAt implements ICar {
   @Column({ nullable: true })
   deliveryTime?: Date;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @Column({ nullable: true })
   bbDown?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @Column({ nullable: true })
   bbUp?: string;
 
@@ -57,15 +57,15 @@ export class Car extends CompletedAt implements ICar {
   @Column()
   location!: string;
 
-  @ApiModelProperty({ example: 'c102' })
+  @ApiModelProperty({ example: '10' })
   @Column({ nullable: true })
   parkingLot?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @Column({ nullable: true })
   bbOut?: string;
 
-  @ApiModelProperty({ example: 'luxurious car' })
+  @ApiModelProperty({ example: 'LUX - 2 bellmen required' })
   @Column({ nullable: true })
   comments?: string;
 

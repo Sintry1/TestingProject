@@ -9,7 +9,7 @@ export class Assignment extends CompletedAt implements IAssignment {
   @PrimaryGeneratedColumn('uuid')
   assignmentId!: string;
 
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @Column({ nullable: true })
   room?: string;
 
@@ -17,15 +17,15 @@ export class Assignment extends CompletedAt implements IAssignment {
   @Column({ nullable: true })
   task?: string;
 
-  @ApiModelProperty({ example: 'New keys and package delivery' })
+  @ApiModelProperty({ example: 'Room move' })
   @Column({ nullable: true })
   comments?: string;
 
-  @ApiModelProperty({ example: 'REC' })
+  @ApiModelProperty({ example: 'Reception' })
   @Column()
   requestedBy!: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @Column({ nullable: true })
   performedBy?: string;
 
