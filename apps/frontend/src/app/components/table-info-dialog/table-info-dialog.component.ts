@@ -9,9 +9,9 @@ import { tableInfo, tableInfoObject } from './table-info';
   styleUrls: ['./table-info-dialog.component.scss', '../../../assets/styles/dialog.scss'],
 })
 export class TableInfoDialogComponent {
-  displayInfo: tableInfoObject | undefined; 
+  displayInfo: tableInfoObject | undefined;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: TableInfoOptions) {
-    this.displayInfo = tableInfo.find((table) => table.tableName === data)
+    this.displayInfo = tableInfo.find((table) => table.tableName === data);
   }
 }

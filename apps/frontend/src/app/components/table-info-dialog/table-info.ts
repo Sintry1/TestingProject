@@ -1,4 +1,4 @@
-import { TableInfoOptions } from "@omnihost/interfaces";
+import { TableInfoOptions } from '@omnihost/interfaces';
 
 export interface tableInfoObject {
   tableName: string;
@@ -301,8 +301,7 @@ export const tableInfo: tableInfoObject[] = [
       },
       {
         name: 'Nr. of bikes',
-        description:
-          'Number of bikes the guest is renting.',
+        description: 'Number of bikes the guest is renting.',
       },
       {
         name: 'Pick up time',
