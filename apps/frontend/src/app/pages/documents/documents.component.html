@@ -1,12 +1,7 @@
 <main>
   <div class="actions">
     <div>
-      <mat-form-field
-        autocomplete="off"
-        appearance="fill"
-        style="width: 150px"
-        class="remove-error-message"
-      >
+      <mat-form-field autocomplete="off" style="width: 150px" class="remove-error-message">
         <mat-label>Sort by</mat-label>
         <mat-select [(value)]="sortBy" (selectionChange)="fetchDocuments()">
           <mat-option value="title">Title</mat-option>
@@ -16,7 +11,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="remove-error-message">
+      <mat-form-field class="remove-error-message">
         <mat-label>Search</mat-label>
         <input
           type="text"

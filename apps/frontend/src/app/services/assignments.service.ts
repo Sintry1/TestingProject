@@ -38,7 +38,7 @@ export class AssignmentsService {
   /**
    * Calls the API to create a assignment.
    *
-   * @param id ID fo the assignment to update.
+   * @param id ID of the assignment to update.
    * @param params - an UpdateAssignmentRequest object to update the assignment.
    * @returns an observable with updated assignment.
    */

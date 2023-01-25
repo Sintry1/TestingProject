@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
   ILoginResponse,
@@ -12,8 +17,11 @@ import {
 } from '@omnihost/interfaces';
 import { User } from '@omnihost/models';
 import * as bcrypt from 'bcrypt';
+import { MailService } from '../mail/mail.service';
+import { ResetPasswordTokensService } from '../reset-password-tokens/reset-password-token.service';
 import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
+import { getFrontendUrlFromEnv } from '../utils/links.utils';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +29,9 @@ export class AuthService {
   constructor(
     private usersService: UsersService,
     private readonly jwtService: JwtService,
-    private tokensService: TokensService
+    private tokensService: TokensService,
+    private resetPasswordTokenService: ResetPasswordTokensService,
+    private mailService: MailService
   ) {}
 
   /**
@@ -113,6 +123,85 @@ export class AuthService {
    */
   async logout(token: string): Promise<void> {
     this.tokensService.deleteByToken(token);
+  }
+
+  /**
+   * Check that the user exists, and if so send a reset password email.
+   * @param email the email of the user.
+   * @returns whether the email sending succeeded.
+   */
+  async sendResetPasswordEmail(email: string): Promise<boolean> {
+    let user: IUser;
+    try {
+      // Verify that the user exists
+      user = await this.usersService.findOne(email);
+    } catch (error) {
+      this.logger.warn(
+        `Forgot password flow was triggered for a user that is not registered with email '${email}'`
+      );
+      return false;
+    }
+    try {
+      // Set the expiration date one day in the future
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 1);
+      // Get the token and the url to be used by the email
+      const token = await this.resetPasswordTokenService.create(user.userId, expirationDate);
+      const resetPasswordLink =
+        getFrontendUrlFromEnv() + `/reset-password?token=${token.resetPasswordTokenId}`;
+      // Send the email
+      return this.mailService.sendResetPasswordEmail({ email, resetPasswordLink });
+    } catch (error) {
+      this.logger.error(`An error occurred while sending a reset password email`, error);
+    }
+    return false;
+  }
+
+  /**
+   * Check if the given reset password token is present in the database, not expired and not completed already.
+   * @param token the token id.
+   * @returns whether the token is valid or not.
+   */
+  async isValidResetPasswordToken(token: string): Promise<boolean> {
+    try {
+      const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
+      if (foundToken.completedAt) {
+        this.logger.warn(
+          `Validation of reset password token failed: the token has already been used`
+        );
+        return false;
+      }
+      if (foundToken.expiresAt < new Date()) {
+        this.logger.warn(`Validation of reset password token failed: the token is expired`);
+        return false;
+      }
+      return true;
+    } catch (error) {
+      this.logger.warn(`Validation of reset password token failed: the token doesn't exist`);
+      return false;
+    }
+  }
+
+  /**
+   * Update the password of the user associated with the given reset password token.
+   * @param token the reset password token id.
+   * @param password the new password.
+   */
+  async updatePasswordByResetPasswordToken(token: string, password: string) {
+    try {
+      const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
+      const user = await this.usersService.findOneById(foundToken.userId);
+      const hashedPassword = await this.encodePassword(password);
+      await this.usersService.updatePassword(hashedPassword, user.userId);
+      this.resetPasswordTokenService.complete(token);
+      this.tokensService.deleteTokensByUserId(user.userId);
+    } catch (error) {
+      this.logger.error(
+        `An error occurred while updating the password of user with reset password token '${token}'`,
+        error
+      );
+      throw new InternalServerErrorException('An error occurred while updating the user password');
+    }
   }
 
   /**

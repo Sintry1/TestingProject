@@ -1,7 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Body, Controller, HttpCode, Logger, Post, Request, UseGuards } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
-import { IJwtInfo, LoginRequest, LoginResponse, Role } from '@omnihost/interfaces';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  HttpCode,
+  InternalServerErrorException,
+  Logger,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ForgotPasswordRequest,
+  IJwtInfo,
+  LoginRequest,
+  LoginResponse,
+  ResetPasswordRequest,
+  Role,
+} from '@omnihost/interfaces';
 import { AuthService } from './auth.service';
 import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
 import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
@@ -67,5 +86,58 @@ export class AuthController {
   async logout(@JwtInfo() jwt: IJwtInfo) {
     this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
     this.authService.logout(jwt.token);
+  }
+
+  @Post('forgot-password')
+  @HttpCode(202)
+  @ApiOperation({
+    summary: `Send a forgot password email to the given email`,
+  })
+  async forgotPassword(@Body() body: ForgotPasswordRequest) {
+    this.logger.verbose(`Processing forgot password request for '${body.email}'`);
+    const result = await this.authService.sendResetPasswordEmail(body.email);
+    if (result) {
+      return {
+        message: 'Reset password email has been sent',
+      };
+    } else {
+      throw new InternalServerErrorException(
+        'Failed to send the reset password email. Please try again or contact our support.'
+      );
+    }
+  }
+
+  @Post('forgot-password/validate-token/:token')
+  @HttpCode(200)
+  @ApiOperation({
+    summary: `Check if the given reset password token is still valid`,
+  })
+  @ApiResponse({ status: 200, description: 'The token is valid' })
+  @ApiResponse({ status: 400, description: `The provided token can't be used` })
+  async validateResetPasswordToken(@Param('token', ParseUUIDPipe) token: string) {
+    this.logger.verbose(`Validating reset password token '${token}'`);
+    if (await this.authService.isValidResetPasswordToken(token)) {
+      return { message: 'The token is valid' };
+    } else {
+      throw new BadRequestException(`The provided token can't be used to reset the password.`);
+    }
+  }
+
+  @Post('forgot-password/:token')
+  @HttpCode(200)
+  @ApiOperation({
+    summary: `Update the password of the user associated with the provided reset password token`,
+  })
+  async updatePasswordWithToken(
+    @Param('token', ParseUUIDPipe) token: string,
+    @Body() body: ResetPasswordRequest
+  ) {
+    this.logger.verbose(`Processing forgot password request for reset password token '${token}'`);
+    if (await this.authService.isValidResetPasswordToken(token)) {
+      await this.authService.updatePasswordByResetPasswordToken(token, body.password);
+      this.logger.log(`Updated password with the reset token '${token}'`);
+    } else {
+      throw new BadRequestException(`The provided token can't be used to reset the password.`);
+    }
   }
 }

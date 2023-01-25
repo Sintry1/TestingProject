@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DocumentSortOptions, IDocument, SortOrder } from '@omnihost/interfaces';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { DocumentsService } from '../../services/documents.service';
-import { CreateDocumentDialogComponent } from './createDocumentDialog/create-document-dialog.component';
+import { CreateDocumentDialogComponent } from './create-document-dialog/create-document-dialog.component';
 
 @Component({
   selector: 'frontend-documents',
@@ -46,8 +47,12 @@ export class DocumentsComponent implements OnInit {
   }
 
   openCreateDocumentDialog(): void {
-    this.dialog.open(CreateDocumentDialogComponent, {
+    this.dialog.open(ManagerAccessDialogComponent, {
       width: '600px',
+      data: {
+        component: CreateDocumentDialogComponent,
+        width: '600px',
+      },
     });
   }
 }

@@ -1,33 +1,15 @@
-#content-wrapper {
+section {
   background-color: var(--main-blue);
   height: 100vh;
   width: 100vw;
-  margin: 0;
-  color: white;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.title-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+img {
   margin-bottom: 20px;
-
-  .title {
-    font-size: xx-large;
-  }
-  .subtitle {
-    font-size: x-large;
-  }
-  hr {
-    width: 100%;
-  }
 }
 
 #login-form {
@@ -36,30 +18,10 @@
   justify-content: center;
   align-items: center;
 
-  width: 22vw;
-  min-width: 310px;
-}
-
-.white-input {
-  color: black;
-  ::ng-deep .mat-form-field-flex {
-    background-color: #f0f0f1;
-  }
-  ::ng-deep .mat-form-field-wrapper {
-    background-color: var(--main-blue);
-  }
-}
-
-.half-width {
-  width: 50%;
-  min-width: 50px;
-  margin-bottom: 0.5em;
-}
-
-.action-btn {
-  font-size: x-large;
-}
-
-.btn-spinner {
-  padding: 10px;
+  width: 25vw;
+  min-width: 300px;
+  max-width: 90vw;
+  padding: 3em;
+  background-color: white;
+  border-radius: 5px;
 }
