@@ -21,7 +21,7 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   files?: string[];
 }
 
-export class UpdateBlackListRequest implements IUpdateBlacklistRequest {
+export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
   @ApiModelProperty({ example: 'Dominic Smith' })
   @IsOptional()
   name?: string;
