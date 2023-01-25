@@ -1,3 +1,10 @@
 <table> 
-  {{displayInfo?.tableName}}
+  <tr>
+    <th>Name</th>
+    <th>Explanation</th>
+  </tr>
+  <tr *ngFor="let attribute of displayInfo?.tableInformation">
+    <td>{{attribute.name}}</td>
+    <td>{{attribute.description}}</td>
+  </tr>
 </table>
