@@ -17,7 +17,12 @@
   </div>
 
   <div class="action-bar-container">
-    <button mat-raised-button class="secondary-btn" (click)="updateDocumentDialog()">
+    <button
+      mat-raised-button
+      class="secondary-btn"
+      (click)="updateDocumentDialog()"
+      data-cy="document-edit-btn"
+    >
       Edit <mat-icon>https</mat-icon>
     </button>
     <button

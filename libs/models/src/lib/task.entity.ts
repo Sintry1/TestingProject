@@ -9,19 +9,21 @@ export class Task extends CompletedAt implements ITask {
   @PrimaryGeneratedColumn('uuid')
   taskId!: string;
 
-  @ApiModelProperty({ example: '09.30' })
+  @ApiModelProperty({ example: '07:00' })
   @Column()
   time!: string;
 
-  @ApiModelProperty({ example: 'Clear out trash' })
+  @ApiModelProperty({
+    example: 'Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.',
+  })
   @Column()
   task!: string;
 
-  @ApiModelProperty({ example: 'DS' })
+  @ApiModelProperty({ example: 'EA' })
   @Column()
   initials!: string;
 
-  @ApiModelProperty({ example: 'Midnight' })
+  @ApiModelProperty({ example: 'Morning' })
   @Column()
   listName!: string;
 }

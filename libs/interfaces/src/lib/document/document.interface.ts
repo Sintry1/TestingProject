@@ -18,6 +18,8 @@ export interface ICreateDocumentRequest {
   comments?: string;
   lastViewedAt?: Date | null;
   showOnDashboard: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  document?: any;
 }
 
 export interface IUpdateDocumentRequest {

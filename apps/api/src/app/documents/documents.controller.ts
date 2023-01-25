@@ -18,6 +18,8 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -102,6 +104,7 @@ export class DocumentsController {
     summary: 'Create a document entry.',
   })
   @ApiCreatedResponse({ type: Document })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
   @UseInterceptors(FileInterceptor('document'))
   async createDocument(
@@ -139,6 +142,18 @@ export class DocumentsController {
     summary: 'Upload a new file for the document entry.',
   })
   @ApiCreatedResponse({ type: Document })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        document: {
+          type: 'string',
+          format: 'binary',
+        },
+      },
+    },
+  })
   @HttpCode(200)
   @UseInterceptors(FileInterceptor('document'))
   async updateDocumentFile(
