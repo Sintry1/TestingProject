@@ -1,6 +1,16 @@
 import { TableInfoOptions } from "@omnihost/interfaces";
 
-export const tableInfo = [
+export interface tableInfoObject {
+  tableName: string;
+  tableInformation: attributeInfo[];
+}
+
+interface attributeInfo {
+  name: string;
+  description: string;
+}
+
+export const tableInfo: tableInfoObject[] = [
   {
     tableName: TableInfoOptions.CHECK_IN,
     tableInformation: [

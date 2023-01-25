@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TableInfoOptions } from '@omnihost/interfaces';
+import { tableInfo, tableInfoObject } from './table-info';
 
 @Component({
   selector: 'frontend-table-info-dialog',
@@ -8,9 +9,9 @@ import { TableInfoOptions } from '@omnihost/interfaces';
   styleUrls: ['./table-info-dialog.component.scss', '../../../assets/styles/dialog.scss'],
 })
 export class TableInfoDialogComponent {
-  tableName: TableInfoOptions;
+  displayInfo: tableInfoObject | undefined; 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: TableInfoOptions) {
-    this.tableName = data;
+    this.displayInfo = tableInfo.find((table) => table.tableName === data)
   }
 }
