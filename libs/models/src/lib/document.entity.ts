@@ -9,11 +9,11 @@ export class Document extends Base implements IDocument {
   @PrimaryGeneratedColumn('uuid')
   documentId!: string;
 
-  @ApiModelProperty({ example: 'Title stuff' })
+  @ApiModelProperty({ example: 'New Years Eve preparations' })
   @Column()
   title!: string;
 
-  @ApiModelProperty({ example: 'This is such interesting data.' })
+  @ApiModelProperty({ example: 'December 29th - January 2nd' })
   @Column({ nullable: true })
   comments?: string;
 
@@ -25,7 +25,7 @@ export class Document extends Base implements IDocument {
   @Column()
   showOnDashboard!: boolean;
 
-  @ApiModelProperty({ example: 'declarationOfIndepenence.pdf' })
+  @ApiModelProperty({ example: 'new-years-eve.pdf' })
   @Column()
   documentName!: string;
 }
