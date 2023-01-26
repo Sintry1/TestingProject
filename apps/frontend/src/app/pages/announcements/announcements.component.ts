@@ -14,7 +14,7 @@ export class AnnouncementsComponent {
   isLoading = false;
   displayedColumns: string[] = ['title', 'comments', 'showFrom', 'showTo', 'images', 'status'];
   displayAnnouncementList: IAnnouncement[] = [];
-  showFuture = true;
+  showFuture = !true;
   showActive = true;
   showExpired = !true;
   announcementList: IAnnouncement[] = MOCK_DATA;
@@ -23,11 +23,8 @@ export class AnnouncementsComponent {
 
   constructor(private dialog: MatDialog) {
     this.displayAnnouncementList = this.announcementList.filter(
-      (item) =>
-        this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE ||
-        this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE
+      (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE
     );
-    this.showFuture = true;
     this.showActive = true;
   }
 
