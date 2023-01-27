@@ -31,6 +31,12 @@ echo "Step 2 - Setting up the system"
 set -x
 
 echo "================================"
+echo "Disable warnings about mismatched locale..."
+mkdir -p /var/lib/cloud/instance/ && touch /var/lib/cloud/instance/locale-check.skip
+echo "Locale rules updated"
+echo
+
+echo "================================"
 echo "Creating the new less-privileged user. You will be asked to provide a password"
 adduser --gecos "" $newUser
 adduser $newUser sudo
@@ -39,6 +45,14 @@ echo
 
 echo "================================"
 echo "Beyond this point there will be no other user prompts until the setup is finished. Go make some tea!"
+
+echo "================================"
+echo "Setup ssh access for the created user..."
+mkdir /home/$newUser/.ssh
+cp ~/.ssh/authorized_keys /home/$newUser/.ssh/
+chown -R $newUser:$newUser /home/$newUser/.ssh
+echo "$newUser ssh access has been set up"
+echo
 
 echo "================================"
 echo "Updating the system ..."
@@ -55,15 +69,16 @@ echo
 echo "================================"
 echo "Setting the hostname"
 lowercaseEnv=$(echo $environment | tr '[:upper:]' '[:lower:]')
-hostname="$lowercaseEnv.$domain"
+hostname="$lowercaseEnv-omnihost"
 hostnamectl set-hostname $hostname
+printf "127.0.0.1 staging-omnihost\n" >>/etc/hosts
 echo "Hostname set to '$hostname'"
 echo
 
 echo "================================"
 echo "Changing security rules for SSH..."
 echo "===  Dissallowing Root Login..."
-# sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 echo "===  Dissallowing Password Authentication..."
 sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 echo "===  Limiting SSH access to only use IPv4..."
