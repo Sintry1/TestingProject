@@ -3,5 +3,5 @@
   window['env'] = window['env'] || {};
 
   // Environment variables
-  window['env']['apiUrl'] = '${API_URL}';
+  window['env']['apiUrl'] = '${FRONTEND_API_URL}';
 })(this);

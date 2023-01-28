@@ -50,7 +50,7 @@ services:
       context: .
       dockerfile: ./.deploy/frontend/Dockerfile
     environment:
-      API_URL: ${API_URL:-https://api.dev.omnihost.app}
+      FRONTEND_API_URL: ${FRONTEND_API_URL:-https://api.dev.omnihost.app}
     networks:
       - omnihost-net
     ports:
