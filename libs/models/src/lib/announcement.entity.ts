@@ -26,6 +26,6 @@ export class Announcement extends Base implements IAnnouncement {
   showFrom?: Date | null;
 
   @ApiModelProperty({ example: ['tourDeFrance.pdf', 'selfieFromParis.png'] })
-  @Column({ default: [] })
+  @Column("text", { array: true, default: [] })
   files!: string[];
 }

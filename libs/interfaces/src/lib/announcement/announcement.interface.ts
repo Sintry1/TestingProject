@@ -9,10 +9,13 @@ export interface IAnnouncement extends IBase {
   files: string[];
 }
 
+export interface IGetAnnouncementByIdResponse extends IAnnouncement {
+  downloadUrls: string[];
+}
+
 export interface IAnnouncementRequest {
   title?: string;
   comments?: string;
   showTo?: Date | null;
   showFrom?: Date | null;
-  files?: string[];
 }
