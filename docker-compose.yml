@@ -9,18 +9,27 @@ version: '3'
 
 # # USAGE
 # The reccomended commands when working with docker compose is to use:
-# * `docker compose up --build`
+# * `docker compose up --build -d`
 # This will force any container with changes to rebuild
 #
 # The reccomended way to take down the containers is with:
 # * `docker compose down -v`
 # This will ensure that the volume is deleted too.
 
-# ---------------------------------
-# ------------ GATEWAY ------------
+# # Deployment
+# The images are stored on docker hub. The deployment flow is as follows:
+# 1. Login into Docker with `docker login -u omnihost` and the access token
+# 2. Build the images with `docker compose build`
+# 3. Push the images with `docker compose push`
+# 4. On the deployment machine, Login into Docker with `docker login -u omnihost` and the access token
+# 5. On the deployment machine, pull the images with `docker compose pull`
+# 6. On the deployment machine, run the images with `docker compose up -d`
+# 6.B On the deployment machine, run the Caddy reverse proxy if it isn't already running with `docker compose -f docker-compose.caddy.yml up --build -d`
+
 services:
   api:
     container_name: omnihost-api
+    image: omnihost/dangleterre:api-${DEPLOYMENT_ENV:-local}
     restart: unless-stopped
     build:
       context: .
@@ -45,12 +54,13 @@ services:
 
   frontend:
     container_name: omnihost-frontend
+    image: omnihost/dangleterre:frontend-${DEPLOYMENT_ENV:-local}
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./.deploy/frontend/Dockerfile
     environment:
-      FRONTEND_API_URL: ${FRONTEND_API_URL:-https://api.dev.omnihost.app}
+      FRONTEND_API_URL: ${FRONTEND_API_URL:-http://localhost:3333}
     networks:
       - omnihost-net
     ports:
