@@ -35,18 +35,18 @@ services:
       context: .
       dockerfile: ./.deploy/api/Dockerfile
     environment:
-      LINODE_PERSONAL_TOKEN: ${LINODE_PERSONAL_TOKEN}
-      LINODE_STORAGE_CLUSTER_ID: ${LINODE_STORAGE_CLUSTER_ID}
-      LINODE_STORAGE_BUCKET_ID: ${LINODE_STORAGE_BUCKET_ID}
-      LINODE_STORAGE_ACCESS_KEY: ${LINODE_STORAGE_ACCESS_KEY}
-      LINODE_STORAGE_SECRET_KEY: ${LINODE_STORAGE_SECRET_KEY}
-      POSTGRES_HOST: ${POSTGRES_HOST:-omnihost-postgres}
-      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
-      POSTGRES_USER: ${POSTGRES_USER:-root}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE:-omnihost}
-      GLOBAL_CORS_ALLOWED_ORIGIN: ${GLOBAL_CORS_ALLOWED_ORIGIN}
-      JWT_SECRET: ${JWT_SECRET}
+      API_LINODE_PERSONAL_TOKEN: ${API_LINODE_PERSONAL_TOKEN}
+      API_LINODE_STORAGE_CLUSTER_ID: ${API_LINODE_STORAGE_CLUSTER_ID}
+      API_LINODE_STORAGE_BUCKET_ID: ${API_LINODE_STORAGE_BUCKET_ID}
+      API_LINODE_STORAGE_ACCESS_KEY: ${API_LINODE_STORAGE_ACCESS_KEY}
+      API_LINODE_STORAGE_SECRET_KEY: ${API_LINODE_STORAGE_SECRET_KEY}
+      API_POSTGRES_HOST: ${API_POSTGRES_HOST:-omnihost-postgres}
+      API_POSTGRES_PORT: ${API_POSTGRES_PORT:-5432}
+      API_POSTGRES_USER: ${API_POSTGRES_USER:-root}
+      API_POSTGRES_PASSWORD: ${API_POSTGRES_PASSWORD:-root}
+      API_POSTGRES_DATABASE: ${API_POSTGRES_DATABASE:-omnihost}
+      API_GLOBAL_CORS_ALLOWED_ORIGIN: ${API_GLOBAL_CORS_ALLOWED_ORIGIN}
+      API_JWT_SECRET: ${API_JWT_SECRET}
     networks:
       - omnihost-net
     ports:
@@ -69,18 +69,18 @@ services:
   postgres:
     container_name: omnihost-postgres
     image: postgres
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-root}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
-      POSTGRES_DB: ${POSTGRES_DATABASE:-omnihost}
+      POSTGRES_USER: ${API_POSTGRES_USER:-root}
+      POSTGRES_PASSWORD: ${API_POSTGRES_PASSWORD:-root}
+      POSTGRES_DB: ${API_POSTGRES_DATABASE:-omnihost}
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
     ports:
-      - '5432:5432'
+      - ${API_POSTGRES_PORT:-5432}:5432
     networks:
       - omnihost-net
-    restart: unless-stopped
 
 # ---------------------------------
 # ------------ NETWORK ------------

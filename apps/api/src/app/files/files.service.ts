@@ -21,9 +21,9 @@ export class FilesService {
     fileName: string,
     expiresIn: number
   ): Promise<{ url: string; exists: boolean }> {
-    const accessKey = configService.getValue('LINODE_PERSONAL_TOKEN', true);
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_PERSONAL_TOKEN', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
 
     const { data } = await firstValueFrom(
       this.httpService
@@ -58,10 +58,10 @@ export class FilesService {
    * @throws InvalidAccessKeyIdError | UploadFailedError
    */
   async uploadFile(dataBuffer: Buffer, filename: string): Promise<{ url: string }> {
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = configService.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = configService.getValue('LINODE_STORAGE_SECRET_KEY', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+    const secretKey = configService.getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
     try {
       const s3 = new S3Client({
@@ -103,10 +103,10 @@ export class FilesService {
    * @throws InvalidAccessKeyIdError | DeleteFailedError
    */
   async deleteFile(filename: string): Promise<boolean> {
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = configService.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = configService.getValue('LINODE_STORAGE_SECRET_KEY', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+    const secretKey = configService.getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
     try {
       const s3 = new S3Client({
