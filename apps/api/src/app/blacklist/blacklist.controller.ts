@@ -4,12 +4,17 @@ import {
   Delete,
   Get,
   HttpCode,
+  HttpStatus,
   Param,
+  ParseFilePipeBuilder,
   ParseUUIDPipe,
   Patch,
   Post,
   Query,
+  UploadedFiles,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
   ApiCreatedResponse,
@@ -26,14 +31,19 @@ import {
 } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
+import { FilesService } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
+
+const FILE_MAX_SIZE = 10000000;
+const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Blacklist')
 @Controller('blacklist')
 @ApiBearerAuth()
 @Roles(Role.user, Role.manager)
 export class BlacklistController {
-  constructor(private blacklistService: BlacklistService) {}
+  constructor(private blacklistService: BlacklistService, private filesService: FilesService) {}
+
   @Post()
   @ApiOperation({
     summary: 'Create a blacklist entry.',
@@ -73,6 +83,29 @@ export class BlacklistController {
     @Body() blacklistData: UpdateBlacklistRequest
   ) {
     return await this.blacklistService.updateBlacklist(blacklistId, blacklistData);
+  }
+
+  @Patch(':blacklistId')
+  @Roles(Role.manager)
+  @ApiOperation({
+    summary: 'Add file(s) to a blacklist entry.',
+  })
+  @ApiResponse({ type: Blacklist })
+  @HttpCode(200)
+  @UseInterceptors(FilesInterceptor('blacklist', 20))
+  async addBlacklistFile(
+    @UploadedFiles(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({ fileType: FILE_TYPES })
+        .addMaxSizeValidator({ maxSize: FILE_MAX_SIZE })
+        .build({
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        })
+    )
+    @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
+    @Body() file: Express.Multer.File
+  ) {
+    return this.blacklistService.updateBlacklistFile(blacklistId, file);
   }
 
   @Delete(':blacklistId')
