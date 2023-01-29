@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { IResetPasswordToken } from '@omnihost/interfaces';
 import { ResetPasswordToken } from '@omnihost/models';
 import { Repository } from 'typeorm';
+import { SentryService } from '../utils/sentry.service';
 
 @Injectable()
 export class ResetPasswordTokensService {
@@ -46,8 +47,10 @@ export class ResetPasswordTokensService {
       await this.tokenRepo.save(token);
       return token;
     } catch (error) {
-      this.logger.error(
+      SentryService.log(
+        'error',
         `An Unexpected error occurred while deleting a reset password token`,
+        this.logger,
         error
       );
     }

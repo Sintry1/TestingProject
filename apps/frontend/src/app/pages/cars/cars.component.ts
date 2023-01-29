@@ -6,6 +6,7 @@ import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/int
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
 import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
@@ -65,8 +66,8 @@ export class CarsComponent implements OnInit {
         next: () => {
           this.snackBar.open('Car updated!', 'Thanks', { duration: 5000 });
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 15000,
           });
@@ -111,7 +112,7 @@ export class CarsComponent implements OnInit {
       },
       error: (error) => {
         this.isLoading = false;
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open(
           'Check Out data have failed to load, please try checking your connection.',
           'Okay',

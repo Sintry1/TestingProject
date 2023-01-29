@@ -5,6 +5,7 @@ import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omni
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
+import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateLongTermDialogComponent } from './create-long-term-dialog/create-long-term-dialog.component';
 import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-long-term-dialog.component';
@@ -72,7 +73,7 @@ export class LongtermComponent implements OnInit {
         },
         error: (error) => {
           this.isLoading = false;
-          console.error(error);
+          SentryService.logError(error);
           this.snackBar.open('Luggages have failed to load', 'Okay', {
             duration: 10000,
           });

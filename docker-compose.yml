@@ -47,6 +47,10 @@ services:
       API_POSTGRES_DATABASE: ${API_POSTGRES_DATABASE:-omnihost}
       API_GLOBAL_CORS_ALLOWED_ORIGIN: ${API_GLOBAL_CORS_ALLOWED_ORIGIN}
       API_JWT_SECRET: ${API_JWT_SECRET}
+      API_SENDGRID_API_KEY: ${API_SENDGRID_API_KEY:-''}
+      API_SENTRY_DSN: ${API_SENTRY_DSN:-''}
+      API_SENTRY_TRACING_SAMPLE_RATE: ${API_SENTRY_TRACING_SAMPLE_RATE:-1.0}
+      API_ENVIRONMENT: ${API_ENVIRONMENT:-DEVELOPMENT}
     networks:
       - omnihost-net
     ports:
@@ -61,6 +65,10 @@ services:
       dockerfile: ./.deploy/frontend/Dockerfile
     environment:
       FRONTEND_API_URL: ${FRONTEND_API_URL:-http://localhost:3333}
+      FRONTEND_SENTRY_DSN: ${FRONTEND_SENTRY_DSN:-''}
+      FRONTEND_SENTRY_TRACING_SAMPLE_RATE: ${FRONTEND_SENTRY_TRACING_SAMPLE_RATE:-1.0}
+      FRONTEND_SENTRY_TUNNEL: ${FRONTEND_SENTRY_TUNNEL}
+      FRONTEND_ENVIRONMENT: ${FRONTEND_ENVIRONMENT:-DEVELOPMENT}
     networks:
       - omnihost-net
     ports:
@@ -81,6 +89,21 @@ services:
       - ${API_POSTGRES_PORT:-5432}:5432
     networks:
       - omnihost-net
+
+  sentry-tunnel:
+    container_name: omnihost-sentry-tunnel
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./.deploy/sentry-tunnel/Dockerfile
+    environment:
+      TUNNEL_ALLOWED_DSNs: ${TUNNEL_ALLOWED_DSNs}
+      TUNNEL_CORS_ALLOWED_ORIGINS: ${TUNNEL_CORS_ALLOWED_ORIGINS}
+      TUNNEL_PORT: 5000
+    networks:
+      - omnihost-net
+    ports:
+      - 5000:5000
 
 # ---------------------------------
 # ------------ NETWORK ------------
