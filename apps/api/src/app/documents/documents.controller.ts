@@ -12,6 +12,7 @@ import {
   Post,
   Query,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -36,6 +37,7 @@ import {
 } from '@omnihost/interfaces';
 import { Document } from '@omnihost/models';
 import 'multer';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { DocumentsService } from './documents.service';
@@ -46,6 +48,7 @@ const FILE_TYPES = /(pdf|docx)\b/;
 @ApiTags('Documents')
 @Controller('documents')
 @ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
 @Roles(Role.user, Role.manager)
 export class DocumentsController {
   constructor(private documentsService: DocumentsService) {}

@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -6,6 +7,7 @@ import { ICreateDocumentRequest } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 import { AuthService } from '../../../services/auth.service';
 import { DocumentsService } from '../../../services/documents.service';
+import { SentryService } from '../../../services/sentry.service';
 
 @Component({
   selector: 'frontend-create-document-dialog',
@@ -111,8 +113,8 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.authService.removeManagerInfo();
       },
-      error: (err) => {
-        console.error(err);
+      error: (error: HttpErrorResponse) => {
+        SentryService.logError(error);
         this.snackBar.open('Failed to upload document, please try again.', 'Okay', {
           duration: 15000,
         });

@@ -132,10 +132,6 @@ export const eveningTasks = [
   },
   {
     time: '22:30-23:00',
-    task: ``,
-  },
-  {
-    time: '22:30-23:00',
     task: `Put the luggage trolleys in, put the bench behind the menu card and take the mats in.`,
   },
   {

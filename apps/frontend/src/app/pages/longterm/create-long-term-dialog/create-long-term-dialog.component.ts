@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
+import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
 import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
 
@@ -105,8 +106,8 @@ export class CreateLongTermDialogComponent implements OnInit {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to create, please try again.', 'Okay', {
             duration: 10000,
           });

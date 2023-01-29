@@ -4,6 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { configService } from '../config/config.service';
+import { SentryService } from '../utils/sentry.service';
 
 @Injectable()
 export class FilesService {
@@ -38,7 +39,12 @@ export class FilesService {
         )
         .pipe(
           catchError((error: AxiosError) => {
-            this.logger.error('Failed to get the signed url from Linode', error.response.data);
+            SentryService.log(
+              'error',
+              'Failed to get the signed url from Linode',
+              this.logger,
+              error.response.data
+            );
             throw new Error('Failed to get the signed url from Linode');
           })
         )
@@ -87,7 +93,12 @@ export class FilesService {
         return this.getSignedLink(filename, 600);
       }
     } catch (error) {
-      this.logger.error('Failed to upload a file to Linode Object storage', error);
+      SentryService.log(
+        'error',
+        'Failed to upload a file to Linode Object storage',
+        this.logger,
+        error
+      );
       if (error.name === 'InvalidAccessKeyId') {
         throw new Error('InvalidAccessKeyIdError');
       } else {
@@ -126,7 +137,12 @@ export class FilesService {
       this.logger.verbose(`File deleted from linode storage. Filename: ${filename}`);
       return true;
     } catch (error) {
-      this.logger.error('Failed to delete a file from Linode Object storage', error);
+      SentryService.log(
+        'error',
+        'Failed to delete a file from Linode Object storage',
+        this.logger,
+        error
+      );
       if (error.name === 'InvalidAccessKeyId') {
         throw new Error('InvalidAccessKeyIdError');
       } else {
