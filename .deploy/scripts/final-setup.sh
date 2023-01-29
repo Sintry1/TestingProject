@@ -15,6 +15,8 @@ newUser="developer"
 newUserPassword=""
 githubRepo="https://github.com/omnihost-systems/hotel-dangleterre.git"
 
+set -x
+
 echo "================================"
 echo "Configuring Git credentials..."
 git config --global credential.helper cache
@@ -35,15 +37,14 @@ read -p "Branch to use for deployment: " branch
 git checkout $branch
 git pull
 echo "Updating the ENVs..."
-touch .env
-echo "# Paste the .env in here..." >>.envs
+echo "# Paste the .env in here..." >>.env
 nano .env
 echo ".env file has been updated"
 echo "Updating the Caddyfile"
 fullEnv = cat .env | grep API_ENVIRONMENT
 env = echo "$fullEnv/API_ENVIRONMENT/"
 lowercaseEnv=$(echo $env | tr '[:upper:]' '[:lower:]')
-sed -i "s/dangleterre.omnihost.app/'$lowercaseEnv'.dangleterre.omnihost.app/" /.deploy/caddy/Caddyfile
+sed -i "s/dangleterre.omnihost.app/'$lowercaseEnv'.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile
 echo "Set main domain to $lowercaseEnv.dangleterre.omnihost.app"
 echo
 
