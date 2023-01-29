@@ -76,6 +76,13 @@ echo "Hostname set to '$hostname'"
 echo
 
 echo "================================"
+echo "Install NVM and Node"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh -y | bash
+nvm install node
+echo "Node installed and set up"
+echo
+
+echo "================================"
 echo "Changing security rules for SSH..."
 echo "===  Dissallowing Root Login..."
 sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
