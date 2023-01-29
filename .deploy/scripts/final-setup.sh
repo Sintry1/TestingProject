@@ -15,17 +15,18 @@ newUser="developer"
 newUserPassword=""
 githubRepo="https://github.com/omnihost-systems/hotel-dangleterre.git"
 
-set -x
-
 echo "================================"
 echo "Configuring Git credentials..."
+echo "git config --global credential.helper cache"
 git config --global credential.helper cache
+echo "git clone https://github.com/omnihost-systems/hotel-dangleterre.git"
 git clone https://github.com/omnihost-systems/hotel-dangleterre.git
 echo "You have set up credentials for git"
 echo
 
 echo "================================"
 echo "Configuring Docker credentials..."
+echo "docker login -u omnihost"
 docker login -u omnihost
 echo "You have set up credentials for Docker"
 echo
@@ -34,31 +35,37 @@ echo "================================"
 echo "Pulling the repo..."
 cd hotel-dangleterre
 read -p "Branch to use for deployment: " branch
+echo "git checkout $branch"
 git checkout $branch
+echo "git pull"
 git pull
 echo "Updating the ENVs..."
 echo "# Paste the .env in here..." >>.env
 nano .env
 echo ".env file has been updated"
 echo "Updating the Caddyfile"
-fullEnv = cat .env | grep API_ENVIRONMENT
-env = echo "$fullEnv/API_ENVIRONMENT/"
+fullEnv=$(cat .env | grep API_ENVIRONMENT)
+env=$(echo $fullEnv | sed "s/API_ENVIRONMENT=//g")
 lowercaseEnv=$(echo $env | tr '[:upper:]' '[:lower:]')
-sed -i "s/dangleterre.omnihost.app/'$lowercaseEnv'.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile
+echo "sed -i "s/dangleterre.omnihost.app/$lowercaseEnv.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile"
+sed -i "s/dangleterre.omnihost.app/$lowercaseEnv.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile
 echo "Set main domain to $lowercaseEnv.dangleterre.omnihost.app"
 echo
 
 echo "================================"
 echo "Deploying the images..."
+echo "docker compose pull"
 docker compose pull
+echo "docker compose up -d"
 docker compose up -d
+echo "docker compose -f docker-compose.caddy.yml up -d"
 docker compose -f docker-compose.caddy.yml up -d
+echo "docker ps"
 docker ps
+echo "free -h"
 free -h
-echo "You have set up credentials for Docker"
+echo "The images have been deployed"
 echo
-
-set +x
 
 echo "================================"
 echo "The final setup is complete."
