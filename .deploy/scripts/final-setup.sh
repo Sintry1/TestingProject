@@ -35,6 +35,7 @@ read -p "Branch to use for deployment: " branch
 git checkout $branch
 git pull
 echo "Updating the ENVs..."
+touch .env
 echo "# Paste the .env in here..." >>.envs
 nano .env
 echo ".env file has been updated"
