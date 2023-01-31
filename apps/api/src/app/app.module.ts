@@ -15,6 +15,7 @@ import { LuggagesModule } from './luggages/luggages.module';
 import { LoggerMiddleware } from './middleware/logging.middleware';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
+import { BlacklistModule } from './blacklist/blacklist.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { UsersModule } from './users/users.module';
     DocumentsModule,
     FilesModule,
     BikeModule,
+    BlacklistModule,
   ],
   controllers: [AppController],
   providers: [],

@@ -10,7 +10,7 @@ import { bellBoyInitials } from '../../../utils/dropdown-selection';
 
 @Component({
   selector: 'frontend-edit-task-dialog',
-  templateUrl: './editTaskDialog.component.html',
+  templateUrl: './edit-task-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class EditTaskDialogComponent {

@@ -1,5 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
+import { IJwtPayload } from '@omnihost/interfaces';
 import { Token } from '@omnihost/models';
 import { MoreThan, Repository } from 'typeorm';
 
@@ -9,7 +11,8 @@ export class TokensService {
 
   constructor(
     @InjectRepository(Token)
-    private readonly tokenRepo: Repository<Token>
+    private readonly tokenRepo: Repository<Token>,
+    private jwtService: JwtService
   ) {}
 
   /**
@@ -41,6 +44,25 @@ export class TokensService {
     try {
       const foundPair = await this.findByToken(token);
       this.tokenRepo.remove(foundPair);
+    } catch (error) {
+      console.error(`An Unexpected error occurred while deleting a token`, error);
+    }
+  }
+
+  /**
+   * Remove a all token pairs of the given user
+   * @param userId id of the user to de-authenticate.
+   */
+  async deleteTokensByUserId(userId: string): Promise<void> {
+    try {
+      const tokens = await this.tokenRepo.find();
+      const userTokens = tokens.filter((token) => {
+        // extract information from the access token
+        const jwt = <IJwtPayload>this.jwtService.decode(token.accessToken);
+        if (jwt.userId === userId) return token;
+      });
+      this.logger.verbose(`Deleted ${userTokens.length} token pairs of user '${userId}'`);
+      this.tokenRepo.remove(userTokens);
     } catch (error) {
       console.error(`An Unexpected error occurred while deleting a token`, error);
     }

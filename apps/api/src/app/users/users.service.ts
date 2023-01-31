@@ -19,6 +19,26 @@ export class UsersService {
   async findOne(email: string): Promise<User | undefined> {
     return this.userRepo.findOneOrFail({ where: { email: email } });
   }
+  /**
+   * Find a singular user by their id.
+   * @param userId id of the user.
+   * @returns user or undefined.
+   */
+  async findOneById(userId: string): Promise<User | undefined> {
+    return this.userRepo.findOneOrFail({ where: { userId } });
+  }
+
+  /**
+   * Update the password of the given user.
+   * @param hashedPassword the encoded password.
+   * @param userId id of the user to update.
+   * @returns updated user.
+   */
+  async updatePassword(hashedPassword: string, userId: string): Promise<IUser> {
+    const user = await this.findOneById(userId);
+    user.password = hashedPassword;
+    return this.userRepo.save(user);
+  }
 
   /**
    * Create and persist a user entity.

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment, TableInfoOptions } from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { AssignmentsService } from '../../services/assignments.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { CreateAssignmentDialogComponent } from './createAssignmentDialog/create-assignment-dialog.component';
-import { UpdateAssignmentDialogComponent } from './updateAssignmentDialog/update-assignment-dialog.component';
+import { CreateAssignmentDialogComponent } from './create-assignment-dialog/create-assignment-dialog.component';
+import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/update-assignment-dialog.component';
 
 @Component({
   selector: 'frontend-assignments',

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './helpers/auth.guard';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
-import { BikesComponent } from './pages/bikes/bikes.componenet';
+import { BikesComponent } from './pages/bikes/bikes.component';
 import { CarsComponent } from './pages/cars/cars.component';
 import { CheckinComponent } from './pages/checkin/checkin.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';

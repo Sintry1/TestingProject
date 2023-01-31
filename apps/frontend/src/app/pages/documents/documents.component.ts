@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DocumentSortOptions, IDocument, SortOrder } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { DocumentsService } from '../../services/documents.service';
-import { CreateDocumentDialogComponent } from './createDocumentDialog/create-document-dialog.component';
+import { CreateDocumentDialogComponent } from './create-document-dialog/create-document-dialog.component';
 
 @Component({
   selector: 'frontend-documents',

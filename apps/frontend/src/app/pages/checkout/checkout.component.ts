@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { CreateCheckoutDialogComponent } from './createCheckoutDialog/create-checkout-dialog.component';
-import { UpdateCheckoutDialogComponent } from './updateCheckoutDialog/update-checkout-dialog.component';
+import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
+import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
 
 @Component({
   selector: 'frontend-checkin',
