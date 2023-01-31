@@ -42,6 +42,7 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/update-long-term
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
     CheckoutComponent,
     AssignmentsComponent,
     BikesComponent,
+    BlacklistComponent,
     LongtermComponent,
     UpdateCheckinDialogComponent,
     CreateCheckinDialogComponent,
