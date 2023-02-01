@@ -88,8 +88,27 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ needs.setup.outputs.hostname }}
 
-      - name: SSH into the server and perform command
-        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log'
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the API image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build api --no-cache
+
+      - name: Push the API image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push api
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull api && docker compose up api -d'
 
   # =================================
   # Build and deploy the Frontend app
@@ -116,8 +135,27 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ needs.setup.outputs.hostname }}
 
-      - name: SSH into the server and perform command
-        run: ssh deployment 'date >> log && echo "Frontend deployment triggered" >> log'
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the Frontend image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build frontend --no-cache
+
+      - name: Push the Frontend image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push frontend
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Frontend deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull frontend && docker compose up frontend -d'
 
   # ======================================
   # Build and deploy the Sentry Tunnel app
@@ -144,5 +182,24 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ needs.setup.outputs.hostname }}
 
-      - name: SSH into the server and perform command
-        run: ssh deployment 'date >> log && echo "Tunnel deployment triggered" >> log'
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the Sentry Tunnel image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build sentry-tunnel --no-cache
+
+      - name: Push the Sentry Tunnel image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push sentry-tunnel
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Sentry tunnel deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull sentry-tunnel && docker compose up sentry-tunnel -d'
