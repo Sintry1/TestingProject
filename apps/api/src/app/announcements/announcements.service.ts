@@ -59,40 +59,39 @@ export class AnnouncementsService {
     return await this.announcementRepo.findOneByOrFail({ announcementId });
   }
 
-  async createAnnouncement(
-    announcementData: AnnouncementRequest,
-    documents: Express.Multer.File[]
-  ) {
+  async createAnnouncement(announcementData: AnnouncementRequest, files: Express.Multer.File[]) {
     try {
-      for (const document of documents) {
+      const promises: Promise<{ url: string }>[] = [];
+      for (const file of files) {
         // We are doing size validation here, and not in the file interceptor because it is only here that
         // we do have access to the `size` attribute.
-        if (document.size > FILE_MAX_SIZE) {
-          return new BadRequestException(`Invalid file size for file: ${document.originalname}`);
+        if (file.size > FILE_MAX_SIZE) {
+          return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
         }
-        await this.fileService.uploadFile(document.buffer, document.originalname);
+        promises.push(this.fileService.uploadFile(file.buffer, file.originalname));
       }
+      await Promise.all(promises);
     } catch (error) {
       throw new HttpException(
-        'Failed to upload the documents. Please try again later.',
+        'Failed to upload the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
 
     return await this.announcementRepo.save({
       ...announcementData,
-      files: this.toDocumentNames(documents),
+      files: this.toFileNames(files),
     });
   }
 
   async updateAnnouncement(
     announcementId: string,
     announcementData: AnnouncementRequest,
-    documents: Express.Multer.File[]
+    files: Express.Multer.File[]
   ) {
     let announcement: Announcement;
-    if (documents.length !== 0) {
-      const result = await this.updateAnnouncementFiles(announcementId, documents);
+    if (files.length !== 0) {
+      const result = await this.updateAnnouncementFiles(announcementId, files);
       if (result instanceof BadRequestException) {
         return result;
       } else {
@@ -115,8 +114,8 @@ export class AnnouncementsService {
     const announcement = await this.announcementRepo.findOneByOrFail({ announcementId });
 
     try {
-      for (const document of announcement.files) {
-        await this.fileService.deleteFile(document);
+      for (const file of announcement.files) {
+        await this.fileService.deleteFile(file);
       }
     } catch (error) {
       throw new HttpException(
@@ -129,60 +128,59 @@ export class AnnouncementsService {
     return { message: 'Deleted.' };
   }
 
-  async getFilesLink(documentNames: string[]) {
+  async getFilesLink(fileNames: string[]) {
     try {
-      return await this.toDocuments(documentNames);
+      return await this.toFiles(fileNames);
     } catch (error) {
       throw new HttpException(
-        "Failed to get the documents' links. Please try again later.",
+        "Failed to get the files' links. Please try again later.",
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
   }
 
-  async updateAnnouncementFiles(announcementId: string, documents: Express.Multer.File[]) {
+  async updateAnnouncementFiles(announcementId: string, files: Express.Multer.File[]) {
     const announcement = await this.announcementRepo.findOneByOrFail({ announcementId });
-    console.log(announcement.files.length + documents.length, this.toDocumentNames(documents));
-    if (announcement.files.length + documents.length > 5) {
+    console.log(announcement.files.length + files.length, this.toFileNames(files));
+    if (announcement.files.length + files.length > 5) {
       return new BadRequestException(
         `File size limit surpassed. An announcement can have a maximum of 5 files. It currently has ${announcement.files.length}`
       );
     }
 
     try {
-      for (const document of documents) {
-        if (document.size > FILE_MAX_SIZE) {
-          console.log('HELLO');
-          return new BadRequestException(`Invalid file size for file: ${document.originalname}`);
+      for (const file of files) {
+        if (file.size > FILE_MAX_SIZE) {
+          return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
         }
 
-        await this.fileService.uploadFile(document.buffer, document.originalname);
+        await this.fileService.uploadFile(file.buffer, file.originalname);
       }
     } catch (error) {
       throw new HttpException(
-        'Failed to upload the documents. Please try again later.',
+        'Failed to upload the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
 
-    announcement.files.push(...this.toDocumentNames(documents));
+    announcement.files.push(...this.toFileNames(files));
 
     return await this.announcementRepo.save(announcement);
   }
 
-  async removeAnnouncementFiles(announcementId: string, documentNames: string[]) {
+  async removeAnnouncementFiles(announcementId: string, fileNames: string[]) {
     const announcement = await this.announcementRepo.findOneByOrFail({ announcementId });
 
     try {
-      for (const document of announcement.files) {
-        if (documentNames.includes(document)) {
-          await this.fileService.deleteFile(document);
-          announcement.files = announcement.files.filter((file) => file !== document);
+      for (const file of announcement.files) {
+        if (fileNames.includes(file)) {
+          await this.fileService.deleteFile(file);
+          announcement.files = announcement.files.filter((file) => file !== file);
         }
       }
     } catch (error) {
       throw new HttpException(
-        'Failed to clear the documents. Please try again later.',
+        'Failed to clear the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
@@ -208,18 +206,18 @@ export class AnnouncementsService {
     return await this.announcementRepo.save(announcement);
   }
 
-  private toDocumentNames(documents: Express.Multer.File[]) {
-    const documentNames: string[] = [];
-    documents.forEach((document) => documentNames.push(document.originalname));
-    return documentNames;
+  private toFileNames(files: Express.Multer.File[]) {
+    const fileNames: string[] = [];
+    files.forEach((file) => fileNames.push(file.originalname));
+    return fileNames;
   }
 
-  private async toDocuments(documentNames: string[]) {
-    const documents = [];
-    for (const documentName of documentNames) {
-      documents.push((await this.fileService.getSignedLink(documentName, 600)).url);
+  private async toFiles(fileNames: string[]) {
+    const files = [];
+    for (const fileName of fileNames) {
+      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
     }
-    return documents;
+    return files;
   }
 
   private getSortingConditions(

@@ -105,7 +105,7 @@ export class AnnouncementsController {
   @ApiCreatedResponse({ type: [Announcement] })
   @HttpCode(201)
   @UseInterceptors(
-    FilesInterceptor('documents', 5, {
+    FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
@@ -117,7 +117,6 @@ export class AnnouncementsController {
             false
           );
         }
-
         // This does not because the `file` does not contain the `size` attribute, unlike what the docs state.
         // if (file.size > FILE_MAX_SIZE) {
         //   req.fileValidationError = `Invalid file size for file: ${file.originalname}`;
@@ -130,10 +129,10 @@ export class AnnouncementsController {
   )
   async createAnnouncement(
     @UploadedFiles()
-    documents: Array<Express.Multer.File>,
+    files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
-    return this.announcementsService.createAnnouncement(announcementData, documents);
+    return this.announcementsService.createAnnouncement(announcementData, files);
   }
 
   @Patch(':announcementId')
@@ -144,7 +143,7 @@ export class AnnouncementsController {
   @ApiOkResponse({ type: Announcement })
   @HttpCode(200)
   @UseInterceptors(
-    FilesInterceptor('documents', 5, {
+    FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
@@ -164,13 +163,13 @@ export class AnnouncementsController {
   async updateAnnouncement(
     @Param('announcementId', ParseUUIDPipe) announcementId: string,
     @UploadedFiles()
-    documents: Array<Express.Multer.File>,
+    files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
     return this.announcementsService.updateAnnouncement(
       announcementId,
       announcementData,
-      documents
+      files
     );
   }
 
@@ -179,8 +178,8 @@ export class AnnouncementsController {
   @ApiOperation({ summary: 'Delete an announcement.' })
   @ApiOkResponse({ type: DeleteAnnouncementResponse })
   @HttpCode(200)
-  async deleteAnnouncement(@Param('announcementId', ParseUUIDPipe) documentId: string) {
-    return this.announcementsService.deleteAnnouncement(documentId);
+  async deleteAnnouncement(@Param('announcementId', ParseUUIDPipe) announcementId: string) {
+    return this.announcementsService.deleteAnnouncement(announcementId);
   }
 
   @Patch(':announcementId/files/add')
@@ -191,7 +190,7 @@ export class AnnouncementsController {
   @ApiOkResponse({ type: Announcement })
   @HttpCode(200)
   @UseInterceptors(
-    FilesInterceptor('documents', 5, {
+    FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
@@ -211,9 +210,9 @@ export class AnnouncementsController {
   async addAnnouncementFiles(
     @Param('announcementId', ParseUUIDPipe) announcementId: string,
     @UploadedFiles()
-    documents: Array<Express.Multer.File>
+    files: Array<Express.Multer.File>
   ) {
-    return this.announcementsService.updateAnnouncement(announcementId, null, documents);
+    return this.announcementsService.updateAnnouncement(announcementId, null, files);
   }
 
   @Patch(':announcementId/files/remove')
@@ -225,9 +224,9 @@ export class AnnouncementsController {
   @HttpCode(200)
   async removeAnnouncementFiles(
     @Param('announcementId', ParseUUIDPipe) announcementId: string,
-    @Body() documentNames: string[]
+    @Body() fileNames: string[]
   ) {
-    return this.announcementsService.removeAnnouncementFiles(announcementId, documentNames);
+    return this.announcementsService.removeAnnouncementFiles(announcementId, fileNames);
   }
 
   @Patch(':announcementId/files/clear')

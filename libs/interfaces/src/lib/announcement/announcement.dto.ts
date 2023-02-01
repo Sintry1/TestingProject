@@ -32,22 +32,22 @@ export class DeleteAnnouncementResponse {
 
 export class GetAnnouncementResponse extends BaseResponse implements IAnnouncement {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
-  announcementId: string;
+  announcementId!: string;
 
   @ApiModelProperty({ example: 'Tour de France' })
-  title: string;
+  title!: string;
 
   @ApiModelProperty({ example: "Tour de France is so cool, yo. Please don't miss it." })
-  comments: string;
+  comments!: string;
 
   @ApiModelProperty({ example: new Date() })
-  showTo: Date | null;
+  showTo!: Date | null;
 
   @ApiModelProperty({ example: new Date() })
-  showFrom: Date | null;
+  showFrom!: Date | null;
 
   @ApiModelProperty({ example: ['tourDeFrance.pdf', 'selfieFromParis.png'] })
-  files: string[];
+  files!: string[];
 }
 
 export class GetAnnouncementByIdResponse
@@ -59,5 +59,5 @@ export class GetAnnouncementByIdResponse
       'https://eu-central-1.linodeobjects.com:443/omnihost/21234.pdf?Signature=XEiYEET1C4T3I25s0I5K1IOH%2Co%3X&Expires=1670271241&AWSAccessKeyId=123456789EAEA',
     ],
   })
-  downloadUrls: string[];
+  downloadUrls!: string[];
 }
