@@ -16,6 +16,16 @@ newUserPassword=""
 githubRepo="https://github.com/omnihost-systems/hotel-dangleterre.git"
 
 echo "================================"
+echo "Configuring Cron jobs..."
+echo "We will open a file editor. Parse the following lines into it:"
+echo "0 4 * * * date >> /home/pi/logs/cron/docker-cleanup.log"
+echo "0 4 * * * /usr/bin/docker system prune -f >> /home/developer/logs/cron/docker-cleanup.log"
+read "Press any button once you have copied the two lines above:"
+crontab -e
+echo "You have set up the Cron jobs"
+echo
+
+echo "================================"
 echo "Configuring Git credentials..."
 echo "git config --global credential.helper cache"
 git config --global credential.helper cache
