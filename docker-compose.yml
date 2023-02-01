@@ -92,6 +92,7 @@ services:
 
   sentry-tunnel:
     container_name: omnihost-sentry-tunnel
+    image: omnihost/dangleterre:tunnel-${DEPLOYMENT_ENV:-local}
     restart: unless-stopped
     build:
       context: .
