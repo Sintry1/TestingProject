@@ -43,6 +43,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
+import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
+import { SeeBlacklistDialogComponent } from './components/blacklist-widget/see-blacklist-dialog/see-blacklist-dialog.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,7 @@ import { BlacklistComponent } from './pages/blacklist/blacklist.component';
     AssignmentsComponent,
     BikesComponent,
     BlacklistComponent,
+    BlacklistWidgetComponent,
     LongtermComponent,
     UpdateCheckinDialogComponent,
     CreateCheckinDialogComponent,
@@ -82,6 +85,7 @@ import { BlacklistComponent } from './pages/blacklist/blacklist.component';
     UpdateDocumentDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
+    SeeBlacklistDialogComponent,
   ],
   imports: [
     BrowserModule,

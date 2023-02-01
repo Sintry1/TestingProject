@@ -23,5 +23,5 @@ export interface IUpdateBlacklistRequest {
 }
 
 export interface IGetBlacklistByIdResponse extends IBlacklist {
-  downloadUrl: string;
+  downloadUrls: string[];
 }

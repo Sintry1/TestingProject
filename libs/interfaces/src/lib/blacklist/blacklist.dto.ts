@@ -78,5 +78,5 @@ export class GetBlacklistByIdResponse
     example:
       'https://eu-central-1.linodeobjects.com:443/omnihost/21234.pdf?Signature=XEiYEET1C4T3I25s0I5K1IOH%2Co%3X&Expires=1670271241&AWSAccessKeyId=123456789EAEA',
   })
-  downloadUrl!: string;
+  downloadUrls!: string[];
 }

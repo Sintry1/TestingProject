@@ -1,37 +1,20 @@
 <main>
-    <div class="actions">
-      <div>
-        <mat-form-field class="remove-error-message">
-          <mat-label>Search</mat-label>
-          <input
-            type="text"
-            aria-label="search"
-            [(ngModel)]="search"
-            placeholder="Search ..."
-            (change)="fetchBlacklist()"
-            matInput
-          />
-        </mat-form-field>
-      </div>
-  
-      <!-- <button mat-raised-button class="action-btn" (click)="openCreateBlacklistDialog()">
+    <div class="table-actions" style="justify-content: end">  
+      <button mat-raised-button class="action-btn" >
          Add blacklist <mat-icon>https</mat-icon>
-      </button> -->
+      </button>
     </div>
     <hr />
   
-    <section class="blacklist-container">
-      <div class="blacklist-grid" *ngIf="!isLoading">
-        <div *ngFor="let blacklist of blacklistList" class="blacklist-grid-item">
+    <section class="blacklist-container" *ngIf="!isLoading">
           <frontend-blacklist-widget
             class="blacklist-widget-wrapper"
             [blacklist]="blacklist"
+            *ngFor="let blacklist of blacklistList"
           >
-        </frontend-blacklist-widget>
-        </div>
-      </div>
-      <div class="table-spinner-full-size" *ngIf="isLoading">
-        <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
-      </div>
+          </frontend-blacklist-widget>      
     </section>
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </main>

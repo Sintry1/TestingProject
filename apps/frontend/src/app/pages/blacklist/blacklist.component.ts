@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
+import { SeeBlacklistDialogComponent } from '../../components/blacklist-widget/see-blacklist-dialog/see-blacklist-dialog.component';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { BlacklistService } from '../../services/blacklist.service';
+import { BlacklistWidgetComponent } from '../../components/blacklist-widget/blacklist-widget.component';
 
 @Component({
   selector: 'frontend-blacklist',
   templateUrl: './blacklist.component.html',
-  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
+  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss', 'blacklist.component.scss'],
 })
 export class BlacklistComponent implements OnInit {
   blacklistList: IBlacklist[] = [];
+  search = '';
   isLoading = false;
 
   constructor(
@@ -25,10 +28,11 @@ export class BlacklistComponent implements OnInit {
   }
 
   fetchBlacklist(): void {
-    this.isLoading = true;
+    this.isLoading = true;    
 
     this.blacklistService.getBlacklist().subscribe({
       next: (blacklist) => {
+        console.log(blacklist);
         this.blacklistList = blacklist;
         this.isLoading = false;
       },
@@ -42,13 +46,4 @@ export class BlacklistComponent implements OnInit {
     });
   }
 
-  // openCreateBlacklistDialog(): void {
-  //   this.dialog.open(ManagerAccessDialogComponent, {
-  //     width: '600px',
-  //     data: {
-  //       component: CreateBlacklistDialogComponent,
-  //       width: '600px',
-  //     },
-  //   });
-  // }
 }

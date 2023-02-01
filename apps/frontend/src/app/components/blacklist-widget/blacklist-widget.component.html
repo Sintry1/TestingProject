@@ -1,0 +1,28 @@
+<div class="blacklist-widget-container">
+  <div class="text-container">
+    <div class="name-container">
+      <div class="name">
+        <h2>{{ displayName() }}</h2>
+      </div>
+      <hr />
+    </div>
+    <div class="comments-container">
+      <p>
+        {{ blacklist.comments }}
+      </p>
+    </div>
+  </div>
+
+  <div class="action-bar-container">
+    <button mat-raised-button class="secondary-btn" (click)="updateBlacklistDialog()">
+      Edit <mat-icon>https</mat-icon>
+    </button>
+    <button
+      mat-raised-button
+      class="action-btn"
+      (click)="openSeeBlacklistDialog(blacklist.blacklistId)"
+    >
+      View <mat-icon aria-hidden="false">remove_red_eye</mat-icon>
+    </button>
+  </div>
+</div>
