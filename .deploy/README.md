@@ -1,5 +1,7 @@
 # Deployment information
 
+The deployment setup is explained in-depth in [Notion](https://www.notion.so/Setting-up-deployment-servers-9082bfb8eb22407086889bf114304809).
+
 ## Docker Compose
 
 Run `docker compose up --build` to run the services.\
