@@ -50,8 +50,14 @@ echo "================================"
 echo "Setup ssh access for the created user..."
 mkdir /home/$newUser/.ssh
 touch /home/$newUser/.ssh/authorized_keys
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDA5a9PgpGbEoHxzT4760ULi8fXixWiF+y6Aj8O1SZEodqlpPgwqy+tCoVgFFCtERs3JZj2/nED/LORA7Qyt/M7WIUMo9vUdB9202BqRA15M5jduh55j1NX9Dk2NZC8QJpTfyZfJfeodN+OVbX2dR4wfitx/S2loxc8sb/MTJzvwFLmtz/1n1XRAyIAmm6TpM+12EfnKZrkErutS0rMNTIayVH1ODy7xEg+bV4C3//S1f6toizmKV6RWNeO8fxDqxZNVf90DXfb/dp+0MhlURy1vNhufaFBL//Q55BMH7FZi9opaBhEb2o8KnNc8OmHocHvVxIqpgHzDiFBY3Uks9x5kbmRzYGVjBioXIeUzf0doU2KvJ0aLE5SQXaperf+hQ+N3TffoFcA+EaMtBMJ/zdCtmjuQaxeXx87iEd0PYebjJEGgoKekflXKfzy7OgkjIq2Y1x5RaLBNV+bO36fbDHBRYGFQQ7rsTWTIIbb9zK2RTf+2P+n/0nwACsoWbEXekQD5S9faWUz6e/niSLNM6zVzksbLPb8mLGpItxGLwvGwQ4VxskONLUUVBX1h8I55pAU66iN7/y0C87ooPuu9ELwDxb1ftGc0SsMoCj7yJIJkhaD6spIMvuRwb+dM1shI9hXzxAI3bh4Xb4qOPm/3woh2QBV6Rtax4p47Xt6VRhETQ== info@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCsoN8fsup6W5FXk9syVpdKGVGpugsp/GB/OW4lKiuofO5pplYNXdpnvPUI2cZJ8B/WP+PxQvUzpVWWLL5n/hyP49hZoYa6euhdSnLB3Psm6U/das5UEXem/pxIOYvYLLpOe5Xhh28txFoJ7+uuDstptyQagwHirhmhiqDbuE7t7I0jtxQYLMJY4Jst57Jik7AHQ21YAHW1rrBZ/2+WCU1lZNHAShiktN3YvNfymIc1ClQYYEXmv6PgfUtRUSlydZSQ0Vgpzb538B2IbXRsmfllGXVa0AKuCdiQ5iWzWseEWUvrQaOqos1MteHLYB5muINpIUT8PADsUnEt59/+bB0oQFc9U3dvq4Ks747t+S4RAugeVnNetQGZSTH5jHQpq2eomKH1q0jv8NdSoYIvV67P1Wd5Gog+LtbDN5J9O1/Iv8NSvYwUSxH1b44ZvmeZozULZY+WCe2n7WSX1Z68L/pw6TMIz3yiJVA6J8+fc7dwpOErHjci6Ym4cfLan4SUaefV52pt0nV4H84u6LV+LG70oVc5Ttylk6auTjXcvuYcgNzoMZ12bYIhqj9wpg83dMvTX7Oz3U/Mj5wj6tA7U8IdCxLqDMM7QO2QxtIZbdZpOH9niuLAnsgieQqvbYEjE6dkVC8dtYHZEo99yy5UKA+EsMtO+8tHqEo7KyFdo2AdBQ== dev@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
+# Append the CI public key to the authorized_keys file
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDz0Cxx/+Ur3tx9nTHiBPsGmDKcqSgF/BWBtxNGDolmovS5kl5UPzw+qOnd+zaf3vDSsVrCtKtMKVG8MEIQ/QZGRNNUp3J124f/+QOEGg3MzRk5AxJHm+Q7ROpoqBnucGYDwuIv6j2KLpHF4fESQGl2z4kzT+BhFNTHf4EV1cR9ZKnZBB2TVVJVeckll5UFDLErk5DB+k1/jPfaRTIN6cDtP4bKIshPlu5pEFGiKyQflIzntwdqQbnou36hJvts0YJQeRQOLZqTlloVtVIFRQCroFAwJ8RaXhwrwwvcinyHn6mhPW+DPBoJCtxSdRyqX0u+d+W5IJEBxdQ8SQ9b7u9t5N40AzlAHezxudY30ot4CMJ/ki3Aaa3B4cnSKybvWGQMq/bFhqG3xIVNSNITNj1scGibvfgzJSDmGzzhhkrj/AQunFzaFOEe2kyRHY2m9p8GGRm3OTtt/kgJ3NaZPcWIUxWiXvbuNeY5GWpmU1VFh8Lg2TovNDEjTv1NRs4YG1/kSLX46uSBoaUa8rT7YIPgsvJoJ2NgN3e9R24B2RG/5dv3OZO0r3l7R6mwvrA5BwjrpoM3KPITmDquC9kfM27kyFccM/3l8OJ/eYMvkvmKcK+/Mirct+C4FUs0Dxc2650F4DZybuheRmmQyDZEOPislvdR007U6rh3w1SPh8jPWw== ci@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
+# Append the developer public key to the authorized_keys file. If the environment is production, use the developer production key instead.
+if [[ $environment = "PRODUCTION" ]]; then
+    echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDguTs99DYvy9eZUQfxjdU4iowvz0Samt8EVz9yv1B+sda6TOUxkujyX3hDK+2BwPuQNT+T9I0v7HcBpxZ4OYoOnhJciVPAo3NSTBp9z3+dAsEzeuwcAB0mAkmmaAGn/jl+b7yoxTvZ0/nUOFZxYjMrw399EOQ7F9PiflE4dM4ETHLVAPKtCTUV2Aq1643pUb4OxsENxfDx5xCpY+C45YOsdZWYgoALxNZaYEwi6H21h4JRvQ3XME6V7IfzNDJZjf0k2KsG9oeQJSiooSeAuLDJ5Pb97viaWePpp+Boriui2SU5d3B07Fjtp9JbsPffBNn+CmMJPDTlRderK3z29Ao5hElar99RE4dOFBJsPncQ9EJuIx8Vz4/itcZt9pV0NJkZhHBGIElN2pLuRDqDZlvcNyJgg8WwLc7bq0BUs5Wh0Fgft7LbXhTc1pyPJyVGvUgGlFccViBZBS3618zng0EJJOIyjdrJj1PsnAl3VCtHkp6SqpQQ99W0Yhs8DxENpn0o9lCBGHNHySSKXJEZq6/cK3BWTRgG2uvJigWl6vQxobEeqag8oYqQbRpWE2USSU7Yzd1w+sGP4tLC5FBp1boAtvXb0024F2RbVcPprEr3QJoe1b/NN0H5B71AEnncs+bQW03NRBdy04k67Ujsm5PN+kfsfi9nZ//1c9WXMM8bKQ== developer-prod@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
+else
+    echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCntWkkEJ1CWgY00fbEgpZKP+Y4QmPS53SOOZ+q1IzYOxJAut/uKdXaAqNKHYtz2HpPxHiok2HvshVwT967HLYjJvG+PfyAf70E2iPZmZAI6xd03VnZbzO1oVdRTe2jystzXpFr6nKJVohMgZ9VUk0n3gYzcOK0/V06aigtqGm/YSC0sonuc5nZUcMZkjBeoz3Afm3AJM+6ow6IKCA3Vxt/9r/2zMsnro9usi4OaNl1BKp2wb3OfpwjiMy/eld+ftJXO6sPtQEn8lTwQMDVNlbKkipm2G2GXty7kBwWGS48pCIrvRCP7LFcKxe0dtrDaAaugNnfk93hKprDZe5tYMxcR+WvnOn5S/StpD19jFxoOTdSdvJ3Yjekl+PNNe1kD2zlksGbIWUW6784vsIQTHrGGCSzjzJzJv6ZToW7WFqDKOPlky+II5BoZaSjybBCl5Zrgx5T0feNlRvp2PMQxIpx8mqEpxaMfxhkOLMcc0zHebZvyVeHN6z3xWbNn6bsIFy24XREvGoQFPOidwS+M+JPiXAvw3MeqCg1obOmEhYuDHT9T7RwlmfvXwzO+rjnEpNZKFU0lbvKV5+E2PjZNwPY3Yqd0Ff2ikXUCPcLPG69RkRpa6StV7+jXSdEtwqrEx82pRPnZyTHQAVOdNJwGDLnWlzM9xA3TFvmb/JxQLCiqQ== developer@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
+fi
 chown -R $newUser:$newUser /home/$newUser/.ssh
 echo "$newUser ssh access has been set up"
 echo
@@ -75,13 +81,6 @@ hostname="$lowercaseEnv-omnihost"
 hostnamectl set-hostname $hostname
 printf "127.0.0.1 staging-omnihost\n" >>/etc/hosts
 echo "Hostname set to '$hostname'"
-echo
-
-echo "================================"
-echo "Install NVM and Node"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh -y | bash
-nvm install node
-echo "Node installed and set up"
 echo
 
 echo "================================"

@@ -18,9 +18,9 @@ githubRepo="https://github.com/omnihost-systems/hotel-dangleterre.git"
 echo "================================"
 echo "Configuring Cron jobs..."
 echo "We will open a file editor. Parse the following lines into it:"
-echo "0 4 * * * date >> /home/pi/logs/cron/docker-cleanup.log"
+echo "0 4 * * * date >> /home/developer/logs/cron/docker-cleanup.log"
 echo "0 4 * * * /usr/bin/docker system prune -f >> /home/developer/logs/cron/docker-cleanup.log"
-read "Press any button once you have copied the two lines above:"
+read -p "Press any button once you have copied the two lines above:" temp
 crontab -e
 echo "You have set up the Cron jobs"
 echo
@@ -39,6 +39,15 @@ echo "Configuring Docker credentials..."
 echo "docker login -u omnihost"
 docker login -u omnihost
 echo "You have set up credentials for Docker"
+echo
+
+echo "================================"
+echo "Install NVM and Node"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install node
+echo "Node installed and set up"
 echo
 
 echo "================================"
