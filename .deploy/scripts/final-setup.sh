@@ -66,9 +66,13 @@ echo "Updating the Caddyfile"
 fullEnv=$(cat .env | grep API_ENVIRONMENT)
 env=$(echo $fullEnv | sed "s/API_ENVIRONMENT=//g")
 lowercaseEnv=$(echo $env | tr '[:upper:]' '[:lower:]')
-echo "sed -i "s/dangleterre.omnihost.app/$lowercaseEnv.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile"
-sed -i "s/dangleterre.omnihost.app/$lowercaseEnv.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile
-echo "Set main domain to $lowercaseEnv.dangleterre.omnihost.app"
+# If the env is production, keep just the raw domain. If not prod, add the env
+if [[ $lowercaseEnv != "production" ]]; then
+    echo "sed -i "s/dangleterre.omnihost.app/$lowercaseEnv.dangleterre.omnihost.app/" .deploy/caddy/Caddyfile"
+    echo "Set main domain to $lowercaseEnv.dangleterre.omnihost.app"
+else
+    echo "Set main domain to dangleterre.omnihost.app"
+fi
 echo
 
 echo "================================"
