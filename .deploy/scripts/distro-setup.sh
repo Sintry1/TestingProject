@@ -49,7 +49,9 @@ echo "Beyond this point there will be no other user prompts until the setup is f
 echo "================================"
 echo "Setup ssh access for the created user..."
 mkdir /home/$newUser/.ssh
-cp ~/.ssh/authorized_keys /home/$newUser/.ssh/
+touch /home/$newUser/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDA5a9PgpGbEoHxzT4760ULi8fXixWiF+y6Aj8O1SZEodqlpPgwqy+tCoVgFFCtERs3JZj2/nED/LORA7Qyt/M7WIUMo9vUdB9202BqRA15M5jduh55j1NX9Dk2NZC8QJpTfyZfJfeodN+OVbX2dR4wfitx/S2loxc8sb/MTJzvwFLmtz/1n1XRAyIAmm6TpM+12EfnKZrkErutS0rMNTIayVH1ODy7xEg+bV4C3//S1f6toizmKV6RWNeO8fxDqxZNVf90DXfb/dp+0MhlURy1vNhufaFBL//Q55BMH7FZi9opaBhEb2o8KnNc8OmHocHvVxIqpgHzDiFBY3Uks9x5kbmRzYGVjBioXIeUzf0doU2KvJ0aLE5SQXaperf+hQ+N3TffoFcA+EaMtBMJ/zdCtmjuQaxeXx87iEd0PYebjJEGgoKekflXKfzy7OgkjIq2Y1x5RaLBNV+bO36fbDHBRYGFQQ7rsTWTIIbb9zK2RTf+2P+n/0nwACsoWbEXekQD5S9faWUz6e/niSLNM6zVzksbLPb8mLGpItxGLwvGwQ4VxskONLUUVBX1h8I55pAU66iN7/y0C87ooPuu9ELwDxb1ftGc0SsMoCj7yJIJkhaD6spIMvuRwb+dM1shI9hXzxAI3bh4Xb4qOPm/3woh2QBV6Rtax4p47Xt6VRhETQ== info@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCsoN8fsup6W5FXk9syVpdKGVGpugsp/GB/OW4lKiuofO5pplYNXdpnvPUI2cZJ8B/WP+PxQvUzpVWWLL5n/hyP49hZoYa6euhdSnLB3Psm6U/das5UEXem/pxIOYvYLLpOe5Xhh28txFoJ7+uuDstptyQagwHirhmhiqDbuE7t7I0jtxQYLMJY4Jst57Jik7AHQ21YAHW1rrBZ/2+WCU1lZNHAShiktN3YvNfymIc1ClQYYEXmv6PgfUtRUSlydZSQ0Vgpzb538B2IbXRsmfllGXVa0AKuCdiQ5iWzWseEWUvrQaOqos1MteHLYB5muINpIUT8PADsUnEt59/+bB0oQFc9U3dvq4Ks747t+S4RAugeVnNetQGZSTH5jHQpq2eomKH1q0jv8NdSoYIvV67P1Wd5Gog+LtbDN5J9O1/Iv8NSvYwUSxH1b44ZvmeZozULZY+WCe2n7WSX1Z68L/pw6TMIz3yiJVA6J8+fc7dwpOErHjci6Ym4cfLan4SUaefV52pt0nV4H84u6LV+LG70oVc5Ttylk6auTjXcvuYcgNzoMZ12bYIhqj9wpg83dMvTX7Oz3U/Mj5wj6tA7U8IdCxLqDMM7QO2QxtIZbdZpOH9niuLAnsgieQqvbYEjE6dkVC8dtYHZEo99yy5UKA+EsMtO+8tHqEo7KyFdo2AdBQ== dev@omnihost.app" >>/home/$newUser/.ssh/authorized_keys
 chown -R $newUser:$newUser /home/$newUser/.ssh
 echo "$newUser ssh access has been set up"
 echo
