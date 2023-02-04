@@ -2,6 +2,7 @@ import {
   BadRequestException,
   Body,
   Controller,
+  DefaultValuePipe,
   Delete,
   Get,
   HttpCode,
@@ -15,6 +16,7 @@ import {
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -103,10 +105,12 @@ export class AnnouncementsController {
     summary: 'Create an announcement.',
   })
   @ApiCreatedResponse({ type: [Announcement] })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
+        console.log('file');
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
 
@@ -132,7 +136,7 @@ export class AnnouncementsController {
     files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
-    return this.announcementsService.createAnnouncement(announcementData, files);
+    return this.announcementsService.createAnnouncement(announcementData, files || []);
   }
 
   @Patch(':announcementId')
@@ -166,11 +170,7 @@ export class AnnouncementsController {
     files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
-    return this.announcementsService.updateAnnouncement(
-      announcementId,
-      announcementData,
-      files
-    );
+    return this.announcementsService.updateAnnouncement(announcementId, announcementData, files);
   }
 
   @Delete(':announcementId')

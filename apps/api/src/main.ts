@@ -38,6 +38,7 @@ async function bootstrap() {
     .setTitle('Omnihost Systems API')
     .setDescription('The auto-generated documentation of the API')
     .setVersion('0.1')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
