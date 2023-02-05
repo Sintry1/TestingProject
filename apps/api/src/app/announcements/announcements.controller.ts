@@ -37,7 +37,7 @@ import { AnnouncementsService } from './announcements.service';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import 'multer';
 
-const FILE_TYPES = /(png|jpg|jpeg)\b/;
+const FILE_TYPES = /(pdf|docx|png|jpg|jpeg)\b/;
 
 @ApiTags('Announcements')
 @Controller('announcements')
