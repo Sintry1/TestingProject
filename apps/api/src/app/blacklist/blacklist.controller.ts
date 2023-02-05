@@ -97,7 +97,7 @@ export class BlacklistController {
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   @UseInterceptors(
-    FilesInterceptor('blacklist', 20, {
+    FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
@@ -148,12 +148,11 @@ export class BlacklistController {
   @Patch(':blacklistId/files/clear')
   @Roles(Role.manager)
   @ApiOperation({
-    summary: "Clear a blacklist entries files.",
+    summary: 'Clear a blacklist entries files.',
   })
   @ApiOkResponse({ type: Blacklist })
   @HttpCode(200)
   async clearBlacklistFiles(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
     return this.blacklistService.clearBlacklistFiles(blacklistId);
   }
-
 }

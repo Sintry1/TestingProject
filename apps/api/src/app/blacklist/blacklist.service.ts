@@ -50,7 +50,7 @@ export class BlacklistService {
     blacklistData: UpdateBlacklistRequest,
     files: Express.Multer.File[]
   ) {
-    let blacklist: Blacklist; = await this.blacklistRepo.findOneByOrFail({ blacklistId });
+    let blacklist: Blacklist;
 
     if (files.length !== 0) {
       const result = await this.updateBlacklistFiles(blacklistId, files);
