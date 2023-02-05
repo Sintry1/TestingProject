@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -10,7 +11,6 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
-  Query,
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
@@ -50,8 +50,11 @@ export class BlacklistController {
   })
   @ApiCreatedResponse({ type: Blacklist })
   @HttpCode(201)
-  async createBlacklist(@Body() blacklistData: CreateBlacklistRequest) {
-    return this.blacklistService.createBlacklist(blacklistData);
+  async createBlacklist(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body() blacklistData: CreateBlacklistRequest
+  ) {
+    return this.blacklistService.createBlacklist(blacklistData, files || []);
   }
 
   @Get()
@@ -59,7 +62,7 @@ export class BlacklistController {
   @ApiOkResponse({ type: [Blacklist] })
   @HttpCode(200)
   async getBlacklist() {
-    return this.blacklistService.fetchAllBlacklist();
+    return this.blacklistService.findAll();
   }
 
   @Get(':blacklistId')
@@ -80,32 +83,41 @@ export class BlacklistController {
   @HttpCode(200)
   async updateBlacklistEntry(
     @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
+    @UploadedFiles() files: Array<Express.Multer.File>,
     @Body() blacklistData: UpdateBlacklistRequest
   ) {
-    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData);
+    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData, files);
   }
 
-  @Patch(':blacklistId')
+  @Patch(':blacklistId/files/add')
   @Roles(Role.manager)
   @ApiOperation({
     summary: 'Add file(s) to a blacklist entry.',
   })
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
-  @UseInterceptors(FilesInterceptor('blacklist', 20))
+  @UseInterceptors(
+    FilesInterceptor('blacklist', 20, {
+      fileFilter(req, file, callback) {
+        const nameParts = file.originalname.split('.');
+        const fileType = nameParts[nameParts.length - 1];
+
+        if (!fileType.match(FILE_TYPES)) {
+          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
+          return callback(
+            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
+            false
+          );
+        }
+        return callback(null, true);
+      },
+    })
+  )
   async addBlacklistFile(
-    @UploadedFiles(
-      new ParseFilePipeBuilder()
-        .addFileTypeValidator({ fileType: FILE_TYPES })
-        .addMaxSizeValidator({ maxSize: FILE_MAX_SIZE })
-        .build({
-          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
-        })
-    )
     @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
-    @Body() file: Express.Multer.File
+    @UploadedFiles() files: Array<Express.Multer.File>
   ) {
-    return this.blacklistService.updateBlacklistFile(blacklistId, file);
+    return this.blacklistService.updateBlacklist(blacklistId, null, files);
   }
 
   @Delete(':blacklistId')
@@ -118,4 +130,30 @@ export class BlacklistController {
   async deleteBlacklistEntry(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
     return this.blacklistService.deleteBlacklistEntry(blacklistId);
   }
+
+  @Patch(':blacklistId/files/remove')
+  @Roles(Role.manager)
+  @ApiOperation({
+    summary: 'Remove files from an blacklist.',
+  })
+  @ApiOkResponse({ type: Blacklist })
+  @HttpCode(200)
+  async removeBlacklistFiles(
+    @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
+    @Body() fileNames: string[]
+  ) {
+    return this.blacklistService.removeBlacklistFiles(blacklistId, fileNames);
+  }
+
+  @Patch(':blacklistId/files/clear')
+  @Roles(Role.manager)
+  @ApiOperation({
+    summary: "Clear a blacklist entries files.",
+  })
+  @ApiOkResponse({ type: Blacklist })
+  @HttpCode(200)
+  async clearBlacklistFiles(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
+    return this.blacklistService.clearBlacklistFiles(blacklistId);
+  }
+
 }

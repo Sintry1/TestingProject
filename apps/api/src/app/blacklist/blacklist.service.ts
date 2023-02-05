@@ -15,7 +15,7 @@ export class BlacklistService {
     private readonly fileService: FilesService
   ) {}
 
-  async fetchAllBlacklist() {
+  async findAll() {
     return await this.blacklistRepo.find();
   }
 
@@ -23,12 +23,45 @@ export class BlacklistService {
     return await this.blacklistRepo.findOneByOrFail({ blacklistId });
   }
 
-  async createBlacklist(blacklistData: CreateBlacklistRequest) {
-    return await this.blacklistRepo.save(blacklistData);
+  async createBlacklist(blacklistData: CreateBlacklistRequest, files: Express.Multer.File[]) {
+    try {
+      const promises: Promise<{ url: string }>[] = [];
+      for (const file of files) {
+        if (file.size > FILE_MAX_SIZE) {
+          return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
+        }
+        promises.push(this.fileService.uploadFile(file.buffer, file.originalname));
+      }
+      await Promise.all(promises);
+    } catch (error) {
+      throw new HttpException(
+        'Failed to upload the file(s). Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+    return await this.blacklistRepo.save({
+      ...blacklistData,
+      files: this.toFileNames(files),
+    });
   }
 
-  async updateBlacklist(blacklistId: string, blacklistData: UpdateBlacklistRequest) {
-    const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
+  async updateBlacklist(
+    blacklistId: string,
+    blacklistData: UpdateBlacklistRequest,
+    files: Express.Multer.File[]
+  ) {
+    let blacklist: Blacklist; = await this.blacklistRepo.findOneByOrFail({ blacklistId });
+
+    if (files.length !== 0) {
+      const result = await this.updateBlacklistFiles(blacklistId, files);
+      if (result instanceof BadRequestException) {
+        return result;
+      } else {
+        blacklist = result;
+      }
+    } else {
+      blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
+    }
 
     for (const key in blacklistData) {
       if (Object.prototype.hasOwnProperty.call(blacklistData, key)) {
@@ -41,31 +74,43 @@ export class BlacklistService {
 
   async deleteBlacklistEntry(blacklistId: string) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
-    await this.blacklistRepo.remove(blacklist);
-  }
-
-  async getFilesLink(documentNames: string[]) {
     try {
-      return await this.toDocuments(documentNames);
+      for (const file of blacklist.files) {
+        await this.fileService.deleteFile(file);
+      }
     } catch (error) {
       throw new HttpException(
-        "Failed to get the documents' links. Please try again later.",
+        'Failed to delete the blacklsit entry. Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+
+    await this.blacklistRepo.remove(blacklist);
+    return { message: 'Deleted.' };
+  }
+
+  async getFilesLink(fileNames: string[]) {
+    try {
+      return await this.toFiles(fileNames);
+    } catch (error) {
+      throw new HttpException(
+        "Failed to get the files' links. Please try again later.",
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
   }
 
-  async updateBlacklistFile(blacklistId: string, blacklistFiles: Express.Multer.File[]) {
+  async updateBlacklistFiles(blacklistId: string, files: Express.Multer.File[]) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
 
-    if (blacklist.files.length + blacklistFiles.length > 20) {
+    if (blacklist.files.length + files.length > 20) {
       return new BadRequestException(
         `File size limit surpassed. A blacklist entry can have a maximum of 20 files. It currently has ${blacklist.files.length}`
       );
     }
 
     try {
-      for (const file of blacklistFiles) {
+      for (const file of files) {
         if (file.size > FILE_MAX_SIZE) {
           return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
         }
@@ -79,19 +124,19 @@ export class BlacklistService {
       );
     }
 
-    blacklist.files.push(...this.toDocumentNames(blacklistFiles))
+    blacklist.files.push(...this.toFileNames(files));
 
     return await this.blacklistRepo.save(blacklist);
   }
 
-  async removeBlacklistFiles(blacklistId: string, documentNames: string[]) {
+  async removeBlacklistFiles(blacklistId: string, fileNames: string[]) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
 
     try {
-      for (const document of blacklist.files) {
-        if (documentNames.includes(document)) {
-          await this.fileService.deleteFile(document);
-          blacklist.files = blacklist.files.filter((file) => file !== document);
+      for (const file of blacklist.files) {
+        if (fileNames.includes(file)) {
+          await this.fileService.deleteFile(file);
+          blacklist.files = blacklist.files.filter((file) => file !== file);
         }
       }
     } catch (error) {
@@ -108,8 +153,8 @@ export class BlacklistService {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
 
     try {
-      for (const document of blacklist.files) {
-        await this.fileService.deleteFile(document);
+      for (const file of blacklist.files) {
+        await this.fileService.deleteFile(file);
       }
     } catch (error) {
       throw new HttpException(
@@ -122,17 +167,17 @@ export class BlacklistService {
     return await this.blacklistRepo.save(blacklist);
   }
 
-  private toDocumentNames(documents: Express.Multer.File[]) {
-    const documentNames: string[] = [];
-    documents.forEach((document) => documentNames.push(document.originalname));
-    return documentNames;
+  private toFileNames(file: Express.Multer.File[]) {
+    const fileNames: string[] = [];
+    file.forEach((file) => fileNames.push(file.originalname));
+    return fileNames;
   }
 
-  private async toDocuments(documentNames: string[]) {
-    const documents = [];
-    for (const documentName of documentNames) {
-      documents.push((await this.fileService.getSignedLink(documentName, 600)).url);
+  private async toFiles(fileNames: string[]) {
+    const files = [];
+    for (const fileName of fileNames) {
+      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
     }
-    return documents;
+    return files;
   }
 }
