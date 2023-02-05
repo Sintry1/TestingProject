@@ -109,7 +109,6 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        console.log('file');
         const nameParts = file.originalname.split('.');
         const fileType = nameParts[nameParts.length - 1];
 
