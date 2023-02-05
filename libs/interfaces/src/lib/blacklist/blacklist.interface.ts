@@ -19,7 +19,7 @@ export interface IUpdateBlacklistRequest {
   name?: string;
   comments?: string;
   expiresAt?: Date;
-  file?: File[];
+  file?: string[];
 }
 
 export interface IGetBlacklistByIdResponse extends IBlacklist {

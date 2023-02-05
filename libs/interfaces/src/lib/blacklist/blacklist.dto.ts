@@ -13,19 +13,16 @@ export class GetBlacklistResponse extends CompletedAtResponse implements IBlackl
   blacklistId!: string;
 
   @ApiModelProperty({ example: 'Dominic Smith' })
-  name?: string;
+  name!: string;
 
   @ApiModelProperty({ example: 'Abusive to staff.' })
-  comments?: string;
+  comments!: string;
 
   @ApiModelProperty({ example: new Date() })
-  expiresAt?: Date;
+  expiresAt!: Date;
 
-  @ApiModelProperty({ example: 'dominicSmith.jpg' })
-  files?: string[];
-
-  @ApiModelProperty({ example: 'declarationOfIndepenence.pdf' })
-  documentName!: string;
+  @ApiModelProperty({ example: ['dominicSmith.jpg', 'customerImage.png'] })
+  files?: any = [];
 }
 export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   @ApiModelProperty({ example: 'Dominic Smith' })
@@ -43,7 +40,7 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
 
   @ApiModelProperty({ example: 'dominicSmith.jpg' })
   @IsOptional()
-  files?: string[];
+  files?: any = [];
 }
 
 export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
@@ -62,7 +59,7 @@ export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
 
   @ApiModelProperty({ example: 'dominicSmith.jpg ' })
   @IsOptional()
-  file?: File[];
+  file?: any = [];
 }
 
 export class DeleteBlacklistResponse {
