@@ -164,7 +164,11 @@ export class AnnouncementsController {
     files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
-    return this.announcementsService.updateAnnouncement(announcementId, announcementData, files || []);
+    return this.announcementsService.updateAnnouncement(
+      announcementId,
+      announcementData,
+      files || []
+    );
   }
 
   @Delete(':announcementId')
@@ -206,7 +210,7 @@ export class AnnouncementsController {
     @UploadedFiles()
     files: Array<Express.Multer.File>
   ) {
-    return this.announcementsService.updateAnnouncement(announcementId, null, files);
+    return this.announcementsService.updateAnnouncement(announcementId, null, files || []);
   }
 
   @Patch(':announcementId/files/remove')
