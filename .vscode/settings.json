@@ -5,6 +5,7 @@
     "Datetime",
     "Longterm",
     "nestjs",
-    "Omnihost"
+    "Omnihost",
+    "uuidv"
   ]
 }
