@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {
-  CreateBlacklistRequest,
-  IBlacklist,
-  UpdateBlacklistRequest,
-} from '@omnihost/interfaces';
+import { CreateBlacklistRequest, IBlacklist, UpdateBlacklistRequest } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 
@@ -20,9 +16,7 @@ export class BlacklistService {
    * @returns an observable with a list of IBlacklists.
    */
   public getBlacklist(): Observable<IBlacklist[]> {
-    return this.http.get<IBlacklist[]>(
-      `${env.apiUrl}/blacklist`
-    );
+    return this.http.get<IBlacklist[]>(`${env.apiUrl}/blacklist`);
   }
 
   /**

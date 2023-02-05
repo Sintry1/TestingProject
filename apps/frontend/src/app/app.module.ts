@@ -44,7 +44,6 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
-import { SeeBlacklistDialogComponent } from './components/blacklist-widget/see-blacklist-dialog/see-blacklist-dialog.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +84,6 @@ import { SeeBlacklistDialogComponent } from './components/blacklist-widget/see-b
     UpdateDocumentDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
-    SeeBlacklistDialogComponent,
   ],
   imports: [
     BrowserModule,

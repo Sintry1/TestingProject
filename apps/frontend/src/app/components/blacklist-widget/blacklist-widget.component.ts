@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { IBlacklist } from '@omnihost/interfaces';
 //import { UpdateBlacklistDialogComponent } from '../../pages/blacklists/update-blacklist-dialog/update-blacklist-dialog.component';
 import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-access-dialog.component';
-import { SeeBlacklistDialogComponent } from './see-blacklist-dialog/see-blacklist-dialog.component';
 
 @Component({
   selector: 'frontend-blacklist-widget',
@@ -14,12 +13,6 @@ export class BlacklistWidgetComponent {
   @Input() blacklist!: IBlacklist;
 
   constructor(private dialog: MatDialog) {}
-
-  openSeeBlacklistDialog(blacklistId: string): void {
-    this.dialog.open(SeeBlacklistDialogComponent, {
-      data: blacklistId,
-    });
-  }
 
   updateBlacklistDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
@@ -38,6 +31,11 @@ export class BlacklistWidgetComponent {
         return this.blacklist.name?.substring(0, 24) + '...';
       }
     }
-    return this.blacklist.name
+    return this.blacklist.name;
   }
+
+  // displayDate() {
+  //   return this.blacklist.expiresAt.
+  // }
+
 }
