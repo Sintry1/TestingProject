@@ -141,7 +141,6 @@ export class AnnouncementsService {
 
   async updateAnnouncementFiles(announcementId: string, files: Express.Multer.File[]) {
     const announcement = await this.announcementRepo.findOneByOrFail({ announcementId });
-    console.log(announcement.files.length + files.length, this.toFileNames(files));
     if (announcement.files.length + files.length > 5) {
       return new BadRequestException(
         `File size limit surpassed. An announcement can have a maximum of 5 files. It currently has ${announcement.files.length}`
