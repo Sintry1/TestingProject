@@ -69,6 +69,7 @@ export class DocumentsService {
     return await this.documentRepo.save({
       ...documentData,
       documentName: document.originalname,
+      lastViewedAt: new Date(),
     });
   }
 
