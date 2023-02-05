@@ -63,10 +63,10 @@ export class DocumentsSeederService {
   }
 
   async uploadFileToLinode(dataBuffer: Buffer, filename: string) {
-    const clusterId = this.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = this.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = this.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = this.getValue('LINODE_STORAGE_SECRET_KEY', true);
+    const clusterId = this.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = this.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = this.getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+    const secretKey = this.getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
     try {
       const s3 = new S3Client({

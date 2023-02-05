@@ -7,5 +7,5 @@
   window['env']['sentryDsn'] = '${FRONTEND_SENTRY_DSN}';
   window['env']['sentryTracingSampleRate'] = '${FRONTEND_SENTRY_TRACING_SAMPLE_RATE}';
   window['env']['sentryTunnel'] = '${FRONTEND_SENTRY_TUNNEL}';
-  window['env']['apiUrl'] = '${API_URL}';
+  window['env']['apiUrl'] = '${FRONTEND_API_URL}';
 })(this);
