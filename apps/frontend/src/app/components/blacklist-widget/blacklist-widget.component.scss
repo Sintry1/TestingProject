@@ -1,29 +1,14 @@
 .blacklist-widget-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+  // display: flex;
+  // flex-wrap: wrap;
+  // flex-direction: column;
   align-items: center;
   justify-content: center;
   border: var(--border);
   border-radius: 5px;
   padding: 0.75em;
   padding-top: 0.5em;
-
-  .title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    mat-icon {
-      height: 15px;
-      width: 15px;
-      padding-left: 5px;
-      padding-top: 3px;
-
-      &.material-icons {
-        font-size: 15px;
-      }
-    }
-  }
+  // min-width: 200px;
 
   h2 {
     margin: 0;
