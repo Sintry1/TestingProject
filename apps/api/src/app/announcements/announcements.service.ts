@@ -1,10 +1,10 @@
-import { BadRequestException, HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { AnnouncementRequest, AnnouncementSortOptions, SortOrder } from '@omnihost/interfaces';
 import { Announcement } from '@omnihost/models';
+import 'multer';
 import { Between, ILike, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
-import 'multer';
 
 const FILE_MAX_SIZE = 50000000;
 
@@ -132,6 +132,7 @@ export class AnnouncementsService {
     try {
       return await this.toFiles(fileNames);
     } catch (error) {
+      Logger.error(error);
       throw new HttpException(
         "Failed to get the files' links. Please try again later.",
         HttpStatus.INTERNAL_SERVER_ERROR
