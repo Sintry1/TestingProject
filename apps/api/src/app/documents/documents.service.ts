@@ -70,7 +70,7 @@ export class DocumentsService {
       ...documentData,
       documentName: document.originalname,
       lastViewedAt: new Date(),
-    });
+    });lol
   }
 
   async updateDocument(documentId: string, documentData: UpdateDocumentRequest) {
