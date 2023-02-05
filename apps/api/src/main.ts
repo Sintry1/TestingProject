@@ -1,7 +1,9 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-
+import * as Sentry from '@sentry/node';
+import '@sentry/tracing';
+import { Integrations } from '@sentry/tracing';
 import { AppModule } from './app/app.module';
 import { EntityNotFoundExceptionFilter } from './app/utils/entity-not-found-exception.filter';
 import { environment } from './environments/environment.prod';
@@ -31,6 +33,23 @@ async function bootstrap() {
       // Throw an error if unknown values are provided
       forbidUnknownValues: true,
     })
+  );
+
+  // Sentry logging setup
+  Sentry.init({
+    dsn: process.env.API_SENTRY_DSN || '',
+    environment: environment.env,
+    debug: false,
+    tracesSampleRate: parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0,
+    integrations: [new Integrations.Postgres(), new Sentry.Integrations.Http({ tracing: true })],
+  });
+
+  app.use(Sentry.Handlers.requestHandler());
+  app.use(Sentry.Handlers.tracingHandler());
+  Logger.log(
+    `Sentry initialized in environment: ${environment.env}. Sample rate: ${
+      parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0
+    }`
   );
 
   // Swagger Ui

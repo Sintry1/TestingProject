@@ -36,6 +36,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-root}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
       POSTGRES_DATABASE: ${POSTGRES_DATABASE:-omnihost}
+      API_SENDGRID_API_KEY: ${API_SENDGRID_API_KEY:-''}
+      API_SENTRY_DSN: ${API_SENTRY_DSN:-''}
+      API_SENTRY_TRACING_SAMPLE_RATE: ${API_SENTRY_TRACING_SAMPLE_RATE:-1.0}
+      API_ENVIRONMENT: ${API_ENVIRONMENT:-DEVELOPMENT}
       GLOBAL_CORS_ALLOWED_ORIGIN: ${GLOBAL_CORS_ALLOWED_ORIGIN}
       JWT_SECRET: ${JWT_SECRET}
     networks:
@@ -51,6 +55,10 @@ services:
       dockerfile: ./.deploy/frontend/Dockerfile
     environment:
       API_URL: ${API_URL:-https://api.dev.omnihost.app}
+      FRONTEND_SENTRY_DSN: ${FRONTEND_SENTRY_DSN:-''}
+      FRONTEND_SENTRY_TRACING_SAMPLE_RATE: ${FRONTEND_SENTRY_TRACING_SAMPLE_RATE:-1.0}
+      FRONTEND_SENTRY_TUNNEL: ${FRONTEND_SENTRY_TUNNEL}
+      FRONTEND_ENVIRONMENT: ${FRONTEND_ENVIRONMENT:-DEVELOPMENT}
     networks:
       - omnihost-net
     ports:
@@ -58,6 +66,7 @@ services:
 
   postgres:
     container_name: omnihost-postgres
+    restart: unless-stopped
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-root}
@@ -70,7 +79,21 @@ services:
       - '5432:5432'
     networks:
       - omnihost-net
+
+  sentry-tunnel:
+    container_name: omnihost-sentry-tunnel
     restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./.deploy/sentry-tunnel/Dockerfile
+    environment:
+      TUNNEL_ALLOWED_DSNs: ${TUNNEL_ALLOWED_DSNs}
+      TUNNEL_CORS_ALLOWED_ORIGINS: ${TUNNEL_CORS_ALLOWED_ORIGINS}
+      TUNNEL_PORT: 5000
+    networks:
+      - omnihost-net
+    ports:
+      - 5000:5000
 
 # ---------------------------------
 # ------------ NETWORK ------------

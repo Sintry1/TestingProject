@@ -22,6 +22,7 @@ import { ResetPasswordTokensService } from '../reset-password-tokens/reset-passw
 import { TokensService } from '../tokens/tokens.service';
 import { UsersService } from '../users/users.service';
 import { getFrontendUrlFromEnv } from '../utils/links.utils';
+import { SentryService } from '../utils/sentry.service';
 
 @Injectable()
 export class AuthService {
@@ -101,8 +102,10 @@ export class AuthService {
       // ignore the exception
     }
     if (foundUser) {
-      this.logger.warn(
-        `An attempt was made to sign up using an already registered email: ${email}`
+      SentryService.log(
+        'warning',
+        `An attempt was made to sign up using an already registered email: ${email}`,
+        this.logger
       );
       throw new BadRequestException(
         `This email is already taken. Try adding some random digits to it 👍`
@@ -113,7 +116,7 @@ export class AuthService {
       email: email,
       password: hashedPassword,
     });
-    this.logger.log(`Registered new user with id ${user.userId}`);
+    SentryService.log('info', `Registered new user with id ${user.userId}`, this.logger);
     return await this.login(user);
   }
 
@@ -136,8 +139,10 @@ export class AuthService {
       // Verify that the user exists
       user = await this.usersService.findOne(email);
     } catch (error) {
-      this.logger.warn(
-        `Forgot password flow was triggered for a user that is not registered with email '${email}'`
+      SentryService.log(
+        'warning',
+        `Forgot password flow was triggered for a user that is not registered with email '${email}'`,
+        this.logger
       );
       return false;
     }
@@ -152,7 +157,12 @@ export class AuthService {
       // Send the email
       return this.mailService.sendResetPasswordEmail({ email, resetPasswordLink });
     } catch (error) {
-      this.logger.error(`An error occurred while sending a reset password email`, error);
+      SentryService.log(
+        'error',
+        `An error occurred while sending a reset password email`,
+        this.logger,
+        error
+      );
     }
     return false;
   }
@@ -166,18 +176,28 @@ export class AuthService {
     try {
       const foundToken = await this.resetPasswordTokenService.findByTokenId(token);
       if (foundToken.completedAt) {
-        this.logger.warn(
-          `Validation of reset password token failed: the token has already been used`
+        SentryService.log(
+          'warning',
+          `Validation of reset password token failed: the token has already been used`,
+          this.logger
         );
         return false;
       }
       if (foundToken.expiresAt < new Date()) {
-        this.logger.warn(`Validation of reset password token failed: the token is expired`);
+        SentryService.log(
+          'warning',
+          `Validation of reset password token failed: the token is expired`,
+          this.logger
+        );
         return false;
       }
       return true;
     } catch (error) {
-      this.logger.warn(`Validation of reset password token failed: the token doesn't exist`);
+      SentryService.log(
+        'warning',
+        `Validation of reset password token failed: the token doesn't exist`,
+        this.logger
+      );
       return false;
     }
   }
@@ -196,8 +216,10 @@ export class AuthService {
       this.resetPasswordTokenService.complete(token);
       this.tokensService.deleteTokensByUserId(user.userId);
     } catch (error) {
-      this.logger.error(
+      SentryService.log(
+        'error',
         `An error occurred while updating the password of user with reset password token '${token}'`,
+        this.logger,
         error
       );
       throw new InternalServerErrorException('An error occurred while updating the user password');

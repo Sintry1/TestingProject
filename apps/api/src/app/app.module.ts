@@ -1,8 +1,8 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AssignmentsModule } from './assignments/assignments.module';
 import { AuthModule } from './auth/auth.module';
@@ -13,6 +13,7 @@ import { DocumentsModule } from './documents/documents.module';
 import { FilesModule } from './files/files.module';
 import { LuggagesModule } from './luggages/luggages.module';
 import { LoggerMiddleware } from './middleware/logging.middleware';
+import { SentryInterceptor } from './middleware/sentry.interceptor';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
@@ -34,7 +35,12 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     AnnouncementsModule
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: SentryInterceptor,
+    },
+  ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

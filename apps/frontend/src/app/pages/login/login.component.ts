@@ -3,6 +3,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { SentryService } from '../../services/sentry.service';
 
 @Component({
   selector: 'frontend-login',
@@ -64,7 +65,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/']);
         },
         error: (error) => {
-          console.error(error);
+          SentryService.logError(error);
           this.isLoading = false;
           this.loginForm.enable();
           this.snackBar.open('Failed to log in', 'Okay', {
