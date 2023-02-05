@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {
+  Announcement,
   Assignment,
   Bike,
   Car,
@@ -44,6 +45,7 @@ class ConfigService {
     return {
       type: 'postgres',
       synchronize: true,
+      logging: false,
 
       host: this.getValue('API_POSTGRES_HOST', false) || 'localhost',
       port: parseInt(this.getValue('API_POSTGRES_PORT', false)) || 5432,
@@ -51,7 +53,18 @@ class ConfigService {
       password: this.getValue('API_POSTGRES_PASSWORD', false) || 'root',
       database: this.getValue('API_POSTGRES_DATABASE', false) || 'omnihost',
 
-      entities: [User, ResetPasswordToken, Token, Luggage, Car, Task, Assignment, Document, Bike],
+      entities: [
+        User,
+        ResetPasswordToken,
+        Token,
+        Luggage,
+        Car,
+        Task,
+        Assignment,
+        Document,
+        Bike,
+        Announcement,
+      ],
     };
   }
 }

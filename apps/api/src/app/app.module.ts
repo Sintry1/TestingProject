@@ -16,6 +16,7 @@ import { LoggerMiddleware } from './middleware/logging.middleware';
 import { SentryInterceptor } from './middleware/sentry.interceptor';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
+import { AnnouncementsModule } from './announcements/announcements.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { UsersModule } from './users/users.module';
     DocumentsModule,
     FilesModule,
     BikeModule,
+    AnnouncementsModule,
   ],
   controllers: [AppController],
   providers: [
