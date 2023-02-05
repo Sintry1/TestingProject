@@ -21,7 +21,7 @@ export class Blacklist extends CompletedAt implements IBlacklist {
   @Column({ nullable: true })
   expiresAt?: Date;
 
-  @ApiModelProperty({ example: ['dominicSmith.jpg',] })
+  @ApiModelProperty({ example: ['dominicSmith.jpg', 'customerImage.png'] })
   @Column('text', { array: true, default: [] })
-  files?: string[];
+  files!: string[];
 }
