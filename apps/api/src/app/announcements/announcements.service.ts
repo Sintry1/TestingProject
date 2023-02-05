@@ -235,7 +235,6 @@ export class AnnouncementsService {
           },
         };
       case AnnouncementSortOptions.SHOW_FROM:
-        console.log(sortOrder);
         return {
           showFrom: {
             direction: sortOrder,
