@@ -2,7 +2,6 @@ import {
   BadRequestException,
   Body,
   Controller,
-  DefaultValuePipe,
   Delete,
   Get,
   HttpCode,
@@ -121,11 +120,6 @@ export class AnnouncementsController {
             false
           );
         }
-        // This does not because the `file` does not contain the `size` attribute, unlike what the docs state.
-        // if (file.size > FILE_MAX_SIZE) {
-        //   req.fileValidationError = `Invalid file size for file: ${file.originalname}`;
-        //   return callback(new BadRequestException(`Invalid file size for file: ${file.originalname}`), false);
-        // }
 
         return callback(null, true);
       },
