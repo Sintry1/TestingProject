@@ -720,6 +720,324 @@
 			]
 		},
 		{
+			"name": "Announcements",
+			"item": [
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json()[0].announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/{{announcementId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								"{{announcementId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Sample Announcement",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Sample comments",
+									"type": "text"
+								},
+								{
+									"key": "showTo",
+									"value": "2023-02-05T12:27:45.378Z",
+									"type": "text"
+								},
+								{
+									"key": "showFrom",
+									"value": "2023-02-05T12:27:45.378Z",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/announcements",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2023-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2023-02-05T12:53:23.416Z\",\n    \"files\": [\n        \"example.jpg\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete full object",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"add"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove specfic files from announcement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"file-to-remove.jpg\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/remove",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"remove"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear all files from announcements",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/clear",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"clear"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Documents",
 			"item": [
 				{
@@ -1084,7 +1402,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{refreshToken}}",
+				"value": "{{accessToken}}",
 				"type": "string"
 			}
 		]
@@ -1160,6 +1478,11 @@
 		},
 		{
 			"key": "blacklistId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "announcementId",
 			"value": "set-by-get-all-endpoint",
 			"type": "string"
 		}

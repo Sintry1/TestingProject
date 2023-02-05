@@ -2,6 +2,7 @@ export * from './lib/assignment.entity';
 export * from './lib/base.entity';
 export * from './lib/bike.entity';
 export * from './lib/car.entity';
+export * from './lib/announcement.entity';
 export * from './lib/document.entity';
 export * from './lib/luggage.entity';
 export * from './lib/reset-password-token.entity';
