@@ -42,10 +42,10 @@ export function getRandomChance(chance: number) {
 }
 
 export async function uploadFileToLinode(dataBuffer: Buffer, filename: string) {
-  const clusterId = getValue('LINODE_STORAGE_CLUSTER_ID', true);
-  const bucketId = getValue('LINODE_STORAGE_BUCKET_ID', true);
-  const accessKey = getValue('LINODE_STORAGE_ACCESS_KEY', true);
-  const secretKey = getValue('LINODE_STORAGE_SECRET_KEY', true);
+  const clusterId = getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+  const bucketId = getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+  const accessKey = getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+  const secretKey = getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
   try {
     const s3 = new S3Client({
