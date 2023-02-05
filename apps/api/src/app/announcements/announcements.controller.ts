@@ -164,7 +164,7 @@ export class AnnouncementsController {
     files: Array<Express.Multer.File>,
     @Body() announcementData: AnnouncementRequest
   ) {
-    return this.announcementsService.updateAnnouncement(announcementId, announcementData, files);
+    return this.announcementsService.updateAnnouncement(announcementId, announcementData, files || []);
   }
 
   @Delete(':announcementId')
