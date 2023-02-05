@@ -18,7 +18,7 @@ export class AnnouncementsSeederService {
 
   create(): Array<Promise<Announcement>> {
     // The file that will be uploaded to Linode
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/IMG_9549.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/announcement.jpg'));
 
     return this.generate().map(async (announcement: IAnnouncement) => {
       try {
@@ -56,7 +56,7 @@ export class AnnouncementsSeederService {
         title: announcement.title,
         showFrom,
         showTo,
-        files: [`${announcementId}IMG_9549.jpg`],
+        files: [`${announcementId}announcement.jpg`],
       });
     });
 
