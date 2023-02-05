@@ -24,7 +24,7 @@ export class AnnouncementsSeederService {
       try {
         await uploadFileToLinode(
           fileBuffer,
-          `${announcement.announcementId}${announcement.files[0]}`
+          `${announcement.files[0]}`
         );
         return await this.repo.save(announcement);
       } catch (error) {
