@@ -1,14 +1,16 @@
 export const announcements = [
-  { title: 'Christmas Incoming!', comments: 'Christmas gifts under the tree in the lobby!' },
-  { title: 'Standard Operating procedures', comments: 'Operator' },
   {
-    title: 'Tsunami coming to Copenhagen?',
-    comments: 'Tsunami incoming, water level rising! Quick, sell your houses to Aquaman.',
+    title: 'Update your schedules',
+    comments: 'Send your planned schedules for 2023 to your manager',
   },
-  { title: 'Rat plagues everywhere!', comments: 'Rats everywhere.' },
-  { title: 'Public transport plan', comments: null },
   {
-    title: 'Changing opening hours',
-    comments: 'Opening hours of various departments',
+    title: 'Extra shifts available in March',
+    comments:
+      'We will have extra shifts available in March for those of you that want to work a bit extra',
+  },
+  {
+    title: 'Storm warning!',
+    comments:
+      'There is an forecasted storm tomorrow afternoon. Make sure to secure the equipment outside',
   },
 ];
