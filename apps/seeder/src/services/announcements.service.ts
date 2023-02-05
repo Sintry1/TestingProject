@@ -51,13 +51,15 @@ export class AnnouncementsSeederService {
       showTo.setDate(showTo.getMonth() - getRandomInt(1, 6));
       showTo.setDate(showTo.getDate() + getRandomInt(1, 28));
 
+      const announcementId = uuidv4();
+
       data.push({
-        announcementId: uuidv4(),
+        announcementId,
         comments: announcement.comments,
         title: announcement.title,
         showFrom,
         showTo,
-        files: ['IMG_9549.jpg'],
+        files: [`${announcementId}IMG_9549.jpg`],
       });
     });
 
