@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IAnnouncement } from '@omnihost/interfaces';
 import { Announcement } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { announcements } from '../constants/announcements.constant';
-import * as fs from 'fs';
-import * as path from 'path';
 import { getRandomInt, uploadFileToLinode } from './utils.service';
 
 @Injectable()
@@ -22,10 +22,7 @@ export class AnnouncementsSeederService {
 
     return this.generate().map(async (announcement: IAnnouncement) => {
       try {
-        await uploadFileToLinode(
-          fileBuffer,
-          `${announcement.files[0]}`
-        );
+        await uploadFileToLinode(fileBuffer, `${announcement.files[0]}`);
         return await this.repo.save(announcement);
       } catch (error) {
         throw new Error(error);

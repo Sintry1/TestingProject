@@ -32,7 +32,7 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     DocumentsModule,
     FilesModule,
     BikeModule,
-    AnnouncementsModule
+    AnnouncementsModule,
   ],
   controllers: [AppController],
   providers: [
