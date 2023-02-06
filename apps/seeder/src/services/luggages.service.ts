@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILuggage, LuggageType } from '@omnihost/interfaces';
@@ -7,7 +9,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { bellBoyInitials, luggageLocation } from '../constants/dropdown-options';
 import { bags, luggageComments } from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
-import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
+import {
+  getRandom,
+  getRandomBoolean,
+  getRandomChance,
+  getRandomInt,
+  uploadFileToLinode,
+} from './utils.service';
 
 @Injectable()
 export class LuggagesSeederService {
@@ -17,8 +25,15 @@ export class LuggagesSeederService {
   ) {}
 
   create(): Array<Promise<Luggage>> {
+    // The file that will be uploaded to Linode
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+
     return this.generate().map(async (luggage: ILuggage) => {
       try {
+        if (luggage.files.length !== 0) {
+          await uploadFileToLinode(fileBuffer, `${luggage.files[0]}`);
+        }
+
         return await this.repo.save(luggage);
       } catch (error) {
         throw new Error(error);
@@ -49,8 +64,9 @@ export class LuggagesSeederService {
             luggageType === LuggageType.LONG_TERM ? getRandomChance(0.9) : getRandomBoolean(); // long term storage has 10% of not being completed
           const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
           const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
+          const luggageId = uuidv4();
           data.push({
-            luggageId: uuidv4(),
+            luggageId,
             luggageType: luggageType,
             room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
             name: getRandom(names),
@@ -66,6 +82,7 @@ export class LuggagesSeederService {
             bbOut: roomReady ? getRandom(bellBoyInitials) : null, // who put it in the quest's room or gave it to the guest
             bbDown: roomReady ? getRandom(bellBoyInitials) : null, // who brought the luggage from luggage room from the guest's room
             completedAt: roomReady ? eveningDate : null,
+            files: getRandomChance(0.1) ? [`${luggageId}luggage.jpg`] : [],
           });
         }
       });

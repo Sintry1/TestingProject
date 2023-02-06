@@ -193,10 +193,6 @@ export class GetLuggageResponse extends CompletedAtResponse implements ILuggage 
   @IsDateString()
   dateNeeded?: Date;
 
-  @ApiModelProperty({ example: new Date() })
-  @IsDateString()
-  completedAt?: Date;
-
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   files!: string[];
 }
