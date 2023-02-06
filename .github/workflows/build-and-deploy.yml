@@ -101,7 +101,7 @@ jobs:
         env:
           DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
-        run: docker-compose build api --no-cache
+        run: docker-compose build api
 
       - name: Push the API image
         env:
@@ -150,7 +150,7 @@ jobs:
         env:
           DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
-        run: docker-compose build frontend --no-cache
+        run: docker-compose build frontend
 
       - name: Push the Frontend image
         env:
@@ -199,7 +199,7 @@ jobs:
         env:
           DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
-        run: docker-compose build sentry-tunnel --no-cache
+        run: docker-compose build sentry-tunnel
 
       - name: Push the Sentry Tunnel image
         env:
