@@ -98,12 +98,14 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build the API image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose build api --no-cache
 
       - name: Push the API image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose push api
 
@@ -145,12 +147,14 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build the Frontend image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose build frontend --no-cache
 
       - name: Push the Frontend image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose push frontend
 
@@ -192,12 +196,14 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build the Sentry Tunnel image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose build sentry-tunnel --no-cache
 
       - name: Push the Sentry Tunnel image
-        env: DEPLOYMENT_ENV: ${{ inputs.environment }}
+        env:
+          DEPLOYMENT_ENV: ${{ inputs.environment }}
         shell: bash
         run: docker-compose push sentry-tunnel
 
