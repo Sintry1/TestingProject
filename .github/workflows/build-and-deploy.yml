@@ -110,7 +110,7 @@ jobs:
         run: docker-compose push api
 
       - name: SSH into the server, checkout the updated repository, pull and deploy the changes
-        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout $GITHUB_REF_NAME && docker compose pull api && docker compose up api -d'
+        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref.name }} && docker compose pull api && docker compose up api -d'
 
   # =================================
   # Build and deploy the Frontend app
@@ -159,7 +159,7 @@ jobs:
         run: docker-compose push frontend
 
       - name: SSH into the server, checkout the updated repository, pull and deploy the changes
-        run: ssh deployment 'date >> log && echo "Frontend deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout $GITHUB_REF_NAME && docker compose pull frontend && docker compose up frontend -d'
+        run: ssh deployment 'date >> log && echo "Frontend deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref.name }} && docker compose pull frontend && docker compose up frontend -d'
 
   # ======================================
   # Build and deploy the Sentry Tunnel app
@@ -208,4 +208,4 @@ jobs:
         run: docker-compose push sentry-tunnel
 
       - name: SSH into the server, checkout the updated repository, pull and deploy the changes
-        run: ssh deployment 'date >> log && echo "Sentry tunnel deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout $GITHUB_REF_NAME && docker compose pull sentry-tunnel && docker compose up sentry-tunnel -d'
+        run: ssh deployment 'date >> log && echo "Sentry tunnel deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref.name }} && docker compose pull sentry-tunnel && docker compose up sentry-tunnel -d'
