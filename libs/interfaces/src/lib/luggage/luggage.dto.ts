@@ -73,7 +73,7 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  files?: any = [];
+  files?: any;
 }
 
 export class UpdateLuggageRequest implements IUpdateLuggageRequest {
@@ -140,7 +140,7 @@ export class UpdateLuggageRequest implements IUpdateLuggageRequest {
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  files?: any = [];
+  files?: any;
 }
 
 export class DeleteLuggageResponse {

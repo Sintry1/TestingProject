@@ -27,7 +27,7 @@ export class AnnouncementRequest implements IAnnouncementRequest {
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  files?: any = [];
+  files?: any;
 }
 
 export class DeleteAnnouncementResponse {
