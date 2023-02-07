@@ -25,6 +25,7 @@ import {
 import {
   CarSortOptions,
   CreateCarRequest,
+  GetCarResponse,
   Role,
   SortOrder,
   UpdateCarRequest,
@@ -52,7 +53,7 @@ export class CarsController {
   @ApiOperation({
     summary: 'Get a list of cars from the given day and before.',
   })
-  @ApiOkResponse({ type: [Car] })
+  @ApiOkResponse({ type: [GetCarResponse] })
   @ApiQuery({ name: 'createdAt', required: true, example: new Date() })
   @ApiQuery({ name: 'status', required: false, example: 'true' })
   @ApiQuery({ name: 'search', required: false, example: 'text' })

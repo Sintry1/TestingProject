@@ -84,7 +84,7 @@ export class CarsSeederService {
           charged: completed, // if the customer has been billed. All completed cars are billed
           createdAt: morningDate,
           completedAt: completed ? eveningDate : null,
-          files: getRandomChance(0.1) ? [`car.jpg`] : [],
+          files: getRandomChance(0.3) ? [`car.jpg`] : [],
         });
       }
     }
