@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import * as fs from 'fs';
+import * as path from 'path';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICar } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
@@ -7,7 +9,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { carComments, licensePlates } from '../constants/cars.constant';
 import { bellBoyInitials, carLocation } from '../constants/dropdown-options';
 import { names } from '../constants/names.constant';
-import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
+import {
+  getRandom,
+  getRandomBoolean,
+  getRandomChance,
+  getRandomInt,
+  uploadFileToLinode,
+} from './utils.service';
 
 @Injectable()
 export class CarsSeederService {
@@ -17,8 +25,14 @@ export class CarsSeederService {
   ) {}
 
   create(): Array<Promise<Car>> {
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+
     return this.generate().map(async (car: ICar) => {
       try {
+        if (car.files.length !== 0) {
+          await uploadFileToLinode(fileBuffer, car.files[0]);
+        }
+
         return await this.repo.save(car);
       } catch (error) {
         throw new Error(error);
@@ -49,8 +63,9 @@ export class CarsSeederService {
         const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
         const expirationDate = new Date(day.setHours(getRandomInt(21, 23), getRandomInt(0, 60)));
         const parkingLocation = getRandom(carLocation);
+        const carId = uuidv4();
         data.push({
-          carId: uuidv4(),
+          carId,
           room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
           tagNr: getRandomInt(1000, 4000).toString(),
           arrivalDate: morningDate,
@@ -69,6 +84,7 @@ export class CarsSeederService {
           charged: completed, // if the customer has been billed. All completed cars are billed
           createdAt: morningDate,
           completedAt: completed ? eveningDate : null,
+          files: getRandomChance(0.1) ? [`car.jpg`] : [],
         });
       }
     }
