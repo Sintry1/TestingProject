@@ -106,7 +106,7 @@ export class BikesComponent implements OnInit {
   }
 
   openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { width: '600px' });
+    this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px' });
   }
 
   openDialogEdit(bikeListEntry: IBike) {
