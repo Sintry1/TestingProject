@@ -175,7 +175,7 @@ export class AnnouncementsService {
       for (const file of announcement.files) {
         if (fileNames.includes(file)) {
           await this.fileService.deleteFile(file);
-          announcement.files = announcement.files.filter((file) => file !== file);
+          announcement.files = announcement.files.filter((fileName) => fileName !== file);
         }
       }
     } catch (error) {

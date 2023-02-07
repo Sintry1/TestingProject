@@ -129,7 +129,7 @@ export class CarsService {
       for (const file of car.files) {
         if (fileNames.includes(file)) {
           await this.fileService.deleteFile(file);
-          car.files = car.files.filter((file) => file !== file);
+          car.files = car.files.filter((fileName) => fileName !== file);
         }
       }
     } catch (error) {
