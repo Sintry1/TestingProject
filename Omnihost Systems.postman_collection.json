@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "aea9d5ef-94a9-4f25-989c-8d38feec422a",
+		"_postman_id": "48943120-44f3-46fe-91f6-e80d894a5445",
 		"name": "Omnihost Systems",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "6628993"
+		"_exporter_id": "12894842"
 	},
 	"item": [
 		{
@@ -204,6 +204,111 @@
 			"name": "Luggages",
 			"item": [
 				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Clear Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": [
+												"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+												"/C:/Users/crist/Downloads/IMG_9549-2.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"IMG_9549-2.jpg\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Get all checkin",
 					"event": [
 						{
@@ -325,13 +430,87 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/luggages",
@@ -351,13 +530,88 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/luggages/:luggageId",
