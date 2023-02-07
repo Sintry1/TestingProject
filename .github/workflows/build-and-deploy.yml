@@ -67,7 +67,7 @@ jobs:
   # Build and deploy the API app
   api:
     name: Deploy API
-    if: ${{ inputs.deployApi }} || $GITHUB_REF##*/ == *"production"*
+    if: ${{ inputs.deployApi || github.ref  == 'refs/heads/production' }}
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -110,13 +110,13 @@ jobs:
         run: docker-compose push api
 
       - name: SSH into the server, checkout the updated repository, pull and deploy the changes
-        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull api && docker compose up api -d'
+        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ $GITHUB_REF##*/ }} && docker compose pull api && docker compose up api -d'
 
   # =================================
   # Build and deploy the Frontend app
   frontend:
     name: Deploy Frontend
-    if: ${{ inputs.deployFrontend }} || $GITHUB_REF##*/ == *"production"*
+    if: ${{ inputs.deployFrontend || github.ref  == 'refs/heads/production' }}
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -165,7 +165,7 @@ jobs:
   # Build and deploy the Sentry Tunnel app
   tunnel:
     name: Deploy Sentry Tunnel
-    if: ${{ inputs.deployTunnel }} || $GITHUB_REF##*/ == *"production"*
+    if: ${{ inputs.deployTunnel || github.ref  == 'refs/heads/production' }}
     needs: setup
     runs-on: ubuntu-latest
     steps:
