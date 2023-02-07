@@ -174,7 +174,7 @@ export class LuggagesService {
       for (const file of luggage.files) {
         if (fileNames.includes(file)) {
           await this.fileService.deleteFile(file);
-          luggage.files = luggage.files.filter((file) => file !== file);
+          luggage.files = luggage.files.filter((fileName) => fileName !== file);
         }
       }
     } catch (error) {
