@@ -1,10 +1,31 @@
 :host {
   min-width: 350px;
   min-height: 100px;
-  background-color: yellow;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.file-upload-icon {
+  width: 100px;
+}
+
+.file-drop-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(232, 230, 230);
+  border: 2px dotted gray;
+  padding: 20px;
+  border-radius: 20px;
+
+  cursor: grab;
+}
+
+.link {
+  color: var(--main-blue);
+  text-decoration: underline;
+}

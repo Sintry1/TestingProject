@@ -1,1 +1,13 @@
-<h1>Upload file here</h1>
+<ng-container *ngIf="!filesSelected">
+  <img src="assets/icons/file-upload.svg" alt="File upload icon" class="file-upload-icon" />
+  <br />
+  <h1 class="">Upload files</h1>
+  <p class="file-upload-text">Must be {{ getAllowedFileFormatsAsText() }}</p>
+</ng-container>
+
+<div class="file-drop-area">
+  <span>Drag and drop your file(s) here or</span>
+  <span class="link">browse here</span>
+</div>
+
+<ng-container *ngIf="!filesSelected"> </ng-container>
