@@ -1,5 +1,5 @@
 :host {
-  min-width: 350px;
+  width: 350px;
   min-height: 100px;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,8 @@
   justify-content: center;
   align-items: center;
 
+  width: 100%;
+
   background-color: rgb(232, 230, 230);
   border: 2px dotted gray;
   padding: 20px;
@@ -28,4 +30,60 @@
 .link {
   color: var(--main-blue);
   text-decoration: underline;
+}
+
+.selected-files-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+  width: 100%;
+
+  margin-top: 10px;
+}
+
+.selected-file {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+}
+
+.file-icon {
+  height: 20px;
+  margin-right: 4px;
+}
+
+.file-name {
+  width: 75%;
+}
+
+.file-size {
+  width: 15%;
+  color: lightgray;
+}
+
+.remove-file{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+
+  background-color: var(--main-blue);
+  color: white;
+
+  border-radius: 4px;
+  border: none;
+
+  cursor: pointer;
+}
+
+hr {
+  background-color: lightgray;
+  height: 1px;
+  border: none;
 }
