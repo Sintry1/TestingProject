@@ -222,9 +222,6 @@ export class GetCarResponse extends CompletedAtResponse implements ICar {
   @ApiModelProperty({ example: true })
   charged!: boolean;
 
-  @ApiModelProperty({ example: new Date() })
-  completedAt?: Date;
-
   @ApiModelProperty({ example: ['ford_gt.pdf', 'the-flintstones-car.png'] })
   files!: string[];
 }
