@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Get,
@@ -8,10 +9,13 @@ import {
   Patch,
   Post,
   Query,
+  UploadedFiles,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -31,6 +35,10 @@ import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
+import 'multer';
+import { FilesInterceptor } from '@nestjs/platform-express';
+
+const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Cars')
 @Controller('cars')
@@ -88,9 +96,31 @@ export class CarsController {
     summary: 'Create a car entry.',
   })
   @ApiCreatedResponse({ type: Car })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
-  async createCar(@Body() carData: CreateCarRequest) {
-    return this.carsService.createCar(carData);
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        const nameParts = file.originalname.split('.');
+        const fileType = nameParts[nameParts.length - 1];
+
+        if (!fileType.match(FILE_TYPES)) {
+          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
+          return callback(
+            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
+            false
+          );
+        }
+
+        return callback(null, true);
+      },
+    })
+  )
+  async createCar(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body() carData: CreateCarRequest
+  ) {
+    return this.carsService.createCar(carData, files || []);
   }
 
   @Patch(':carId')
@@ -99,7 +129,84 @@ export class CarsController {
   })
   @ApiCreatedResponse({ type: Car })
   @HttpCode(200)
-  async updateCar(@Param('carId', ParseUUIDPipe) carId: string, @Body() carData: UpdateCarRequest) {
-    return this.carsService.updateCar(carId, carData);
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        const nameParts = file.originalname.split('.');
+        const fileType = nameParts[nameParts.length - 1];
+
+        if (!fileType.match(FILE_TYPES)) {
+          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
+          return callback(
+            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
+            false
+          );
+        }
+
+        return callback(null, true);
+      },
+    })
+  )
+  async updateCar(
+    @Param('carId', ParseUUIDPipe) carId: string,
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body() carData: UpdateCarRequest
+  ) {
+    return this.carsService.updateCar(carId, carData, files || []);
+  }
+
+  @Patch(':carId/files/add')
+  @ApiOperation({
+    summary: 'Add more files to a car.',
+  })
+  @ApiOkResponse({ type: Car })
+  @HttpCode(200)
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        const nameParts = file.originalname.split('.');
+        const fileType = nameParts[nameParts.length - 1];
+
+        if (!fileType.match(FILE_TYPES)) {
+          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
+          return callback(
+            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
+            false
+          );
+        }
+
+        return callback(null, true);
+      },
+    })
+  )
+  async addCarFiles(
+    @Param('carId', ParseUUIDPipe) carId: string,
+    @UploadedFiles()
+    files: Array<Express.Multer.File>
+  ) {
+    return this.carsService.updateCar(carId, null, files || []);
+  }
+
+  @Patch(':carId/files/remove')
+  @ApiOperation({
+    summary: 'Remove files from a car.',
+  })
+  @ApiOkResponse({ type: Car })
+  @HttpCode(200)
+  async removeCarFiles(
+    @Param('carId', ParseUUIDPipe) carId: string,
+    @Body() fileNames: string[]
+  ) {
+    return this.carsService.removeCarFiles(carId, fileNames);
+  }
+
+  @Patch(':carId/files/clear')
+  @ApiOperation({
+    summary: "Clear a car's files.",
+  })
+  @ApiOkResponse({ type: Car })
+  @HttpCode(200)
+  async clearCarFiles(@Param('carId', ParseUUIDPipe) carId: string) {
+    return this.carsService.clearCarFiles(carId);
   }
 }
