@@ -82,7 +82,7 @@ export class LuggagesSeederService {
             bbOut: roomReady ? getRandom(bellBoyInitials) : null, // who put it in the quest's room or gave it to the guest
             bbDown: roomReady ? getRandom(bellBoyInitials) : null, // who brought the luggage from luggage room from the guest's room
             completedAt: roomReady ? eveningDate : null,
-            files: getRandomChance(0.1) ? [`${luggageId}luggage.jpg`] : [],
+            files: getRandomChance(0.1) ? [`luggage.jpg`] : [],
           });
         }
       });
