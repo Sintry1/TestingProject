@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Connection, DataSource } from 'typeorm';
+import { AnnouncementsSeederService } from './services/announcements.service';
 import { AssignmentsSeederService } from './services/assignments.service';
 import { BikesSeederService } from './services/bikes.service';
 import { CarsSeederService } from './services/cars.service';
@@ -20,6 +21,7 @@ export class SeedService {
     private readonly assignmentsService: AssignmentsSeederService,
     private readonly documentService: DocumentsSeederService,
     private readonly bikesService: BikesSeederService,
+    private readonly announcementsService: AnnouncementsSeederService,
     private dataSource: DataSource
   ) {}
 
@@ -38,6 +40,7 @@ export class SeedService {
     await this.seedAssignments();
     await this.seedDocuments();
     await this.seedBikes();
+    await this.seedAnnouncements();
   }
 
   // ====================================
@@ -186,6 +189,17 @@ export class SeedService {
       return response;
     } catch (error) {
       this.logger.warn(`❌ Bikes failed to seed 🌱`);
+      this.logger.error(error);
+    }
+  }
+
+  async seedAnnouncements() {
+    try {
+      this.logger.debug(`✔ Seeding Announcements... 🧔📢`);
+      const response = await Promise.all(this.announcementsService.create());
+      this.logger.debug(`✅ Announcements created: ${response.length} 🧔📢`);
+    } catch (error) {
+      this.logger.warn(`❌ Announcements failed to seed 🌱`);
       this.logger.error(error);
     }
   }

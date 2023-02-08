@@ -49,6 +49,9 @@ table {
 
 tr.mat-header-row {
   height: 3.5em;
+  position: sticky;
+  top: -1px;
+  z-index: 1;
 }
 
 th.mat-header-cell {
