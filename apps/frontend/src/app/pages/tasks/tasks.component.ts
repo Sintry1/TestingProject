@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { TasksService } from '../../services/tasks.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.component';
@@ -51,7 +52,7 @@ export class TasksComponent implements OnInit {
       },
       error: (error) => {
         this.isLoading = false;
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open('Tasks have failed to load', 'Okay', {
           duration: 10000,
         });

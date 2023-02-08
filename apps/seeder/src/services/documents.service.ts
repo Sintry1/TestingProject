@@ -1,4 +1,3 @@
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IDocument } from '@omnihost/interfaces';
@@ -8,7 +7,7 @@ import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { documents } from '../constants/documents.constant';
-import { getRandomInt } from './utils.service';
+import { getRandomInt, uploadFileToLinode } from './utils.service';
 
 @Injectable()
 export class DocumentsSeederService {
@@ -23,7 +22,7 @@ export class DocumentsSeederService {
 
     return this.generate().map(async (document: IDocument) => {
       try {
-        await this.uploadFileToLinode(documentBuffer, document.documentName);
+        await uploadFileToLinode(documentBuffer, document.documentName);
         return await this.repo.save(document);
       } catch (error) {
         throw new Error(error);
@@ -60,45 +59,5 @@ export class DocumentsSeederService {
     });
 
     return data;
-  }
-
-  async uploadFileToLinode(dataBuffer: Buffer, filename: string) {
-    const clusterId = this.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = this.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = this.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = this.getValue('LINODE_STORAGE_SECRET_KEY', true);
-
-    try {
-      const s3 = new S3Client({
-        region: clusterId,
-        credentials: {
-          accessKeyId: accessKey,
-          secretAccessKey: secretKey,
-        },
-        endpoint: `https://${clusterId}.linodeobjects.com`,
-      });
-
-      const uploadResult = await s3.send(
-        new PutObjectCommand({
-          Bucket: bucketId,
-          Body: dataBuffer,
-          Key: filename,
-        })
-      );
-      if (uploadResult.$metadata.httpStatusCode != 200) {
-        throw new Error('UploadFailedError');
-      }
-    } catch (error) {
-      console.warn(`Failed to upload document with name ${filename}`);
-    }
-  }
-
-  private getValue(key: string, throwOnMissing: boolean): string {
-    const value = process.env[key];
-    if (!value && throwOnMissing) {
-      throw new Error(`config error - missing env.${key}`);
-    }
-
-    return value;
   }
 }

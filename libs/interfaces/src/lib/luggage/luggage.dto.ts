@@ -13,20 +13,20 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   @IsOptional()
   roomReady?: boolean;
 
-  @ApiModelProperty({ example: '420' })
+  @ApiModelProperty({ example: '101' })
   @IsNotEmpty()
   room!: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsNotEmpty()
   name!: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   arrivalTime?: Date;
 
-  @ApiModelProperty({ example: '3+4' })
+  @ApiModelProperty({ example: '3+2' })
   @IsNotEmpty()
   bags!: string;
 
@@ -34,32 +34,32 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: '8912' })
+  @ApiModelProperty({ example: '1234' })
   @IsNotEmpty()
   tagNr!: string;
 
-  @ApiModelProperty({ example: 'LB1' })
+  @ApiModelProperty({ example: 'LR1' })
   @IsNotEmpty()
   location!: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbDown?: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsNotEmpty()
   bbLr!: string;
 
-  @ApiModelProperty({ example: 'ML' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   dateNeeded?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
@@ -75,20 +75,20 @@ export class UpdateLuggageRequest implements IUpdateLuggageRequest {
   @IsOptional()
   roomReady?: boolean;
 
-  @ApiModelProperty({ example: '420' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   name?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   arrivalTime?: Date;
 
-  @ApiModelProperty({ example: '3+4' })
+  @ApiModelProperty({ example: '3+2' })
   @IsOptional()
   bags?: string;
 
@@ -96,32 +96,32 @@ export class UpdateLuggageRequest implements IUpdateLuggageRequest {
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: '8912' })
+  @ApiModelProperty({ example: '1234' })
   @IsOptional()
   tagNr?: string;
 
-  @ApiModelProperty({ example: 'LB1' })
+  @ApiModelProperty({ example: 'LR1' })
   @IsOptional()
   location?: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbDown?: string;
 
-  @ApiModelProperty({ example: 'TJ' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbLr?: string;
 
-  @ApiModelProperty({ example: 'ML' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   bbOut?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   dateNeeded?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;

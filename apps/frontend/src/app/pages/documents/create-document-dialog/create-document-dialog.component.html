@@ -1,4 +1,9 @@
-<form [formGroup]="createDocumentForm" (ngSubmit)="onSubmit()" class="dialog-container">
+<form
+  [formGroup]="createDocumentForm"
+  (ngSubmit)="onSubmit()"
+  class="dialog-container"
+  data-cy="create-document-dialog"
+>
   <h1>Add document</h1>
   <hr />
 

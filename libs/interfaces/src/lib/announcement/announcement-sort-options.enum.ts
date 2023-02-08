@@ -3,3 +3,9 @@ export enum AnnouncementStatus {
   ACTIVE = 'Active',
   EXPIRED = 'Expired',
 }
+
+export enum AnnouncementSortOptions {
+  SHOW_TO = 'showTo',
+  SHOW_FROM = 'showFrom',
+  CREATED_AT = 'createdAt',
+}

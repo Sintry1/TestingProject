@@ -12,11 +12,14 @@ import {
   Post,
   Query,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -34,6 +37,7 @@ import {
 } from '@omnihost/interfaces';
 import { Document } from '@omnihost/models';
 import 'multer';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { DocumentsService } from './documents.service';
@@ -44,6 +48,7 @@ const FILE_TYPES = /(pdf|docx)\b/;
 @ApiTags('Documents')
 @Controller('documents')
 @ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
 @Roles(Role.user, Role.manager)
 export class DocumentsController {
   constructor(private documentsService: DocumentsService) {}
@@ -99,6 +104,7 @@ export class DocumentsController {
     summary: 'Create a document entry.',
   })
   @ApiCreatedResponse({ type: Document })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
   @UseInterceptors(FileInterceptor('document'))
   async createDocument(
@@ -136,6 +142,18 @@ export class DocumentsController {
     summary: 'Upload a new file for the document entry.',
   })
   @ApiCreatedResponse({ type: Document })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        document: {
+          type: 'string',
+          format: 'binary',
+        },
+      },
+    },
+  })
   @HttpCode(200)
   @UseInterceptors(FileInterceptor('document'))
   async updateDocumentFile(

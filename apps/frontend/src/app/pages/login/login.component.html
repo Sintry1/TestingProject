@@ -1,27 +1,36 @@
-<div id="content-wrapper">
+<section>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form">
-    <div class="title-wrapper">
-      <span class="title">OMNIHOST</span>
-      <hr />
-      <span class="subtitle"> Systems</span>
-    </div>
-    <div class="dialog-row"></div>
+    <img src="../../../../assets/full-omni-logo-white-background@svg.svg" />
 
-    <mat-form-field autocomplete="off" class="full-width no-margin white-input">
+    <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Email</mat-label>
-      <input #email type="email" formControlName="email" matInput placeholder="Email" />
+      <input
+        #email
+        type="email"
+        formControlName="email"
+        matInput
+        placeholder="Email"
+        data-cy="login-email-input"
+      />
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" class="full-width no-margin white-input">
+    <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Password</mat-label>
-      <input #password type="password" formControlName="password" matInput placeholder="Password" />
+      <input
+        #password
+        type="password"
+        formControlName="password"
+        matInput
+        placeholder="Password"
+        data-cy="login-password-input"
+      />
     </mat-form-field>
 
-    <button class="action-btn half-width" mat-raised-button type="submit">
+    <button class="action-btn" mat-raised-button type="submit" data-cy="login-submit-btn">
       <div *ngIf="!isLoading">Login</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>
     </button>
   </form>
-</div>
+</section>

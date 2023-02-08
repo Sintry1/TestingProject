@@ -1,0 +1,1490 @@
+{
+	"info": {
+		"_postman_id": "aea9d5ef-94a9-4f25-989c-8d38feec422a",
+		"name": "Omnihost Systems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6628993"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"accessToken\", pm.response.json().accessToken);",
+									"pm.collectionVariables.set(\"refreshToken\", pm.response.json().refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"abcDEF123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"accessToken\", pm.response.json().accessToken);",
+									"pm.collectionVariables.set(\"refreshToken\", pm.response.json().refreshToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{refreshToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/refresh",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send forgot password email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"info@omnihost.app\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/forgot-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate reset password token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/auth/forgot-password/validate-token/:reset-password-token",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password",
+								"validate-token",
+								":reset-password-token"
+							],
+							"variable": [
+								{
+									"key": "reset-password-token",
+									"value": null,
+									"description": "Can be found in the reset password email"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update password with reset password token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"abcDEF123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/forgot-password/:reset-password-token",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password",
+								":reset-password-token"
+							],
+							"variable": [
+								{
+									"key": "reset-password-token",
+									"value": null,
+									"description": "Can be found in the reset password email"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Luggages",
+			"item": [
+				{
+					"name": "Get all checkin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"luggageId\", pm.response.json()[0].luggageId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/checkin?createdAt=2023-01-20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"checkin"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all checkout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"luggageId\", pm.response.json()[0].luggageId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/checkout?createdAt=2023-01-20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"checkout"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all long term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"luggageId\", pm.response.json()[0].luggageId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/longTerm?createdAt=2023-01-20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"longTerm"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"luggageId\", pm.response.json().luggageId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/luggages",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/luggages/:luggageId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								":luggageId"
+							],
+							"variable": [
+								{
+									"key": "luggageId",
+									"value": "{{luggageId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"taskId\", pm.response.json().tasks[0].taskId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/tasks?createdAt=2023-01-20&sortBy=time&sortOrder=ASC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								},
+								{
+									"key": "sortBy",
+									"value": "time"
+								},
+								{
+									"key": "sortOrder",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"taskId\", pm.response.json().taskId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Evening\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tasks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Morning\",\n  \"completedAt\": \"2023-01-25T13:55:36.329Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tasks/:taskId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "{{taskId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"carId\", pm.response.json()[0].carId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cars?createdAt=2023-01-20",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cars"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"carId\", pm.response.json().carId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tagNr\": \"1234\",\n  \"room\": \"101\",\n  \"arrivalDate\": \"2023-01-25T14:01:31.436Z\",\n  \"departureDate\": \"2023-01-25T14:01:31.436Z\",\n  \"name\": \"Larsen\",\n  \"licensePlate\": \"AB60789\",\n  \"expirationDate\": \"2023-01-25T14:01:31.436Z\",\n  \"pickUpTime\": \"2023-01-25T14:01:31.436Z\",\n  \"deliveryTime\": \"2023-01-25T14:01:31.436Z\",\n  \"bbDown\": \"EA\",\n  \"bbUp\": \"EA\",\n  \"location\": \"Front\",\n  \"parkingLot\": \"10\",\n  \"bbOut\": \"EA\",\n  \"comments\": \"LUX - 2 bellmen required\",\n  \"charged\": true,\n  \"completedAt\": \"2023-01-25T14:01:31.436Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tagNr\": \"1234\",\n  \"room\": \"101\",\n  \"arrivalDate\": \"2023-01-25T14:01:31.436Z\",\n  \"departureDate\": \"2023-01-25T14:01:31.436Z\",\n  \"name\": \"Larsen\",\n  \"licensePlate\": \"AB60789\",\n  \"expirationDate\": \"2023-01-25T14:01:31.436Z\",\n  \"pickUpTime\": \"2023-01-25T14:01:31.436Z\",\n  \"deliveryTime\": \"2023-01-25T14:01:31.436Z\",\n  \"bbDown\": \"EA\",\n  \"bbUp\": \"EA\",\n  \"location\": \"Front\",\n  \"parkingLot\": \"10\",\n  \"bbOut\": \"EA\",\n  \"comments\": \"LUX - 2 bellmen required\",\n  \"charged\": true,\n  \"completedAt\": \"2023-01-25T14:01:31.436Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cars/:carId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cars",
+								":carId"
+							],
+							"variable": [
+								{
+									"key": "carId",
+									"value": "{{carId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Assignments",
+			"item": [
+				{
+					"name": "Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"assignmentId\", pm.response.json()[0].assignmentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/assignments?createdAt=2023-01-20&status=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"assignments"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"assignmentId\", pm.response.json().assignmentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2023-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2023-01-25T14:07:39.927Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/assignments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2023-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2023-01-25T14:07:39.927Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/assignments/:assignmentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"assignments",
+								":assignmentId"
+							],
+							"variable": [
+								{
+									"key": "assignmentId",
+									"value": "{{assignmentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Announcements",
+			"item": [
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json()[0].announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/{{announcementId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								"{{announcementId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Sample Announcement",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Sample comments",
+									"type": "text"
+								},
+								{
+									"key": "showTo",
+									"value": "2023-02-05T12:27:45.378Z",
+									"type": "text"
+								},
+								{
+									"key": "showFrom",
+									"value": "2023-02-05T12:27:45.378Z",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/announcements",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2023-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2023-02-05T12:53:23.416Z\",\n    \"files\": [\n        \"example.jpg\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete full object",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"add"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove specfic files from announcement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"file-to-remove.jpg\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/remove",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"remove"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Clear all files from announcements",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/announcements/:announcementId/files/clear",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"announcements",
+								":announcementId",
+								"files",
+								"clear"
+							],
+							"variable": [
+								{
+									"key": "announcementId",
+									"value": "{{announcementId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"documentId\", pm.response.json()[0].documentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/documents",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"documentId\", pm.response.json().documentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/documents/:documentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents",
+								":documentId"
+							],
+							"variable": [
+								{
+									"key": "documentId",
+									"value": "{{documentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doc",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Years Eve preparations\",\n  \"comments\": \"December 29th - January 2nd\",\n  \"lastViewedAt\": \"2023-01-25T14:27:18.570Z\",\n  \"showOnDashboard\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/documents/:documentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents",
+								":documentId"
+							],
+							"variable": [
+								{
+									"key": "documentId",
+									"value": "{{documentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"documentId\", pm.response.json().documentId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "title",
+									"value": "New Years Eve preparations",
+									"type": "text"
+								},
+								{
+									"key": "showOnDashboard",
+									"value": "December 29th - January 2nd\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/documents",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "document",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/documents/file/:documentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents",
+								"file",
+								":documentId"
+							],
+							"variable": [
+								{
+									"key": "documentId",
+									"value": "{{documentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/documents/:documentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents",
+								":documentId"
+							],
+							"variable": [
+								{
+									"key": "documentId",
+									"value": "{{documentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bikes",
+			"item": [
+				{
+					"name": "Get All",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bikeId\", pm.response.json()[0].bikeId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/bikes?createdAt=2023-01-18",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bikes"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bikeId\", pm.response.json().bikeId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2023-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2023-01-25T14:30:32.871Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/bikes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bikes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2023-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2023-01-25T14:30:32.871Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/bikes/:bikeId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"bikes",
+								":bikeId"
+							],
+							"variable": [
+								{
+									"key": "bikeId",
+									"value": "{{bikeId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Misc",
+			"item": [
+				{
+					"name": "Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.openweathermap.org/data/2.5/forecast/hourly?lat=41.30140732477391&lon=19.796322531476385&appid={{openWeatherApiKey}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openweathermap",
+								"org"
+							],
+							"path": [
+								"data",
+								"2.5",
+								"forecast",
+								"hourly"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "41.30140732477391"
+								},
+								{
+									"key": "lon",
+									"value": "19.796322531476385"
+								},
+								{
+									"key": "appid",
+									"value": "{{openWeatherApiKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3333",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "ChangeMe"
+		},
+		{
+			"key": "refreshToken",
+			"value": "ChangeMe",
+			"type": "string"
+		},
+		{
+			"key": "openWeatherApiKey",
+			"value": "ChangeMe"
+		},
+		{
+			"key": "luggageId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "taskId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "carId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "assignmentId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "documentId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "bikeId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "blacklistId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "announcementId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		}
+	]
+}

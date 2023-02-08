@@ -5,6 +5,7 @@ import { IJwtInfo, IJwtPayload } from '@omnihost/interfaces';
 import { Request } from 'express';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { TokensService } from '../tokens/tokens.service';
+import { SentryService } from '../utils/sentry.service';
 import { jwtConstants } from './constants';
 
 @Injectable()
@@ -23,8 +24,10 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-ref
     const token = req.get('Authorization').replace('Bearer', '').trim();
     // Check that the token is a refresh token
     if (payload.tokenType !== 'refresh') {
-      this.logger.warn(
+      SentryService.log(
+        'warning',
         `Auth failed: Access token was used for a Refresh Token-only endpoint`,
+        this.logger,
         token
       );
       throw new UnauthorizedException();
@@ -41,7 +44,12 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-ref
         token,
       };
     } catch (error) {
-      this.logger.warn(`Auth failed: token doesn't exist in the database`, token);
+      SentryService.log(
+        'warning',
+        `Auth failed: token doesn't exist in the database`,
+        this.logger,
+        token
+      );
       throw new UnauthorizedException();
     }
   }

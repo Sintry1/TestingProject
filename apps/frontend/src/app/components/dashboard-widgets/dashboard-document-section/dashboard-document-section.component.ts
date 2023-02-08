@@ -1,8 +1,10 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
+import { SentryService } from '../../../services/sentry.service';
 import { SeeDocumentDialogComponent } from '../../document-widget/see-document-dialog/see-document-dialog.component';
 
 @Component({
@@ -24,8 +26,8 @@ export class DashboardDocumentSectionComponent implements OnInit {
       next: (documents) => {
         this.documentList = documents;
       },
-      error: (err) => {
-        console.error(err);
+      error: (error: HttpErrorResponse) => {
+        SentryService.logError(error);
         this.snackBar.open('Dashboard documents have failed to load', 'Okay', {
           duration: 10000,
         });

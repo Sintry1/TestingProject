@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as Sentry from '@sentry/angular';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboard-widgets/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboard-widgets/dashboard-links/dashboard-links.component';
@@ -42,6 +42,7 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/update-long-term
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { SentryService } from './services/sentry.service';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { CreateAnnouncementDialogComponent } from './pages/announcements/create-announcement-dialog/create-announcement-dialog.component';
 import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-announcement-dialog/update-announcement-dialog.component';
@@ -99,6 +100,14 @@ import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-
   providers: [
     authInterceptorProviders,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    SentryService,
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: false,
+        logErrors: true,
+      }),
+    },
   ],
   bootstrap: [AppComponent],
 })

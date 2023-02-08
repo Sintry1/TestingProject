@@ -8,6 +8,7 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -26,6 +27,7 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
@@ -34,6 +36,7 @@ import { LuggagesService } from './luggages.service';
 @ApiTags('Luggages')
 @Controller('luggages')
 @ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
 @Roles(Role.user, Role.manager)
 export class LuggagesController {
   constructor(private luggagesService: LuggagesService) {}

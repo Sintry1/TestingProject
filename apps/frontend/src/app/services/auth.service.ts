@@ -10,6 +10,7 @@ import {
   Role,
 } from '@omnihost/interfaces';
 import { LocalStorageService } from '@omnihost/local-storage';
+import * as Sentry from '@sentry/angular';
 import jwt_decode from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
@@ -60,6 +61,11 @@ export class AuthService {
     }
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
     this.localStorageService.removeItem(LocalStorageVars.managerInfo);
+
+    Sentry.configureScope((scope) => {
+      scope.setUser(null);
+    });
+
     console.log('Redirecting to the login page...');
     this.router.navigate(['/login']);
   }
@@ -70,10 +76,17 @@ export class AuthService {
    */
   public saveAccessInfo(loginResponse: ILoginResponse): void {
     this.localStorageService.removeItem(LocalStorageVars.accessInfo);
+    const user = jwt_decode<IAccessTokenPayload>(loginResponse.accessToken);
     this.localStorageService.setItem<IAccessInfo>(LocalStorageVars.accessInfo, {
-      user: jwt_decode<IAccessTokenPayload>(loginResponse.accessToken),
+      user,
       accessToken: loginResponse.accessToken,
       refreshToken: loginResponse.refreshToken,
+    });
+    Sentry.configureScope((scope) => {
+      scope.setUser({
+        userId: user.userId,
+        accessToken: loginResponse.accessToken,
+      });
     });
   }
 
