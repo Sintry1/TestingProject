@@ -5,7 +5,7 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" />
+      <input #room type="number" formControlName="room" matInput placeholder="Room number" />
       <mat-error *ngIf="createBikeForm.get('room')?.invalid && createBikeForm.get('room')?.dirty">
         Must be a number from 100-999
       </mat-error>
@@ -13,7 +13,7 @@
 
     <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Name</mat-label>
-      <input #name type="text" formControlName="name" matInput placeholder="Madsen" />
+      <input #name type="text" formControlName="name" matInput placeholder="Name" />
       <mat-error *ngIf="createBikeForm.get('name')?.invalid && createBikeForm.get('name')?.dirty">
         Required
       </mat-error>
@@ -37,7 +37,7 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Number of bikes</mat-label>
-      <input #nrOfBikes type="number" formControlName="nrOfBikes" matInput placeholder="1" />
+      <input #nrOfBikes type="number" formControlName="nrOfBikes" matInput placeholder="Number of bikes" />
       <mat-error
         *ngIf="createBikeForm.get('nrOfBikes')?.invalid && createBikeForm.get('nrOfBikes')?.dirty"
       >
