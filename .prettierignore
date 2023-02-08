@@ -2,3 +2,4 @@
 
 /dist
 /coverage
+*postman_collection.json
