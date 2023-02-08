@@ -140,7 +140,7 @@ export class BlacklistService {
       }
     } catch (error) {
       throw new HttpException(
-        'Failed to clear the files. Please try again later.',
+        'Failed to remove the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
