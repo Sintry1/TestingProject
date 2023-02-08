@@ -17,7 +17,7 @@ export class AnnouncementsComponent {
   showFuture = !true;
   showActive = true;
   showExpired = !true;
-  announcementList: IAnnouncement[] = MOCK_DATA;
+  announcementList: IAnnouncement[] = [];
 
   announcementColumns = ['title', 'comment', 'showFrom', 'showTo', 'images', 'status'];
 
@@ -38,16 +38,21 @@ export class AnnouncementsComponent {
     });
   }
 
-  getStatus(showFrom: Date, showTo: Date): string {
+  getStatus(showFrom?: Date | null, showTo?: Date | null): string {
     const today = new Date().getTime();
-    // FUTURE
-    if (showFrom.getTime() > today) {
-      return AnnouncementStatus.FUTURE;
-      // ACTIVE
-    } else if (showFrom.getTime() <= today && showTo.getTime() > today) {
-      return AnnouncementStatus.ACTIVE;
+
+    if (showFrom && showTo) {
+      // FUTURE
+      if (showFrom.getTime() > today) {
+        return AnnouncementStatus.FUTURE;
+        // ACTIVE
+      } else if (showFrom.getTime() <= today && showTo.getTime() > today) {
+        return AnnouncementStatus.ACTIVE;
+      } else {
+        // EXPIRED
+        return AnnouncementStatus.EXPIRED;
+      }
     } else {
-      // EXPIRED
       return AnnouncementStatus.EXPIRED;
     }
   }
@@ -82,51 +87,51 @@ export class AnnouncementsComponent {
   }
 }
 
-const today = new Date();
-const twoDays = new Date(today);
-const threeDays = new Date(today);
-const minusOneDay = new Date(today);
-const minusTwoDays = new Date(today);
-minusTwoDays.setDate(minusTwoDays.getDate() - 2);
-minusOneDay.setDate(minusOneDay.getDate() - 1);
-twoDays.setDate(twoDays.getDate() + 2);
-threeDays.setDate(threeDays.getDate() + 3);
+// const today = new Date();
+// const twoDays = new Date(today);
+// const threeDays = new Date(today);
+// const minusOneDay = new Date(today);
+// const minusTwoDays = new Date(today);
+// minusTwoDays.setDate(minusTwoDays.getDate() - 2);
+// minusOneDay.setDate(minusOneDay.getDate() - 1);
+// twoDays.setDate(twoDays.getDate() + 2);
+// threeDays.setDate(threeDays.getDate() + 3);
 
-const MOCK_DATA: IAnnouncement[] = [
-  // Expired yesterday (expired)
-  {
-    title: 'Department update (past)',
-    comments: 'Updated opening hours for each department',
-    showFrom: minusTwoDays,
-    showTo: minusOneDay,
-    images: 'image',
-    status: 'Critical',
-  },
-  // Currently shown (active)
-  {
-    title: 'Department update (active)',
-    comments: 'Updated opening hours for each department',
-    showFrom: today,
-    showTo: twoDays,
-    images: 'image',
-    status: 'Critical',
-  },
-  // Currently shown (active)
-  {
-    title: 'Staff update (active)',
-    comments: 'A big welcome to all the new employees',
-    showFrom: today,
-    showTo: threeDays,
-    images: 'image',
-    status: 'Need to know',
-  },
-  // Active in two days (future)
-  {
-    title: 'Tour De France update (future)',
-    comments: 'A guide on how the race affect the hotel',
-    showFrom: twoDays,
-    showTo: threeDays,
-    images: 'image',
-    status: 'Nice to know',
-  },
-];
+// const MOCK_DATA: IAnnouncement[] = [
+//   // Expired yesterday (expired)
+//   {
+//     title: 'Department update (past)',
+//     comments: 'Updated opening hours for each department',
+//     showFrom: minusTwoDays,
+//     showTo: minusOneDay,
+//     files: 'image',
+//     status: 'Critical',
+//   },
+//   // Currently shown (active)
+//   {
+//     title: 'Department update (active)',
+//     comments: 'Updated opening hours for each department',
+//     showFrom: today,
+//     showTo: twoDays,
+//     images: 'image',
+//     status: 'Critical',
+//   },
+//   // Currently shown (active)
+//   {
+//     title: 'Staff update (active)',
+//     comments: 'A big welcome to all the new employees',
+//     showFrom: today,
+//     showTo: threeDays,
+//     images: 'image',
+//     status: 'Need to know',
+//   },
+//   // Active in two days (future)
+//   {
+//     title: 'Tour De France update (future)',
+//     comments: 'A guide on how the race affect the hotel',
+//     showFrom: twoDays,
+//     showTo: threeDays,
+//     images: 'image',
+//     status: 'Nice to know',
+//   },
+// ];
