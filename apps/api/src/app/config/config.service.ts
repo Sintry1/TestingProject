@@ -65,6 +65,7 @@ class ConfigService {
         Document,
         Bike,
         Announcement,
+        Blacklist,
       ],
     };
   }

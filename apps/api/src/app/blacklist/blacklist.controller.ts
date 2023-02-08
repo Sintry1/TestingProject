@@ -17,6 +17,7 @@ import {
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -44,14 +45,48 @@ const FILE_TYPES = /(png|jpg|jpeg)\b/;
 export class BlacklistController {
   constructor(private blacklistService: BlacklistService, private filesService: FilesService) {}
 
+  // @Post()
+  // @ApiOperation({
+  //   summary: 'Create a blacklist entry.',
+  // })
+  // @ApiCreatedResponse({ type: Blacklist })
+  // @HttpCode(201)
+  // async createBlacklist(
+  //   @UploadedFiles() files: Array<Express.Multer.File>,
+  //   @Body() blacklistData: CreateBlacklistRequest
+  // ) {
+  //   return this.blacklistService.createBlacklist(blacklistData, files || []);
+  // }
+
   @Post()
+  @Roles(Role.manager)
   @ApiOperation({
     summary: 'Create a blacklist entry.',
   })
-  @ApiCreatedResponse({ type: Blacklist })
+  @ApiCreatedResponse({ type: [Blacklist] })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
+  @UseInterceptors(
+    FilesInterceptor('files', 10, {
+      fileFilter(req, file, callback) {
+        const nameParts = file.originalname.split('.');
+        const fileType = nameParts[nameParts.length - 1];
+
+        if (!fileType.match(FILE_TYPES)) {
+          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
+          return callback(
+            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
+            false
+          );
+        }
+
+        return callback(null, true);
+      },
+    })
+  )
   async createBlacklist(
-    @UploadedFiles() files: Array<Express.Multer.File>,
+    @UploadedFiles()
+    files: Array<Express.Multer.File>,
     @Body() blacklistData: CreateBlacklistRequest
   ) {
     return this.blacklistService.createBlacklist(blacklistData, files || []);
@@ -134,7 +169,7 @@ export class BlacklistController {
   @Patch(':blacklistId/files/remove')
   @Roles(Role.manager)
   @ApiOperation({
-    summary: 'Remove files from an blacklist.',
+    summary: 'Remove files from a blacklist.',
   })
   @ApiOkResponse({ type: Blacklist })
   @HttpCode(200)
