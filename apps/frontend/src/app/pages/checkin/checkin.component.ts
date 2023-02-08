@@ -5,6 +5,7 @@ import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omni
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
+import { SentryService } from '../../services/sentry.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckinDialogComponent } from './create-checkin-dialog/create-checkin-dialog.component';
 import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-checkin-dialog.component';
@@ -64,7 +65,7 @@ export class CheckinComponent implements OnInit {
         },
         error: (error) => {
           this.isLoading = false;
-          console.error(error);
+          SentryService.logError(error);
           this.snackBar.open('Check In data have failed to load, please reload the page.', 'Okay', {
             duration: 10000,
           });

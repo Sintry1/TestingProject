@@ -13,7 +13,7 @@ export const documents = [
   { title: 'Taxi information', showOnDashboard: false, comments: null },
   { title: 'Tour de France information', showOnDashboard: false, comments: 'July 1st - July 23rd' },
   {
-    title: 'New years eve preparations',
+    title: 'New Years Eve preparations',
     showOnDashboard: false,
     comments: `Information about what to expect`,
   },

@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarService } from '../../../services/car.service';
+import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
 import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 
@@ -108,8 +109,8 @@ export class CreateCarDialogComponent {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to create, please try again.', 'Okay', {
             duration: 15000,
           });

@@ -135,7 +135,7 @@ export class BlacklistService {
       for (const file of blacklist.files) {
         if (fileNames.includes(file)) {
           await this.fileService.deleteFile(file);
-          blacklist.files = blacklist.files.filter((file) => file !== file);
+          blacklist.files = blacklist.files.filter((fileName) => fileName !== file);
         }
       }
     } catch (error) {
@@ -166,9 +166,9 @@ export class BlacklistService {
     return await this.blacklistRepo.save(blacklist);
   }
 
-  private toFileNames(file: Express.Multer.File[]) {
+  private toFileNames(files: Express.Multer.File[]) {
     const fileNames: string[] = [];
-    file.forEach((file) => fileNames.push(file.originalname));
+    files.forEach((file) => fileNames.push(file.originalname));
     return fileNames;
   }
 

@@ -2,7 +2,7 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
 import { IBase, ICompletedAt } from './base.interface';
 
 export abstract class BaseResponse implements IBase {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: new Date() })
   createdAt?: Date;
 
   @ApiModelProperty()
@@ -10,6 +10,6 @@ export abstract class BaseResponse implements IBase {
 }
 
 export abstract class CompletedAtResponse extends BaseResponse implements ICompletedAt {
-  @ApiModelProperty()
+  @ApiModelProperty({ example: new Date() })
   completedAt?: Date;
 }

@@ -1,9 +1,11 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { IGetDocumentByIdResponse } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
+import { SentryService } from '../../../services/sentry.service';
 
 @Component({
   selector: 'frontend-see-document-dialog',
@@ -34,7 +36,7 @@ export class SeeDocumentDialogComponent implements OnInit {
         this.fetchDocumentFile(this.document.downloadUrl);
       },
       error: (error) => {
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open('The Document has failed to load', 'Okay', {
           duration: 10000,
         });
@@ -53,8 +55,8 @@ export class SeeDocumentDialogComponent implements OnInit {
         );
         this.isLoading = false;
       },
-      error: (error) => {
-        console.error(error);
+      error: (error: HttpErrorResponse) => {
+        SentryService.logError(error);
         this.snackBar.open('The Document File has failed to load', 'Okay', {
           duration: 10000,
         });

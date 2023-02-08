@@ -21,6 +21,7 @@ import {
   ResetPasswordRequest,
   Role,
 } from '@omnihost/interfaces';
+import { SentryService } from '../utils/sentry.service';
 import { AuthService } from './auth.service';
 import { JwtAccessAuthGuard } from './jwt-auth-access.guard';
 import { JwtRefreshAuthGuard } from './jwt-auth-refresh.guard';
@@ -97,6 +98,7 @@ export class AuthController {
     this.logger.verbose(`Processing forgot password request for '${body.email}'`);
     const result = await this.authService.sendResetPasswordEmail(body.email);
     if (result) {
+      SentryService.log('info', `Reset password email has been sent to ${body.email}`, this.logger);
       return {
         message: 'Reset password email has been sent',
       };
@@ -135,7 +137,7 @@ export class AuthController {
     this.logger.verbose(`Processing forgot password request for reset password token '${token}'`);
     if (await this.authService.isValidResetPasswordToken(token)) {
       await this.authService.updatePasswordByResetPasswordToken(token, body.password);
-      this.logger.log(`Updated password with the reset token '${token}'`);
+      SentryService.log('info', `Updated password with the reset token '${token}'`, this.logger);
     } else {
       throw new BadRequestException(`The provided token can't be used to reset the password.`);
     }
