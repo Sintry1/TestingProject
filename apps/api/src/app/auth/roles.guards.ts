@@ -47,6 +47,12 @@ export class RolesGuard implements CanActivate {
       throw new UnauthorizedException();
     }
 
+    // If the JWT is for role: manager, skip the rest of the validation
+    if (jwt.role == Role.manager) {
+      return true;
+    }
+
+    // Check that there is an associated registered user
     if (!jwt.email) {
       SentryService.log('warning', `Auth failed: JWT body is missing the email`, this.logger);
       return false;

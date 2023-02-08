@@ -98,7 +98,11 @@ export class AuthController {
     summary: `Remove the the given user from the list of authenticated users`,
   })
   async logout(@JwtInfo() jwt: IJwtInfo) {
-    this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
+    if (jwt.payload.role == Role.manager) {
+      this.logger.verbose(`Logging out manager user`);
+    } else {
+      this.logger.verbose(`Logging out user ${jwt.payload.userId}`);
+    }
     this.authService.logout(jwt.token);
   }
 
