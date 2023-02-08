@@ -99,11 +99,7 @@ export class AuthController {
     try {
       const result = await this.authService.sendResetPasswordEmail(body.email);
       if (result) {
-        SentryService.log(
-          'info',
-          `Reset password email has been sent to ${body.email}`,
-          this.logger
-        );
+        SentryService.log('info', `Reset password email sent to ${body.email}`, this.logger);
       } else {
         SentryService.log(
           'warning',
