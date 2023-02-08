@@ -1,59 +1,42 @@
 <form [formGroup]="createAnnouncementForm">
-  <div class="flex-container">
-    <div class="flex-child">
-      <div class="center">
-        <mat-icon class="icon-display">cloud_upload</mat-icon>
-        <h2>Upload Files</h2>
-        <h4>Must be png, jpg or mp4</h4>
-        <div class="drag-and-drop-box">
-          <p>Drag and drop your file(s) here or</p>
-          <p><a href="">Browse here</a></p>
-        </div>
+  <h1>Add Announcement</h1>
+  <hr />
+
+  <mat-form-field class="full-width" autocomplete="off">
+    <mat-label>Title</mat-label>
+    <input #title type="text" matInput class="setBackground" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Description</mat-label>
+    <input #description type="text" matInput class="large setBackground topText" />
+  </mat-form-field>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Show from</mat-label>
+      <input onclick="this.showPicker()" matInput type="datetime-local" class="setBackground" />
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>Show to</mat-label>
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
+        placeholder="Show to"
+        class="setBackground"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Add Announcement</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>
-    </div>
-    <div class="flex-child">
-      <h1>Add Announcement</h1>
-      <hr />
-
-      <mat-form-field class="full-width" autocomplete="off">
-        <mat-label>Title</mat-label>
-        <input #title type="text" matInput class="setBackground" />
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <mat-label>Description</mat-label>
-        <input #description type="text" matInput class="large setBackground topText" />
-      </mat-form-field>
-
-      <div class="dialog-row">
-        <mat-form-field autocomplete="off">
-          <mat-label>Show from</mat-label>
-          <input onclick="this.showPicker()" matInput type="datetime-local" class="setBackground" />
-        </mat-form-field>
-
-        <mat-form-field autocomplete="off">
-          <mat-label>Show to</mat-label>
-          <input
-            onclick="this.showPicker()"
-            matInput
-            type="datetime-local"
-            placeholder="Show to"
-            class="setBackground"
-          />
-        </mat-form-field>
-      </div>
-
-      <div class="dialog-row">
-        <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">
-          Cancel
-        </button>
-        <button class="action-btn" mat-raised-button type="submit">
-          <div *ngIf="!isLoading">Add Announcement</div>
-          <div *ngIf="isLoading" class="btn-spinner">
-            <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
-          </div>
-        </button>
-      </div>
-    </div>
+    </button>
   </div>
 </form>

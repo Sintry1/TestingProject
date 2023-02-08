@@ -15,8 +15,7 @@ export class UpdateAnnouncementDialogComponent {
   @ViewChild('comments') commentInput!: ElementRef;
   @ViewChild('showFrom') showFromInput!: ElementRef;
   @ViewChild('showTo') showToInput!: ElementRef;
-  @ViewChild('showFor') showForInput!: ElementRef;
-  @ViewChild('images') images!: ElementRef;
+  @ViewChild('files') files!: ElementRef;
 
   constructor(private dialog: MatDialog) {}
 }

@@ -12,20 +12,17 @@ import { IAnnouncement, AnnouncementStatus } from '@omnihost/interfaces';
 export class AnnouncementsComponent {
   displayDate = new Date();
   isLoading = false;
-  displayedColumns: string[] = ['title', 'comments', 'showFrom', 'showTo', 'images', 'status'];
+  displayedColumns: string[] = ['title', 'comments', 'showFrom', 'showTo', 'files'];
   displayAnnouncementList: IAnnouncement[] = [];
   showFuture = !true;
   showActive = true;
   showExpired = !true;
   announcementList: IAnnouncement[] = [];
 
-  announcementColumns = ['title', 'comment', 'showFrom', 'showTo', 'images', 'status'];
-
   constructor(private dialog: MatDialog) {
     this.displayAnnouncementList = this.announcementList.filter(
       (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE
     );
-    this.showActive = true;
   }
 
   createAnnouncement(): void {
