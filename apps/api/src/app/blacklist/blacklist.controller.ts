@@ -134,7 +134,7 @@ export class BlacklistController {
   @Patch(':blacklistId/files/remove')
   @Roles(Role.manager)
   @ApiOperation({
-    summary: 'Remove files from a blacklist.',
+    summary: 'Remove files from an blacklist.',
   })
   @ApiOkResponse({ type: Blacklist })
   @HttpCode(200)

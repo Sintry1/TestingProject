@@ -102,10 +102,9 @@ export class BlacklistService {
 
   async updateBlacklistFiles(blacklistId: string, files: Express.Multer.File[]) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
-
-    if (blacklist.files.length + files.length > 20) {
+    if (blacklist.files.length + files.length > 5) {
       return new BadRequestException(
-        `File size limit surpassed. A blacklist entry can have a maximum of 20 files. It currently has ${blacklist.files.length}`
+        `File size limit surpassed. An blacklist can have a maximum of 20 files. It currently has ${blacklist.files.length}`
       );
     }
 
@@ -119,7 +118,7 @@ export class BlacklistService {
       }
     } catch (error) {
       throw new HttpException(
-        'Failed to upload the file. Please try again later.',
+        'Failed to upload the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
