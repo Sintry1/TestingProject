@@ -10,11 +10,7 @@ import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
   selector: 'frontend-create-bike-dialog',
   templateUrl: './create-bike-dialog.component.html',
-  styleUrls: [
-    '../../../../assets/styles/dialog.scss',
-    '../../../../assets/styles/checkbox.scss',
-    '../../../../assets/styles/file-upload.scss',
-  ],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class CreateBikeDialogComponent {
   createBikeForm: UntypedFormGroup;

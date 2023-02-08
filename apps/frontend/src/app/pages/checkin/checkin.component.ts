@@ -62,6 +62,7 @@ export class CheckinComponent implements OnInit {
         next: (luggage) => {
           this.checkinLuggage = orderByCompletedStatus(luggage);
           this.isLoading = false;
+          this.openCheckinEditDialog(this.checkinLuggage[0]);
         },
         error: (error) => {
           this.isLoading = false;
@@ -82,7 +83,7 @@ export class CheckinComponent implements OnInit {
 
   openCheckinEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       data: luggage,
     });
   }

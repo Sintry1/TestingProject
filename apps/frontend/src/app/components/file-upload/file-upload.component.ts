@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'frontend-file-upload',
@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class FileUploadComponent {
   allowedFileFormats = ['png', 'jpg', 'mp4'];
 
-  selectedFiles: File[] = [];
+  @Output() filesChangedEvent = new EventEmitter();
+
+  private _selectedFiles: File[] = [];
   maxFileSize = 20971520; // in bytes
   isLoading = false;
 
@@ -17,7 +19,7 @@ export class FileUploadComponent {
   }
 
   /**
-   * Sets the uploaded files to a variable. Does not send them to the API yet
+   * Sets the uploaded files to a variable. Does not send them to the API yet.
    * @param $event
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -110,5 +112,14 @@ export class FileUploadComponent {
     } else {
       return (size / 1000).toFixed(0) + 'KB';
     }
+  }
+
+  // Getters and Setters
+  public get selectedFiles(): File[] {
+    return this._selectedFiles;
+  }
+  public set selectedFiles(files: File[]) {
+    this._selectedFiles = files;
+    this.filesChangedEvent.emit({ files: this.selectedFiles });
   }
 }

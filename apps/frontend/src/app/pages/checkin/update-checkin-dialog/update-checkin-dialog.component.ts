@@ -12,7 +12,10 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
 @Component({
   selector: 'frontend-update-checkin-dialog',
   templateUrl: './update-checkin-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
+  styleUrls: [
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class UpdateCheckinDialogComponent {
   form: UntypedFormGroup;
@@ -116,5 +119,9 @@ export class UpdateCheckinDialogComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  updateSelectedFiles(data: { files: File[] }) {
+    console.log('updated files', data);
   }
 }
