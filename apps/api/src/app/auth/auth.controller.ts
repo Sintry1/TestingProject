@@ -15,6 +15,8 @@ import {
 import { ApiOkResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {
   ForgotPasswordRequest,
+  GetManagerAccessRequest,
+  GetManagerAccessResponse,
   IJwtInfo,
   LoginRequest,
   LoginResponse,
@@ -49,6 +51,17 @@ export class AuthController {
       }`
     );
     return this.authService.login(req.user);
+  }
+
+  @Post('get-manager-access')
+  @ApiOperation({
+    summary: `Get the manager access token`,
+  })
+  @ApiOkResponse({ type: GetManagerAccessResponse })
+  @HttpCode(200)
+  async getManagerAccess(@Body() request: GetManagerAccessRequest) {
+    this.logger.verbose(`Manager access requested`);
+    return this.authService.getManagerAccess(request.password);
   }
 
   // Commented out signup endpoint since we right now don't offer an ability to sign up

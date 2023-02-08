@@ -21,6 +21,13 @@ export class LoginRequest implements ILoginRequest {
   password!: string;
 }
 
+export class GetManagerAccessRequest {
+  @ApiModelProperty()
+  @IsNotEmpty()
+  @MaxLength(120)
+  password!: string;
+}
+
 export class SignupRequest implements ISignupRequest {
   @ApiModelProperty({ example: 'user@example.com' })
   @IsNotEmpty()
@@ -56,5 +63,17 @@ export class LoginResponse implements ILoginResponse {
   accessToken!: string;
 
   @ApiModelProperty({ type: 'enum', enum: Object.keys(Role) })
+  role!: Role;
+}
+
+export class GetManagerAccessResponse {
+  @ApiModelProperty({
+    description: 'JWT access token',
+    example:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwic3ViIjoiYjIzZDA2YmYtMzhmNi00Njk1LTkzNjEtMTE5YTVjMWU3ODQ5IiwiaWF0IjoxNjUwNDk3MTc3LCJleHAiOjE2NTA1ODM1Nzd9.xQy16DAl1zlszQdCQZEbNoadOOdxtAAegShlkd2PF-I',
+  })
+  accessToken!: string;
+
+  @ApiModelProperty({ type: 'enum', enum: Object.keys(Role), example: Role.manager })
   role!: Role;
 }
