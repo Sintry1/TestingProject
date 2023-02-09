@@ -69,6 +69,7 @@ export class DocumentsService {
     return await this.documentRepo.save({
       ...documentData,
       documentName: document.originalname,
+      lastViewedAt: new Date(),
     });
   }
 
@@ -125,7 +126,7 @@ export class DocumentsService {
         return {
           createdAt: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       case DocumentSortOptions.LAST_VIEWED_AT:
@@ -139,14 +140,14 @@ export class DocumentsService {
         return {
           showOnDashboard: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       case DocumentSortOptions.TITLE:
         return {
           title: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       default:

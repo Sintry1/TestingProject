@@ -9,6 +9,7 @@ import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { IJwtPayload, Role } from '@omnihost/interfaces';
 import { UsersService } from '../users/users.service';
+import { SentryService } from '../utils/sentry.service';
 import { ROLES_KEY } from './roles.decorator';
 
 @Injectable()
@@ -33,7 +34,7 @@ export class RolesGuard implements CanActivate {
 
     // validate that the request contains the jwt access token
     if (!headers || !headers.authorization) {
-      this.logger.warn(`Auth failed: request is missing the access token`);
+      SentryService.log('warning', `Auth failed: request is missing the access token`, this.logger);
       throw new UnauthorizedException();
     }
 
@@ -42,26 +43,29 @@ export class RolesGuard implements CanActivate {
 
     // validate that the token contains an email
     if (!jwt) {
-      this.logger.warn(`Auth failed: invalid or missing JWT`);
+      SentryService.log('warning', `Auth failed: invalid or missing JWT`, this.logger);
       throw new UnauthorizedException();
     }
 
     if (!jwt.email) {
-      this.logger.warn(`Auth failed: jwt body is missing the email`);
+      SentryService.log('warning', `Auth failed: JWT body is missing the email`, this.logger);
       return false;
     }
 
     // fetch a user based on the email and check their role
     const user = await this.usersService.findOne(jwt.email);
     if (!user) {
-      this.logger.warn(`Auth failed: user doesn't exist`);
+      SentryService.log('warning', `Auth failed: user doesn't exist`, this.logger);
       return false;
     }
     if (requiredRoles.some((role) => user.role?.includes(role))) {
       return true;
     }
-    this.logger.warn(
-      `Auth failed: user does not have one of the required roles: [${requiredRoles}]. User role: '${user.role}'`
+    SentryService.log(
+      'warning',
+      `Auth failed: user does not have one of the required roles`,
+      this.logger,
+      { requiredRoles, providedRole: user.role }
     );
     return false;
   }

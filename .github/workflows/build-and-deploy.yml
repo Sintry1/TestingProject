@@ -1,0 +1,205 @@
+# Build Docker images and deploy them in the target environment.
+# Takes in various inputs to specify deployment details.
+# On pushes to the production branch, all of the apps are redeployed.
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - production
+  workflow_dispatch:
+    inputs:
+      deployApi:
+        type: boolean
+        description: Deploy the API app
+        default: true
+      deployFrontend:
+        type: boolean
+        description: Deploy the Frontend app
+        default: true
+      deployTunnel:
+        type: boolean
+        description: Deploy the Tunnel app
+        default: true
+      environment:
+        type: choice
+        description: Which environment to deploy to
+        options:
+          - test
+          - staging
+          - demo
+
+jobs:
+  # Log the workflow dispatch inputs for improved tracking and debugging
+  log-inputs:
+    name: Log workflow inputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log inputs
+        run: |
+          echo "Branch - $GITHUB_REF"
+          echo "Environment - ${{ inputs.environment }}"
+          echo "DeployApi - ${{ inputs.deployApi }}"
+          echo "DeployFrontend - ${{ inputs.deployFrontend }}"
+          echo "DeployTunnel - ${{ inputs.deployTunnel }}"
+
+  # ========================================================
+  # Configure the variables needed to perform the deployment
+  setup:
+    name: Setup variables
+    runs-on: ubuntu-latest
+    outputs:
+      hostname: ${{ steps.set-hostname.outputs.hostname }}
+    steps:
+      - name: Set hostname variable based on environment
+        id: set-hostname
+        run: |
+          if [ ${{ github.ref }} == 'refs/heads/production' ]; then
+            echo "Is production branch"
+            echo "hostname=dangleterre.omnihost.app" >> $GITHUB_OUTPUT
+          else
+            echo "Is not production branch"
+            echo "hostname=${{inputs.environment}}.dangleterre.omnihost.app" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
+  # ============================
+  # Build and deploy the API app
+  api:
+    name: Deploy API
+    if: ${{ inputs.deployApi }} || $GITHUB_REF##*/ == *"production"*
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/deployment.key
+          chmod 600 ~/.ssh/deployment.key
+          cat >>~/.ssh/config <<END
+          Host deployment
+            HostName $SSH_HOST
+            User $SSH_USERNAME
+            IdentityFile ~/.ssh/deployment.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ needs.setup.outputs.hostname }}
+
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the API image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build api --no-cache
+
+      - name: Push the API image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push api
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Api deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull api && docker compose up api -d'
+
+  # =================================
+  # Build and deploy the Frontend app
+  frontend:
+    name: Deploy Frontend
+    if: ${{ inputs.deployFrontend }} || $GITHUB_REF##*/ == *"production"*
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/deployment.key
+          chmod 600 ~/.ssh/deployment.key
+          cat >>~/.ssh/config <<END
+          Host deployment
+            HostName $SSH_HOST
+            User $SSH_USERNAME
+            IdentityFile ~/.ssh/deployment.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ needs.setup.outputs.hostname }}
+
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the Frontend image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build frontend --no-cache
+
+      - name: Push the Frontend image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push frontend
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Frontend deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull frontend && docker compose up frontend -d'
+
+  # ======================================
+  # Build and deploy the Sentry Tunnel app
+  tunnel:
+    name: Deploy Sentry Tunnel
+    if: ${{ inputs.deployTunnel }} || $GITHUB_REF##*/ == *"production"*
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/deployment.key
+          chmod 600 ~/.ssh/deployment.key
+          cat >>~/.ssh/config <<END
+          Host deployment
+            HostName $SSH_HOST
+            User $SSH_USERNAME
+            IdentityFile ~/.ssh/deployment.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ needs.setup.outputs.hostname }}
+
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build the Sentry Tunnel image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose build sentry-tunnel --no-cache
+
+      - name: Push the Sentry Tunnel image
+        env: DEPLOYMENT_ENV=${{ inputs.environment }}
+        shell: bash
+        run: docker-compose push sentry-tunnel
+
+      - name: SSH into the server, checkout the updated repository, pull and deploy the changes
+        run: ssh deployment 'date >> log && echo "Sentry tunnel deployment triggered" >> log && cd hotel-dangleterre && git reset --hard && git checkout ${{ github.ref }} && docker compose pull sentry-tunnel && docker compose up sentry-tunnel -d'

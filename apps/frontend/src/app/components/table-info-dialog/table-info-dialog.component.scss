@@ -1,10 +1,20 @@
-strong {
-  font: 400 18px Roboto, 'Helvetica Neue', sans-serif;
-}
-p {
-  margin: 5px 10px 10px 15px;
-}
+.info-table {
+  border-spacing: 0;
+  width: 100%;
 
-.dialog-container.table-info {
-  width: 466px;
+  tr.header {
+    background-color: rgba(47, 47, 162, 1);
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 8px;
+
+    &.name {
+      background-color: rgb(244, 244, 244);
+    }
+  }
 }

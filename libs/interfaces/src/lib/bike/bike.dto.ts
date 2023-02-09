@@ -7,20 +7,20 @@ export class CreateBikeRequest implements ICreateBikeRequest {
   @IsOptional()
   nrOfBikes?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date | null;
 
-  @ApiModelProperty({ example: 'Teodor' })
+  @ApiModelProperty({ example: 'Larsen' })
   @IsOptional()
   name?: string;
 
-  @ApiModelProperty({ example: '132' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: 'Guest' })
+  @ApiModelProperty({ example: 'Reception' })
   @IsOptional()
   reservedBy?: string;
 
@@ -28,11 +28,11 @@ export class CreateBikeRequest implements ICreateBikeRequest {
   @IsOptional()
   bikeFormCompleted?: boolean;
 
-  @ApiModelProperty({ example: 'glossy bike' })
+  @ApiModelProperty({ example: 'E-Bike' })
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date | null;
@@ -43,20 +43,20 @@ export class UpdateBikeRequest implements IUpdateBikeRequest {
   @IsOptional()
   nrOfBikes?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   pickUpTime?: Date | null;
 
-  @ApiModelProperty({ example: 'Teodor' })
+  @ApiModelProperty({ example: 'Larsen' })
   @IsOptional()
   name?: string;
 
-  @ApiModelProperty({ example: '132' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: 'Guest' })
+  @ApiModelProperty({ example: 'Reception' })
   @IsOptional()
   reservedBy?: string;
 
@@ -64,11 +64,11 @@ export class UpdateBikeRequest implements IUpdateBikeRequest {
   @IsOptional()
   bikeFormCompleted?: boolean;
 
-  @ApiModelProperty({ example: 'glossy bike' })
+  @ApiModelProperty({ example: 'E-Bike' })
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date | null;

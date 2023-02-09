@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DocumentSortOptions, IDocument, SortOrder } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { DocumentsService } from '../../services/documents.service';
+import { SentryService } from '../../services/sentry.service';
 import { CreateDocumentDialogComponent } from './create-document-dialog/create-document-dialog.component';
 
 @Component({
@@ -37,7 +38,7 @@ export class DocumentsComponent implements OnInit {
         this.isLoading = false;
       },
       error: (error) => {
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open('Documents have failed to load', 'Okay', {
           duration: 10000,
         });

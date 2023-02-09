@@ -4,6 +4,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { configService } from '../config/config.service';
+import { SentryService } from '../utils/sentry.service';
 
 @Injectable()
 export class FilesService {
@@ -21,9 +22,9 @@ export class FilesService {
     fileName: string,
     expiresIn: number
   ): Promise<{ url: string; exists: boolean }> {
-    const accessKey = configService.getValue('LINODE_PERSONAL_TOKEN', true);
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_PERSONAL_TOKEN', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
 
     const { data } = await firstValueFrom(
       this.httpService
@@ -38,7 +39,12 @@ export class FilesService {
         )
         .pipe(
           catchError((error: AxiosError) => {
-            this.logger.error('Failed to get the signed url from Linode', error.response.data);
+            SentryService.log(
+              'error',
+              'Failed to get the signed url from Linode',
+              this.logger,
+              error.response.data
+            );
             throw new Error('Failed to get the signed url from Linode');
           })
         )
@@ -58,10 +64,10 @@ export class FilesService {
    * @throws InvalidAccessKeyIdError | UploadFailedError
    */
   async uploadFile(dataBuffer: Buffer, filename: string): Promise<{ url: string }> {
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = configService.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = configService.getValue('LINODE_STORAGE_SECRET_KEY', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+    const secretKey = configService.getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
     try {
       const s3 = new S3Client({
@@ -87,7 +93,12 @@ export class FilesService {
         return this.getSignedLink(filename, 600);
       }
     } catch (error) {
-      this.logger.error('Failed to upload a file to Linode Object storage', error);
+      SentryService.log(
+        'error',
+        'Failed to upload a file to Linode Object storage',
+        this.logger,
+        error
+      );
       if (error.name === 'InvalidAccessKeyId') {
         throw new Error('InvalidAccessKeyIdError');
       } else {
@@ -103,10 +114,10 @@ export class FilesService {
    * @throws InvalidAccessKeyIdError | DeleteFailedError
    */
   async deleteFile(filename: string): Promise<boolean> {
-    const clusterId = configService.getValue('LINODE_STORAGE_CLUSTER_ID', true);
-    const bucketId = configService.getValue('LINODE_STORAGE_BUCKET_ID', true);
-    const accessKey = configService.getValue('LINODE_STORAGE_ACCESS_KEY', true);
-    const secretKey = configService.getValue('LINODE_STORAGE_SECRET_KEY', true);
+    const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
+    const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    const accessKey = configService.getValue('API_LINODE_STORAGE_ACCESS_KEY', true);
+    const secretKey = configService.getValue('API_LINODE_STORAGE_SECRET_KEY', true);
 
     try {
       const s3 = new S3Client({
@@ -126,7 +137,12 @@ export class FilesService {
       this.logger.verbose(`File deleted from linode storage. Filename: ${filename}`);
       return true;
     } catch (error) {
-      this.logger.error('Failed to delete a file from Linode Object storage', error);
+      SentryService.log(
+        'error',
+        'Failed to delete a file from Linode Object storage',
+        this.logger,
+        error
+      );
       if (error.name === 'InvalidAccessKeyId') {
         throw new Error('InvalidAccessKeyIdError');
       } else {

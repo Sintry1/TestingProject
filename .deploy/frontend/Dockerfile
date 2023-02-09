@@ -11,14 +11,18 @@ COPY package.json ./
 
 COPY . .
 
+# Remove the unnecessary Nestjs dependencies
+RUN sed -i '/nestjs/d' package.json
+
 # Install python because Mac M1 seems to be missing it
 RUN apk --no-cache add --virtual .builds-deps build-base python3
 # Run npm install inside container
 RUN npm install --legacy-peer-deps --omit=dev
-RUN npm install typescript
+# Install the dependencies that are needed to Angular
+RUN npm install typescript @nestjs/swagger
 
 # Execute this command in the docker container
-RUN npm run build:omnihost
+RUN npx nx build frontend --configuration=production
 
 ###### Build container END
 

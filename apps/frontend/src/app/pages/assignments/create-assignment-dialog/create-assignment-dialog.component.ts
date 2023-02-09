@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AssignmentsService } from '../../../services/assignments.service';
+import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import {
   bbAssignmentRequestedBy,
@@ -94,8 +95,8 @@ export class CreateAssignmentDialogComponent implements OnInit {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to add assignment, please try again.', 'Okay', {
             duration: 10000,
           });

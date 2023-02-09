@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as Sentry from '@sentry/angular';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboard-widgets/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboard-widgets/dashboard-links/dashboard-links.component';
@@ -43,6 +43,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
+import { SentryService } from './services/sentry.service';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,14 @@ import { BlacklistComponent } from './pages/blacklist/blacklist.component';
   providers: [
     authInterceptorProviders,
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+    SentryService,
+    {
+      provide: ErrorHandler,
+      useValue: Sentry.createErrorHandler({
+        showDialog: false,
+        logErrors: true,
+      }),
+    },
   ],
   bootstrap: [AppComponent],
 })

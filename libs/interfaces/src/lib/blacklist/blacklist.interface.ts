@@ -5,7 +5,7 @@ export interface IBlacklist extends ICompletedAt {
   name?: string;
   comments?: string;
   expiresAt?: Date;
-  files?: File[];
+  files?: string[];
 }
 
 export interface ICreateBlacklistRequest {
@@ -19,9 +19,9 @@ export interface IUpdateBlacklistRequest {
   name?: string;
   comments?: string;
   expiresAt?: Date;
-  files?: string[];
+  file?: string[];
 }
 
 export interface IGetBlacklistByIdResponse extends IBlacklist {
-  downloadUrl: string;
+  downloadUrls: string[];
 }

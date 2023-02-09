@@ -5,6 +5,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
 import { BikeService } from '../../../services/bikes.service';
+import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bikeListReserved } from '../../../utils/dropdown-selection';
 @Component({
@@ -91,8 +92,8 @@ export class UpdateBikeDialogComponent {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackbar.open('Failed to update, please try again.', 'Okay', {
             duration: 15000,
           });

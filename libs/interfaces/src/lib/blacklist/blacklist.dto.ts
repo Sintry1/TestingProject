@@ -13,19 +13,16 @@ export class GetBlacklistResponse extends CompletedAtResponse implements IBlackl
   blacklistId!: string;
 
   @ApiModelProperty({ example: 'Dominic Smith' })
-  name?: string;
+  name!: string;
 
   @ApiModelProperty({ example: 'Abusive to staff.' })
-  comments?: string;
+  comments!: string;
 
   @ApiModelProperty({ example: new Date() })
-  expiresAt?: Date;
+  expiresAt!: Date;
 
-  @ApiModelProperty({ example: 'dominicSmith.jpg' })
-  files?: File[];
-
-  @ApiModelProperty({ example: 'declarationOfIndepenence.pdf' })
-  documentName!: string;
+  @ApiModelProperty({ example: ['dominicSmith.jpg', 'customerImage.png'] })
+  files!: string[];
 }
 export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   @ApiModelProperty({ example: 'Dominic Smith' })
@@ -41,9 +38,9 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   @IsOptional()
   expiresAt?: Date;
 
-  @ApiModelProperty({ example: 'dominicSmith.jpg' })
+  @ApiModelProperty({ type:'array', items: {type: 'string', format: 'binary'}, required: true })
   @IsOptional()
-  files?: string[];
+  files?: any = [];
 }
 
 export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
@@ -60,9 +57,9 @@ export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
   @IsOptional()
   expiresAt?: Date;
 
-  @ApiModelProperty({ example: 'dominicSmith.jpg ' })
+  @ApiModelProperty({ type:'array', items: {type: 'string', format: 'binary'}, required: true })
   @IsOptional()
-  files?: string[];
+  file?: any = [];
 }
 
 export class DeleteBlacklistResponse {
@@ -78,5 +75,5 @@ export class GetBlacklistByIdResponse
     example:
       'https://eu-central-1.linodeobjects.com:443/omnihost/21234.pdf?Signature=XEiYEET1C4T3I25s0I5K1IOH%2Co%3X&Expires=1670271241&AWSAccessKeyId=123456789EAEA',
   })
-  downloadUrl!: string;
+  downloadUrls!: string[];
 }

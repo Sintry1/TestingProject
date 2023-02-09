@@ -5,6 +5,7 @@ import { IAssignment, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { AssignmentsService } from '../../services/assignments.service';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateAssignmentDialogComponent } from './create-assignment-dialog/create-assignment-dialog.component';
 import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/update-assignment-dialog.component';
@@ -55,7 +56,7 @@ export class AssignmentsComponent implements OnInit {
       },
       error: (error) => {
         this.isLoading = false;
-        console.error(error);
+        SentryService.logError(error);
         this.snackBar.open(
           'Assignment data have failed to load, please try reloading the page.',
           'Okay',

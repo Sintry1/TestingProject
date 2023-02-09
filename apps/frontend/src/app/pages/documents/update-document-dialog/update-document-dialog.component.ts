@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -6,6 +7,7 @@ import { IDocument, IUpdateDocumentRequest } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 import { AuthService } from '../../../services/auth.service';
 import { DocumentsService } from '../../../services/documents.service';
+import { SentryService } from '../../../services/sentry.service';
 
 @Component({
   selector: 'frontend-update-document-dialog',
@@ -126,8 +128,8 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to delete document, please try again.', 'Okay', {
             duration: 15000,
           });
@@ -165,8 +167,8 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
               duration: 5000,
             });
           },
-          error: (err) => {
-            console.error(err);
+          error: (error: HttpErrorResponse) => {
+            SentryService.logError(error);
             this.snackBar.open('Failed to update document file, please try again.', 'Okay', {
               duration: 10000,
             });
@@ -191,8 +193,8 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
         this.dialog.closeAll();
         this.isLoading = false;
       },
-      error: (err) => {
-        console.error(err);
+      error: (error: HttpErrorResponse) => {
+        SentryService.logError(error);
         this.snackBar.open('Failed to update document information, please try again.', 'Okay', {
           duration: 15000,
         });

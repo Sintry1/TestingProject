@@ -5,6 +5,7 @@ import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omni
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
+import { SentryService } from '../../services/sentry.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
 import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
@@ -64,7 +65,7 @@ export class CheckoutComponent implements OnInit {
         },
         error: (error) => {
           this.isLoading = false;
-          console.error(error);
+          SentryService.logError(error);
           this.snackBar.open(
             'Check Out data have failed to load, please reload the page.',
             'Okay',

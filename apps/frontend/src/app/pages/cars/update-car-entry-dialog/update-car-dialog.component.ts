@@ -5,6 +5,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
+import { SentryService } from '../../../services/sentry.service';
 import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
 
@@ -131,8 +132,8 @@ export class UpdateCarDialogComponent {
           this.dialog.closeAll();
           this.isLoading = false;
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 15000,
           });
