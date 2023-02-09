@@ -44,6 +44,7 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
+import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SentryService } from './services/sentry.service';
     AssignmentsComponent,
     BikesComponent,
     BlacklistComponent,
+    BlacklistWidgetComponent,
     LongtermComponent,
     UpdateCheckinDialogComponent,
     CreateCheckinDialogComponent,
