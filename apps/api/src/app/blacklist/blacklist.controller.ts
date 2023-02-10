@@ -45,19 +45,6 @@ const FILE_TYPES = /(png|jpg|jpeg)\b/;
 export class BlacklistController {
   constructor(private blacklistService: BlacklistService, private filesService: FilesService) {}
 
-  // @Post()
-  // @ApiOperation({
-  //   summary: 'Create a blacklist entry.',
-  // })
-  // @ApiCreatedResponse({ type: Blacklist })
-  // @HttpCode(201)
-  // async createBlacklist(
-  //   @UploadedFiles() files: Array<Express.Multer.File>,
-  //   @Body() blacklistData: CreateBlacklistRequest
-  // ) {
-  //   return this.blacklistService.createBlacklist(blacklistData, files || []);
-  // }
-
   @Post()
   @Roles(Role.manager)
   @ApiOperation({
@@ -107,7 +94,10 @@ export class BlacklistController {
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   async getBlacklistById(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
-    return await this.blacklistService.fetchBlacklistbyId(blacklistId);
+    const blacklist = await this.blacklistService.findById(blacklistId);
+    const signedUrls = await this.blacklistService.getFilesLink(blacklist.files);
+
+    return { ...blacklist, downloadUrls: signedUrls };
   }
 
   @Patch(':blacklistId')

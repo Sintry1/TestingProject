@@ -34,8 +34,8 @@ export class BlacklistWidgetComponent {
     return this.blacklist.name;
   }
 
-  // displayDate() {
-  //   return this.blacklist.expiresAt.
-  // }
+  displayPictures() {
+    return this.blacklist.files;
+  }
 
 }

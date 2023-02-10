@@ -41,7 +41,7 @@ export class BlacklistComponent implements OnInit {
       },
       error: (error) => {
         console.error(error);
-        this.snackBar.open('Blacklist have failed to load', 'Okay', {
+        this.snackBar.open('Blacklist has failed to load', 'Okay', {
           duration: 10000,
         });
         this.isLoading = false;

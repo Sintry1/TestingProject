@@ -6,7 +6,6 @@
 
   <section class="blacklist-container" *ngIf="!isLoading">
     <frontend-blacklist-widget
-      class="blacklist-widget-wrapper"
       [blacklist]="blacklist"
       *ngFor="let blacklist of blacklistList"
     >

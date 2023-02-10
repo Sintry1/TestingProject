@@ -1,4 +1,8 @@
 <div class="blacklist-widget-container">
+  <div class="image-container">
+      <img *ngFor="let file of blacklist.files; let i = index" [src]="displayPictures()"
+        [ngClass]="{'hidden': i >=2 }" class="image">
+  </div>
   <div class="text-container">
     <div class="name-container">
         <h2>{{ displayName() }}</h2>

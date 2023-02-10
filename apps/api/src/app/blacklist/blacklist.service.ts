@@ -19,7 +19,7 @@ export class BlacklistService {
     return await this.blacklistRepo.find();
   }
 
-  async fetchBlacklistbyId(blacklistId) {
+  async findById(blacklistId: string) {
     return await this.blacklistRepo.findOneByOrFail({ blacklistId });
   }
 
