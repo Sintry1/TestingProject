@@ -22,15 +22,10 @@
           {{ task }}
         </mat-option>
       </mat-autocomplete>
-      <!-- <mat-select formControlName="task">
-        <mat-option *ngFor="let task of bbAssignmentTask" [value]="task">
-          {{ task }}
-        </mat-option>
-      </mat-select> -->
       <mat-error
         *ngIf="createAssignmentForm.get('task')?.invalid && createAssignmentForm.get('task')?.dirty"
       >
-        Can't be more than 20 characters
+        Has to one of the presented values
       </mat-error>
     </mat-form-field>
   </div>

@@ -45,7 +45,11 @@ export class CreateAssignmentDialogComponent implements OnInit {
   ngOnInit(): void {
     this.createAssignmentForm = new UntypedFormGroup({
       room: new UntypedFormControl('', [Validators.maxLength(50), Validators.pattern('^[0-9]*$')]),
-      task: new UntypedFormControl('', Validators.maxLength(20)),
+      task: new UntypedFormControl(
+        '',
+        Validators.maxLength(20),
+        valueInArrayValidator(this.bbAssignmentTask)
+      ),
       requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
       requestedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
