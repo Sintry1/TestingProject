@@ -38,7 +38,7 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   @IsOptional()
   expiresAt?: Date;
 
-  @ApiModelProperty({ type:'array', items: {type: 'string', format: 'binary'}, required: true })
+  @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
   files?: any = [];
 }
@@ -57,7 +57,7 @@ export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
   @IsOptional()
   expiresAt?: Date;
 
-  @ApiModelProperty({ type:'array', items: {type: 'string', format: 'binary'}, required: true })
+  @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
   file?: any = [];
 }

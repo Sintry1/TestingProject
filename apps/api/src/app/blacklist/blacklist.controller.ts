@@ -5,14 +5,12 @@ import {
   Delete,
   Get,
   HttpCode,
-  HttpStatus,
   Param,
-  ParseFilePipeBuilder,
   ParseUUIDPipe,
   Patch,
   Post,
   UploadedFiles,
-  UseInterceptors,
+  UseInterceptors
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
@@ -22,13 +20,13 @@ import {
   ApiOkResponse,
   ApiOperation,
   ApiResponse,
-  ApiTags,
+  ApiTags
 } from '@nestjs/swagger';
 import {
   CreateBlacklistRequest,
   DeleteBlacklistResponse,
   Role,
-  UpdateBlacklistRequest,
+  UpdateBlacklistRequest
 } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
@@ -44,19 +42,6 @@ const FILE_TYPES = /(png|jpg|jpeg)\b/;
 @Roles(Role.user, Role.manager)
 export class BlacklistController {
   constructor(private blacklistService: BlacklistService, private filesService: FilesService) {}
-
-  // @Post()
-  // @ApiOperation({
-  //   summary: 'Create a blacklist entry.',
-  // })
-  // @ApiCreatedResponse({ type: Blacklist })
-  // @HttpCode(201)
-  // async createBlacklist(
-  //   @UploadedFiles() files: Array<Express.Multer.File>,
-  //   @Body() blacklistData: CreateBlacklistRequest
-  // ) {
-  //   return this.blacklistService.createBlacklist(blacklistData, files || []);
-  // }
 
   @Post()
   @Roles(Role.manager)
