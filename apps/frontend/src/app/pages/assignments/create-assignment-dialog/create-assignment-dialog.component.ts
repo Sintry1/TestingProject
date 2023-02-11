@@ -3,10 +3,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { map, Observable, startWith } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AssignmentsService } from '../../../services/assignments.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import {
   bbAssignmentRequestedBy,
   bbAssignmentTask,
@@ -24,7 +25,6 @@ export class CreateAssignmentDialogComponent implements OnInit {
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
   bbInitials = bellBoyInitials;
-  bbAssignmentTask = bbAssignmentTask;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   filteredTasks: Observable<string[]> = new Observable<string[]>();
 
@@ -48,7 +48,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
       task: new UntypedFormControl(
         '',
         Validators.maxLength(20),
-        valueInArrayValidator(this.bbAssignmentTask)
+        valueInArrayValidator(bbAssignmentTask)
       ),
       requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
@@ -60,22 +60,10 @@ export class CreateAssignmentDialogComponent implements OnInit {
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
 
-    this.filteredTasks =
-      this.createAssignmentForm.get('task')?.valueChanges.pipe(
-        startWith(''),
-        map((value) => {
-          const name = typeof value === 'string' ? value : value?.name;
-          return name
-            ? this._filter(name as string, this.bbAssignmentTask)
-            : this.bbAssignmentTask.slice();
-        })
-      ) || new Observable<string[]>();
-  }
-
-  private _filter(name: string, options: string[]): string[] {
-    const filterValue = name.toLowerCase();
-
-    return options.filter((option) => option.toLowerCase().includes(filterValue));
+    this.filteredTasks = filterAutocompleteSelect(
+      bbAssignmentTask,
+      this.createAssignmentForm.get('task')
+    );
   }
 
   onSubmit(): void {
