@@ -18,15 +18,11 @@
 
       <input #task matInput formControlName="task" [matAutocomplete]="auto" />
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let task of filteredTasks | async" [value]="task">
-          {{ task }}
+        <mat-option *ngFor="let option of filteredTasks | async" [value]="option">
+          {{ option }}
         </mat-option>
       </mat-autocomplete>
-      <mat-error
-        *ngIf="createAssignmentForm.get('task')?.invalid && createAssignmentForm.get('task')?.dirty"
-      >
-        Has to be one of the presented values
-      </mat-error>
+      <mat-error> Has to be one of the presented values </mat-error>
     </mat-form-field>
   </div>
 
