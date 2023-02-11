@@ -10,7 +10,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import {
   bbAssignmentRequestedBy,
-  bbAssignmentTask,
+  bbAssignmentTasks,
   bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
@@ -48,7 +48,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
       task: new UntypedFormControl(
         '',
         Validators.maxLength(20),
-        valueInArrayValidator(bbAssignmentTask)
+        valueInArrayValidator(bbAssignmentTasks)
       ),
       requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
       performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
@@ -61,7 +61,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
     });
 
     this.filteredTasks = filterAutocompleteSelect(
-      bbAssignmentTask,
+      bbAssignmentTasks,
       this.createAssignmentForm.get('task')
     );
   }

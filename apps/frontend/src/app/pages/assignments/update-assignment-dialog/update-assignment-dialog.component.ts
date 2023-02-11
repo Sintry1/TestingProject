@@ -9,7 +9,7 @@ import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import {
   bbAssignmentRequestedBy,
-  bbAssignmentTask,
+  bbAssignmentTasks,
   bellBoyInitials,
 } from '../../../utils/dropdown-selection';
 
@@ -23,7 +23,7 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   maxDatetime = new Date(new Date().getTime() + 50000);
 
   bbInitials = bellBoyInitials;
-  bbAssignmentTask = bbAssignmentTask;
+  bbAssignmentTasks = bbAssignmentTasks;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   isLoading = false;
 

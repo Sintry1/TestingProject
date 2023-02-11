@@ -16,7 +16,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Task</mat-label>
       <mat-select [(value)]="data.task" formControlName="task">
-        <mat-option *ngFor="let task of bbAssignmentTask" [value]="task">
+        <mat-option *ngFor="let task of bbAssignmentTasks" [value]="task">
           {{ task }}
         </mat-option>
       </mat-select>
