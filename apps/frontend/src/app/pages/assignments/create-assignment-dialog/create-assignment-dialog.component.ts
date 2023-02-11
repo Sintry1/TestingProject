@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { map, Observable, startWith } from 'rxjs';
 import { AssignmentsService } from '../../../services/assignments.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
@@ -11,6 +12,7 @@ import {
   bbAssignmentTask,
   bellBoyInitials,
 } from '../../../utils/dropdown-selection';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-create-assignment-dialog',
@@ -24,6 +26,7 @@ export class CreateAssignmentDialogComponent implements OnInit {
   bbInitials = bellBoyInitials;
   bbAssignmentTask = bbAssignmentTask;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
+  filteredTasks: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -52,6 +55,23 @@ export class CreateAssignmentDialogComponent implements OnInit {
       completedAt: new UntypedFormControl(''),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
+
+    this.filteredTasks =
+      this.createAssignmentForm.get('task')?.valueChanges.pipe(
+        startWith(''),
+        map((value) => {
+          const name = typeof value === 'string' ? value : value?.name;
+          return name
+            ? this._filter(name as string, this.bbAssignmentTask)
+            : this.bbAssignmentTask.slice();
+        })
+      ) || new Observable<string[]>();
+  }
+
+  private _filter(name: string, options: string[]): string[] {
+    const filterValue = name.toLowerCase();
+
+    return options.filter((option) => option.toLowerCase().includes(filterValue));
   }
 
   onSubmit(): void {
