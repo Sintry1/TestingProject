@@ -37,7 +37,13 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Number of bikes</mat-label>
-      <input #nrOfBikes type="number" formControlName="nrOfBikes" matInput placeholder="Number of bikes" />
+      <input
+        #nrOfBikes
+        type="number"
+        formControlName="nrOfBikes"
+        matInput
+        placeholder="Number of bikes"
+      />
       <mat-error
         *ngIf="createBikeForm.get('nrOfBikes')?.invalid && createBikeForm.get('nrOfBikes')?.dirty"
       >
