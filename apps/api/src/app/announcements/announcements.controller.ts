@@ -38,8 +38,6 @@ import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { validateFileType } from '../files/files.service';
 import { AnnouncementsService } from './announcements.service';
 
-const FILE_TYPES = /(pdf|docx|png|jpg|jpeg)\b/;
-
 @ApiTags('Announcements')
 @Controller('announcements')
 @ApiBearerAuth()
