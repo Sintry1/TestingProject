@@ -13,6 +13,7 @@ import {
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
   ApiConsumes,
@@ -25,19 +26,19 @@ import {
 import {
   CarSortOptions,
   CreateCarRequest,
+  GetCarByIdResponse,
   GetCarResponse,
   Role,
   SortOrder,
   UpdateCarRequest,
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
-import 'multer';
-import { FilesInterceptor } from '@nestjs/platform-express';
 
 const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
@@ -90,6 +91,18 @@ export class CarsController {
       sortBy,
       sortOrder
     );
+  }
+
+  @Get(':carId')
+  @ApiOperation({
+    summary: 'Get a car by id.',
+  })
+  @ApiOkResponse({ type: GetCarByIdResponse })
+  @HttpCode(200)
+  async getCarById(@Param('carId', ParseUUIDPipe) carId: string) {
+    const car = await this.carsService.findById(carId);
+    const signedUrls = await this.carsService.getFilesLink(car.files);
+    return { ...car, downloadUrls: signedUrls };
   }
 
   @Post()
@@ -194,10 +207,7 @@ export class CarsController {
   })
   @ApiOkResponse({ type: Car })
   @HttpCode(200)
-  async removeCarFiles(
-    @Param('carId', ParseUUIDPipe) carId: string,
-    @Body() fileNames: string[]
-  ) {
+  async removeCarFiles(@Param('carId', ParseUUIDPipe) carId: string, @Body() fileNames: string[]) {
     return this.carsService.removeCarFiles(carId, fileNames);
   }
 

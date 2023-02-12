@@ -7,10 +7,10 @@ import {
   UpdateCarRequest,
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
-import { LessThanOrEqual, Repository, ILike } from 'typeorm';
+import 'multer';
+import { ILike, LessThanOrEqual, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
-import 'multer';
 
 const FILE_MAX_SIZE = 25000000;
 
@@ -50,6 +50,10 @@ export class CarsService {
       ],
       order: this.getSortingConditions(sortBy, sortOrder),
     });
+  }
+
+  async findById(carId: string) {
+    return await this.carRepo.findOneByOrFail({ carId });
   }
 
   async createCar(carData: CreateCarRequest, files: Express.Multer.File[]) {
