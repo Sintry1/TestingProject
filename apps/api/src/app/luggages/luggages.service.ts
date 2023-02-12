@@ -8,10 +8,10 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
-import { Between, LessThan, ILike, Repository } from 'typeorm';
-import { filterStatus } from '../utils/query-params.utils';
 import 'multer';
+import { Between, ILike, LessThan, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
+import { filterStatus } from '../utils/query-params.utils';
 
 const FILE_MAX_SIZE = 10000000;
 
@@ -79,6 +79,10 @@ export class LuggagesService {
             ],
       order: this.getSortingConditions(sortBy, sortOrder),
     });
+  }
+
+  async findById(luggageId: string) {
+    return await this.luggageRepo.findOneByOrFail({ luggageId });
   }
 
   async createLuggage(luggageData: CreateLuggageRequest, files: Express.Multer.File[]) {

@@ -25,6 +25,7 @@ import {
 } from '@nestjs/swagger';
 import {
   CreateLuggageRequest,
+  GetLuggageByIdResponse,
   GetLuggageResponse,
   LuggageSortOptions,
   LuggageType,
@@ -33,12 +34,12 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { LuggagesService } from './luggages.service';
-import 'multer';
 
 const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
@@ -102,6 +103,18 @@ export class LuggagesController {
       sortBy,
       sortOrder
     );
+  }
+
+  @Get('id/:luggageId')
+  @ApiOperation({
+    summary: 'Get a luggage by id.',
+  })
+  @ApiOkResponse({ type: GetLuggageByIdResponse })
+  @HttpCode(200)
+  async getCarById(@Param('luggageId', ParseUUIDPipe) luggageId: string) {
+    const luggage = await this.luggagesService.findById(luggageId);
+    const signedUrls = await this.luggagesService.getFilesLink(luggage.files);
+    return { ...luggage, downloadUrls: signedUrls };
   }
 
   @Post()
