@@ -2,23 +2,15 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { IUpdateAssignmentRequest } from '../assignment/assignment.interface';
 import { CompletedAtResponse } from '../base.dto';
-import {
-  ICreateDocumentRequest,
-  IDocument,
-  IGetDocumentByIdResponse,
-} from './document.interface';
-
-export class GetDocumentResponse
-  extends CompletedAtResponse
-  implements IDocument
-{
+import { ICreateDocumentRequest, IDocument, IGetDocumentByIdResponse } from './document.interface';
+export class GetDocumentResponse extends CompletedAtResponse implements IDocument {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   documentId!: string;
 
-  @ApiModelProperty({ example: 'Title stuff' })
+  @ApiModelProperty({ example: 'New Years Eve preparations' })
   title!: string;
 
-  @ApiModelProperty({ example: 'This is such interesting data.' })
+  @ApiModelProperty({ example: 'December 29th - January 2nd' })
   comments?: string;
 
   @ApiModelProperty({ example: new Date() })
@@ -27,16 +19,16 @@ export class GetDocumentResponse
   @ApiModelProperty({ example: true, default: false })
   showOnDashboard!: boolean;
 
-  @ApiModelProperty({ example: 'declarationOfIndepenence.pdf' })
+  @ApiModelProperty({ example: 'new-years-eve.pdf' })
   documentName!: string;
 }
 
 export class CreateDocumentRequest implements ICreateDocumentRequest {
-  @ApiModelProperty({ example: 'Title stuff' })
+  @ApiModelProperty({ example: 'New Years Eve preparations' })
   @IsNotEmpty()
   title!: string;
 
-  @ApiModelProperty({ example: 'This is such interesting data.' })
+  @ApiModelProperty({ example: 'December 29th - January 2nd' })
   @IsOptional()
   comments?: string;
 
@@ -48,14 +40,18 @@ export class CreateDocumentRequest implements ICreateDocumentRequest {
   @ApiModelProperty({ example: true, default: false })
   @IsNotEmpty()
   showOnDashboard!: boolean;
+
+  @ApiModelProperty({ type: 'string', format: 'binary', required: true })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  document?: any;
 }
 
 export class UpdateDocumentRequest implements IUpdateAssignmentRequest {
-  @ApiModelProperty({ example: 'Title stuff' })
+  @ApiModelProperty({ example: 'New Years Eve preparations' })
   @IsOptional()
   title?: string;
 
-  @ApiModelProperty({ example: 'This is such interesting data.' })
+  @ApiModelProperty({ example: 'December 29th - January 2nd' })
   @IsOptional()
   comments?: string;
 

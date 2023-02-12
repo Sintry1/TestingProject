@@ -18,6 +18,6 @@ export class User extends Base implements IUser {
   password!: string;
 
   @ApiModelProperty({ example: Role.user })
-  @Column({ type: 'enum', enum: Role, default: Role.admin })
+  @Column({ type: 'enum', enum: Role, default: Role.manager })
   role!: Role;
 }

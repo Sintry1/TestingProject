@@ -1,0 +1,46 @@
+<form
+  [formGroup]="managerAccessForm"
+  (ngSubmit)="onSubmit()"
+  class="dialog-container"
+  data-cy="manager-access-dialog"
+>
+  <h1>Manager access</h1>
+  <hr />
+
+  <p *ngIf="!dialogData">Your access has expired!</p>
+
+  <mat-form-field autocomplete="off" class="full-width">
+    <mat-label>Password</mat-label>
+    <input
+      #password
+      type="password"
+      formControlName="password"
+      matInput
+      required
+      data-cy="manager-access-password-input"
+    />
+    <mat-error *ngIf="errorMessage !== null">
+      {{ errorMessage ? errorMessage : 'Required' }}
+    </mat-error>
+  </mat-form-field>
+
+  <p class="description-text">
+    * Some functions require approval from the manager. Please write the account password to
+    continue with this action.
+  </p>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button
+      class="action-btn"
+      mat-raised-button
+      type="submit"
+      data-cy="manager-access-continue-btn"
+    >
+      <div *ngIf="!isLoading">Continue</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>

@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment, TableInfoOptions } from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { AssignmentsService } from '../../services/assignments.service';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { CreateAssignmentDialogComponent } from './createAssignmentDialog/create-assignment-dialog.component';
-import { UpdateAssignmentDialogComponent } from './updateAssignmentDialog/update-assignment-dialog.component';
+import { CreateAssignmentDialogComponent } from './create-assignment-dialog/create-assignment-dialog.component';
+import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/update-assignment-dialog.component';
 
 @Component({
   selector: 'frontend-assignments',
@@ -17,13 +18,14 @@ import { UpdateAssignmentDialogComponent } from './updateAssignmentDialog/update
 export class AssignmentsComponent implements OnInit {
   assignmentList: IAssignment[] = [];
   displayDate = new Date();
+  isLoading = false;
 
   assignmentColumns = [
     'room',
     'task',
     'comments',
-    'receivedBy',
-    'receivedAt',
+    'requestedBy',
+    'requestedAt',
     'performedBy',
     'completedAt',
   ];
@@ -45,12 +47,16 @@ export class AssignmentsComponent implements OnInit {
   }
 
   fetchAssignments(): void {
+    this.isLoading = true;
+
     this.assignmentsService.getAssignments(this.displayDate).subscribe({
       next: (assignments) => {
         this.assignmentList = orderByCompletedStatus(assignments);
+        this.isLoading = false;
       },
       error: (error) => {
-        console.error(error);
+        this.isLoading = false;
+        SentryService.logError(error);
         this.snackBar.open(
           'Assignment data have failed to load, please try reloading the page.',
           'Okay',
@@ -65,17 +71,17 @@ export class AssignmentsComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.ASSIGNMENTS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   createAssignment(): void {
-    this.dialog.open(CreateAssignmentDialogComponent, { width: '500px' });
+    this.dialog.open(CreateAssignmentDialogComponent, { width: '600px' });
   }
 
   editAssignment(assignment: IAssignment): void {
     this.dialog.open(UpdateAssignmentDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: assignment,
     });
   }

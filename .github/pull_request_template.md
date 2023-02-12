@@ -1,6 +1,6 @@
 ### This pull request closes:
 
-✅  Closes DEV-
+✅ Closes DEV-
 
 ### Which service(s) does this issue affect:
 

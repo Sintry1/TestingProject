@@ -2,7 +2,18 @@
 <main>
   <div class="table-actions">
     <div>
-      <mat-form-field appearance="fill" class="remove-error-message">
+      <mat-form-field autocomplete="off" style="width: 150px" class="remove-error-message">
+        <mat-label>Sort by</mat-label>
+        <mat-select [(value)]="sortBy" (selectionChange)="fetchLuggage()">
+          <mat-option value="arrivalTime">Time of arrival</mat-option>
+          <mat-option value="completedAt">Completed at</mat-option>
+          <mat-option value="createdAt">Created at</mat-option>
+          <mat-option value="room">Room nr.</mat-option>
+          <mat-option value="name">Name</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="remove-error-message">
         <mat-label>Search</mat-label>
         <input
           type="text"
@@ -13,32 +24,11 @@
           matInput
         />
       </mat-form-field>
-      <mat-form-field
-        autocomplete="off"
-        appearance="fill"
-        style="width: 150px"
-        class="remove-error-message"
-      >
-        <mat-label>Sort by</mat-label>
-        <mat-select [(value)]="sortBy" (selectionChange)="fetchLuggage()">
-          <mat-option value="arrivalTime">Time of arrival</mat-option>
-          <mat-option value="completedAt">Completed at</mat-option>
-          <mat-option value="createdAt">Created at</mat-option>
-          <mat-option value="room">Room nr.</mat-option>
-          <mat-option value="name">Name</mat-option>
-        </mat-select>
-      </mat-form-field>
     </div>
 
     <div class="table-buttons">
-      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">
-        Table info
-      </button>
-      <button
-        mat-raised-button
-        class="action-btn"
-        (click)="openCheckinCreateDialog()"
-      >
+      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table info</button>
+      <button mat-raised-button class="action-btn" (click)="openCheckinCreateDialog()">
         Add Check In
       </button>
     </div>
@@ -46,7 +36,7 @@
   <hr />
 
   <div class="table-height">
-    <table mat-table [dataSource]="checkinLuggage">
+    <table mat-table [dataSource]="checkinLuggage" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td mat-cell *matCellDef="let item">{{ item.room }}</td>
@@ -98,7 +88,7 @@
       </ng-container>
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let item">
+        <td mat-cell *matCellDef="let item" class="comments-field">
           {{ item.comments ? item.comments : '-' }}
         </td>
       </ng-container>
@@ -111,5 +101,9 @@
         (click)="openCheckinEditDialog(row)"
       ></tr>
     </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>

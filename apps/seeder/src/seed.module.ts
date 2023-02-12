@@ -1,6 +1,7 @@
 import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {
+  Announcement,
   Assignment,
   Bike,
   Car,
@@ -12,6 +13,7 @@ import {
 import { TaskGenerator } from '@omnihost/task-generator';
 import { configService } from './config.service';
 import { SeedService } from './seed.service';
+import { AnnouncementsSeederService } from './services/announcements.service';
 import { AssignmentsSeederService } from './services/assignments.service';
 import { BikesSeederService } from './services/bikes.service';
 import { CarsSeederService } from './services/cars.service';
@@ -35,6 +37,7 @@ export class SeedModule {
           Assignment,
           Document,
           Bike,
+          Announcement,
         ]),
       ],
       providers: [
@@ -47,6 +50,7 @@ export class SeedModule {
         AssignmentsSeederService,
         DocumentsSeederService,
         BikesSeederService,
+        AnnouncementsSeederService,
         TaskGenerator,
       ],
       exports: [SeedService],

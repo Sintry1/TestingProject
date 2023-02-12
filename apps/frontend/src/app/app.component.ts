@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 import { DisplayDateService } from './services/display-date.service';
+import { toDateInputString, toDateObject } from './utils/date.util';
 
 @Component({
   selector: 'frontend-root',
@@ -11,16 +13,17 @@ import { DisplayDateService } from './services/display-date.service';
 export class AppComponent {
   title = 'Omnihost Systems';
   sidebarCollapsed = true;
-  displayDate = new Date();
+  displayDate = toDateInputString(new Date());
 
   constructor(
     public router: Router,
     private displayDateService: DisplayDateService,
+    private authService: AuthService,
     private snackBar: MatSnackBar
   ) {
     this.displayDateService
       .getDisplayDateSubject()
-      .subscribe((date) => (this.displayDate = new Date(date)));
+      .subscribe((date) => (this.displayDate = toDateInputString(new Date(date))));
 
     this.router.events.subscribe(async (val) => {
       if (val instanceof NavigationEnd) {
@@ -77,12 +80,14 @@ export class AppComponent {
    * Remove the logged in user information from local storage and API
    */
   logout() {
-    this.snackBar.open('You have logged out', `You're joking, right?`, {
+    this.authService.logout();
+    this.snackBar.open('You have logged out', undefined, {
       duration: 5000,
     });
   }
 
-  onDisplayDateChange() {
-    this.displayDateService.setDisplayDate(this.displayDate);
+  onDisplayDateChange(date: string) {
+    this.displayDate = date;
+    this.displayDateService.setDisplayDate(toDateObject(date));
   }
 }

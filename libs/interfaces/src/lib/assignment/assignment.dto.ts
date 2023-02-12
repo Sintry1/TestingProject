@@ -1,69 +1,66 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
-import {
-  ICreateAssignmentRequest,
-  IUpdateAssignmentRequest,
-} from './assignment.interface';
+import { ICreateAssignmentRequest, IUpdateAssignmentRequest } from './assignment.interface';
 
 export class CreateAssignmentRequest implements ICreateAssignmentRequest {
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: 'RA' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   task?: string;
 
-  @ApiModelProperty({ example: 'New keys and package delivery' })
+  @ApiModelProperty({ example: 'Room move' })
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: 'RE' })
+  @ApiModelProperty({ example: 'Reception' })
   @IsNotEmpty()
-  receivedBy!: string;
+  requestedBy!: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   performedBy?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsNotEmpty()
   @IsDateString()
-  receivedAt!: Date;
+  requestedAt!: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;
 }
 
 export class UpdateAssignmentRequest implements IUpdateAssignmentRequest {
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @IsOptional()
   room?: string;
 
-  @ApiModelProperty({ example: 'RA' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   task?: string;
 
-  @ApiModelProperty({ example: 'New keys and package delivery' })
+  @ApiModelProperty({ example: 'Room move' })
   @IsOptional()
   comments?: string;
 
-  @ApiModelProperty({ example: 'REC' })
+  @ApiModelProperty({ example: 'Reception' })
   @IsOptional()
-  receivedBy?: string;
+  requestedBy?: string;
 
-  @ApiModelProperty({ example: 'FV' })
+  @ApiModelProperty({ example: 'EA' })
   @IsOptional()
   performedBy?: string;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
-  receivedAt?: Date;
+  requestedAt?: Date;
 
-  @ApiModelProperty({ example: Date.now() })
+  @ApiModelProperty({ example: new Date() })
   @IsOptional()
   @IsDateString()
   completedAt?: Date;

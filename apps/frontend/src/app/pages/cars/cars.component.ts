@@ -2,26 +2,19 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  CarSortOptions,
-  ICar,
-  SortOrder,
-  TableInfoOptions,
-} from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
+import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
-import { CreateCarDialogComponent } from './createCarEntryDialog/create-car-dialog.component';
-import { UpdateCarDialogComponent } from './updateCarEntryDialog/update-car-dialog.component';
+import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
+import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
 
 @Component({
   selector: 'frontend-cars',
   templateUrl: './cars.component.html',
-  styleUrls: [
-    '../../../assets/styles/table.scss',
-    '../../../assets/styles/checkbox.scss',
-  ],
+  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
 export class CarsComponent implements OnInit {
   filteredCarList: ICar[] = [];
@@ -31,6 +24,7 @@ export class CarsComponent implements OnInit {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
+  isLoading = false;
 
   carColumns = [
     'room',
@@ -72,8 +66,8 @@ export class CarsComponent implements OnInit {
         next: () => {
           this.snackBar.open('Car updated!', 'Thanks', { duration: 5000 });
         },
-        error: (err: HttpErrorResponse) => {
-          console.error(err);
+        error: (error: HttpErrorResponse) => {
+          SentryService.logError(error);
           this.snackBar.open('Failed to update, please try again.', 'Okay', {
             duration: 15000,
           });
@@ -84,17 +78,17 @@ export class CarsComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '500px' });
+    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
   }
 
   openDialogEdit(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: carListEntry,
     });
   }
@@ -104,28 +98,30 @@ export class CarsComponent implements OnInit {
   }
 
   fetchCarList(): void {
-    this.carService
-      .getCar(this.displayDate, this.sortBy, this.sortOrder, this.search)
-      .subscribe({
-        next: (cars) => {
-          this.originalCarList = cars;
-          this.filteredCarList = filterByCompletedAtAndOrderResults(
-            this.originalCarList,
-            this.showAll,
-            this.displayDate
-          );
-        },
-        error: (error) => {
-          console.error(error);
-          this.snackBar.open(
-            'Check Out data have failed to load, please try checking your connection.',
-            'Okay',
-            {
-              duration: 10000,
-            }
-          );
-        },
-      });
+    this.isLoading = true;
+
+    this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
+      next: (cars) => {
+        this.originalCarList = cars;
+        this.filteredCarList = filterByCompletedAtAndOrderResults(
+          this.originalCarList,
+          this.showAll,
+          this.displayDate
+        );
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.isLoading = false;
+        SentryService.logError(error);
+        this.snackBar.open(
+          'Check Out data have failed to load, please try checking your connection.',
+          'Okay',
+          {
+            duration: 10000,
+          }
+        );
+      },
+    });
   }
 
   toggleShowAll(): void {

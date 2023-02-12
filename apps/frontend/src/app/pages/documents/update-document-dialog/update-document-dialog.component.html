@@ -1,0 +1,65 @@
+<form [formGroup]="updateDocumentForm" (ngSubmit)="onSubmit()" class="dialog-container">
+  <h1>Update document</h1>
+  <hr />
+
+  <div class="dialog-row"></div>
+
+  <mat-form-field autocomplete="off" class="full-width no-margin">
+    <mat-label>Title</mat-label>
+    <input #title type="text" formControlName="title" matInput placeholder="Document title" />
+  </mat-form-field>
+
+  <mat-form-field autocomplete="off" class="full-width no-margin">
+    <mat-label>Comments</mat-label>
+    <textarea
+      #comments
+      style="height: 100px"
+      matInput
+      type="text"
+      formControlName="comments"
+      placeholder="Describe the document"
+    ></textarea>
+  </mat-form-field>
+
+  <!-- File actions -->
+  <div class="document-container">
+    <input
+      style="display: none"
+      #fileUpload
+      type="file"
+      multiple
+      (change)="uploadDocument($event)"
+      accept="application/pdf, application/msword, application/vnd.openxmlformats"
+    />
+    <button class="document-btn full-width" mat-raised-button type="button" (click)="areYouSure()">
+      {{ getDocumentName() }}
+    </button>
+
+    <button class="secondary-btn remove-btn" mat-raised-button type="button" (click)="areYouSure()">
+      <img src="assets/icons/upload-white-icon.svg" alt="upload icon" class="icon" />
+    </button>
+  </div>
+
+  <label class="checkbox-container">
+    Show on dashboard
+    <input
+      type="checkbox"
+      [checked]="showOnDashboard"
+      (change)="showOnDashboard = !showOnDashboard"
+    />
+    <span class="checkmark"></span>
+  </label>
+
+  <div class="special-row actions-section">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="danger-btn" mat-raised-button type="button" (click)="deleteDocument()">
+      Delete
+    </button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Update document</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+.info-table {
+  border-spacing: 0;
+  width: 100%;
+
+  tr.header {
+    background-color: rgba(47, 47, 162, 1);
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 8px;
+
+    &.name {
+      background-color: rgb(244, 244, 244);
+    }
+  }
+}

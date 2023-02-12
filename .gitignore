@@ -41,5 +41,7 @@ Thumbs.db
 .angular
 
 .env
-.env.development
+.env.test
+.env.staging
+.env.demo
 .env.production

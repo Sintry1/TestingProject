@@ -23,11 +23,14 @@
 
 # Refer to the Caddy docs for more information:
 # https://caddyserver.com/docs/caddyfile
-dangleterre.omnihost.app, dev.omnihost.app {
-        reverse_proxy omnihost:80
+dangleterre.omnihost.app {
+	reverse_proxy omnihost-frontend:80
 }
 
-api.dangleterre.omnihost.app, api.dev.omnihost.app {
-        reverse_proxy api:3333
+api.dangleterre.omnihost.app {
+	reverse_proxy omnihost-api:3333
 }
 
+sentry-tunnel.dangleterre.omnihost.app {
+	reverse_proxy omnihost-sentry-tunnel:5000
+}

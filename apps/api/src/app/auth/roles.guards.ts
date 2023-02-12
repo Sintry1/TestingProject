@@ -1,12 +1,20 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  Logger,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
-import { Role } from '@omnihost/interfaces';
+import { IJwtPayload, Role } from '@omnihost/interfaces';
 import { UsersService } from '../users/users.service';
+import { SentryService } from '../utils/sentry.service';
 import { ROLES_KEY } from './roles.decorator';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
+  private readonly logger = new Logger(RolesGuard.name);
   constructor(
     private reflector: Reflector,
     private usersService: UsersService,
@@ -26,24 +34,39 @@ export class RolesGuard implements CanActivate {
 
     // validate that the request contains the jwt access token
     if (!headers || !headers.authorization) {
-      return false;
+      SentryService.log('warning', `Auth failed: request is missing the access token`, this.logger);
+      throw new UnauthorizedException();
     }
 
     // extract information from the access token
-    const jwt = <{ email?: string; id?: string; iat?: number; exp?: number }>(
-      this.jwtService.decode(headers.authorization.replace('Bearer ', ''))
-    );
+    const jwt = <IJwtPayload>this.jwtService.decode(headers.authorization.replace('Bearer ', ''));
 
     // validate that the token contains an email
-    if (!jwt || !jwt.email) {
+    if (!jwt) {
+      SentryService.log('warning', `Auth failed: invalid or missing JWT`, this.logger);
+      throw new UnauthorizedException();
+    }
+
+    if (!jwt.email) {
+      SentryService.log('warning', `Auth failed: JWT body is missing the email`, this.logger);
       return false;
     }
 
     // fetch a user based on the email and check their role
     const user = await this.usersService.findOne(jwt.email);
     if (!user) {
+      SentryService.log('warning', `Auth failed: user doesn't exist`, this.logger);
       return false;
     }
-    return requiredRoles.some((role) => user.role?.includes(role));
+    if (requiredRoles.some((role) => user.role?.includes(role))) {
+      return true;
+    }
+    SentryService.log(
+      'warning',
+      `Auth failed: user does not have one of the required roles`,
+      this.logger,
+      { requiredRoles, providedRole: user.role }
+    );
+    return false;
   }
 }

@@ -1,0 +1,20 @@
+.weather-container {
+  .tomorrow {
+    z-index: 0 !important;
+  }
+}
+
+.remove {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  height: 22px;
+}
+
+#clickBlock,
+.stuff {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}

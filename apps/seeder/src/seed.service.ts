@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Connection, DataSource } from 'typeorm';
+import { AnnouncementsSeederService } from './services/announcements.service';
 import { AssignmentsSeederService } from './services/assignments.service';
 import { BikesSeederService } from './services/bikes.service';
 import { CarsSeederService } from './services/cars.service';
@@ -20,6 +21,7 @@ export class SeedService {
     private readonly assignmentsService: AssignmentsSeederService,
     private readonly documentService: DocumentsSeederService,
     private readonly bikesService: BikesSeederService,
+    private readonly announcementsService: AnnouncementsSeederService,
     private dataSource: DataSource
   ) {}
 
@@ -38,6 +40,7 @@ export class SeedService {
     await this.seedAssignments();
     await this.seedDocuments();
     await this.seedBikes();
+    await this.seedAnnouncements();
   }
 
   // ====================================
@@ -79,9 +82,7 @@ export class SeedService {
       }
 
       if (dbType === 'postgres') {
-        const truncateSql = `TRUNCATE TABLE ${tables.join(
-          ','
-        )} RESTART IDENTITY CASCADE;`;
+        const truncateSql = `TRUNCATE TABLE ${tables.join(',')} RESTART IDENTITY CASCADE;`;
         await this.dataSource.query(truncateSql);
       }
 
@@ -110,6 +111,7 @@ export class SeedService {
   // === ENTITY SEEDING METHODS ====
   async seedUsers() {
     try {
+      this.logger.debug(`✔ Seeding users...`);
       const response = await Promise.all(this.usersService.create());
       this.logger.debug(`✅ Users created: ${response.length} 🧔`);
       return response;
@@ -121,6 +123,7 @@ export class SeedService {
 
   async seedLuggages() {
     try {
+      this.logger.debug(`✔ Seeding luggages...`);
       const response = await Promise.all(this.luggagesService.create());
       this.logger.debug(`✅ Luggages created: ${response.length} 💼`);
       return response;
@@ -132,6 +135,7 @@ export class SeedService {
 
   async seedCars() {
     try {
+      this.logger.debug(`✔ Seeding cars...`);
       const response = await Promise.all(this.carsService.create());
       this.logger.debug(`✅ Cars created: ${response.length} 🚕`);
       return response;
@@ -143,8 +147,9 @@ export class SeedService {
 
   async seedTasks() {
     try {
+      this.logger.debug(`✔ Seeding tasks...`);
       const response = await Promise.all(this.tasksService.create());
-      this.logger.debug(`✅ Tasks created: ${response.length} 📄`);
+      this.logger.debug(`✅ Tasks created: ${response.length} 📬`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Tasks failed to seed 🌱`);
@@ -154,8 +159,9 @@ export class SeedService {
 
   async seedAssignments() {
     try {
+      this.logger.debug(`✔ Seeding assignments...`);
       const response = await Promise.all(this.assignmentsService.create());
-      this.logger.debug(`✅ Assignments created: ${response.length} 👩‍🏫`);
+      this.logger.debug(`✅ Assignments created: ${response.length} 📝`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Assignments failed to seed 🌱`);
@@ -165,8 +171,9 @@ export class SeedService {
 
   async seedDocuments() {
     try {
+      this.logger.debug(`✔ Seeding documents...`);
       const response = await Promise.all(this.documentService.create());
-      this.logger.debug(`✅ Documents created: ${response.length} 🗿`);
+      this.logger.debug(`✅ Documents created: ${response.length} 📄`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Documents failed to seed 🌱`);
@@ -176,11 +183,23 @@ export class SeedService {
 
   async seedBikes() {
     try {
+      this.logger.debug(`✔ Seeding bikes... 🏍`);
       const response = await Promise.all(this.bikesService.create());
-      this.logger.debug(`✅ Bikes created: ${response.length} 🗿`);
+      this.logger.debug(`✅ Bikes created: ${response.length} 🏍`);
       return response;
     } catch (error) {
       this.logger.warn(`❌ Bikes failed to seed 🌱`);
+      this.logger.error(error);
+    }
+  }
+
+  async seedAnnouncements() {
+    try {
+      this.logger.debug(`✔ Seeding Announcements... 🧔📢`);
+      const response = await Promise.all(this.announcementsService.create());
+      this.logger.debug(`✅ Announcements created: ${response.length} 🧔📢`);
+    } catch (error) {
+      this.logger.warn(`❌ Announcements failed to seed 🌱`);
       this.logger.error(error);
     }
   }

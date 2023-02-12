@@ -31,27 +31,19 @@ export class AssignmentsService {
    * @param params - a create assignment request with all the needed info.
    * @returns an observable with created IAssignment.
    */
-  public createAssignment(
-    params: CreateAssignmentRequest
-  ): Observable<IAssignment> {
+  public createAssignment(params: CreateAssignmentRequest): Observable<IAssignment> {
     return this.http.post<IAssignment>(`${env.apiUrl}/assignments`, params);
   }
 
   /**
    * Calls the API to create a assignment.
    *
-   * @param id ID fo the assignment to update.
+   * @param id ID of the assignment to update.
    * @param params - an UpdateAssignmentRequest object to update the assignment.
    * @returns an observable with updated assignment.
    */
-  public updateAssignment(
-    id: string,
-    params: UpdateAssignmentRequest
-  ): Observable<IAssignment> {
-    return this.http.patch<IAssignment>(
-      `${env.apiUrl}/assignments/${id}`,
-      params
-    );
+  public updateAssignment(id: string, params: UpdateAssignmentRequest): Observable<IAssignment> {
+    return this.http.patch<IAssignment>(`${env.apiUrl}/assignments/${id}`, params);
   }
 
   /**

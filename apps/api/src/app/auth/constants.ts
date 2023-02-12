@@ -1,4 +1,3 @@
 export const jwtConstants = {
-  // TODO - update me to something from environment variables
-  secret: 'secretKey',
+  secret: process.env.API_JWT_SECRET || 'secretKey',
 };

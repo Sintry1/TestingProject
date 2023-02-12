@@ -17,15 +17,15 @@ export class Bike extends CompletedAt implements IBike {
   @Column({ nullable: true })
   pickUpTime?: Date;
 
-  @ApiModelProperty({ example: 'Madsen' })
+  @ApiModelProperty({ example: 'Larsen' })
   @Column({ nullable: true })
   name?: string;
 
-  @ApiModelProperty({ example: '211' })
+  @ApiModelProperty({ example: '101' })
   @Column({ nullable: true })
   room?: string;
 
-  @ApiModelProperty({ example: 'Teodor' })
+  @ApiModelProperty({ example: 'Reception' })
   @Column({ nullable: true })
   reservedBy?: string;
 
@@ -33,7 +33,23 @@ export class Bike extends CompletedAt implements IBike {
   @Column({ nullable: true })
   bikeFormCompleted?: boolean;
 
-  @ApiModelProperty({ example: 'Mate-bike' })
+  @ApiModelProperty({ example: 'E-Bike' })
   @Column({ nullable: true })
   comments?: string;
+
+  @ApiModelProperty({ example: 'EA' })
+  @Column({ nullable: true })
+  bbOut?: string;
+
+  @ApiModelProperty({ example: 'EA' })
+  @Column({ nullable: true })
+  bbIn?: string;
+
+  @ApiModelProperty({ example: new Date() })
+  @Column({ nullable: true })
+  timeOut?: Date;
+
+  @ApiModelProperty({ example: new Date() })
+  @Column({ nullable: true })
+  timeIn?: Date;
 }

@@ -8,8 +8,10 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,16 +21,22 @@ import {
 import {
   CarSortOptions,
   CreateCarRequest,
+  Role,
   SortOrder,
   UpdateCarRequest,
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
 
 @ApiTags('Cars')
 @Controller('cars')
+@ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
+@Roles(Role.user, Role.manager)
 export class CarsController {
   constructor(private carsService: CarsService) {}
 
@@ -91,10 +99,7 @@ export class CarsController {
   })
   @ApiCreatedResponse({ type: Car })
   @HttpCode(200)
-  async updateCar(
-    @Param('carId', ParseUUIDPipe) carId: string,
-    @Body() carData: UpdateCarRequest
-  ) {
+  async updateCar(@Param('carId', ParseUUIDPipe) carId: string, @Body() carData: UpdateCarRequest) {
     return this.carsService.updateCar(carId, carData);
   }
 }

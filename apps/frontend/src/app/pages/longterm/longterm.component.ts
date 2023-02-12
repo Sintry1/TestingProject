@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  ILuggage,
-  LuggageSortOptions,
-  SortOrder,
-  TableInfoOptions,
-} from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
+import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
-import { CreateLongTermDialogComponent } from './createLongTermDialog/create-long-term-dialog.component';
-import { UpdateLongTermDialogComponent } from './updateLongTermDialog/update-long-term-dialog.component';
+import { CreateLongTermDialogComponent } from './create-long-term-dialog/create-long-term-dialog.component';
+import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-long-term-dialog.component';
 
 @Component({
   selector: 'frontend-longterm',
@@ -73,10 +69,11 @@ export class LongtermComponent implements OnInit {
             this.showAll,
             this.displayDate
           );
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;
-          console.error(error);
+          SentryService.logError(error);
           this.snackBar.open('Luggages have failed to load', 'Okay', {
             duration: 10000,
           });
@@ -87,20 +84,20 @@ export class LongtermComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
-      width: '500px',
+      width: '600px',
     });
   }
 
   editLongTermListEntry(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: luggage,
     });
   }
 
   createLongTermEntry(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 

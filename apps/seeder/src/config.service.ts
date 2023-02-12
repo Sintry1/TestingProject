@@ -1,11 +1,13 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {
+  Announcement,
   Assignment,
   Bike,
   Car,
   Document,
   Luggage,
   Task,
+  Token,
   User,
 } from '@omnihost/models';
 
@@ -44,14 +46,14 @@ class ConfigService {
       synchronize: true,
       name: 'default',
 
-      host: this.getValue('POSTGRES_HOST', false) || 'localhost',
-      port: parseInt(this.getValue('POSTGRES_PORT', false)) || 5432,
-      username: this.getValue('POSTGRES_USER', false) || 'root',
-      password: this.getValue('POSTGRES_PASSWORD', false) || 'root',
-      database: this.getValue('POSTGRES_DATABASE', false) || 'omnihost',
+      host: this.getValue('API_POSTGRES_HOST', false) || 'localhost',
+      port: parseInt(this.getValue('API_POSTGRES_PORT', false)) || 5432,
+      username: this.getValue('API_POSTGRES_USER', false) || 'root',
+      password: this.getValue('API_POSTGRES_PASSWORD', false) || 'root',
+      database: this.getValue('API_POSTGRES_DATABASE', false) || 'omnihost',
       dropSchema: true,
 
-      entities: [User, Luggage, Car, Task, Assignment, Document, Bike],
+      entities: [User, Token, Luggage, Car, Task, Assignment, Document, Bike, Announcement],
     };
   }
 }

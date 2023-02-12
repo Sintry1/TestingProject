@@ -8,7 +8,7 @@ import {
 } from '@omnihost/interfaces';
 import { Document } from '@omnihost/models';
 import 'multer';
-import { Like, Repository } from 'typeorm';
+import { ILike, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
 
 @Injectable()
@@ -29,7 +29,7 @@ export class DocumentsService {
       showOnDashboard,
     };
 
-    const searchCondition = search ? Like(`%${search}%`) : undefined;
+    const searchCondition = search ? ILike(`%${search}%`) : undefined;
 
     return this.documentRepo.find({
       where: { ...baseConditions, title: searchCondition }, // This particular query does not support multiple where clauses
@@ -56,10 +56,7 @@ export class DocumentsService {
     }
   }
 
-  async createDocument(
-    documentData: CreateDocumentRequest,
-    document: Express.Multer.File
-  ) {
+  async createDocument(documentData: CreateDocumentRequest, document: Express.Multer.File) {
     try {
       await this.fileService.uploadFile(document.buffer, document.originalname);
     } catch (error) {
@@ -72,13 +69,11 @@ export class DocumentsService {
     return await this.documentRepo.save({
       ...documentData,
       documentName: document.originalname,
+      lastViewedAt: new Date(),
     });
   }
 
-  async updateDocument(
-    documentId: string,
-    documentData: UpdateDocumentRequest
-  ) {
+  async updateDocument(documentId: string, documentData: UpdateDocumentRequest) {
     const document = await this.documentRepo.findOneByOrFail({ documentId });
 
     for (const key in documentData) {
@@ -90,17 +85,11 @@ export class DocumentsService {
     return await this.documentRepo.save(document);
   }
 
-  async updateDocumentFile(
-    documentId: string,
-    documentFile: Express.Multer.File
-  ) {
+  async updateDocumentFile(documentId: string, documentFile: Express.Multer.File) {
     const document = await this.documentRepo.findOneByOrFail({ documentId });
 
     try {
-      await this.fileService.uploadFile(
-        documentFile.buffer,
-        documentFile.originalname
-      );
+      await this.fileService.uploadFile(documentFile.buffer, documentFile.originalname);
     } catch (error) {
       throw new HttpException(
         'Failed to upload the document. Please try again later.',
@@ -137,7 +126,7 @@ export class DocumentsService {
         return {
           createdAt: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       case DocumentSortOptions.LAST_VIEWED_AT:
@@ -151,14 +140,14 @@ export class DocumentsService {
         return {
           showOnDashboard: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       case DocumentSortOptions.TITLE:
         return {
           title: {
             nulls: 'LAST' as 'LAST' | 'first' | 'last' | 'FIRST',
-            sortOrder,
+            direction: sortOrder,
           },
         };
       default:

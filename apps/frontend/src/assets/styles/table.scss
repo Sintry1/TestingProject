@@ -8,6 +8,14 @@ table {
   overflow: auto;
 }
 
+.comments-field {
+  padding: 10px !important;
+}
+
+.small-field {
+  width: 50px;
+}
+
 .table-actions {
   display: flex;
   flex-grow: 1;
@@ -41,6 +49,9 @@ table {
 
 tr.mat-header-row {
   height: 3.5em;
+  position: sticky;
+  top: -1px;
+  z-index: 1;
 }
 
 th.mat-header-cell {
@@ -66,16 +77,6 @@ td.mat-cell {
 }
 
 .mat-row {
-  &:hover {
-    background-color: var(--main-blue-lowest-opacity);
-
-    .car-checkbox {
-      input ~ .checkmark {
-        background-color: #ccc;
-      }
-    }
-  }
-
   > .mat-cell {
     border-right: 1px solid var(--main-blue-low-opacity);
     border-top: 1px solid var(--main-blue-low-opacity);
@@ -92,10 +93,6 @@ td.mat-cell {
 
 .completed {
   background-color: var(--main-blue-lowest-opacity);
-
-  &.mat-row:hover {
-    background-color: var(--main-blue-lower-opacity);
-  }
 }
 
 .remove-error-message {
@@ -108,4 +105,23 @@ td.mat-cell {
   ::ng-deep.mat-form-field-ripple {
     background-color: var(--main-blue);
   }
+}
+
+mat-icon {
+  height: 20px;
+  width: 20px;
+  padding-left: 8px;
+  padding-bottom: 3px;
+
+  &.material-icons {
+    font-size: 20px;
+  }
+}
+
+.table-spinner-full-size {
+  min-height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -8,8 +8,10 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,16 +21,22 @@ import {
 import {
   AssignmentSortOptions,
   CreateAssignmentRequest,
+  Role,
   SortOrder,
   UpdateAssignmentRequest,
 } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { AssignmentsService } from './assignments.service';
 
 @ApiTags('Assignments')
 @Controller('assignments')
+@ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
+@Roles(Role.user, Role.manager)
 export class AssignmentsController {
   constructor(private assignmentsService: AssignmentsService) {}
 
@@ -97,9 +105,6 @@ export class AssignmentsController {
     @Param('assignmentId', ParseUUIDPipe) assignmentId: string,
     @Body() assignmentData: UpdateAssignmentRequest
   ) {
-    return this.assignmentsService.updateAssignment(
-      assignmentId,
-      assignmentData
-    );
+    return this.assignmentsService.updateAssignment(assignmentId, assignmentData);
   }
 }

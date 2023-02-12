@@ -5,18 +5,18 @@ export interface IAssignment extends ICompletedAt {
   room?: string;
   task?: string;
   comments?: string;
-  receivedBy: string;
+  requestedBy: string;
   performedBy?: string;
-  receivedAt: Date;
+  requestedAt: Date;
 }
 
 export interface ICreateAssignmentRequest {
   room?: string;
   task?: string;
   comments?: string;
-  receivedBy: string;
+  requestedBy: string;
   performedBy?: string;
-  receivedAt: Date;
+  requestedAt: Date;
   completedAt?: Date | null;
 }
 
@@ -24,8 +24,8 @@ export interface IUpdateAssignmentRequest {
   room?: string;
   task?: string;
   comments?: string;
-  receivedBy?: string;
+  requestedBy?: string;
   performedBy?: string;
-  receivedAt?: Date;
+  requestedAt?: Date;
   completedAt?: Date | null;
 }

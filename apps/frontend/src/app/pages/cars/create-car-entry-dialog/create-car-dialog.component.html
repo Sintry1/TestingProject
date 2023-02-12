@@ -1,0 +1,133 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="createCarForm" class="dialog-container">
+  <h1>Add Car</h1>
+  <hr />
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Room nr.</mat-label>
+      <input #room type="number" formControlName="room" matInput placeholder="123" />
+      <mat-error *ngIf="createCarForm.get('room')?.invalid && createCarForm.get('room')?.dirty">
+        Must be a number from 100-999
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>Tag nr.</mat-label>
+      <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
+      <mat-error *ngIf="createCarForm.get('tagNr')?.invalid && createCarForm.get('tagNr')?.dirty">
+        Required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field class="remove-error-message">
+      <mat-label>Arrival Date</mat-label>
+      <input onclick="this.showPicker()" matInput type="date" formControlName="arrivalDate" />
+    </mat-form-field>
+
+    <mat-form-field class="remove-error-message">
+      <mat-label>Departure Date</mat-label>
+      <input onclick="this.showPicker()" matInput type="date" formControlName="departureDate" />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Name</mat-label>
+      <input #name type="text" formControlName="name" matInput placeholder="Name" />
+      <mat-error *ngIf="createCarForm.get('name')?.invalid && createCarForm.get('name')?.dirty">
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>License Plate</mat-label>
+      <input
+        #licensePlate
+        type="text"
+        formControlName="licensePlate"
+        matInput
+        placeholder="AB12345"
+      />
+      <mat-error
+        *ngIf="
+          createCarForm.get('licensePlate')?.invalid && createCarForm.get('licensePlate')?.dirty
+        "
+      >
+        Required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field class="remove-error-message">
+      <mat-label>Expiration Date</mat-label>
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
+        formControlName="expirationDate"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="remove-error-message">
+      <mat-label>Pick up time</mat-label>
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
+        formControlName="pickUpTime"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>BB Down</mat-label>
+      <mat-select formControlName="bbDown">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="createCarForm.get('bbDown')?.invalid && createCarForm.get('bbDown')?.dirty">
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>Location</mat-label>
+      <mat-select formControlName="location">
+        <mat-option *ngFor="let location of carLocation" [value]="location">
+          {{ location }}
+        </mat-option>
+      </mat-select>
+      <mat-error
+        *ngIf="createCarForm.get('location')?.invalid && createCarForm.get('location')?.dirty"
+      >
+        Required
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field autocomplete="off" class="full-width">
+    <mat-label>Comments</mat-label>
+    <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
+    <mat-error
+      *ngIf="createCarForm.get('comments')?.invalid && createCarForm.get('comments')?.dirty"
+    >
+      Required
+    </mat-error>
+  </mat-form-field>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
+
+    <button class="action-btn" mat-flat-button type="submit">
+      <div *ngIf="!isLoading">Add Car</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>

@@ -8,8 +8,10 @@ import {
   Patch,
   Post,
   Query,
+  UseGuards,
 } from '@nestjs/common';
 import {
+  ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -19,16 +21,22 @@ import {
 import {
   BikeSortOptions,
   CreateBikeRequest,
+  Role,
   SortOrder,
   UpdateBikeRequest,
 } from '@omnihost/interfaces';
 import { Bike } from '@omnihost/models';
+import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
+import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { BikesService } from './bikes.service';
 
 @ApiTags('Bikes')
 @Controller('bikes')
+@ApiBearerAuth()
+@UseGuards(JwtAccessAuthGuard)
+@Roles(Role.user, Role.manager)
 export class BikesController {
   constructor(private bikesService: BikesService) {}
 

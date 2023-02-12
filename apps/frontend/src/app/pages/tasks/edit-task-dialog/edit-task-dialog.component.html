@@ -1,0 +1,43 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <h1>Complete Task</h1>
+  <hr />
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Initials</mat-label>
+      <mat-select [(value)]="data.initials" formControlName="initials">
+        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+          {{ initials }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty">
+        Required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="remove-error-message">
+      <mat-label>Completed At</mat-label>
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
+        formControlName="completedAt"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row actions-section">
+    <button
+      mat-raised-button
+      class="basic-btn"
+      type="button"
+      (click)="reset()"
+      *ngIf="this.data.completedAt || this.data.initials"
+    >
+      reset
+    </button>
+
+    <button mat-raised-button class="secondary-btn" type="button" mat-dialog-close>Cancel</button>
+
+    <button mat-raised-button class="action-btn" type="submit">Complete Task</button>
+  </div>
+</form>

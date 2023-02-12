@@ -2,19 +2,26 @@ import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { MailModule } from '../mail/mail.module';
+import { ResetPasswordTokensModule } from '../reset-password-tokens/reset-password-tokens.module';
+import { TokensModule } from '../tokens/tokens.module';
 import { UsersModule } from '../users/users.module';
 import { AnonymousStrategy } from './anonymous.strategy';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { jwtConstants } from './constants';
-import { JwtStrategy } from './jwt.strategy';
+import { AccessTokenJwtStrategy } from './jwt-access.strategy';
+import { RefreshTokenJwtStrategy } from './jwt-refresh.strategy';
 import { LocalStrategy } from './local.strategy';
 import { RolesGuard } from './roles.guards';
 
 @Module({
   imports: [
     UsersModule,
+    TokensModule,
+    ResetPasswordTokensModule,
     PassportModule,
+    MailModule,
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '86400s' },
@@ -24,7 +31,8 @@ import { RolesGuard } from './roles.guards';
   providers: [
     AuthService,
     LocalStrategy,
-    JwtStrategy,
+    AccessTokenJwtStrategy,
+    RefreshTokenJwtStrategy,
     {
       provide: APP_GUARD,
       useClass: RolesGuard,

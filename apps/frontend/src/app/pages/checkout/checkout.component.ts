@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  ILuggage,
-  LuggageSortOptions,
-  SortOrder,
-  TableInfoOptions,
-} from '@omnihost/interfaces';
-import { TableInfoDialogComponent } from '../../components/tableInfoDialog/table-info-dialog.component';
+import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
+import { SentryService } from '../../services/sentry.service';
 import { orderByCompletedStatus } from '../../utils/order.util';
-import { CreateCheckoutDialogComponent } from './createCheckoutDialog/create-checkout-dialog.component';
-import { UpdateCheckoutDialogComponent } from './updateCheckoutDialog/update-checkout-dialog.component';
+import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
+import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
 
 @Component({
   selector: 'frontend-checkin',
@@ -65,10 +61,11 @@ export class CheckoutComponent implements OnInit {
       .subscribe({
         next: (luggage) => {
           this.checkoutLuggage = orderByCompletedStatus(luggage);
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;
-          console.error(error);
+          SentryService.logError(error);
           this.snackBar.open(
             'Check Out data have failed to load, please reload the page.',
             'Okay',
@@ -83,20 +80,20 @@ export class CheckoutComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
-      width: '500px',
+      width: '600px',
     });
   }
 
   openCheckoutEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
-      width: '500px',
+      width: '600px',
       data: luggage,
     });
   }
 
   openCheckoutCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
-      width: '500px',
+      width: '600px',
     });
   }
 }
