@@ -1,11 +1,13 @@
 <div class="blacklist-widget-container">
   <div class="image-container">
-      <img *ngFor="let file of blacklist.files; let i = index" [src]="displayPictures()"
-        [ngClass]="{'hidden': i >=2 }" class="image">
+    <ng-container *ngFor="let file of files; let i = index">
+      <img [src]="file" [ngClass]="{ hidden: i >= 2 }" class="image" />
+    </ng-container>
   </div>
+
   <div class="text-container">
     <div class="name-container">
-        <h2>{{ displayName() }}</h2>
+      <h2>{{ displayName() }}</h2>
       <hr />
     </div>
     <div class="comments-container">
@@ -15,13 +17,13 @@
     </div>
     <div class="expires-container">
       <p>
-       Expiration: {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/YYYY') : '-' }}
+        <span style="font-weight: 900">Expiration:</span>
+        {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '-' }}
       </p>
     </div>
   </div>
 
   <div class="action-bar-container">
-
     <button mat-raised-button class="secondary-btn" (click)="updateBlacklistDialog()">
       Edit <mat-icon>https</mat-icon>
     </button>

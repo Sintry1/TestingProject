@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
-import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { BlacklistService } from '../../services/blacklist.service';
 import { BlacklistWidgetComponent } from '../../components/blacklist-widget/blacklist-widget.component';
 

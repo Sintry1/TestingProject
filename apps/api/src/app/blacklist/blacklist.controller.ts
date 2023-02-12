@@ -5,9 +5,7 @@ import {
   Delete,
   Get,
   HttpCode,
-  HttpStatus,
   Param,
-  ParseFilePipeBuilder,
   ParseUUIDPipe,
   Patch,
   Post,
@@ -35,7 +33,6 @@ import { Roles } from '../auth/roles.decorator';
 import { FilesService } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
 
-const FILE_MAX_SIZE = 10000000;
 const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Blacklist')
@@ -111,7 +108,7 @@ export class BlacklistController {
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Body() blacklistData: UpdateBlacklistRequest
   ) {
-    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData, files);
+    return this.blacklistService.updateBlacklist(blacklistId, blacklistData, files || []);
   }
 
   @Patch(':blacklistId/files/add')

@@ -3,18 +3,22 @@
   justify-content: center;
   border: var(--border);
   border-radius: 5px;
-  padding: 0.75em;
-  padding-top: 0.5em;
+  overflow: hidden;
+  min-height: 350px;
+  max-height: 390px;
+  position: relative;
 
   .image-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
   }
 
   .image {
     height: 100%;
-    width: 49%;
-    margin: 1%;
+    width: 50%;
+    margin: 0;
+    // border-radius: 5px;
   }
 
   .hidden {
@@ -27,6 +31,7 @@
   }
 
   .text-container {
+    margin: 5px;
     width: 100%;
     overflow: hidden;
 
@@ -41,21 +46,20 @@
         border: none;
         margin-top: 0;
       }
-    }
-
-    .expires-container {
-      position: absolute;
-      bottom: 5;
-      left: 5;
-    }
-
-    .comments-container {
-      p {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
+      .expires-container {
+        position: absolute;
+        width: 50%;
+        bottom: 5;
+        left: 5;
+      }
+      .comments-container {
+        p {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+        }
       }
     }
   }
@@ -65,7 +69,12 @@
     flex-direction: row;
     justify-content: flex-end;
     column-gap: 10px;
-    width: 100%;
+    width: 50%; 
+    margin: 2px;
+    padding-top: 0.5em;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
   }
 }
 
