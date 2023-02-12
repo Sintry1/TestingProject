@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "aa211d72-edea-475e-8ec5-5fbdfc3a1699",
+		"_postman_id": "38e4c1ba-4212-4be7-9025-de768327f991",
 		"name": "Omnihost Systems",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "12894842"
+		"_exporter_id": "6628993"
 	},
 	"item": [
 		{
@@ -838,6 +838,30 @@
 								}
 							]
 						},
+						"url": {
+							"raw": "{{host}}/cars/:carId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cars",
+								":carId"
+							],
+							"variable": [
+								{
+									"key": "carId",
+									"value": "{{carId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "{{host}}/cars/:carId",
 							"host": [
