@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILuggage, LuggageType } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { bellBoyInitials, luggageLocation } from '../constants/dropdown-options';
@@ -19,6 +19,8 @@ import {
 
 @Injectable()
 export class LuggagesSeederService {
+  uploadedFileName = 'luggage.jpg';
+
   constructor(
     @InjectRepository(Luggage)
     private readonly repo: Repository<Luggage>
@@ -27,13 +29,10 @@ export class LuggagesSeederService {
   create(): Array<Promise<Luggage>> {
     // The file that will be uploaded to Linode
     const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (luggage: ILuggage) => {
       try {
-        if (luggage.files.length !== 0) {
-          await uploadFileToLinode(fileBuffer, `${luggage.files[0]}`);
-        }
-
         return await this.repo.save(luggage);
       } catch (error) {
         throw new Error(error);
@@ -89,7 +88,7 @@ export class LuggagesSeederService {
             bbOut: roomReady ? getRandom(bellBoyInitials) : null, // who put it in the quest's room or gave it to the guest
             bbDown: roomReady ? getRandom(bellBoyInitials) : null, // who brought the luggage from luggage room from the guest's room
             completedAt: roomReady ? eveningDate : null,
-            files: getRandomChance(0.1) ? [`luggage.jpg`] : [],
+            files: getRandomChance(0.2) ? [`luggage.jpg`] : [],
           });
         }
       });
