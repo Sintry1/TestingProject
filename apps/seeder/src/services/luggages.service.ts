@@ -44,6 +44,7 @@ export class LuggagesSeederService {
   generate() {
     // Control variables
     const entriesPerDay = 10;
+    const longTermEntriesPerDay = 2;
     const entriesPerDayRandomFactor = 2; // random +/- value for entires
 
     // Setup the dates for the period of data generation
@@ -51,17 +52,23 @@ export class LuggagesSeederService {
     startDate.setMonth(startDate.getMonth() - 6); // day six months in the past
     const endDate = new Date(Date.now());
     endDate.setMonth(endDate.getMonth() + 2); // day 2 months in the future
+    const currentDate = new Date(Date.now());
 
     // Generate the data
     const data: ILuggage[] = [];
     for (let day = startDate; day <= endDate; day.setDate(day.getDate() + 1)) {
       [LuggageType.CHECKIN, LuggageType.CHECKOUT, LuggageType.LONG_TERM].forEach((luggageType) => {
         const entiresMultiplier = getRandomBoolean() ? -1 : 1;
-        const entries =
-          entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
+        let entries = 0;
+        if (luggageType === LuggageType.LONG_TERM) {
+          entries =
+            longTermEntriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
+        } else {
+          entries = entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
+        }
         for (let i = 0; i < entries; i++) {
           const roomReady =
-            luggageType === LuggageType.LONG_TERM ? getRandomChance(0.9) : getRandomBoolean(); // long term storage has 10% of not being completed
+            day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
           const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
           const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
           const luggageId = uuidv4();
