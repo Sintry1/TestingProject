@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "48943120-44f3-46fe-91f6-e80d894a5445",
+		"_postman_id": "e4d7aa58-4434-47b4-bdd6-fc3c14dfc655",
 		"name": "Omnihost Systems",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "12894842"
+		"_exporter_id": "6628993"
 	},
 	"item": [
 		{
@@ -407,6 +407,31 @@
 								{
 									"key": "createdAt",
 									"value": "2023-01-20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/id/:luggageId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"id",
+								":luggageId"
+							],
+							"variable": [
+								{
+									"key": "luggageId",
+									"value": "{{luggageId}}"
 								}
 							]
 						}
