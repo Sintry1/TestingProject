@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Get,
@@ -37,10 +36,10 @@ import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
+import { FileTypePattern } from '../files/file-type-patterns.enum';
+import { validateFileType } from '../files/files.service';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
-
-const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Cars')
 @Controller('cars')
@@ -115,18 +114,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
@@ -146,18 +134,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
@@ -178,18 +155,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
