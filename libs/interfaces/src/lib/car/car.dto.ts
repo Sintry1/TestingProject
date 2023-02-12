@@ -226,10 +226,7 @@ export class GetCarResponse extends CompletedAtResponse implements ICar {
   files!: string[];
 }
 
-export class GetCarByIdResponse
-  extends GetCarResponse
-  implements IGetCarByIdResponse
-{
+export class GetCarByIdResponse extends GetCarResponse implements IGetCarByIdResponse {
   @ApiModelProperty({
     example: [
       'https://eu-central-1.linodeobjects.com:443/omnihost/21234.pdf?Signature=XEiYEET1C4T3I25s0I5K1IOH%2Co%3X&Expires=1670271241&AWSAccessKeyId=123456789EAEA',
@@ -237,4 +234,3 @@ export class GetCarByIdResponse
   })
   downloadUrls!: string[];
 }
-
