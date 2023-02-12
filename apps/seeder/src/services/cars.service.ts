@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import * as fs from 'fs';
-import * as path from 'path';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICar } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { carComments, licensePlates } from '../constants/cars.constant';
@@ -19,6 +19,8 @@ import {
 
 @Injectable()
 export class CarsSeederService {
+  uploadedFileName = `car.jpg`;
+
   constructor(
     @InjectRepository(Car)
     private readonly repo: Repository<Car>
@@ -26,13 +28,10 @@ export class CarsSeederService {
 
   create(): Array<Promise<Car>> {
     const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (car: ICar) => {
       try {
-        if (car.files.length !== 0) {
-          await uploadFileToLinode(fileBuffer, car.files[0]);
-        }
-
         return await this.repo.save(car);
       } catch (error) {
         throw new Error(error);
@@ -86,7 +85,7 @@ export class CarsSeederService {
           charged: completed, // if the customer has been billed. All completed cars are billed
           createdAt: morningDate,
           completedAt: completed ? eveningDate : null,
-          files: getRandomChance(0.3) ? [`car.jpg`] : [],
+          files: getRandomChance(0.5) ? [`car.jpg`] : [],
         });
       }
     }
