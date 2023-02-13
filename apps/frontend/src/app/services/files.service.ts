@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IAnnouncement, ICar, ILuggage } from '@omnihost/interfaces';
+import { FileTypePattern, IAnnouncement, ICar, ILuggage } from '@omnihost/interfaces';
 import { environment as env } from '../../environments/environment';
 
 @Injectable({
@@ -40,5 +40,37 @@ export class FilesService {
       `${env.apiUrl}/${type}/${id}/files/remove`,
       files
     );
+  }
+
+  /**
+   * Get the file upload constraints for the given entity.
+   * @param type entity type.
+   * @returns file validation rules.
+   */
+  getFileConstraints(type: 'luggages' | 'cars' | 'announcements'): {
+    maxFileSize: number;
+    maxFilesNumber: number;
+    allowedExtensions: string;
+  } {
+    switch (type) {
+      case 'luggages':
+        return {
+          maxFileSize: 10000000,
+          maxFilesNumber: 20,
+          allowedExtensions: FileTypePattern.PICTURES,
+        };
+      case 'cars':
+        return {
+          maxFileSize: 25000000,
+          maxFilesNumber: 20,
+          allowedExtensions: FileTypePattern.PICTURES_AND_VIDEO,
+        };
+      case 'announcements':
+        return {
+          maxFileSize: 50000000,
+          maxFilesNumber: 5,
+          allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES,
+        };
+    }
   }
 }

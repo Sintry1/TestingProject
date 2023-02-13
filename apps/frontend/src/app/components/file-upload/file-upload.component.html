@@ -38,7 +38,7 @@
       <hr />
     </div>
     <div *ngFor="let file of selectedFiles">
-      <div class="selected-file">
+      <div class="selected-file" [ngClass]="isFileValid(file) ? '' : 'invalid-file'">
         <img src="assets/icons/file.svg" alt="File icon" class="file-icon" />
         <span class="file-name">{{ formatFileName(file.name) }}</span>
         <span class="file-size">{{ formatFileSize(file.size) }}</span>
@@ -48,3 +48,15 @@
     </div>
   </section>
 </ng-container>
+
+<section *ngIf="containsInvalidFiles" class="invalid-files-section">
+  <span class="subtitle">One or more files are invalid!</span>
+  <ul>
+    <li>Max number of files: {{ constraints.maxFilesNumber }}</li>
+    <li>
+      Max size per file:
+      {{ constraints.maxFileSize / 1000000 }} MB
+    </li>
+    <li>Allowed extensions: {{ getFormattedAllowedFileExtensions() }}</li>
+  </ul>
+</section>

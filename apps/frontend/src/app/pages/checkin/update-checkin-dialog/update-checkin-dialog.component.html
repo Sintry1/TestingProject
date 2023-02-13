@@ -2,7 +2,8 @@
   #fileUpload
   [parentType]="'luggages'"
   [existingFiles]="files"
-  (submissionFinishedEvent)="finalizeSubmission()"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
 ></frontend-file-upload>
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
   <h1>Update Check In</h1>

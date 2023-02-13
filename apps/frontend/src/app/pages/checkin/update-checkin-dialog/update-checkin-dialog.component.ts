@@ -26,6 +26,7 @@ export class UpdateCheckinDialogComponent {
   bbInitials = bellBoyInitials;
   luggageLocation = luggageLocation;
   files: string[] = [];
+  containsInvalidFiles = false;
 
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
@@ -84,6 +85,10 @@ export class UpdateCheckinDialogComponent {
       } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
       }
+    } else if (this.containsInvalidFiles) {
+      this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
+        duration: 10000,
+      });
     } else {
       this.updateCheckin();
     }
@@ -121,13 +126,26 @@ export class UpdateCheckinDialogComponent {
       });
   }
 
-  finalizeSubmission() {
-    this.isLoading = false;
-    this.snackBar.open('Luggage item updated!', 'Thanks', {
-      duration: 5000,
-    });
-    document.location.reload();
-    this.dialog.closeAll();
-    this.isLoading = false;
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Luggage item updated!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }
