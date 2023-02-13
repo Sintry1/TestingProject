@@ -60,4 +60,8 @@ export class Luggage extends CompletedAt implements ILuggage {
   @ApiModelProperty({ example: new Date() })
   @Column({ nullable: true })
   dateNeeded?: Date;
+
+  @ApiModelProperty({ example: ['tourDeFrance.pdf', 'selfieFromParis.png'] })
+  @Column('text', { array: true, default: [] })
+  files!: string[];
 }
