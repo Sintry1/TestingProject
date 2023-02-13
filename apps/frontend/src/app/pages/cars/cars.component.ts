@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -16,7 +16,7 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
   templateUrl: './cars.component.html',
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
-export class CarsComponent implements OnInit {
+export class CarsComponent {
   filteredCarList: ICar[] = [];
   originalCarList: ICar[] = [];
   displayDate = new Date();
@@ -91,10 +91,6 @@ export class CarsComponent implements OnInit {
       width: '600px',
       data: carListEntry,
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchCarList();
   }
 
   fetchCarList(): void {

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -16,7 +16,7 @@ import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bik
   templateUrl: './bikes.component.html',
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
-export class BikesComponent implements OnInit {
+export class BikesComponent {
   originalBikeList: IBike[] = [];
   filteredBikeList: IBike[] = [];
   displayDate = new Date();
@@ -47,10 +47,6 @@ export class BikesComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchBikeList();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchBikeList();
   }
 
   fetchBikeList(): void {

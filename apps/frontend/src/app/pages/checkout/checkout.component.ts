@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -15,7 +15,7 @@ import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-c
   templateUrl: './checkout.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent {
   checkoutLuggage: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
@@ -47,10 +47,6 @@ export class CheckoutComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchLuggage();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchLuggage();
   }
 
   fetchLuggage(): void {
