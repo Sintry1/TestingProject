@@ -10,7 +10,7 @@ import {
   Patch,
   Post,
   UploadedFiles,
-  UseInterceptors
+  UseInterceptors,
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import {
@@ -20,17 +20,18 @@ import {
   ApiOkResponse,
   ApiOperation,
   ApiResponse,
-  ApiTags
+  ApiTags,
 } from '@nestjs/swagger';
 import {
   CreateBlacklistRequest,
   DeleteBlacklistResponse,
   Role,
-  UpdateBlacklistRequest
+  UpdateBlacklistRequest,
 } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
-import { FilesService } from '../files/files.service';
+import { FileTypePattern } from '../files/file-type-patterns.enum';
+import { FilesService, validateFileType } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
 
 const FILE_MAX_SIZE = 10000000;
@@ -54,18 +55,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 10, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
@@ -101,6 +91,13 @@ export class BlacklistController {
   })
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
+  @UseInterceptors(
+    FilesInterceptor('files', 5, {
+      fileFilter(req, file, callback) {
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
+      },
+    })
+  )
   async updateBlacklistEntry(
     @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
     @UploadedFiles() files: Array<Express.Multer.File>,
@@ -119,17 +116,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
