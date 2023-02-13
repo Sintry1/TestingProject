@@ -4,18 +4,28 @@
 
   <mat-form-field class="full-width" autocomplete="off">
     <mat-label>Title</mat-label>
-    <input #title type="text" matInput class="setBackground" />
+    <input #title type="text" formControlName="title" matInput />
   </mat-form-field>
 
   <mat-form-field class="full-width">
     <mat-label>Description</mat-label>
-    <input #description type="text" matInput class="large setBackground topText" />
+    <input
+      #description
+      type="text"
+      formControlName="comments"
+      matInput
+    />
   </mat-form-field>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Show from</mat-label>
-      <input onclick="this.showPicker()" matInput type="datetime-local" class="setBackground" />
+      <input
+        onclick="this.showPicker()"
+        formControlName="showFrom"
+        matInput
+        type="datetime-local"
+      />
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
@@ -24,8 +34,7 @@
         onclick="this.showPicker()"
         matInput
         type="datetime-local"
-        placeholder="Show to"
-        class="setBackground"
+        formControlName="showTo"
       />
     </mat-form-field>
   </div>

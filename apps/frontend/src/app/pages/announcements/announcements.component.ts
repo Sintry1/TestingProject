@@ -26,7 +26,7 @@ export class AnnouncementsComponent {
   }
 
   createAnnouncement(): void {
-    this.dialog.open(CreateAnnouncementDialogComponent, { width: '800px' });
+    this.dialog.open(CreateAnnouncementDialogComponent, { width: '600px' });
   }
 
   editAnnouncement(): void {
