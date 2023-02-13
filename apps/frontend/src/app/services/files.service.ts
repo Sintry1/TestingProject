@@ -20,4 +20,11 @@ export class FilesService {
       formData
     );
   }
+
+  public removeFiles(type: 'luggages' | 'cars' | 'announcements', id: string, files: string[]) {
+    return this.http.patch<ILuggage | ICar | IAnnouncement>(
+      `${env.apiUrl}/${type}/${id}/files/remove`,
+      files
+    );
+  }
 }

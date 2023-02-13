@@ -142,6 +142,23 @@ export class FileUploadComponent {
     // Update the existing files
     if (this.removedFiles.length > 0) {
       console.log('Deleting the following files: ', this.removedFiles);
+      removalFinished = false;
+      this.filesService.removeFiles(this.parentType, id, this.removedFiles).subscribe({
+        next: () => {
+          console.log('Files have been deleted');
+          removalFinished = true;
+          if (uploadFinished && removalFinished) {
+            this.submissionFinishedEvent.emit();
+          }
+        },
+        error: (error) => {
+          SentryService.logError(error);
+          this.snackBar.open('Failed to remove files, please try again.', 'Okay', {
+            duration: 10000,
+          });
+          this.isLoading = false;
+        },
+      });
     }
 
     // Upload the new files
@@ -158,7 +175,7 @@ export class FileUploadComponent {
         },
         error: (error) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to update files, please try again.', 'Okay', {
+          this.snackBar.open('Failed to upload files, please try again.', 'Okay', {
             duration: 10000,
           });
           this.isLoading = false;
