@@ -1,21 +1,22 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'frontend-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnInit {
   allowedFileFormats = ['png', 'jpg', 'mp4'];
 
   @Output() filesChangedEvent = new EventEmitter();
-
+  @Output() existingFilesChangedEvent = new EventEmitter();
+  private _existingFiles: string[] | null = null;
   private _selectedFiles: File[] = [];
   maxFileSize = 20971520; // in bytes
   isLoading = false;
 
-  constructor() {
-    console.log('File Upload ready');
+  ngOnInit(): void {
+    console.log('File Upload ready', this.existingFiles);
   }
 
   /**
@@ -33,6 +34,10 @@ export class FileUploadComponent {
    * that then can be used to display the selected files */
   convertFileListToArray(files: FileList): File[] {
     return Object.values(files);
+  }
+
+  removeExistingFile(fileToRemove: string): void {
+    this.existingFiles = this.existingFiles.filter((file) => file !== fileToRemove);
   }
 
   removeUploadedFile(fileToRemove: File): void {
@@ -121,5 +126,14 @@ export class FileUploadComponent {
   public set selectedFiles(files: File[]) {
     this._selectedFiles = files;
     this.filesChangedEvent.emit({ files: this.selectedFiles });
+  }
+
+  @Input()
+  public get existingFiles(): string[] {
+    return this._existingFiles || [];
+  }
+  public set existingFiles(files: string[]) {
+    this._existingFiles = files;
+    this.existingFilesChangedEvent.emit({ files: this._existingFiles });
   }
 }

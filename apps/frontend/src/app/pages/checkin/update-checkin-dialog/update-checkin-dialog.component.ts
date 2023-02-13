@@ -24,6 +24,7 @@ export class UpdateCheckinDialogComponent {
   luggageId: string;
   bbInitials = bellBoyInitials;
   luggageLocation = luggageLocation;
+  files: string[] = [];
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -40,6 +41,9 @@ export class UpdateCheckinDialogComponent {
     private dialog: MatDialog
   ) {
     this.luggageId = data.luggageId;
+    this.files = data.files;
+    console.log('files', data.files);
+
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [
         Validators.required,

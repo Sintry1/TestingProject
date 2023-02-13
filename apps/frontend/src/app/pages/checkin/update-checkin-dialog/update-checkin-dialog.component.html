@@ -1,4 +1,7 @@
-<frontend-file-upload (filesChangedEvent)="updateSelectedFiles($event)"></frontend-file-upload>
+<frontend-file-upload
+  [existingFiles]="files"
+  (filesChangedEvent)="updateSelectedFiles($event)"
+></frontend-file-upload>
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
   <h1>Update Check In</h1>
   <hr />

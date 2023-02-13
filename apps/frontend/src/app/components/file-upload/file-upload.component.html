@@ -1,4 +1,4 @@
-<ng-container *ngIf="selectedFiles.length === 0">
+<ng-container *ngIf="selectedFiles.length > 0 || existingFiles.length > 0">
   <img src="assets/icons/file-upload.svg" alt="File upload icon" class="file-upload-icon" />
   <br />
   <h1 class="">Upload files</h1>
@@ -26,8 +26,17 @@
 </button>
 
 <!-- File list -->
-<ng-container *ngIf="selectedFiles.length > 0">
+<ng-container *ngIf="selectedFiles.length > 0 || existingFiles.length > 0">
   <section class="selected-files-list">
+    <div *ngFor="let file of existingFiles">
+      <div class="selected-file">
+        <img src="assets/icons/file.svg" alt="File icon" class="file-icon" />
+        <span class="file-name">{{ formatFileName(file) }}</span>
+        <span class="file-size"></span>
+        <button class="remove-file" (click)="removeExistingFile(file)">X</button>
+      </div>
+      <hr />
+    </div>
     <div *ngFor="let file of selectedFiles">
       <div class="selected-file">
         <img src="assets/icons/file.svg" alt="File icon" class="file-icon" />
