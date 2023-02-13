@@ -1,4 +1,4 @@
-<form [formGroup]="createAnnouncementForm">
+<form [formGroup]="createAnnouncementForm" (submit)="onSubmit()">
   <h1>Add Announcement</h1>
   <hr />
 
@@ -9,12 +9,7 @@
 
   <mat-form-field class="full-width">
     <mat-label>Description</mat-label>
-    <input
-      #description
-      type="text"
-      formControlName="comments"
-      matInput
-    />
+    <input #description type="text" formControlName="comments" matInput />
   </mat-form-field>
 
   <div class="dialog-row">
@@ -30,12 +25,7 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Show to</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="datetime-local"
-        formControlName="showTo"
-      />
+      <input onclick="this.showPicker()" matInput type="datetime-local" formControlName="showTo" />
     </mat-form-field>
   </div>
 

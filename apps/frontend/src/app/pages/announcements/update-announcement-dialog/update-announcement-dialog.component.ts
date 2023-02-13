@@ -30,7 +30,10 @@ export class UpdateAnnouncementDialogComponent implements OnInit {
       title: new UntypedFormControl(this.data.title, [Validators.required]),
       showFrom: new UntypedFormControl(this.data.showFrom, [Validators.required]),
       showTo: new UntypedFormControl(this.data.showTo, [Validators.required]),
-      comments: new UntypedFormControl(this.data.comments, [Validators.maxLength(1000), Validators.required]),
+      comments: new UntypedFormControl(this.data.comments, [
+        Validators.maxLength(1000),
+        Validators.required,
+      ]),
     });
   }
 

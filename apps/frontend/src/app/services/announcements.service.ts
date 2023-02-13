@@ -42,7 +42,10 @@ export class AnnouncementsService {
    * @param params - an UpdateAnnouncementRequest object to update the Announcement.
    * @returns an observable with updated Announcement.
    */
-  public updateAnnouncement(id: string, params: UpdateAnnouncementRequest): Observable<IAnnouncement> {
+  public updateAnnouncement(
+    id: string,
+    params: UpdateAnnouncementRequest
+  ): Observable<IAnnouncement> {
     return this.http.patch<IAnnouncement>(`${env.apiUrl}/announcements/${id}`, params);
   }
 
