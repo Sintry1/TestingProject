@@ -36,4 +36,4 @@ export * from './lib/assignment/assignment-sort-options.enum';
 export * from './lib/document/document-sort-options.enum';
 export * from './lib/announcement/announcement-sort-options.enum';
 export * from './lib/table-names.enum';
-export * from './lib/file-type-patterns.enum'
+export * from './lib/file-type-patterns.enum';
