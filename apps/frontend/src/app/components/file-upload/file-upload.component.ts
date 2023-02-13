@@ -36,8 +36,10 @@ export class FileUploadComponent {
     );
   }
 
-  /** Converts the object obtained from the file input and converts it into an array
-   * that then can be used to display the selected files */
+  /**
+   * Converts the object obtained from the file input and converts it into an array,
+   * that then can be used to display the selected files.
+   * */
   convertFileListToArray(files: FileList): File[] {
     return Object.values(files);
   }
@@ -126,6 +128,11 @@ export class FileUploadComponent {
     }
   }
 
+  /**
+   * Submit the changes to the files, uploading the adding files and removing the removed files.
+   * @param id the id of the entity to update.
+   * @emits submissionFinishedEvent once the update is complete.
+   */
   submit(id: string) {
     // Exist early if the parent type is incorrect
     if (!this.parentType) {
