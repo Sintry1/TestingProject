@@ -141,11 +141,9 @@ export class FileUploadComponent {
 
     // Update the existing files
     if (this.removedFiles.length > 0) {
-      console.log('Deleting the following files: ', this.removedFiles);
       removalFinished = false;
       this.filesService.removeFiles(this.parentType, id, this.removedFiles).subscribe({
         next: () => {
-          console.log('Files have been deleted');
           removalFinished = true;
           if (uploadFinished && removalFinished) {
             this.submissionFinishedEvent.emit();
@@ -164,10 +162,8 @@ export class FileUploadComponent {
     // Upload the new files
     if (this.selectedFiles.length > 0) {
       uploadFinished = false;
-      console.log('Uploading the following files: ', this.selectedFiles);
       this.filesService.addFiles(this.parentType, id, this.selectedFiles).subscribe({
         next: () => {
-          console.log('Files have been updated');
           uploadFinished = true;
           if (uploadFinished && removalFinished) {
             this.submissionFinishedEvent.emit();

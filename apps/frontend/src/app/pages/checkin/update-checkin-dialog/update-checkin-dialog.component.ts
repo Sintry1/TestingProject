@@ -44,7 +44,6 @@ export class UpdateCheckinDialogComponent {
   ) {
     this.luggageId = data.luggageId;
     this.files = data.files;
-    console.log('files', data.files);
 
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [
