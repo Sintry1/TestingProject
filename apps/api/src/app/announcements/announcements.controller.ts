@@ -26,6 +26,7 @@ import {
   AnnouncementRequest,
   AnnouncementSortOptions,
   DeleteAnnouncementResponse,
+  FileTypePattern,
   GetAnnouncementByIdResponse,
   GetAnnouncementResponse,
   Role,
@@ -34,7 +35,6 @@ import {
 import { Announcement } from '@omnihost/models';
 import 'multer';
 import { Roles } from '../auth/roles.decorator';
-import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { validateFileType } from '../files/files.service';
 import { AnnouncementsService } from './announcements.service';
 
