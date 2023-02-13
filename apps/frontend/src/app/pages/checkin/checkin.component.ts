@@ -85,7 +85,7 @@ export class CheckinComponent {
 
   openCheckinCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
     });
   }
 }
