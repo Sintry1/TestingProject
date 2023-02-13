@@ -58,7 +58,6 @@ export class CheckinComponent {
         next: (luggage) => {
           this.checkinLuggage = orderByCompletedStatus(luggage);
           this.isLoading = false;
-          this.openCheckinEditDialog(this.checkinLuggage[0]);
         },
         error: (error) => {
           this.isLoading = false;
