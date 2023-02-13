@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
@@ -26,6 +27,7 @@ export class UpdateCheckinDialogComponent {
   luggageLocation = luggageLocation;
   files: string[] = [];
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -108,12 +110,7 @@ export class UpdateCheckinDialogComponent {
       })
       .subscribe({
         next: () => {
-          this.snackBar.open('Luggage item updated!', 'Thanks', {
-            duration: 5000,
-          });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+          this.fileUploadRef.submit(this.luggageId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -125,7 +122,13 @@ export class UpdateCheckinDialogComponent {
       });
   }
 
-  updateSelectedFiles(data: { files: File[] }) {
-    console.log('updated files', data);
+  finalizeSubmission() {
+    this.isLoading = false;
+    this.snackBar.open('Luggage item updated!', 'Thanks', {
+      duration: 5000,
+    });
+    document.location.reload();
+    this.dialog.closeAll();
+    this.isLoading = false;
   }
 }

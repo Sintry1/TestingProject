@@ -1,23 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FilesService } from '../../services/files.service';
+import { SentryService } from '../../services/sentry.service';
 
 @Component({
   selector: 'frontend-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
 })
-export class FileUploadComponent implements OnInit {
+export class FileUploadComponent {
   allowedFileFormats = ['png', 'jpg', 'mp4'];
 
-  @Output() filesChangedEvent = new EventEmitter();
-  @Output() existingFilesChangedEvent = new EventEmitter();
-  private _existingFiles: string[] | null = null;
-  private _selectedFiles: File[] = [];
+  @Output()
+  submissionFinishedEvent = new EventEmitter();
+
+  @Input()
+  parentType: 'luggages' | 'cars' | 'announcements' | undefined;
+  @Input()
+  existingFiles: string[] = [];
+  removedFiles: string[] = [];
+  selectedFiles: File[] = [];
   maxFileSize = 20971520; // in bytes
   isLoading = false;
 
-  ngOnInit(): void {
-    console.log('File Upload ready', this.existingFiles);
-  }
+  constructor(private filesService: FilesService, private snackBar: MatSnackBar) {}
 
   /**
    * Sets the uploaded files to a variable. Does not send them to the API yet.
@@ -37,6 +43,7 @@ export class FileUploadComponent implements OnInit {
   }
 
   removeExistingFile(fileToRemove: string): void {
+    this.removedFiles.push(fileToRemove);
     this.existingFiles = this.existingFiles.filter((file) => file !== fileToRemove);
   }
 
@@ -119,21 +126,44 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
-  // Getters and Setters
-  public get selectedFiles(): File[] {
-    return this._selectedFiles;
-  }
-  public set selectedFiles(files: File[]) {
-    this._selectedFiles = files;
-    this.filesChangedEvent.emit({ files: this.selectedFiles });
-  }
+  submit(id: string) {
+    // Exist early if the parent type is incorrect
+    if (!this.parentType) {
+      SentryService.logEvent({
+        message: 'File upload was attempted for an undefined component',
+        level: 'error',
+      });
+      return;
+    }
 
-  @Input()
-  public get existingFiles(): string[] {
-    return this._existingFiles || [];
-  }
-  public set existingFiles(files: string[]) {
-    this._existingFiles = files;
-    this.existingFilesChangedEvent.emit({ files: this._existingFiles });
+    let removalFinished = true;
+    let uploadFinished = true;
+
+    // Update the existing files
+    if (this.removedFiles.length > 0) {
+      console.log('Deleting the following files: ', this.removedFiles);
+    }
+
+    // Upload the new files
+    if (this.selectedFiles.length > 0) {
+      uploadFinished = false;
+      console.log('Uploading the following files: ', this.selectedFiles);
+      this.filesService.addFiles(this.parentType, id, this.selectedFiles).subscribe({
+        next: () => {
+          console.log('Files have been updated');
+          uploadFinished = true;
+          if (uploadFinished && removalFinished) {
+            this.submissionFinishedEvent.emit();
+          }
+        },
+        error: (error) => {
+          SentryService.logError(error);
+          this.snackBar.open('Failed to update files, please try again.', 'Okay', {
+            duration: 10000,
+          });
+          this.isLoading = false;
+        },
+      });
+    }
   }
 }
