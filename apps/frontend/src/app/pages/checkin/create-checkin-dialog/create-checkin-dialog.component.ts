@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
@@ -12,7 +13,11 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
 @Component({
   selector: 'frontend-create-checkin-dialog',
   templateUrl: './create-checkin-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
+  styleUrls: [
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class CreateCheckinDialogComponent {
   createCheckinForm: UntypedFormGroup;
@@ -20,7 +25,9 @@ export class CreateCheckinDialogComponent {
   isLoading = false;
   bbInitials = bellBoyInitials;
   luggageLocation = luggageLocation;
+  containsInvalidFiles = false;
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -67,6 +74,10 @@ export class CreateCheckinDialogComponent {
       } else if (this.createCheckinForm.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
       }
+    } else if (this.containsInvalidFiles) {
+      this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
+        duration: 10000,
+      });
     } else {
       this.createCheckin();
     }
@@ -96,13 +107,8 @@ export class CreateCheckinDialogComponent {
         luggageType: LuggageType.CHECKIN,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Check In luggage item created!', 'Thanks', {
-            duration: 5000,
-          });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.luggageId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -112,5 +118,28 @@ export class CreateCheckinDialogComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Check In luggage item created!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }

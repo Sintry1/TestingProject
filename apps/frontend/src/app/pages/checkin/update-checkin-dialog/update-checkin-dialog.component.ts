@@ -15,6 +15,7 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
   templateUrl: './update-checkin-dialog.component.html',
   styleUrls: [
     '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/dialog.scss',
     '../../../../assets/styles/file-upload.scss',
   ],
 })
