@@ -18,6 +18,11 @@ export interface ICar extends ICompletedAt {
   bbOut?: string;
   comments?: string;
   charged: boolean;
+  files: string[];
+}
+
+export interface IGetCarByIdResponse extends ICar {
+  downloadUrls: string[];
 }
 
 export interface ICreateCarRequest {

@@ -2,21 +2,34 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICar } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { carComments, licensePlates } from '../constants/cars.constant';
 import { bellBoyInitials, carLocation } from '../constants/dropdown-options';
 import { names } from '../constants/names.constant';
-import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
+import {
+  getRandom,
+  getRandomBoolean,
+  getRandomChance,
+  getRandomInt,
+  uploadFileToLinode,
+} from './utils.service';
 
 @Injectable()
 export class CarsSeederService {
+  uploadedFileName = `car.jpg`;
+
   constructor(
     @InjectRepository(Car)
     private readonly repo: Repository<Car>
   ) {}
 
   create(): Array<Promise<Car>> {
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    uploadFileToLinode(fileBuffer, this.uploadedFileName);
+
     return this.generate().map(async (car: ICar) => {
       try {
         return await this.repo.save(car);
@@ -28,14 +41,15 @@ export class CarsSeederService {
 
   generate() {
     // Control variables
-    const entriesPerDay = 8;
-    const entriesPerDayRandomFactor = 2; // random +/- value for entires
+    const entriesPerDay = 2;
+    const entriesPerDayRandomFactor = 1; // random +/- value for entires
 
     // Setup the dates for the period of data generation
     const startDate = new Date(Date.now());
     startDate.setMonth(startDate.getMonth() - 6); // day six months in the past
     const endDate = new Date(Date.now());
     endDate.setMonth(endDate.getMonth() + 2); // day 2 months in the future
+    const currentDate = new Date(Date.now());
 
     // Generate the data
     const data: ICar[] = [];
@@ -44,13 +58,15 @@ export class CarsSeederService {
       const entries =
         entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
       for (let i = 0; i < entries; i++) {
-        const completed = getRandomBoolean();
+        const completed =
+          day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
         const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
         const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
         const expirationDate = new Date(day.setHours(getRandomInt(21, 23), getRandomInt(0, 60)));
         const parkingLocation = getRandom(carLocation);
+        const carId = uuidv4();
         data.push({
-          carId: uuidv4(),
+          carId,
           room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
           tagNr: getRandomInt(1000, 4000).toString(),
           arrivalDate: morningDate,
@@ -69,6 +85,7 @@ export class CarsSeederService {
           charged: completed, // if the customer has been billed. All completed cars are billed
           createdAt: morningDate,
           completedAt: completed ? eveningDate : null,
+          files: getRandomChance(0.5) ? [`car.jpg`] : [],
         });
       }
     }
