@@ -28,7 +28,6 @@ export class FileUploadComponent implements OnInit {
   };
   removedFiles: string[] = [];
   selectedFiles: File[] = [];
-  maxFileSize = 20971520; // in bytes
   isLoading = false;
   private _containsInvalidFiles = false;
 
