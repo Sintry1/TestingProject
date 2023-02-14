@@ -26,11 +26,17 @@ body {
   padding: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 hr {
+  width: 100%;
   border-top: 2px solid var(--main-blue);
 }
 

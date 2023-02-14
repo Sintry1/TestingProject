@@ -1,11 +1,11 @@
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { HttpService } from '@nestjs/axios';
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { FileTypePattern } from '@omnihost/interfaces';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { configService } from '../config/config.service';
 import { SentryService } from '../utils/sentry.service';
-import { FileTypePattern } from './file-type-patterns.enum';
 
 @Injectable()
 export class FilesService {
