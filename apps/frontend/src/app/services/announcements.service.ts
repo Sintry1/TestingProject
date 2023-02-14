@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  CreateAnnouncementRequest,
+  ICreateAnnouncementRequest,
   IAnnouncement,
-  UpdateAnnouncementRequest,
+  IUpdateAnnouncementRequest,
 } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
@@ -31,8 +31,15 @@ export class AnnouncementsService {
    * @param params - a create Announcement request with all the needed info.
    * @returns an observable with created IAnnouncement.
    */
-  public createAnnouncement(params: CreateAnnouncementRequest): Observable<IAnnouncement> {
-    return this.http.post<IAnnouncement>(`${env.apiUrl}/announcements`, params);
+  public createAnnouncement(params: ICreateAnnouncementRequest & { files?: File[] }): Observable<IAnnouncement> {
+    const formData = new FormData();
+    for (const key in params) {
+      if (Object.prototype.hasOwnProperty.call(params, key)) {
+        formData.append(key, params[key]);
+      }
+    }
+    
+    return this.http.post<IAnnouncement>(`${env.apiUrl}/announcements`, formData);
   }
 
   /**
@@ -44,7 +51,7 @@ export class AnnouncementsService {
    */
   public updateAnnouncement(
     id: string,
-    params: UpdateAnnouncementRequest
+    params: IUpdateAnnouncementRequest
   ): Observable<IAnnouncement> {
     return this.http.patch<IAnnouncement>(`${env.apiUrl}/announcements/${id}`, params);
   }

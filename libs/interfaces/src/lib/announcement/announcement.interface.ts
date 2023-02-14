@@ -20,11 +20,16 @@ export interface IAnnouncementRequest {
   showFrom?: Date | null;
 }
 
-// export interface IAnnouncement {
-//   title: string;
-//   comments: string;
-//   showFrom: Date;
-//   showTo: Date;
-//   images: string;
-//   status: string;
-// }
+export interface ICreateAnnouncementRequest {
+  title: string;
+  comments: string;
+  showTo: Date;
+  showFrom: Date;
+}
+
+export interface IUpdateAnnouncementRequest {
+  title?: string;
+  comments?: string;
+  showTo?: Date | null;
+  showFrom?: Date | null;
+}

@@ -42,7 +42,7 @@ export interface ICreateLuggageRequest {
 
 export interface IUpdateLuggageRequest {
   luggageType?: LuggageType;
-  roomReady?: boolean;
+  // roomReady?: boolean;
   room?: string;
   name?: string;
   arrivalTime?: Date | null;

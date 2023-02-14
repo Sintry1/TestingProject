@@ -17,7 +17,6 @@ export class UpdateAnnouncementDialogComponent implements OnInit {
   @ViewChild('comments') commentsInput!: ElementRef;
   @ViewChild('showFrom') showFromInput!: ElementRef;
   @ViewChild('showTo') showToInput!: ElementRef;
-  @ViewChild('files') files!: ElementRef;
 
   constructor(
     private dialog: MatDialog,
