@@ -1,4 +1,7 @@
 <div class="blacklist-widget-container">
+  <div class="table-spinner-full-size" *ngIf="isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+  </div>
   <div class="image-container">
     <ng-container *ngFor="let file of files; let i = index">
       <img [src]="file" [ngClass]="{ hidden: i >= 2 }" class="image" />

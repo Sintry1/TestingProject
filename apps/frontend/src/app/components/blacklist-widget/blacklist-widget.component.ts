@@ -13,6 +13,7 @@ import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-a
 export class BlacklistWidgetComponent implements OnInit {
   @Input() blacklist!: IBlacklist;
   files: string[] = [];
+  isLoading = false;
   constructor(
     private blacklistService: BlacklistService,
     private dialog: MatDialog,
@@ -34,10 +35,12 @@ export class BlacklistWidgetComponent implements OnInit {
   }
 
   getPictures() {
+    this.isLoading = true;
     this.blacklistService.getBlacklistById(this.blacklist.blacklistId).subscribe({
       next: (blacklist) => {
         console.log('This log is inside getPictures()', blacklist);
         this.files = blacklist.downloadUrls;
+        this.isLoading = false;
       },
       error: (error) => {
         console.log(error);
