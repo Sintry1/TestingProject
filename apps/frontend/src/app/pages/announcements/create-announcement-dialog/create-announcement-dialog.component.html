@@ -1,3 +1,10 @@
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'announcements'"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
 <form [formGroup]="createAnnouncementForm" (submit)="onSubmit()">
   <h1>Add Announcement</h1>
   <hr />

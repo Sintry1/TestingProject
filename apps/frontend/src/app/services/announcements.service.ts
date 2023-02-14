@@ -31,7 +31,7 @@ export class AnnouncementsService {
    * @param params - a create Announcement request with all the needed info.
    * @returns an observable with created IAnnouncement.
    */
-  public createAnnouncement(params: ICreateAnnouncementRequest & { files?: File[] }): Observable<IAnnouncement> {
+  public createAnnouncement(params: ICreateAnnouncementRequest): Observable<IAnnouncement> {
     const formData = new FormData();
     for (const key in params) {
       if (Object.prototype.hasOwnProperty.call(params, key)) {

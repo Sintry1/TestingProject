@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
@@ -15,7 +16,9 @@ import { toDateObject } from '../../../utils/date.util';
 export class CreateAnnouncementDialogComponent implements OnInit {
   createAnnouncementForm = new UntypedFormGroup({});
   isLoading = false;
+  containsInvalidFiles = false;
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
   @ViewChild('showFrom') showFromInput!: ElementRef;
@@ -46,8 +49,11 @@ export class CreateAnnouncementDialogComponent implements OnInit {
         this.showFromInput.nativeElement.focus();
       } else if (this.createAnnouncementForm.get('showTo')?.invalid) {
         this.showToInput.nativeElement.focus();
+      } else if (this.containsInvalidFiles) {
+        this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
+          duration: 10000,
+        });
       }
-      // TODO: Add a check for files
     } else {
       this.createAnnouncement();
     }
@@ -61,15 +67,10 @@ export class CreateAnnouncementDialogComponent implements OnInit {
       showFrom: toDateObject(this.createAnnouncementForm.get('showFrom')?.value),
       showTo: toDateObject(this.createAnnouncementForm.get('showTo')?.value),
       comments: this.createAnnouncementForm.get('comments')?.value,
-      files: undefined,
     }).subscribe({
-      next: () => {
-        this.snackBar.open('Announcement created!', 'Thanks', {
-          duration: 5000,
-        });
-        this.dialog.closeAll();
-        this.isLoading = false;
-        document.location.reload();
+      next: (res) => {
+        // upload files
+        this.fileUploadRef.submit(res.announcementId);
       },
       error: (error: HttpErrorResponse) => {
         SentryService.logError(error);
@@ -79,5 +80,28 @@ export class CreateAnnouncementDialogComponent implements OnInit {
         this.isLoading = false;
       },
     })
+  }
+
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Announcement item created!', 'Thanks', {
+        duration: 5000,
+      });
+      this.dialog.closeAll();
+      this.isLoading = false;
+      document.location.reload();
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }

@@ -3,6 +3,8 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAnnouncement } from '@omnihost/interfaces';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
+import { AnnouncementsService } from '../../../services/announcements.service';
 
 @Component({
   selector: 'frontend-update-announcement-dialog',
@@ -12,7 +14,9 @@ import { IAnnouncement } from '@omnihost/interfaces';
 export class UpdateAnnouncementDialogComponent implements OnInit {
   updateAnnouncementForm = new UntypedFormGroup({});
   isLoading = false;
+  containsInvalidFiles = false;
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('title') titleInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
   @ViewChild('showFrom') showFromInput!: ElementRef;
@@ -21,6 +25,7 @@ export class UpdateAnnouncementDialogComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
+    private announcementService: AnnouncementsService,
     @Inject(MAT_DIALOG_DATA) public data: IAnnouncement
   ) {}
 
@@ -46,8 +51,11 @@ export class UpdateAnnouncementDialogComponent implements OnInit {
         this.showFromInput.nativeElement.focus();
       } else if (this.updateAnnouncementForm.get('showTo')?.invalid) {
         this.showToInput.nativeElement.focus();
+      } else if (this.containsInvalidFiles) {
+        this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
+          duration: 10000,
+        });
       }
-      // TODO: Add a check for files
     } else {
       this.updateAnnouncement();
     }
