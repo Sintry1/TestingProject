@@ -39,7 +39,7 @@ main {
 }
 
 hr {
-  width: 100%;
+  width: 99%;
   border-top: 2px solid var(--main-blue);
 }
 
