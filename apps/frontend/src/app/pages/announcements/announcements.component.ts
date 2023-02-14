@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateAnnouncementDialogComponent } from './create-announcement-dialog/create-announcement-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { UpdateAnnouncementDialogComponent } from './update-announcement-dialog/update-announcement-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
-  IAnnouncement,
-  AnnouncementStatus,
   AnnouncementSortOptions,
+  AnnouncementStatus,
+  IAnnouncement,
   SortOrder,
 } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { AnnouncementsService } from '../../services/announcements.service';
 import { SentryService } from '../../services/sentry.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { toDateObject } from '../../utils/date.util';
+import { CreateAnnouncementDialogComponent } from './create-announcement-dialog/create-announcement-dialog.component';
+import { UpdateAnnouncementDialogComponent } from './update-announcement-dialog/update-announcement-dialog.component';
 
 @Component({
   selector: 'frontend-announcements',
@@ -46,12 +46,9 @@ export class AnnouncementsComponent implements OnInit {
   }
 
   fetchAnnouncements(): void {
-    console.log('running');
-
     this.isLoading = true;
     this.announcementService.getAnnouncements(this.sortBy, this.sortOrder, this.search).subscribe({
       next: (announcements) => {
-        console.log('completed', announcements);
         this.announcementList = announcements;
         this.updateList();
         this.isLoading = false;
@@ -80,7 +77,7 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
-  openEditAnnouncement(announcement: IAnnouncement): void {    
+  openEditAnnouncement(announcement: IAnnouncement): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       data: {

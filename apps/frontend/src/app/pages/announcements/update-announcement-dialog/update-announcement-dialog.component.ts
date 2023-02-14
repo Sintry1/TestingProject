@@ -38,8 +38,6 @@ export class UpdateAnnouncementDialogComponent {
     @Inject(MAT_DIALOG_DATA)
     public dialogData: { managerAccessRequired: boolean; componentData: IAnnouncement }
   ) {
-    console.log('files', dialogData.componentData.files);
-
     this.files = dialogData.componentData.files;
 
     this.updateAnnouncementForm = new UntypedFormGroup({
