@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ICar } from '@omnihost/interfaces';
+import { CarSortOptions, ICar, SortOrder } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
+import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
 
 @Component({
   selector: 'frontend-car-notification-widget',
@@ -9,13 +10,23 @@ import { CarService } from '../../../services/car.service';
 })
 export class CarNotificationWidgetComponent implements OnInit {
   carList: ICar[] = [];
+  displayDate = new Date();
+  sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
+  sortOrder: SortOrder = SortOrder.ASCENDING;
+  search = '';
+  showAll = false;
 
   constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.carService.getCar(new Date()).subscribe({
+    this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.carList = cars;
+        this.carList = filterByCompletedAtAndOrderResults(
+          cars,
+          false,
+          this.displayDate
+        );
+        this.carList = this.carList.filter((car) => !car.completedAt)
       },
       error: (err) => {
         console.error(err);

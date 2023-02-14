@@ -110,7 +110,7 @@ export class CarsComponent {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Check Out data have failed to load, please try checking your connection.',
+          'Car data have failed to load, please try checking your connection.',
           'Okay',
           {
             duration: 10000,
