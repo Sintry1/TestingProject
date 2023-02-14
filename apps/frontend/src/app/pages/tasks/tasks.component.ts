@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask, TableInfoOptions } from '@omnihost/interfaces';
@@ -14,7 +14,7 @@ import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.com
   templateUrl: './tasks.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
   morningTasks: ITask[] = [];
   eveningTasks: ITask[] = [];
   displayDate = new Date();
@@ -33,10 +33,6 @@ export class TasksComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchTasks();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchTasks();
   }
 
   fetchTasks(): void {
