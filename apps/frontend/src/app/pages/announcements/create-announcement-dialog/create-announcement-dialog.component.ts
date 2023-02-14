@@ -21,6 +21,7 @@ export class CreateAnnouncementDialogComponent {
   createAnnouncementForm = new UntypedFormGroup({});
   isLoading = false;
   containsInvalidFiles = false;
+  today = new Date();
 
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('title') titleInput!: ElementRef;
@@ -63,6 +64,14 @@ export class CreateAnnouncementDialogComponent {
 
   createAnnouncement(): void {
     this.isLoading = true;
+
+    console.log({
+      title: this.createAnnouncementForm.get('title')?.value,
+      showFrom: toDateObject(this.createAnnouncementForm.get('showFrom')?.value),
+      showTo: toDateObject(this.createAnnouncementForm.get('showTo')?.value),
+      comments: this.createAnnouncementForm.get('comments')?.value,
+    });
+    
 
     this.announcementService
       .createAnnouncement({

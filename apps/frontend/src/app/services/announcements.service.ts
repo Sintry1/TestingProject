@@ -4,6 +4,8 @@ import {
   ICreateAnnouncementRequest,
   IAnnouncement,
   IUpdateAnnouncementRequest,
+  SortOrder,
+  AnnouncementSortOptions,
 } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
@@ -19,9 +21,13 @@ export class AnnouncementsService {
    *
    * @returns an observable with a list of IAnnouncements.
    */
-  public getAnnouncements(createdAt: Date): Observable<IAnnouncement[]> {
+  public getAnnouncements(
+    sortBy?: AnnouncementSortOptions,
+    sortOrder?: SortOrder,
+    search?: string
+  ): Observable<IAnnouncement[]> {
     return this.http.get<IAnnouncement[]>(
-      `${env.apiUrl}/announcements?createdAt=${createdAt.toISOString()}`
+      `${env.apiUrl}/announcements?sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
   }
 
@@ -32,14 +38,7 @@ export class AnnouncementsService {
    * @returns an observable with created IAnnouncement.
    */
   public createAnnouncement(params: ICreateAnnouncementRequest): Observable<IAnnouncement> {
-    const formData = new FormData();
-    for (const key in params) {
-      if (Object.prototype.hasOwnProperty.call(params, key)) {
-        formData.append(key, params[key]);
-      }
-    }
-
-    return this.http.post<IAnnouncement>(`${env.apiUrl}/announcements`, formData);
+    return this.http.post<IAnnouncement>(`${env.apiUrl}/announcements`, params);
   }
 
   /**

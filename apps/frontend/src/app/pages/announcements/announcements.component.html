@@ -25,7 +25,7 @@
       >
         Expired
       </button>
-      <button mat-raised-button class="action-btn" (click)="createAnnouncement()">
+      <button mat-raised-button class="action-btn" (click)="openCreateAnnouncement()">
         Add Announcement
       </button>
     </div>
@@ -81,7 +81,7 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="editAnnouncement()"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openEditAnnouncement()"></tr>
     </table>
 
     <div class="table-spinner-full-size" *ngIf="isLoading">
