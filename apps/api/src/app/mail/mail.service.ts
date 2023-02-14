@@ -16,6 +16,7 @@ export class MailService {
   /**
    * Send the reset password email.
    * @param params the email information.
+   * @throws an error if the sending fails.
    * @returns whether the email sending succeeded.
    */
   async sendResetPasswordEmail(params: {
@@ -36,6 +37,7 @@ export class MailService {
   /**
    * Send an email with provided data.
    * @param data the data needed to send a Sendgrid email.
+   * @throws an error if the sending fails.
    * @returns whether the email sending succeeded.
    */
   private async sendMail(data: SendGrid.MailDataRequired): Promise<boolean> {
@@ -55,6 +57,7 @@ export class MailService {
           sendgridResponse: mailResponse,
         });
       }
+      return true;
     } catch (error) {
       this.logger.warn(`Failed to send email with the following data:`, data);
       SentryService.log(
@@ -63,7 +66,7 @@ export class MailService {
         this.logger,
         error
       );
+      throw error;
     }
-    return false;
   }
 }

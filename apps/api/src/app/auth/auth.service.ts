@@ -150,7 +150,8 @@ export class AuthService {
   /**
    * Check that the user exists, and if so send a reset password email.
    * @param email the email of the user.
-   * @returns whether the email sending succeeded.
+   * @throws an error if the Sendgrid request fails.
+   * @returns whether the email sending succeeded. May throw an error
    */
   async sendResetPasswordEmail(email: string): Promise<boolean> {
     let user: IUser;
@@ -182,8 +183,8 @@ export class AuthService {
         this.logger,
         error
       );
+      throw error;
     }
-    return false;
   }
 
   /**

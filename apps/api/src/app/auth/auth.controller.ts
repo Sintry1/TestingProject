@@ -113,13 +113,22 @@ export class AuthController {
   })
   async forgotPassword(@Body() body: ForgotPasswordRequest) {
     this.logger.verbose(`Processing forgot password request for '${body.email}'`);
-    const result = await this.authService.sendResetPasswordEmail(body.email);
-    if (result) {
-      SentryService.log('info', `Reset password email has been sent to ${body.email}`, this.logger);
+    try {
+      const result = await this.authService.sendResetPasswordEmail(body.email);
+      if (result) {
+        SentryService.log('info', `Reset password email sent to ${body.email}`, this.logger);
+      } else {
+        SentryService.log(
+          'warning',
+          `Failed to send the Reset password email to ${body.email}`,
+          this.logger
+        );
+      }
       return {
         message: 'Reset password email has been sent',
       };
-    } else {
+    } catch (error) {
+      this.logger.error(error);
       throw new InternalServerErrorException(
         'Failed to send the reset password email. Please try again or contact our support.'
       );
