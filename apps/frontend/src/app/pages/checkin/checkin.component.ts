@@ -72,7 +72,7 @@ export class CheckinComponent {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_IN,
-      width: '600px',
+      minWidth: '600px',
     });
   }
 
