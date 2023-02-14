@@ -11,6 +11,7 @@ import { getRandomInt, uploadFileToLinode } from './utils.service';
 
 @Injectable()
 export class DocumentsSeederService {
+  uploadedFileName = 'document.pdf';
   constructor(
     @InjectRepository(Document)
     private readonly repo: Repository<Document>
@@ -19,10 +20,10 @@ export class DocumentsSeederService {
   create(): Array<Promise<Document>> {
     // The file that will be uploaded to Linode
     const documentBuffer = fs.readFileSync(path.join(__dirname, '/assets/document.pdf'));
+    uploadFileToLinode(documentBuffer, this.uploadedFileName);
 
     return this.generate().map(async (document: IDocument) => {
       try {
-        await uploadFileToLinode(documentBuffer, document.documentName);
         return await this.repo.save(document);
       } catch (error) {
         throw new Error(error);
@@ -52,7 +53,7 @@ export class DocumentsSeederService {
         comments: document.comments,
         lastViewedAt: lastViewedAt,
         showOnDashboard: document.showOnDashboard,
-        documentName: 'document.pdf',
+        documentName: this.uploadedFileName,
         createdAt: randomDate,
         updatedAt: lastViewedAt,
       });
