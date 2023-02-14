@@ -35,15 +35,18 @@ export class UpdateAnnouncementDialogComponent {
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private announcementService: AnnouncementsService,
-    @Inject(MAT_DIALOG_DATA) public data: IAnnouncement
+    @Inject(MAT_DIALOG_DATA)
+    public dialogData: { managerAccessRequired: boolean; componentData: IAnnouncement }
   ) {
-    this.files = data.files;
+    console.log('files', dialogData.componentData.files)
+
+    this.files = dialogData.componentData.files;
 
     this.updateAnnouncementForm = new UntypedFormGroup({
-      title: new UntypedFormControl(data.title, [Validators.required]),
-      showFrom: new UntypedFormControl(data.showFrom, [Validators.required]),
-      showTo: new UntypedFormControl(data.showTo, [Validators.required]),
-      comments: new UntypedFormControl(data.comments, [
+      title: new UntypedFormControl(dialogData.componentData.title, [Validators.required]),
+      showFrom: new UntypedFormControl(dialogData.componentData.showFrom, [Validators.required]),
+      showTo: new UntypedFormControl(dialogData.componentData.showTo, [Validators.required]),
+      comments: new UntypedFormControl(dialogData.componentData.comments, [
         Validators.maxLength(1000),
         Validators.required,
       ]),
@@ -74,7 +77,7 @@ export class UpdateAnnouncementDialogComponent {
     this.isLoading = true;
 
     this.announcementService
-      .updateAnnouncement(this.data.announcementId, {
+      .updateAnnouncement(this.dialogData.componentData.announcementId, {
         title: this.updateAnnouncementForm.get('title')?.value,
         showFrom: toDateObject(this.updateAnnouncementForm.get('showFrom')?.value),
         showTo: toDateObject(this.updateAnnouncementForm.get('showTo')?.value),
