@@ -2,8 +2,16 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  CarSortOptions,
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
@@ -127,5 +135,14 @@ export class CarsComponent {
       this.showAll,
       this.displayDate
     );
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      console.log(`Viewing files`, element.files);
+      this.dialog.open(ViewImagesDialogComponent, { minWidth: '600px' });
+    } else {
+      this.openDialogEdit(element as ICar);
+    }
   }
 }

@@ -73,8 +73,15 @@
 
       <ng-container matColumnDef="licensePlate">
         <th mat-header-cell *matHeaderCellDef>License plate</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.licensePlate }}
+        <td mat-cell *matCellDef="let element" (click)="viewFiles(element)">
+          <div [ngClass]="element.files.length > 0 ? 'view-files-wrapper' : ''">
+            <img
+              *ngIf="element.files.length > 0"
+              src="assets/icons/view-files-icon.svg"
+              alt="View files icon"
+            />
+            <span>{{ element.licensePlate }}</span>
+          </div>
         </td>
       </ng-container>
 
