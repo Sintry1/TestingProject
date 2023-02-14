@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -15,7 +15,7 @@ import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-che
   templateUrl: './checkin.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class CheckinComponent implements OnInit {
+export class CheckinComponent {
   checkinLuggage: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
@@ -50,10 +50,6 @@ export class CheckinComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
     this.luggageService
@@ -76,20 +72,20 @@ export class CheckinComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_IN,
-      width: '600px',
+      minWidth: '600px',
     });
   }
 
   openCheckinEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       data: luggage,
     });
   }
 
   openCheckinCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -15,7 +15,7 @@ import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-
   templateUrl: 'longterm.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class LongtermComponent implements OnInit {
+export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
   listNames?: string[];
@@ -51,10 +51,6 @@ export class LongtermComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchLuggage();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchLuggage();
   }
 
   fetchLuggage(): void {

@@ -5,9 +5,11 @@ import {
   Injectable,
   InternalServerErrorException,
   Logger,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import {
+  GetManagerAccessResponse,
   ILoginResponse,
   ISignupRequest,
   ISignupResponse,
@@ -71,20 +73,37 @@ export class AuthService {
       { ...payload, tokenType: 'access' },
       { expiresIn: '30m' }
     );
-    // Only create the refresh token for non-management users
     let refreshToken = null;
-    if (user.role !== Role.manager) {
-      refreshToken = this.jwtService.sign(
-        { ...payload, tokenType: 'refresh' },
-        { expiresIn: '7d' }
-      );
-    }
+    refreshToken = this.jwtService.sign({ ...payload, tokenType: 'refresh' }, { expiresIn: '7d' });
 
     this.tokensService.create(accessToken, refreshToken);
     return {
       accessToken,
       refreshToken,
       role: user.role,
+    };
+  }
+
+  async getManagerAccess(password: string): Promise<GetManagerAccessResponse> {
+    const managerPassword = process.env.API_MANAGER_PASSWORD;
+    if (password != managerPassword) {
+      SentryService.log('warning', `An attempt was made to get manager access with wrong password`);
+      throw new UnauthorizedException();
+    }
+    const payload = {
+      email: '',
+      userId: '',
+      role: Role.manager,
+    };
+    const accessToken = this.jwtService.sign(
+      { ...payload, tokenType: 'access' },
+      { expiresIn: '30m' }
+    );
+
+    this.tokensService.create(accessToken);
+    return {
+      accessToken,
+      role: Role.manager,
     };
   }
 

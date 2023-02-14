@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {
+  GetManagerAccessRequest,
+  GetManagerAccessResponse,
   IAccessInfo,
   ILoginRequest,
   ILoginResponse,
@@ -40,6 +42,18 @@ export class AuthService {
    */
   login(params: ILoginRequest): Observable<ILoginResponse> {
     return this.http.post<ILoginResponse>(`${env.apiUrl}/auth/login`, params);
+  }
+
+  /**
+   * Perform a manager login request to the API.
+   * @param params manager access credentials.
+   * @returns observable of the API request.
+   */
+  getManagerAccess(params: GetManagerAccessRequest): Observable<GetManagerAccessResponse> {
+    return this.http.post<GetManagerAccessResponse>(
+      `${env.apiUrl}/auth/get-manager-access`,
+      params
+    );
   }
 
   /**
