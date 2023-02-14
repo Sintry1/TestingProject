@@ -24,6 +24,7 @@ import {
 } from '@nestjs/swagger';
 import {
   CreateLuggageRequest,
+  FileTypePattern,
   GetLuggageByIdResponse,
   GetLuggageResponse,
   LuggageSortOptions,
@@ -37,7 +38,6 @@ import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
-import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { validateFileType } from '../files/files.service';
 import { toBool } from '../utils/query-params.utils';
 import { LuggagesService } from './luggages.service';

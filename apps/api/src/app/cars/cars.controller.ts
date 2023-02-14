@@ -25,6 +25,7 @@ import {
 import {
   CarSortOptions,
   CreateCarRequest,
+  FileTypePattern,
   GetCarByIdResponse,
   GetCarResponse,
   Role,
@@ -36,7 +37,6 @@ import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
-import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { validateFileType } from '../files/files.service';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
