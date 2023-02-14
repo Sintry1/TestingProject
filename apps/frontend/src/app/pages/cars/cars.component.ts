@@ -139,8 +139,7 @@ export class CarsComponent {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      console.log(`Viewing files`, element.files);
-      this.dialog.open(ViewImagesDialogComponent, { minWidth: '600px' });
+      this.dialog.open(ViewImagesDialogComponent, { minWidth: '600px', data: element });
     } else {
       this.openDialogEdit(element as ICar);
     }

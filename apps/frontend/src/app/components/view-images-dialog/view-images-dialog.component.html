@@ -1,1 +1,24 @@
-<h1>Files be here</h1>
+<h2>Files from: {{ getTitle() }}</h2>
+<hr />
+<ng-container class="files" *ngIf="!isLoading">
+  <section class="image-list">
+    <ng-container class="image" *ngFor="let image of images">
+      <img [src]="image" alt="An image" class="image" />
+    </ng-container>
+  </section>
+
+  <br />
+
+  <section class="image-list">
+    <ng-container class="image" *ngFor="let video of videos">
+      <video class="video" controls>
+        <source [src]="video" />
+      </video>
+    </ng-container>
+  </section>
+</ng-container>
+
+<div *ngIf="isLoading" class="loading-icon">
+  <p>Loading the files...</p>
+  <mat-spinner diameter="50" color="blue"></mat-spinner>
+</div>

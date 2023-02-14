@@ -1,0 +1,28 @@
+.files {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+}
+
+.image,
+.video {
+  height: 300px;
+  width: auto;
+  margin: 10px 5px;
+}
+
+.loading-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
