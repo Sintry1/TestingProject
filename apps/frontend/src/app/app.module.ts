@@ -47,6 +47,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { SentryService } from './services/sentry.service';
+import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { SentryService } from './services/sentry.service';
     CreateAnnouncementDialogComponent,
     UpdateAnnouncementDialogComponent,
     FileUploadComponent,
+    CarNotificationWidgetComponent,
   ],
   imports: [
     BrowserModule,
