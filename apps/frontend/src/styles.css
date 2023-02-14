@@ -14,8 +14,7 @@
   --main-blue-lower-opacity: rgba(47, 47, 162, 0.2);
   --main-blue-lowest-opacity: rgba(47, 47, 162, 0.1);
   --action-gradient: linear-gradient(192.45deg, #f64c72 0%, #f64c72 0%, #fa7b34 100%);
-  --lime-green: #98ffa8;
-  --green: #1dea3e;
+  --green: #13be2f;
   --grey: rgba(0, 0, 0, 0.2);
   --lightblue: #ebebf6;
 }
@@ -55,6 +54,16 @@ button {
 .secondary-btn {
   color: white;
   background: var(--main-blue);
+}
+
+.link {
+  min-width: 10px !important;
+  width: 50px;
+}
+
+.link-icon {
+  position: relative;
+  bottom: 2px;
 }
 
 .basic-btn {

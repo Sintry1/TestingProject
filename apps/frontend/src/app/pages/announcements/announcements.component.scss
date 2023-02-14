@@ -2,9 +2,11 @@
   pointer-events: none;
   cursor: default;
   color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
 
   &.Active {
-    background: var(--lime-green);
+    background: var(--green);
   }
 
   &.Expired {
@@ -12,7 +14,8 @@
   }
 
   &.Future {
-    background: var(--green);
+    background: var(--main-blue);
+    opacity: 0.5;
   }
 }
 

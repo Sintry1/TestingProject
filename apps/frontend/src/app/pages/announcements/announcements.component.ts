@@ -80,7 +80,7 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
-  openEditAnnouncement(): void {
+  openEditAnnouncement(): void {    
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       data: {
