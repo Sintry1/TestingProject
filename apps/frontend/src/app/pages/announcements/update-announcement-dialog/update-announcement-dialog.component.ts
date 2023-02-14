@@ -7,7 +7,7 @@ import { IAnnouncement } from '@omnihost/interfaces';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject } from '../../../utils/date.util';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-announcement-dialog',
@@ -38,14 +38,24 @@ export class UpdateAnnouncementDialogComponent {
     @Inject(MAT_DIALOG_DATA)
     public dialogData: { managerAccessRequired: boolean; componentData: IAnnouncement }
   ) {
-    console.log('files', dialogData.componentData.files)
+    console.log('files', dialogData.componentData.files);
 
     this.files = dialogData.componentData.files;
 
     this.updateAnnouncementForm = new UntypedFormGroup({
       title: new UntypedFormControl(dialogData.componentData.title, [Validators.required]),
-      showFrom: new UntypedFormControl(dialogData.componentData.showFrom, [Validators.required]),
-      showTo: new UntypedFormControl(dialogData.componentData.showTo, [Validators.required]),
+      showFrom: new UntypedFormControl(
+        dialogData.componentData.showFrom
+          ? toDatetimeInputString(new Date(dialogData.componentData.showFrom))
+          : '',
+        [Validators.required]
+      ),
+      showTo: new UntypedFormControl(
+        dialogData.componentData.showTo
+          ? toDatetimeInputString(new Date(dialogData.componentData.showTo))
+          : '',
+        [Validators.required]
+      ),
       comments: new UntypedFormControl(dialogData.componentData.comments, [
         Validators.maxLength(1000),
         Validators.required,
