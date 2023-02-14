@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -23,6 +23,7 @@ export class UpdateAnnouncementDialogComponent {
   isLoading = false;
   containsInvalidFiles = false;
   files: string[] = [];
+  today = new Date();
 
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('title') titleInput!: ElementRef;

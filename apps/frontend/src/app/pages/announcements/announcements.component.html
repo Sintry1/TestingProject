@@ -81,7 +81,11 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openEditAnnouncement()"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="openEditAnnouncement()"
+      ></tr>
     </table>
 
     <div class="table-spinner-full-size" *ngIf="isLoading">

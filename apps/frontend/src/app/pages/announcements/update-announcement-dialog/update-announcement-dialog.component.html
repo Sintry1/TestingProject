@@ -20,7 +20,7 @@
     <textarea
       #comments
       matInput
-      style="height: 100px" 
+      style="height: 100px"
       type="text"
       formControlName="comments"
       placeholder="Describe the announcement"
@@ -34,13 +34,20 @@
         onclick="this.showPicker()"
         formControlName="showFrom"
         matInput
+        [min]="today"
         type="datetime-local"
       />
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Show to</mat-label>
-      <input onclick="this.showPicker()" matInput type="datetime-local" formControlName="showTo" />
+      <input
+        onclick="this.showPicker()"
+        [min]="today"
+        matInput
+        type="datetime-local"
+        formControlName="showTo"
+      />
     </mat-form-field>
   </div>
 

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -71,7 +71,6 @@ export class CreateAnnouncementDialogComponent {
       showTo: toDateObject(this.createAnnouncementForm.get('showTo')?.value),
       comments: this.createAnnouncementForm.get('comments')?.value,
     });
-    
 
     this.announcementService
       .createAnnouncement({

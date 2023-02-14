@@ -93,18 +93,18 @@ export class AnnouncementsComponent implements OnInit {
   getStatus(showFrom?: Date | null, showTo?: Date | null): string {
     const today = new Date().getTime();
 
-    if(showFrom === null || !showFrom || showTo === null || !showTo) {
+    if (showFrom === null || !showFrom || showTo === null || !showTo) {
       return AnnouncementStatus.EXPIRED;
     }
 
-    const from = toDateObject(showFrom.toString())
-    const to = toDateObject(showTo.toString())
-    
-    // FUTURE
+    const from = toDateObject(showFrom.toString());
+    const to = toDateObject(showTo.toString());
+
     if (from.getTime() > today) {
+      // FUTURE
       return AnnouncementStatus.FUTURE;
-      // ACTIVE
     } else if (from.getTime() <= today && to.getTime() > today) {
+      // ACTIVE
       return AnnouncementStatus.ACTIVE;
     } else {
       // EXPIRED
@@ -114,31 +114,28 @@ export class AnnouncementsComponent implements OnInit {
 
   updateList(): void {
     this.isLoading = true;
-    console.log('updating');
 
     this.displayAnnouncementList = [];
     const newItems = [];
     if (this.showFuture) {
       newItems.push(
-        ...this.announcementList.filter(
-          (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE
-        )
+        ...this.announcementList.filter((item) => {
+          return this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.FUTURE;
+        })
       );
     }
     if (this.showActive) {
-      console.log('updating this thing');
       newItems.push(
-        ...this.announcementList.filter((item) => {          
-          this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE;
+        ...this.announcementList.filter((item) => {
+          return this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.ACTIVE;
         })
       );
-      console.log('completed this thing', newItems);
     }
     if (this.showExpired) {
       newItems.push(
-        ...this.announcementList.filter(
-          (item) => this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.EXPIRED
-        )
+        ...this.announcementList.filter((item) => {
+          return this.getStatus(item.showFrom, item.showTo) === AnnouncementStatus.EXPIRED;
+        })
       );
     }
     this.displayAnnouncementList = Array.from(
