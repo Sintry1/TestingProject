@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FileTypePattern } from '@omnihost/interfaces';
 import { FilesService } from '../../services/files.service';
 import { SentryService } from '../../services/sentry.service';
 
@@ -24,8 +25,9 @@ export class FileUploadComponent implements OnInit {
   constraints = {
     maxFileSize: 0,
     maxFilesNumber: 0,
-    allowedExtensions: '()',
+    allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES_AND_VIDEO,
   };
+  allowedExtensionsAsMimeType = '';
   removedFiles: string[] = [];
   selectedFiles: File[] = [];
   isLoading = false;
@@ -44,7 +46,11 @@ export class FileUploadComponent implements OnInit {
         level: 'error',
       });
     }
+    // Set the file constraints
     this.constraints = this.filesService.getFileConstraints(this.parentType);
+    this.allowedExtensionsAsMimeType = this.filesService.getExtensionsAsMimeTypes(
+      this.constraints.allowedExtensions
+    );
   }
 
   /**
@@ -93,26 +99,11 @@ export class FileUploadComponent implements OnInit {
   }
 
   /**
-   * Get a readable version of the allowed file formats list.
-   * @returns formatted formats lists.
+   * Get a readable version of the allowed file formats.
+   * @returns formatted extensions string.
    */
-  getAllowedFileFormatsAsText(): string {
-    if (this.allowedFileFormats.length == 0) {
-      return 'none';
-    }
-    if (this.allowedFileFormats.length == 1) {
-      return this.allowedFileFormats[0];
-    }
-    let text = '';
-    for (let i = 0; i < this.allowedFileFormats.length; i++) {
-      text += this.allowedFileFormats[i];
-      if (i == this.allowedFileFormats.length - 2) {
-        text += ' or ';
-      } else if (i < this.allowedFileFormats.length - 2) {
-        text += ', ';
-      }
-    }
-    return text;
+  getExtensionsAsFormattedString(): string {
+    return this.filesService.getExtensionsAsFormattedString(this.constraints.allowedExtensions);
   }
 
   /**
@@ -125,7 +116,11 @@ export class FileUploadComponent implements OnInit {
       return filename;
     }
     const nameParts = filename.split('.');
-    const extension = nameParts[nameParts.length - 1];
+    let extension = nameParts[nameParts.length - 1];
+    // Check for the edge case of a file without an extension
+    if (nameParts.length === 1) {
+      extension = '';
+    }
 
     if (filename.length - extension.length > 25) {
       return filename.slice(0, 25) + `...(${extension})`;

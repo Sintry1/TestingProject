@@ -2,7 +2,7 @@
   <img src="assets/icons/file-upload.svg" alt="File upload icon" class="file-upload-icon" />
   <br />
   <h1 class="">Upload files</h1>
-  <p class="file-upload-text">Must be {{ getAllowedFileFormatsAsText() }}</p>
+  <p class="file-upload-text">Must be a {{ getExtensionsAsFormattedString() }}</p>
 </ng-container>
 
 <!-- File selection / upload -->
@@ -10,19 +10,12 @@
   style="display: none"
   #fileUpload
   type="file"
+  [accept]="allowedExtensionsAsMimeType"
   multiple
   (change)="uploadImages($event)"
-  accept="image/png, image/jpeg, video/mp4"
 />
-<button
-  class="file-drop-area"
-  (click)="fileUpload.click()"
-  type="button"
-  accept="image/png, image/jpeg, video/mp4"
->
-  <!-- TODO - implement select of files via drag&drop -->
-  <span>Drag and drop your file(s) here or</span>
-  <span class="link">browse here</span>
+<button class="file-select-area" (click)="fileUpload.click()" type="button">
+  <span>Click to select files</span>
 </button>
 
 <!-- File list -->

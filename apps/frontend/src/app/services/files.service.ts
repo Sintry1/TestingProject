@@ -50,7 +50,7 @@ export class FilesService {
   getFileConstraints(type: 'luggages' | 'cars' | 'announcements'): {
     maxFileSize: number;
     maxFilesNumber: number;
-    allowedExtensions: string;
+    allowedExtensions: FileTypePattern;
   } {
     switch (type) {
       case 'luggages':
@@ -72,5 +72,51 @@ export class FilesService {
           allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES,
         };
     }
+  }
+
+  /**
+   * Get a readable version of the allowed file formats.
+   * @param fileTypePattern the allowed extensions.
+   * @returns formatted extensions string.
+   */
+  getExtensionsAsFormattedString(fileTypePattern: FileTypePattern): string {
+    let formattedTypes = '';
+    const extensions = fileTypePattern.replace('(', '').replace(')', '').split('|');
+    extensions.forEach((type) => {
+      formattedTypes += `${type}, `;
+    });
+    // Remove the trailing comma and space
+    formattedTypes = formattedTypes.substring(0, formattedTypes.length - 2);
+    // Replace the last comma with 'or'
+    formattedTypes = formattedTypes.replace(/,(?!.*,)/gm, ' or ');
+    return formattedTypes;
+  }
+
+  /**
+   * Get a version of the allowed extensions that can be used to limit selection when selecting files.
+   * @param fileTypePattern the allowed extensions.
+   * @returns formatted mime types string.
+   */
+  getExtensionsAsMimeTypes(fileTypePattern: FileTypePattern): string {
+    let formattedTypes = '';
+    const extensions = fileTypePattern.replace('(', '').replace(')', '').split('|');
+    extensions.forEach((type) => {
+      if (type === 'png' || type === 'jpg' || type === 'jpeg') {
+        formattedTypes += `image/${type},`;
+      }
+      if (type === 'mp4' || type === 'mov') {
+        formattedTypes += `video/${type},`;
+      }
+      if (type === 'pdf') {
+        formattedTypes += `application/${type},`;
+      }
+      if (type === 'docx') {
+        formattedTypes +=
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document,';
+      }
+    });
+    // Remove the trailing comma
+    formattedTypes = formattedTypes.substring(0, formattedTypes.length - 1);
+    return formattedTypes;
   }
 }
