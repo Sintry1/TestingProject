@@ -48,6 +48,7 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { SentryService } from './services/sentry.service';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
+import { DashboardNotificationSectionComponent } from './components/dashboard-notification-section/dashboard-notification-section.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { CarNotificationWidgetComponent } from './components/dashboard-widgets/c
     UpdateAnnouncementDialogComponent,
     FileUploadComponent,
     CarNotificationWidgetComponent,
+    DashboardNotificationSectionComponent,
   ],
   imports: [
     BrowserModule,
