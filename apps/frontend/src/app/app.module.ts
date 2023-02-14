@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Sentry from '@sentry/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardDocumentSectionComponent } from './components/dashboard-widgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardDocumentSectionComponent } from './components/dashboard-sections/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboard-widgets/dashboard-links/dashboard-links.component';
 import { WeatherWidgetComponent } from './components/dashboard-widgets/weather-widget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/document-widget/document-widget.component';
@@ -48,7 +48,7 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { SentryService } from './services/sentry.service';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
-import { DashboardNotificationSectionComponent } from './components/dashboard-notification-section/dashboard-notification-section.component';
+import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
 
 @NgModule({
   declarations: [
