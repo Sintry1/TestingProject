@@ -16,7 +16,14 @@
 
   <mat-form-field class="full-width">
     <mat-label>Description</mat-label>
-    <input #description type="text" formControlName="comments" matInput />
+    <textarea
+      #comments
+      matInput
+      style="height: 100px" 
+      type="text"
+      formControlName="comments"
+      placeholder="Describe the announcement"
+    ></textarea>
   </mat-form-field>
 
   <div class="dialog-row">

@@ -3,6 +3,7 @@ import { CreateAnnouncementDialogComponent } from './create-announcement-dialog/
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateAnnouncementDialogComponent } from './update-announcement-dialog/update-announcement-dialog.component';
 import { IAnnouncement, AnnouncementStatus } from '@omnihost/interfaces';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 
 @Component({
   selector: 'frontend-announcements',
@@ -26,12 +27,22 @@ export class AnnouncementsComponent {
   }
 
   createAnnouncement(): void {
-    this.dialog.open(CreateAnnouncementDialogComponent, { minWidth: '600px' });
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
+      data: {
+        component: CreateAnnouncementDialogComponent,
+        minWidth: '600px',
+      },
+    });
   }
 
   editAnnouncement(): void {
-    this.dialog.open(UpdateAnnouncementDialogComponent, {
-      minWidth: '600px',
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
+      data: {
+        component: UpdateAnnouncementDialogComponent,
+        minWidth: '600px',
+      },
     });
   }
 
