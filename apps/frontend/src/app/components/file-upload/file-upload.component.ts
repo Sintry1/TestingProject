@@ -123,7 +123,7 @@ export class FileUploadComponent implements OnInit {
     }
 
     if (filename.length - extension.length > 25) {
-      return filename.slice(0, 25) + `...(${extension})`;
+      return filename.slice(0, 25) + `...${extension ? `(${extension})` : ''}`;
     }
 
     let nameWithoutExtension = '';
