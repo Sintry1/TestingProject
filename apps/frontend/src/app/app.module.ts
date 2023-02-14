@@ -18,6 +18,9 @@ import { TableInfoDialogComponent } from './components/table-info-dialog/table-i
 import { ViewImagesDialogComponent } from './components/view-images-dialog/view-images-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { CreateAnnouncementDialogComponent } from './pages/announcements/create-announcement-dialog/create-announcement-dialog.component';
+import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-announcement-dialog/update-announcement-dialog.component';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
 import { CreateAssignmentDialogComponent } from './pages/assignments/create-assignment-dialog/create-assignment-dialog.component';
 import { UpdateAssignmentDialogComponent } from './pages/assignments/update-assignment-dialog/update-assignment-dialog.component';
@@ -84,6 +87,9 @@ import { SentryService } from './services/sentry.service';
     ViewImagesDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
+    AnnouncementsComponent,
+    CreateAnnouncementDialogComponent,
+    UpdateAnnouncementDialogComponent,
     FileUploadComponent,
   ],
   imports: [
