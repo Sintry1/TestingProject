@@ -23,7 +23,7 @@
   <section class="selected-files-list">
     <div *ngFor="let file of existingFiles">
       <div class="selected-file">
-        <img src="assets/icons/file.svg" alt="File icon"/>
+        <img src="assets/icons/file.svg" alt="File icon" />
         <span class="file-name">{{ formatFileName(file) }}</span>
         <span class="file-size"></span>
         <button (click)="removeExistingFile(file)">X</button>
@@ -32,7 +32,7 @@
     </div>
     <div *ngFor="let file of selectedFiles">
       <div class="selected-file" [ngClass]="isFileValid(file) ? '' : 'invalid-file'">
-        <img src="assets/icons/file.svg" alt="File icon"/>
+        <img src="assets/icons/file.svg" alt="File icon" />
         <span class="file-name">{{ formatFileName(file.name) }}</span>
         <span class="file-size">{{ formatFileSize(file.size) }}</span>
         <button (click)="removeUploadedFile(file)">X</button>
