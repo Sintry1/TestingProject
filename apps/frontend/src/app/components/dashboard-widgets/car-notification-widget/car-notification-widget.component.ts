@@ -13,13 +13,13 @@ export class CarNotificationWidgetComponent implements OnInit {
   constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.carService.getCar(new Date).subscribe({
+    this.carService.getCar(new Date()).subscribe({
       next: (cars) => {
         this.carList = cars;
       },
       error: (err) => {
         console.error(err);
-      }
-    })
+      },
+    });
   }
 }
