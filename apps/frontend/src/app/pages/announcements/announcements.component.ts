@@ -26,12 +26,12 @@ export class AnnouncementsComponent {
   }
 
   createAnnouncement(): void {
-    this.dialog.open(CreateAnnouncementDialogComponent, { width: '600px' });
+    this.dialog.open(CreateAnnouncementDialogComponent, { minWidth: '600px' });
   }
 
   editAnnouncement(): void {
     this.dialog.open(UpdateAnnouncementDialogComponent, {
-      width: '800px',
+      minWidth: '600px',
     });
   }
 

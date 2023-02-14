@@ -38,7 +38,7 @@ export class AnnouncementsService {
         formData.append(key, params[key]);
       }
     }
-    
+
     return this.http.post<IAnnouncement>(`${env.apiUrl}/announcements`, formData);
   }
 
