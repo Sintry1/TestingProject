@@ -50,11 +50,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
   ngOnInit(): void {
     this.createAssignmentForm = new UntypedFormGroup({
       room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
-      task: new UntypedFormControl(
-        '',
-        Validators.maxLength(20),
-        valueInArrayValidator(bbAssignmentTasks)
-      ),
+      task: new UntypedFormControl('', [], valueInArrayValidator(bbAssignmentTasks)),
       requestedBy: new UntypedFormControl(
         '',
         [Validators.required],
@@ -70,6 +66,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
     });
 
     // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.createAssignmentForm.get('room'));
     this.filteredTasks = filterAutocompleteSelect(
       bbAssignmentTasks,
       this.createAssignmentForm.get('task')
@@ -82,7 +79,6 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
       bellBoyInitials,
       this.createAssignmentForm.get('performedBy')
     );
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.createAssignmentForm.get('room'));
   }
 
   onSubmit(): void {

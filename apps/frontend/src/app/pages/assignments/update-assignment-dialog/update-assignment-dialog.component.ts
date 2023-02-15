@@ -4,21 +4,26 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { AssignmentsService } from '../../../services/assignments.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import {
   bbAssignmentRequestedBy,
   bbAssignmentTasks,
   bellBoyInitials,
+  rooms,
 } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-update-assignment-dialog',
   templateUrl: './update-assignment-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
-export class UpdateAssignmentDialogComponent implements OnInit {
+export class UpdateAssignmentDialogComponent extends DropdownSelection implements OnInit {
   updateAssignmentForm = new UntypedFormGroup({});
   maxDatetime = new Date(new Date().getTime() + 50000);
 
@@ -26,6 +31,11 @@ export class UpdateAssignmentDialogComponent implements OnInit {
   bbAssignmentTasks = bbAssignmentTasks;
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   isLoading = false;
+
+  filteredTasks: Observable<string[]> = new Observable<string[]>();
+  filteredRequestedBy: Observable<string[]> = new Observable<string[]>();
+  filteredPerformedBy: Observable<string[]> = new Observable<string[]>();
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -40,24 +50,28 @@ export class UpdateAssignmentDialogComponent implements OnInit {
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: IAssignment // TODO: Look into fixing this: misrepresentation of data: receivedAt and completedAt are not actually Date objects, but strings
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.updateAssignmentForm = new UntypedFormGroup({
-      room: new UntypedFormControl(this.data.room ?? '', [
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
-      task: new UntypedFormControl(this.data.task ?? '', Validators.maxLength(20)),
+      room: new UntypedFormControl(this.data.room, [], valueInArrayValidator(rooms)),
+      task: new UntypedFormControl(this.data.task, [], valueInArrayValidator(bbAssignmentTasks)),
       comments: new UntypedFormControl(this.data.comments, [
         Validators.maxLength(1000),
         Validators.required,
       ]),
-      requestedBy: new UntypedFormControl(this.data.requestedBy, [
-        Validators.maxLength(20),
-        Validators.required,
-      ]),
-      performedBy: new UntypedFormControl(this.data.performedBy ?? '', [Validators.maxLength(20)]),
+      requestedBy: new UntypedFormControl(
+        this.data.requestedBy,
+        [Validators.required],
+        valueInArrayValidator(bbAssignmentRequestedBy)
+      ),
+      performedBy: new UntypedFormControl(
+        this.data.performedBy,
+        [],
+        valueInArrayValidator(bellBoyInitials)
+      ),
       requestedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.requestedAt)), [
         Validators.required,
       ]),
@@ -65,6 +79,21 @@ export class UpdateAssignmentDialogComponent implements OnInit {
         this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : ''
       ),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateAssignmentForm.get('room'));
+    this.filteredTasks = filterAutocompleteSelect(
+      bbAssignmentTasks,
+      this.updateAssignmentForm.get('task')
+    );
+    this.filteredRequestedBy = filterAutocompleteSelect(
+      bbAssignmentRequestedBy,
+      this.updateAssignmentForm.get('requestedBy')
+    );
+    this.filteredPerformedBy = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateAssignmentForm.get('performedBy')
+    );
   }
 
   onSubmit(): void {

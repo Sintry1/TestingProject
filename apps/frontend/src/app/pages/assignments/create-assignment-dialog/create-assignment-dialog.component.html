@@ -11,7 +11,7 @@
           {{ option }}
         </mat-option>
       </mat-autocomplete>
-      <mat-error> Has to be one of the presented values </mat-error>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field>
