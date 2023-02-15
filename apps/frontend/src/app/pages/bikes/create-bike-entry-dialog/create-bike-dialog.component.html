@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="createBikeForm">
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
   <h1>Add Bike</h1>
   <hr />
 
@@ -17,9 +17,7 @@
     <mat-form-field autocomplete="off" class="full-width">
       <mat-label>Name</mat-label>
       <input #name type="text" formControlName="name" matInput placeholder="Name" />
-      <mat-error *ngIf="createBikeForm.get('name')?.invalid && createBikeForm.get('name')?.dirty">
-        Required
-      </mat-error>
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
     </mat-form-field>
   </div>
 
@@ -49,9 +47,7 @@
         matInput
         placeholder="Number of bikes"
       />
-      <mat-error
-        *ngIf="createBikeForm.get('nrOfBikes')?.invalid && createBikeForm.get('nrOfBikes')?.dirty"
-      >
+      <mat-error *ngIf="form.get('nrOfBikes')?.invalid && form.get('nrOfBikes')?.dirty">
         Must be a number from 1-99
       </mat-error>
     </mat-form-field>

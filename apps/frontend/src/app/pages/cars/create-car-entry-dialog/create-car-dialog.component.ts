@@ -18,7 +18,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class CreateCarDialogComponent extends DropdownSelection {
-  createCarForm: UntypedFormGroup;
+  form: UntypedFormGroup;
   checked = true;
   isLoading = false;
 
@@ -40,7 +40,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
     private dialog: MatDialog
   ) {
     super();
-    this.createCarForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
       arrivalDate: new UntypedFormControl(new Date(), [Validators.required]),
@@ -60,32 +60,26 @@ export class CreateCarDialogComponent extends DropdownSelection {
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.createCarForm.get('room'));
-    this.filteredBbDown = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCarForm.get('bbDown')
-    );
-    this.filteredCarLocations = filterAutocompleteSelect(
-      carLocation,
-      this.createCarForm.get('location')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredCarLocations = filterAutocompleteSelect(carLocation, this.form.get('location'));
   }
 
   onSubmit() {
-    if (!this.createCarForm.valid) {
-      if (this.createCarForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createCarForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.createCarForm.get('arrivalDate')?.invalid) {
+      } else if (this.form.get('arrivalDate')?.invalid) {
         this.arrivalDateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('departureDate')?.invalid) {
+      } else if (this.form.get('departureDate')?.invalid) {
         this.departureDateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.createCarForm.get('licensePlate')?.invalid) {
+      } else if (this.form.get('licensePlate')?.invalid) {
         this.licensePlateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
       }
     } else {
@@ -97,27 +91,23 @@ export class CreateCarDialogComponent extends DropdownSelection {
     this.isLoading = true;
     this.carService
       .createCar({
-        room: this.createCarForm.get('room')?.value,
-        tagNr: this.createCarForm.get('tagNr')?.value,
-        arrivalDate: toDateObject(this.createCarForm.get('arrivalDate')?.value),
-        departureDate: toDateObject(this.createCarForm.get('departureDate')?.value),
-        name: this.createCarForm.get('name')?.value,
-        licensePlate: this.createCarForm.get('licensePlate')?.value
-          ? this.createCarForm.get('licensePlate')?.value
+        room: this.form.get('room')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        arrivalDate: toDateObject(this.form.get('arrivalDate')?.value),
+        departureDate: toDateObject(this.form.get('departureDate')?.value),
+        name: this.form.get('name')?.value,
+        licensePlate: this.form.get('licensePlate')?.value
+          ? this.form.get('licensePlate')?.value
           : '',
-        expirationDate: toDateObject(this.createCarForm.get('expirationDate')?.value),
-        pickUpTime: toDateObject(this.createCarForm.get('pickUpTime')?.value),
-        deliveryTime: new Date(this.createCarForm.get('deliveryTime')?.value),
-        bbDown: this.createCarForm.get('bbDown')?.value
-          ? this.createCarForm.get('bbDown')?.value
-          : '',
-        bbUp: this.createCarForm.get('bbUp')?.value ? this.createCarForm.get('bbUp')?.value : '',
-        location: this.createCarForm.get('location')?.value
-          ? this.createCarForm.get('location')?.value
-          : '',
-        parkingLot: this.createCarForm.get('parkingLot')?.value,
-        bbOut: this.createCarForm.get('bbOut')?.value ? this.createCarForm.get('bbOut')?.value : '',
-        comments: this.createCarForm.get('comments')?.value,
+        expirationDate: toDateObject(this.form.get('expirationDate')?.value),
+        pickUpTime: toDateObject(this.form.get('pickUpTime')?.value),
+        deliveryTime: new Date(this.form.get('deliveryTime')?.value),
+        bbDown: this.form.get('bbDown')?.value ? this.form.get('bbDown')?.value : '',
+        bbUp: this.form.get('bbUp')?.value ? this.form.get('bbUp')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        parkingLot: this.form.get('parkingLot')?.value,
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        comments: this.form.get('comments')?.value,
         charged: false,
       })
       .subscribe({

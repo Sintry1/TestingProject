@@ -18,7 +18,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
 export class UpdateBikeDialogComponent extends DropdownSelection {
-  updateBikeForm: UntypedFormGroup;
+  form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   bikeFormCompleted: boolean;
@@ -39,7 +39,7 @@ export class UpdateBikeDialogComponent extends DropdownSelection {
     @Inject(MAT_DIALOG_DATA) public data: IBike // TODO: Fix - Dates are strings not Date objects.
   ) {
     super();
-    this.updateBikeForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl(
         this.data.room,
         [Validators.required],
@@ -65,24 +65,24 @@ export class UpdateBikeDialogComponent extends DropdownSelection {
     this.bikeFormCompleted = data.bikeFormCompleted ?? false;
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateBikeForm.get('room'));
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
     this.filteredBikesReserved = filterAutocompleteSelect(
       bikeListReserved,
-      this.updateBikeForm.get('reservedBy')
+      this.form.get('reservedBy')
     );
   }
 
   onSubmit() {
-    if (!this.updateBikeForm.valid) {
-      if (this.updateBikeForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.updateBikeForm.get('nrOfBikes')?.invalid) {
+      } else if (this.form.get('nrOfBikes')?.invalid) {
         this.nrOfBikesInput.nativeElement.focus();
-      } else if (this.updateBikeForm.get('pickUpTime')?.invalid) {
+      } else if (this.form.get('pickUpTime')?.invalid) {
         this.pickUpTimeInput.nativeElement.focus();
-      } else if (this.updateBikeForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.updateBikeForm.get('reservedBy')?.invalid) {
+      } else if (this.form.get('reservedBy')?.invalid) {
         this.reservedByInput.nativeElement.focus();
       }
     } else {
@@ -94,14 +94,14 @@ export class UpdateBikeDialogComponent extends DropdownSelection {
     this.isLoading = true;
     this.bikeService
       .updateBike(this.data.bikeId, {
-        room: this.updateBikeForm.get('room')?.value,
-        nrOfBikes: this.updateBikeForm.get('nrOfBikes')?.value,
-        pickUpTime: toDateObject(this.updateBikeForm.get('pickUpTime')?.value),
-        name: this.updateBikeForm.get('name')?.value,
-        reservedBy: this.updateBikeForm.get('reservedBy')?.value,
+        room: this.form.get('room')?.value,
+        nrOfBikes: this.form.get('nrOfBikes')?.value,
+        pickUpTime: toDateObject(this.form.get('pickUpTime')?.value),
+        name: this.form.get('name')?.value,
+        reservedBy: this.form.get('reservedBy')?.value,
         bikeFormCompleted: this.bikeFormCompleted,
-        comments: this.updateBikeForm.get('comments')?.value,
-        completedAt: toDateObject(this.updateBikeForm.get('completedAt')?.value),
+        comments: this.form.get('comments')?.value,
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

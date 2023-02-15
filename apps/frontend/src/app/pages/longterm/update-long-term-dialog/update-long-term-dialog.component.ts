@@ -19,7 +19,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateLongTermDialogComponent extends DropdownSelection implements OnInit {
-  updateLongTermForm = new UntypedFormGroup({});
+  form = new UntypedFormGroup({});
   guestHasApproved = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
   isLoading = false;
@@ -47,7 +47,7 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
   }
 
   ngOnInit(): void {
-    this.updateLongTermForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       dateIn: new UntypedFormControl(
         this.data.createdAt ? toDatetimeInputString(new Date(this.data.createdAt)) : '',
         [Validators.required]
@@ -83,36 +83,27 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateLongTermForm.get('room'));
-    this.filteredBbLr = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.updateLongTermForm.get('bbLr')
-    );
-    this.filteredLocations = filterAutocompleteSelect(
-      luggageLocation,
-      this.updateLongTermForm.get('location')
-    );
-    this.filteredBbOut = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.updateLongTermForm.get('bbOut')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.updateLongTermForm.valid) {
-      if (this.updateLongTermForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
-      } else if (this.updateLongTermForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
       }
     } else {
@@ -124,22 +115,16 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
     this.isLoading = true;
     this.luggageService
       .update(this.data.luggageId, {
-        room: this.updateLongTermForm.get('room')?.value,
-        name: this.updateLongTermForm.get('name')?.value,
-        bags: this.updateLongTermForm.get('bags')?.value,
-        comments: this.updateLongTermForm.get('comments')?.value,
-        tagNr: this.updateLongTermForm.get('tagNr')?.value,
-        arrivalTime: toDateObject(this.updateLongTermForm.get('dateNeeded')?.value),
-        bbLr: this.updateLongTermForm.get('bbLr')?.value
-          ? this.updateLongTermForm.get('bbLr')?.value
-          : '',
-        location: this.updateLongTermForm.get('location')?.value
-          ? this.updateLongTermForm.get('location')?.value
-          : '',
-        bbOut: this.updateLongTermForm.get('bbOut')?.value
-          ? this.updateLongTermForm.get('bbOut')?.value
-          : '',
-        completedAt: toDateObject(this.updateLongTermForm.get('dateOut')?.value),
+        room: this.form.get('room')?.value,
+        name: this.form.get('name')?.value,
+        bags: this.form.get('bags')?.value,
+        comments: this.form.get('comments')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        arrivalTime: toDateObject(this.form.get('dateNeeded')?.value),
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        completedAt: toDateObject(this.form.get('dateOut')?.value),
       })
       .subscribe({
         next: () => {

@@ -1,4 +1,4 @@
-<form [formGroup]="createAssignmentForm" (ngSubmit)="onSubmit()" class="dialog-container">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-container">
   <h1>Add assignment</h1>
   <hr />
 
@@ -81,11 +81,7 @@
       formControlName="comments"
       placeholder="Describe the task"
     ></textarea>
-    <mat-error
-      *ngIf="
-        createAssignmentForm.get('comments')?.invalid && createAssignmentForm.get('comments')?.dirty
-      "
-    >
+    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
       Can't be more than 1000 characters
     </mat-error>
   </mat-form-field>

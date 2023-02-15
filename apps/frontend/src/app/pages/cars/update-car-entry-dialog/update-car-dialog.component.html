@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="updateCarForm" class="dialog-container">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
   <h1>Update Car</h1>
   <hr />
 
@@ -17,7 +17,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
       <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error *ngIf="updateCarForm.get('tagNr')?.invalid && updateCarForm.get('tagNr')?.dirty">
+      <mat-error *ngIf="form.get('tagNr')?.invalid && form.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -38,9 +38,7 @@
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Name</mat-label>
     <input #name type="text" formControlName="name" matInput placeholder="Johnson" />
-    <mat-error *ngIf="updateCarForm.get('name')?.invalid && updateCarForm.get('name')?.dirty">
-      Required
-    </mat-error>
+    <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
@@ -53,11 +51,7 @@
         matInput
         placeholder="AB12345"
       />
-      <mat-error
-        *ngIf="
-          updateCarForm.get('licensePlate')?.invalid && updateCarForm.get('licensePlate')?.dirty
-        "
-      >
+      <mat-error *ngIf="form.get('licensePlate')?.invalid && form.get('licensePlate')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -134,9 +128,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Parking lot</mat-label>
       <input type="text" formControlName="parkingLot" matInput placeholder="Front of hotel" />
-      <mat-error
-        *ngIf="updateCarForm.get('parkingLot')?.invalid && updateCarForm.get('parkingLot')?.dirty"
-      >
+      <mat-error *ngIf="form.get('parkingLot')?.invalid && form.get('parkingLot')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -145,9 +137,7 @@
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
     <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
-    <mat-error
-      *ngIf="updateCarForm.get('comments')?.invalid && updateCarForm.get('comments')?.dirty"
-    >
+    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
       Required
     </mat-error>
   </mat-form-field>

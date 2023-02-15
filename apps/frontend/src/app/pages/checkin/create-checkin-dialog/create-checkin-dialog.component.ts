@@ -24,7 +24,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   ],
 })
 export class CreateCheckinDialogComponent extends DropdownSelection {
-  createCheckinForm: UntypedFormGroup;
+  form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   containsInvalidFiles = false;
@@ -48,7 +48,7 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
     private dialog: MatDialog
   ) {
     super();
-    this.createCheckinForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       // roomReady: new UntypedFormControl('false', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
@@ -71,34 +71,25 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.createCheckinForm.get('room'));
-    this.filteredBbLr = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCheckinForm.get('bbLr')
-    );
-    this.filteredLocations = filterAutocompleteSelect(
-      luggageLocation,
-      this.createCheckinForm.get('location')
-    );
-    this.filteredBbOut = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCheckinForm.get('bbOut')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.createCheckinForm.valid) {
-      if (this.createCheckinForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createCheckinForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.createCheckinForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.createCheckinForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.createCheckinForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
-      } else if (this.createCheckinForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
       }
     } else if (this.containsInvalidFiles) {
@@ -114,23 +105,17 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
     this.isLoading = true;
     this.service
       .create({
-        room: this.createCheckinForm.get('room')?.value,
+        room: this.form.get('room')?.value,
         // roomReady: this.createCheckinForm.get('roomReady')?.value,
-        name: this.createCheckinForm.get('name')?.value,
-        arrivalTime: toDateObject(this.createCheckinForm.get('arrivalTime')?.value),
-        bags: this.createCheckinForm.get('bags')?.value,
-        tagNr: this.createCheckinForm.get('tagNr')?.value,
-        bbLr: this.createCheckinForm.get('bbLr')?.value
-          ? this.createCheckinForm.get('bbLr')?.value
-          : '',
-        location: this.createCheckinForm.get('location')?.value
-          ? this.createCheckinForm.get('location')?.value
-          : '',
-        bbOut: this.createCheckinForm.get('bbOut')?.value
-          ? this.createCheckinForm.get('bbOut')?.value
-          : '',
-        completedAt: toDateObject(this.createCheckinForm.get('completedAt')?.value),
-        comments: this.createCheckinForm.get('comments')?.value,
+        name: this.form.get('name')?.value,
+        arrivalTime: toDateObject(this.form.get('arrivalTime')?.value),
+        bags: this.form.get('bags')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
+        comments: this.form.get('comments')?.value,
         luggageType: LuggageType.CHECKIN,
       })
       .subscribe({

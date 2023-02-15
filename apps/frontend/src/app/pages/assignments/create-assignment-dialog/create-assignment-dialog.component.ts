@@ -23,7 +23,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/dialog.scss'],
 })
 export class CreateAssignmentDialogComponent extends DropdownSelection implements OnInit {
-  createAssignmentForm = new UntypedFormGroup({});
+  form = new UntypedFormGroup({});
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
 
@@ -49,7 +49,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
   }
 
   ngOnInit(): void {
-    this.createAssignmentForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       task: new UntypedFormControl('', [], valueInArrayValidator(bbAssignmentTasks)),
       requestedBy: new UntypedFormControl(
@@ -67,32 +67,29 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.createAssignmentForm.get('room'));
-    this.filteredTasks = filterAutocompleteSelect(
-      bbAssignmentTasks,
-      this.createAssignmentForm.get('task')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredTasks = filterAutocompleteSelect(bbAssignmentTasks, this.form.get('task'));
     this.filteredRequestedBy = filterAutocompleteSelect(
       bbAssignmentRequestedBy,
-      this.createAssignmentForm.get('requestedBy')
+      this.form.get('requestedBy')
     );
     this.filteredPerformedBy = filterAutocompleteSelect(
       bellBoyInitials,
-      this.createAssignmentForm.get('performedBy')
+      this.form.get('performedBy')
     );
   }
 
   onSubmit(): void {
-    if (!this.createAssignmentForm.valid) {
-      if (this.createAssignmentForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('task')?.invalid) {
+      } else if (this.form.get('task')?.invalid) {
         this.taskInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('requestedBy')?.invalid) {
+      } else if (this.form.get('requestedBy')?.invalid) {
         this.requestedByInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('performedBy')?.invalid) {
+      } else if (this.form.get('performedBy')?.invalid) {
         this.performedByInput.nativeElement.focus();
       }
     } else {
@@ -104,17 +101,13 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
     this.isLoading = true;
     this.assignmentService
       .createAssignment({
-        room: this.createAssignmentForm.get('room')?.value,
-        task: this.createAssignmentForm.get('task')?.value,
-        comments: this.createAssignmentForm.get('comments')?.value,
-        requestedBy: this.createAssignmentForm.get('requestedBy')?.value
-          ? this.createAssignmentForm.get('requestedBy')?.value
-          : '',
-        performedBy: this.createAssignmentForm.get('performedBy')?.value
-          ? this.createAssignmentForm.get('performedBy')?.value
-          : '',
-        requestedAt: toDateObject(this.createAssignmentForm.get('requestedAt')?.value),
-        completedAt: toDateObject(this.createAssignmentForm.get('completedAt')?.value),
+        room: this.form.get('room')?.value,
+        task: this.form.get('task')?.value,
+        comments: this.form.get('comments')?.value,
+        requestedBy: this.form.get('requestedBy')?.value ? this.form.get('requestedBy')?.value : '',
+        performedBy: this.form.get('performedBy')?.value ? this.form.get('performedBy')?.value : '',
+        requestedAt: toDateObject(this.form.get('requestedAt')?.value),
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

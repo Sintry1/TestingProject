@@ -19,7 +19,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class CreateCheckoutDialogComponent extends DropdownSelection {
-  createCheckoutForm: UntypedFormGroup;
+  form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
@@ -44,7 +44,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     private dialog: MatDialog
   ) {
     super();
-    this.createCheckoutForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl('', [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
@@ -70,40 +70,28 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.createCheckoutForm.get('room'));
-    this.filteredBbLr = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCheckoutForm.get('bbLr')
-    );
-    this.filteredBbDown = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCheckoutForm.get('bbDown')
-    );
-    this.filteredLocations = filterAutocompleteSelect(
-      luggageLocation,
-      this.createCheckoutForm.get('location')
-    );
-    this.filteredBbOut = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.createCheckoutForm.get('bbOut')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.createCheckoutForm.valid) {
-      if (this.createCheckoutForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('bbDown')?.invalid) {
+      } else if (this.form.get('bbDown')?.invalid) {
         this.bbDownInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
-      } else if (this.createCheckoutForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
       }
     } else {
@@ -115,26 +103,18 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     this.isLoading = true;
     this.service
       .create({
-        room: this.createCheckoutForm.get('room')?.value,
-        // roomReady: this.createCheckoutForm.get('roomReady')?.value,
-        name: this.createCheckoutForm.get('name')?.value,
-        arrivalTime: new Date(this.createCheckoutForm.get('arrivalTime')?.value),
-        bags: this.createCheckoutForm.get('bags')?.value,
-        tagNr: this.createCheckoutForm.get('tagNr')?.value,
-        bbLr: this.createCheckoutForm.get('bbLr')?.value
-          ? this.createCheckoutForm.get('bbLr')?.value
-          : '',
-        bbDown: this.createCheckoutForm.get('bbDown')?.value
-          ? this.createCheckoutForm.get('bbDown')?.value
-          : '',
-        bbOut: this.createCheckoutForm.get('bbOut')?.value
-          ? this.createCheckoutForm.get('bbOut')?.value
-          : '',
-        completedAt: toDateObject(this.createCheckoutForm.get('completedAt')?.value),
-        location: this.createCheckoutForm.get('location')?.value
-          ? this.createCheckoutForm.get('location')?.value
-          : '',
-        comments: this.createCheckoutForm.get('comments')?.value,
+        room: this.form.get('room')?.value,
+        // roomReady: this.form.get('roomReady')?.value,
+        name: this.form.get('name')?.value,
+        arrivalTime: new Date(this.form.get('arrivalTime')?.value),
+        bags: this.form.get('bags')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        bbDown: this.form.get('bbDown')?.value ? this.form.get('bbDown')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        comments: this.form.get('comments')?.value,
         luggageType: LuggageType.CHECKOUT,
       })
       .subscribe({

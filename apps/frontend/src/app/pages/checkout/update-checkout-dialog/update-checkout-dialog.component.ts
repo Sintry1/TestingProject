@@ -19,7 +19,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
 export class UpdateCheckoutDialogComponent extends DropdownSelection {
-  updateCheckoutForm: UntypedFormGroup;
+  form: UntypedFormGroup;
   isLoading = false;
   luggageId: string;
 
@@ -46,7 +46,7 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
   ) {
     super();
     this.luggageId = data.luggageId;
-    this.updateCheckoutForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
@@ -75,40 +75,28 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     });
 
     // Init the filters
-    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateCheckoutForm.get('room'));
-    this.filteredBbLr = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.updateCheckoutForm.get('bbLr')
-    );
-    this.filteredBbDown = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.updateCheckoutForm.get('bbDown')
-    );
-    this.filteredLocations = filterAutocompleteSelect(
-      luggageLocation,
-      this.updateCheckoutForm.get('location')
-    );
-    this.filteredBbOut = filterAutocompleteSelect(
-      bellBoyInitials,
-      this.updateCheckoutForm.get('bbOut')
-    );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.updateCheckoutForm.valid) {
-      if (this.updateCheckoutForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bbDown')?.invalid) {
+      } else if (this.form.get('bbDown')?.invalid) {
         this.bbDownInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
       }
     } else {
@@ -120,24 +108,16 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     this.isLoading = true;
     this.service
       .update(this.luggageId, {
-        room: this.updateCheckoutForm.get('room')?.value,
-        name: this.updateCheckoutForm.get('name')?.value,
-        bags: this.updateCheckoutForm.get('bags')?.value,
-        tagNr: this.updateCheckoutForm.get('tagNr')?.value,
-        bbLr: this.updateCheckoutForm.get('bbLr')?.value
-          ? this.updateCheckoutForm.get('bbLr')?.value
-          : '',
-        bbDown: this.updateCheckoutForm.get('bbDown')?.value
-          ? this.updateCheckoutForm.get('bbDown')?.value
-          : '',
-        bbOut: this.updateCheckoutForm.get('bbOut')?.value
-          ? this.updateCheckoutForm.get('bbOut')?.value
-          : '',
-        location: this.updateCheckoutForm.get('location')?.value
-          ? this.updateCheckoutForm.get('location')?.value
-          : '',
-        completedAt: toDateObject(this.updateCheckoutForm.get('completedAt')?.value),
-        comments: this.updateCheckoutForm.get('comments')?.value,
+        room: this.form.get('room')?.value,
+        name: this.form.get('name')?.value,
+        bags: this.form.get('bags')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        bbDown: this.form.get('bbDown')?.value ? this.form.get('bbDown')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
+        comments: this.form.get('comments')?.value,
       })
       .subscribe({
         next: () => {
