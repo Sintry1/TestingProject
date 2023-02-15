@@ -15,6 +15,7 @@ import { SeeDocumentDialogComponent } from './components/document-widget/see-doc
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from './components/view-images-dialog/view-images-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
@@ -83,6 +84,7 @@ import { SentryService } from './services/sentry.service';
     SeeDocumentDialogComponent,
     CreateDocumentDialogComponent,
     UpdateDocumentDialogComponent,
+    ViewImagesDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
     AnnouncementsComponent,
