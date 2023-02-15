@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
-  ICreateAnnouncementRequest,
+  AnnouncementSortOptions,
   IAnnouncement,
+  ICreateAnnouncementRequest,
+  IGetAnnouncementByIdResponse,
   IUpdateAnnouncementRequest,
   SortOrder,
-  AnnouncementSortOptions,
 } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
@@ -29,6 +30,15 @@ export class AnnouncementsService {
     return this.http.get<IAnnouncement[]>(
       `${env.apiUrl}/announcements?sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
+  }
+
+  /**
+   * Calls the API to get a specific Announcement.
+   * @param id the announcement id.
+   * @returns an observable of the Announcement.
+   */
+  public getById(id: string) {
+    return this.http.get<IGetAnnouncementByIdResponse>(`${env.apiUrl}/announcements/${id}`);
   }
 
   /**

@@ -1,0 +1,18 @@
+<h2>Files from: {{ title }}</h2>
+<hr />
+<section class="image-list" *ngIf="!isLoading">
+  <ng-container class="image" *ngFor="let image of images">
+    <img [src]="image" alt="An image" class="image" />
+  </ng-container>
+
+  <ng-container class="image" *ngFor="let video of videos">
+    <video class="video" controls>
+      <source [src]="video" />
+    </video>
+  </ng-container>
+</section>
+
+<div *ngIf="isLoading" class="loading-icon">
+  <p>Loading the files...</p>
+  <mat-spinner diameter="50" color="blue"></mat-spinner>
+</div>
