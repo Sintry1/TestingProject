@@ -13,6 +13,7 @@ import {
   bbAssignmentTasks,
   bellBoyInitials,
 } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
@@ -20,7 +21,7 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
   templateUrl: './create-assignment-dialog.component.html',
   styleUrls: ['../../../../assets/styles/dialog.scss'],
 })
-export class CreateAssignmentDialogComponent implements OnInit {
+export class CreateAssignmentDialogComponent extends DropdownSelection implements OnInit {
   createAssignmentForm = new UntypedFormGroup({});
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
@@ -40,7 +41,9 @@ export class CreateAssignmentDialogComponent implements OnInit {
     private assignmentService: AssignmentsService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.createAssignmentForm = new UntypedFormGroup({
