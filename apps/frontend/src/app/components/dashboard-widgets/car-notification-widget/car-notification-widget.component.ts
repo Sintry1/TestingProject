@@ -9,51 +9,77 @@ import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
   styleUrls: ['./car-notification-widget.component.scss'],
 })
 export class CarNotificationWidgetComponent implements OnInit {
-  carList: ICar[] = [];
+  originalCarList: ICar[] = [];
+  futureCarList: ICar[] = [];
   readyCarList: ICar[] = [];
   overdueCarList: ICar[] = [];
   sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
+  nextPickUp: Date | undefined = undefined;
+  timeTillPickup = new Date();
 
   constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    // Instead of display date, im just using today, since the notifications wont make sense
-    // being viewed in the past.
+    // Instead of display date, im just using today, since the notifications wont make sense being viewed in the past.
     this.carService.getCar(new Date(), this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.carList = this.carList.filter((car) => !car.completedAt);
-        this.carList = filterByCompletedAtAndOrderResults(cars, false, new Date());
+        this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
+        this.originalCarList = filterByCompletedAtAndOrderResults(cars, false, new Date());
+        this.futureCarList = this.originalCarList;
         this.UpdateCarListNumbers();
       },
       error: (err) => {
         console.error(err);
       },
     });
+
+    setTimeout(() => {
+      this.getOldestPickUpTime();
+    },1000)
+  }
+
+  getOldestPickUpTime(): void {
+    let oldestCar = this.originalCarList[0];
+
+    for (const car of this.originalCarList) {
+      if (car.pickUpTime && oldestCar.pickUpTime) {
+        if (car.pickUpTime < oldestCar.pickUpTime) {
+          oldestCar = car;
+        }
+      }
+    }
+
+    if (oldestCar.pickUpTime) {
+      this.nextPickUp = oldestCar.pickUpTime;
+    }
   }
 
   UpdateCarListNumbers(): void {
     const THIRTY_MINUTES = 30 * 60 * 1000; // Convert 30 minutes to milliseconds
     const now = new Date().getTime();
 
-    this.readyCarList = this.carList.filter((car) => {
+    this.readyCarList = this.futureCarList.filter((car) => {
       if (!car.pickUpTime) {
         return false;
       }
       const expirationTime = new Date(car.pickUpTime).getTime();
 
       // Check that the time is within 30 min        &  check that the time hasn't been passed yet
-      if ( expirationTime - now < THIRTY_MINUTES && expirationTime - now > 0) {
-        this.carList = this.carList.filter((listCar) => listCar.carId !== car.carId);
+      if (expirationTime - now < THIRTY_MINUTES && expirationTime - now > 0) {
+        // remove cars from the future list
+        this.futureCarList = this.futureCarList.filter(
+          (currentCar) => currentCar.carId !== car.carId
+        );
         return true;
       } else {
         return false;
       }
     });
 
-    this.overdueCarList = this.carList.filter((car) => {
+    this.overdueCarList = this.futureCarList.filter((car) => {
       if (!car.pickUpTime) {
         return false;
       }
@@ -61,7 +87,10 @@ export class CarNotificationWidgetComponent implements OnInit {
 
       // Check that the expirationTime current time has passed
       if (expirationTime < now) {
-        this.carList = this.carList.filter((listCar) => listCar.carId !== car.carId);
+        // remove cars from the future list
+        this.futureCarList = this.futureCarList.filter(
+          (currentCar) => currentCar.carId !== car.carId
+        );
         return true;
       } else {
         return false;

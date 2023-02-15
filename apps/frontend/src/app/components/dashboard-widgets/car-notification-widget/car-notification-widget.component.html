@@ -1,4 +1,9 @@
 <div>
-  Future: {{ carList.length }} - Ready: {{ readyCarList.length }} - Overdue:
+  <h2>Cars</h2>
+  <p>Next pick up time: 
+    <span>{{ nextPickUp | date : 'dd/MM/YYYY HH:mm' }} / </span>
+    <span>{{ (timeTillPickup | date : 'HH:mm') }}</span>
+  </p>
+  Future: {{ futureCarList.length }} - Ready: {{ readyCarList.length }} - Overdue:
   {{ overdueCarList.length }}
 </div>
