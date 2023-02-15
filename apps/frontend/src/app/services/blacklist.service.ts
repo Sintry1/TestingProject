@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CreateBlacklistRequest, IBlacklist, IGetBlacklistByIdResponse, UpdateBlacklistRequest } from '@omnihost/interfaces';
+import {
+  CreateBlacklistRequest,
+  IBlacklist,
+  IGetBlacklistByIdResponse,
+  UpdateBlacklistRequest,
+} from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 
