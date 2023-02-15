@@ -59,7 +59,7 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
       if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
         console.warn('Manager access has expired, re-prompting for password');
         const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-          width: '600px',
+          width: '400px',
         });
         // Once the manager access dialog is closed, re-submit the form and check the logic again
         managerDialogRef.afterClosed().subscribe({

@@ -23,7 +23,7 @@ export class DocumentWidgetComponent {
 
   updateDocumentDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
-      width: '600px',
+      width: '400px',
       data: {
         component: UpdateDocumentDialogComponent,
         componentData: this.document,

@@ -19,3 +19,17 @@ export interface IAnnouncementRequest {
   showTo?: Date | null;
   showFrom?: Date | null;
 }
+
+export interface ICreateAnnouncementRequest {
+  title: string;
+  comments: string;
+  showTo: Date;
+  showFrom: Date;
+}
+
+export interface IUpdateAnnouncementRequest {
+  title?: string;
+  comments?: string;
+  showTo?: Date | null;
+  showFrom?: Date | null;
+}

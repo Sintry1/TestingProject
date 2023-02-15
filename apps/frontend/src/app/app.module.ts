@@ -12,10 +12,14 @@ import { DashboardLinksComponent } from './components/dashboard-widgets/dashboar
 import { WeatherWidgetComponent } from './components/dashboard-widgets/weather-widget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/document-widget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/document-widget/see-document-dialog/see-document-dialog.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/table-info-dialog/table-info-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { CreateAnnouncementDialogComponent } from './pages/announcements/create-announcement-dialog/create-announcement-dialog.component';
+import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-announcement-dialog/update-announcement-dialog.component';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
 import { CreateAssignmentDialogComponent } from './pages/assignments/create-assignment-dialog/create-assignment-dialog.component';
 import { UpdateAssignmentDialogComponent } from './pages/assignments/update-assignment-dialog/update-assignment-dialog.component';
@@ -81,6 +85,10 @@ import { SentryService } from './services/sentry.service';
     UpdateDocumentDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
+    AnnouncementsComponent,
+    CreateAnnouncementDialogComponent,
+    UpdateAnnouncementDialogComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment, TableInfoOptions } from '@omnihost/interfaces';
@@ -15,7 +15,7 @@ import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/upda
   templateUrl: './assignments.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class AssignmentsComponent implements OnInit {
+export class AssignmentsComponent {
   assignmentList: IAssignment[] = [];
   displayDate = new Date();
   isLoading = false;
@@ -40,10 +40,6 @@ export class AssignmentsComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchAssignments();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchAssignments();
   }
 
   fetchAssignments(): void {

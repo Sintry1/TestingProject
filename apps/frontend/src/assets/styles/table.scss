@@ -4,12 +4,12 @@ table {
 }
 
 .table-height {
-  height: 75vh;
-  overflow: auto;
+  flex: 1;
 }
 
 .comments-field {
   padding: 10px !important;
+  text-align: left !important;
 }
 
 .small-field {

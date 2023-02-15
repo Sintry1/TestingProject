@@ -23,6 +23,7 @@ export * from './lib/document/document.interface';
 export * from './lib/token.interface';
 export * from './lib/announcement/announcement.interface';
 export * from './lib/reset-password-token/reset-password-token.interface';
+export * from './lib/announcement/announcement.interface';
 
 // Enums
 export * from './lib/role.enum';
@@ -36,3 +37,5 @@ export * from './lib/assignment/assignment-sort-options.enum';
 export * from './lib/document/document-sort-options.enum';
 export * from './lib/announcement/announcement-sort-options.enum';
 export * from './lib/table-names.enum';
+export * from './lib/file-type-patterns.enum';
+export * from './lib/announcement/announcement-sort-options.enum';
