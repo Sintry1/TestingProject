@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
 import { BlacklistService } from '../../services/blacklist.service';
-import { BlacklistWidgetComponent } from '../../components/blacklist-widget/blacklist-widget.component';
 
 @Component({
   selector: 'frontend-blacklist',

@@ -4,21 +4,36 @@
   border: var(--border);
   border-radius: 5px;
   overflow: hidden;
-  min-height: 350px;
-  max-height: 390px;
+  height: 390px;
   position: relative;
+
+  
 
   .image-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
-  }
+    height: 40%;
+    width: auto;
+    overflow-y: hidden;
+    justify-content: space-between;
+    align-items: center;
 
-  .image {
-    height: 100%;
-    width: 50%;
-    margin: 0;
-    // border-radius: 5px;
+    .spinner {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .img-arrows {
+      font-size: 50px;
+      margin: 2px;
+    }
+
+    .image {
+      height: 100%;
+      max-width: 50%;
+      object-fit: cover;
+    }
   }
 
   .hidden {
@@ -46,22 +61,24 @@
         border: none;
         margin-top: 0;
       }
-      .expires-container {
-        position: absolute;
-        width: 50%;
-        bottom: 5;
-        left: 5;
-      }
-      .comments-container {
-        p {
-          text-overflow: ellipsis;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 4;
-          -webkit-box-orient: vertical;
-        }
+    }
+
+    .comments-container {
+      p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
       }
     }
+  }
+
+  .expires-container {
+    position: absolute;
+    max-width: 50%;
+    bottom: 0;
+    left: 5;
   }
 
   .action-bar-container {
@@ -69,7 +86,7 @@
     flex-direction: row;
     justify-content: flex-end;
     column-gap: 10px;
-    width: 50%; 
+    width: 50%;
     margin: 2px;
     padding-top: 0.5em;
     position: absolute;

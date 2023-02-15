@@ -12,8 +12,11 @@ import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-a
 })
 export class BlacklistWidgetComponent implements OnInit {
   @Input() blacklist!: IBlacklist;
+
   files: string[] = [];
   isLoading = false;
+  currentImage = 0;
+
   constructor(
     private blacklistService: BlacklistService,
     private dialog: MatDialog,
@@ -34,6 +37,22 @@ export class BlacklistWidgetComponent implements OnInit {
     });
   }
 
+  nextImage() {
+    if (this.currentImage < this.files.length - 1) {
+      this.currentImage++;
+    } else {
+      this.currentImage = 0;
+    }
+  }
+
+  previousImage() {
+    if (this.currentImage > 0) {
+      this.currentImage--;
+    } else {
+      this.currentImage = this.files.length - 1;
+    }
+  }
+
   getPictures() {
     this.isLoading = true;
     this.blacklistService.getBlacklistById(this.blacklist.blacklistId).subscribe({
@@ -49,8 +68,6 @@ export class BlacklistWidgetComponent implements OnInit {
         });
       },
     });
-
-    
   }
 
   displayName() {
