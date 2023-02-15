@@ -4,22 +4,30 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-update-checkout-dialog',
   templateUrl: './update-checkout-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
-export class UpdateCheckoutDialogComponent {
+export class UpdateCheckoutDialogComponent extends DropdownSelection {
   updateCheckoutForm: UntypedFormGroup;
   isLoading = false;
   luggageId: string;
-  bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredBbDown: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -36,22 +44,54 @@ export class UpdateCheckoutDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
+    super();
     this.luggageId = data.luggageId;
     this.updateCheckoutForm = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required]),
+      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      bbLr: new UntypedFormControl(data.bbLr, [Validators.required]),
-      bbDown: new UntypedFormControl(data.bbDown, [Validators.required]),
-      bbOut: new UntypedFormControl(data.bbOut, []),
-      location: new UntypedFormControl(data.location, [Validators.required]),
+      bbLr: new UntypedFormControl(
+        data.bbLr,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      bbDown: new UntypedFormControl(
+        data.bbDown,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      bbOut: new UntypedFormControl(data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
+      location: new UntypedFormControl(
+        data.location,
+        [Validators.required],
+        valueInArrayValidator(luggageLocation)
+      ),
       completedAt: new UntypedFormControl(
         data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
         []
       ),
       comments: new UntypedFormControl(data.comments, []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateCheckoutForm.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateCheckoutForm.get('bbLr')
+    );
+    this.filteredBbDown = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateCheckoutForm.get('bbDown')
+    );
+    this.filteredLocations = filterAutocompleteSelect(
+      luggageLocation,
+      this.updateCheckoutForm.get('location')
+    );
+    this.filteredBbOut = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateCheckoutForm.get('bbOut')
+    );
   }
 
   onSubmit(): void {

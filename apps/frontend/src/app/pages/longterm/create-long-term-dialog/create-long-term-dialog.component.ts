@@ -4,21 +4,28 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 
 @Component({
   selector: 'frontend-create-long-term-dialog',
   templateUrl: './create-long-term-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
-export class CreateLongTermDialogComponent implements OnInit {
+export class CreateLongTermDialogComponent extends DropdownSelection implements OnInit {
   createLongTermForm = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
   isLoading = false;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -32,7 +39,9 @@ export class CreateLongTermDialogComponent implements OnInit {
     private luggageService: LuggageService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.createLongTermForm = new UntypedFormGroup({
@@ -50,6 +59,21 @@ export class CreateLongTermDialogComponent implements OnInit {
       location: new UntypedFormControl('', [Validators.required]),
       dateNeeded: new UntypedFormControl('', []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.createLongTermForm.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createLongTermForm.get('bbLr')
+    );
+    this.filteredLocations = filterAutocompleteSelect(
+      luggageLocation,
+      this.createLongTermForm.get('location')
+    );
+    this.filteredBbOut = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createLongTermForm.get('bbOut')
+    );
   }
 
   onSubmit(): void {

@@ -4,23 +4,30 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-update-long-term-dialog',
   templateUrl: './update-long-term-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
-export class UpdateLongTermDialogComponent implements OnInit {
+export class UpdateLongTermDialogComponent extends DropdownSelection implements OnInit {
   updateLongTermForm = new UntypedFormGroup({});
   guestHasApproved = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
-  bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
   isLoading = false;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -35,7 +42,9 @@ export class UpdateLongTermDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: ILuggage, // TODO: Fix date type
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.updateLongTermForm = new UntypedFormGroup({
@@ -43,11 +52,11 @@ export class UpdateLongTermDialogComponent implements OnInit {
         this.data.createdAt ? toDatetimeInputString(new Date(this.data.createdAt)) : '',
         [Validators.required]
       ),
-      room: new UntypedFormControl(this.data.room, [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl(
+        this.data.room,
+        [Validators.required],
+        valueInArrayValidator(rooms)
+      ),
       name: new UntypedFormControl(this.data.name, [Validators.required]),
       bags: new UntypedFormControl(this.data.bags, [Validators.required]),
       comments: new UntypedFormControl(this.data.comments, []),
@@ -56,14 +65,37 @@ export class UpdateLongTermDialogComponent implements OnInit {
         this.data.arrivalTime ? toDatetimeInputString(new Date(this.data.arrivalTime)) : '',
         []
       ),
-      bbLr: new UntypedFormControl(this.data.bbLr, [Validators.required]),
-      location: new UntypedFormControl(this.data.location, [Validators.required]),
-      bbOut: new UntypedFormControl(this.data.bbOut, []),
+      bbLr: new UntypedFormControl(
+        this.data.bbLr,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      location: new UntypedFormControl(
+        this.data.location,
+        [Validators.required],
+        valueInArrayValidator(luggageLocation)
+      ),
+      bbOut: new UntypedFormControl(this.data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
       dateOut: new UntypedFormControl(
         this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : '',
         []
       ),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateLongTermForm.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateLongTermForm.get('bbLr')
+    );
+    this.filteredLocations = filterAutocompleteSelect(
+      luggageLocation,
+      this.updateLongTermForm.get('location')
+    );
+    this.filteredBbOut = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateLongTermForm.get('bbOut')
+    );
   }
 
   onSubmit(): void {

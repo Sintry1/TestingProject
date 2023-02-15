@@ -4,11 +4,15 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-create-checkin-dialog',
@@ -19,13 +23,16 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
     '../../../../assets/styles/file-upload.scss',
   ],
 })
-export class CreateCheckinDialogComponent {
+export class CreateCheckinDialogComponent extends DropdownSelection {
   createCheckinForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
-  bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
   containsInvalidFiles = false;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
@@ -40,23 +47,43 @@ export class CreateCheckinDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
+    super();
     this.createCheckinForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       // roomReady: new UntypedFormControl('false', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       arrivalTime: new UntypedFormControl(toTimeInputString(new Date()), [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
       tagNr: new UntypedFormControl('', [Validators.required]),
-      bbLr: new UntypedFormControl('', [Validators.required]),
-      location: new UntypedFormControl('', [Validators.required]),
-      bbOut: new UntypedFormControl('', []),
+      bbLr: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      location: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(luggageLocation)
+      ),
+      bbOut: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
       completedAt: new UntypedFormControl('', []),
       comments: new UntypedFormControl('', []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.createCheckinForm.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createCheckinForm.get('bbLr')
+    );
+    this.filteredLocations = filterAutocompleteSelect(
+      luggageLocation,
+      this.createCheckinForm.get('location')
+    );
+    this.filteredBbOut = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createCheckinForm.get('bbOut')
+    );
   }
 
   onSubmit(): void {
