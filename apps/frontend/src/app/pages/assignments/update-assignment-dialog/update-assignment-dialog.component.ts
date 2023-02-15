@@ -32,10 +32,10 @@ export class UpdateAssignmentDialogComponent extends DropdownSelection implement
   bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   isLoading = false;
 
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredTasks: Observable<string[]> = new Observable<string[]>();
   filteredRequestedBy: Observable<string[]> = new Observable<string[]>();
   filteredPerformedBy: Observable<string[]> = new Observable<string[]>();
-  filteredRooms: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;

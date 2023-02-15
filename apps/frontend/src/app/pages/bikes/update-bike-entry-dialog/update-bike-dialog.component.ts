@@ -4,21 +4,28 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBike } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { BikeService } from '../../../services/bikes.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-import { bikeListReserved } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bikeListReserved, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 @Component({
   selector: 'frontend-update-bike-dialog',
   templateUrl: './update-bike-dialog.component.html',
   styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
-export class UpdateBikeDialogComponent {
+export class UpdateBikeDialogComponent extends DropdownSelection {
   updateBikeForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
   bikeFormCompleted: boolean;
   bikeListReserved = bikeListReserved;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBikesReserved: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('nrOfBikes') nrOfBikesInput!: ElementRef;
   @ViewChild('pickUpTime') pickUpTimeInput!: ElementRef;
@@ -32,19 +39,24 @@ export class UpdateBikeDialogComponent {
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: IBike // TODO: Fix - Dates are strings not Date objects.
   ) {
+    super();
     this.updateBikeForm = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl(
+        this.data.room,
+        [Validators.required],
+        valueInArrayValidator(rooms)
+      ),
       nrOfBikes: new UntypedFormControl(data.nrOfBikes, [Validators.required]),
       pickUpTime: new UntypedFormControl(
         data.pickUpTime ? toDatetimeInputString(new Date(data.pickUpTime)) : '',
         [Validators.required]
       ),
       name: new UntypedFormControl(data.name, [Validators.required]),
-      reservedBy: new UntypedFormControl(data.reservedBy, [Validators.required]),
+      reservedBy: new UntypedFormControl(
+        data.reservedBy,
+        [Validators.required],
+        valueInArrayValidator(bikeListReserved)
+      ),
       comments: new UntypedFormControl(data.comments, []),
       completedAt: new UntypedFormControl(
         data.completedAt ? toDatetimeInputString(new Date(data.completedAt)) : '',
@@ -52,6 +64,13 @@ export class UpdateBikeDialogComponent {
       ),
     });
     this.bikeFormCompleted = data.bikeFormCompleted ?? false;
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateBikeForm.get('room'));
+    this.filteredBikesReserved = filterAutocompleteSelect(
+      bikeListReserved,
+      this.updateBikeForm.get('reservedBy')
+    );
   }
 
   onSubmit() {
