@@ -4,23 +4,30 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-update-car-dialog',
   templateUrl: './update-car-dialog.component.html',
   styleUrls: ['../../../../assets/styles/dialog.scss'],
 })
-export class UpdateCarDialogComponent {
+export class UpdateCarDialogComponent extends DropdownSelection {
   updateCarForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
   guestHasApproved = false;
-  bbInitials = bellBoyInitials;
-  carLocation = carLocation;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
+  filteredBbDown: Observable<string[]> = new Observable<string[]>();
+  filteredCarLocations: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
@@ -40,12 +47,9 @@ export class UpdateCarDialogComponent {
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: ICar // TODO: fix - once again, dates are not Date objects, but strings.
   ) {
+    super();
     this.updateCarForm = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
       arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
         Validators.required,
@@ -67,14 +71,30 @@ export class UpdateCarDialogComponent {
         data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
         []
       ),
-      bbDown: new UntypedFormControl(data.bbDown, []),
-      bbUp: new UntypedFormControl(data.bbUp, []),
-      location: new UntypedFormControl(data.location, [Validators.required]),
+      bbDown: new UntypedFormControl(data.bbDown, [], valueInArrayValidator(bellBoyInitials)),
+      bbUp: new UntypedFormControl(data.bbUp, [], valueInArrayValidator(bellBoyInitials)),
+      location: new UntypedFormControl(
+        data.location,
+        [Validators.required],
+        valueInArrayValidator(carLocation)
+      ),
       parkingLot: new UntypedFormControl(data.parkingLot, []),
-      bbOut: new UntypedFormControl(data.bbOut, []),
+      bbOut: new UntypedFormControl(data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
       comments: new UntypedFormControl(data.comments, []),
       charged: new UntypedFormControl(data.charged, []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.updateCarForm.get('room'));
+    this.filteredBbDown = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.updateCarForm.get('bbDown')
+    );
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.updateCarForm.get('bbOut'));
+    this.filteredCarLocations = filterAutocompleteSelect(
+      carLocation,
+      this.updateCarForm.get('location')
+    );
   }
 
   onSubmit() {

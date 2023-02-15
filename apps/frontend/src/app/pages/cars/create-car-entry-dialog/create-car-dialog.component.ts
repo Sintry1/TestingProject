@@ -3,22 +3,28 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
-import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-create-car-dialog',
   templateUrl: './create-car-dialog.component.html',
   styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
 })
-export class CreateCarDialogComponent {
+export class CreateCarDialogComponent extends DropdownSelection {
   createCarForm: UntypedFormGroup;
   checked = true;
   isLoading = false;
-  bbInitials = bellBoyInitials;
-  carLocation = carLocation;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbDown: Observable<string[]> = new Observable<string[]>();
+  filteredCarLocations: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
@@ -33,12 +39,9 @@ export class CreateCarDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
+    super();
     this.createCarForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
       arrivalDate: new UntypedFormControl(new Date(), [Validators.required]),
       departureDate: new UntypedFormControl('', [Validators.required]),
@@ -47,10 +50,25 @@ export class CreateCarDialogComponent {
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
       deliveryTime: new UntypedFormControl('', []),
-      bbDown: new UntypedFormControl('', []),
-      location: new UntypedFormControl('', [Validators.required]),
+      bbDown: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
+      location: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(carLocation)
+      ),
       comments: new UntypedFormControl('', []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.createCarForm.get('room'));
+    this.filteredBbDown = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createCarForm.get('bbDown')
+    );
+    this.filteredCarLocations = filterAutocompleteSelect(
+      carLocation,
+      this.createCarForm.get('location')
+    );
   }
 
   onSubmit() {

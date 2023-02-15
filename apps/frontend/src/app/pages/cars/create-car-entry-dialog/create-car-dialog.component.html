@@ -5,10 +5,13 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" />
-      <mat-error *ngIf="createCarForm.get('room')?.invalid && createCarForm.get('room')?.dirty">
-        Must be a number from 100-999
-      </mat-error>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
@@ -28,7 +31,13 @@
 
     <mat-form-field class="remove-error-message">
       <mat-label>Departure Date</mat-label>
-      <input onclick="this.showPicker()" matInput type="date" formControlName="departureDate" />
+      <input
+        #departureDate
+        onclick="this.showPicker()"
+        matInput
+        type="date"
+        formControlName="departureDate"
+      />
     </mat-form-field>
   </div>
 
@@ -84,29 +93,25 @@
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
-      <mat-label>BB Down</mat-label>
-      <mat-select formControlName="bbDown">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <mat-label>BB down</mat-label>
+      <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbDownOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbDown | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="createCarForm.get('bbDown')?.invalid && createCarForm.get('bbDown')?.dirty">
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <mat-select formControlName="location">
-        <mat-option *ngFor="let location of carLocation" [value]="location">
-          {{ location }}
+      <input #location matInput formControlName="location" [matAutocomplete]="locationOptions" />
+      <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredCarLocations | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="createCarForm.get('location')?.invalid && createCarForm.get('location')?.dirty"
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
