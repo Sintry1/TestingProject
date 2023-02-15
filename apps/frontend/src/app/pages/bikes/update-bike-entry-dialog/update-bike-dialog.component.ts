@@ -22,7 +22,6 @@ export class UpdateBikeDialogComponent extends DropdownSelection {
   checked = true;
   isLoading = false;
   bikeFormCompleted: boolean;
-  bikeListReserved = bikeListReserved;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBikesReserved: Observable<string[]> = new Observable<string[]>();

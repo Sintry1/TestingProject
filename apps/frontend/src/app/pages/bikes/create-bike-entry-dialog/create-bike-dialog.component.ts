@@ -20,7 +20,6 @@ export class CreateBikeDialogComponent extends DropdownSelection {
   createBikeForm: UntypedFormGroup;
   isLoading = false;
   bikeFormCompleted = false;
-  bikeListReserved = bikeListReserved;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBikesReserved: Observable<string[]> = new Observable<string[]>();
