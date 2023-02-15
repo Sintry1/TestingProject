@@ -64,6 +64,9 @@ export class AppComponent {
           case '/blacklist':
             this.title = 'Blacklist';
             break;
+          case '/announcements':
+            this.title = 'Announcements';
+            break;
           default:
             this.title = 'Page Not Found';
             break;

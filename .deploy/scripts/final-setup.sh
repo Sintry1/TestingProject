@@ -28,7 +28,10 @@ echo
 echo "================================"
 echo "Configuring Git credentials..."
 echo "git config --global credential.helper cache"
-git config --global credential.helper cache
+cd hotel-dangleterre
+git config --global credential.helper store
+git config pull.ff only
+cd ..
 echo "git clone https://github.com/omnihost-systems/hotel-dangleterre.git"
 git clone https://github.com/omnihost-systems/hotel-dangleterre.git
 echo "You have set up credentials for git"

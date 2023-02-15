@@ -1,6 +1,7 @@
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { HttpService } from '@nestjs/axios';
-import { Injectable, Logger } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { FileTypePattern } from '@omnihost/interfaces';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { configService } from '../config/config.service';
@@ -150,4 +151,30 @@ export class FilesService {
       }
     }
   }
+}
+
+/**
+ * Perform file type validation for the Multer file interceptor.
+ * @param fileTypePattern the desired allowed file types.
+ * @example  FilesInterceptor('files', 20, { fileFilter(req, file, callback) { return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO) },})
+ * @returns interceptor callback with the validation result.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function validateFileType(req: any, file: any, callback: any, filePattern: FileTypePattern) {
+  const nameParts = file.originalname.split('.');
+  const fileType = nameParts[nameParts.length - 1].toLowerCase();
+  const pattern = new RegExp(filePattern);
+
+  if (!fileType.match(pattern)) {
+    const trimmedFileTypes = filePattern.replace('(', '').replace(/\|+/g, ', ').replace(')', '');
+    req.fileValidationError = `Invalid file type for file: '${file.originalname}'. Allowed filetypes: [${trimmedFileTypes}]`;
+    return callback(
+      new BadRequestException(
+        `Invalid file type for file: '${file.originalname}'. Allowed filetypes: [${trimmedFileTypes}]`
+      ),
+      false
+    );
+  }
+
+  return callback(null, true);
 }
