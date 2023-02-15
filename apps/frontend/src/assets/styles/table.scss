@@ -54,6 +54,12 @@ tr.mat-header-row {
   z-index: 1;
 }
 
+tr.mat-row {
+  &:nth-child(odd) {
+    background-color: #00000009;
+  }
+}
+
 th.mat-header-cell {
   color: var(--main-blue);
   font-weight: 900;
@@ -92,7 +98,11 @@ td.mat-cell {
 }
 
 .completed {
-  background-color: var(--main-blue-lowest-opacity);
+  background-color: var(--main-blue-opacity-10) !important;
+
+  &:nth-child(odd) {
+    background-color: var(--main-blue-opacity-15) !important;
+  }
 }
 
 .remove-error-message {
