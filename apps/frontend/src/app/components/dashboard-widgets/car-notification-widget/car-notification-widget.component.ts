@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarSortOptions, ICar, SortOrder } from '@omnihost/interfaces';
 import { CarService } from '../../../services/car.service';
-import { toDateObject } from '../../../utils/date.util';
 import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
 
 @Component({
@@ -25,8 +24,8 @@ export class CarNotificationWidgetComponent implements OnInit {
     // being viewed in the past.
     this.carService.getCar(new Date(), this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.carList = filterByCompletedAtAndOrderResults(cars, false, new Date());
         this.carList = this.carList.filter((car) => !car.completedAt);
+        this.carList = filterByCompletedAtAndOrderResults(cars, false, new Date());
         this.UpdateCarListNumbers();
       },
       error: (err) => {
@@ -118,26 +117,29 @@ export class CarNotificationWidgetComponent implements OnInit {
         return false;
       }
       const expirationTime = new Date(car.pickUpTime).getTime();
-      // console.log(car.bbDown, expirationTime - now, THIRTY_MINUTES, (expirationTime - now) < THIRTY_MINUTES && expirationTime - now > 0);
-      // Check that the time is within 30 min        &  check that the time hasn't been passed yet
-      return expirationTime - now < THIRTY_MINUTES && expirationTime - now > 0;
-    });
 
-    this.overdueCarList = testList.filter((car) => {
-      if (!car.pickUpTime) {
-        return false;
-      }
-      const expirationTime = new Date(car.pickUpTime).getTime();
-      // console.log(car.bbDown, expirationTime < now);
-      // Check that the expirationTime current time has passed
-      if (expirationTime < now) {
-        this.carList.filter((listCar) => listCar.carId !== car.carId);
+      // Check that the time is within 30 min        &  check that the time hasn't been passed yet
+      if ( expirationTime - now < THIRTY_MINUTES && expirationTime - now > 0) {
+        this.carList = this.carList.filter((listCar) => listCar.carId !== car.carId);
         return true;
       } else {
         return false;
       }
     });
 
-    // console.log(this.overdueCarList);
+    this.overdueCarList = this.carList.filter((car) => {
+      if (!car.pickUpTime) {
+        return false;
+      }
+      const expirationTime = new Date(car.pickUpTime).getTime();
+
+      // Check that the expirationTime current time has passed
+      if (expirationTime < now) {
+        this.carList = this.carList.filter((listCar) => listCar.carId !== car.carId);
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 }
