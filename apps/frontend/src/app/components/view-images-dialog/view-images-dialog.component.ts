@@ -33,7 +33,6 @@ export class ViewImagesDialogComponent {
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: ILuggage | ICar | IAnnouncement
   ) {
-    console.log('data', data);
     this.fetchEntity();
   }
 
@@ -73,7 +72,6 @@ export class ViewImagesDialogComponent {
   processObservableResponse(
     response: IGetLuggageByIdResponse | IGetCarByIdResponse | IGetAnnouncementByIdResponse
   ) {
-    console.log('response', response);
     this.entity = response;
     this.images = this.filterImages(response.downloadUrls);
     this.videos = this.filterVideos(response.downloadUrls);
