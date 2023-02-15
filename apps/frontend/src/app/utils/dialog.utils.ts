@@ -20,6 +20,9 @@ export function filterAutocompleteSelect(
   return formControl.valueChanges.pipe(
     startWith(''),
     map((value) => {
+      if (value === null) {
+        return options.slice();
+      }
       const name = typeof value === 'string' ? value : value.toString();
       return name ? filterArray(name as string, options) : options.slice();
     }) || of([])

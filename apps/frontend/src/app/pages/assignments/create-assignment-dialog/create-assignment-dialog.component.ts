@@ -12,6 +12,7 @@ import {
   bbAssignmentRequestedBy,
   bbAssignmentTasks,
   bellBoyInitials,
+  rooms,
 } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
@@ -28,6 +29,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
   filteredTasks: Observable<string[]> = new Observable<string[]>();
   filteredRequestedBy: Observable<string[]> = new Observable<string[]>();
   filteredPerformedBy: Observable<string[]> = new Observable<string[]>();
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -47,7 +49,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
 
   ngOnInit(): void {
     this.createAssignmentForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [Validators.maxLength(50), Validators.pattern('^[0-9]*$')]),
+      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       task: new UntypedFormControl(
         '',
         Validators.maxLength(20),
@@ -67,6 +69,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
 
+    // Init the filters
     this.filteredTasks = filterAutocompleteSelect(
       bbAssignmentTasks,
       this.createAssignmentForm.get('task')
@@ -79,6 +82,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
       bellBoyInitials,
       this.createAssignmentForm.get('performedBy')
     );
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.createAssignmentForm.get('room'));
   }
 
   onSubmit(): void {

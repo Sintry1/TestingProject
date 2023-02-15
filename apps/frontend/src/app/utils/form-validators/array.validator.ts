@@ -8,7 +8,7 @@ export function valueInArrayValidator(array: string[]): AsyncValidatorFn {
       return null;
     }
 
-    if (array.includes(value)) {
+    if (array.includes(value.toString())) {
       return null;
     }
 
