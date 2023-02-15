@@ -25,6 +25,7 @@ export class ViewImagesDialogComponent {
   videos: string[] = [];
   entity: IGetLuggageByIdResponse | IGetCarByIdResponse | IGetAnnouncementByIdResponse | undefined;
   isLoading = true;
+  title = '';
 
   constructor(
     private luggageService: LuggageService,
@@ -39,6 +40,7 @@ export class ViewImagesDialogComponent {
   fetchEntity() {
     this.isLoading = true;
     if (Object.prototype.hasOwnProperty.call(this.data, 'luggageId')) {
+      this.title = `Luggage - ${(this.data as ILuggage).name}`;
       this.luggageService.getById((this.data as ILuggage).luggageId).subscribe({
         next: (response) => this.processObservableResponse(response),
         error: (error) => this.processObservableError(error),
@@ -46,6 +48,7 @@ export class ViewImagesDialogComponent {
       return;
     }
     if (Object.prototype.hasOwnProperty.call(this.data, 'carId')) {
+      this.title = `Car - ${(this.data as ICar).licensePlate}`;
       this.carsService.getById((this.data as ICar).carId).subscribe({
         next: (response) => this.processObservableResponse(response),
         error: (error) => this.processObservableError(error),
@@ -53,6 +56,7 @@ export class ViewImagesDialogComponent {
       return;
     }
     if (Object.prototype.hasOwnProperty.call(this.data, 'announcementId')) {
+      this.title = `Announcement - ${(this.data as IAnnouncement).title}`;
       this.announcementsService.getById((this.data as IAnnouncement).announcementId).subscribe({
         next: (response) => this.processObservableResponse(response),
         error: (error) => this.processObservableError(error),
@@ -66,6 +70,7 @@ export class ViewImagesDialogComponent {
     this.snackBar.open('Failed to process the files. Please try again later.', 'Okay', {
       duration: 10000,
     });
+    this.title = 'Unknown data';
     this.isLoading = false;
   }
 
@@ -84,25 +89,6 @@ export class ViewImagesDialogComponent {
       duration: 10000,
     });
     this.isLoading = false;
-  }
-
-  getTitle(): string {
-    if (Object.prototype.hasOwnProperty.call(this.data, 'luggageId')) {
-      return `Luggage - ${(this.data as ILuggage).name}`;
-    }
-
-    if (Object.prototype.hasOwnProperty.call(this.data, 'carId')) {
-      return `Car - ${(this.data as ICar).licensePlate}`;
-    }
-
-    if (Object.prototype.hasOwnProperty.call(this.data, 'announcementId')) {
-      return `Announcement - ${(this.data as IAnnouncement).title}`;
-    }
-    SentryService.logEvent({
-      message: 'Tried to display files for an unknown entity!',
-      level: 'warning',
-    });
-    return 'Unknown';
   }
 
   filterImages(urls: string[]): string[] {
