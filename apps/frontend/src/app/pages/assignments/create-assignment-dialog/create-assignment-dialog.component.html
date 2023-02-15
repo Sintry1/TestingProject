@@ -17,7 +17,7 @@
       <mat-label>Task</mat-label>
 
       <input #task matInput formControlName="task" [matAutocomplete]="auto" />
-      <mat-autocomplete #auto="matAutocomplete">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredTasks | async" [value]="option">
           {{ option }}
         </mat-option>
