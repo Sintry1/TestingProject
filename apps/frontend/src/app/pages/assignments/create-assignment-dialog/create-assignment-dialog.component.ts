@@ -25,9 +25,9 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
   createAssignmentForm = new UntypedFormGroup({});
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
-  bbInitials = bellBoyInitials;
-  bbAssignmentRequestedBy = bbAssignmentRequestedBy;
   filteredTasks: Observable<string[]> = new Observable<string[]>();
+  filteredRequestedBy: Observable<string[]> = new Observable<string[]>();
+  filteredPerformedBy: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -53,8 +53,12 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
         Validators.maxLength(20),
         valueInArrayValidator(bbAssignmentTasks)
       ),
-      requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
-      performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
+      requestedBy: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(bbAssignmentRequestedBy)
+      ),
+      performedBy: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
       requestedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
         Validators.required,
         Validators.maxLength(20),
@@ -66,6 +70,14 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
     this.filteredTasks = filterAutocompleteSelect(
       bbAssignmentTasks,
       this.createAssignmentForm.get('task')
+    );
+    this.filteredRequestedBy = filterAutocompleteSelect(
+      bbAssignmentRequestedBy,
+      this.createAssignmentForm.get('requestedBy')
+    );
+    this.filteredPerformedBy = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.createAssignmentForm.get('performedBy')
     );
   }
 

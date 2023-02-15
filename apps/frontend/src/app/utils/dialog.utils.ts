@@ -1,5 +1,5 @@
 import { AbstractControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { map, Observable, of, startWith } from 'rxjs';
 
 /**
  * Connect to the given autocomplete form control and filter out the options.
@@ -14,16 +14,15 @@ export function filterAutocompleteSelect(
   formControl: AbstractControl | null
 ): Observable<string[]> {
   if (formControl == null) {
-    return new Observable<string[]>();
+    return of([]); // new Observable<string[]>();
   }
-  return (
-    formControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => {
-        const name = typeof value === 'string' ? value : value?.name;
-        return name ? filterArray(name as string, options) : options.slice();
-      })
-    ) || new Observable<string[]>()
+
+  return formControl.valueChanges.pipe(
+    startWith(''),
+    map((value) => {
+      const name = typeof value === 'string' ? value : value.toString();
+      return name ? filterArray(name as string, options) : options.slice();
+    }) || of([])
   );
 }
 
