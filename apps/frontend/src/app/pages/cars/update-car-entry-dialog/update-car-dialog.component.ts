@@ -123,7 +123,7 @@ export class UpdateCarDialogComponent {
         bbOut: this.updateCarForm.get('bbOut')?.value ? this.updateCarForm.get('bbOut')?.value : '',
         comments: this.updateCarForm.get('comments')?.value,
         charged: this.updateCarForm.get('charged')?.value,
-        completedAt: this.updateCarForm.get('deliveryTime')?.value,
+        completedAt: toDateObject(this.updateCarForm.get('deliveryTime')?.value),
       })
       .subscribe({
         next: () => {

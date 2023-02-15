@@ -79,9 +79,7 @@ export class CreateCheckoutDialogComponent {
     this.service
       .create({
         room: this.createCheckoutForm.get('room')?.value,
-        // roomReady: this.createCheckoutForm.get('roomReady')?.value,
         name: this.createCheckoutForm.get('name')?.value,
-        arrivalTime: new Date(this.createCheckoutForm.get('arrivalTime')?.value),
         bags: this.createCheckoutForm.get('bags')?.value,
         tagNr: this.createCheckoutForm.get('tagNr')?.value,
         bbLr: this.createCheckoutForm.get('bbLr')?.value
