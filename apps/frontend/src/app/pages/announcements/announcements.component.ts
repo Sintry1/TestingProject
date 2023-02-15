@@ -5,9 +5,12 @@ import {
   AnnouncementSortOptions,
   AnnouncementStatus,
   IAnnouncement,
+  ICar,
+  ILuggage,
   SortOrder,
 } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { AnnouncementsService } from '../../services/announcements.service';
 import { SentryService } from '../../services/sentry.service';
 import { toDateObject } from '../../utils/date.util';
@@ -141,5 +144,11 @@ export class AnnouncementsComponent implements OnInit {
     );
 
     this.isLoading = false;
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+    }
   }
 }
