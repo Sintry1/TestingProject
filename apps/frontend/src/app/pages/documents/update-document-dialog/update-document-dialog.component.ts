@@ -19,7 +19,7 @@ import { SentryService } from '../../../services/sentry.service';
   ],
 })
 export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
-  updateDocumentForm = new UntypedFormGroup({});
+  form = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
   uploadedNewFile?: File;
@@ -39,7 +39,7 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.updateDocumentForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       title: new UntypedFormControl(this.dialogData.componentData.title, [Validators.required]),
       comments: new UntypedFormControl(this.dialogData.componentData.comments, [
         Validators.maxLength(1000),
@@ -54,10 +54,10 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (!this.updateDocumentForm.valid) {
-      if (this.updateDocumentForm.get('title')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('title')?.invalid) {
         this.titleInput.nativeElement.focus();
-      } else if (this.updateDocumentForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
       }
     } else {
@@ -177,8 +177,8 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
     }
 
     const doc: IUpdateDocumentRequest = {
-      title: this.updateDocumentForm.get('title')?.value,
-      comments: this.updateDocumentForm.get('comments')?.value,
+      title: this.form.get('title')?.value,
+      comments: this.form.get('comments')?.value,
       showOnDashboard: this.showOnDashboard,
     };
 
