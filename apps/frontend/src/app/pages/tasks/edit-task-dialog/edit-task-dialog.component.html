@@ -1,5 +1,8 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <h1>Complete Task</h1>
+  <div class="title-container">
+    <h1>Complete Task</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
   <div class="dialog-row">
     <mat-form-field autocomplete="off">

@@ -6,7 +6,10 @@
 ></frontend-file-upload>
 
 <form (ngSubmit)="onSubmit()" [formGroup]="createCheckinForm" class="dialog-container">
-  <h1>Create check in</h1>
+  <div class="title-container">
+    <h1>Create Check In</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <div class="dialog-row">

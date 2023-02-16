@@ -1,5 +1,8 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="createCarForm" class="dialog-container">
-  <h1>Add Car</h1>
+  <div class="title-container">
+    <h1>Add Car</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <div class="dialog-row">
