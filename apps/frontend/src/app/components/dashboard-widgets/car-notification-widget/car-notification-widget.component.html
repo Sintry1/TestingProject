@@ -1,4 +1,8 @@
-<div class="car-widget-container" routerLink="/car-list" [ngClass]="{'ready' : readyCarList.length > 0, 'overdue' : overdueCarList.length > 0}">
+<div
+  class="car-widget-container"
+  routerLink="/car-list"
+  [ngClass]="{ ready: readyCarList.length > 0, overdue: overdueCarList.length > 0 }"
+>
   <h3>Cars</h3>
   <p>
     Next pick up time:
@@ -8,6 +12,8 @@
   <div class="data-container">
     <span>Future({{ futureCarList.length }})</span>
     <span class="ready" *ngIf="readyCarList.length > 0"> Ready({{ readyCarList.length }}) </span>
-    <span class="overdue" *ngIf="overdueCarList.length > 0"> Overdue({{ overdueCarList.length }}) </span>
+    <span class="overdue" *ngIf="overdueCarList.length > 0">
+      Overdue({{ overdueCarList.length }})
+    </span>
   </div>
 </div>

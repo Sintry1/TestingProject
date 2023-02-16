@@ -10,7 +10,7 @@
 
   /* Colors */
   --extra-light-grey: #f1f1f1;
-  --danger-red: #F34D4D;
+  --danger-red: #f34d4d;
 
   --main-blue: #2f2fa2;
   --main-blue-low-opacity: rgba(47, 47, 162, 0.4);
@@ -25,9 +25,9 @@
   --green: #13be2f;
   --grey: rgba(0, 0, 0, 0.2);
   --lightblue: #ebebf6;
-  --light-yellow: #FFF971;
-  --yellow: #FDF53A;
-  --dark-yellow: #B3AB00;
+  --light-yellow: #fff971;
+  --yellow: #fdf53a;
+  --dark-yellow: #b3ab00;
 }
 
 html,
