@@ -28,7 +28,7 @@ export class LuggagesSeederService {
 
   create(): Array<Promise<Luggage>> {
     // The file that will be uploaded to Linode
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-luggage.jpg'));
     uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (luggage: ILuggage) => {

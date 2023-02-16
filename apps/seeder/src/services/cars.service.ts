@@ -27,7 +27,7 @@ export class CarsSeederService {
   ) {}
 
   create(): Array<Promise<Car>> {
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-car.jpg'));
     uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (car: ICar) => {
