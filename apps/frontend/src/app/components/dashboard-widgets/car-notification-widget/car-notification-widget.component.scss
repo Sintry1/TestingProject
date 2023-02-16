@@ -7,6 +7,14 @@
   box-shadow: 0px 0px 8px -3px rgb(0 0 0 / 10%);
   cursor: pointer;
 
+  &.ready {
+    border: 1px solid var(--dark-yellow);
+  }
+
+  &.overdue {
+    border: 1px solid var(--danger-red);
+  }
+
   h3 {
     margin: 0;
   }

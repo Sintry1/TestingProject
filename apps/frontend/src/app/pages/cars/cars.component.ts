@@ -20,7 +20,7 @@ export class CarsComponent {
   filteredCarList: ICar[] = [];
   originalCarList: ICar[] = [];
   displayDate = new Date();
-  sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
+  sortBy: CarSortOptions = CarSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;

@@ -26,8 +26,8 @@ export class CarNotificationWidgetComponent implements OnInit {
     // Instead of display date, im just using today, since the notifications wont make sense being viewed in the past.
     this.carService.getCar(new Date(), this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
         this.originalCarList = filterByCompletedAtAndOrderResults(cars, false, new Date());
+        this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
         this.futureCarList = this.originalCarList;
         this.UpdateCarListNumbers();
       },
@@ -55,6 +55,10 @@ export class CarNotificationWidgetComponent implements OnInit {
     if (oldestCar.pickUpTime) {
       this.nextPickUp = oldestCar.pickUpTime;
     }
+
+    const timeLeft = this.nextPickUp ? new Date(this.nextPickUp).getTime() - new Date().getTime() : new Date();
+    console.log(new Date(timeLeft).getMinutes());
+    
   }
 
   UpdateCarListNumbers(): void {
@@ -88,9 +92,12 @@ export class CarNotificationWidgetComponent implements OnInit {
       // Check that the expirationTime current time has passed
       if (expirationTime < now) {
         // remove cars from the future list
-        this.futureCarList = this.futureCarList.filter(
-          (currentCar) => currentCar.carId !== car.carId
-        );
+        this.futureCarList = this.futureCarList.filter((currentCar) => {
+          console.log(currentCar.carId !== car.carId);
+          
+          return currentCar.carId !== car.carId;
+        });
+        
         return true;
       } else {
         return false;

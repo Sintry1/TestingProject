@@ -1,4 +1,4 @@
-<div class="car-widget-container" routerLink="/car-list">
+<div class="car-widget-container" routerLink="/car-list" [ngClass]="{'ready' : readyCarList.length > 0, 'overdue' : overdueCarList.length > 0}">
   <h3>Cars</h3>
   <p>
     Next pick up time:
