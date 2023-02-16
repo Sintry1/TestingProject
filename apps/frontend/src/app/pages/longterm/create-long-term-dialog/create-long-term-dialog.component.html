@@ -1,5 +1,5 @@
 <form
-  [formGroup]="createLongTermForm"
+  [formGroup]="form"
   (ngSubmit)="onSubmit()"
   class="dialog-container"
   data-cy="long-term-create-dialog"
@@ -7,52 +7,36 @@
   <h1>Add long term</h1>
   <hr />
 
-  <div class="dialog-row">
-    <mat-form-field>
-      <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" maxlength="10" />
-      <mat-error
-        *ngIf="createLongTermForm.get('room')?.invalid && createLongTermForm.get('room')?.dirty"
-      >
-        Must be a number from 100-999
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field class="remove-error-message">
-      <mat-label>Date in</mat-label>
-      <input onclick="this.showPicker()" matInput type="datetime-local" formControlName="dateIn" />
-    </mat-form-field>
-  </div>
+  <mat-form-field autocomplete="off" class="full-width">
+    <mat-label>Room nr.</mat-label>
+    <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+    <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+      <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error> {{ getErrorMessage() }} </mat-error>
+  </mat-form-field>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
-      <mat-label class="input-label">Name</mat-label>
+      <mat-label>Name</mat-label>
       <input #name type="text" formControlName="name" matInput placeholder="John Doe" />
-      <mat-error
-        *ngIf="createLongTermForm.get('name')?.invalid && createLongTermForm.get('name')?.dirty"
-      >
-        Required
-      </mat-error>
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off" class="input one-third">
-      <mat-label class="input-label">Nr of bags</mat-label>
+      <mat-label>Nr of bags</mat-label>
       <input #bags type="text" formControlName="bags" matInput placeholder="1+3" />
-      <mat-error
-        *ngIf="createLongTermForm.get('bags')?.invalid && createLongTermForm.get('bags')?.dirty"
-      >
-        Required
-      </mat-error>
+      <mat-error *ngIf="form.get('bags')?.invalid && form.get('bags')?.dirty"> Required </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input one-third">
-      <mat-label class="input-label">Tag nr</mat-label>
+      <mat-label>Tag nr</mat-label>
       <input #tagNr type="text" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error
-        *ngIf="createLongTermForm.get('tagNr')?.invalid && createLongTermForm.get('tagNr')?.dirty"
-      >
+      <mat-error *ngIf="form.get('tagNr')?.invalid && form.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -70,33 +54,25 @@
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off" class="input one-third">
-      <mat-label class="input-label">BB in LR</mat-label>
-      <mat-select formControlName="bbLr">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <mat-label>BB in LR</mat-label>
+      <input #bbLr matInput formControlName="bbLr" [matAutocomplete]="bbLrOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbLrOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbLr | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="createLongTermForm.get('bbLr')?.invalid && createLongTermForm.get('bbLr')?.dirty"
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off" class="input">
-      <mat-label class="input-label">Location</mat-label>
-      <mat-select formControlName="location">
-        <mat-option *ngFor="let location of luggageLocation" [value]="location">
-          {{ location }}
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" [matAutocomplete]="locationOptions" />
+      <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredLocations | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="
-          createLongTermForm.get('location')?.invalid && createLongTermForm.get('location')?.dirty
-        "
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
