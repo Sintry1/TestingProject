@@ -44,7 +44,7 @@ export const carLocation: string[] = [
   'Other',
 ];
 
-export const bbAssignmentTask: string[] = [
+export const bbAssignmentTasks: string[] = [
   'RM', // Room Move
   'RA', //Room Assignment
   'Other',

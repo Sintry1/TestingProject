@@ -6,7 +6,7 @@
   (containsInvalidFilesEvent)="updateFilesStatus($event)"
 ></frontend-file-upload>
 
-<form [formGroup]="updateAnnouncementForm" (submit)="onSubmit()">
+<form [formGroup]="form" (submit)="onSubmit()">
   <div class="title-container">
     <h1>Update Announcement</h1>
     <a mat-dialog-close type="button">X</a>

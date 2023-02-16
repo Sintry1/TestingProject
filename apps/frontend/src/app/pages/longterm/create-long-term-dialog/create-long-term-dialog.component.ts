@@ -4,21 +4,28 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 
 @Component({
   selector: 'frontend-create-long-term-dialog',
   templateUrl: './create-long-term-dialog.component.html',
   styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
 })
-export class CreateLongTermDialogComponent implements OnInit {
-  createLongTermForm = new UntypedFormGroup({});
+export class CreateLongTermDialogComponent extends DropdownSelection implements OnInit {
+  form = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
   isLoading = false;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
@@ -32,10 +39,12 @@ export class CreateLongTermDialogComponent implements OnInit {
     private luggageService: LuggageService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.createLongTermForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(10),
@@ -50,23 +59,29 @@ export class CreateLongTermDialogComponent implements OnInit {
       location: new UntypedFormControl('', [Validators.required]),
       dateNeeded: new UntypedFormControl('', []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.createLongTermForm.valid) {
-      if (this.createLongTermForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
-      } else if (this.createLongTermForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
       }
     } else {
@@ -79,20 +94,16 @@ export class CreateLongTermDialogComponent implements OnInit {
     this.luggageService
 
       .create({
-        room: this.createLongTermForm.get('room')?.value,
+        room: this.form.get('room')?.value,
         // roomReady: false,
-        name: this.createLongTermForm.get('name')?.value,
-        arrivalTime: toDateObject(this.createLongTermForm.get('dateIn')?.value),
-        bags: this.createLongTermForm.get('bags')?.value,
-        comments: this.createLongTermForm.get('comments')?.value,
-        tagNr: this.createLongTermForm.get('tagNr')?.value,
-        dateNeeded: toDateObject(this.createLongTermForm.get('dateNeeded')?.value),
-        bbLr: this.createLongTermForm.get('bbLr')?.value
-          ? this.createLongTermForm.get('bbLr')?.value
-          : '',
-        location: this.createLongTermForm.get('location')?.value
-          ? this.createLongTermForm.get('location')?.value
-          : '',
+        name: this.form.get('name')?.value,
+        arrivalTime: toDateObject(this.form.get('dateIn')?.value),
+        bags: this.form.get('bags')?.value,
+        comments: this.form.get('comments')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        dateNeeded: toDateObject(this.form.get('dateNeeded')?.value),
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
         luggageType: LuggageType.LONG_TERM,
       })
 

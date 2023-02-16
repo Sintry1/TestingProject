@@ -5,10 +5,13 @@
 
   /* Border */
   --border: 1px solid rgba(0, 0, 0, 0.2);
+  --border-color: rgba(0, 0, 0, 0.2);
+  --border-color-darker: rgba(0, 0, 0, 0.4);
 
   /* Colors */
   --extra-light-grey: #f1f1f1;
   --danger-red: #f34d4d;
+
   --main-blue: #2f2fa2;
   --main-blue-low-opacity: rgba(47, 47, 162, 0.4);
   --main-blue-lower-opacity: rgba(47, 47, 162, 0.2);
@@ -21,6 +24,9 @@
   --green: #13be2f;
   --grey: rgba(0, 0, 0, 0.2);
   --lightblue: #ebebf6;
+  --light-yellow: #fff971;
+  --yellow: #fdf53a;
+  --dark-yellow: #b3ab00;
 }
 
 html,
