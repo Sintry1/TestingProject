@@ -135,7 +135,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
         bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
         comments: this.form.get('comments')?.value,
         charged: this.form.get('charged')?.value,
-        completedAt: this.form.get('deliveryTime')?.value,
+        completedAt: toDateObject(this.form.get('deliveryTime')?.value),
       })
       .subscribe({
         next: () => {

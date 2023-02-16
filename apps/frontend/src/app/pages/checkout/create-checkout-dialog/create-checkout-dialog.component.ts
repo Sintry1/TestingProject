@@ -104,9 +104,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     this.service
       .create({
         room: this.form.get('room')?.value,
-        // roomReady: this.form.get('roomReady')?.value,
         name: this.form.get('name')?.value,
-        arrivalTime: new Date(this.form.get('arrivalTime')?.value),
         bags: this.form.get('bags')?.value,
         tagNr: this.form.get('tagNr')?.value,
         bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
