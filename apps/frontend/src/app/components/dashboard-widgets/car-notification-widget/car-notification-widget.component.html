@@ -1,9 +1,13 @@
-<div>
-  <h2>Cars</h2>
-  <p>Next pick up time: 
-    <span>{{ nextPickUp | date : 'dd/MM/YYYY HH:mm' }} / </span>
-    <span>{{ (timeTillPickup | date : 'HH:mm') }}</span>
+<div class="car-widget-container" routerLink="/car-list">
+  <h3>Cars</h3>
+  <p>
+    Next pick up time:
+    <span>{{ nextPickUp | date : 'dd/MM HH:mm' }} / </span>
+    <span>{{ timeTillPickup | date : 'HH:mm' }}</span>
   </p>
-  Future: {{ futureCarList.length }} - Ready: {{ readyCarList.length }} - Overdue:
-  {{ overdueCarList.length }}
+  <div class="data-container">
+    <span>Future({{ futureCarList.length }})</span>
+    <span class="ready" *ngIf="readyCarList.length > 0"> Ready({{ readyCarList.length }}) </span>
+    <span class="overdue" *ngIf="overdueCarList.length > 0"> Overdue({{ overdueCarList.length }}) </span>
+  </div>
 </div>
