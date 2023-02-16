@@ -4,6 +4,7 @@ import {
   CarSortOptions,
   CreateCarRequest,
   ICar,
+  IGetCarByIdResponse,
   SortOrder,
   UpdateCarRequest,
 } from '@omnihost/interfaces';
@@ -27,6 +28,10 @@ export class CarService {
         env.apiUrl
       }/cars?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
+  }
+
+  public getById(id: string) {
+    return this.http.get<IGetCarByIdResponse>(`${env.apiUrl}/cars/${id}`);
   }
 
   public createCar(params: CreateCarRequest): Observable<ICar> {

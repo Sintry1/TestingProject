@@ -75,7 +75,7 @@
       <ng-container matColumnDef="files">
         <th mat-header-cell *matHeaderCellDef>Images</th>
         <td mat-cell *matCellDef="let element" class="small-field">
-          <button mat-raised-button class="secondary-btn link">
+          <button mat-raised-button class="secondary-btn link" (click)="viewFiles(element)">
             <img src="assets/icons/link-icon.svg" alt="link icon" class="link-icon" />
           </button>
         </td>

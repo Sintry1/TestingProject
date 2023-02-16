@@ -135,3 +135,16 @@ mat-icon {
   justify-content: center;
   align-items: center;
 }
+
+.view-files-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.view-files-wrapper > img {
+  width: 25%;
+}
