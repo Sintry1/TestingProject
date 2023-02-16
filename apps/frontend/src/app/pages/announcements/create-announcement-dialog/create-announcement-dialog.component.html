@@ -6,7 +6,10 @@
 ></frontend-file-upload>
 
 <form [formGroup]="form" (submit)="onSubmit()" class="dialog-container">
-  <h1>Add Announcement</h1>
+  <div class="title-container">
+    <h1>Add Announcement</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <mat-form-field class="full-width" autocomplete="off">

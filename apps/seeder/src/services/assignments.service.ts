@@ -9,6 +9,7 @@ import {
   bbAssignmentRequestedBy,
   bbAssignmentTasks,
   bellBoyInitials,
+  rooms,
 } from '../constants/dropdown-options';
 import { getRandom, getRandomBoolean, getRandomInt } from './utils.service';
 
@@ -53,7 +54,7 @@ export class AssignmentsSeederService {
         const requestedBy = getRandom(bbAssignmentRequestedBy);
         data.push({
           assignmentId: uuidv4(),
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          room: getRandom(rooms),
           task: task,
           comments:
             task === 'Other' || requestedBy === 'Other' ? getRandom(assignmentComments) : null,

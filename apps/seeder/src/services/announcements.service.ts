@@ -20,7 +20,7 @@ export class AnnouncementsSeederService {
 
   create(): Array<Promise<Announcement>> {
     // The file that will be uploaded to Linode
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-announcement.jpg'));
     uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (announcement: IAnnouncement) => {

@@ -4,7 +4,10 @@
   class="dialog-container"
   data-cy="long-term-create-dialog"
 >
-  <h1>Add long term</h1>
+  <div class="title-container">
+    <h1>Add Long Term</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <mat-form-field autocomplete="off" class="full-width">
@@ -90,7 +93,7 @@
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
     <button class="action-btn" mat-raised-button type="submit">
-      <div *ngIf="!isLoading">long term</div>
+      <div *ngIf="!isLoading">Add Long Term</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>

@@ -68,16 +68,18 @@ export class AssignmentsComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.ASSIGNMENTS,
       width: '600px',
+      disableClose: true,
     });
   }
 
   createAssignment(): void {
-    this.dialog.open(CreateAssignmentDialogComponent, { width: '600px' });
+    this.dialog.open(CreateAssignmentDialogComponent, { width: '600px', disableClose: true });
   }
 
   editAssignment(assignment: IAssignment): void {
     this.dialog.open(UpdateAssignmentDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: assignment,
     });
   }

@@ -84,16 +84,17 @@ td.mat-cell {
 
 .mat-row {
   > .mat-cell {
-    border-right: 1px solid var(--main-blue-low-opacity);
-    border-top: 1px solid var(--main-blue-low-opacity);
+    // border-right: 1px solid var(--main-blue-low-opacity);
+    // border-top: 1px solid var(--main-blue-low-opacity);
     min-width: 2vw;
     max-width: 10vw;
     padding: 0 5px;
     text-align: center;
+    border: none;
 
-    &:last-child {
-      border-right: none;
-    }
+    // &:last-child {
+    //   border-right: none;
+    // }
   }
 }
 

@@ -1,5 +1,8 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
-  <h1>Update Check Out</h1>
+  <div class="title-container">
+    <h1>Update Check Out</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <div class="dialog-row">
@@ -97,8 +100,8 @@
   </mat-form-field>
 
   <div class="dialog-row">
-    <button mat-raised-button class="secodary-btn" mat-dialog-close>Cancel</button>
-    <button mat-raised-button class="secondary-btn" type="submit">
+    <button mat-raised-button class="secondary-btn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="action-btn" type="submit">
       <div *ngIf="!isLoading">Update</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>

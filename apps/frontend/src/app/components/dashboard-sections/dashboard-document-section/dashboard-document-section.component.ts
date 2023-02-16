@@ -38,6 +38,7 @@ export class DashboardDocumentSectionComponent implements OnInit {
   openSeeDocumentDialog(documentId: string): void {
     this.dialog.open(SeeDocumentDialogComponent, {
       data: documentId,
+      disableClose: true,
     });
   }
 

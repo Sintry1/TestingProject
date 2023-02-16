@@ -89,12 +89,14 @@ export class LongtermComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
       width: '600px',
+      disableClose: true,
     });
   }
 
   editLongTermListEntry(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
@@ -102,6 +104,7 @@ export class LongtermComponent {
   createLongTermEntry(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
   }
 
@@ -116,7 +119,11 @@ export class LongtermComponent {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
     } else {
       this.editLongTermListEntry(element as ILuggage);
     }

@@ -81,12 +81,14 @@ export class CheckinComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_IN,
       minWidth: '600px',
+      disableClose: true,
     });
   }
 
   openCheckinEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
       minWidth: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
@@ -94,12 +96,17 @@ export class CheckinComponent {
   openCheckinCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
       minWidth: '600px',
+      disableClose: true,
     });
   }
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
     } else {
       this.openCheckinEditDialog(element as ILuggage);
     }
