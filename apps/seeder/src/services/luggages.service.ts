@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { bellBoyInitials, luggageLocation } from '../constants/dropdown-options';
+import { bellBoyInitials, luggageLocation, rooms } from '../constants/dropdown-options';
 import { bags, luggageComments } from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
 import {
@@ -74,7 +74,7 @@ export class LuggagesSeederService {
           data.push({
             luggageId,
             luggageType: luggageType,
-            room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+            room: getRandom(rooms),
             name: getRandom(names),
             bags: getRandom(bags),
             tagNr: getRandomInt(1000, 4000).toString(),
