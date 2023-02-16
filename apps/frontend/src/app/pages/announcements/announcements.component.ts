@@ -73,9 +73,11 @@ export class AnnouncementsComponent implements OnInit {
   openCreateAnnouncement(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
+      disableClose: true,
       data: {
         component: CreateAnnouncementDialogComponent,
         minWidth: '600px',
+        disableClose: true,
       },
     });
   }
@@ -83,9 +85,11 @@ export class AnnouncementsComponent implements OnInit {
   openEditAnnouncement(announcement: IAnnouncement): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
+      disableClose: true,
       data: {
         component: UpdateAnnouncementDialogComponent,
         minWidth: '600px',
+        disableClose: true,
         componentData: announcement,
       },
     });
@@ -148,7 +152,11 @@ export class AnnouncementsComponent implements OnInit {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
     }
   }
 }

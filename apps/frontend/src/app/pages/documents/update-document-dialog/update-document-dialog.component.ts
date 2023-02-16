@@ -67,6 +67,7 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
         console.warn('Manager access has expired, re-prompting for password');
         const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
           width: '400px',
+          disableClose: true,
         });
         // Once the manager access dialog is closed, re-submit the form and check the logic again
         managerDialogRef.afterClosed().subscribe({
@@ -105,6 +106,7 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
       console.warn('Manager access has expired, re-prompting for password');
       const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
         width: '400px',
+        disableClose: true,
       });
       // Once the manager access dialog is closed, re-submit the form and check the logic again
       managerDialogRef.afterClosed().subscribe({

@@ -87,16 +87,18 @@ export class CarsComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
+    this.dialog.open(CreateCarDialogComponent, { width: '600px', disableClose: true });
   }
 
   openDialogEdit(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: carListEntry,
     });
   }
@@ -139,7 +141,11 @@ export class CarsComponent {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
     } else {
       this.openDialogEdit(element as ICar);
     }

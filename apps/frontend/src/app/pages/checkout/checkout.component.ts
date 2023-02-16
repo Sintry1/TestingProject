@@ -85,12 +85,14 @@ export class CheckoutComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openCheckoutEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
@@ -98,12 +100,17 @@ export class CheckoutComponent {
   openCheckoutCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
   }
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, { width: '600px', data: element });
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
     } else {
       this.openCheckoutEditDialog(element as ILuggage);
     }
