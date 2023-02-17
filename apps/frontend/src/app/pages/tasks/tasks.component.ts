@@ -64,7 +64,7 @@ export class TasksComponent {
     });
   }
 
-  openEditTaskDialog(task: ITask): void {
+  openTaskEditDialog(task: ITask): void {
     this.dialog.open(EditTaskDialogComponent, {
       width: '600px',
       disableClose: true,
