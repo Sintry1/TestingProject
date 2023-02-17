@@ -12,7 +12,6 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
 })
 export class CountdownComponent implements OnInit {
-  
   @Input() displayTimeLeftText?: boolean = false;
   @Input() nextTime!: Date;
 
