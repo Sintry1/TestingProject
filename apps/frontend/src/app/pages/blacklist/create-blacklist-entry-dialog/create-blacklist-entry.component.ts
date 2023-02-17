@@ -7,19 +7,24 @@ import { FileUploadComponent } from '../../../components/file-upload/file-upload
 import { AuthService } from '../../../services/auth.service';
 import { BlacklistService } from '../../../services/blacklist.service';
 import { SentryService } from '../../../services/sentry.service';
-import { IBlacklist, ICreateBlacklistRequest } from '@omnihost/interfaces';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 
 @Component({
   selector: 'frontend-create-blacklist-entry-dialog',
   templateUrl: './create-blacklist-entry.component.html',
-  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
+  styleUrls: [
+    '../../../../assets/styles/dialog.scss', 
+  '../../../../assets/styles/checkbox.scss',
+  '../../../../assets/styles/file-upload.scss'
+],
 })
 export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
+
   isLoading = false;
-  createBlacklistForm: UntypedFormGroup;
+  createBlacklistForm = new UntypedFormGroup({});
   containsInvalidFiles = false;
+  today = new Date();
   
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('name') nameInput!: ElementRef;
@@ -116,4 +121,28 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         },
       });
   }
+
+    /**
+   * Handle finished file upload.
+   */
+    finalizeSubmission($event: 'success' | 'fail') {
+      if ($event === 'success') {
+        this.snackBar.open('Announcement item created!', 'Thanks', {
+          duration: 5000,
+        });
+        this.dialog.closeAll();
+        this.isLoading = false;
+        document.location.reload();
+      } else {
+        this.snackBar.open('Failed to upload the files, please try again.', 'Okay', {
+          duration: 10000,
+        });
+        this.isLoading = false;
+      }
+    }
+  
+    updateFilesStatus($event: boolean) {
+      this.containsInvalidFiles = $event;
+    }
+    
 }

@@ -49,6 +49,8 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
+import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
+// import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,7 @@ import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklis
     CreateAnnouncementDialogComponent,
     UpdateAnnouncementDialogComponent,
     FileUploadComponent,
+    CreateBlacklistDialogComponent,
   ],
   imports: [
     BrowserModule,

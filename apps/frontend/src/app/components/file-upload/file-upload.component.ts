@@ -18,7 +18,7 @@ export class FileUploadComponent implements OnInit {
   containsInvalidFilesEvent = new EventEmitter();
 
   @Input()
-  parentType!: 'luggages' | 'cars' | 'announcements';
+  parentType!: 'luggages' | 'cars' | 'announcements' | 'blacklist';
   @Input()
   existingFiles: string[] = [];
 

@@ -1,3 +1,53 @@
-<div>
-  <H2>Hello</H2>
-</div>
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'blacklist'"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
+<form [formGroup]="createBlacklistForm" (submit)="onSubmit()" class="dialog-container">
+  <h1>Add Blacklist entry</h1>
+  <hr />
+
+  <mat-form-field class="full-width" autocomplete="off">
+    <mat-label>Name</mat-label>
+    <input #title type="text" formControlName="name" matInput />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>comments</mat-label>
+    <textarea
+      #comments
+      matInput
+      style="height: 100px"
+      type="text"
+      formControlName="comments"
+      placeholder="Describe the the reason for the ban"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Expiration</mat-label>
+      <input
+        [min]="today"
+        onclick="this.showPicker()"
+        formControlName="expiresAt"
+        matInput
+        type="datetime-local"
+      />
+    </mat-form-field>
+
+    
+  </div>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Add Announcement</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>
