@@ -27,7 +27,7 @@
           <img src="assets/icons/file.svg" alt="File icon" />
           <span class="file-name">{{ formatFileName(file) }}</span>
           <span class="file-size"></span>
-          <button (click)="removeExistingFile(file)">X</button>
+          <button (click)="removeExistingFile(file)" class="close-dialog-btn small">X</button>
         </div>
         <hr />
       </div>
@@ -36,7 +36,7 @@
           <img src="assets/icons/file.svg" alt="File icon" />
           <span class="file-name">{{ formatFileName(file.name) }}</span>
           <span class="file-size">{{ formatFileSize(file.size) }}</span>
-          <button (click)="removeUploadedFile(file)">X</button>
+          <button (click)="removeUploadedFile(file)" class="close-dialog-btn small">X</button>
         </div>
         <hr />
       </div>
