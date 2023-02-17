@@ -4,13 +4,17 @@
   justify-content: flex-start;
   align-items: center;
   overflow: scroll;
-}
 
-.image,
-.video {
-  height: 500px;
-  width: auto;
-  margin: 10px 5px;
+  .image,
+  .video {
+    height: 500px;
+    width: auto;
+    margin: 10px 5px;
+  }
+
+  &.center-item {
+    justify-content: center;
+  }
 }
 
 .loading-icon {
