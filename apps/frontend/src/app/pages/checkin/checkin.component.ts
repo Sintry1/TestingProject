@@ -85,7 +85,7 @@ export class CheckinComponent {
     });
   }
 
-  openCheckinEditDialog(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
       minWidth: '600px',
       disableClose: true,
@@ -94,7 +94,7 @@ export class CheckinComponent {
     });
   }
 
-  openCheckinCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
       minWidth: '600px',
       disableClose: true,
@@ -110,7 +110,7 @@ export class CheckinComponent {
         autoFocus: false,
       });
     } else {
-      this.openCheckinEditDialog(element as ILuggage);
+      this.openEditDialog(element as ILuggage);
     }
   }
 }

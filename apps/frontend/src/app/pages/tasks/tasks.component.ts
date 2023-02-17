@@ -64,11 +64,12 @@ export class TasksComponent {
     });
   }
 
-  openTaskEditDialog(task: ITask): void {
+  openEditDialog(task: ITask): void {
     this.dialog.open(EditTaskDialogComponent, {
       width: '600px',
       disableClose: true,
       data: task,
+      autoFocus: false,
     });
   }
 }

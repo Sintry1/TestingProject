@@ -72,15 +72,16 @@ export class AssignmentsComponent {
     });
   }
 
-  createAssignment(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateAssignmentDialogComponent, { width: '600px', disableClose: true });
   }
 
-  editAssignment(assignment: IAssignment): void {
+  openEditDialog(assignment: IAssignment): void {
     this.dialog.open(UpdateAssignmentDialogComponent, {
       width: '600px',
       disableClose: true,
       data: assignment,
+      autoFocus: false,
     });
   }
 }

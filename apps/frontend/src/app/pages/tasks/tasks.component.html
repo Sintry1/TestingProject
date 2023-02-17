@@ -39,7 +39,7 @@
           mat-raised-button
           class="secondary-btn"
           *ngIf="item.completedAt === null"
-          (click)="openTaskEditDialog(item)"
+          (click)="openEditDialog(item)"
         >
           Complete
         </button>
@@ -47,7 +47,7 @@
           mat-raised-button
           class="basic-btn"
           *ngIf="item.completedAt !== null"
-          (click)="openTaskEditDialog(item)"
+          (click)="openEditDialog(item)"
         >
           Edit
         </button>
@@ -104,7 +104,7 @@
           mat-raised-button
           class="secondary-btn"
           *ngIf="item.completedAt === null"
-          (click)="openTaskEditDialog(item)"
+          (click)="openEditDialog(item)"
         >
           Complete
         </button>
@@ -112,7 +112,7 @@
           mat-raised-button
           class="basic-btn"
           *ngIf="item.completedAt !== null"
-          (click)="openTaskEditDialog(item)"
+          (click)="openEditDialog(item)"
         >
           Edit
         </button>

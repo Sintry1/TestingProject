@@ -93,7 +93,7 @@ export class LongtermComponent {
     });
   }
 
-  openLongTermUpdateDialog(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
       width: '600px',
       disableClose: true,
@@ -102,7 +102,7 @@ export class LongtermComponent {
     });
   }
 
-  openLongTermCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
       width: '600px',
       disableClose: true,
@@ -127,7 +127,7 @@ export class LongtermComponent {
         autoFocus: false,
       });
     } else {
-      this.openLongTermUpdateDialog(element as ILuggage);
+      this.openEditDialog(element as ILuggage);
     }
   }
 }

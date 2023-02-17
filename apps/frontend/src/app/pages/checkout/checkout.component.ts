@@ -89,7 +89,7 @@ export class CheckoutComponent {
     });
   }
 
-  openCheckoutEditDialog(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
       width: '600px',
       disableClose: true,
@@ -98,7 +98,7 @@ export class CheckoutComponent {
     });
   }
 
-  openCheckoutCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
       width: '600px',
       disableClose: true,
@@ -114,7 +114,7 @@ export class CheckoutComponent {
         autoFocus: false,
       });
     } else {
-      this.openCheckoutEditDialog(element as ILuggage);
+      this.openEditDialog(element as ILuggage);
     }
   }
 }
