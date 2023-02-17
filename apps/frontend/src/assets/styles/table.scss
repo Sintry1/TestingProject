@@ -104,11 +104,12 @@ td.mat-cell {
 }
 
 .completed {
-  background-color: var(--main-blue-opacity-10) !important;
+  opacity: 0.25;
+  // background-color: var(--main-blue-opacity-10) !important;
 
-  &:nth-child(odd) {
-    background-color: var(--main-blue-opacity-15) !important;
-  }
+  // &:nth-child(odd) {
+  //   background-color: var(--main-blue-opacity-15) !important;
+  // }
 }
 
 .remove-error-message {
