@@ -3,16 +3,22 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'frontend-countdown',
   template: `
-    <span *ngIf="displayTimer" [ngStyle]="isFuture ? { color: 'red' } : { color: '#B3AB00' }">
-      {{ isFuture ? '- ' : '' }}{{ counter }}
+    <span *ngIf="displayTimer">
+      <span *ngIf="displayTimeLeftText"> | Time left: </span>
+      <span [ngStyle]="isFuture ? { color: 'red' } : { color: '#B3AB00' }">
+        {{ isFuture ? '- ' : '' }}{{ counter }}
+      </span>
     </span>
   `,
 })
 export class CountdownComponent implements OnInit {
-  currentTime: Date = new Date();
+  
+  @Input() displayTimeLeftText?: boolean = false;
+  @Input() nextTime!: Date;
+
   isFuture = false;
   displayTimer = false;
-  @Input() nextTime!: Date;
+  currentTime: Date = new Date();
   counter = '';
   MILLISECONDS_IN_AN_HOUR = -3600000;
 
