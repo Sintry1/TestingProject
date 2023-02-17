@@ -33,7 +33,6 @@ import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { FilesService, validateFileType } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
 
-
 @ApiTags('Blacklist')
 @Controller('blacklist')
 @ApiBearerAuth()
