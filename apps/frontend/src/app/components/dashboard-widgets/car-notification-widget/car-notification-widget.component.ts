@@ -61,6 +61,10 @@ export class CarNotificationWidgetComponent implements OnInit {
       return;
     }
 
+    console.log(new Date(this.nextPickUp));
+    console.log(new Date());
+    
+
     if(new Date(this.nextPickUp) > new Date()) {
       // in the future
       console.log('future');
