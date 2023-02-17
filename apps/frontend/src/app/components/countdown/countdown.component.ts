@@ -2,33 +2,40 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'frontend-countdown',
-  template: '<p>{{ counter }}</p>',
-  styleUrls: ['./countdown.component.scss'],
+  template: `
+    <span *ngIf="displayTimer" [ngStyle]="isFuture ? { color: 'red' } : { color: '#B3AB00' }">
+      {{ isFuture ? '- ' : '' }}{{ counter }}
+    </span>
+  `,
 })
 export class CountdownComponent implements OnInit {
   currentTime: Date = new Date();
+  isFuture = false;
+  displayTimer = false;
   @Input() nextTime!: Date;
   counter = '';
+  MILLISECONDS_IN_AN_HOUR = -3600000;
 
   ngOnInit() {
     this.startCounter();
   }
 
   startCounter() {
-    console.log(new Date(this.nextTime));
-    console.log(new Date())
-    console.log('is in the past:', new Date() > new Date(this.nextTime));
-    console.log('is in the future:', new Date() < new Date(this.nextTime));
+    this.isFuture = new Date() > new Date(this.nextTime);
 
     const interval = setInterval(() => {
       let timeDiff;
 
-      if(new Date() > new Date(this.nextTime)) {
+      if (new Date() > new Date(this.nextTime)) {
         timeDiff = new Date(this.nextTime).getTime() - new Date().getTime();
+        this.displayTimer = true;
+        this.isFuture = true;
       } else {
         timeDiff = new Date().getTime() - new Date(this.nextTime).getTime();
+        this.displayTimer = timeDiff > this.MILLISECONDS_IN_AN_HOUR;
+        this.isFuture = false;
       }
-      const countUp = (timeDiff < 0);
+      const countUp = timeDiff < 0;
 
       if (countUp) {
         timeDiff = -timeDiff;
@@ -52,6 +59,6 @@ export class CountdownComponent implements OnInit {
   }
 
   pad(num: number) {
-    return (num < 10) ? `0${num}` : num.toString();
+    return num < 10 ? `0${num}` : num.toString();
   }
 }

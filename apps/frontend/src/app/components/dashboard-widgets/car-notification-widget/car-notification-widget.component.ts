@@ -54,24 +54,8 @@ export class CarNotificationWidgetComponent implements OnInit {
     }
 
     if (oldestCar.pickUpTime) {
-      // this.nextPickUp = oldestCar.pickUpTime;
-      this.nextPickUp = new Date('2023-02-17 06:35:20')
+      this.nextPickUp = oldestCar.pickUpTime;
     }
-
-    if(!this.nextPickUp) {
-      return;
-    }
-    
-    if(new Date(this.nextPickUp) > new Date()) {
-      // in the future
-      console.log('future');
-      this.isPickUpTimeFuture = true;
-    } else {
-      // in the past
-      console.log('past');
-      this.isPickUpTimeFuture = false;
-    }
-    
   }
 
   UpdateCarListNumbers(): void {

@@ -7,7 +7,6 @@
   <p>
     Next pick up time:
     <span>{{ nextPickUp | date : 'dd/MM HH:mm' }} / </span>
-    <span>{{ timeTillPickup | date : 'HH:mm' }}</span>
     <frontend-countdown *ngIf="nextPickUp" [nextTime]="nextPickUp"></frontend-countdown>
   </p>
   <div class="data-container">
