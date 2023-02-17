@@ -18,6 +18,7 @@ export class CarNotificationWidgetComponent implements OnInit {
   search = '';
   showAll = false;
   nextPickUp: Date | undefined = undefined;
+  isPickUpTimeFuture = false;
   timeTillPickup = new Date();
 
   constructor(private carService: CarService) {}
@@ -37,11 +38,11 @@ export class CarNotificationWidgetComponent implements OnInit {
     });
 
     setTimeout(() => {
-      this.getOldestPickUpTime();
+      this.getOldest();
     }, 1000);
   }
 
-  getOldestPickUpTime(): void {
+  getOldest(): void {
     let oldestCar = this.originalCarList[0];
 
     for (const car of this.originalCarList) {
@@ -56,9 +57,26 @@ export class CarNotificationWidgetComponent implements OnInit {
       this.nextPickUp = oldestCar.pickUpTime;
     }
 
-    const timeLeft = this.nextPickUp
-      ? new Date(this.nextPickUp).getTime() - new Date().getTime()
-      : new Date();
+    if(!this.nextPickUp) {
+      return;
+    }
+
+    console.log(new Date(this.nextPickUp));
+    console.log(new Date());
+    console.log('is future:', new Date(this.nextPickUp) > new Date());
+    
+    
+
+    if(new Date(this.nextPickUp) > new Date()) {
+      // in the future
+      console.log('future');
+      this.isPickUpTimeFuture = true;
+    } else {
+      // in the past
+      console.log('past');
+      this.isPickUpTimeFuture = false;
+    }
+    
   }
 
   UpdateCarListNumbers(): void {
