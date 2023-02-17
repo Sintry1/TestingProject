@@ -24,12 +24,12 @@ import {
 import {
   CreateBlacklistRequest,
   DeleteBlacklistResponse,
+  FileTypePattern,
   Role,
   UpdateBlacklistRequest,
 } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
-import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { FilesService, validateFileType } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
 
@@ -78,19 +78,22 @@ export class BlacklistController {
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   async getBlacklistById(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
-    return await this.blacklistService.fetchBlacklistbyId(blacklistId);
+    const blacklist = await this.blacklistService.fetchBlacklistById(blacklistId);
+    const signedUrls = await this.blacklistService.getFilesLink(blacklist.files);
+
+    return { ...blacklist, downloadUrls: signedUrls };
   }
 
   @Patch(':blacklistId')
   @ApiOperation({
-    summary: 'Update a specific blacklsit entry',
+    summary: 'Update a specific blacklist entry',
   })
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
   )
@@ -99,7 +102,7 @@ export class BlacklistController {
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Body() blacklistData: UpdateBlacklistRequest
   ) {
-    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData, files);
+    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData, files || []);
   }
 
   @Patch(':blacklistId/files/add')
