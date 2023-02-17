@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -34,8 +33,6 @@ import { FileTypePattern } from '../files/file-type-patterns.enum';
 import { FilesService, validateFileType } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
 
-const FILE_MAX_SIZE = 10000000;
-const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Blacklist')
 @Controller('blacklist')
