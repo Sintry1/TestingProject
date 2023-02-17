@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -15,7 +23,7 @@ import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-
   templateUrl: 'longterm.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class LongtermComponent implements OnInit {
+export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
   listNames?: string[];
@@ -53,10 +61,6 @@ export class LongtermComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
     this.luggageService
@@ -85,12 +89,14 @@ export class LongtermComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
       width: '600px',
+      disableClose: true,
     });
   }
 
   editLongTermListEntry(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
@@ -98,6 +104,7 @@ export class LongtermComponent implements OnInit {
   createLongTermEntry(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
   }
 
@@ -108,5 +115,17 @@ export class LongtermComponent implements OnInit {
       this.showAll,
       this.displayDate
     );
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
+    } else {
+      this.editLongTermListEntry(element as ILuggage);
+    }
   }
 }

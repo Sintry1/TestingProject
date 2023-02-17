@@ -1,11 +1,11 @@
 import { DeleteObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { HttpService } from '@nestjs/axios';
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { FileTypePattern } from '@omnihost/interfaces';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { configService } from '../config/config.service';
 import { SentryService } from '../utils/sentry.service';
-import { FileTypePattern } from './file-type-patterns.enum';
 
 @Injectable()
 export class FilesService {
@@ -32,7 +32,7 @@ export class FilesService {
         .post(
           `https://api.linode.com/v4/object-storage/buckets/${clusterId}/${bucketId}/object-url`,
           {
-            name: fileName,
+            name: this.sanitizeFilename(fileName),
             expires_in: expiresIn,
             method: 'GET',
           },
@@ -84,14 +84,14 @@ export class FilesService {
         new PutObjectCommand({
           Bucket: bucketId,
           Body: dataBuffer,
-          Key: filename,
+          Key: this.sanitizeFilename(filename),
         })
       );
       if (uploadResult.$metadata.httpStatusCode != 200) {
         throw new Error('UploadFailedError');
       } else {
         this.logger.verbose(`New file uploaded to linode storage. Filename: ${filename}`);
-        return this.getSignedLink(filename, 600);
+        return this.getSignedLink(this.sanitizeFilename(filename), 600);
       }
     } catch (error) {
       SentryService.log(
@@ -132,7 +132,7 @@ export class FilesService {
       await s3.send(
         new DeleteObjectCommand({
           Bucket: bucketId,
-          Key: filename,
+          Key: this.sanitizeFilename(filename),
         })
       );
       this.logger.verbose(`File deleted from linode storage. Filename: ${filename}`);
@@ -150,6 +150,16 @@ export class FilesService {
         throw new Error('DeleteFailedError');
       }
     }
+  }
+
+  /**
+   * Remove or replace the characters that would cause the stored filename to be invalid.\
+   * The invalid names manifest themselves as 403: Forbidden error when trying to access it via the signed link.
+   * @param name the filename to sanitize.
+   * @returns the sanitized name.
+   */
+  sanitizeFilename(name: string) {
+    return name.replace(' ', '-').replace('(', '').replace(')', '');
   }
 }
 

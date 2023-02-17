@@ -8,10 +8,14 @@ import {
   Patch,
   Post,
   Query,
+  UploadedFiles,
   UseGuards,
+  UseInterceptors,
 } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
+  ApiConsumes,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiOperation,
@@ -20,6 +24,9 @@ import {
 } from '@nestjs/swagger';
 import {
   CreateLuggageRequest,
+  FileTypePattern,
+  GetLuggageByIdResponse,
+  GetLuggageResponse,
   LuggageSortOptions,
   LuggageType,
   Role,
@@ -27,9 +34,11 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import 'multer';
 import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
+import { validateFileType } from '../files/files.service';
 import { toBool } from '../utils/query-params.utils';
 import { LuggagesService } from './luggages.service';
 
@@ -45,7 +54,7 @@ export class LuggagesController {
   @ApiOperation({
     summary: 'Get a list of checked in luggages for the given day.',
   })
-  @ApiOkResponse({ type: [Luggage] })
+  @ApiOkResponse({ type: [GetLuggageResponse] })
   @ApiQuery({ name: 'createdAt', required: true, example: new Date() })
   @ApiQuery({ name: 'status', required: false, example: 'true' })
   @ApiQuery({
@@ -95,26 +104,103 @@ export class LuggagesController {
     );
   }
 
+  @Get('id/:luggageId')
+  @ApiOperation({
+    summary: 'Get a luggage by id.',
+  })
+  @ApiOkResponse({ type: GetLuggageByIdResponse })
+  @HttpCode(200)
+  async getCarById(@Param('luggageId', ParseUUIDPipe) luggageId: string) {
+    const luggage = await this.luggagesService.findById(luggageId);
+    const signedUrls = await this.luggagesService.getFilesLink(luggage.files);
+    return { ...luggage, downloadUrls: signedUrls };
+  }
+
   @Post()
   @ApiOperation({
     summary: 'Create a luggage entry.',
   })
   @ApiCreatedResponse({ type: Luggage })
+  @ApiConsumes('multipart/form-data')
   @HttpCode(201)
-  async createLuggage(@Body() luggageData: CreateLuggageRequest) {
-    return this.luggagesService.createLuggage(luggageData);
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
+      },
+    })
+  )
+  async createLuggage(
+    @UploadedFiles()
+    files: Array<Express.Multer.File>,
+    @Body() luggageData: CreateLuggageRequest
+  ) {
+    return this.luggagesService.createLuggage(luggageData, files || []);
   }
 
   @Patch(':luggageId')
   @ApiOperation({
     summary: 'Update a luggage entry.',
   })
-  @ApiCreatedResponse({ type: Luggage })
+  @ApiOkResponse({ type: Luggage })
   @HttpCode(200)
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
+      },
+    })
+  )
   async updateLuggage(
     @Param('luggageId', ParseUUIDPipe) luggageId: string,
+    @UploadedFiles()
+    files: Array<Express.Multer.File>,
     @Body() luggageData: UpdateLuggageRequest
   ) {
-    return this.luggagesService.updateLuggage(luggageId, luggageData);
+    return this.luggagesService.updateLuggage(luggageId, luggageData, files || []);
+  }
+
+  @Patch(':luggageId/files/add')
+  @ApiOperation({
+    summary: 'Add more files to a luggage.',
+  })
+  @ApiOkResponse({ type: Luggage })
+  @HttpCode(200)
+  @UseInterceptors(
+    FilesInterceptor('files', 20, {
+      fileFilter(req, file, callback) {
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
+      },
+    })
+  )
+  async addLuggageFiles(
+    @Param('luggageId', ParseUUIDPipe) luggageId: string,
+    @UploadedFiles()
+    files: Array<Express.Multer.File>
+  ) {
+    return this.luggagesService.updateLuggage(luggageId, null, files || []);
+  }
+
+  @Patch(':luggageId/files/remove')
+  @ApiOperation({
+    summary: 'Remove files from a luggage.',
+  })
+  @ApiOkResponse({ type: Luggage })
+  @HttpCode(200)
+  async removeLuggageFiles(
+    @Param('luggageId', ParseUUIDPipe) luggageId: string,
+    @Body() fileNames: string[]
+  ) {
+    return this.luggagesService.removeLuggageFiles(luggageId, fileNames);
+  }
+
+  @Patch(':luggageId/files/clear')
+  @ApiOperation({
+    summary: "Clear a luggage's files.",
+  })
+  @ApiOkResponse({ type: Luggage })
+  @HttpCode(200)
+  async clearLuggageFiles(@Param('luggageId', ParseUUIDPipe) luggageId: string) {
+    return this.luggagesService.clearLuggageFiles(luggageId);
   }
 }

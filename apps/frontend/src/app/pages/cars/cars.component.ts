@@ -1,9 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  CarSortOptions,
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
@@ -16,11 +24,11 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
   templateUrl: './cars.component.html',
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
-export class CarsComponent implements OnInit {
+export class CarsComponent {
   filteredCarList: ICar[] = [];
   originalCarList: ICar[] = [];
   displayDate = new Date();
-  sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
+  sortBy: CarSortOptions = CarSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
@@ -79,22 +87,20 @@ export class CarsComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
+    this.dialog.open(CreateCarDialogComponent, { width: '600px', disableClose: true });
   }
 
   openDialogEdit(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: carListEntry,
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchCarList();
   }
 
   fetchCarList(): void {
@@ -114,7 +120,7 @@ export class CarsComponent implements OnInit {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Check Out data have failed to load, please try checking your connection.',
+          'Car data have failed to load, please try checking your connection.',
           'Okay',
           {
             duration: 10000,
@@ -131,5 +137,17 @@ export class CarsComponent implements OnInit {
       this.showAll,
       this.displayDate
     );
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
+    } else {
+      this.openDialogEdit(element as ICar);
+    }
   }
 }

@@ -7,8 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { assignmentComments } from '../constants/assignments.constant';
 import {
   bbAssignmentRequestedBy,
-  bbAssignmentTask,
+  bbAssignmentTasks,
   bellBoyInitials,
+  rooms,
 } from '../constants/dropdown-options';
 import { getRandom, getRandomBoolean, getRandomInt } from './utils.service';
 
@@ -49,11 +50,11 @@ export class AssignmentsSeederService {
       for (let i = 0; i < entries; i++) {
         const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
         const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
-        const task = getRandom(bbAssignmentTask);
+        const task = getRandom(bbAssignmentTasks);
         const requestedBy = getRandom(bbAssignmentRequestedBy);
         data.push({
           assignmentId: uuidv4(),
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          room: getRandom(rooms),
           task: task,
           comments:
             task === 'Other' || requestedBy === 'Other' ? getRandom(assignmentComments) : null,

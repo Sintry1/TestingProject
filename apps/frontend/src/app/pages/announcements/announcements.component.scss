@@ -1,0 +1,31 @@
+.status {
+  pointer-events: none;
+  cursor: default;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+
+  &.Active {
+    background: var(--green);
+  }
+
+  &.Expired {
+    background: var(--grey);
+  }
+
+  &.Future {
+    background: var(--main-blue);
+    opacity: 0.5;
+  }
+}
+
+.setBackground {
+  background: var(--lightblue);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 40px;
+}
+
+.large {
+  height: 100px;
+}

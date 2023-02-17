@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -15,7 +23,7 @@ import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-che
   templateUrl: './checkin.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class CheckinComponent implements OnInit {
+export class CheckinComponent {
   checkinLuggage: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
@@ -50,10 +58,6 @@ export class CheckinComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
     this.luggageService
@@ -76,20 +80,35 @@ export class CheckinComponent implements OnInit {
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_IN,
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
     });
   }
 
   openCheckinEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
 
   openCheckinCreateDialog(): void {
     this.dialog.open(CreateCheckinDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
     });
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
+    } else {
+      this.openCheckinEditDialog(element as ILuggage);
+    }
   }
 }

@@ -48,11 +48,8 @@ describe('Authentication logic', () => {
   });
 
   describe('When the user is logged in', () => {
-    // Perform a single call to get the access info
-    before(() => cy.login());
-    // Reuse the access info from the login call
     beforeEach(() => {
-      cy.restoreAccessInfoToLocalStorage();
+      cy.login();
       cy.visit('/');
     });
 
@@ -82,6 +79,14 @@ describe('Authentication logic', () => {
     });
 
     describe('Should show the manager access prompt when', () => {
+      // Perform a single call to get the access info
+      before(() => cy.login());
+      // Reuse the access info from the login call
+      beforeEach(() => {
+        cy.restoreAccessInfoToLocalStorage();
+        cy.visit('/');
+      });
+
       it('The add document button is pressed', () => {
         cy.visit('/documents');
         cy.get('[data-cy=documents-add-btn]').click();
@@ -96,6 +101,14 @@ describe('Authentication logic', () => {
     });
 
     describe('When the manager access prompt is filled out', () => {
+      // Perform a single call to get the access info
+      before(() => cy.login());
+      // Reuse the access info from the login call
+      beforeEach(() => {
+        cy.restoreAccessInfoToLocalStorage();
+        cy.visit('/');
+      });
+
       it('Should show the target dialog when the credentials are valid', () => {
         cy.visit('/documents');
         cy.get('[data-cy=documents-add-btn]').click();

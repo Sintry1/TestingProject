@@ -7,7 +7,7 @@ import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { carComments, licensePlates } from '../constants/cars.constant';
-import { bellBoyInitials, carLocation } from '../constants/dropdown-options';
+import { bellBoyInitials, carLocation, rooms } from '../constants/dropdown-options';
 import { names } from '../constants/names.constant';
 import {
   getRandom,
@@ -27,7 +27,7 @@ export class CarsSeederService {
   ) {}
 
   create(): Array<Promise<Car>> {
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/picture.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-car.jpg'));
     uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (car: ICar) => {
@@ -67,7 +67,7 @@ export class CarsSeederService {
         const carId = uuidv4();
         data.push({
           carId,
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          room: getRandom(rooms),
           tagNr: getRandomInt(1000, 4000).toString(),
           arrivalDate: morningDate,
           departureDate: eveningDate,
@@ -85,7 +85,7 @@ export class CarsSeederService {
           charged: completed, // if the customer has been billed. All completed cars are billed
           createdAt: morningDate,
           completedAt: completed ? eveningDate : null,
-          files: getRandomChance(0.5) ? [`car.jpg`] : [],
+          files: getRandomChance(0.5) ? [this.uploadedFileName] : [],
         });
       }
     }

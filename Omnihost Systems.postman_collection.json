@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "652b087c-748a-4da3-812c-69d7c37d69c2",
+		"_postman_id": "e4d7aa58-4434-47b4-bdd6-fc3c14dfc655",
 		"name": "Omnihost Systems",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17928078"
@@ -194,7 +194,112 @@
 			"name": "Authentication",
 			"item": [
 				{
-					"name": "Login",
+					"name": "Files",
+					"item": [
+						{
+							"name": "Clear Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": [
+												"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+												"/C:/Users/crist/Downloads/IMG_9549-2.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"IMG_9549-2.jpg\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all checkin",
 					"event": [
 						{
 							"listen": "test",
@@ -336,18 +441,128 @@
 					"response": []
 				},
 				{
-					"name": "Send forgot password email",
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/id/:luggageId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"id",
+								":luggageId"
+							],
+							"variable": [
+								{
+									"key": "luggageId",
+									"value": "{{luggageId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"luggageId\", pm.response.json().luggageId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"info@omnihost.app\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/auth/forgot-password",
@@ -395,13 +610,88 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"password\": \"abcDEF123\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/auth/forgot-password/:reset-password-token",

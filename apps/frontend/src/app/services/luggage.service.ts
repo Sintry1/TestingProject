@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
   ICreateLuggageRequest,
+  IGetLuggageByIdResponse,
   ILuggage,
   IUpdateLuggageRequest,
   LuggageSortOptions,
@@ -53,6 +54,10 @@ export class LuggageService {
         env.apiUrl
       }/luggages/longTerm?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
+  }
+
+  public getById(id: string) {
+    return this.http.get<IGetLuggageByIdResponse>(`${env.apiUrl}/luggages/id/${id}`);
   }
 
   public update(id: string, params: IUpdateLuggageRequest): Observable<ILuggage> {

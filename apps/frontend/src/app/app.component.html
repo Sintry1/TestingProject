@@ -100,6 +100,20 @@
           <mat-icon aria-hidden="false">library_books</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Documents</span>
         </button>
+        <button
+          mat-list-item
+          data-cy="sidebar-announcements-btn"
+          [ngClass]="title === 'Announcements' ? 'active-nav' : ''"
+          routerLink="/announcements"
+        >
+          <mat-icon aria-hidden="false" data-cy="icon">announcement</mat-icon>
+          <span
+            class="side-nav-item"
+            [ngClass]="{ collapsible: sidebarCollapsed }"
+            data-cy="side-nav-item"
+            >Announcements</span
+          >
+        </button>
       </mat-action-list>
     </div>
     <button mat-flat-button (click)="toggleCollapsed()" class="toggle-btn">
@@ -127,6 +141,7 @@
             >assignment_turned_in</mat-icon
           >
           <mat-icon aria-hidden="false" *ngSwitchCase="'Bike Sheet'">fact_check</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Announcements'">announcement</mat-icon>
           <mat-icon aria-hidden="false" *ngSwitchDefault>report</mat-icon>
         </div>
         <h1 class="title">{{ title }}</h1>

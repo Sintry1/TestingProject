@@ -7,15 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Sentry from '@sentry/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardDocumentSectionComponent } from './components/dashboard-widgets/dashboard-document-section/dashboard-document-section.component';
+import { DashboardDocumentSectionComponent } from './components/dashboard-sections/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboard-widgets/dashboard-links/dashboard-links.component';
 import { WeatherWidgetComponent } from './components/dashboard-widgets/weather-widget/weather-widget.component';
 import { DocumentWidgetComponent } from './components/document-widget/document-widget.component';
 import { SeeDocumentDialogComponent } from './components/document-widget/see-document-dialog/see-document-dialog.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from './components/view-images-dialog/view-images-dialog.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { materialModules } from './material.constant';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { CreateAnnouncementDialogComponent } from './pages/announcements/create-announcement-dialog/create-announcement-dialog.component';
+import { UpdateAnnouncementDialogComponent } from './pages/announcements/update-announcement-dialog/update-announcement-dialog.component';
 import { AssignmentsComponent } from './pages/assignments/assignments.component';
 import { CreateAssignmentDialogComponent } from './pages/assignments/create-assignment-dialog/create-assignment-dialog.component';
 import { UpdateAssignmentDialogComponent } from './pages/assignments/update-assignment-dialog/update-assignment-dialog.component';
@@ -43,6 +48,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { SentryService } from './services/sentry.service';
+import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
+import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
 
 @NgModule({
   declarations: [
@@ -79,8 +86,15 @@ import { SentryService } from './services/sentry.service';
     SeeDocumentDialogComponent,
     CreateDocumentDialogComponent,
     UpdateDocumentDialogComponent,
+    ViewImagesDialogComponent,
     DashboardDocumentSectionComponent,
     DashboardLinksComponent,
+    AnnouncementsComponent,
+    CreateAnnouncementDialogComponent,
+    UpdateAnnouncementDialogComponent,
+    FileUploadComponent,
+    CarNotificationWidgetComponent,
+    DashboardNotificationSectionComponent,
   ],
   imports: [
     BrowserModule,

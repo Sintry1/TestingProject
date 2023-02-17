@@ -38,16 +38,15 @@ export class ManagerAccessDialogComponent {
         this.passwordInput.nativeElement.focus();
       }
     } else {
-      this.login();
+      this.getManagerAccess();
     }
   }
 
-  login() {
+  getManagerAccess() {
     this.isLoading = true;
     this.managerAccessForm.disable();
     this.authService
-      .login({
-        email: this.authService.getAccessInfo()?.user.email + '-mgmt',
+      .getManagerAccess({
         password: this.managerAccessForm.get('password')?.value,
       })
       .subscribe({
@@ -61,6 +60,7 @@ export class ManagerAccessDialogComponent {
           if (this.dialogData && this.dialogData.component) {
             this.dialog.open(this.dialogData.component, {
               width: this.dialogData.width,
+              disableClose: true,
               data: { managerAccessRequired: true, componentData: this.dialogData.componentData },
             });
           }

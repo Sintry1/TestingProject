@@ -1,0 +1,66 @@
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'announcements'"
+  [existingFiles]="files"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="title-container">
+    <h1>Update Announcement</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
+  <hr />
+
+  <mat-form-field class="full-width" autocomplete="off">
+    <mat-label>Title</mat-label>
+    <input #title type="text" formControlName="title" matInput />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea
+      #comments
+      matInput
+      style="height: 100px"
+      type="text"
+      formControlName="comments"
+      placeholder="Describe the announcement"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Show from</mat-label>
+      <input
+        onclick="this.showPicker()"
+        formControlName="showFrom"
+        matInput
+        [min]="today"
+        type="datetime-local"
+      />
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>Show to</mat-label>
+      <input
+        onclick="this.showPicker()"
+        [min]="today"
+        matInput
+        type="datetime-local"
+        formControlName="showTo"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
+    <button class="action-btn" mat-raised-button type="submit">
+      <div *ngIf="!isLoading">Update</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>
