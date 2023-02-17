@@ -52,11 +52,14 @@
         <th mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
         <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
           <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
-            <img
-              *ngIf="item.files.length > 0"
-              src="assets/icons/view-files-icon.svg"
-              alt="View files icon"
-            />
+            <span *ngIf="item.files.length > 0" class="file-number">
+              <img
+                class="image-icon"
+                src="assets/icons/view-files-icon.svg"
+                alt="View files icon"
+              />
+              ({{ item.files.length }})
+            </span>
             <span> {{ item.bags }} </span>
           </div>
         </td>

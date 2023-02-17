@@ -16,6 +16,11 @@ table {
   width: 50px;
 }
 
+.image-icon {
+  position: relative;
+  top: 2px;
+}
+
 .table-actions {
   display: flex;
   flex-grow: 1;
@@ -144,8 +149,12 @@ mat-icon {
   align-items: center;
   height: 100%;
   cursor: pointer;
-}
 
-.view-files-wrapper > img {
-  width: 25%;
+  .file-number {
+    color: var(--main-blue)
+  }
+
+  > img {
+    width: 25%;
+  }
 }
