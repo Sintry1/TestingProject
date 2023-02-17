@@ -94,6 +94,7 @@ export class CheckoutComponent {
       width: '600px',
       disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
@@ -110,6 +111,7 @@ export class CheckoutComponent {
         width: '600px',
         disableClose: true,
         data: element,
+        autoFocus: false,
       });
     } else {
       this.openCheckoutEditDialog(element as ILuggage);

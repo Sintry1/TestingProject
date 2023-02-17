@@ -90,6 +90,7 @@ export class CheckinComponent {
       minWidth: '600px',
       disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
@@ -106,6 +107,7 @@ export class CheckinComponent {
         width: '600px',
         disableClose: true,
         data: element,
+        autoFocus: false,
       });
     } else {
       this.openCheckinEditDialog(element as ILuggage);

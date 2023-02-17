@@ -34,7 +34,7 @@
       <button
         mat-raised-button
         class="action-btn"
-        (click)="createLongTermEntry()"
+        (click)="openLongTermCreateDialog()"
         data-cy="long-term-create-dialog-button"
       >
         Add long term
@@ -47,21 +47,21 @@
     <table mat-table [dataSource]="filteredLuggage" *ngIf="!isLoading">
       <ng-container matColumnDef="dateIn">
         <th mat-header-cell *matHeaderCellDef>Date in</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.createdAt | date : 'dd/MM HH:mm' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.room }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.name }}
         </td>
       </ng-container>
@@ -88,7 +88,7 @@
         <td
           mat-cell
           *matCellDef="let item"
-          (click)="editLongTermListEntry(item)"
+          (click)="openLongTermUpdateDialog(item)"
           class="comments-field"
         >
           {{ item.comments ?? '-' }}
@@ -97,42 +97,42 @@
 
       <ng-container matColumnDef="tagNr">
         <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.tagNr }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="dateNeeded">
         <th mat-header-cell *matHeaderCellDef>Date needed</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.dateNeeded ? (item.dateNeeded | date : 'dd/MM HH:mm') : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbLr">
         <th mat-header-cell *matHeaderCellDef>BB <br />in LR</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.bbLr }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="location">
         <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.location }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbOut">
         <th mat-header-cell *matHeaderCellDef>BB out</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.bbOut ?? '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="dateOut">
         <th mat-header-cell *matHeaderCellDef>Date out</th>
-        <td mat-cell *matCellDef="let item" (click)="editLongTermListEntry(item)">
+        <td mat-cell *matCellDef="let item" (click)="openLongTermUpdateDialog(item)">
           {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '-' }}
         </td>
       </ng-container>
