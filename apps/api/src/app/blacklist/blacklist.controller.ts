@@ -51,7 +51,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 10, {
       fileFilter(req, file, callback) {
-        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
   )
@@ -93,7 +93,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
   )
@@ -115,7 +115,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
   )
