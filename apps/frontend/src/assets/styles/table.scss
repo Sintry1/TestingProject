@@ -55,7 +55,7 @@ tr.mat-header-row {
 }
 
 tr.mat-row {
-  &:nth-child(odd) {
+  &:nth-child(even) {
     background-color: #00000009;
   }
 }

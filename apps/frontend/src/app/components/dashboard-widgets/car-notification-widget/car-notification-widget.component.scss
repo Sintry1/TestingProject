@@ -20,11 +20,11 @@
   }
 
   &.ready {
-    border: 1px solid var(--dark-yellow);
+    border: 2px solid var(--dark-yellow);
   }
 
   &.overdue {
-    border: 1px solid var(--danger-red);
+    border: 2px solid var(--danger-red);
   }
 
   h3 {
