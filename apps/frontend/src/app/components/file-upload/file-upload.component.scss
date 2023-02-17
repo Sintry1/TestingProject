@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+.file-container {
+  width: calc(100% - 24px);
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .file-upload-icon {
   width: 100px;
 }
