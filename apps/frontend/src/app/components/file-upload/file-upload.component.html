@@ -5,7 +5,7 @@
     <h1 class="">Upload files</h1>
     <p class="file-upload-text">Must be a {{ getExtensionsAsFormattedString() }}</p>
   </ng-container>
-  
+
   <!-- File selection / upload -->
   <input
     style="display: none"
@@ -18,7 +18,7 @@
   <button class="file-select-area" (click)="fileUpload.click()" type="button">
     <span>Click to select files</span>
   </button>
-  
+
   <!-- File list -->
   <ng-container *ngIf="selectedFiles.length > 0 || existingFiles.length > 0">
     <section class="selected-files-list">
@@ -42,7 +42,7 @@
       </div>
     </section>
   </ng-container>
-  
+
   <section *ngIf="containsInvalidFiles" class="invalid-files-section">
     <span class="subtitle">One or more files are invalid!</span>
     <ul>
@@ -54,5 +54,4 @@
       <li>Allowed extensions: {{ getFormattedAllowedFileExtensions() }}</li>
     </ul>
   </section>
-  
 </div>

@@ -5,10 +5,18 @@
 >
   <div class="header">
     <h3>Cars</h3>
-    <img *ngIf="overdueCarList.length > 0" src="assets/icons/alerts/critical-alert-icon.svg" alt="alert icon"/> 
-    <img *ngIf="readyCarList.length > 0 && overdueCarList.length === 0" src="assets/icons/alerts/warning-alert-icon.svg" alt="alert icon"/> 
+    <img
+      *ngIf="overdueCarList.length > 0"
+      src="assets/icons/alerts/critical-alert-icon.svg"
+      alt="alert icon"
+    />
+    <img
+      *ngIf="readyCarList.length > 0 && overdueCarList.length === 0"
+      src="assets/icons/alerts/warning-alert-icon.svg"
+      alt="alert icon"
+    />
   </div>
-  
+
   <p>
     Next pick up time:
     <span>{{ nextPickUp | date : 'dd/MM HH:mm' }} / </span>
