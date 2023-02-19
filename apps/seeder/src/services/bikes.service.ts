@@ -5,7 +5,7 @@ import { Bike } from '@omnihost/models';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { bikeComments } from '../constants/bikes.constant';
-import { bellBoyInitials, bikeListReserved } from '../constants/dropdown-options';
+import { bellBoyInitials, bikeListReserved, rooms } from '../constants/dropdown-options';
 import { names } from '../constants/names.constant';
 import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
 
@@ -52,7 +52,7 @@ export class BikesSeederService {
           nrOfBikes: getRandomInt(1, 3).toString(),
           pickUpTime: morningDate,
           name: getRandom(names),
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          room: getRandom(rooms),
           reservedBy: getRandom(bikeListReserved),
           bikeFormCompleted: completed,
           comments: getRandomChance(0.2) ? getRandom(bikeComments) : null,

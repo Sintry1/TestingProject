@@ -10,7 +10,7 @@ import { SeeDocumentDialogComponent } from '../../document-widget/see-document-d
 @Component({
   selector: 'frontend-dashboard-document-section',
   templateUrl: './dashboard-document-section.component.html',
-  styleUrls: ['./dashboard-document-section.component.scss'],
+  styleUrls: ['../../../../assets/styles/dashboard-section.scss'],
 })
 export class DashboardDocumentSectionComponent implements OnInit {
   documentList!: IDocument[];
@@ -38,6 +38,7 @@ export class DashboardDocumentSectionComponent implements OnInit {
   openSeeDocumentDialog(documentId: string): void {
     this.dialog.open(SeeDocumentDialogComponent, {
       data: documentId,
+      disableClose: true,
     });
   }
 

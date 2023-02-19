@@ -18,7 +18,7 @@ import { toDateObject } from '../../../utils/date.util';
   ],
 })
 export class CreateAnnouncementDialogComponent {
-  createAnnouncementForm = new UntypedFormGroup({});
+  form = new UntypedFormGroup({});
   isLoading = false;
   containsInvalidFiles = false;
   today = new Date();
@@ -34,7 +34,7 @@ export class CreateAnnouncementDialogComponent {
     private snackBar: MatSnackBar,
     private announcementService: AnnouncementsService
   ) {
-    this.createAnnouncementForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       title: new UntypedFormControl('', [Validators.required]),
       showFrom: new UntypedFormControl('', [Validators.required]),
       showTo: new UntypedFormControl('', [Validators.required]),
@@ -43,14 +43,14 @@ export class CreateAnnouncementDialogComponent {
   }
 
   onSubmit(): void {
-    if (!this.createAnnouncementForm.valid) {
-      if (this.createAnnouncementForm.get('title')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('title')?.invalid) {
         this.titleInput.nativeElement.focus();
-      } else if (this.createAnnouncementForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
-      } else if (this.createAnnouncementForm.get('showFrom')?.invalid) {
+      } else if (this.form.get('showFrom')?.invalid) {
         this.showFromInput.nativeElement.focus();
-      } else if (this.createAnnouncementForm.get('showTo')?.invalid) {
+      } else if (this.form.get('showTo')?.invalid) {
         this.showToInput.nativeElement.focus();
       } else if (this.containsInvalidFiles) {
         this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
@@ -67,10 +67,10 @@ export class CreateAnnouncementDialogComponent {
 
     this.announcementService
       .createAnnouncement({
-        title: this.createAnnouncementForm.get('title')?.value,
-        showFrom: toDateObject(this.createAnnouncementForm.get('showFrom')?.value),
-        showTo: toDateObject(this.createAnnouncementForm.get('showTo')?.value),
-        comments: this.createAnnouncementForm.get('comments')?.value,
+        title: this.form.get('title')?.value,
+        showFrom: toDateObject(this.form.get('showFrom')?.value),
+        showTo: toDateObject(this.form.get('showTo')?.value),
+        comments: this.form.get('comments')?.value,
       })
       .subscribe({
         next: (res) => {

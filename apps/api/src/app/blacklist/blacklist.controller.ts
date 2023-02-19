@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -25,15 +24,14 @@ import {
 import {
   CreateBlacklistRequest,
   DeleteBlacklistResponse,
+  FileTypePattern,
   Role,
   UpdateBlacklistRequest,
 } from '@omnihost/interfaces';
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
-import { FilesService } from '../files/files.service';
+import { FilesService, validateFileType } from '../files/files.service';
 import { BlacklistService } from './blacklist.service';
-
-const FILE_TYPES = /(png|jpg|jpeg)\b/;
 
 @ApiTags('Blacklist')
 @Controller('blacklist')
@@ -53,18 +51,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 10, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
   )
@@ -91,7 +78,7 @@ export class BlacklistController {
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   async getBlacklistById(@Param('blacklistId', ParseUUIDPipe) blacklistId: string) {
-    const blacklist = await this.blacklistService.findById(blacklistId);
+    const blacklist = await this.blacklistService.fetchBlacklistById(blacklistId);
     const signedUrls = await this.blacklistService.getFilesLink(blacklist.files);
 
     return { ...blacklist, downloadUrls: signedUrls };
@@ -99,16 +86,23 @@ export class BlacklistController {
 
   @Patch(':blacklistId')
   @ApiOperation({
-    summary: 'Update a specific blacklsit entry',
+    summary: 'Update a specific blacklist entry',
   })
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
+  @UseInterceptors(
+    FilesInterceptor('files', 5, {
+      fileFilter(req, file, callback) {
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
+      },
+    })
+  )
   async updateBlacklistEntry(
     @Param('blacklistId', ParseUUIDPipe) blacklistId: string,
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Body() blacklistData: UpdateBlacklistRequest
   ) {
-    return this.blacklistService.updateBlacklist(blacklistId, blacklistData, files || []);
+    return await this.blacklistService.updateBlacklist(blacklistId, blacklistData, files || []);
   }
 
   @Patch(':blacklistId/files/add')
@@ -121,17 +115,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-        return callback(null, true);
+        return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
   )

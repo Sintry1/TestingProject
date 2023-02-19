@@ -4,11 +4,15 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
@@ -19,15 +23,18 @@ import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-select
     '../../../../assets/styles/file-upload.scss',
   ],
 })
-export class UpdateCheckinDialogComponent {
+export class UpdateCheckinDialogComponent extends DropdownSelection {
   form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   luggageId: string;
-  bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
   files: string[] = [];
   containsInvalidFiles = false;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
@@ -44,15 +51,16 @@ export class UpdateCheckinDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
+    super();
     this.luggageId = data.luggageId;
     this.files = data.files;
 
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl(
+        this.data.room,
+        [Validators.required],
+        valueInArrayValidator(rooms)
+      ),
       name: new UntypedFormControl(data.name, [Validators.required]),
       arrivalTime: new UntypedFormControl(
         data.arrivalTime ? toTimeInputString(new Date(data.arrivalTime)) : '',
@@ -60,15 +68,29 @@ export class UpdateCheckinDialogComponent {
       ),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      bbLr: new UntypedFormControl(data.bbLr, [Validators.required]),
-      bbOut: new UntypedFormControl(data.bbOut, []),
-      location: new UntypedFormControl(data.location, [Validators.required]),
+      bbLr: new UntypedFormControl(
+        data.bbLr,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      bbOut: new UntypedFormControl(data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
+      location: new UntypedFormControl(
+        data.location,
+        [Validators.required],
+        valueInArrayValidator(luggageLocation)
+      ),
       completedAt: new UntypedFormControl(
         data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
         []
       ),
       comments: new UntypedFormControl(data.comments, []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {

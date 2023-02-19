@@ -60,6 +60,7 @@ export class ManagerAccessDialogComponent {
           if (this.dialogData && this.dialogData.component) {
             this.dialog.open(this.dialogData.component, {
               width: this.dialogData.width,
+              disableClose: true,
               data: { managerAccessRequired: true, componentData: this.dialogData.componentData },
             });
           }
