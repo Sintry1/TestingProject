@@ -1,20 +1,26 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="createCarForm" class="dialog-container">
-  <h1>Add Car</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
+  <div class="title-container">
+    <h1>Add Car</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" />
-      <mat-error *ngIf="createCarForm.get('room')?.invalid && createCarForm.get('room')?.dirty">
-        Must be a number from 100-999
-      </mat-error>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
       <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error *ngIf="createCarForm.get('tagNr')?.invalid && createCarForm.get('tagNr')?.dirty">
+      <mat-error *ngIf="form.get('tagNr')?.invalid && form.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -28,7 +34,13 @@
 
     <mat-form-field class="remove-error-message">
       <mat-label>Departure Date</mat-label>
-      <input onclick="this.showPicker()" matInput type="date" formControlName="departureDate" />
+      <input
+        #departureDate
+        onclick="this.showPicker()"
+        matInput
+        type="date"
+        formControlName="departureDate"
+      />
     </mat-form-field>
   </div>
 
@@ -36,9 +48,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Name</mat-label>
       <input #name type="text" formControlName="name" matInput placeholder="Name" />
-      <mat-error *ngIf="createCarForm.get('name')?.invalid && createCarForm.get('name')?.dirty">
-        Required
-      </mat-error>
+      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
@@ -50,11 +60,7 @@
         matInput
         placeholder="AB12345"
       />
-      <mat-error
-        *ngIf="
-          createCarForm.get('licensePlate')?.invalid && createCarForm.get('licensePlate')?.dirty
-        "
-      >
+      <mat-error *ngIf="form.get('licensePlate')?.invalid && form.get('licensePlate')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
@@ -62,7 +68,7 @@
 
   <div class="dialog-row">
     <mat-form-field class="remove-error-message">
-      <mat-label>Expiration Date</mat-label>
+      <mat-label>Parking Expiration</mat-label>
       <input
         onclick="this.showPicker()"
         matInput
@@ -84,38 +90,32 @@
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
-      <mat-label>BB Down</mat-label>
-      <mat-select formControlName="bbDown">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <mat-label>BB down</mat-label>
+      <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbDownOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbDown | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="createCarForm.get('bbDown')?.invalid && createCarForm.get('bbDown')?.dirty">
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <mat-select formControlName="location">
-        <mat-option *ngFor="let location of carLocation" [value]="location">
-          {{ location }}
+      <input #location matInput formControlName="location" [matAutocomplete]="locationOptions" />
+      <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredCarLocations | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="createCarForm.get('location')?.invalid && createCarForm.get('location')?.dirty"
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
     <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
-    <mat-error
-      *ngIf="createCarForm.get('comments')?.invalid && createCarForm.get('comments')?.dirty"
-    >
+    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
       Required
     </mat-error>
   </mat-form-field>

@@ -1,8 +1,16 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -77,12 +85,14 @@ export class CheckoutComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openCheckoutEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
     });
   }
@@ -90,6 +100,19 @@ export class CheckoutComponent {
   openCheckoutCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
+    } else {
+      this.openCheckoutEditDialog(element as ILuggage);
+    }
   }
 }

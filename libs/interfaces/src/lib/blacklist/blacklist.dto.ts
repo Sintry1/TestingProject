@@ -2,10 +2,10 @@ import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-prop
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { CompletedAtResponse } from '../base.dto';
 import {
-  ICreateBlacklistRequest,
-  IUpdateBlacklistRequest,
   IBlacklist,
+  ICreateBlacklistRequest,
   IGetBlacklistByIdResponse,
+  IUpdateBlacklistRequest,
 } from './blacklist.interface';
 
 export class GetBlacklistResponse extends CompletedAtResponse implements IBlacklist {
@@ -33,14 +33,15 @@ export class CreateBlacklistRequest implements ICreateBlacklistRequest {
   @IsNotEmpty()
   comments!: string;
 
-  @ApiModelProperty({ example: new Date() })
+  @ApiModelProperty({ example: new Date(), required: false })
   @IsDateString()
   @IsOptional()
   expiresAt?: Date;
 
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
-  files?: any = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  files?: any;
 }
 
 export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
@@ -59,7 +60,8 @@ export class UpdateBlacklistRequest implements IUpdateBlacklistRequest {
 
   @ApiModelProperty({ type: 'array', items: { type: 'string', format: 'binary' }, required: true })
   @IsOptional()
-  file?: any = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  files?: any;
 }
 
 export class DeleteBlacklistResponse {

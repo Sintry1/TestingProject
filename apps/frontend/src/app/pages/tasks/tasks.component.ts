@@ -60,12 +60,14 @@ export class TasksComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.TASKS,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openEditTaskDialog(task: ITask): void {
     this.dialog.open(EditTaskDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: task,
     });
   }

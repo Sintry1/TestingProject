@@ -98,16 +98,18 @@ export class BikesComponent {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.BIKES,
       width: '600px',
+      disableClose: true,
     });
   }
 
   openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px' });
+    this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
   openDialogEdit(bikeListEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: bikeListEntry,
     });
   }

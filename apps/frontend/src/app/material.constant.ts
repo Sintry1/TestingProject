@@ -1,3 +1,4 @@
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -36,6 +37,7 @@ export const materialModules = [
   MatFormFieldModule,
   MatSnackBarModule,
   MatSelectModule,
+  MatAutocompleteModule,
   MatGridListModule,
   MatTooltipModule,
   MatDialogModule,
