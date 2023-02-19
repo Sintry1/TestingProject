@@ -16,7 +16,11 @@ export class FilesService {
    * @param files the files to upload.
    * @returns an observable of the updated entity.
    */
-  public addFiles(type: 'luggages' | 'cars' | 'announcements' | 'blacklist', id: string, files: File[]) {
+  public addFiles(
+    type: 'luggages' | 'cars' | 'announcements' | 'blacklist',
+    id: string,
+    files: File[]
+  ) {
     const formData = new FormData();
     files.forEach((file) => {
       formData.append('files', file);
@@ -35,7 +39,11 @@ export class FilesService {
    * @param files the files to remove, by name.
    * @returns an observable of the updated entity.
    */
-  public removeFiles(type: 'luggages' | 'cars' | 'announcements' | 'blacklist', id: string, files: string[]) {
+  public removeFiles(
+    type: 'luggages' | 'cars' | 'announcements' | 'blacklist',
+    id: string,
+    files: string[]
+  ) {
     return this.http.patch<ILuggage | ICar | IAnnouncement>(
       `${env.apiUrl}/${type}/${id}/files/remove`,
       files
@@ -75,8 +83,8 @@ export class FilesService {
         return {
           maxFileSize: 10000000,
           maxFilesNumber: 20,
-          allowedExtensions: FileTypePattern.PICTURES
-        }
+          allowedExtensions: FileTypePattern.PICTURES,
+        };
     }
   }
 
@@ -87,14 +95,14 @@ export class FilesService {
    */
   getExtensionsAsFormattedString(fileTypePattern: FileTypePattern): string {
     let formattedTypes = '';
-    const extensions = fileTypePattern.replace('(', '').replace(')', '').split('|');
+    const extensions = fileTypePattern.replaceAll('(', '').replaceAll(')', '').split('|');
     extensions.forEach((type) => {
       formattedTypes += `${type}, `;
     });
     // Remove the trailing comma and space
     formattedTypes = formattedTypes.substring(0, formattedTypes.length - 2);
     // Replace the last comma with 'or'
-    formattedTypes = formattedTypes.replace(/,(?!.*,)/gm, ' or ');
+    formattedTypes = formattedTypes.replaceAll(/,(?!.*,)/gm, ' or ');
     return formattedTypes;
   }
 
@@ -105,7 +113,7 @@ export class FilesService {
    */
   getExtensionsAsMimeTypes(fileTypePattern: FileTypePattern): string {
     let formattedTypes = '';
-    const extensions = fileTypePattern.replace('(', '').replace(')', '').split('|');
+    const extensions = fileTypePattern.replaceAll('(', '').replaceAll(')', '').split('|');
     extensions.forEach((type) => {
       if (type === 'png' || type === 'jpg' || type === 'jpeg') {
         formattedTypes += `image/${type},`;

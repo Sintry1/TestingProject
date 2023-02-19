@@ -6,7 +6,10 @@
 ></frontend-file-upload>
 
 <form [formGroup]="createBlacklistForm" (submit)="onSubmit()" class="dialog-container">
-  <h1>Add Blacklist entry</h1>
+  <div class="title-container">
+    <h1>Add Blacklist Entry</h1>
+    <a mat-dialog-close type="button">X</a>
+  </div>
   <hr />
 
   <mat-form-field class="full-width" autocomplete="off">
@@ -15,14 +18,14 @@
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <mat-label>comments</mat-label>
+    <mat-label>Comments</mat-label>
     <textarea
       #comments
       matInput
       style="height: 100px"
       type="text"
       formControlName="comments"
-      placeholder="Describe the the reason for the ban"
+      placeholder="Describe the reason for the inclusion in the blacklist"
     ></textarea>
   </mat-form-field>
 
@@ -37,6 +40,7 @@
         type="datetime-local"
       />
     </mat-form-field>
+
   </div>
 
   <div class="dialog-row">

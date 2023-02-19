@@ -156,9 +156,9 @@ export class FileUploadComponent implements OnInit {
    */
   getFormattedAllowedFileExtensions(): string {
     return this.constraints.allowedExtensions
-      .replace('(', '')
-      .replace(/\|+/g, ', ')
-      .replace(')', '');
+      .replaceAll('(', '')
+      .replaceAll(/\|+/g, ', ')
+      .replaceAll(')', '');
   }
 
   areFilesValid(): boolean {
