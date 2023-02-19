@@ -87,7 +87,8 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - ${API_POSTGRES_PORT:-5432}:5432
+      - ${API_POSTGRES_PORT:-5432}:${API_POSTGRES_PORT:-5432}
+    command: -p ${API_POSTGRES_PORT:-5432}
     networks:
       - omnihost-net
 
