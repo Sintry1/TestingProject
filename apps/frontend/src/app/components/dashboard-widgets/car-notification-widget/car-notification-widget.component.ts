@@ -18,7 +18,6 @@ export class CarNotificationWidgetComponent implements OnInit {
   search = '';
   showAll = false;
   nextPickUp: Date | undefined = undefined;
-  isPickUpTimeFuture = false;
   timeTillPickup = new Date();
 
   constructor(private carService: CarService) {}
