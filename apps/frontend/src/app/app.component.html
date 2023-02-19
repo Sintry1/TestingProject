@@ -103,7 +103,7 @@
         <button
           mat-list-item
           routerLink="blacklist"
-          [ngClass]="title === 'Blacklsit' ? 'active-nav' : ''"
+          [ngClass]="'active-nav': title === 'Blacklist'"
         >
           <mat-icon aria-hidden="false">pan_tool</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Blacklist</span>
