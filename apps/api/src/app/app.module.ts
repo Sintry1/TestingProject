@@ -17,6 +17,7 @@ import { SentryInterceptor } from './middleware/sentry.interceptor';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AnnouncementsModule } from './announcements/announcements.module';
+import { BlacklistModule } from './blacklist/blacklist.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     FilesModule,
     BikeModule,
     AnnouncementsModule,
+    BlacklistModule,
   ],
   controllers: [AppController],
   providers: [
