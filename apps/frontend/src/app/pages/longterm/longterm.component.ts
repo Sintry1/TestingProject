@@ -93,15 +93,16 @@ export class LongtermComponent {
     });
   }
 
-  editLongTermListEntry(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
       width: '600px',
       disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
-  createLongTermEntry(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
       width: '600px',
       disableClose: true,
@@ -123,9 +124,10 @@ export class LongtermComponent {
         width: '600px',
         disableClose: true,
         data: element,
+        autoFocus: false,
       });
     } else {
-      this.editLongTermListEntry(element as ILuggage);
+      this.openEditDialog(element as ILuggage);
     }
   }
 }

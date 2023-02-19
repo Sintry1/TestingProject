@@ -37,11 +37,11 @@ export class CarNotificationWidgetComponent implements OnInit {
     });
 
     setTimeout(() => {
-      this.getOldestPickUpTime();
+      this.getOldest();
     }, 1000);
   }
 
-  getOldestPickUpTime(): void {
+  getOldest(): void {
     let oldestCar = this.originalCarList[0];
 
     for (const car of this.originalCarList) {
@@ -55,10 +55,6 @@ export class CarNotificationWidgetComponent implements OnInit {
     if (oldestCar.pickUpTime) {
       this.nextPickUp = oldestCar.pickUpTime;
     }
-
-    const timeLeft = this.nextPickUp
-      ? new Date(this.nextPickUp).getTime() - new Date().getTime()
-      : new Date();
   }
 
   UpdateCarListNumbers(): void {

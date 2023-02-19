@@ -3,7 +3,7 @@
   cursor: default;
   color: white;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 9px 14px;
 
   &.Active {
     background: var(--green);
@@ -28,4 +28,10 @@
 
 .large {
   height: 100px;
+}
+
+::ng-deep {
+  .mat-button-disabled {
+    color: white !important;
+  }
 }
