@@ -30,7 +30,7 @@ export class BlacklistWidgetComponent implements OnInit {
       width: '600px',
       data: {
         componentData: this.blacklist,
-        width: '600px',
+        minWidth: '600px',
       },
     });
   }
