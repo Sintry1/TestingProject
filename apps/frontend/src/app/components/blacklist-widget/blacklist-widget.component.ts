@@ -55,7 +55,6 @@ export class BlacklistWidgetComponent implements OnInit {
     this.isLoading = true;
     this.blacklistService.getBlacklistById(this.blacklist.blacklistId).subscribe({
       next: (blacklist) => {
-        console.log('This log is inside getPictures()', blacklist);
         this.files = blacklist.downloadUrls;
         this.isLoading = false;
       },
