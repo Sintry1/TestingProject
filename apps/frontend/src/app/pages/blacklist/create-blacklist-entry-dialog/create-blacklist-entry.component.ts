@@ -14,23 +14,22 @@ import { ManagerAccessDialogComponent } from '../../../components/manager-access
   selector: 'frontend-create-blacklist-entry-dialog',
   templateUrl: './create-blacklist-entry.component.html',
   styleUrls: [
-    '../../../../assets/styles/dialog.scss', 
-  '../../../../assets/styles/checkbox.scss',
-  '../../../../assets/styles/file-upload.scss'
-],
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
-
   isLoading = false;
   createBlacklistForm = new UntypedFormGroup({});
   containsInvalidFiles = false;
   today = new Date();
-  
+
   @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('comments') commentsInput!: ElementRef;
   @ViewChild('expiresAt') expiresAtInput!: ElementRef;
-  
+
   constructor(
     private blacklistService: BlacklistService,
     private authService: AuthService,
@@ -79,23 +78,22 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         });
       }
     } else {
-         const managerInfo = this.authService.getManagerInfo();
-         if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
-           console.warn('Manager access has expired, re-prompting for password');
-           const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-             width: '600px',
-           });
-           managerDialogRef.afterClosed().subscribe({
-             next: () => {
-               this.onSubmit();
-             },
-           });
-           return;
-         }
+      const managerInfo = this.authService.getManagerInfo();
+      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+        console.warn('Manager access has expired, re-prompting for password');
+        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+          width: '600px',
+        });
+        managerDialogRef.afterClosed().subscribe({
+          next: () => {
+            this.onSubmit();
+          },
+        });
+        return;
+      }
       this.createBlacklistEntry();
     }
   }
-  
 
   createBlacklistEntry(): void {
     this.isLoading = true;
@@ -122,27 +120,26 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
       });
   }
 
-    /**
+  /**
    * Handle finished file upload.
    */
-    finalizeSubmission($event: 'success' | 'fail') {
-      if ($event === 'success') {
-        this.snackBar.open('Announcement item created!', 'Thanks', {
-          duration: 5000,
-        });
-        this.dialog.closeAll();
-        this.isLoading = false;
-        document.location.reload();
-      } else {
-        this.snackBar.open('Failed to upload the files, please try again.', 'Okay', {
-          duration: 10000,
-        });
-        this.isLoading = false;
-      }
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Announcement item created!', 'Thanks', {
+        duration: 5000,
+      });
+      this.dialog.closeAll();
+      this.isLoading = false;
+      document.location.reload();
+    } else {
+      this.snackBar.open('Failed to upload the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
     }
-  
-    updateFilesStatus($event: boolean) {
-      this.containsInvalidFiles = $event;
-    }
-    
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
+  }
 }

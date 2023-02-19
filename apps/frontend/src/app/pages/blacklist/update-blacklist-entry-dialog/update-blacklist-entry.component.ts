@@ -37,20 +37,27 @@ export class UpdateBlacklistDialogComponent {
     private authService: AuthService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
-    @Inject(MAT_DIALOG_DATA) public dialogData: { managerAccessRequired: boolean; componentData: IBlacklist }
+    @Inject(MAT_DIALOG_DATA)
+    public dialogData: { managerAccessRequired: boolean; componentData: IBlacklist }
   ) {
     this.files = this.dialogData.componentData.files || [];
-    
+
     this.updateBlacklistForm = new UntypedFormGroup({
       name: new UntypedFormControl(dialogData.componentData.name, [
         Validators.required,
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
       ]),
-      expiresAt: new UntypedFormControl(dialogData.componentData.expiresAt
-        ? toDatetimeInputString(new Date(dialogData.componentData.expiresAt))
-        : '', [Validators.required]),
-      comments: new UntypedFormControl(dialogData.componentData.comments, [Validators.maxLength(1000), Validators.required]),
+      expiresAt: new UntypedFormControl(
+        dialogData.componentData.expiresAt
+          ? toDatetimeInputString(new Date(dialogData.componentData.expiresAt))
+          : '',
+        [Validators.required]
+      ),
+      comments: new UntypedFormControl(dialogData.componentData.comments, [
+        Validators.maxLength(1000),
+        Validators.required,
+      ]),
     });
   }
 
@@ -69,18 +76,18 @@ export class UpdateBlacklistDialogComponent {
       }
     } else {
       const managerInfo = this.authService.getManagerInfo();
-         if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
-           console.warn('Manager access has expired, re-prompting for password');
-           const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-             width: '600px',
-           });
-           managerDialogRef.afterClosed().subscribe({
-             next: () => {
-               this.onSubmit();
-             },
-           });
-           return;
-         }
+      if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
+        console.warn('Manager access has expired, re-prompting for password');
+        const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
+          width: '600px',
+        });
+        managerDialogRef.afterClosed().subscribe({
+          next: () => {
+            this.onSubmit();
+          },
+        });
+        return;
+      }
       this.updateBlacklist();
     }
   }

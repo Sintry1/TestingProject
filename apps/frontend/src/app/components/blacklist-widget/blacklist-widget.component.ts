@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
-import { CreateBlacklistDialogComponent } from '../../pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
 import { UpdateBlacklistDialogComponent } from '../../pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 import { BlacklistService } from '../../services/blacklist.service';
 import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-access-dialog.component';
@@ -26,7 +25,6 @@ export class BlacklistWidgetComponent implements OnInit {
   ngOnInit(): void {
     this.getPictures();
   }
-
 
   openEditBlacklist(blacklist: IBlacklist): void {
     this.dialog.open(ManagerAccessDialogComponent, {
