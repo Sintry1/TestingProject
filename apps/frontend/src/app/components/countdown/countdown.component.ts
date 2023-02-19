@@ -41,15 +41,15 @@ export class CountdownComponent implements OnInit, OnDestroy {
         this.displayTimer = timeDiff > this.MILLISECONDS_IN_AN_HOUR;
         this.isFuture = false;
       }
-      const countUp = timeDiff < 0;
+      const time = timeDiff < 0;
 
-      if (countUp) {
+      if (time) {
         timeDiff = -timeDiff;
       }
 
       this.counter = this.formatTimeDiff(timeDiff);
 
-      if ((countUp && timeDiff <= 0) || (!countUp && timeDiff >= 0)) {
+      if ((time && timeDiff <= 0) || (!time && timeDiff >= 0)) {
         clearInterval(this.interval);
         this.startCounter();
       }
