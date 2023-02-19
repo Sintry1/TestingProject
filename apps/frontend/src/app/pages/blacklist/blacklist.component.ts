@@ -33,7 +33,6 @@ export class BlacklistComponent implements OnInit {
 
     this.blacklistService.getBlacklist().subscribe({
       next: (blacklist) => {
-        console.log(blacklist);
         this.blacklistList = blacklist;
         this.isLoading = false;
       },
