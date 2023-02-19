@@ -32,7 +32,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
     this.interval = setInterval(() => {
       let timeDiff;
 
-      if (new Date() > new Date(this.nextTime)) {
+      if (this.isFuture) {
         timeDiff = new Date(this.nextTime).getTime() - new Date().getTime();
         this.displayTimer = true;
       } else {
