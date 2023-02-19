@@ -14,7 +14,10 @@ if (!allowedDSNs) {
   log.error(`TUNNEL_ALLOWED_DSNs is missing from environment variables, shutting down!`);
   process.exit(1);
 }
-const allowedOrigins = process.env.TUNNEL_CORS_ALLOWED_ORIGINS;
+let allowedOrigins = process.env.TUNNEL_CORS_ALLOWED_ORIGINS;
+if (allowedOrigins.includes(',')) {
+  allowedOrigins = Array.from(allowedOrigins.split(','));
+}
 if (!allowedOrigins) {
   log.error(`TUNNEL_CORS_ALLOWED_ORIGIN is missing from environment variables, shutting down!`);
   process.exit(1);
