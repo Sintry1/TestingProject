@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'frontend-countdown',
@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
     </span>
   `,
 })
-export class CountdownComponent implements OnInit {
+export class CountdownComponent implements OnInit, OnDestroy {
   @Input() displayTimeLeftText?: boolean = false;
   @Input() nextTime!: Date;
 
@@ -20,6 +20,7 @@ export class CountdownComponent implements OnInit {
   currentTime: Date = new Date();
   counter = '';
   MILLISECONDS_IN_AN_HOUR = -3600000;
+  interval: any;
 
   ngOnInit() {
     this.startCounter();
@@ -28,7 +29,7 @@ export class CountdownComponent implements OnInit {
   startCounter() {
     this.isFuture = new Date() > new Date(this.nextTime);
 
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       let timeDiff;
 
       if (new Date() > new Date(this.nextTime)) {
@@ -49,10 +50,14 @@ export class CountdownComponent implements OnInit {
       this.counter = this.formatTimeDiff(timeDiff);
 
       if ((countUp && timeDiff <= 0) || (!countUp && timeDiff >= 0)) {
-        clearInterval(interval);
+        clearInterval(this.interval);
         this.startCounter();
       }
     }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 
   formatTimeDiff(timeDiff: number) {
