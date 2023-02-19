@@ -38,7 +38,6 @@ export class CountdownComponent implements OnInit, OnDestroy {
       } else {
         timeDiff = new Date().getTime() - new Date(this.nextTime).getTime();
         this.displayTimer = timeDiff > this.MILLISECONDS_IN_AN_HOUR;
-        this.isFuture = false;
       }
       const time = timeDiff < 0;
 
