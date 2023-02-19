@@ -16,7 +16,7 @@ export class FilesService {
    * @param files the files to upload.
    * @returns an observable of the updated entity.
    */
-  public addFiles(type: 'luggages' | 'cars' | 'announcements', id: string, files: File[]) {
+  public addFiles(type: 'luggages' | 'cars' | 'announcements' | 'blacklist', id: string, files: File[]) {
     const formData = new FormData();
     files.forEach((file) => {
       formData.append('files', file);
@@ -35,7 +35,7 @@ export class FilesService {
    * @param files the files to remove, by name.
    * @returns an observable of the updated entity.
    */
-  public removeFiles(type: 'luggages' | 'cars' | 'announcements', id: string, files: string[]) {
+  public removeFiles(type: 'luggages' | 'cars' | 'announcements' | 'blacklist', id: string, files: string[]) {
     return this.http.patch<ILuggage | ICar | IAnnouncement>(
       `${env.apiUrl}/${type}/${id}/files/remove`,
       files
@@ -47,7 +47,7 @@ export class FilesService {
    * @param type entity type.
    * @returns file validation rules.
    */
-  getFileConstraints(type: 'luggages' | 'cars' | 'announcements'): {
+  getFileConstraints(type: 'luggages' | 'cars' | 'announcements' | 'blacklist'): {
     maxFileSize: number;
     maxFilesNumber: number;
     allowedExtensions: FileTypePattern;
@@ -71,6 +71,12 @@ export class FilesService {
           maxFilesNumber: 5,
           allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES,
         };
+      case 'blacklist':
+        return {
+          maxFileSize: 10000000,
+          maxFilesNumber: 20,
+          allowedExtensions: FileTypePattern.PICTURES
+        }
     }
   }
 

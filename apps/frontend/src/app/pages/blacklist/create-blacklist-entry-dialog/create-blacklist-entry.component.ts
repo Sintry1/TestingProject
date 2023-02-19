@@ -42,7 +42,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
       name: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z]*$'),
+        Validators.pattern('^[a-zA-Z ]*$'),
       ]),
       expiresAt: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
@@ -54,7 +54,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
       name: new UntypedFormControl('', [
         Validators.required,
         Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z]*$'),
+        Validators.pattern('^[a-zA-Z ]*$'),
       ]),
       expiresAt: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
