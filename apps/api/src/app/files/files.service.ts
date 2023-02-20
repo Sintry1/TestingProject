@@ -91,7 +91,6 @@ export class FilesService {
         throw new Error('UploadFailedError');
       } else {
         this.logger.verbose(`New file uploaded to linode storage. Filename: ${filename}`);
-        console.log(this.sanitizeFilename(filename));
 
         return this.getSignedLink(this.sanitizeFilename(filename), 600);
       }
