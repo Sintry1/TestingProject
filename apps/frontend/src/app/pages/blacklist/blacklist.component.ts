@@ -53,7 +53,7 @@ export class BlacklistComponent implements OnInit {
       width: '400px',
       data: {
         component: CreateBlacklistDialogComponent,
-        width: '600px',
+        minWidth: '600px',
       },
     });
   }
