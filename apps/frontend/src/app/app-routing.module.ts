@@ -13,6 +13,7 @@ import { LongtermComponent } from './pages/longterm/longterm.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,11 @@ const routes: Routes = [
   {
     path: 'announcements',
     component: AnnouncementsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'blacklist',
+    component: BlacklistComponent,
     canActivate: [AuthGuard],
   },
   { path: '', pathMatch: 'full', redirectTo: 'dashboard', canActivate: [AuthGuard] }, // Redirect to dashboard page
