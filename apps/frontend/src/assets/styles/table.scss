@@ -16,6 +16,11 @@ table {
   width: 50px;
 }
 
+.image-icon {
+  position: relative;
+  top: 2px;
+}
+
 .table-actions {
   display: flex;
   flex-grow: 1;
@@ -55,7 +60,7 @@ tr.mat-header-row {
 }
 
 tr.mat-row {
-  &:nth-child(odd) {
+  &:nth-child(even) {
     background-color: #00000009;
   }
 }
@@ -88,7 +93,7 @@ td.mat-cell {
     // border-top: 1px solid var(--main-blue-low-opacity);
     min-width: 2vw;
     max-width: 10vw;
-    padding: 0 5px;
+    padding: 17px 5px;
     text-align: center;
     border: none;
 
@@ -99,11 +104,12 @@ td.mat-cell {
 }
 
 .completed {
-  background-color: var(--main-blue-opacity-10) !important;
+  opacity: 0.25;
+  // background-color: var(--main-blue-opacity-10) !important;
 
-  &:nth-child(odd) {
-    background-color: var(--main-blue-opacity-15) !important;
-  }
+  // &:nth-child(odd) {
+  //   background-color: var(--main-blue-opacity-15) !important;
+  // }
 }
 
 .remove-error-message {
@@ -144,8 +150,12 @@ mat-icon {
   align-items: center;
   height: 100%;
   cursor: pointer;
-}
 
-.view-files-wrapper > img {
-  width: 25%;
+  .file-number {
+    color: var(--main-blue);
+  }
+
+  > img {
+    width: 25%;
+  }
 }

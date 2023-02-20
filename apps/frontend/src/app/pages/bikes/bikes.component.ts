@@ -102,15 +102,16 @@ export class BikesComponent {
     });
   }
 
-  openCreateBikeDialog() {
+  openCreateDialog() {
     this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openDialogEdit(bikeListEntry: IBike) {
+  openEditDialog(bikeListEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
       width: '600px',
       disableClose: true,
       data: bikeListEntry,
+      autoFocus: false,
     });
   }
 }

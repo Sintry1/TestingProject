@@ -70,7 +70,7 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
-  openCreateAnnouncement(): void {
+  openCreateDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       disableClose: true,
@@ -82,7 +82,7 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
-  openEditAnnouncement(announcement: IAnnouncement): void {
+  openEditDialog(announcement: IAnnouncement): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       disableClose: true,

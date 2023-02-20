@@ -51,6 +51,7 @@ import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
 import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
 import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
@@ -103,6 +104,7 @@ import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blackli
     DashboardNotificationSectionComponent,
     CreateBlacklistDialogComponent,
     UpdateBlacklistDialogComponent,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,
