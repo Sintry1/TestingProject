@@ -91,6 +91,7 @@ export class FilesService {
         throw new Error('UploadFailedError');
       } else {
         this.logger.verbose(`New file uploaded to linode storage. Filename: ${filename}`);
+
         return this.getSignedLink(this.sanitizeFilename(filename), 600);
       }
     } catch (error) {
@@ -159,7 +160,7 @@ export class FilesService {
    * @returns the sanitized name.
    */
   sanitizeFilename(name: string) {
-    return name.replace(' ', '-').replace('(', '').replace(')', '');
+    return name.replaceAll(' ', '-').replaceAll('(', '').replaceAll(')', '');
   }
 }
 
@@ -176,7 +177,10 @@ export function validateFileType(req: any, file: any, callback: any, filePattern
   const pattern = new RegExp(filePattern);
 
   if (!fileType.match(pattern)) {
-    const trimmedFileTypes = filePattern.replace('(', '').replace(/\|+/g, ', ').replace(')', '');
+    const trimmedFileTypes = filePattern
+      .replaceAll('(', '')
+      .replaceAll(/\|+/g, ', ')
+      .replaceAll(')', '');
     req.fileValidationError = `Invalid file type for file: '${file.originalname}'. Allowed filetypes: [${trimmedFileTypes}]`;
     return callback(
       new BadRequestException(

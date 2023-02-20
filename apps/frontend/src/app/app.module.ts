@@ -49,10 +49,12 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
-import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
 import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
+import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
+import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
+import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { CountdownComponent } from './components/countdown/countdown.component';
     FileUploadComponent,
     CarNotificationWidgetComponent,
     DashboardNotificationSectionComponent,
+    CreateBlacklistDialogComponent,
+    UpdateBlacklistDialogComponent,
     CountdownComponent,
   ],
   imports: [
