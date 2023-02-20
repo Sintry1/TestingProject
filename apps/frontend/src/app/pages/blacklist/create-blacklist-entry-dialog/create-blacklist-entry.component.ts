@@ -106,7 +106,6 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
       })
       .subscribe({
         next: (res) => {
-          // upload files
           this.fileUploadRef.submit(res.blacklistId);
           this.authService.removeManagerInfo();
         },
