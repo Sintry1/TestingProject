@@ -52,6 +52,7 @@ import { SentryService } from './services/sentry.service';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
 import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { DashboardNotificationSectionComponent } from './components/dashboard-se
     FileUploadComponent,
     CarNotificationWidgetComponent,
     DashboardNotificationSectionComponent,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,

@@ -47,7 +47,7 @@ export class DocumentsComponent implements OnInit {
     });
   }
 
-  openCreateDocumentDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       disableClose: true,
