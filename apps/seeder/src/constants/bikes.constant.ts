@@ -6,8 +6,4 @@ export const bikeComments = [
   'Bike with child seat including helmet',
 ];
 
-export const bikeReservedBy = [
-  'Reception',
-  'Concierge',
-  'Guest',
-];
+export const bikeReservedBy = ['Reception', 'Concierge', 'Guest'];
