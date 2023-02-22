@@ -37,7 +37,7 @@ export class BikesSeederService {
     const endDate = new Date(Date.now());
     endDate.setMonth(endDate.getMonth() + 2); // day 2 months in the future
 
-    const minutTimes = [0, 15, 30, 45]
+    const minutesTimes = [0, 15, 30, 45]
 
     // Generate the data
     const data: IBike[] = [];
@@ -47,8 +47,8 @@ export class BikesSeederService {
         entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
       for (let i = 0; i < entries; i++) {
         const completed = getRandomBoolean();
-        const morningDate = new Date(day.setHours(getRandomInt(8, 12), minutTimes[getRandomInt(0, 3)]));
-        const eveningDate = new Date(day.setHours(getRandomInt(13, 22), minutTimes[getRandomInt(0, 3)]));
+        const morningDate = new Date(day.setHours(getRandomInt(8, 12), minutesTimes[getRandomInt(0, 3)]));
+        const eveningDate = new Date(day.setHours(getRandomInt(13, 22), minutesTimes[getRandomInt(0, 3)]));
         data.push({
           bikeId: uuidv4(),
           nrOfBikes: getRandomInt(1, 3).toString(),
