@@ -7,7 +7,7 @@ import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { bellBoyInitials, luggageLocation, rooms } from '../constants/dropdown-options';
-import { bags, luggageComments } from '../constants/luggages.constants';
+import { bags, luggageComments, luggageLongtermLocation, luggageCheckInCheckOutLocation } from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
 import {
   getRandom,
@@ -77,8 +77,8 @@ export class LuggagesSeederService {
             room: getRandom(rooms),
             name: getRandom(names),
             bags: getRandom(bags),
-            tagNr: getRandomInt(1000, 4000).toString(),
-            location: getRandom(luggageLocation),
+            tagNr: getRandomInt(1000, 4000).toString(), 
+            location: luggageType === 'longTerm' ? getRandom(luggageLongtermLocation) : getRandom(luggageCheckInCheckOutLocation),
             comments: getRandomChance(0.4) ? getRandom(luggageComments) : null,
             roomReady: roomReady,
             createdAt: morningDate,
@@ -93,7 +93,8 @@ export class LuggagesSeederService {
         }
       });
     }
-
+    
     return data;
+    
   }
 }
