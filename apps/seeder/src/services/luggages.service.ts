@@ -69,7 +69,7 @@ export class LuggagesSeederService {
           const roomReady =
             day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
           const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
-          const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
+          const eveningDate = new Date(day.setHours(getRandomInt(14, 16), getRandomInt(0, 60)));
           const luggageId = uuidv4();
           data.push({
             luggageId,
@@ -92,8 +92,9 @@ export class LuggagesSeederService {
           });
         }
       });
+      console.log(data);
     }
-    
+
     return data;
     
   }
