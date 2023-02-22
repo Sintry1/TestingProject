@@ -12,7 +12,7 @@ import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.com
 @Component({
   selector: 'frontend-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['../../../assets/styles/table.scss'],
+  styleUrls: ['../../../assets/styles/table.scss', './tasks.component.scss'],
 })
 export class TasksComponent {
   morningTasks: ITask[] = [];
@@ -62,6 +62,24 @@ export class TasksComponent {
       width: '600px',
       disableClose: true,
     });
+  }
+
+  isPassed(taskTime: string): boolean {
+    const timeDiff = 60 * 60 * 1000; // 1 hour in milliseconds
+
+    const currentTime = new Date().getTime();
+    const [hours, minutes] = taskTime.split(':').map(Number); // split taskTime into hours and minutes
+    const taskDate = new Date().setHours(hours, minutes, 0, 0); // set the hours and minutes of the taskDate object
+
+    if (
+      currentTime >= new Date().setHours(23, 0, 0, 0) &&
+      taskDate >= new Date().setHours(23, 0, 0, 0)
+    ) {
+      return true;
+    }
+    const timeDiffInMs = currentTime - taskDate; // calculate the time difference in milliseconds
+
+    return timeDiffInMs > timeDiff;
   }
 
   openEditDialog(task: ITask): void {

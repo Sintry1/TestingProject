@@ -21,7 +21,7 @@
         <button
           mat-list-item
           routerLink="dashboard"
-          [ngClass]="{'active-nav' : title === 'Dashboard'}"
+          [ngClass]="{ 'active-nav': title === 'Dashboard' }"
         >
           <mat-icon aria-hidden="false">dashboard</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Dashboard</span>
@@ -29,7 +29,7 @@
         <button
           mat-list-item
           routerLink="/checkin"
-          [ngClass]="{'active-nav' : title === 'Check In'}"
+          [ngClass]="{ 'active-nav': title === 'Check In' }"
         >
           <mat-icon aria-hidden="false">assignment_returned</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Check in</span>
@@ -37,14 +37,14 @@
         <button
           mat-list-item
           routerLink="/checkout"
-          [ngClass]="{'active-nav' : title === 'Check Out'}"
+          [ngClass]="{ 'active-nav': title === 'Check Out' }"
         >
           <mat-icon aria-hidden="false">assignment_return</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Check out</span>
         </button>
         <button
           mat-list-item
-          [ngClass]="{'active-nav' : title === 'Car List'}"
+          [ngClass]="{ 'active-nav': title === 'Car List' }"
           routerLink="/car-list"
         >
           <mat-icon aria-hidden="false">directions_car</mat-icon>
@@ -53,14 +53,14 @@
         <button
           mat-list-item
           routerLink="long-term"
-          [ngClass]="{'active-nav' : title === 'Long Term'}"
+          [ngClass]="{ 'active-nav': title === 'Long Term' }"
         >
           <mat-icon aria-hidden="false">receipt_long</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Long Term</span>
         </button>
         <button
           mat-list-item
-          [ngClass]="{'active-nav' : title === 'Daily Tasks'}"
+          [ngClass]="{ 'active-nav': title === 'Daily Tasks' }"
           routerLink="/daily-tasks"
         >
           <mat-icon aria-hidden="false">fact_check</mat-icon>
@@ -70,7 +70,7 @@
         </button>
         <button
           mat-list-item
-          [ngClass]="{'active-nav' : title === 'Bell Boy Assignment Sheet'}"
+          [ngClass]="{ 'active-nav': title === 'Bell Boy Assignment Sheet' }"
           routerLink="/assignments"
         >
           <mat-icon aria-hidden="false">assignment_turned_in</mat-icon>
@@ -81,7 +81,7 @@
         <button
           mat-list-item
           data-cy="sidebar-bikes-btn"
-          [ngClass]="{'active-nav' : title === 'Bike Sheet'}"
+          [ngClass]="{ 'active-nav': title === 'Bike Sheet' }"
           routerLink="/bikes"
         >
           <mat-icon aria-hidden="false" data-cy="icon">directions_bike</mat-icon>
@@ -94,7 +94,7 @@
         </button>
         <button
           mat-list-item
-          [ngClass]="{'active-nav' : title === 'Documents'}"
+          [ngClass]="{ 'active-nav': title === 'Documents' }"
           routerLink="/documents"
         >
           <mat-icon aria-hidden="false">library_books</mat-icon>
@@ -103,7 +103,7 @@
         <button
           mat-list-item
           routerLink="blacklist"
-          [ngClass]="{'active-nav': title === 'Blacklist'}"
+          [ngClass]="{ 'active-nav': title === 'Blacklist' }"
         >
           <mat-icon aria-hidden="false">pan_tool</mat-icon>
           <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Blacklist</span>
@@ -111,7 +111,7 @@
         <button
           mat-list-item
           data-cy="sidebar-announcements-btn"
-          [ngClass]="{'active-nav' : title === 'Announcements'}"
+          [ngClass]="{ 'active-nav': title === 'Announcements' }"
           routerLink="/announcements"
         >
           <mat-icon aria-hidden="false" data-cy="icon">announcement</mat-icon>

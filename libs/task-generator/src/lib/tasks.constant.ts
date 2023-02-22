@@ -83,10 +83,6 @@ export const eveningTasks = [
     task: `Check the lobby & Gallery.`,
   },
   {
-    time: '15:30-21:00',
-    task: `Take the flags down. Check the times on the list in the Bell Folder.`,
-  },
-  {
     time: '21:00',
     task: `Go through the luggage list and double check with the luggage in LR & LR1 that all are accounted for.`,
   },
@@ -103,35 +99,39 @@ export const eveningTasks = [
     task: `Check the lobby & Gallery - the candles, tidy up the pillows and so on.`,
   },
   {
-    time: '22:30-23:00',
+    time: '22:00',
+    task: `Take the flags down. Check the times on the list in the Bell Folder.`,
+  },
+  {
+    time: '23:00',
     task: `Assemble/staple together 'Evening Report (Morning Report (front), AM & PM-checklist and leave it in tray Valet Log, luggage list, Room Assignment-sheets & Long Term-sheets (when full) goes in the appropriate binder... print new ones if it is needed and prepare the Bell Binder for the AM-shift.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Make sure fireplace is off & check the lobby & Gallery one last time.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Moved umbrellas from the rack to the closet and fill up with water.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Turn of the computer.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Check that all radios are charging and turned off. Check that all the radios that has been signed for have been returned.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Close the Hospitality Lounge (turn off TV and remove newspapers).`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Clean the Bell Stand and cabinets, turn the lights off and lock the cabinets.`,
   },
   {
-    time: '22:30-23:00',
+    time: '23:00',
     task: `Put the luggage trolleys in, put the bench behind the menu card and take the mats in.`,
   },
   {
