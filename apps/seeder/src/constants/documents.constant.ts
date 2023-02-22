@@ -1,20 +1,30 @@
 export const documents = [
-  { title: 'Contact Information', showOnDashboard: true, comments: null },
-  { title: 'Standard Operating procedures', showOnDashboard: false, comments: null },
-  { title: 'Building plan', showOnDashboard: false, comments: null },
-  { title: 'Copenhagen map', showOnDashboard: false, comments: null },
-  { title: 'Public transport plan', showOnDashboard: true, comments: null },
   {
-    title: 'Department opening hours',
+    title: 'Contact Information',
+    showOnDashboard: true,
+    comments: 'Phone numbers and email for relevant people within the hotel',
+  },
+  { title: 'Standard Operating Procedures', showOnDashboard: false, comments: null },
+  { title: 'Copenhagen Map', showOnDashboard: true, comments: null },
+  {
+    title: 'Public Transport Plan',
+    showOnDashboard: false,
+    comments: 'Information about transport within the city',
+  },
+  {
+    title: 'Department Opening Hours',
     showOnDashboard: true,
     comments: 'Opening hours of various departments',
   },
-  { title: 'Courier information', showOnDashboard: false, comments: null },
-  { title: 'Taxi information', showOnDashboard: false, comments: null },
-  { title: 'Tour de France information', showOnDashboard: false, comments: 'July 1st - July 23rd' },
   {
-    title: 'New Years Eve preparations',
+    title: 'Taxi Information',
     showOnDashboard: false,
-    comments: `Information about what to expect`,
+    comments: 'Relevant information about taxi handling',
+  },
+  { title: 'Tour De France Information', showOnDashboard: true, comments: 'July 1st - July 23rd' },
+  {
+    title: 'New Years Eve Preparations',
+    showOnDashboard: false,
+    comments: 'The preparation plan for the biggest night of the year',
   },
 ];
