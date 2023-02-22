@@ -7,7 +7,7 @@ import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { bellBoyInitials, luggageLocation, rooms } from '../constants/dropdown-options';
-import { bags, luggageComments } from '../constants/luggages.constants';
+import { bags, luggageComments, luggageLongtermLocation, luggageCheckInCheckOutLocation } from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
 import {
   getRandom,
@@ -69,7 +69,7 @@ export class LuggagesSeederService {
           const roomReady =
             day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
           const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
-          const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
+          const eveningDate = new Date(day.setHours(getRandomInt(14, 16), getRandomInt(0, 60)));
           const luggageId = uuidv4();
           data.push({
             luggageId,
@@ -77,8 +77,8 @@ export class LuggagesSeederService {
             room: getRandom(rooms),
             name: getRandom(names),
             bags: getRandom(bags),
-            tagNr: getRandomInt(1000, 4000).toString(),
-            location: getRandom(luggageLocation),
+            tagNr: getRandomInt(1000, 4000).toString(), 
+            location: luggageType === 'longTerm' ? getRandom(luggageLongtermLocation) : getRandom(luggageCheckInCheckOutLocation),
             comments: getRandomChance(0.4) ? getRandom(luggageComments) : null,
             roomReady: roomReady,
             createdAt: morningDate,
@@ -92,8 +92,10 @@ export class LuggagesSeederService {
           });
         }
       });
+      console.log(data);
     }
 
     return data;
+    
   }
 }
