@@ -1,0 +1,15 @@
+<main>
+  <div class="table-actions" style="justify-content: end">
+    <button mat-raised-button class="action-btn" (click)="openCreateBlacklistDialog()">
+      Add blacklist <mat-icon>https</mat-icon>
+    </button>
+  </div>
+  <hr />
+  <section class="blacklist-container" *ngIf="!isLoading">
+    <frontend-blacklist-widget [blacklist]="blacklist" *ngFor="let blacklist of blacklistList">
+    </frontend-blacklist-widget>
+  </section>
+  <div class="table-spinner-full-size" *ngIf="isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+  </div>
+</main>

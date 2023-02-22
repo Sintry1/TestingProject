@@ -22,7 +22,7 @@ export class DocumentWidgetComponent {
     });
   }
 
-  updateDocumentDialog(): void {
+  openDocumentUpdateDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
       width: '400px',
       disableClose: true,

@@ -110,7 +110,7 @@ export class ViewImagesDialogComponent {
 
     if (matches && matches.length > 0) {
       // Return the trimmed file
-      return matches[0].replace('/', '').replace('?Signature', '');
+      return matches[0].replaceAll('/', '').replaceAll('?Signature', '');
     } else {
       return '';
     }

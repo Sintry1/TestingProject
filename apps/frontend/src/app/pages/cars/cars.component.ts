@@ -91,15 +91,16 @@ export class CarsComponent {
     });
   }
 
-  openCreateCarDialog() {
+  openCreateDialog() {
     this.dialog.open(CreateCarDialogComponent, { width: '600px', disableClose: true });
   }
 
-  openDialogEdit(carListEntry: ICar) {
+  openEditDialog(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
       width: '600px',
       disableClose: true,
       data: carListEntry,
+      autoFocus: false,
     });
   }
 
@@ -147,7 +148,7 @@ export class CarsComponent {
         data: element,
       });
     } else {
-      this.openDialogEdit(element as ICar);
+      this.openEditDialog(element as ICar);
     }
   }
 }

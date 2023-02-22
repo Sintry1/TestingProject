@@ -1,9 +1,14 @@
 <div class="title-container">
   <h2>Files from: {{ title }}</h2>
-  <a mat-dialog-close type="button">X</a>
+  <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
 </div>
 <hr />
-<section class="image-list" *ngIf="!isLoading">
+
+<section
+  class="image-list"
+  [ngClass]="{ 'center-item': images.length + videos.length === 1 }"
+  *ngIf="!isLoading"
+>
   <ng-container class="image" *ngFor="let image of images">
     <img [src]="image" alt="An image" class="image" />
   </ng-container>

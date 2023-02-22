@@ -57,7 +57,7 @@ export class EditTaskDialogComponent extends DropdownSelection {
   }
 
   onSubmit(): void {
-    if (this.form.get('initials')?.value.invalid) {
+    if (!this.form.get('initials')?.value) {
       this.initialsInput.nativeElement.focus();
     } else {
       this.updateTask();
@@ -66,6 +66,7 @@ export class EditTaskDialogComponent extends DropdownSelection {
 
   updateTask(): void {
     this.isLoading = true;
+
     this.service
       .updateTask(this.taskId, {
         initials: this.form.get('initials')?.value,

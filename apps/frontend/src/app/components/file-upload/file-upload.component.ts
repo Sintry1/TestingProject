@@ -18,7 +18,7 @@ export class FileUploadComponent implements OnInit {
   containsInvalidFilesEvent = new EventEmitter();
 
   @Input()
-  parentType!: 'luggages' | 'cars' | 'announcements';
+  parentType!: 'luggages' | 'cars' | 'announcements' | 'blacklist';
   @Input()
   existingFiles: string[] = [];
 
@@ -156,9 +156,9 @@ export class FileUploadComponent implements OnInit {
    */
   getFormattedAllowedFileExtensions(): string {
     return this.constraints.allowedExtensions
-      .replace('(', '')
-      .replace(/\|+/g, ', ')
-      .replace(')', '');
+      .replaceAll('(', '')
+      .replaceAll(/\|+/g, ', ')
+      .replaceAll(')', '');
   }
 
   areFilesValid(): boolean {

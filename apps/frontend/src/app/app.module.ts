@@ -47,9 +47,14 @@ import { UpdateLongTermDialogComponent } from './pages/longterm/update-long-term
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-task-dialog.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
 import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
 import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
+import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
+import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
+import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,8 @@ import { DashboardNotificationSectionComponent } from './components/dashboard-se
     CheckoutComponent,
     AssignmentsComponent,
     BikesComponent,
+    BlacklistComponent,
+    BlacklistWidgetComponent,
     LongtermComponent,
     UpdateCheckinDialogComponent,
     CreateCheckinDialogComponent,
@@ -95,6 +102,9 @@ import { DashboardNotificationSectionComponent } from './components/dashboard-se
     FileUploadComponent,
     CarNotificationWidgetComponent,
     DashboardNotificationSectionComponent,
+    CreateBlacklistDialogComponent,
+    UpdateBlacklistDialogComponent,
+    CountdownComponent,
   ],
   imports: [
     BrowserModule,
