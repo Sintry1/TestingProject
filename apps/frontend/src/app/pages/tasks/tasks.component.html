@@ -42,6 +42,14 @@
           (click)="openEditDialog(item)"
         >
           Complete
+          <ng-container *ngIf="isPassed(item.time)">
+            <span class="alert-container">
+              <img
+                src="../../../assets/icons/alerts/critical-alert-icon.svg"
+                alt="alert icon"
+              />
+            </span>
+          </ng-container>
         </button>
         <button
           mat-raised-button
@@ -82,7 +90,7 @@
     <ng-container matColumnDef="task">
       <th mat-header-cell *matHeaderCellDef>Task</th>
       <td class="comments-field" mat-cell *matCellDef="let item">
-        {{ item.item }}
+        {{ item.task }}
       </td>
     </ng-container>
     <ng-container matColumnDef="done">
@@ -107,6 +115,14 @@
           (click)="openEditDialog(item)"
         >
           Complete
+          <ng-container *ngIf="isPassed(item.time)">
+            <span class="alert-container">
+              <img
+                src="../../../assets/icons/alerts/critical-alert-icon.svg"
+                alt="alert icon"
+              />
+            </span>
+          </ng-container>
         </button>
         <button
           mat-raised-button
