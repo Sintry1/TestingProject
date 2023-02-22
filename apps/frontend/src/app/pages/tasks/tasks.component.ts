@@ -79,12 +79,7 @@ export class TasksComponent {
     }
     const timeDiffInMs = currentTime - taskDate; // calculate the time difference in milliseconds
 
-    if (timeDiffInMs > timeDiff) {
-      return true;
-    }
-    console.log(taskDate, new Date());
-
-    return false;
+    return timeDiffInMs > timeDiff;
   }
 
   openEditDialog(task: ITask): void {
