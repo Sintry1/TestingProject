@@ -56,6 +56,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
         [Validators.required],
         valueInArrayValidator(carLocation)
       ),
+      parkingLot: new UntypedFormControl('', []),
       comments: new UntypedFormControl('', []),
     });
 
@@ -102,9 +103,9 @@ export class CreateCarDialogComponent extends DropdownSelection {
         expirationDate: toDateObject(this.form.get('expirationDate')?.value),
         pickUpTime: toDateObject(this.form.get('pickUpTime')?.value),
         deliveryTime: new Date(this.form.get('deliveryTime')?.value),
-        bbDown: this.form.get('bbDown')?.value ? this.form.get('bbDown')?.value : '',
+        bbDown: this.form.get('bbDown')?.value,
         bbUp: this.form.get('bbUp')?.value ? this.form.get('bbUp')?.value : '',
-        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        location: this.form.get('location')?.value,
         parkingLot: this.form.get('parkingLot')?.value,
         bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
         comments: this.form.get('comments')?.value,
