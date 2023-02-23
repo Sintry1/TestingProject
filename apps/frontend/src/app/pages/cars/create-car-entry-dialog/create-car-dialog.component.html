@@ -44,13 +44,13 @@
     </mat-form-field>
   </div>
 
-  <div class="dialog-row">
-    <mat-form-field autocomplete="off">
-      <mat-label>Name</mat-label>
-      <input #name type="text" formControlName="name" matInput placeholder="Name" />
-      <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
-    </mat-form-field>
+  <mat-form-field autocomplete="off" class="full-width">
+    <mat-label>Name</mat-label>
+    <input #name type="text" formControlName="name" matInput placeholder="Name" />
+    <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
+  </mat-form-field>
 
+  <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>License Plate</mat-label>
       <input
@@ -64,9 +64,7 @@
         Required
       </mat-error>
     </mat-form-field>
-  </div>
 
-  <div class="dialog-row">
     <mat-form-field class="remove-error-message">
       <mat-label>Parking Expiration</mat-label>
       <input
@@ -76,7 +74,9 @@
         formControlName="expirationDate"
       />
     </mat-form-field>
+  </div>
 
+  <div class="dialog-row">
     <mat-form-field class="remove-error-message">
       <mat-label>Pick up time</mat-label>
       <input
@@ -86,9 +86,7 @@
         formControlName="pickUpTime"
       />
     </mat-form-field>
-  </div>
 
-  <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB down</mat-label>
       <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
@@ -99,7 +97,9 @@
       </mat-autocomplete>
       <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
+  </div>
 
+  <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
       <input #location matInput formControlName="location" [matAutocomplete]="locationOptions" />
@@ -108,6 +108,12 @@
           {{ option }}
         </mat-option>
       </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>Parking lot</mat-label>
+      <input type="text" formControlName="parkingLot" matInput placeholder="Front of hotel" />
       <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
