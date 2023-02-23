@@ -47,7 +47,7 @@ export class AssignmentsSeederService {
         entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
       for (let i = 0; i < entries; i++) {
         const assignmentDate = new Date(day.setHours(getRandomInt(10, 21), getRandomInt(0, 60)));
-        const isCompleted = assignmentDate < new Date();
+        const isCompleted = Math.random() < 0.9;
         const task = getRandom(assignmentTask);
         const requestedBy = getRandom(assignmentRequestedBy);
         const completedAt = isCompleted ? new Date(assignmentDate.getTime() + getRandomInt(10, 30) * 60 * 1000) : null;
