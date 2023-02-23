@@ -39,6 +39,7 @@ export class CarsService {
     return this.carRepo.find({
       where: [
         { ...baseConditions, bbDown: searchCondition },
+        { ...baseConditions, tagNr: searchCondition },
         { ...baseConditions, bbUp: searchCondition },
         { ...baseConditions, bbOut: searchCondition },
         { ...baseConditions, name: searchCondition },
