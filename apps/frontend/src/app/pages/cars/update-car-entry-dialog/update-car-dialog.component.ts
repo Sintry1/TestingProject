@@ -26,6 +26,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbOut: Observable<string[]> = new Observable<string[]>();
+  filteredBbUp: Observable<string[]> = new Observable<string[]>();
   filteredBbDown: Observable<string[]> = new Observable<string[]>();
   filteredCarLocations: Observable<string[]> = new Observable<string[]>();
 
@@ -71,7 +72,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
         data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
         []
       ),
-      bbDown: new UntypedFormControl(data.bbDown, [], valueInArrayValidator(bellBoyInitials)),
+      bbDown: new UntypedFormControl(data.bbDown, [Validators.required], valueInArrayValidator(bellBoyInitials)),
       bbUp: new UntypedFormControl(data.bbUp, [], valueInArrayValidator(bellBoyInitials)),
       location: new UntypedFormControl(
         data.location,
@@ -88,6 +89,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
     this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
     this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
     this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
+    this.filteredBbUp = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbUp'));
     this.filteredCarLocations = filterAutocompleteSelect(carLocation, this.form.get('location'));
   }
 

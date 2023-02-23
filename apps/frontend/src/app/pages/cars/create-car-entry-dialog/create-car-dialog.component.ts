@@ -50,7 +50,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
       deliveryTime: new UntypedFormControl('', []),
-      bbDown: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
+      bbDown: new UntypedFormControl('', [Validators.required], valueInArrayValidator(bellBoyInitials)),
       location: new UntypedFormControl(
         '',
         [Validators.required],
