@@ -6,6 +6,7 @@ import {
   ICar,
   ILuggage,
   LuggageSortOptions,
+  LuggageType,
   SortOrder,
   TableInfoOptions,
 } from '@omnihost/interfaces';
@@ -67,13 +68,14 @@ export class LongtermComponent {
       .getLongTerm(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
         next: (luggage) => {
-          this.originalLuggage = luggage;
+          const longTermLuggage = luggage.filter((item) => item.luggageType === LuggageType.LONG_TERM);
+          this.originalLuggage = longTermLuggage
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
-            luggage,
+            longTermLuggage,
             this.showAll,
             this.displayDate
           );
-          this.isLoading = false;
+          this.isLoading = false;     
         },
         error: (error) => {
           this.isLoading = false;
