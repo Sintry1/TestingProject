@@ -92,12 +92,12 @@ export class CarsComponent {
   }
 
   openCreateDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '600px', disableClose: true });
+    this.dialog.open(CreateCarDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
   openEditDialog(carListEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       disableClose: true,
       data: carListEntry,
       autoFocus: false,

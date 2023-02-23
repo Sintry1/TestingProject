@@ -4,6 +4,7 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
@@ -15,17 +16,23 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
 @Component({
   selector: 'frontend-create-car-dialog',
   templateUrl: './create-car-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
+  styleUrls: [
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class CreateCarDialogComponent extends DropdownSelection {
   form: UntypedFormGroup;
   checked = true;
   isLoading = false;
+  containsInvalidFiles = false;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbDown: Observable<string[]> = new Observable<string[]>();
   filteredCarLocations: Observable<string[]> = new Observable<string[]>();
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
   @ViewChild('arrivalDate') arrivalDateInput!: ElementRef;
@@ -50,7 +57,11 @@ export class CreateCarDialogComponent extends DropdownSelection {
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
       deliveryTime: new UntypedFormControl('', []),
-      bbDown: new UntypedFormControl('', [Validators.required], valueInArrayValidator(bellBoyInitials)),
+      bbDown: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
       location: new UntypedFormControl(
         '',
         [Validators.required],
@@ -112,11 +123,8 @@ export class CreateCarDialogComponent extends DropdownSelection {
         charged: false,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Car added!', 'Thanks', { duration: 5000 });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.carId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -126,5 +134,28 @@ export class CreateCarDialogComponent extends DropdownSelection {
           this.isLoading = false;
         },
       });
+  }
+
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Car item created!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }

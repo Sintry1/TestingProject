@@ -1,10 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICar } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
@@ -16,13 +17,16 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
 @Component({
   selector: 'frontend-update-car-dialog',
   templateUrl: './update-car-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/dialog.scss'],
+  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/file-upload.scss'],
 })
 export class UpdateCarDialogComponent extends DropdownSelection {
   form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   guestHasApproved = false;
+  carId = '';
+  files: string[] = [];
+  containsInvalidFiles = false;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbOut: Observable<string[]> = new Observable<string[]>();
@@ -30,6 +34,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
   filteredBbDown: Observable<string[]> = new Observable<string[]>();
   filteredCarLocations: Observable<string[]> = new Observable<string[]>();
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
   @ViewChild('arrivalDate') arrivalDateInput!: ElementRef;
@@ -43,12 +48,16 @@ export class UpdateCarDialogComponent extends DropdownSelection {
   @ViewChild('comments') commentsInput!: ElementRef;
 
   constructor(
+    public dialogRef: MatDialogRef<UpdateCarDialogComponent>,
     private carService: CarService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: ICar // TODO: fix - once again, dates are not Date objects, but strings.
   ) {
     super();
+    this.files = data.files;
+    this.carId = data.carId;
+
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
@@ -141,10 +150,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
       })
       .subscribe({
         next: () => {
-          this.snackBar.open('Car updated!', 'Thanks', { duration: 5000 });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+          this.fileUploadRef.submit(this.carId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -154,5 +160,28 @@ export class UpdateCarDialogComponent extends DropdownSelection {
           this.isLoading = false;
         },
       });
+  }
+
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Car item updated!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }

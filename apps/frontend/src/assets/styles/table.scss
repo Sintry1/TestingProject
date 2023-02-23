@@ -60,6 +60,7 @@ tr.mat-header-row {
 }
 
 tr.mat-row {
+  cursor: pointer;
   &:nth-child(even) {
     background-color: #00000009;
   }
