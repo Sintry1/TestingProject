@@ -7,7 +7,7 @@ import { LuggageType } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject } from '../../../utils/date.util';
+import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
@@ -50,7 +50,7 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
         Validators.maxLength(10),
         Validators.pattern('^[0-9]*$'),
       ]),
-      dateIn: new UntypedFormControl(new Date(), [Validators.required]),
+      dateIn: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', []),
