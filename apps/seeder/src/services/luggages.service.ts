@@ -6,7 +6,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { bellBoyInitials, luggageLocation, rooms } from '../constants/dropdown-options';
+import { bellBoyInitials, rooms } from '../constants/dropdown-options';
 import { bags, luggageComments, luggageLongtermLocation, luggageCheckInCheckOutLocation } from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
 import {
@@ -92,7 +92,6 @@ export class LuggagesSeederService {
           });
         }
       });
-      console.log(data);
     }
 
     return data;
