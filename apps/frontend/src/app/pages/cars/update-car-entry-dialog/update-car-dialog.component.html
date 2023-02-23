@@ -1,6 +1,7 @@
 <frontend-file-upload
   #fileUpload
   [parentType]="'cars'"
+  [existingFiles]="files"
   (submissionFinishedEvent)="finalizeSubmission($event)"
   (containsInvalidFilesEvent)="updateFilesStatus($event)"
 ></frontend-file-upload>
