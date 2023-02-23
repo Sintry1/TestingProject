@@ -76,14 +76,15 @@ export class BikesComponent {
     });
   }
 
-  updateBikeFormCompleted(bikeId: string, bikeFormCompleted: boolean): void {
+  updateBikeFormCompleted(bike: IBike): void {
     this.bikeService
-      .updateBike(bikeId, {
-        bikeFormCompleted: !bikeFormCompleted,
+      .updateBike(bike.bikeId, {
+        bikeFormCompleted: !bike.bikeFormCompleted,
       })
       .subscribe({
         next: () => {
           this.snackbar.open('Bike updated!', 'Thanks', { duration: 5000 });
+          bike.bikeFormCompleted = !bike.bikeFormCompleted;
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
