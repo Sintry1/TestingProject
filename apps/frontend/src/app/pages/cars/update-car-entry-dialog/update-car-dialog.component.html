@@ -84,53 +84,6 @@
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
-      <mat-label>BB down</mat-label>
-      <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
-      <mat-autocomplete autoActiveFirstOption #bbDownOptions="matAutocomplete">
-        <mat-option *ngFor="let option of filteredBbDown | async" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-      <mat-error> {{ getErrorMessage() }} </mat-error>
-    </mat-form-field>
-    
-    <mat-form-field class="remove-error-message">
-      <mat-label>Delivery Time</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="datetime-local"
-        formControlName="deliveryTime"
-      />
-    </mat-form-field>
-  </div>
-
-  <div class="dialog-row">
-    <mat-form-field autocomplete="off">
-      <mat-label>BB up</mat-label>
-      <input matInput formControlName="bbUp" [matAutocomplete]="bbUpOptions" />
-      <mat-autocomplete autoActiveFirstOption #bbUpOptions="matAutocomplete">
-        <mat-option *ngFor="let option of filteredBbUp | async" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-      <mat-error> {{ getErrorMessage() }} </mat-error>
-    </mat-form-field>
-
-    <mat-form-field autocomplete="off">
-      <mat-label>BB out</mat-label>
-      <input matInput formControlName="bbOut" [matAutocomplete]="bbOutOptions" />
-      <mat-autocomplete autoActiveFirstOption #bbOutOptions="matAutocomplete">
-        <mat-option *ngFor="let option of filteredBbOut | async" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-      <mat-error> {{ getErrorMessage() }} </mat-error>
-    </mat-form-field>
-  </div>
-
-  <div class="dialog-row">
-    <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
       <input #location matInput formControlName="location" [matAutocomplete]="locationOptions" />
       <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
@@ -147,6 +100,53 @@
       <mat-error *ngIf="form.get('parkingLot')?.invalid && form.get('parkingLot')?.dirty">
         Required
       </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>BB down</mat-label>
+      <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbDownOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbDown | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>BB up</mat-label>
+      <input matInput formControlName="bbUp" [matAutocomplete]="bbUpOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbUpOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbUp | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <mat-form-field class="remove-error-message">
+      <mat-label>Delivery Time</mat-label>
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="datetime-local"
+        formControlName="deliveryTime"
+      />
+    </mat-form-field>
+
+    <mat-form-field autocomplete="off">
+      <mat-label>BB out</mat-label>
+      <input matInput formControlName="bbOut" [matAutocomplete]="bbOutOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbOutOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbOut | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
