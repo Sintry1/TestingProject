@@ -100,7 +100,7 @@
       <ng-container matColumnDef="dateNeeded">
         <th mat-header-cell *matHeaderCellDef>Date needed</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.dateNeeded ? (item.dateNeeded | date : 'dd/MM HH:mm') : '-' }}
+          {{ item.dateNeeded ? (item.dateNeeded | date : 'dd/MM') : '-' }}
         </td>
       </ng-container>
 
