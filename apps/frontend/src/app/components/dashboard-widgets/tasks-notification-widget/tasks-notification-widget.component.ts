@@ -9,8 +9,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
   styleUrls: ['./tasks-notification-widget.component.scss'],
 })
 export class TasksNotificationWidgetComponent implements OnInit {
-  originalTasksList: ITask[] = [];
-  futureTasksList: ITask[] = [];
+  tasksList: ITask[] = [];
   readyTasksList: ITask[] = [];
   overdueTasksList: ITask[] = [];
   sortBy: TaskSortOptions = TaskSortOptions.TIME;
@@ -26,14 +25,10 @@ export class TasksNotificationWidgetComponent implements OnInit {
     // Instead of display date, im just using today, since the notifications wont make sense being viewed in the past.
     this.tasksService.getTasks(new Date()).subscribe({
       next: (result) => {
-        console.log(result);
-        this.originalTasksList = filterByCompletedAtAndOrderResults(
-          result.tasks,
-          false,
-          new Date()
-        );
-        this.futureTasksList = this.originalTasksList.filter((tasks) => !tasks.completedAt);
+        this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
+        console.log('Resultussy in my pussy ', result.tasks);
+        console.log('Ready: ', this.readyTasksList, 'Overdue: ', this.overdueTasksList);
       },
       error: (err) => {
         console.error(err);
@@ -46,12 +41,12 @@ export class TasksNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
-    let oldestTask = this.originalTasksList[0];
+    let oldestTask = this.tasksList[0];
 
-    for (const tasks of this.originalTasksList) {
-      if (tasks.time && oldestTask.time) {
-        if (tasks.time < oldestTask.time) {
-          oldestTask = tasks;
+    for (const task of this.tasksList) {
+      if (task.time && oldestTask.time) {
+        if (task.time < oldestTask.time) {
+          oldestTask = task;
         }
       }
     }
@@ -63,40 +58,34 @@ export class TasksNotificationWidgetComponent implements OnInit {
 
   UpdateTasksListNumbers(): void {
     const THIRTY_FIVE_MINUTES = 35 * 60 * 1000; // Convert 35 minutes to milliseconds
-    const FIVE_MINUTES = 5 * 60 * 1000;
     const now = new Date().getTime();
 
-    this.readyTasksList = this.futureTasksList.filter((tasks) => {
-      if (!tasks.completedAt) {
+    this.readyTasksList = this.tasksList.filter((task) => {
+      if (!task.completedAt) {
         return false;
       }
-      const expirationTime = this.parseTimeString(tasks.time).getTime();
+      const expirationTime = this.parseTimeString(task.time).getTime();
 
       // Check that the time is within 30 min & check that the time hasn't been passed yet
       if (expirationTime - now < THIRTY_FIVE_MINUTES && expirationTime - now > 5) {
-        // remove tasks from the future list
-        this.futureTasksList = this.futureTasksList.filter(
-          (currentTasks) => currentTasks.taskId !== tasks.taskId
-        );
+        // remove task from the tasksList
+        this.tasksList = this.tasksList.filter((currentTask) => currentTask.taskId !== task.taskId);
         return true;
       } else {
         return false;
       }
     });
 
-    this.overdueTasksList = this.futureTasksList.filter((tasks) => {
-      if (!tasks.completedAt) {
+    this.overdueTasksList = this.tasksList.filter((task) => {
+      if (!task.completedAt) {
         return false;
       }
-      const expirationTime = this.parseTimeString(tasks.time).getTime();
+      const expirationTime = this.parseTimeString(task.time).getTime();
 
       // Check that the expirationTime current time has passed
       if (expirationTime < now) {
-        // remove tasks from the future list
-        this.futureTasksList = this.futureTasksList.filter((currentTasks) => {
-          return currentTasks.taskId !== tasks.taskId;
-        });
-
+        // remove task from the tasksList
+        this.tasksList = this.tasksList.filter((currentTask) => currentTask.taskId !== task.taskId);
         return true;
       } else {
         return false;

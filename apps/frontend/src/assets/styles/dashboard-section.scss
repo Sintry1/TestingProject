@@ -23,12 +23,35 @@ h2 {
   gap: 1em;
 }
 
+.notification-container {
+  overflow-x: hidden;
+  padding-bottom: 0.5em;
+  max-height: calc(150px + 2em);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1em;
+}
+
 .dashboard-document {
   justify-content: space-between;
   align-items: center;
   display: flex;
   min-width: 250px;
   max-height: 50px;
+  padding: 5px 10px;
+  border: var(--border);
+  border-radius: 5px;
+
+  h2 {
+    font-size: 1em;
+  }
+}
+
+.dashboard-notifcation {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  min-width: 250px;
   padding: 5px 10px;
   border: var(--border);
   border-radius: 5px;

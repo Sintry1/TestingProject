@@ -1,6 +1,6 @@
 <div
   class="tasks-widget-container"
-  routerLink="/tasks-list"
+  routerLink="/daily-tasks"
   [ngClass]="{ ready: readyTasksList.length > 0, overdue: overdueTasksList.length > 0 }"
 >
   <div class="header">
@@ -28,7 +28,7 @@
   </p>
 
   <div class="data-container">
-    <span>Future({{ futureTasksList.length }})</span>
+    <span>Future({{ tasksList.length }})</span>
     <span class="ready" *ngIf="readyTasksList.length > 0">
       Ready({{ readyTasksList.length }})
     </span>
