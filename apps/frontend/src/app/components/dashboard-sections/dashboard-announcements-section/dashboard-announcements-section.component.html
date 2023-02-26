@@ -1,0 +1,14 @@
+<h1>Announcements</h1>
+<hr />
+<div class="item-container">
+  <div *ngFor="let announcement of announcementList" class="dashboard-item">
+    <h2>{{ displayTitle(announcement.title) }}</h2>
+    <button
+      mat-raised-button
+      class="action-btn"
+      (click)="viewFiles(announcement)"
+    >
+      View <mat-icon aria-hidden="false">remove_red_eye</mat-icon>
+    </button>
+  </div>
+</div>
