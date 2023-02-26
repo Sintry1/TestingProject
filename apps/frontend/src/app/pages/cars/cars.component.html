@@ -5,7 +5,7 @@
         <mat-label>Sort By</mat-label>
         <mat-select [(value)]="sortBy" (selectionChange)="fetchCarList()">
           <mat-option value="createdAt">Created at</mat-option>
-          <mat-option value="expirationDate">Expiration date</mat-option>
+          <mat-option value="expirationDate">Parking expiration</mat-option>
           <mat-option value="deliveryTime">Delivery time</mat-option>
           <mat-option value="pickUpTime">Pick up time</mat-option>
         </mat-select>
@@ -29,7 +29,7 @@
       <button class="secondary-btn" (click)="toggleShowAll()" mat-raised-button>
         {{ showAll ? 'Show Current' : 'Show All' }}
       </button>
-      <button class="action-btn" (click)="openCreateCarDialog()" mat-raised-button>Add Car</button>
+      <button class="action-btn" (click)="openCreateDialog()" mat-raised-button>Add Car</button>
     </div>
   </div>
   <hr />
@@ -38,122 +38,128 @@
     <table mat-table [dataSource]="filteredCarList" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.room }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.room }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="tagNr">
         <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.tagNr }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.tagNr }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="arrivalDate">
         <th mat-header-cell *matHeaderCellDef>Arr.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.arrivalDate ? (element.arrivalDate | date : 'dd/MM') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.arrivalDate ? (item.arrivalDate | date : 'dd/MM') : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="departureDate">
         <th mat-header-cell *matHeaderCellDef>Dep.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.departureDate ? (element.departureDate | date : 'dd/MM') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.departureDate ? (item.departureDate | date : 'dd/MM') : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.name }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.name }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="licensePlate">
         <th mat-header-cell *matHeaderCellDef>License plate</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.licensePlate }}
+        <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+          <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
+            <span *ngIf="item.files.length > 0" class="file-number">
+              <img
+                class="image-icon"
+                src="assets/icons/view-files-icon.svg"
+                alt="View files icon"
+              />
+              ({{ item.files.length }})
+            </span>
+
+            <span>{{ item.licensePlate }}</span>
+          </div>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="expirationDateTime">
         <th mat-header-cell *matHeaderCellDef>Park<br />exp.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.expirationDate ? (element.expirationDate | date : 'dd/MM HH:mm') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.expirationDate ? (item.expirationDate | date : 'dd/MM HH:mm') : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="pickUpDateTime">
         <th mat-header-cell *matHeaderCellDef>Pick<br />up time</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.pickUpTime ? (element.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbDown">
         <th mat-header-cell *matHeaderCellDef>BB down</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.bbDown ? element.bbDown : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbDown ? item.bbDown : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbUp">
         <th mat-header-cell *matHeaderCellDef>BB up</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.bbUp ? element.bbUp : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbUp ? item.bbUp : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="location">
         <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.location }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.location ? item.location : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="parkingLot">
         <th mat-header-cell *matHeaderCellDef>Lot</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.parkingLot ? element.parkingLot : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.parkingLot ? item.parkingLot : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="deliveryDateTime">
         <th mat-header-cell *matHeaderCellDef>Delivery<br />time</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.deliveryTime ? (element.deliveryTime | date : 'dd/MM HH:mm') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.deliveryTime ? (item.deliveryTime | date : 'dd/MM HH:mm') : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbOut">
         <th mat-header-cell *matHeaderCellDef>BB out</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.bbOut }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbOut ? item.bbOut : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td
-          mat-cell
-          *matCellDef="let element"
-          (click)="openDialogEdit(element)"
-          class="comments-field"
-        >
-          {{ element.comments }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+          {{ item.comments ? item.comments : '-' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="charged">
         <th mat-header-cell *matHeaderCellDef>Charged</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let item">
           <label class="checkbox-container car-checkbox">
             <input
               type="checkbox"
-              [checked]="element.charged"
-              (change)="updateCharge(element.carId, element.charged)"
+              [checked]="item.charged"
+              (change)="updateCharge(item.carId, item.charged)"
             />
             <span class="checkmark"></span>
           </label>

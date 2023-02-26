@@ -1,0 +1,98 @@
+<main>
+  <div class="table-actions" style="justify-content: end">
+    <div class="table-buttons">
+      <button
+        mat-raised-button
+        (click)="showFuture = !showFuture; updateList()"
+        class="basic-btn"
+        [ngStyle]="{ opacity: showFuture ? 1 : 0.5 }"
+      >
+        Future
+      </button>
+      <button
+        mat-raised-button
+        (click)="showActive = !showActive; updateList()"
+        class="basic-btn"
+        [ngStyle]="{ opacity: showActive ? 1 : 0.5 }"
+      >
+        Active
+      </button>
+      <button
+        mat-raised-button
+        (click)="showExpired = !showExpired; updateList()"
+        class="basic-btn"
+        [ngStyle]="{ opacity: showExpired ? 1 : 0.5 }"
+      >
+        Expired
+      </button>
+      <button mat-raised-button class="action-btn" (click)="openCreateDialog()">
+        Add Announcement
+      </button>
+    </div>
+  </div>
+  <hr />
+
+  <div class="table-height">
+    <table mat-table [dataSource]="displayAnnouncementList" *ngIf="!isLoading">
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Title</th>
+        <td mat-cell *matCellDef="let item" class="comments-field" (click)="openEditDialog(item)">
+          {{ item.title }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="comments">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let item" class="comments-field" (click)="openEditDialog(item)">
+          {{ item.comments }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="showFrom">
+        <th mat-header-cell *matHeaderCellDef>Show <br />From</th>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.showFrom | date : 'dd/MM/YY' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="showTo">
+        <th mat-header-cell *matHeaderCellDef>Show <br />To</th>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.showTo | date : 'dd/MM/YY' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="files">
+        <th mat-header-cell *matHeaderCellDef>Images</th>
+        <td mat-cell *matCellDef="let item" class="small-field">
+          <button
+            mat-raised-button
+            class="secondary-btn"
+            (click)="viewFiles(item)"
+            [disabled]="item.files.length === 0"
+          >
+            <img src="assets/icons/link-icon.svg" alt="link icon" class="link-icon" /> ({{
+              item.files.length
+            }})
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let item" class="small-field" (click)="openEditDialog(item)">
+          <div class="status" [ngClass]="getStatus(item.showFrom, item.showTo)">
+            {{ getStatus(item.showFrom, item.showTo) }}
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
+  </div>
+</main>

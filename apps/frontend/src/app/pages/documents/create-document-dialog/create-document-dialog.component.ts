@@ -19,7 +19,7 @@ import { SentryService } from '../../../services/sentry.service';
   ],
 })
 export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
-  createDocumentForm = new UntypedFormGroup({});
+  form = new UntypedFormGroup({});
   showOnDashboard = false;
   isLoading = false;
   uploadedFile?: File;
@@ -36,7 +36,7 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.createDocumentForm = new UntypedFormGroup({
+    this.form = new UntypedFormGroup({
       title: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
@@ -47,10 +47,10 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (!this.createDocumentForm.valid) {
-      if (this.createDocumentForm.get('title')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('title')?.invalid) {
         this.titleInput.nativeElement.focus();
-      } else if (this.createDocumentForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
       }
     } else {
@@ -59,7 +59,8 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
       if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
         console.warn('Manager access has expired, re-prompting for password');
         const managerDialogRef = this.dialog.open(ManagerAccessDialogComponent, {
-          width: '600px',
+          width: '400px',
+          disableClose: true,
         });
         // Once the manager access dialog is closed, re-submit the form and check the logic again
         managerDialogRef.afterClosed().subscribe({
@@ -99,8 +100,8 @@ export class CreateDocumentDialogComponent implements OnInit, OnDestroy {
     }
 
     const doc: ICreateDocumentRequest & { document: File } = {
-      title: this.createDocumentForm.get('title')?.value,
-      comments: this.createDocumentForm.get('comments')?.value,
+      title: this.form.get('title')?.value,
+      comments: this.form.get('comments')?.value,
       showOnDashboard: this.showOnDashboard,
       document: this.uploadedFile,
     };

@@ -18,16 +18,19 @@ export class DocumentWidgetComponent {
   openSeeDocumentDialog(documentId: string): void {
     this.dialog.open(SeeDocumentDialogComponent, {
       data: documentId,
+      disableClose: true,
     });
   }
 
-  updateDocumentDialog(): void {
+  openDocumentUpdateDialog(): void {
     this.dialog.open(ManagerAccessDialogComponent, {
-      width: '600px',
+      width: '400px',
+      disableClose: true,
       data: {
         component: UpdateDocumentDialogComponent,
         componentData: this.document,
         width: '600px',
+        disableClose: true,
       },
     });
   }

@@ -1,8 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  LuggageType,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -15,7 +24,7 @@ import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-
   templateUrl: 'longterm.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class LongtermComponent implements OnInit {
+export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
   listNames?: string[];
@@ -53,23 +62,20 @@ export class LongtermComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
     this.luggageService
       .getLongTerm(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
         next: (luggage) => {
-          this.originalLuggage = luggage;
+          const longTermLuggage = luggage.filter((item) => item.luggageType === LuggageType.LONG_TERM);
+          this.originalLuggage = longTermLuggage
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
-            luggage,
+            longTermLuggage,
             this.showAll,
             this.displayDate
           );
-          this.isLoading = false;
+          this.isLoading = false;     
         },
         error: (error) => {
           this.isLoading = false;
@@ -85,19 +91,23 @@ export class LongtermComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  editLongTermListEntry(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
-  createLongTermEntry(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
   }
 
@@ -108,5 +118,18 @@ export class LongtermComponent implements OnInit {
       this.showAll,
       this.displayDate
     );
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+        autoFocus: false,
+      });
+    } else {
+      this.openEditDialog(element as ILuggage);
+    }
   }
 }

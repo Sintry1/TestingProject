@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import {
   CreateLuggageRequest,
@@ -8,14 +8,19 @@ import {
   UpdateLuggageRequest,
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
-import { Between, LessThan, ILike, Repository } from 'typeorm';
+import 'multer';
+import { Between, ILike, LessThan, Repository } from 'typeorm';
+import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
+
+const FILE_MAX_SIZE = 10000000;
 
 @Injectable()
 export class LuggagesService {
   constructor(
     @InjectRepository(Luggage)
-    private readonly luggageRepo: Repository<Luggage>
+    private readonly luggageRepo: Repository<Luggage>,
+    private readonly fileService: FilesService
   ) {}
 
   async findAllByLuggageTypeAndCreatedAt(
@@ -76,12 +81,46 @@ export class LuggagesService {
     });
   }
 
-  async createLuggage(luggageData: CreateLuggageRequest) {
-    return await this.luggageRepo.save(luggageData);
+  async findById(luggageId: string) {
+    return await this.luggageRepo.findOneByOrFail({ luggageId });
   }
 
-  async updateLuggage(luggageId: string, luggageData: UpdateLuggageRequest) {
-    const luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
+  async createLuggage(luggageData: CreateLuggageRequest, files: Express.Multer.File[]) {
+    try {
+      const promises: Promise<{ url: string }>[] = [];
+      for (const file of files) {
+        if (file.size > FILE_MAX_SIZE) {
+          return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
+        }
+        promises.push(this.fileService.uploadFile(file.buffer, file.originalname));
+      }
+      await Promise.all(promises);
+    } catch (error) {
+      throw new HttpException(
+        'Failed to upload the files. Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+
+    return await this.luggageRepo.save({ ...luggageData, files: this.toFileNames(files) });
+  }
+
+  async updateLuggage(
+    luggageId: string,
+    luggageData: UpdateLuggageRequest,
+    files: Express.Multer.File[]
+  ) {
+    let luggage: Luggage;
+    if (files.length !== 0) {
+      const result = await this.updateLuggageFiles(luggageId, files);
+      if (result instanceof BadRequestException) {
+        return result;
+      } else {
+        luggage = result;
+      }
+    } else {
+      luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
+    }
 
     for (const key in luggageData) {
       if (Object.prototype.hasOwnProperty.call(luggageData, key)) {
@@ -90,6 +129,98 @@ export class LuggagesService {
     }
 
     return await this.luggageRepo.save(luggage);
+  }
+
+  async getFilesLink(fileNames: string[]) {
+    try {
+      return await this.toFiles(fileNames);
+    } catch (error) {
+      Logger.error(error);
+      throw new HttpException(
+        "Failed to get the files' links. Please try again later.",
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+  }
+
+  async updateLuggageFiles(luggageId: string, files: Express.Multer.File[]) {
+    const luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
+    if (luggage.files.length + files.length > 20) {
+      return new BadRequestException(
+        `File size limit surpassed. A luggage can have a maximum of 20 files. It currently has ${luggage.files.length}`
+      );
+    }
+
+    try {
+      for (const file of files) {
+        if (file.size > FILE_MAX_SIZE) {
+          return new BadRequestException(`Invalid file size for file: ${file.originalname}`);
+        }
+
+        await this.fileService.uploadFile(file.buffer, file.originalname);
+      }
+    } catch (error) {
+      throw new HttpException(
+        'Failed to upload the files. Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+
+    luggage.files.push(...this.toFileNames(files));
+
+    return await this.luggageRepo.save(luggage);
+  }
+
+  async removeLuggageFiles(luggageId: string, fileNames: string[]) {
+    const luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
+
+    try {
+      for (const file of luggage.files) {
+        if (fileNames.includes(file)) {
+          await this.fileService.deleteFile(file);
+          luggage.files = luggage.files.filter((fileName) => fileName !== file);
+        }
+      }
+    } catch (error) {
+      throw new HttpException(
+        'Failed to clear the files. Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+
+    return await this.luggageRepo.save(luggage);
+  }
+
+  async clearLuggageFiles(luggageId: string) {
+    const luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
+
+    try {
+      for (const file of luggage.files) {
+        await this.fileService.deleteFile(file);
+      }
+    } catch (error) {
+      throw new HttpException(
+        'Failed to clear the files. Please try again later.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
+    luggage.files = [];
+
+    return await this.luggageRepo.save(luggage);
+  }
+
+  private toFileNames(files: Express.Multer.File[]) {
+    const fileNames: string[] = [];
+    files.forEach((file) => fileNames.push(file.originalname));
+    return fileNames;
+  }
+
+  private async toFiles(fileNames: string[]) {
+    const files = [];
+    for (const fileName of fileNames) {
+      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
+    }
+    return files;
   }
 
   private getSortingConditions(

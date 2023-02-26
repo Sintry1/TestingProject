@@ -4,16 +4,21 @@ table {
 }
 
 .table-height {
-  height: 75vh;
-  overflow: auto;
+  flex: 1;
 }
 
 .comments-field {
   padding: 10px !important;
+  text-align: left !important;
 }
 
 .small-field {
   width: 50px;
+}
+
+.image-icon {
+  position: relative;
+  top: 2px;
 }
 
 .table-actions {
@@ -54,6 +59,13 @@ tr.mat-header-row {
   z-index: 1;
 }
 
+tr.mat-row {
+  cursor: pointer;
+  &:nth-child(even) {
+    background-color: #00000009;
+  }
+}
+
 th.mat-header-cell {
   color: var(--main-blue);
   font-weight: 900;
@@ -78,21 +90,27 @@ td.mat-cell {
 
 .mat-row {
   > .mat-cell {
-    border-right: 1px solid var(--main-blue-low-opacity);
-    border-top: 1px solid var(--main-blue-low-opacity);
+    // border-right: 1px solid var(--main-blue-low-opacity);
+    // border-top: 1px solid var(--main-blue-low-opacity);
     min-width: 2vw;
     max-width: 10vw;
-    padding: 0 5px;
+    padding: 17px 5px;
     text-align: center;
+    border: none;
 
-    &:last-child {
-      border-right: none;
-    }
+    // &:last-child {
+    //   border-right: none;
+    // }
   }
 }
 
 .completed {
-  background-color: var(--main-blue-lowest-opacity);
+  opacity: 0.25;
+  // background-color: var(--main-blue-opacity-10) !important;
+
+  // &:nth-child(odd) {
+  //   background-color: var(--main-blue-opacity-15) !important;
+  // }
 }
 
 .remove-error-message {
@@ -124,4 +142,21 @@ mat-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.view-files-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+
+  .file-number {
+    color: var(--main-blue);
+  }
+
+  > img {
+    width: 25%;
+  }
 }

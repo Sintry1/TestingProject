@@ -1,0 +1,37 @@
+<div
+  class="car-widget-container"
+  routerLink="/car-list"
+  [ngClass]="{ ready: readyCarList.length > 0, overdue: overdueCarList.length > 0 }"
+>
+  <div class="header">
+    <h3>Cars</h3>
+    <img
+      *ngIf="overdueCarList.length > 0"
+      src="assets/icons/alerts/critical-alert-icon.svg"
+      alt="alert icon"
+    />
+    <img
+      *ngIf="readyCarList.length > 0 && overdueCarList.length === 0"
+      src="assets/icons/alerts/warning-alert-icon.svg"
+      alt="alert icon"
+    />
+  </div>
+
+  <p style="font-weight: 900">
+    Next pick up time<br />
+    <span>{{ nextPickUp | date : 'dd/MM HH:mm' }}</span>
+    <frontend-countdown
+      *ngIf="nextPickUp"
+      [nextTime]="nextPickUp"
+      [displayTimeLeftText]="true"
+    ></frontend-countdown>
+  </p>
+
+  <div class="data-container">
+    <span>Future({{ futureCarList.length }})</span>
+    <span class="ready" *ngIf="readyCarList.length > 0"> Ready({{ readyCarList.length }}) </span>
+    <span class="overdue" *ngIf="overdueCarList.length > 0">
+      Overdue({{ overdueCarList.length }})
+    </span>
+  </div>
+</div>

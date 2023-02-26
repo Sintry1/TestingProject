@@ -1,17 +1,19 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-  <h1>Complete Task</h1>
+  <div class="title-container">
+    <h1>Complete Task</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
   <hr />
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Initials</mat-label>
-      <mat-select [(value)]="data.initials" formControlName="initials">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input #initials matInput formControlName="initials" [matAutocomplete]="initialsOptions" />
+      <mat-autocomplete autoActiveFirstOption #initialsOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredInitials | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('initials')?.invalid && form.get('initials')?.dirty">
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">

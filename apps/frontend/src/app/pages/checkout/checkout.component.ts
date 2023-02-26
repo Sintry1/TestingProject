@@ -1,8 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -15,7 +23,7 @@ import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-c
   templateUrl: './checkout.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent {
   checkoutLuggage: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
@@ -49,10 +57,6 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
 
@@ -81,19 +85,36 @@ export class CheckoutComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openCheckoutEditDialog(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
-  openCheckoutCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
       width: '600px',
+      disableClose: true,
     });
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+        autoFocus: false,
+      });
+    } else {
+      this.openEditDialog(element as ILuggage);
+    }
   }
 }

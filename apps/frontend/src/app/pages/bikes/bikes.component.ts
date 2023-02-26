@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -16,7 +16,7 @@ import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bik
   templateUrl: './bikes.component.html',
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
-export class BikesComponent implements OnInit {
+export class BikesComponent {
   originalBikeList: IBike[] = [];
   filteredBikeList: IBike[] = [];
   displayDate = new Date();
@@ -49,10 +49,6 @@ export class BikesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchBikeList();
-  }
-
   fetchBikeList(): void {
     this.isLoading = true;
 
@@ -80,14 +76,15 @@ export class BikesComponent implements OnInit {
     });
   }
 
-  updateBikeFormCompleted(bikeId: string, bikeFormCompleted: boolean): void {
+  updateBikeFormCompleted(bike: IBike): void {
     this.bikeService
-      .updateBike(bikeId, {
-        bikeFormCompleted: !bikeFormCompleted,
+      .updateBike(bike.bikeId, {
+        bikeFormCompleted: !bike.bikeFormCompleted,
       })
       .subscribe({
         next: () => {
           this.snackbar.open('Bike updated!', 'Thanks', { duration: 5000 });
+          bike.bikeFormCompleted = !bike.bikeFormCompleted;
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -102,17 +99,20 @@ export class BikesComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.BIKES,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { width: '600px' });
+  openCreateDialog() {
+    this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openDialogEdit(bikeListEntry: IBike) {
+  openEditDialog(bikeListEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: bikeListEntry,
+      autoFocus: false,
     });
   }
 }

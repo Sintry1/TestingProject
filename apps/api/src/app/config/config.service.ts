@@ -3,6 +3,7 @@ import {
   Announcement,
   Assignment,
   Bike,
+  Blacklist,
   Car,
   Document,
   Luggage,
@@ -64,6 +65,7 @@ class ConfigService {
         Document,
         Bike,
         Announcement,
+        Blacklist,
       ],
     };
   }
