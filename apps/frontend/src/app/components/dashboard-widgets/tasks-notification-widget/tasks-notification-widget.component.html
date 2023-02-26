@@ -1,0 +1,39 @@
+<div
+  class="tasks-widget-container"
+  routerLink="/tasks-list"
+  [ngClass]="{ ready: readyTasksList.length > 0, overdue: overdueTasksList.length > 0 }"
+>
+  <div class="header">
+    <h3>Tasks</h3>
+    <img
+      *ngIf="overdueTasksList.length > 0"
+      src="assets/icons/alerts/critical-alert-icon.svg"
+      alt="alert icon"
+    />
+    <img
+      *ngIf="readyTasksList.length > 0 && overdueTasksList.length === 0"
+      src="assets/icons/alerts/warning-alert-icon.svg"
+      alt="alert icon"
+    />
+  </div>
+
+  <p style="font-weight: 900">
+    Next Task Time<br />
+    <span>{{ nextTask | date : 'HH:mm' }}</span>
+    <frontend-countdown
+      *ngIf="nextTask"
+      [nextTime]="nextTask"
+      [displayTimeLeftText]="true"
+    ></frontend-countdown>
+  </p>
+
+  <div class="data-container">
+    <span>Future({{ futureTasksList.length }})</span>
+    <span class="ready" *ngIf="readyTasksList.length > 0">
+      Ready({{ readyTasksList.length }})
+    </span>
+    <span class="overdue" *ngIf="overdueTasksList.length > 0">
+      Overdue({{ overdueTasksList.length }})
+    </span>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetTasksResponse, ITask, IUpdateTask } from '@omnihost/interfaces';
+import { GetTasksResponse, IGetTasks, ITask, IUpdateTask } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 
@@ -15,8 +15,8 @@ export class TasksService {
    *
    * @returns an observable with the tasks for the given day.
    */
-  public getTasks(createdAt: Date): Observable<GetTasksResponse> {
-    return this.http.get<GetTasksResponse>(
+  public getTasks(createdAt: Date): Observable<IGetTasks> {
+    return this.http.get<IGetTasks>(
       `${env.apiUrl}/tasks?createdAt=${createdAt.toISOString()}&sortBy=time&sortOrder=ASC`
     );
   }
