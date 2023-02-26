@@ -10,6 +10,7 @@ import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'frontend-bikes',
@@ -61,6 +62,7 @@ export class BikesComponent {
           this.displayDate
         );
         this.isLoading = false;
+        this.downloadBikes(this.filteredBikeList);
       },
       error: (error) => {
         this.isLoading = false;
@@ -114,5 +116,23 @@ export class BikesComponent {
       data: bikeListEntry,
       autoFocus: false,
     });
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open()
+  }
+
+  downloadBikes(bikeList: IBike[]) {
+    // Use frontend headers
+    const replacer = (_: any, value: any) => (value === null ? '' : value);
+    const header = Object.keys(bikeList[0]);
+    const csv = bikeList.map((row) =>
+      header.map((fieldName) => JSON.stringify(row[fieldName], replacer)).join(',')
+    );
+    csv.unshift(header.join(','));
+    const csvArray = csv.join('\r\n');
+
+    const blob = new Blob([csvArray], { type: 'text/csv' });
+    saveAs(blob, 'myFile.csv');
   }
 }
