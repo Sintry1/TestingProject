@@ -9,7 +9,10 @@ import { ViewImagesDialogComponent } from '../../view-images-dialog/view-images-
 @Component({
   selector: 'frontend-dashboard-announcements-section',
   templateUrl: './dashboard-announcements-section.component.html',
-  styleUrls: ['../../../../assets/styles/dashboard-section.scss'],
+  styleUrls: [
+    '../../../../assets/styles/dashboard-section.scss',
+    './dashboard-announcement-section.component.scss',
+  ],
 })
 export class DashboardAnnouncementsSectionComponent implements OnInit {
   announcementList: IAnnouncement[] = [];
@@ -19,11 +22,10 @@ export class DashboardAnnouncementsSectionComponent implements OnInit {
   search = '';
 
   constructor(
-    private dialog: MatDialog, 
+    private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private announcementService: AnnouncementsService,
-  ) {
-  }
+    private announcementService: AnnouncementsService
+  ) {}
 
   ngOnInit(): void {
     this.fetchAnnouncements();
@@ -61,10 +63,18 @@ export class DashboardAnnouncementsSectionComponent implements OnInit {
   }
 
   displayTitle(title: string | undefined) {
-    if (title && title.length > 23) {
+    if (title && title.length > 25) {
       return title.substring(0, 20) + '...';
     } else {
       return title;
+    }
+  }
+
+  displayText(text: string | undefined) {
+    if (text && text.length > 105) {
+      return text.substring(0, 100) + '...';
+    } else {
+      return text;
     }
   }
 }

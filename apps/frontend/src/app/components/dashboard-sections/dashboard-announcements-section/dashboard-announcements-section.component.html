@@ -1,14 +1,21 @@
 <h1>Announcements</h1>
 <hr />
 <div class="item-container">
-  <div *ngFor="let announcement of announcementList" class="dashboard-item">
+  <div *ngFor="let announcement of announcementList" class="announcement-item">
     <h2>{{ displayTitle(announcement.title) }}</h2>
-    <button
-      mat-raised-button
-      class="action-btn"
-      (click)="viewFiles(announcement)"
-    >
-      View <mat-icon aria-hidden="false">remove_red_eye</mat-icon>
-    </button>
+    <p>{{ displayText(announcement.comments) }}</p>
+    <div class="footer-section">
+      <p>Expires at: {{ announcement.showTo | date : 'dd/MM/yyyy' : 'GMT' }}</p>
+      <button
+        mat-raised-button
+        class="secondary-btn"
+        (click)="viewFiles(announcement)"
+        [disabled]="announcement.files.length === 0"
+      >
+        <img src="assets/icons/link-icon.svg" alt="link icon" class="link-icon" /> ({{
+          announcement.files.length
+        }})
+      </button>
+    </div>
   </div>
 </div>
