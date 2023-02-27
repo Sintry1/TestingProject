@@ -27,7 +27,6 @@ export class TasksNotificationWidgetComponent implements OnInit {
       next: (result) => {
         this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
-        console.log('Resultussy in my pussy ', result.tasks);
         console.log('Ready: ', this.readyTasksList, 'Overdue: ', this.overdueTasksList);
       },
       error: (err) => {
@@ -58,27 +57,28 @@ export class TasksNotificationWidgetComponent implements OnInit {
 
   UpdateTasksListNumbers(): void {
     const THIRTY_FIVE_MINUTES = 35 * 60 * 1000; // Convert 35 minutes to milliseconds
+    const FIVE_MINUTES = 5*60*1000;
     const now = new Date().getTime();
 
     this.readyTasksList = this.tasksList.filter((task) => {
       if (!task.completedAt) {
-        return false;
+        return true;
       }
       const expirationTime = this.parseTimeString(task.time).getTime();
 
       // Check that the time is within 30 min & check that the time hasn't been passed yet
-      if (expirationTime - now < THIRTY_FIVE_MINUTES && expirationTime - now > 5) {
+      if (now - expirationTime  < THIRTY_FIVE_MINUTES && now - expirationTime > FIVE_MINUTES) {
         // remove task from the tasksList
         this.tasksList = this.tasksList.filter((currentTask) => currentTask.taskId !== task.taskId);
-        return true;
-      } else {
         return false;
+      } else {
+        return true;
       }
     });
 
     this.overdueTasksList = this.tasksList.filter((task) => {
       if (!task.completedAt) {
-        return false;
+        return true;
       }
       const expirationTime = this.parseTimeString(task.time).getTime();
 
