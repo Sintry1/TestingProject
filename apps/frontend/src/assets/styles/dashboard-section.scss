@@ -14,7 +14,7 @@ h2 {
   margin-bottom: 0;
 }
 
-.document-container {
+.item-container {
   overflow-x: hidden;
   padding-bottom: 0.5em;
   max-height: calc(150px + 2em);
@@ -23,7 +23,7 @@ h2 {
   gap: 1em;
 }
 
-.dashboard-document {
+.dashboard-item {
   justify-content: space-between;
   align-items: center;
   display: flex;

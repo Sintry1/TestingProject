@@ -61,8 +61,8 @@ export class AppComponent {
           case '/documents':
             this.title = 'Documents';
             break;
-          case '/blacklist':
-            this.title = 'Blacklist';
+          case '/unwanted':
+            this.title = 'Unwanted guests';
             break;
           case '/announcements':
             this.title = 'Announcements';

@@ -55,6 +55,7 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
 import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
+import { DashboardAnnouncementsSectionComponent } from './components/dashboard-sections/dashboard-announcements-section/dashboard-announcements-section.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blackli
     CreateBlacklistDialogComponent,
     UpdateBlacklistDialogComponent,
     CountdownComponent,
+    DashboardAnnouncementsSectionComponent,
   ],
   imports: [
     BrowserModule,

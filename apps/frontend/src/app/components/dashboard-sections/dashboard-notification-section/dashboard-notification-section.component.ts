@@ -5,7 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard-notification-section.component.html',
   styleUrls: ['../../../../assets/styles/dashboard-section.scss'],
 })
-export class DashboardNotificationSectionComponent {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  constructor() {}
-}
+export class DashboardNotificationSectionComponent {}
