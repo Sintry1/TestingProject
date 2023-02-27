@@ -11,6 +11,7 @@ import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
 import { saveAs } from 'file-saver';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 
 @Component({
   selector: 'frontend-bikes',
@@ -62,7 +63,6 @@ export class BikesComponent {
           this.displayDate
         );
         this.isLoading = false;
-        this.downloadBikes(this.filteredBikeList);
       },
       error: (error) => {
         this.isLoading = false;
@@ -119,7 +119,7 @@ export class BikesComponent {
   }
 
   openCsvExportDialog() {
-    this.dialog.open()
+    this.dialog.open(CsvExportComponent, { width: '600px', disableClose: true });
   }
 
   downloadBikes(bikeList: IBike[]) {
