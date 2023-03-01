@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GetTasksResponse, IGetTasks, ITask, IUpdateTask } from '@omnihost/interfaces';
+import { IGetTasks, ITask, IUpdateTask } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { environment as env } from '../../environments/environment';
 
