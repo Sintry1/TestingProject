@@ -7,7 +7,7 @@ import {
   UpdateBikeRequest,
 } from '@omnihost/interfaces';
 import { Bike } from '@omnihost/models';
-import { Between, ILike, Repository } from 'typeorm';
+import { Between, ILike, MoreThanOrEqual, Repository, LessThanOrEqual } from 'typeorm';
 import { filterStatus } from '../utils/query-params.utils';
 
 @Injectable()
@@ -16,6 +16,24 @@ export class BikesService {
     @InjectRepository(Bike)
     private readonly bikeRepo: Repository<Bike>
   ) {}
+
+  async findAll(from: Date | undefined, to: Date | undefined) {
+    let range = undefined;
+    if (from && to) {
+      range = {
+        createdAt: Between<Date>(
+          new Date(from.setUTCHours(0, 0, 0, 0)),
+          new Date(to.setUTCHours(23, 59, 59, 999))
+        ),
+      };
+    } else if (from) {
+      range = { createdAt: MoreThanOrEqual<Date>(new Date(from.setUTCHours(0, 0, 0, 0))) };
+    } else if (to) {
+      range = { createdAt: LessThanOrEqual<Date>(new Date(to.setUTCHours(23, 59, 59, 999))) };
+    }
+
+    return this.bikeRepo.find({ where: range, order: { createdAt: 'ASC' } });
+  }
 
   async findAllByCreatedAt(
     createdAt: Date,
