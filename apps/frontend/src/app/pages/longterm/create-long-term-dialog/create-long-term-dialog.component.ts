@@ -21,6 +21,7 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
   form = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
   isLoading = false;
+  today = new Date().toISOString().split('T')[0];
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbLr: Observable<string[]> = new Observable<string[]>();
@@ -95,7 +96,6 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
 
       .create({
         room: this.form.get('room')?.value,
-        // roomReady: false,
         name: this.form.get('name')?.value,
         arrivalTime: toDateObject(this.form.get('dateIn')?.value),
         bags: this.form.get('bags')?.value,
