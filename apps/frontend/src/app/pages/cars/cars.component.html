@@ -100,11 +100,13 @@
         <th mat-header-cell *matHeaderCellDef>Pick<br />up time</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
-          <ng-container *ngIf="isOverdue(item.pickupTime)">
+          <ng-container >
             <span class="alert-container">
-              <img src="../../../assets/icons/alerts/critical-alert-icon.svg" alt="alert icon" />
+              <img *ngIf="isOverdue(item.pickupTime)" src="../../../assets/icons/alerts/critical-alert-icon.svg" alt="alert icon" />
+              <img *ngIf="isReady(item.pickupTime)" src="../../../assets/icons/alerts/warning-alert-icon.svg" alt="alert icon" />
             </span>
           </ng-container>
+          
         </td>
       </ng-container>
 
