@@ -71,7 +71,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'blacklist',
+    path: 'unwanted',
     component: BlacklistComponent,
     canActivate: [AuthGuard],
   },

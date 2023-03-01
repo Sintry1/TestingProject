@@ -1,5 +1,5 @@
 <div class="title-container">
-  <h2>Files from: {{ title }}</h2>
+  <h2>{{ title }}</h2>
   <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
 </div>
 <hr />
@@ -18,6 +18,9 @@
       <source [src]="video" />
     </video>
   </ng-container>
+</section>
+<section *ngIf="text && !isLoading">
+  {{text}}
 </section>
 
 <div *ngIf="isLoading" class="loading-icon">

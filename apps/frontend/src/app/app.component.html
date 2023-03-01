@@ -102,11 +102,11 @@
         </button>
         <button
           mat-list-item
-          routerLink="blacklist"
-          [ngClass]="{ 'active-nav': title === 'Blacklist' }"
+          routerLink="/unwanted"
+          [ngClass]="{ 'active-nav': title === 'Unwanted guests' }"
         >
           <mat-icon aria-hidden="false">pan_tool</mat-icon>
-          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Blacklist</span>
+          <span class="side-nav-item" [ngClass]="{ collapsible: sidebarCollapsed }">Unwanted guests</span>
         </button>
         <button
           mat-list-item
@@ -149,7 +149,7 @@
             >assignment_turned_in</mat-icon
           >
           <mat-icon aria-hidden="false" *ngSwitchCase="'Bike Sheet'">directions_bike</mat-icon>
-          <mat-icon aria-hidden="false" *ngSwitchCase="'Blacklist'">pan_tool</mat-icon>
+          <mat-icon aria-hidden="false" *ngSwitchCase="'Unwanted guests'">pan_tool</mat-icon>
           <mat-icon aria-hidden="false" *ngSwitchCase="'Announcements'">announcement</mat-icon>
           <mat-icon aria-hidden="false" *ngSwitchDefault>report</mat-icon>
         </div>
