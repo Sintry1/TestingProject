@@ -123,6 +123,7 @@ export class BikesComponent {
   }
 
   downloadBikes(bikeList: IBike[]) {
+    
     // Use frontend headers
     const replacer = (_: any, value: any) => (value === null ? '' : value);
     const header = Object.keys(bikeList[0]);
