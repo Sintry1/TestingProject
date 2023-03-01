@@ -33,7 +33,7 @@
   .data-container {
     text-align: center;
     display: flex;
-    gap: 1em;
+    justify-content: space-around;
 
     span {
       padding: 5px 10px;
