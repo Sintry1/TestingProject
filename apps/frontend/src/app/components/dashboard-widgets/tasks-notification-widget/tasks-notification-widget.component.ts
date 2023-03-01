@@ -55,7 +55,7 @@ export class TasksNotificationWidgetComponent implements OnInit {
   }
 
   UpdateTasksListNumbers(): void {
-    const THIRTY_FIVE_MINUTES = 35 * 60 * 1000; // Convert 35 minutes to milliseconds
+    const ONE_HOUR = 60 * 60 * 1000; // Convert 35 minutes to milliseconds
     const FIVE_MINUTES = 5 * 60 * 1000;
     const now = new Date().getTime();
 
@@ -69,7 +69,7 @@ export class TasksNotificationWidgetComponent implements OnInit {
       if (!task.completedAt) {
         if (expirationTime < now) {
           // check if task is more than 35 minutes past its scheduled time
-          if (now - expirationTime > THIRTY_FIVE_MINUTES) {
+          if (now - expirationTime > ONE_HOUR) {
             this.overdueTasksList.push(task);
             return;
           }
