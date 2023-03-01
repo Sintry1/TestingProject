@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITask, SortOrder, TaskSortOptions } from '@omnihost/interfaces';
-import { TasksService } from '../../../services/tasks.service';
-import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
+import { TasksService } from '../../../../services/tasks.service';
+import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util';
 
 @Component({
   selector: 'frontend-tasks-notification-widget',
@@ -10,6 +10,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
 })
 export class TasksNotificationWidgetComponent implements OnInit {
   tasksList: ITask[] = [];
+  fullTasksList: ITask[] = [];
   readyTasksList: ITask[] = [];
   overdueTasksList: ITask[] = [];
   sortBy: TaskSortOptions = TaskSortOptions.TIME;
@@ -27,25 +28,28 @@ export class TasksNotificationWidgetComponent implements OnInit {
       next: (result) => {
         this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
+        
       },
       error: (err) => {
         console.error(err);
       },
     });
-// TODO: Create a better solution for this
+    
+    // TODO: Create a better solution for this
     setTimeout(() => {
       this.getOldest();
     }, 1000);
   }
 
   getOldest(): void {
-    let oldestTask = this.tasksList[0];
+    let oldestTask = this.fullTasksList[0];
 
-    for (const task of this.tasksList) {
-      if (task.time && oldestTask.time) {
-        if (task.time < oldestTask.time) {
-          oldestTask = task;
-        }
+    for (const task of this.fullTasksList) {
+      const oldestTaskTime = this.parseTimeString(oldestTask.time);
+      const taskTime = this.parseTimeString(task.time);
+      
+      if (taskTime < oldestTaskTime && !task.completedAt) {
+        oldestTask = task;
       }
     }
 
@@ -55,26 +59,23 @@ export class TasksNotificationWidgetComponent implements OnInit {
   }
 
   UpdateTasksListNumbers(): void {
-    const ONE_HOUR = 60 * 60 * 1000; // Convert 35 minutes to milliseconds
-    const FIVE_MINUTES = 5 * 60 * 1000;
+    const ONE_HOUR = 60 * 60 * 1000; // Convert 1 hour to milliseconds
     const now = new Date().getTime();
-
-    this.readyTasksList = [];
-    this.overdueTasksList = [];
 
     const updatedTasksList: ITask[] = [];
 
     this.tasksList.forEach((task) => {
+      this.fullTasksList.push(task);
       const expirationTime = this.parseTimeString(task.time).getTime();
       if (!task.completedAt) {
         if (expirationTime < now) {
-          // check if task is more than 35 minutes past its scheduled time
+          // check if task is more than 60 minutes past its scheduled time
           if (now - expirationTime > ONE_HOUR) {
             this.overdueTasksList.push(task);
             return;
           }
-          // check if task is between 5 and 35 minutes past its scheduled time
-          if (now - expirationTime > FIVE_MINUTES) {
+          // check if task is between now and 30 minutes past its scheduled time
+          if (now - expirationTime > 0) {
             this.readyTasksList.push(task);
             return;
           }
@@ -84,7 +85,7 @@ export class TasksNotificationWidgetComponent implements OnInit {
         }
       }
     });
-
+    
     // remove tasks from tasksList that have been added to readyTasksList or overdueTasksList
     this.tasksList = updatedTasksList.filter(
       (task) => !this.readyTasksList.includes(task) && !this.overdueTasksList.includes(task)
