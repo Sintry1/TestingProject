@@ -7,7 +7,7 @@ import { ILuggage } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
@@ -52,17 +52,13 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
         this.data.createdAt ? toDatetimeInputString(new Date(this.data.createdAt)) : '',
         [Validators.required]
       ),
-      room: new UntypedFormControl(
-        this.data.room,
-        [Validators.required],
-        valueInArrayValidator(rooms)
-      ),
+      room: new UntypedFormControl(this.data.room, [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(this.data.name, [Validators.required]),
       bags: new UntypedFormControl(this.data.bags, [Validators.required]),
       comments: new UntypedFormControl(this.data.comments, []),
       tagNr: new UntypedFormControl(this.data.tagNr, [Validators.required]),
       dateNeeded: new UntypedFormControl(
-        this.data.arrivalTime ? toDatetimeInputString(new Date(this.data.arrivalTime)) : '',
+        this.data.arrivalTime ? toDateInputString(new Date(this.data.arrivalTime)) : '',
         []
       ),
       bbLr: new UntypedFormControl(
@@ -121,9 +117,9 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
         comments: this.form.get('comments')?.value,
         tagNr: this.form.get('tagNr')?.value,
         arrivalTime: toDateObject(this.form.get('dateNeeded')?.value),
-        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
-        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
-        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        bbLr: this.form.get('bbLr')?.value,
+        location: this.form.get('location')?.value,
+        bbOut: this.form.get('bbOut')?.value ?? null,
         completedAt: toDateObject(this.form.get('dateOut')?.value),
       })
       .subscribe({

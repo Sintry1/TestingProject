@@ -62,7 +62,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
     this.carId = data.carId;
 
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(data.room, [], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
       arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
         Validators.required,
