@@ -35,6 +35,7 @@ export class LongtermComponent {
   search = '';
   displayDate = new Date();
   showAll = false;
+  timeZone = 'UTC'
 
   displayedColumns = [
     'dateIn',
@@ -78,6 +79,8 @@ export class LongtermComponent {
             this.displayDate
           );
           this.isLoading = false;
+          console.log(this.filteredLuggage);
+          
         },
         error: (error) => {
           this.isLoading = false;

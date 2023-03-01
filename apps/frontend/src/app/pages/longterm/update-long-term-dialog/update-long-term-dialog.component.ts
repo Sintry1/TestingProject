@@ -121,9 +121,9 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
         comments: this.form.get('comments')?.value,
         tagNr: this.form.get('tagNr')?.value,
         arrivalTime: toDateObject(this.form.get('dateNeeded')?.value),
-        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
-        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
-        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        bbLr: this.form.get('bbLr')?.value,
+        location: this.form.get('location')?.value,
+        bbOut: this.form.get('bbOut')?.value ?? null,
         completedAt: toDateObject(this.form.get('dateOut')?.value),
       })
       .subscribe({
