@@ -35,9 +35,9 @@ export class ViewImagesDialogComponent {
     private snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data: ILuggage | ICar | IAnnouncement
   ) {
-    this.fetchEntity();    
-    if(Object.keys(data).includes('announcementId')) {
-      this.text = data.comments
+    this.fetchEntity();
+    if (Object.keys(data).includes('announcementId')) {
+      this.text = data.comments;
     }
   }
 
