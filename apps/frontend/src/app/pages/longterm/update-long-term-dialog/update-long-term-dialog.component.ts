@@ -7,7 +7,7 @@ import { ILuggage } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
@@ -62,7 +62,7 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
       comments: new UntypedFormControl(this.data.comments, []),
       tagNr: new UntypedFormControl(this.data.tagNr, [Validators.required]),
       dateNeeded: new UntypedFormControl(
-        this.data.arrivalTime ? toDatetimeInputString(new Date(this.data.arrivalTime)) : '',
+        this.data.arrivalTime ? toDateInputString(new Date(this.data.arrivalTime)) : '',
         []
       ),
       bbLr: new UntypedFormControl(
