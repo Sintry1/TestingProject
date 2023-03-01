@@ -11,6 +11,7 @@ import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
 
 @Component({
   selector: 'frontend-create-long-term-dialog',
@@ -46,11 +47,7 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
 
   ngOnInit(): void {
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(10),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       dateIn: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),

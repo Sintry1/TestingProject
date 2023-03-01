@@ -47,7 +47,7 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     super();
     this.luggageId = data.luggageId;
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(data.room, [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),

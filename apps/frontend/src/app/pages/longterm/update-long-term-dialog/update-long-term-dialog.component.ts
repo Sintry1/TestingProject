@@ -52,11 +52,7 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
         this.data.createdAt ? toDatetimeInputString(new Date(this.data.createdAt)) : '',
         [Validators.required]
       ),
-      room: new UntypedFormControl(
-        this.data.room,
-        [Validators.required],
-        valueInArrayValidator(rooms)
-      ),
+      room: new UntypedFormControl(this.data.room, [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(this.data.name, [Validators.required]),
       bags: new UntypedFormControl(this.data.bags, [Validators.required]),
       comments: new UntypedFormControl(this.data.comments, []),

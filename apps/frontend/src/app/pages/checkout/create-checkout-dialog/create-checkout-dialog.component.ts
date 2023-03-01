@@ -45,7 +45,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
   ) {
     super();
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl('', [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
       tagNr: new UntypedFormControl('', [Validators.required]),

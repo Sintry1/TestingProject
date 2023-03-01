@@ -56,11 +56,7 @@ export class UpdateCheckinDialogComponent extends DropdownSelection {
     this.files = data.files;
 
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(
-        this.data.room,
-        [Validators.required],
-        valueInArrayValidator(rooms)
-      ),
+      room: new UntypedFormControl(this.data.room, [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       arrivalTime: new UntypedFormControl(
         data.arrivalTime ? toTimeInputString(new Date(data.arrivalTime)) : '',
