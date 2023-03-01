@@ -1,14 +1,16 @@
 section {
+  display: flex;
+
   .link-title-container {
     -webkit-transform: rotate(-90deg); /* Safari and Chrome */
     -moz-transform: rotate(-90deg); /* Firefox */
     -ms-transform: rotate(-90deg); /* IE 9 */
     -o-transform: rotate(-90deg); /* Opera */
     transform: rotate(-90deg);
-    width: 60px;
+    width: 52px;
     position: relative;
-    left: -15px;
-    top: 50px;
+    left: 3px;
+    top: -2px;
 
     h2 {
       margin-bottom: 0;
@@ -25,7 +27,6 @@ section {
   }
 
   .links-container {
-    margin-left: 3em;
     display: flex;
     gap: 1em;
 
