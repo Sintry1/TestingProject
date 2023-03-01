@@ -74,7 +74,10 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     // Init the filters
     this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
     this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
-    this.filteredBbDown = filterAutocompleteSelect(this.bellboyListAndGuest, this.form.get('bbDown'));
+    this.filteredBbDown = filterAutocompleteSelect(
+      this.bellboyListAndGuest,
+      this.form.get('bbDown')
+    );
     this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
     this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
