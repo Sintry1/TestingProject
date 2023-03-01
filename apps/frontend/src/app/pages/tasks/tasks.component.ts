@@ -39,8 +39,6 @@ export class TasksComponent {
     this.isLoading = true;
     this.tasksService.getTasks(this.displayDate).subscribe({
       next: (result) => {
-        console.log(result);
-
         this.morningTasks = orderByCompletedStatus(
           result.tasks.filter((task) => task.listName === 'Morning')
         );

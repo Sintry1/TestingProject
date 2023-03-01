@@ -27,7 +27,6 @@ export class TasksNotificationWidgetComponent implements OnInit {
       next: (result) => {
         this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
-        console.log('Ready: ', this.readyTasksList, 'Overdue: ', this.overdueTasksList);
       },
       error: (err) => {
         console.error(err);
@@ -57,40 +56,39 @@ export class TasksNotificationWidgetComponent implements OnInit {
 
   UpdateTasksListNumbers(): void {
     const THIRTY_FIVE_MINUTES = 35 * 60 * 1000; // Convert 35 minutes to milliseconds
-    const FIVE_MINUTES = 5*60*1000;
+    const FIVE_MINUTES = 5 * 60 * 1000;
     const now = new Date().getTime();
 
-    this.readyTasksList = this.tasksList.filter((task) => {
-      if (!task.completedAt) {
-        return true;
-      }
-      const expirationTime = this.parseTimeString(task.time).getTime();
+    this.readyTasksList = [];
+    this.overdueTasksList = [];
 
-      // Check that the time is within 30 min & check that the time hasn't been passed yet
-      if (now - expirationTime  < THIRTY_FIVE_MINUTES && now - expirationTime > FIVE_MINUTES) {
-        // remove task from the tasksList
-        this.tasksList = this.tasksList.filter((currentTask) => currentTask.taskId !== task.taskId);
-        return false;
-      } else {
-        return true;
+    const updatedTasksList: ITask[] = [];
+
+    this.tasksList.forEach((task) => {
+      const expirationTime = this.parseTimeString(task.time).getTime();
+      if (!task.completedAt) {
+        if (expirationTime < now) {
+          // check if task is more than 35 minutes past its scheduled time
+          if (now - expirationTime > THIRTY_FIVE_MINUTES) {
+            this.overdueTasksList.push(task);
+            return;
+          }
+          // check if task is between 5 and 35 minutes past its scheduled time
+          if (now - expirationTime > FIVE_MINUTES) {
+            this.readyTasksList.push(task);
+            return;
+          }
+        } else {
+          // check if task is scheduled for the future
+          updatedTasksList.push(task);
+        }
       }
     });
 
-    this.overdueTasksList = this.tasksList.filter((task) => {
-      if (!task.completedAt) {
-        return true;
-      }
-      const expirationTime = this.parseTimeString(task.time).getTime();
-
-      // Check that the expirationTime current time has passed
-      if (expirationTime < now) {
-        // remove task from the tasksList
-        this.tasksList = this.tasksList.filter((currentTask) => currentTask.taskId !== task.taskId);
-        return true;
-      } else {
-        return false;
-      }
-    });
+    // remove tasks from tasksList that have been added to readyTasksList or overdueTasksList
+    this.tasksList = updatedTasksList.filter(
+      (task) => !this.readyTasksList.includes(task) && !this.overdueTasksList.includes(task)
+    );
   }
 
   parseTimeString(timeString: string): Date {
