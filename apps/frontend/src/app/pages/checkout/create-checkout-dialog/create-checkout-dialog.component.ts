@@ -30,6 +30,8 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
   filteredLocations: Observable<string[]> = new Observable<string[]>();
   filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
+  bellboyListAndGuest = [...bellBoyInitials, 'Guest'];
+
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -57,7 +59,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
       bbDown: new UntypedFormControl(
         '',
         [Validators.required],
-        valueInArrayValidator(bellBoyInitials)
+        valueInArrayValidator(this.bellboyListAndGuest)
       ),
       bbOut: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
       completedAt: new UntypedFormControl('', []),
@@ -72,7 +74,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
     // Init the filters
     this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
     this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
-    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredBbDown = filterAutocompleteSelect(this.bellboyListAndGuest, this.form.get('bbDown'));
     this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
     this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
