@@ -15,7 +15,8 @@
   </div>
 
   <p style="font-weight: 900">
-    Time til 21.00 <br/> 21:00| Time til:
+    Time til 21.00 <br />
+    21:00| Time til:
 
     <frontend-countdown
       [nextTime]="timeTil21"
@@ -25,7 +26,11 @@
   </p>
 
   <div class="data-container">
-    <span routerLink="/checkin" *ngIf="nonCompletedCheckinList.length > 0">Check In <br />({{ nonCompletedCheckinList.length }})</span>
-    <span routerLink="/checkout" *ngIf="nonCompletedCheckoutList.length > 0">Check Out <br />({{ nonCompletedCheckoutList.length }})</span>
+    <span routerLink="/checkin" *ngIf="nonCompletedCheckinList.length > 0"
+      >Check In <br />({{ nonCompletedCheckinList.length }})</span
+    >
+    <span routerLink="/checkout" *ngIf="nonCompletedCheckoutList.length > 0"
+      >Check Out <br />({{ nonCompletedCheckoutList.length }})</span
+    >
   </div>
 </div>
