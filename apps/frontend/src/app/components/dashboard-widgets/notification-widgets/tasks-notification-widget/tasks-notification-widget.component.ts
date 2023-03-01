@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITask, SortOrder, TaskSortOptions } from '@omnihost/interfaces';
-import { TasksService } from '../../../services/tasks.service';
-import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
+import { TasksService } from '../../../../services/tasks.service';
+import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util';
 
 @Component({
   selector: 'frontend-tasks-notification-widget',
