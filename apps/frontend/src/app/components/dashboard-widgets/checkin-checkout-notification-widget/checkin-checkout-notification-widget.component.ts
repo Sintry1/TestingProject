@@ -21,9 +21,9 @@ export class CheckinCheckoutNotificationWidgetComponent implements OnInit, OnDes
   interval: any;
 
   constructor(private luggageService: LuggageService) {
-    this.timeIsPassed21 = new Date() < this.timeTil21;
+    this.timeIsPassed21 = new Date() > this.timeTil21;
     this.interval = setInterval(() => {
-      this.timeIsPassed21 = new Date() < this.timeTil21;
+      this.timeIsPassed21 = new Date() > this.timeTil21;
     }, 60000);
   }
 
