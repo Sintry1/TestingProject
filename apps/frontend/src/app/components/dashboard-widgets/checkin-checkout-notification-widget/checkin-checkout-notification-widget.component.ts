@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ILuggage, LuggageSortOptions, SortOrder } from '@omnihost/interfaces';
 import { LuggageService } from '../../../services/luggage.service';
 import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
@@ -8,7 +8,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
   templateUrl: './checkin-checkout-notification-widget.component.html',
   styleUrls: ['./checkin-checkout-notification-widget.component.scss'],
 })
-export class CheckinCheckoutNotificationWidgetComponent implements OnInit {
+export class CheckinCheckoutNotificationWidgetComponent implements OnInit, OnDestroy {
   originalCheckinList: ILuggage[] = [];
   nonCompletedCheckinList: ILuggage[] = [];
   originalCheckoutList: ILuggage[] = [];
@@ -17,11 +17,22 @@ export class CheckinCheckoutNotificationWidgetComponent implements OnInit {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   timeTil21 = new Date(new Date().setHours(21, 0));
+  timeIsPassed21 = false;
+  interval: any;
 
-  constructor(private luggageService: LuggageService) {}
+  constructor(private luggageService: LuggageService) {
+    this.timeIsPassed21 = new Date() < this.timeTil21;
+    this.interval = setInterval(() => {
+      this.timeIsPassed21 = new Date() < this.timeTil21;
+    }, 60000);
+  }
 
   ngOnInit(): void {
     this.fetchLuggages();
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
   }
 
   fetchLuggages(): void {

@@ -1,4 +1,4 @@
-.checkin-widget-container {
+.widget-container {
   border: var(--border);
   border-radius: 5px;
   padding: 10px 15px 15px 15px;
@@ -6,6 +6,17 @@
   box-shadow: 0px 0px 8px -3px rgb(0 0 0 / 10%);
   cursor: pointer;
 
+  &.non-completed {
+    border: 2px solid var(--dark-yellow);
+
+    .data-container {
+      span {
+        border: 1px solid var(--dark-yellow);
+        color: var(--dark-yellow);
+      }
+    }
+  }
+
   .header {
     width: 100%;
     display: flex;
@@ -25,38 +36,7 @@
   .data-container {
     text-align: center;
     display: flex;
-    gap: 1em;
-
-    span {
-      padding: 5px 10px;
-      border: var(--border);
-      color: var(--border-color-darker);
-      border-radius: 5px;
-      box-shadow: 0px 0px 8px -3px rgb(0 0 0 / 10%);
-    }
-  }
-}
-
-.checkout-widget-container {
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      position: relative;
-      top: -11px;
-      left: 11px;
-    }
-  }
-
-  h3 {
-    margin: 0;
-  }
-
-  .data-container {
-    text-align: center;
-    display: flex;
+    justify-content: space-around;
     gap: 1em;
 
     span {
