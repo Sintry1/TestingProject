@@ -1,27 +1,25 @@
-<div class="split-view">
-  <div
+<div
     class="checkin-widget-container"
-    routerLink="/checkin"
     [ngClass]="{ nonCompleted: nonCompletedCheckinList.length > 0 }"
   >
     <div class="header">
-      <h3>Check In</h3>
-      <h3>Check In</h3>
+      <h3>Check In / Check out</h3>
     </div>
 
     <p style="font-weight: 900">
       Time til 21.00:
 
-      <frontend-countdown [nextTime]="timeTil21" [displayTimeLeftText]="false"></frontend-countdown>
+      <frontend-countdown [nextTime]="timeTil21" [displayTimeLeftText]="false" [displayAlways]="true"></frontend-countdown>
     </p>
 
     <div class="data-container">
       <span [ngClass]="{ nonCompleted: nonCompletedCheckoutList.length > 0 }"
+        routerLink="/checkin"
         >Checkins <br />({{ nonCompletedCheckinList.length }})</span
       >
       <span [ngClass]="{ nonCompleted: nonCompletedCheckoutList.length > 0 }"
+        routerLink="/checkout"
         >Checkouts <br />({{ nonCompletedCheckoutList.length }})</span
       >
     </div>
   </div>
-</div>

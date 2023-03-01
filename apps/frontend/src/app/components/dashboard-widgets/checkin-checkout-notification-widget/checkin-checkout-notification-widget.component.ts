@@ -16,7 +16,7 @@ export class CheckinCheckoutNotificationWidgetComponent implements OnInit {
   sortBy: LuggageSortOptions = LuggageSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  timeTil21 = new Date();
+  timeTil21 = new Date(new Date().setHours(21, 0));
 
   constructor(private luggageService: LuggageService) {}
 
