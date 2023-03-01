@@ -22,7 +22,7 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
 @Component({
   selector: 'frontend-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
+  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss', './cars.component.scss'],
 })
 export class CarsComponent {
   filteredCarList: ICar[] = [];
@@ -139,6 +139,18 @@ export class CarsComponent {
       this.displayDate
     );
   }
+
+  isReady(pickupTime: Date): boolean {
+    const currentDate = new Date();
+    const diffInMs = pickupTime.getTime() - currentDate.getTime();
+    const diffInMin = Math.round(diffInMs / 60000); // converting milliseconds to minutes
+    return diffInMin <= 60 && pickupTime.toDateString() === currentDate.toDateString();
+  }
+  
+  isOverdue(pickupTime: Date): boolean {
+    return pickupTime.getTime() < new Date().getTime();
+  }
+
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
