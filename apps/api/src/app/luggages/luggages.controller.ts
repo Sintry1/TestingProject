@@ -50,6 +50,26 @@ import { LuggagesService } from './luggages.service';
 export class LuggagesController {
   constructor(private luggagesService: LuggagesService) {}
 
+  @Get()
+  @ApiOperation({
+    summary: 'Get a list of all luggages, or luggages from a given range of dates.',
+  })
+  @ApiOkResponse({ type: [Luggage] })
+  @ApiQuery({ name: 'from', required: false, example: new Date() })
+  @ApiQuery({ name: 'to', required: false, example: new Date() })
+  @HttpCode(200)
+  async getAllLuggages(
+    @Query('from')
+    from: string,
+    @Query('to')
+    to: string
+  ) {
+    const fromDate = from ? new Date(Date.parse(from)) : undefined;
+    const toDate = to ? new Date(Date.parse(to)) : undefined;
+
+    return this.luggagesService.findAll(fromDate, toDate);
+  }
+
   @Get(':luggageType')
   @ApiOperation({
     summary: 'Get a list of checked in luggages for the given day.',

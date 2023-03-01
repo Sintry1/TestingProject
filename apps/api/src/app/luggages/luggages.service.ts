@@ -9,7 +9,7 @@ import {
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
 import 'multer';
-import { Between, ILike, LessThan, Repository } from 'typeorm';
+import { Between, ILike, LessThan, Repository, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
 import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
 
@@ -22,6 +22,24 @@ export class LuggagesService {
     private readonly luggageRepo: Repository<Luggage>,
     private readonly fileService: FilesService
   ) {}
+
+  async findAll(from: Date | undefined, to: Date | undefined) {
+    let range = undefined;
+    if (from && to) {
+      range = {
+        createdAt: Between<Date>(
+          new Date(from.setUTCHours(0, 0, 0, 0)),
+          new Date(to.setUTCHours(23, 59, 59, 999))
+        ),
+      };
+    } else if (from) {
+      range = { createdAt: MoreThanOrEqual<Date>(new Date(from.setUTCHours(0, 0, 0, 0))) };
+    } else if (to) {
+      range = { createdAt: LessThanOrEqual<Date>(new Date(to.setUTCHours(23, 59, 59, 999))) };
+    }
+
+    return this.luggageRepo.find({ where: range, order: { createdAt: 'ASC' } });
+  }
 
   async findAllByLuggageTypeAndCreatedAt(
     luggageType: LuggageType,
