@@ -28,10 +28,12 @@
   </p>
 
   <div class="data-container">
-    <span>Future <br>({{ futureCarList.length }})</span>
-    <span class="ready" *ngIf="readyCarList.length > 0"> Ready <br>({{ readyCarList.length }}) </span>
+    <span>Future <br />({{ futureCarList.length }})</span>
+    <span class="ready" *ngIf="readyCarList.length > 0">
+      Ready <br />({{ readyCarList.length }})
+    </span>
     <span class="overdue" *ngIf="overdueCarList.length > 0">
-      Overdue <br>({{ overdueCarList.length }})
+      Overdue <br />({{ overdueCarList.length }})
     </span>
   </div>
 </div>
