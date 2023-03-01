@@ -1,5 +1,4 @@
 .tasks-widget-container {
-  width: 300px;
   border: var(--border);
   border-radius: 5px;
   padding: 10px 15px 15px 15px;
@@ -32,6 +31,7 @@
   }
 
   .data-container {
+    text-align: center;
     display: flex;
     gap: 1em;
 
