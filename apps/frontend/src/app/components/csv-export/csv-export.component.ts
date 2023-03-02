@@ -1,10 +1,10 @@
 import { Component, Inject } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { toDateInputString } from '../../utils/date.util';
 
 export interface CsvExportComponentData {
-  export: (from: Date, until: Date) => void;
+  export: (from?: Date, until?: Date) => void;
 }
 
 @Component({
@@ -21,15 +21,12 @@ export class CsvExportComponent {
     @Inject(MAT_DIALOG_DATA) public data: CsvExportComponentData
   ) {
     this.form = new UntypedFormGroup({
-      fromTime: new UntypedFormControl('', [Validators.required]),
-      untilTime: new UntypedFormControl(toDateInputString(new Date()), [Validators.required]),
+      fromTime: new UntypedFormControl(''),
+      untilTime: new UntypedFormControl(toDateInputString(new Date())),
     });
   }
 
   onSubmit() {
-    this.data.export(
-      this.form.get('fromTime')?.value || new Date(),
-      this.form.get('untilTime')?.value || new Date()
-    );
+    this.data.export(this.form.get('fromTime')?.value, this.form.get('untilTime')?.value);
   }
 }
