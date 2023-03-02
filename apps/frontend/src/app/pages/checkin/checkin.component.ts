@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -6,14 +7,17 @@ import {
   ICar,
   ILuggage,
   LuggageSortOptions,
+  LuggageType,
   SortOrder,
   TableInfoOptions,
 } from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckinDialogComponent } from './create-checkin-dialog/create-checkin-dialog.component';
 import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-checkin-dialog.component';
@@ -45,6 +49,28 @@ export class CheckinComponent {
     'bbOut',
     'comments',
   ];
+
+  luggageHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Luggage ID',
+    'Luggage Type',
+    'Room ready',
+    'Room nr.',
+    'Name',
+    'Time of arrival',
+    'Nr. of bags',
+    'Comments',
+    'Tag nr',
+    'Location',
+    'BB Down',
+    'BB in LR',
+    'BB Up',
+    'Time in room',
+    'Files',
+  ];
+  exportFilename = 'luggages-checkin-data';
 
   constructor(
     private readonly luggageService: LuggageService,
@@ -112,5 +138,28 @@ export class CheckinComponent {
     } else {
       this.openEditDialog(element as ILuggage);
     }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: Date, to?: Date) => {
+          this.luggageService.getLuggagesWithinRange(LuggageType.CHECKIN, from, to).subscribe({
+            next: (luggages) => {
+              this.snackBar.open('Exporting Luggage Checkin data...', 'Thanks', { duration: 5000 });
+              downloadCsv(luggages, this.luggageHeaders, this.exportFilename);
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
+    });
   }
 }

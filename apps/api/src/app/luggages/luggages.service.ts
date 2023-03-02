@@ -23,7 +23,7 @@ export class LuggagesService {
     private readonly fileService: FilesService
   ) {}
 
-  async findAll(from: Date | undefined, to: Date | undefined) {
+  async findAll(from: Date | undefined, to: Date | undefined, luggageType: LuggageType) {
     let range = undefined;
     if (from && to) {
       range = {
@@ -38,7 +38,7 @@ export class LuggagesService {
       range = { createdAt: LessThanOrEqual<Date>(new Date(to.setUTCHours(23, 59, 59, 999))) };
     }
 
-    return this.luggageRepo.find({ where: range, order: { createdAt: 'ASC' } });
+    return this.luggageRepo.find({ where: { luggageType, ...range }, order: { createdAt: 'ASC' } });
   }
 
   async findAllByLuggageTypeAndCreatedAt(
