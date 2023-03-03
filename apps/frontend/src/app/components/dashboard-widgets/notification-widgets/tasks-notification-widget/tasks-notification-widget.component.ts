@@ -28,16 +28,12 @@ export class TasksNotificationWidgetComponent implements OnInit {
       next: (result) => {
         this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
+        this.getOldest();
       },
       error: (err) => {
         console.error(err);
       },
     });
-
-    // TODO: Create a better solution for this
-    setTimeout(() => {
-      this.getOldest();
-    }, 1000);
   }
 
   getOldest(): void {

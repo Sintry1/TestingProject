@@ -30,15 +30,12 @@ export class CarNotificationWidgetComponent implements OnInit {
         this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
         this.futureCarList = this.originalCarList;
         this.UpdateCarListNumbers();
+        this.getOldest();
       },
       error: (err) => {
         console.error(err);
       },
     });
-
-    setTimeout(() => {
-      this.getOldest();
-    }, 1000);
   }
 
   getOldest(): void {
