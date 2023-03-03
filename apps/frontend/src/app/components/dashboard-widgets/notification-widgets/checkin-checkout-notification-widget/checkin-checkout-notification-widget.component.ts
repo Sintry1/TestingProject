@@ -6,7 +6,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util
 @Component({
   selector: 'frontend-checkin-checkout-notification-widget',
   templateUrl: './checkin-checkout-notification-widget.component.html',
-  styleUrls: ['./checkin-checkout-notification-widget.component.scss'],
+  styleUrls: ['../../../../../assets/styles/notification-widget.scss'],
 })
 export class CheckinCheckoutNotificationWidgetComponent implements OnInit, OnDestroy {
   originalCheckinList: ILuggage[] = [];

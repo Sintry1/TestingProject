@@ -6,7 +6,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util
 @Component({
   selector: 'frontend-car-notification-widget',
   templateUrl: './car-notification-widget.component.html',
-  styleUrls: ['./car-notification-widget.component.scss'],
+  styleUrls: ['../../../../../assets/styles/notification-widget.scss'],
 })
 export class CarNotificationWidgetComponent implements OnInit {
   originalCarList: ICar[] = [];
