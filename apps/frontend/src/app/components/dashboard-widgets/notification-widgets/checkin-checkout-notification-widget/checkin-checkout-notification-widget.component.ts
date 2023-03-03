@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ILuggage, LuggageSortOptions, SortOrder } from '@omnihost/interfaces';
-import { LuggageService } from '../../../services/luggage.service';
-import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
+import { LuggageService } from '../../../../services/luggage.service';
+import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util';
 
 @Component({
   selector: 'frontend-checkin-checkout-notification-widget',
