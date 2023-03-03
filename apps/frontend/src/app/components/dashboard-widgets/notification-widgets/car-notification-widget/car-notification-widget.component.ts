@@ -6,7 +6,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util
 @Component({
   selector: 'frontend-car-notification-widget',
   templateUrl: './car-notification-widget.component.html',
-  styleUrls: ['./car-notification-widget.component.scss'],
+  styleUrls: ['../../../../../assets/styles/notification-widget.scss'],
 })
 export class CarNotificationWidgetComponent implements OnInit {
   originalCarList: ICar[] = [];
@@ -30,15 +30,12 @@ export class CarNotificationWidgetComponent implements OnInit {
         this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
         this.futureCarList = this.originalCarList;
         this.UpdateCarListNumbers();
+        this.getOldest();
       },
       error: (err) => {
         console.error(err);
       },
     });
-
-    setTimeout(() => {
-      this.getOldest();
-    }, 1000);
   }
 
   getOldest(): void {

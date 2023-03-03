@@ -1,6 +1,5 @@
 <div
-  class="tasks-widget-container"
-  routerLink="/daily-tasks"
+  class="notification-widget-container"
   [ngClass]="{ ready: readyTasksList.length > 0, overdue: overdueTasksList.length > 0 }"
 >
   <div class="header">
@@ -28,11 +27,11 @@
   </p>
 
   <div class="data-container">
-    <span>Future<br />({{ tasksList.length }})</span>
-    <span class="ready" *ngIf="readyTasksList.length > 0">
+    <span routerLink="/daily-tasks">Future<br />({{ tasksList.length }})</span>
+    <span routerLink="/daily-tasks" class="ready" *ngIf="readyTasksList.length > 0">
       Ready <br />({{ readyTasksList.length }})
     </span>
-    <span class="overdue" *ngIf="overdueTasksList.length > 0">
+    <span routerLink="/daily-tasks" class="overdue" *ngIf="overdueTasksList.length > 0">
       Overdue<br />({{ overdueTasksList.length }})
     </span>
   </div>

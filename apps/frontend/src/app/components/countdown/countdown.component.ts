@@ -5,15 +5,14 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
   template: `
     <span *ngIf="displayTimer">
       <span *ngIf="displayTimeLeftText"> | Time left | </span>
-      <span>
-        {{ isFuture ? '- ' : '' }}{{ counter }}
-      </span>
+      <span> {{ isFuture ? '- ' : '' }}{{ counter }} </span>
     </span>
   `,
 })
 export class CountdownComponent implements OnInit, OnDestroy {
   @Input() displayTimeLeftText?: boolean = false;
   @Input() nextTime!: Date;
+  @Input() displayAlways?: boolean = false;
 
   isFuture = false;
   displayTimer = false;
@@ -37,7 +36,8 @@ export class CountdownComponent implements OnInit, OnDestroy {
         this.displayTimer = true;
       } else {
         timeDiff = new Date().getTime() - new Date(this.nextTime).getTime();
-        this.displayTimer = timeDiff > this.MILLISECONDS_IN_AN_HOUR;
+
+        this.displayTimer = this.displayAlways ? true : timeDiff > this.MILLISECONDS_IN_AN_HOUR;
       }
       const time = timeDiff < 0;
 

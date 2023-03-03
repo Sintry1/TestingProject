@@ -57,6 +57,7 @@ import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blackli
 import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 import { DashboardAnnouncementsSectionComponent } from './components/dashboard-sections/dashboard-announcements-section/dashboard-announcements-section.component';
 import { TasksNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/tasks-notification-widget/tasks-notification-widget.component';
+import { CheckinCheckoutNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/checkin-checkout-notification-widget/checkin-checkout-notification-widget.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { TasksNotificationWidgetComponent } from './components/dashboard-widgets
     UpdateBlacklistDialogComponent,
     CountdownComponent,
     DashboardAnnouncementsSectionComponent,
+    CheckinCheckoutNotificationWidgetComponent,
     TasksNotificationWidgetComponent,
   ],
   imports: [
