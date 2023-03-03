@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IDocument } from '@omnihost/interfaces';
-import { UpdateDocumentDialogComponent } from '../../pages/documents/update-document-dialog/update-document-dialog.component';
-import { ManagerAccessDialogComponent } from '../manager-access-dialog/manager-access-dialog.component';
+import { UpdateDocumentDialogComponent } from '../../../pages/documents/update-document-dialog/update-document-dialog.component';
+import { ManagerAccessDialogComponent } from '../../manager-access-dialog/manager-access-dialog.component';
 import { SeeDocumentDialogComponent } from './see-document-dialog/see-document-dialog.component';
 
 @Component({
@@ -36,8 +36,8 @@ export class DocumentWidgetComponent {
   }
 
   displayTitle() {
-    if (this.document.title.length > 27) {
-      return this.document.title.substring(0, 24) + '...';
+    if (this.document.title.length > 40) {
+      return this.document.title.substring(0, 35) + '...';
     } else {
       return this.document.title;
     }

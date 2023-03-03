@@ -10,8 +10,8 @@ import { AppComponent } from './app.component';
 import { DashboardDocumentSectionComponent } from './components/dashboard-sections/dashboard-document-section/dashboard-document-section.component';
 import { DashboardLinksComponent } from './components/dashboard-widgets/dashboard-links/dashboard-links.component';
 import { WeatherWidgetComponent } from './components/dashboard-widgets/weather-widget/weather-widget.component';
-import { DocumentWidgetComponent } from './components/document-widget/document-widget.component';
-import { SeeDocumentDialogComponent } from './components/document-widget/see-document-dialog/see-document-dialog.component';
+import { DocumentWidgetComponent } from './components/dashboard-widgets/document-widget/document-widget.component';
+import { SeeDocumentDialogComponent } from './components/dashboard-widgets/document-widget/see-document-dialog/see-document-dialog.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { ManagerAccessDialogComponent } from './components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from './components/table-info-dialog/table-info-dialog.component';
@@ -49,14 +49,15 @@ import { EditTaskDialogComponent } from './pages/tasks/edit-task-dialog/edit-tas
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { BlacklistComponent } from './pages/blacklist/blacklist.component';
 import { SentryService } from './services/sentry.service';
-import { CarNotificationWidgetComponent } from './components/dashboard-widgets/car-notification-widget/car-notification-widget.component';
+import { CarNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/car-notification-widget/car-notification-widget.component';
 import { DashboardNotificationSectionComponent } from './components/dashboard-sections/dashboard-notification-section/dashboard-notification-section.component';
 import { CountdownComponent } from './components/countdown/countdown.component';
 import { BlacklistWidgetComponent } from './components/blacklist-widget/blacklist-widget.component';
 import { CreateBlacklistDialogComponent } from './pages/blacklist/create-blacklist-entry-dialog/create-blacklist-entry.component';
 import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blacklist-entry-dialog/update-blacklist-entry.component';
 import { DashboardAnnouncementsSectionComponent } from './components/dashboard-sections/dashboard-announcements-section/dashboard-announcements-section.component';
-import { TasksNotificationWidgetComponent } from './components/dashboard-widgets/tasks-notification-widget/tasks-notification-widget.component';
+import { TasksNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/tasks-notification-widget/tasks-notification-widget.component';
+import { CheckinCheckoutNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/checkin-checkout-notification-widget/checkin-checkout-notification-widget.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { TasksNotificationWidgetComponent } from './components/dashboard-widgets
     UpdateBlacklistDialogComponent,
     CountdownComponent,
     DashboardAnnouncementsSectionComponent,
+    CheckinCheckoutNotificationWidgetComponent,
     TasksNotificationWidgetComponent,
   ],
   imports: [
