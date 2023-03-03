@@ -4,8 +4,8 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
   selector: 'frontend-countdown',
   template: `
     <span *ngIf="displayTimer">
-      <span *ngIf="displayTimeLeftText"> | Time left: </span>
-      <span [ngStyle]="isFuture ? { color: 'red' } : { color: '#B3AB00' }">
+      <span *ngIf="displayTimeLeftText"> | Time left | </span>
+      <span>
         {{ isFuture ? '- ' : '' }}{{ counter }}
       </span>
     </span>

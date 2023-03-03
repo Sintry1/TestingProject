@@ -1,4 +1,4 @@
-.car-widget-container {
+.tasks-widget-container {
   border: var(--border);
   border-radius: 5px;
   padding: 10px 15px 15px 15px;
@@ -33,7 +33,7 @@
   .data-container {
     text-align: center;
     display: flex;
-    gap: 1em;
+    justify-content: space-around;
 
     span {
       padding: 5px 10px;

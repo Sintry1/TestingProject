@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarSortOptions, ICar, SortOrder } from '@omnihost/interfaces';
-import { CarService } from '../../../services/car.service';
-import { filterByCompletedAtAndOrderResults } from '../../../utils/order.util';
+import { CarService } from '../../../../services/car.service';
+import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util';
 
 @Component({
   selector: 'frontend-car-notification-widget',
