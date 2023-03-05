@@ -11,18 +11,23 @@
   <hr />
 
   <!-- Date in -->
-  <div class="dialog-row"></div>
+  <div class="dialog-row">
+    <mat-form-field autocomplete="off">
+      <mat-label>Room nr.</mat-label>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
+    </mat-form-field>
 
-  <mat-form-field autocomplete="off" class="full-width">
-    <mat-label>Room nr.</mat-label>
-    <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
-    <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
-      <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
-        {{ option }}
-      </mat-option>
-    </mat-autocomplete>
-    <mat-error> {{ getErrorMessage() }} </mat-error>
-  </mat-form-field>
+    <mat-form-field autocomplete="off">
+      <mat-label>Date in</mat-label>
+      <input onclick="this.showPicker()" matInput type="datetime-local" formControlName="dateIn" />
+    </mat-form-field>
+  </div>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
@@ -49,12 +54,7 @@
 
     <mat-form-field class="remove-error-message">
       <mat-label>Date needed</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="date"
-        formControlName="dateNeeded"
-      />
+      <input onclick="this.showPicker()" matInput type="date" formControlName="dateNeeded" />
     </mat-form-field>
   </div>
 

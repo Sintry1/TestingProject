@@ -24,6 +24,7 @@ export class ViewImagesDialogComponent {
   images: string[] = [];
   videos: string[] = [];
   entity: IGetLuggageByIdResponse | IGetCarByIdResponse | IGetAnnouncementByIdResponse | undefined;
+  text: undefined | string = undefined;
   isLoading = true;
   title = '';
 
@@ -35,6 +36,9 @@ export class ViewImagesDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: ILuggage | ICar | IAnnouncement
   ) {
     this.fetchEntity();
+    if (Object.keys(data).includes('announcementId')) {
+      this.text = data.comments;
+    }
   }
 
   fetchEntity() {

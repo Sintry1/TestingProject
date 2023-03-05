@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { IDocument } from '@omnihost/interfaces';
 import { DocumentsService } from '../../../services/documents.service';
 import { SentryService } from '../../../services/sentry.service';
-import { SeeDocumentDialogComponent } from '../../document-widget/see-document-dialog/see-document-dialog.component';
+import { SeeDocumentDialogComponent } from '../../dashboard-widgets/document-widget/see-document-dialog/see-document-dialog.component';
 
 @Component({
   selector: 'frontend-dashboard-document-section',

@@ -24,12 +24,7 @@
 
     <mat-form-field autocomplete="off">
       <mat-label>Date in</mat-label>
-      <input
-        onclick="this.showPicker()"
-        matInput
-        type="datetime-local"
-        formControlName="dateIn"
-      />
+      <input onclick="this.showPicker()" matInput type="datetime-local" formControlName="dateIn" />
     </mat-form-field>
   </div>
 
@@ -60,6 +55,7 @@
       <mat-label>Date needed</mat-label>
       <input
         onclick="this.showPicker()"
+        min="{{ today }}"
         matInput
         type="date"
         formControlName="dateNeeded"

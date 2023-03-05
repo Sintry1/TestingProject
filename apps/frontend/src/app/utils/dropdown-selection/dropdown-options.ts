@@ -18,9 +18,11 @@ export const bellBoyInitials: string[] = [
   'MW',
   'OM',
   'PT',
-  'SD',
+  'SP',
   'VK',
   'WJ',
+  'DH',
+  'AW',
 ];
 
 export const luggageLocation: string[] = [

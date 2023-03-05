@@ -38,6 +38,7 @@ export class LongtermComponent {
   search = '';
   displayDate = new Date();
   showAll = false;
+  timeZone = 'UTC';
 
   displayedColumns = [
     'dateIn',

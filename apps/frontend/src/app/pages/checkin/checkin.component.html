@@ -27,7 +27,7 @@
     </div>
 
     <div class="table-buttons">
-      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table info</button>
+      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table Info</button>
       <button mat-raised-button class="action-btn" (click)="openCreateDialog()">
         Add Check In
       </button>
@@ -41,7 +41,7 @@
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.room ? item.room : '-' }}
+          {{ item.room }}
         </td>
       </ng-container>
       <ng-container matColumnDef="name">
@@ -53,7 +53,7 @@
       <ng-container matColumnDef="arrivalTime">
         <th mat-header-cell *matHeaderCellDef>Time of<br />arrival</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.arrivalTime ? (item.arrivalTime | date : 'HH:mm') : '-' }}
+          {{ item.arrivalTime ? (item.arrivalTime | date : 'HH:mm') : '' }}
         </td>
       </ng-container>
       <ng-container matColumnDef="bags">
@@ -96,19 +96,19 @@
           room
         </th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '-' }}
+          {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '' }}
         </td>
       </ng-container>
       <ng-container matColumnDef="bbOut">
         <th mat-header-cell *matHeaderCellDef>BB up</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.bbOut ? item.bbOut : '-' }}
+          {{ item.bbOut }}
         </td>
       </ng-container>
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
-          {{ item.comments ? item.comments : '-' }}
+          {{ item.comments }}
         </td>
       </ng-container>
 

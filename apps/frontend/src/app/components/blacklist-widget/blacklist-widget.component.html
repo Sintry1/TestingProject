@@ -23,7 +23,7 @@
     <div class="expires-container">
       <p>
         <span style="font-weight: 900">Expiration:</span>
-        {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '-' }}
+        {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
       </p>
     </div>
   </div>

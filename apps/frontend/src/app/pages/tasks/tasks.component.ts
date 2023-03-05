@@ -38,12 +38,12 @@ export class TasksComponent {
   fetchTasks(): void {
     this.isLoading = true;
     this.tasksService.getTasks(this.displayDate).subscribe({
-      next: (tasks) => {
+      next: (result) => {
         this.morningTasks = orderByCompletedStatus(
-          tasks.tasks.filter((task) => task.listName === 'Morning')
+          result.tasks.filter((task) => task.listName === 'Morning')
         );
         this.eveningTasks = orderByCompletedStatus(
-          tasks.tasks.filter((task) => task.listName === 'Evening')
+          result.tasks.filter((task) => task.listName === 'Evening')
         );
       },
       error: (error) => {

@@ -36,7 +36,7 @@ export class CreateBikeDialogComponent extends DropdownSelection {
   ) {
     super();
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       nrOfBikes: new UntypedFormControl('', [Validators.required]),
       pickUpTime: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
