@@ -16,6 +16,7 @@ import { ViewImagesDialogComponent } from '../../components/view-images-dialog/v
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
+import { toDateInputString } from '../../utils/date.util';
 import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
@@ -188,7 +189,14 @@ export class CarsComponent {
           this.carService.getCarsWithinRange(from, to).subscribe({
             next: (cars) => {
               this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
-              downloadCsv(cars, this.carHeaders, this.unwantedExportFields, this.exportFilename);
+              downloadCsv(
+                cars,
+                this.carHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
+                  to ? '-' + toDateInputString(new Date(to)) : ''
+                }`
+              );
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);

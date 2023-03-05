@@ -17,6 +17,7 @@ import { ViewImagesDialogComponent } from '../../components/view-images-dialog/v
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { toDateInputString } from '../../utils/date.util';
 import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateLongTermDialogComponent } from './create-long-term-dialog/create-long-term-dialog.component';
@@ -174,7 +175,9 @@ export class LongtermComponent {
                 luggages,
                 this.luggageHeaders,
                 this.unwantedExportFields,
-                this.exportFilename
+                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
+                  to ? '-' + toDateInputString(new Date(to)) : ''
+                }`
               );
             },
             error: (error: HttpErrorResponse) => {

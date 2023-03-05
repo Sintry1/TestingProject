@@ -28,6 +28,7 @@ export const downloadCsv = <T extends object>(
       .join(';')
   );
   csv.unshift(exportHeader.join(';'));
+  csv.unshift(['Total Items', itemList.length].join(';'));
   const csvArray = csv.join('\r\n');
 
   const blob = new Blob([csvArray], { type: 'text/csv' });

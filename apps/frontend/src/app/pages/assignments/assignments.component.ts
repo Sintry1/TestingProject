@@ -8,6 +8,7 @@ import { TableInfoDialogComponent } from '../../components/table-info-dialog/tab
 import { AssignmentsService } from '../../services/assignments.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
+import { toDateInputString } from '../../utils/date.util';
 import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateAssignmentDialogComponent } from './create-assignment-dialog/create-assignment-dialog.component';
@@ -115,7 +116,9 @@ export class AssignmentsComponent {
                 assignments,
                 this.assignmentHeaders,
                 this.unwantedExportFields,
-                this.exportFilename
+                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
+                  to ? '-' + toDateInputString(new Date(to)) : ''
+                }`
               );
             },
             error: (error: HttpErrorResponse) => {

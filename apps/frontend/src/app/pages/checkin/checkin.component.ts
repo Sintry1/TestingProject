@@ -17,6 +17,7 @@ import { ViewImagesDialogComponent } from '../../components/view-images-dialog/v
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { toDateInputString } from '../../utils/date.util';
 import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckinDialogComponent } from './create-checkin-dialog/create-checkin-dialog.component';
@@ -151,7 +152,9 @@ export class CheckinComponent {
                 luggages,
                 this.luggageHeaders,
                 this.unwantedExportFields,
-                this.exportFilename
+                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
+                  to ? '-' + toDateInputString(new Date(to)) : ''
+                }`
               );
             },
             error: (error: HttpErrorResponse) => {

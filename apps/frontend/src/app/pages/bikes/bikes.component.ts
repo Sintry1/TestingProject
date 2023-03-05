@@ -12,6 +12,7 @@ import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bik
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { downloadCsv } from '../../utils/export.util';
+import { toDateInputString } from '../../utils/date.util';
 
 @Component({
   selector: 'frontend-bikes',
@@ -146,7 +147,14 @@ export class BikesComponent {
           this.bikeService.getBikesWithinRange(from, to).subscribe({
             next: (bikes) => {
               this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });
-              downloadCsv(bikes, this.bikeHeaders, this.unwantedExportFields, this.exportFilename);
+              downloadCsv(
+                bikes,
+                this.bikeHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
+                  to ? '-' + toDateInputString(new Date(to)) : ''
+                }`
+              );
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);
