@@ -34,6 +34,13 @@ export function toExportString(date: Date) {
   return exportString;
 }
 
+export function toExportFilenameString(date: Date) {
+  const { day, month, year } = getDateParts(date);
+  const dateString = `${year}_${month}_${day}`;
+
+  return dateString;
+}
+
 export function toDateObject(date: string) {
   if (!isTimeString(date)) {
     return new Date(date);

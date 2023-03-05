@@ -30,7 +30,9 @@
     <div class="table-buttons">
       <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table Info</button>
       <button class="action-btn" (click)="openCreateDialog()" mat-raised-button>Add Bike</button>
-      <button class="action-btn" (click)="openCsvExportDialog()" mat-raised-button>Export</button>
+      <button class="secondary-btn" (click)="openCsvExportDialog()" mat-raised-button>
+        <img src="assets/icons/export-icon.svg" alt="export icon" class="export-icon" />
+      </button>
     </div>
   </div>
   <hr />

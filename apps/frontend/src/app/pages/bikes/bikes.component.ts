@@ -12,7 +12,7 @@ import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bik
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { downloadCsv } from '../../utils/export.util';
-import { toDateInputString } from '../../utils/date.util';
+import { toExportFilenameString } from '../../utils/date.util';
 
 @Component({
   selector: 'frontend-bikes',
@@ -151,9 +151,9 @@ export class BikesComponent {
                 bikes,
                 this.bikeHeaders,
                 this.unwantedExportFields,
-                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
-                  to ? '-' + toDateInputString(new Date(to)) : ''
-                }`
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
               );
             },
             error: (error: HttpErrorResponse) => {

@@ -16,7 +16,7 @@ import { ViewImagesDialogComponent } from '../../components/view-images-dialog/v
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
-import { toDateInputString } from '../../utils/date.util';
+import { toExportFilenameString } from '../../utils/date.util';
 import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
@@ -193,9 +193,9 @@ export class CarsComponent {
                 cars,
                 this.carHeaders,
                 this.unwantedExportFields,
-                `${this.exportFilename}${from ? '-' + toDateInputString(new Date(from)) : ''}${
-                  to ? '-' + toDateInputString(new Date(to)) : ''
-                }`
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
               );
             },
             error: (error: HttpErrorResponse) => {
