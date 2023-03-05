@@ -104,6 +104,22 @@ td.mat-cell {
   }
 }
 
+.overdue {
+  background-color: var(--lighter-red);
+
+  &:nth-child(even) {
+    background-color: var(--light-red) !important;
+  }
+}
+
+.ready {
+  background-color: var(--extra-light-yellow);
+
+  &:nth-child(even) {
+    background-color: var(--lighter-yellow) !important;
+  }
+}
+
 .completed {
   opacity: 0.25;
   // background-color: var(--main-blue-opacity-10) !important;
