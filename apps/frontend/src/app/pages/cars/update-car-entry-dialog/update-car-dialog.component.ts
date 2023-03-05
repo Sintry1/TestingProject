@@ -17,7 +17,10 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
 @Component({
   selector: 'frontend-update-car-dialog',
   templateUrl: './update-car-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/file-upload.scss'],
+  styleUrls: [
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class UpdateCarDialogComponent extends DropdownSelection {
   form: UntypedFormGroup;
@@ -59,7 +62,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
     this.carId = data.carId;
 
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(data.room, [], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
       arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
         Validators.required,
@@ -81,7 +84,11 @@ export class UpdateCarDialogComponent extends DropdownSelection {
         data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
         []
       ),
-      bbDown: new UntypedFormControl(data.bbDown, [Validators.required], valueInArrayValidator(bellBoyInitials)),
+      bbDown: new UntypedFormControl(
+        data.bbDown,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
       bbUp: new UntypedFormControl(data.bbUp, [], valueInArrayValidator(bellBoyInitials)),
       location: new UntypedFormControl(
         data.location,

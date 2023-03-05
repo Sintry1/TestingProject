@@ -4,11 +4,13 @@ import { IAssignment } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { assignmentCommentsRA, assignmentCommentsRM, assignmentTask, assignmentRequestedBy } from '../constants/assignments.constant';
-import {  
-  bellBoyInitials,
-  rooms,
-} from '../constants/dropdown-options';
+import {
+  assignmentCommentsRA,
+  assignmentCommentsRM,
+  assignmentTask,
+  assignmentRequestedBy,
+} from '../constants/assignments.constant';
+import { bellBoyInitials, rooms } from '../constants/dropdown-options';
 import { getRandom, getRandomBoolean, getRandomInt } from './utils.service';
 
 @Injectable()
@@ -50,12 +52,15 @@ export class AssignmentsSeederService {
         const isCompleted = Math.random() < 0.9;
         const task = getRandom(assignmentTask);
         const requestedBy = getRandom(assignmentRequestedBy);
-        const completedAt = isCompleted ? new Date(assignmentDate.getTime() + getRandomInt(10, 30) * 60 * 1000) : null;
+        const completedAt = isCompleted
+          ? new Date(assignmentDate.getTime() + getRandomInt(10, 30) * 60 * 1000)
+          : null;
         data.push({
           assignmentId: uuidv4(),
           room: getRandom(rooms),
           task: task,
-          comments: task === 'RA' ? getRandom(assignmentCommentsRA) : getRandom(assignmentCommentsRM),
+          comments:
+            task === 'RA' ? getRandom(assignmentCommentsRA) : getRandom(assignmentCommentsRM),
           requestedBy: requestedBy,
           performedBy: isCompleted ? getRandom(bellBoyInitials) : null,
           requestedAt: assignmentDate,

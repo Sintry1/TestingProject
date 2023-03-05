@@ -4,8 +4,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { IGetDocumentByIdResponse } from '@omnihost/interfaces';
-import { DocumentsService } from '../../../services/documents.service';
-import { SentryService } from '../../../services/sentry.service';
+import { DocumentsService } from '../../../../services/documents.service';
+import { SentryService } from '../../../../services/sentry.service';
 
 @Component({
   selector: 'frontend-see-document-dialog',

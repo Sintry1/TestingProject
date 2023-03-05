@@ -38,6 +38,7 @@ export class LongtermComponent {
   search = '';
   displayDate = new Date();
   showAll = false;
+  timeZone = 'UTC';
 
   displayedColumns = [
     'dateIn',
@@ -93,14 +94,16 @@ export class LongtermComponent {
       .getLongTerm(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
         next: (luggage) => {
-          const longTermLuggage = luggage.filter((item) => item.luggageType === LuggageType.LONG_TERM);
-          this.originalLuggage = longTermLuggage
+          const longTermLuggage = luggage.filter(
+            (item) => item.luggageType === LuggageType.LONG_TERM
+          );
+          this.originalLuggage = longTermLuggage;
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
             longTermLuggage,
             this.showAll,
             this.displayDate
           );
-          this.isLoading = false;     
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;

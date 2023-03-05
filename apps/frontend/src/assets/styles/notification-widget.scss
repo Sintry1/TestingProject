@@ -1,16 +1,23 @@
-.car-widget-container {
-  width: 300px;
+.notification-widget-container {
   border: var(--border);
   border-radius: 5px;
   padding: 10px 15px 15px 15px;
   background: white;
   box-shadow: 0px 0px 8px -3px rgb(0 0 0 / 10%);
-  cursor: pointer;
+  height: 130px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  flex-direction: column;
 
   .header {
-    width: 100%;
     display: flex;
     justify-content: space-between;
+
+    h3 {
+      width: 100%;
+      font-size: 1.5em;
+    }    
 
     img {
       position: relative;
@@ -32,8 +39,9 @@
   }
 
   .data-container {
+    text-align: center;
     display: flex;
-    gap: 1em;
+    justify-content: space-around;
 
     span {
       padding: 5px 10px;
@@ -41,6 +49,12 @@
       color: var(--border-color-darker);
       border-radius: 5px;
       box-shadow: 0px 0px 8px -3px rgb(0 0 0 / 10%);
+      cursor: pointer;
+      transition: .5s ease-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
 
       &.overdue {
         border: 1px solid var(--danger-red);

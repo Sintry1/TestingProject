@@ -29,6 +29,8 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
   filteredLocations: Observable<string[]> = new Observable<string[]>();
   filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
+  bellboyListAndGuest = [...bellBoyInitials, 'Guest'];
+
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -47,7 +49,7 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     super();
     this.luggageId = data.luggageId;
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(data.room, [], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
@@ -59,7 +61,7 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
       bbDown: new UntypedFormControl(
         data.bbDown,
         [Validators.required],
-        valueInArrayValidator(bellBoyInitials)
+        valueInArrayValidator(this.bellboyListAndGuest)
       ),
       bbOut: new UntypedFormControl(data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
       location: new UntypedFormControl(
@@ -77,7 +79,10 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     // Init the filters
     this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
     this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
-    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredBbDown = filterAutocompleteSelect(
+      this.bellboyListAndGuest,
+      this.form.get('bbDown')
+    );
     this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
     this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }

@@ -107,7 +107,7 @@ export class UpdateBlacklistDialogComponent {
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to update blacklist, please try again.', 'Okay', {
+          this.snackBar.open('Failed to update unwanted guest, please try again.', 'Okay', {
             duration: 10000,
           });
           this.isLoading = false;
@@ -120,7 +120,7 @@ export class UpdateBlacklistDialogComponent {
    */
   finalizeSubmission($event: 'success' | 'fail') {
     if ($event === 'success') {
-      this.snackBar.open('Blacklist updated!', 'Thanks', {
+      this.snackBar.open('Unwanted guest updated!', 'Thanks', {
         duration: 5000,
       });
       this.dialog.closeAll();

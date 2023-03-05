@@ -1,7 +1,4 @@
-export const assignmentCommentsRA = [
-  'Delivered shopping bag to room',
-  'Delivered jacket to room',
-];
+export const assignmentCommentsRA = ['Delivered shopping bag to room', 'Delivered jacket to room'];
 
 export const assignmentCommentsRM = [
   'Moved guest to room 407',
@@ -12,13 +9,6 @@ export const assignmentCommentsRM = [
   'Moved guest to room 502',
 ];
 
-export const assignmentTask = [
-  'RA',
-  'RM',
-];
+export const assignmentTask = ['RA', 'RM'];
 
-export const assignmentRequestedBy = [
-  'Guest',
-  'Reception',
-];
-
+export const assignmentRequestedBy = ['Guest', 'Reception'];
