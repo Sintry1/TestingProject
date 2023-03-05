@@ -58,6 +58,7 @@ import { UpdateBlacklistDialogComponent } from './pages/blacklist/update-blackli
 import { DashboardAnnouncementsSectionComponent } from './components/dashboard-sections/dashboard-announcements-section/dashboard-announcements-section.component';
 import { TasksNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/tasks-notification-widget/tasks-notification-widget.component';
 import { CheckinCheckoutNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/checkin-checkout-notification-widget/checkin-checkout-notification-widget.component';
+import { CsvExportComponent } from './components/csv-export/csv-export.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { CheckinCheckoutNotificationWidgetComponent } from './components/dashboa
     DashboardAnnouncementsSectionComponent,
     CheckinCheckoutNotificationWidgetComponent,
     TasksNotificationWidgetComponent,
+    CsvExportComponent,
   ],
   imports: [
     BrowserModule,

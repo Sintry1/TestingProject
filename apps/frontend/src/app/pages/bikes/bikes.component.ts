@@ -10,6 +10,9 @@ import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { downloadCsv } from '../../utils/export.util';
+import { toExportFilenameString } from '../../utils/date.util';
 
 @Component({
   selector: 'frontend-bikes',
@@ -35,6 +38,25 @@ export class BikesComponent {
     'comments',
     'bikeFormCompleted',
   ];
+
+  bikeHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Nr. of bikes',
+    'Pick up time',
+    'Name',
+    'Room nr.',
+    'Reserved by',
+    'Bike form completed',
+    'Comments',
+    'BB Out',
+    'BB In',
+    'Time out',
+    'Time in',
+  ];
+  exportFilename = 'bikes-data';
+  unwantedExportFields = ['bikeId'];
 
   constructor(
     private readonly bikeService: BikeService,
@@ -113,6 +135,36 @@ export class BikesComponent {
       disableClose: true,
       data: bikeListEntry,
       autoFocus: false,
+    });
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.bikeService.getBikesWithinRange(from, to).subscribe({
+            next: (bikes) => {
+              this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });
+              downloadCsv(
+                bikes,
+                this.bikeHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackbar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
     });
   }
 }

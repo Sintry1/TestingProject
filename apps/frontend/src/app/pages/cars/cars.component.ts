@@ -10,11 +10,14 @@ import {
   SortOrder,
   TableInfoOptions,
 } from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
+import { toExportFilenameString } from '../../utils/date.util';
+import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
 import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
@@ -56,6 +59,31 @@ export class CarsComponent {
     'comments',
     'charged',
   ];
+
+  carHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Tag nr',
+    'Room nr.',
+    'Arrival Date',
+    'Departure Date',
+    'Name',
+    'License plate',
+    'Park expiration',
+    'Pick up time',
+    'Delivery time',
+    'BB Down',
+    'BB Up',
+    'Location',
+    'Parking lot',
+    'BB Out',
+    'Comments',
+    'Charged',
+    'Files',
+  ];
+  exportFilename = 'cars-data';
+  unwantedExportFields = ['carId'];
 
   constructor(
     private readonly carService: CarService,
@@ -167,5 +195,35 @@ export class CarsComponent {
     } else {
       this.openEditDialog(element as ICar);
     }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.carService.getCarsWithinRange(from, to).subscribe({
+            next: (cars) => {
+              this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
+              downloadCsv(
+                cars,
+                this.carHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
+    });
   }
 }

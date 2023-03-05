@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -6,14 +7,18 @@ import {
   ICar,
   ILuggage,
   LuggageSortOptions,
+  LuggageType,
   SortOrder,
   TableInfoOptions,
 } from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { toExportFilenameString } from '../../utils/date.util';
+import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
 import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
@@ -44,6 +49,26 @@ export class CheckoutComponent {
     'bbOut',
     'comments',
   ];
+
+  luggageHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Room nr.',
+    'Name',
+    'Time of arrival',
+    'Nr. of bags',
+    'Comments',
+    'Tag nr',
+    'Location',
+    'BB Down',
+    'BB in LR',
+    'BB Up',
+    'Time in room',
+    'Files',
+  ];
+  exportFilename = 'luggages-checkout-data';
+  unwantedExportFields = ['roomReady', 'luggageType', 'luggageId'];
 
   constructor(
     private readonly luggageService: LuggageService,
@@ -116,5 +141,37 @@ export class CheckoutComponent {
     } else {
       this.openEditDialog(element as ILuggage);
     }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.luggageService.getLuggagesWithinRange(LuggageType.CHECKOUT, from, to).subscribe({
+            next: (luggages) => {
+              this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', {
+                duration: 5000,
+              });
+              downloadCsv(
+                luggages,
+                this.luggageHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
+    });
   }
 }

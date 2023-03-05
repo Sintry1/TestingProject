@@ -41,6 +41,26 @@ export class AssignmentsController {
   constructor(private assignmentsService: AssignmentsService) {}
 
   @Get()
+  @ApiOperation({
+    summary: 'Get a list of all assignments, or assignments from a given range of dates.',
+  })
+  @ApiOkResponse({ type: [Assignment] })
+  @ApiQuery({ name: 'from', required: false, example: new Date() })
+  @ApiQuery({ name: 'to', required: false, example: new Date() })
+  @HttpCode(200)
+  async getAllAssignments(
+    @Query('from')
+    from: string,
+    @Query('to')
+    to: string
+  ) {
+    const fromDate = from ? new Date(Date.parse(from)) : undefined;
+    const toDate = to ? new Date(Date.parse(to)) : undefined;
+    
+    return this.assignmentsService.findAll(fromDate, toDate);
+  }
+
+  @Get()
   @ApiOperation({ summary: 'Get a list of Assignments for the given day.' })
   @ApiOkResponse({ type: [Assignment] })
   @ApiQuery({ name: 'createdAt', required: true, example: new Date() })

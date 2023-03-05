@@ -6,6 +6,7 @@ import {
   ILuggage,
   IUpdateLuggageRequest,
   LuggageSortOptions,
+  LuggageType,
   SortOrder,
 } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
@@ -16,6 +17,19 @@ import { environment as env } from '../../environments/environment';
 })
 export class LuggageService {
   constructor(private http: HttpClient) {}
+
+  public getLuggagesWithinRange(type: LuggageType, from?: string, to?: string): Observable<ILuggage[]> {
+    let query = '';
+    if (from && to) {
+      query = `?from=${from}&to=${to}`;
+    } else if (from) {
+      query = `?from=${from}`;
+    } else if (to) {
+      query = `?to=${to}`;
+    }
+
+    return this.http.get<ILuggage[]>(`${env.apiUrl}/luggages/${type}${query}`);
+  }
 
   public getCheckin(
     createdAt: Date,
