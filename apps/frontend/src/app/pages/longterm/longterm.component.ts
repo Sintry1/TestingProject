@@ -74,6 +74,7 @@ export class LongtermComponent {
     'Files',
   ];
   exportFilename = 'luggages-longterm-data';
+  unwantedExportFields = [];
 
   constructor(
     private readonly luggageService: LuggageService,
@@ -93,14 +94,16 @@ export class LongtermComponent {
       .getLongTerm(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
         next: (luggage) => {
-          const longTermLuggage = luggage.filter((item) => item.luggageType === LuggageType.LONG_TERM);
-          this.originalLuggage = longTermLuggage
+          const longTermLuggage = luggage.filter(
+            (item) => item.luggageType === LuggageType.LONG_TERM
+          );
+          this.originalLuggage = longTermLuggage;
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
             longTermLuggage,
             this.showAll,
             this.displayDate
           );
-          this.isLoading = false;     
+          this.isLoading = false;
         },
         error: (error) => {
           this.isLoading = false;
@@ -166,8 +169,15 @@ export class LongtermComponent {
         export: (from?: Date, to?: Date) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.LONG_TERM, from, to).subscribe({
             next: (luggages) => {
-              this.snackBar.open('Exporting Luggage Longterm data...', 'Thanks', { duration: 5000 });
-              downloadCsv(luggages, this.luggageHeaders, this.exportFilename);
+              this.snackBar.open('Exporting Luggage Longterm data...', 'Thanks', {
+                duration: 5000,
+              });
+              downloadCsv(
+                luggages,
+                this.luggageHeaders,
+                this.unwantedExportFields,
+                this.exportFilename
+              );
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);

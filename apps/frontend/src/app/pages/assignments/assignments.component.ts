@@ -45,7 +45,8 @@ export class AssignmentsComponent {
     'Performed by',
     'Requested at',
   ];
-  exportFilename = 'assignments-checkin-data';
+  exportFilename = 'assignments-data';
+  unwantedExportFields = ['assignmentId', 'updatedAt'];
 
   constructor(
     private assignmentsService: AssignmentsService,
@@ -111,7 +112,12 @@ export class AssignmentsComponent {
           this.assignmentsService.getAssignmentsWithinRange(from, to).subscribe({
             next: (assignments) => {
               this.snackBar.open('Exporting Assignments data...', 'Thanks', { duration: 5000 });
-              downloadCsv(assignments, this.assignmentHeaders, this.exportFilename);
+              downloadCsv(
+                assignments,
+                this.assignmentHeaders,
+                this.unwantedExportFields,
+                this.exportFilename
+              );
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);

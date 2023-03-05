@@ -70,6 +70,7 @@ export class CheckoutComponent {
     'Files',
   ];
   exportFilename = 'luggages-checkout-data';
+  unwantedExportFields = [];
 
   constructor(
     private readonly luggageService: LuggageService,
@@ -152,8 +153,15 @@ export class CheckoutComponent {
         export: (from?: Date, to?: Date) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.CHECKOUT, from, to).subscribe({
             next: (luggages) => {
-              this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', { duration: 5000 });
-              downloadCsv(luggages, this.luggageHeaders, this.exportFilename);
+              this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', {
+                duration: 5000,
+              });
+              downloadCsv(
+                luggages,
+                this.luggageHeaders,
+                this.unwantedExportFields,
+                this.exportFilename
+              );
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);

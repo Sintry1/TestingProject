@@ -27,6 +27,13 @@ export function toDatetimeInputString(date: Date) {
   return datetimeString;
 }
 
+export function toExportString(date: Date) {
+  const { day, month, year, hour, minute } = getDateParts(date);
+  const exportString = `${day}/${month}/${year} ${hour}:${minute}`;
+
+  return exportString;
+}
+
 export function toDateObject(date: string) {
   if (!isTimeString(date)) {
     return new Date(date);

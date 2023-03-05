@@ -79,6 +79,7 @@ export class CarsComponent {
     'Files',
   ];
   exportFilename = 'cars-data';
+  unwantedExportFields = [];
 
   constructor(
     private readonly carService: CarService,
@@ -188,7 +189,7 @@ export class CarsComponent {
           this.carService.getCarsWithinRange(from, to).subscribe({
             next: (cars) => {
               this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
-              downloadCsv(cars, this.carHeaders, this.exportFilename);
+              downloadCsv(cars, this.carHeaders, this.unwantedExportFields, this.exportFilename);
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);

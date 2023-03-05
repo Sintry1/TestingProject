@@ -56,6 +56,7 @@ export class BikesComponent {
     'Time in',
   ];
   exportFilename = 'bikes-data';
+  unwantedExportFields = [];
 
   constructor(
     private readonly bikeService: BikeService,
@@ -146,7 +147,7 @@ export class BikesComponent {
           this.bikeService.getBikesWithinRange(from, to).subscribe({
             next: (bikes) => {
               this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });
-              downloadCsv(bikes, this.bikeHeaders, this.exportFilename);
+              downloadCsv(bikes, this.bikeHeaders, this.unwantedExportFields, this.exportFilename);
             },
             error: (error: HttpErrorResponse) => {
               SentryService.logError(error);
