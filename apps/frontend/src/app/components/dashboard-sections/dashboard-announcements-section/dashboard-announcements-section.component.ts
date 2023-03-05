@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AnnouncementSortOptions, IAnnouncement, SortOrder } from '@omnihost/interfaces';
+import { AnnouncementSortOptions, IAnnouncement, SortOrder, AnnouncementStatus } from '@omnihost/interfaces';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
+import { toDateObject } from '../../../utils/date.util';
 import { ViewImagesDialogComponent } from '../../view-images-dialog/view-images-dialog.component';
 
 @Component({
@@ -31,11 +32,35 @@ export class DashboardAnnouncementsSectionComponent implements OnInit {
     this.fetchAnnouncements();
   }
 
+  getStatus(showFrom?: Date | null, showTo?: Date | null): string {
+    const today = new Date().getTime();
+
+    if (showFrom === null || !showFrom || showTo === null || !showTo) {
+      return AnnouncementStatus.EXPIRED;
+    }
+
+    const from = toDateObject(showFrom.toString());
+    const to = toDateObject(showTo.toString());
+
+    if (from.getTime() > today) {
+      // FUTURE
+      return AnnouncementStatus.FUTURE;
+    } else if (from.getTime() <= today && to.getTime() > today) {
+      // ACTIVE
+      return AnnouncementStatus.ACTIVE;
+    } else {
+      // EXPIRED
+      return AnnouncementStatus.EXPIRED;
+    }
+  }
+
   fetchAnnouncements(): void {
     this.isLoading = true;
     this.announcementService.getAnnouncements(this.sortBy, this.sortOrder, this.search).subscribe({
       next: (announcements) => {
-        this.announcementList = announcements;
+        this.announcementList = announcements.filter(announcement => {
+          return this.getStatus(announcement.showFrom, announcement.showTo) === AnnouncementStatus.ACTIVE;
+        });
         this.isLoading = false;
       },
       error: (error) => {
