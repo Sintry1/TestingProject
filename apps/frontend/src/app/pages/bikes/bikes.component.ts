@@ -143,7 +143,7 @@ export class BikesComponent {
       width: '600px',
       disableClose: true,
       data: {
-        export: (from?: Date, to?: Date) => {
+        export: (from?: string, to?: string) => {
           this.bikeService.getBikesWithinRange(from, to).subscribe({
             next: (bikes) => {
               this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });

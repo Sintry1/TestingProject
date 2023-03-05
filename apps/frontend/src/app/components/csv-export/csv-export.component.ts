@@ -4,7 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { toDateInputString } from '../../utils/date.util';
 
 export interface CsvExportComponentData {
-  export: (from?: Date, until?: Date) => void;
+  export: (from?: string, until?: string) => void;
 }
 
 @Component({

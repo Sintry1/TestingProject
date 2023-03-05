@@ -148,7 +148,7 @@ export class CheckoutComponent {
       width: '600px',
       disableClose: true,
       data: {
-        export: (from?: Date, to?: Date) => {
+        export: (from?: string, to?: string) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.CHECKOUT, from, to).subscribe({
             next: (luggages) => {
               this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', {

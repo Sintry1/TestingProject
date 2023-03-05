@@ -14,7 +14,7 @@ import { environment as env } from '../../environments/environment';
 export class AssignmentsService {
   constructor(private http: HttpClient) {}
 
-  public getAssignmentsWithinRange(from?: Date, to?: Date): Observable<IAssignment[]> {
+  public getAssignmentsWithinRange(from?: string, to?: string): Observable<IAssignment[]> {
     let query = '';
     if (from && to) {
       query = `?from=${from}&to=${to}`;

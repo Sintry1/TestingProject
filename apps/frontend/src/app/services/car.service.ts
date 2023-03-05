@@ -17,7 +17,7 @@ import { environment as env } from '../../environments/environment';
 export class CarService {
   constructor(private http: HttpClient) {}
 
-  public getCarsWithinRange(from?: Date, to?: Date): Observable<ICar[]> {
+  public getCarsWithinRange(from?: string, to?: string): Observable<ICar[]> {
     let query = '';
     if (from && to) {
       query = `?from=${from}&to=${to}`;

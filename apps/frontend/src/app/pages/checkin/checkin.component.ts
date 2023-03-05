@@ -144,7 +144,7 @@ export class CheckinComponent {
       width: '600px',
       disableClose: true,
       data: {
-        export: (from?: Date, to?: Date) => {
+        export: (from?: string, to?: string) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.CHECKIN, from, to).subscribe({
             next: (luggages) => {
               this.snackBar.open('Exporting Luggage Checkin data...', 'Thanks', { duration: 5000 });

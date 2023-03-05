@@ -108,7 +108,7 @@ export class AssignmentsComponent {
       width: '600px',
       disableClose: true,
       data: {
-        export: (from?: Date, to?: Date) => {
+        export: (from?: string, to?: string) => {
           this.assignmentsService.getAssignmentsWithinRange(from, to).subscribe({
             next: (assignments) => {
               this.snackBar.open('Exporting Assignments data...', 'Thanks', { duration: 5000 });

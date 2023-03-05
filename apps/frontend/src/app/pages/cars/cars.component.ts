@@ -185,7 +185,7 @@ export class CarsComponent {
       width: '600px',
       disableClose: true,
       data: {
-        export: (from?: Date, to?: Date) => {
+        export: (from?: string, to?: string) => {
           this.carService.getCarsWithinRange(from, to).subscribe({
             next: (cars) => {
               this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
