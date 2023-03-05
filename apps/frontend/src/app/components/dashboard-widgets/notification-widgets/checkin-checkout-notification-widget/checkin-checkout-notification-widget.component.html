@@ -1,4 +1,10 @@
-<div class="notification-widget-container" [ngClass]="{ ready: timeIsPassed21 && nonCompletedCheckinList.length > 0 && nonCompletedCheckoutList.length > 0}">
+<div
+  class="notification-widget-container"
+  [ngClass]="{
+    ready:
+      timeIsPassed21 && nonCompletedCheckinList.length > 0 && nonCompletedCheckoutList.length > 0
+  }"
+>
   <div class="header">
     <h3>Check In / Check out</h3>
     <img
@@ -8,7 +14,7 @@
     />
   </div>
 
-  <p *ngIf="nonCompletedCheckinList.length > 0 && timeIsPassed21 && nonCompletedCheckoutList.length > 0">
+  <p *ngIf="nonCompletedCheckinList.length > 0 && nonCompletedCheckoutList.length > 0">
     21:00 | Time til |
 
     <frontend-countdown
@@ -26,7 +32,7 @@
     >
     <span
       routerLink="/checkout"
-      [ngClass]="{ ready: timeIsPassed21 && nonCompletedCheckoutList.length > 0}"
+      [ngClass]="{ ready: timeIsPassed21 && nonCompletedCheckoutList.length > 0 }"
       >Check Out <br />({{ nonCompletedCheckoutList.length }})</span
     >
   </div>
