@@ -60,7 +60,6 @@ export class LongtermComponent {
     'Completed At',
     'Luggage ID',
     'Luggage Type',
-    'Room ready',
     'Room nr.',
     'Name',
     'Time of arrival',
@@ -75,7 +74,7 @@ export class LongtermComponent {
     'Files',
   ];
   exportFilename = 'luggages-longterm-data';
-  unwantedExportFields = [];
+  unwantedExportFields = ['roomReady'];
 
   constructor(
     private readonly luggageService: LuggageService,
