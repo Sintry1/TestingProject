@@ -37,7 +37,10 @@
   <div class="table-height">
     <table mat-table [dataSource]="filteredCarList" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+        <th mat-header-cell *matHeaderCellDef>
+          Room <br />
+          nr.
+        </th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.room }}
         </td>
@@ -100,20 +103,6 @@
         <th mat-header-cell *matHeaderCellDef>Pick<br />up time</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
-          <ng-container>
-            <span class="alert-container">
-              <img
-                *ngIf="isReady(item.pickUpTime)"
-                src="../../../assets/icons/alerts/warning-alert-icon.svg"
-                alt="alert icon"
-              />
-              <img
-                *ngIf="isOverdue(item.pickUpTime)"
-                src="../../../assets/icons/alerts/critical-alert-icon.svg"
-                alt="alert icon"
-              />
-            </span>
-          </ng-container>
         </td>
       </ng-container>
 
@@ -183,7 +172,11 @@
       <tr mat-header-row *matHeaderRowDef="carColumns"></tr>
       <tr
         mat-row
-        [ngClass]="row.completedAt ? 'completed' : ''"
+        [ngClass]="{
+          completed: row.completedAt,
+          overdue: isOverdue(row.pickUpTime) && !row.completedAt,
+          ready: isReady(row.pickUpTime) && !row.completedAt
+        }"
         *matRowDef="let row; columns: carColumns"
       ></tr>
     </table>

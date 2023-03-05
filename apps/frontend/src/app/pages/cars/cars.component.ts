@@ -148,7 +148,7 @@ export class CarsComponent {
     const pickupTimeDate = new Date(pickupTime);
     const currentTime = new Date();
     const diffInMs = pickupTimeDate.getTime() - currentTime.getTime();
-    
+
     return diffInMs >= 0 && diffInMs <= 60 * 60 * 1000; // Check if pickup time is between 0 seconds and 60 minutes from current time
   }
 
