@@ -103,13 +103,13 @@
           <ng-container>
             <span class="alert-container">
               <img
-                *ngIf="isOverdue(item.pickupTime)"
-                src="../../../assets/icons/alerts/critical-alert-icon.svg"
+                *ngIf="isReady(item.pickUpTime)"
+                src="../../../assets/icons/alerts/warning-alert-icon.svg"
                 alt="alert icon"
               />
               <img
-                *ngIf="isReady(item.pickupTime)"
-                src="../../../assets/icons/alerts/warning-alert-icon.svg"
+                *ngIf="isOverdue(item.pickUpTime)"
+                src="../../../assets/icons/alerts/critical-alert-icon.svg"
                 alt="alert icon"
               />
             </span>
