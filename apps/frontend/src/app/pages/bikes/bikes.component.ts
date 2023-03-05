@@ -42,7 +42,6 @@ export class BikesComponent {
     'Created At',
     'Last Updated At',
     'Completed At',
-    'Bike ID',
     'Nr. of bikes',
     'Pick up time',
     'Name',
@@ -56,7 +55,7 @@ export class BikesComponent {
     'Time in',
   ];
   exportFilename = 'bikes-data';
-  unwantedExportFields = [];
+  unwantedExportFields = ['bikeId'];
 
   constructor(
     private readonly bikeService: BikeService,

@@ -53,8 +53,6 @@ export class CheckoutComponent {
     'Created At',
     'Last Updated At',
     'Completed At',
-    'Luggage ID',
-    'Luggage Type',
     'Room nr.',
     'Name',
     'Time of arrival',
@@ -69,7 +67,7 @@ export class CheckoutComponent {
     'Files',
   ];
   exportFilename = 'luggages-checkout-data';
-  unwantedExportFields = ['roomReady'];
+  unwantedExportFields = ['roomReady', 'luggageType', 'luggageId'];
 
   constructor(
     private readonly luggageService: LuggageService,

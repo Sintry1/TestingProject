@@ -59,7 +59,6 @@ export class CarsComponent {
     'Created At',
     'Last Updated At',
     'Completed At',
-    'Car ID',
     'Tag nr',
     'Room nr.',
     'Arrival Date',
@@ -79,7 +78,7 @@ export class CarsComponent {
     'Files',
   ];
   exportFilename = 'cars-data';
-  unwantedExportFields = [];
+  unwantedExportFields = ['carId'];
 
   constructor(
     private readonly carService: CarService,

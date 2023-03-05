@@ -37,7 +37,6 @@ export class AssignmentsComponent {
     'Created At',
     'Last Updated At',
     'Performed At',
-    'Assignment ID',
     'Room nr.',
     'Task',
     'Comments',
@@ -46,7 +45,7 @@ export class AssignmentsComponent {
     'Requested at',
   ];
   exportFilename = 'assignments-data';
-  unwantedExportFields = ['assignmentId', 'updatedAt'];
+  unwantedExportFields = ['assignmentId'];
 
   constructor(
     private assignmentsService: AssignmentsService,
