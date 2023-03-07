@@ -5,9 +5,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
   template: `
     <span *ngIf="displayTimer">
       <span *ngIf="displayTimeLeftText"> | Time left | </span>
-      <span>
-        {{ isFuture ? '- ' : '' }}{{ counter }}
-      </span>
+      <span> {{ isFuture ? '- ' : '' }}{{ counter }} </span>
     </span>
   `,
 })

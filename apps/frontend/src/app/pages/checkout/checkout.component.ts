@@ -25,6 +25,8 @@ import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-c
 })
 export class CheckoutComponent {
   checkoutLuggage: ILuggage[] = [];
+  completeCheckouts: ILuggage[] = [];
+  incompleteCheckouts: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
   displayDate = new Date();
@@ -65,6 +67,8 @@ export class CheckoutComponent {
       .subscribe({
         next: (luggage) => {
           this.checkoutLuggage = orderByCompletedStatus(luggage);
+          this.completeCheckouts = this.checkoutLuggage.filter((luggage) => luggage.completedAt);
+          this.incompleteCheckouts = this.checkoutLuggage.filter((luggage) => !luggage.completedAt);
           this.isLoading = false;
         },
         error: (error) => {

@@ -19,6 +19,8 @@ import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bik
 export class BikesComponent {
   originalBikeList: IBike[] = [];
   filteredBikeList: IBike[] = [];
+  completedBikeList: IBike[] = [];
+  incompleteBikeList: IBike[] = [];
   displayDate = new Date();
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
@@ -60,6 +62,8 @@ export class BikesComponent {
           false,
           this.displayDate
         );
+        this.completedBikeList = this.filteredBikeList.filter((bike) => bike.completedAt);
+        this.incompleteBikeList = this.filteredBikeList.filter((bike) => !bike.completedAt);
         this.isLoading = false;
       },
       error: (error) => {

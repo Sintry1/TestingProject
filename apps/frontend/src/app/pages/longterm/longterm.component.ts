@@ -28,7 +28,7 @@ export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
   completedLongTerm: ILuggage[] = [];
-  incompleteLongTerm: ILuggage[] = []
+  incompleteLongTerm: ILuggage[] = [];
   listNames?: string[];
   chosenListName = '';
   isLoading = false;
@@ -80,8 +80,8 @@ export class LongtermComponent {
             this.showAll,
             this.displayDate
           );
-          this.incompleteLongTerm = this.filteredLuggage.filter((luggage) => !luggage.completedAt)
-          this.completedLongTerm = this.filteredLuggage.filter((luggage) => luggage.completedAt)
+          this.incompleteLongTerm = this.filteredLuggage.filter((luggage) => !luggage.completedAt);
+          this.completedLongTerm = this.filteredLuggage.filter((luggage) => luggage.completedAt);
           this.isLoading = false;
         },
         error: (error) => {

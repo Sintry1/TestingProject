@@ -17,6 +17,8 @@ import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/upda
 })
 export class AssignmentsComponent {
   assignmentList: IAssignment[] = [];
+  completeAssignments: IAssignment[] = [];
+  incompleteAssignments: IAssignment[] = [];
   displayDate = new Date();
   isLoading = false;
 
@@ -48,6 +50,12 @@ export class AssignmentsComponent {
     this.assignmentsService.getAssignments(this.displayDate).subscribe({
       next: (assignments) => {
         this.assignmentList = orderByCompletedStatus(assignments);
+        this.completeAssignments = this.assignmentList.filter(
+          (assignment) => assignment.completedAt
+        );
+        this.incompleteAssignments = this.assignmentList.filter(
+          (assignment) => !assignment.completedAt
+        );
         this.isLoading = false;
       },
       error: (error) => {

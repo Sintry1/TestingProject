@@ -26,6 +26,8 @@ import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-che
 export class CheckinComponent {
   checkinLuggage: ILuggage[] = [];
   listNames?: string[];
+  incompleteCheckins: ILuggage[] = [];
+  completeCheckins: ILuggage[] = [];
   isLoading = false;
   displayDate = new Date();
   sortBy: LuggageSortOptions = LuggageSortOptions.CREATED_AT;
@@ -65,6 +67,8 @@ export class CheckinComponent {
       .subscribe({
         next: (luggage) => {
           this.checkinLuggage = orderByCompletedStatus(luggage);
+          this.completeCheckins = this.checkinLuggage.filter((luggage) => luggage.completedAt);
+          this.incompleteCheckins = this.checkinLuggage.filter((luggage) => !luggage.completedAt);
           this.isLoading = false;
         },
         error: (error) => {
