@@ -27,6 +27,8 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
 export class CarsComponent {
   filteredCarList: ICar[] = [];
   originalCarList: ICar[] = [];
+  completedCarList: ICar[] = []
+  incompleteCarList: ICar[] =[]
   displayDate = new Date();
   sortBy: CarSortOptions = CarSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
@@ -113,8 +115,15 @@ export class CarsComponent {
         this.filteredCarList = filterByCompletedAtAndOrderResults(
           this.originalCarList,
           this.showAll,
-          this.displayDate
+          this.displayDate,
+          // Need to filter another list to filter out the completed orders and place them in completedCarList
         );
+        this.incompleteCarList = this.filteredCarList.filter((car) => !car.deliveryTime)
+        this.completedCarList = this.filteredCarList.filter((car) => car.deliveryTime)
+        console.log(this.incompleteCarList);
+        
+        console.log(this.completedCarList);
+        
         this.isLoading = false;
       },
       error: (error) => {
