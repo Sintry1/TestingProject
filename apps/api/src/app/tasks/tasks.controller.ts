@@ -42,26 +42,6 @@ export class TasksController {
   constructor(private tasksService: TasksService) {}
 
   @Get()
-  @ApiOperation({
-    summary: 'Get a list of all tasks, or tasks from a given range of dates.',
-  })
-  @ApiOkResponse({ type: [Task] })
-  @ApiQuery({ name: 'from', required: false, example: new Date() })
-  @ApiQuery({ name: 'to', required: false, example: new Date() })
-  @HttpCode(200)
-  async getAllTasks(
-    @Query('from')
-    from: string,
-    @Query('to')
-    to: string
-  ) {
-    const fromDate = from ? new Date(Date.parse(from)) : undefined;
-    const toDate = to ? new Date(Date.parse(to)) : undefined;
-    
-    return this.tasksService.findAll(fromDate, toDate);
-  }
-
-  @Get()
   @ApiOperation({ summary: 'Get a list of Tasks for the given day.' })
   @ApiOkResponse({ type: GetTasksResponse })
   @ApiQuery({ name: 'createdAt', required: true, example: new Date() })
