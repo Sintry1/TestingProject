@@ -40,7 +40,7 @@ import { AssignmentsService } from './assignments.service';
 export class AssignmentsController {
   constructor(private assignmentsService: AssignmentsService) {}
 
-  @Get()
+  @Get('all')
   @ApiOperation({
     summary: 'Get a list of all assignments, or assignments from a given range of dates.',
   })

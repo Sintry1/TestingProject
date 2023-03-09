@@ -28,7 +28,7 @@ export class LuggageService {
       query = `?to=${to}`;
     }
 
-    return this.http.get<ILuggage[]>(`${env.apiUrl}/luggages/${type}${query}`);
+    return this.http.get<ILuggage[]>(`${env.apiUrl}/luggages/all/${type}${query}`);
   }
 
   public getCheckin(

@@ -24,7 +24,7 @@ export class AssignmentsService {
       query = `?to=${to}`;
     }
 
-    return this.http.get<IAssignment[]>(`${env.apiUrl}/assignments${query}`);
+    return this.http.get<IAssignment[]>(`${env.apiUrl}/assignments/all${query}`);
   }
 
   /**
