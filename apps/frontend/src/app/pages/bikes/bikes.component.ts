@@ -17,10 +17,10 @@ import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bik
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
 export class BikesComponent {
-  originalBikeList: IBike[] = [];
-  filteredBikeList: IBike[] = [];
-  completedBikeList: IBike[] = [];
-  incompleteBikeList: IBike[] = [];
+  originalBikes: IBike[] = [];
+  filteredBikes: IBike[] = [];
+  completedBikes: IBike[] = [];
+  incompleteBikes: IBike[] = [];
   displayDate = new Date();
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
@@ -47,23 +47,23 @@ export class BikesComponent {
   ) {
     this.displayDateService.getDisplayDateSubject().subscribe((date) => {
       this.displayDate = new Date(date);
-      this.fetchBikeList();
+      this.fetchBikes();
     });
   }
 
-  fetchBikeList(): void {
+  fetchBikes(): void {
     this.isLoading = true;
 
     this.bikeService.getBike(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (bikes) => {
-        this.originalBikeList = bikes;
-        this.filteredBikeList = filterByCompletedAtAndOrderResults(
-          this.originalBikeList,
+        this.originalBikes = bikes;
+        this.filteredBikes = filterByCompletedAtAndOrderResults(
+          this.originalBikes,
           false,
           this.displayDate
         );
-        this.completedBikeList = this.filteredBikeList.filter((bike) => bike.completedAt);
-        this.incompleteBikeList = this.filteredBikeList.filter((bike) => !bike.completedAt);
+        this.completedBikes = this.filteredBikes.filter((bike) => bike.completedAt);
+        this.incompleteBikes = this.filteredBikes.filter((bike) => !bike.completedAt);
         this.isLoading = false;
       },
       error: (error) => {
@@ -111,11 +111,11 @@ export class BikesComponent {
     this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openEditDialog(bikeListEntry: IBike) {
+  openEditDialog(BikesEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
       width: '600px',
       disableClose: true,
-      data: bikeListEntry,
+      data: BikesEntry,
       autoFocus: false,
     });
   }
