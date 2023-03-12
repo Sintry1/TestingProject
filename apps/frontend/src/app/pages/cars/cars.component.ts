@@ -29,10 +29,10 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
   ],
 })
 export class CarsComponent {
-  filteredCarList: ICar[] = [];
-  originalCarList: ICar[] = [];
-  completedCarList: ICar[] = [];
-  incompleteCarList: ICar[] = [];
+  filteredCars: ICar[] = [];
+  originalCars: ICar[] = [];
+  completedCars: ICar[] = [];
+  incompleteCars: ICar[] = [];
   displayDate = new Date();
   sortBy: CarSortOptions = CarSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
@@ -67,7 +67,7 @@ export class CarsComponent {
   ) {
     this.displayDateService.getDisplayDateSubject().subscribe((date) => {
       this.displayDate = new Date(date);
-      this.fetchCarList();
+      this.fetchCars();
     });
   }
 
@@ -101,29 +101,29 @@ export class CarsComponent {
     this.dialog.open(CreateCarDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openEditDialog(carListEntry: ICar) {
+  openEditDialog(CarsEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
       minWidth: '600px',
       disableClose: true,
-      data: carListEntry,
+      data: CarsEntry,
       autoFocus: false,
     });
   }
 
-  fetchCarList(): void {
+  fetchCars(): void {
     this.isLoading = true;
 
     this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.originalCarList = cars;
-        this.filteredCarList = filterByCompletedAtAndOrderResults(
-          this.originalCarList,
+        this.originalCars = cars;
+        this.filteredCars = filterByCompletedAtAndOrderResults(
+          this.originalCars,
           this.showAll,
           this.displayDate
-          // Need to filter another list to filter out the completed orders and place them in completedCarList
+          // Need to filter another list to filter out the completed orders and place them in completedCars
         );
-        this.incompleteCarList = this.filteredCarList.filter((car) => !car.deliveryTime);
-        this.completedCarList = this.filteredCarList.filter((car) => car.deliveryTime);
+        this.incompleteCars = this.filteredCars.filter((car) => !car.deliveryTime);
+        this.completedCars = this.filteredCars.filter((car) => car.deliveryTime);
         this.isLoading = false;
       },
       error: (error) => {
@@ -142,8 +142,8 @@ export class CarsComponent {
 
   toggleShowAll(): void {
     this.showAll = !this.showAll;
-    this.filteredCarList = filterByCompletedAtAndOrderResults(
-      this.originalCarList,
+    this.filteredCars = filterByCompletedAtAndOrderResults(
+      this.originalCars,
       this.showAll,
       this.displayDate
     );

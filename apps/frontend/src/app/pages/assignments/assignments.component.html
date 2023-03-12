@@ -62,60 +62,63 @@
 
   <h3 *ngIf="incompleteAssignments.length === 0" class="no-items-text">No items</h3>
 
-  <h3 class="completed-heading">Completed items</h3>
-  <hr class="completed-hr" />
-  <table mat-table [dataSource]="completeAssignments" *ngIf="!isLoading">
-    <ng-container matColumnDef="room">
-      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-      <td mat-cell *matCellDef="let item">
-        {{ item.room }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="task">
-      <th mat-header-cell *matHeaderCellDef>Task</th>
-      <td mat-cell *matCellDef="let item">
-        {{ item.task }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="comments">
-      <th mat-header-cell *matHeaderCellDef>Comments</th>
-      <td mat-cell *matCellDef="let item" class="comments-field">
-        {{ item.comments }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="requestedBy">
-      <th mat-header-cell *matHeaderCellDef>Requested by</th>
-      <td mat-cell *matCellDef="let item">{{ item.requestedBy }}</td>
-    </ng-container>
-    <ng-container matColumnDef="requestedAt">
-      <th mat-header-cell *matHeaderCellDef>Requested at</th>
-      <td mat-cell *matCellDef="let item">
-        {{ item.requestedAt | date : 'dd/MM HH:mm' }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="performedBy">
-      <th mat-header-cell *matHeaderCellDef>Performed by</th>
-      <td mat-cell *matCellDef="let item">
-        {{ item.performedBy }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="completedAt">
-      <th mat-header-cell *matHeaderCellDef>Performed at</th>
-      <td mat-cell *matCellDef="let item">
-        {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
-      </td>
-    </ng-container>
+  <div *ngIf="completeAssignments.length > 0">
+    <h3 class="completed-heading">Completed items</h3>
+    <hr class="completed-hr" />
 
-    <tr mat-header-row *matHeaderRowDef="assignmentColumns"></tr>
-    <tr
-      mat-row
-      [ngClass]="row.completedAt ? 'completed' : ''"
-      *matRowDef="let row; columns: assignmentColumns"
-      (click)="openEditDialog(row)"
-    ></tr>
-  </table>
+    <table mat-table [dataSource]="completeAssignments" *ngIf="!isLoading">
+      <ng-container matColumnDef="room">
+        <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+        <td mat-cell *matCellDef="let item">
+          {{ item.room }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="task">
+        <th mat-header-cell *matHeaderCellDef>Task</th>
+        <td mat-cell *matCellDef="let item">
+          {{ item.task }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="comments">
+        <th mat-header-cell *matHeaderCellDef>Comments</th>
+        <td mat-cell *matCellDef="let item" class="comments-field">
+          {{ item.comments }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="requestedBy">
+        <th mat-header-cell *matHeaderCellDef>Requested by</th>
+        <td mat-cell *matCellDef="let item">{{ item.requestedBy }}</td>
+      </ng-container>
+      <ng-container matColumnDef="requestedAt">
+        <th mat-header-cell *matHeaderCellDef>Requested at</th>
+        <td mat-cell *matCellDef="let item">
+          {{ item.requestedAt | date : 'dd/MM HH:mm' }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="performedBy">
+        <th mat-header-cell *matHeaderCellDef>Performed by</th>
+        <td mat-cell *matCellDef="let item">
+          {{ item.performedBy }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="completedAt">
+        <th mat-header-cell *matHeaderCellDef>Performed at</th>
+        <td mat-cell *matCellDef="let item">
+          {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
+        </td>
+      </ng-container>
 
-  <div class="table-spinner-full-size" *ngIf="isLoading">
-    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+      <tr mat-header-row *matHeaderRowDef="assignmentColumns"></tr>
+      <tr
+        mat-row
+        [ngClass]="row.completedAt ? 'completed' : ''"
+        *matRowDef="let row; columns: assignmentColumns"
+        (click)="openEditDialog(row)"
+      ></tr>
+    </table>
+
+    <div class="table-spinner-full-size" *ngIf="isLoading">
+      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+    </div>
   </div>
 </main>
