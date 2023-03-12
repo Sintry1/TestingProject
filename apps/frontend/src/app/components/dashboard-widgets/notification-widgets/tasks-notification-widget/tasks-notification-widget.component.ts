@@ -34,7 +34,7 @@ export class TasksNotificationWidgetComponent implements OnInit {
         console.error(err);
       },
     });
-    
+
     // TODO: Create a better solution for this
     setTimeout(() => {
       this.getOldest();

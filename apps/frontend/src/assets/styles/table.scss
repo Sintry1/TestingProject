@@ -3,10 +3,6 @@ table {
   box-shadow: none;
 }
 
-.table-height {
-  flex: 1;
-}
-
 .comments-field {
   padding: 10px !important;
   text-align: left !important;
@@ -127,6 +123,15 @@ td.mat-cell {
   // &:nth-child(odd) {
   //   background-color: var(--main-blue-opacity-15) !important;
   // }
+}
+
+.completed-hr {
+  margin-top: 0;
+}
+
+.completed-heading {
+  margin: 1em 0 0 0.5em;
+  font-size: 1.25em;
 }
 
 .remove-error-message {
