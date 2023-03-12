@@ -1,0 +1,43 @@
+<div
+  class="notification-widget-container"
+  [ngClass]="{
+    ready:
+      timeIsPassed21 && nonCompletedCheckinList.length > 0 && nonCompletedCheckoutList.length > 0
+  }"
+>
+  <div class="header">
+    <h3>Check In / Check out</h3>
+    <img
+      *ngIf="nonCompletedCheckinList.length + nonCompletedCheckoutList.length > 0 && timeIsPassed21"
+      src="assets/icons/alerts/warning-alert-icon.svg"
+      alt="alert icon"
+    />
+  </div>
+
+  <p
+    *ngIf="
+      nonCompletedCheckinList.length > 0 && timeIsPassed21 && nonCompletedCheckoutList.length > 0
+    "
+  >
+    21:00 | Time til |
+
+    <frontend-countdown
+      [nextTime]="timeTil21"
+      [displayTimeLeftText]="false"
+      [displayAlways]="true"
+    ></frontend-countdown>
+  </p>
+
+  <div class="data-container">
+    <span
+      routerLink="/checkin"
+      [ngClass]="{ ready: timeIsPassed21 && nonCompletedCheckinList.length > 0 }"
+      >Check In <br />({{ nonCompletedCheckinList.length }})</span
+    >
+    <span
+      routerLink="/checkout"
+      [ngClass]="{ ready: timeIsPassed21 && nonCompletedCheckoutList.length > 0 }"
+      >Check Out <br />({{ nonCompletedCheckoutList.length }})</span
+    >
+  </div>
+</div>

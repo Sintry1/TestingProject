@@ -6,7 +6,7 @@ import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util
 @Component({
   selector: 'frontend-tasks-notification-widget',
   templateUrl: './tasks-notification-widget.component.html',
-  styleUrls: ['./tasks-notification-widget.component.scss'],
+  styleUrls: ['../../../../../assets/styles/notification-widget.scss'],
 })
 export class TasksNotificationWidgetComponent implements OnInit {
   tasksList: ITask[] = [];
@@ -28,12 +28,13 @@ export class TasksNotificationWidgetComponent implements OnInit {
       next: (result) => {
         this.tasksList = filterByCompletedAtAndOrderResults(result.tasks, false, new Date());
         this.UpdateTasksListNumbers();
+        this.getOldest();
       },
       error: (err) => {
         console.error(err);
       },
     });
-
+    
     // TODO: Create a better solution for this
     setTimeout(() => {
       this.getOldest();

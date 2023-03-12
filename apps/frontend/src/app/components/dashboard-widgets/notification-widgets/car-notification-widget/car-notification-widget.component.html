@@ -1,6 +1,5 @@
 <div
-  class="car-widget-container"
-  routerLink="/car-list"
+  class="notification-widget-container"
   [ngClass]="{ ready: readyCarList.length > 0, overdue: overdueCarList.length > 0 }"
 >
   <div class="header">
@@ -28,11 +27,11 @@
   </p>
 
   <div class="data-container">
-    <span>Future <br />({{ futureCarList.length }})</span>
-    <span class="ready" *ngIf="readyCarList.length > 0">
+    <span routerLink="/car-list">Future <br />({{ futureCarList.length }})</span>
+    <span routerLink="/car-list" class="ready" *ngIf="readyCarList.length > 0">
       Ready <br />({{ readyCarList.length }})
     </span>
-    <span class="overdue" *ngIf="overdueCarList.length > 0">
+    <span routerLink="/car-list" class="overdue" *ngIf="overdueCarList.length > 0">
       Overdue <br />({{ overdueCarList.length }})
     </span>
   </div>
