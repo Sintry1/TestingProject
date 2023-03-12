@@ -46,8 +46,106 @@
   </div>
   <hr />
 
-  <div class="table-height">
-    <table mat-table [dataSource]="filteredLuggage" *ngIf="!isLoading">
+  <table mat-table [dataSource]="incompleteLongTerm" *ngIf="!isLoading">
+    <ng-container matColumnDef="dateIn">
+      <th mat-header-cell *matHeaderCellDef>Date in</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.createdAt | date : 'dd/MM HH:mm' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.room }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nrOfBags">
+      <th mat-header-cell *matHeaderCellDef>Nr. <br />of bags</th>
+      <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+        <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
+          <span *ngIf="item.files.length > 0" class="file-number">
+            <img class="image-icon" src="assets/icons/view-files-icon.svg" alt="View files icon" />
+            ({{ item.files.length }})
+          </span>
+          <span> {{ item.bags }} </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef>Comments</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        {{ item.comments }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tagNr">
+      <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.tagNr }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateNeeded">
+      <th mat-header-cell *matHeaderCellDef>Date needed</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.dateNeeded ? (item.dateNeeded | date : 'dd/MM') : '' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bbLr">
+      <th mat-header-cell *matHeaderCellDef>BB <br />in LR</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.bbLr }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.location }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bbOut">
+      <th mat-header-cell *matHeaderCellDef>BB out</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.bbOut }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOut">
+      <th mat-header-cell *matHeaderCellDef>Date out</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      [ngClass]="row.completedAt ? 'completed' : ''"
+      data-cy="long-term-list-entry"
+    ></tr>
+  </table>
+
+  <h3 *ngIf="incompleteLongTerm.length === 0" class="no-items-text">No items</h3>
+
+  <div *ngIf="completedLongTerm.length > 0">
+    <h3 class="completed-heading">Completed items</h3>
+    <hr class="completed-hr" />
+
+    <table mat-table [dataSource]="completedLongTerm" *ngIf="!isLoading">
       <ng-container matColumnDef="dateIn">
         <th mat-header-cell *matHeaderCellDef>Date in</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
