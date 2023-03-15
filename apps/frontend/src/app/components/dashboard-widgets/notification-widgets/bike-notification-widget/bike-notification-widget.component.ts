@@ -83,11 +83,7 @@ export class BikeNotificationWidgetComponent implements OnInit {
       const expirationTime = new Date(bike.pickUpTime).getTime();
 
       // Check that the expirationTime current time has passed
-      if (expirationTime <= now) {
-        return true;
-      } else {
-        return false;
-      }
+      return expirationTime <= now;
     });
 
     // Remove bikes from the future list
