@@ -63,7 +63,10 @@ export class CountdownComponent implements OnInit, OnDestroy {
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
 
-    const time = hours > 0 ? `${this.pad(hours)} t ${this.pad(minutes % 60)} m` : `${this.pad(minutes % 60)} m`;
+    const time =
+      hours > 0
+        ? `${this.pad(hours)} h ${this.pad(minutes % 60)} m`
+        : `${this.pad(minutes % 60)} m`;
 
     return time;
   }
