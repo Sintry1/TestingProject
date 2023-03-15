@@ -26,7 +26,7 @@ export class BikeService {
       query = `?to=${to}`;
     }
 
-    return this.http.get<IBike[]>(`${env.apiUrl}/bikes${query}`);
+    return this.http.get<IBike[]>(`${env.apiUrl}/bikes/all${query}`);
   }
 
   public getBike(

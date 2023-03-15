@@ -50,7 +50,7 @@ import { LuggagesService } from './luggages.service';
 export class LuggagesController {
   constructor(private luggagesService: LuggagesService) {}
 
-  @Get(':luggageType')
+  @Get('all/:luggageType')
   @ApiOperation({
     summary: 'Get a list of all luggages, or luggages from a given range of dates.',
   })

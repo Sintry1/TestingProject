@@ -49,7 +49,7 @@ import { CarsService } from './cars.service';
 export class CarsController {
   constructor(private carsService: CarsService) {}
 
-  @Get()
+  @Get('all')
   @ApiOperation({
     summary: 'Get a list of all cars, or cars from a given range of dates.',
   })

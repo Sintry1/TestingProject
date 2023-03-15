@@ -27,7 +27,7 @@ export class CarService {
       query = `?to=${to}`;
     }
 
-    return this.http.get<ICar[]>(`${env.apiUrl}/cars${query}`);
+    return this.http.get<ICar[]>(`${env.apiUrl}/cars/all${query}`);
   }
 
   public getCar(
