@@ -18,7 +18,11 @@ import { environment as env } from '../../environments/environment';
 export class LuggageService {
   constructor(private http: HttpClient) {}
 
-  public getLuggagesWithinRange(type: LuggageType, from?: string, to?: string): Observable<ILuggage[]> {
+  public getLuggagesWithinRange(
+    type: LuggageType,
+    from?: string,
+    to?: string
+  ): Observable<ILuggage[]> {
     let query = '';
     if (from && to) {
       query = `?from=${from}&to=${to}`;
