@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { CarSortOptions, ICar, SortOrder } from '@omnihost/interfaces';
-import { CarService } from '../../../../services/car.service';
+import { BikeSortOptions, IBike, SortOrder } from '@omnihost/interfaces';
+import { BikeService } from '../../../../services/bikes.service';
 import { filterByCompletedAtAndOrderResults } from '../../../../utils/order.util';
 
 @Component({
-  selector: 'frontend-car-notification-widget',
-  templateUrl: './car-notification-widget.component.html',
+  selector: 'frontend-bike-notification-widget',
+  templateUrl: './bike-notification-widget.component.html',
   styleUrls: ['../../../../../assets/styles/notification-widget.scss'],
 })
-export class CarNotificationWidgetComponent implements OnInit {
-  originalCarList: ICar[] = [];
-  futureCarList: ICar[] = [];
-  readyCarList: ICar[] = [];
-  overdueCarList: ICar[] = [];
-  sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
+export class BikeNotificationWidgetComponent implements OnInit {
+  originalBikeList: IBike[] = [];
+  futureBikeList: IBike[] = [];
+  readyBikeList: IBike[] = [];
+  overdueBikeList: IBike[] = [];
+  sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
   nextPickUp: Date | undefined = undefined;
   timeTillPickup = new Date();
 
-  constructor(private carService: CarService) {}
+  constructor(private bikeService: BikeService) {}
 
   ngOnInit(): void {
     // Instead of display date, im just using today, since the notifications wont make sense being viewed in the past.
-    this.carService.getCar(new Date(), this.sortBy, this.sortOrder, this.search).subscribe({
-      next: (cars) => {
-        this.originalCarList = filterByCompletedAtAndOrderResults(cars, false, new Date());
-        this.originalCarList = this.originalCarList.filter((car) => !car.completedAt);
-        this.futureCarList = this.originalCarList;
-        this.UpdateCarListNumbers();
+    this.bikeService.getBike(new Date(), this.sortBy, this.sortOrder, this.search).subscribe({
+      next: (bikes) => {
+        this.originalBikeList = filterByCompletedAtAndOrderResults(bikes, false, new Date());
+        this.originalBikeList = this.originalBikeList.filter((bike) => !bike.completedAt);
+        this.futureBikeList = this.originalBikeList;
+        this.UpdateBikeListNumbers();
         this.getOldest();
       },
       error: (err) => {
@@ -39,60 +39,68 @@ export class CarNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
-    let oldestCar = this.originalCarList[0];
+    let oldestBike = this.originalBikeList[0];
 
-    for (const car of this.originalCarList) {
-      if (car.pickUpTime && oldestCar.pickUpTime) {
-        if (car.pickUpTime < oldestCar.pickUpTime) {
-          oldestCar = car;
+    for (const bike of this.originalBikeList) {
+      if (bike.pickUpTime && oldestBike.pickUpTime) {
+        if (bike.pickUpTime < oldestBike.pickUpTime) {
+          oldestBike = bike;
         }
       }
     }
 
-    if (oldestCar.pickUpTime) {
-      this.nextPickUp = oldestCar.pickUpTime;
+    if (oldestBike.pickUpTime) {
+      this.nextPickUp = oldestBike.pickUpTime;
     }
   }
 
-  UpdateCarListNumbers(): void {
-    const THIRTY_MINUTES = 30 * 60 * 1000; // Convert 30 minutes to milliseconds
+  UpdateBikeListNumbers(): void {
+    const ONE_HOUR = 60 * 60 * 1000; // Convert 60 minutes to milliseconds
     const now = new Date().getTime();
-
-    this.readyCarList = this.futureCarList.filter((car) => {
-      if (!car.pickUpTime) {
+    this.futureBikeList = this.originalBikeList.filter((bike) => {
+      if (!bike.pickUpTime) {
         return false;
       }
-      const expirationTime = new Date(car.pickUpTime).getTime();
-
-      // Check that the time is within 30 min        &  check that the time hasn't been passed yet
-      if (expirationTime - now < THIRTY_MINUTES && expirationTime - now > 0) {
-        // remove cars from the future list
-        this.futureCarList = this.futureCarList.filter(
-          (currentCar) => currentCar.carId !== car.carId
-        );
+      const expirationTime = new Date(bike.pickUpTime).getTime();
+      // Check that the time is at least 1hr in the future
+      if (expirationTime >= now + ONE_HOUR) {
         return true;
       } else {
         return false;
       }
     });
 
-    this.overdueCarList = this.futureCarList.filter((car) => {
-      if (!car.pickUpTime) {
+    this.readyBikeList = this.originalBikeList.filter((bike) => {
+      if (!bike.pickUpTime) {
         return false;
       }
-      const expirationTime = new Date(car.pickUpTime).getTime();
+      const expirationTime = new Date(bike.pickUpTime).getTime();
 
-      // Check that the expirationTime current time has passed
-      if (expirationTime < now) {
-        // remove cars from the future list
-        this.futureCarList = this.futureCarList.filter((currentCar) => {
-          return currentCar.carId !== car.carId;
-        });
-
+      // Check that the time is within 1hr & check that the time hasn't been passed yet
+      if (expirationTime < now + ONE_HOUR && expirationTime > now) {
         return true;
       } else {
         return false;
       }
+    });
+
+    this.overdueBikeList = this.originalBikeList.filter((bike) => {
+      if (!bike.pickUpTime) {
+        return false;
+      }
+      const expirationTime = new Date(bike.pickUpTime).getTime();
+
+      // Check that the expirationTime current time has passed
+      if (expirationTime <= now) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    // Remove bikes from the future list
+    this.futureBikeList = this.futureBikeList.filter((bike) => {
+      return !this.readyBikeList.includes(bike) && !this.overdueBikeList.includes(bike);
     });
   }
 }

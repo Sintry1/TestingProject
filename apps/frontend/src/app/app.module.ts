@@ -59,6 +59,7 @@ import { DashboardAnnouncementsSectionComponent } from './components/dashboard-s
 import { TasksNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/tasks-notification-widget/tasks-notification-widget.component';
 import { CheckinCheckoutNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/checkin-checkout-notification-widget/checkin-checkout-notification-widget.component';
 import { CsvExportComponent } from './components/csv-export/csv-export.component';
+import { BikeNotificationWidgetComponent } from './components/dashboard-widgets/notification-widgets/bike-notification-widget/bike-notification-widget.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { CsvExportComponent } from './components/csv-export/csv-export.component
     DashboardAnnouncementsSectionComponent,
     CheckinCheckoutNotificationWidgetComponent,
     TasksNotificationWidgetComponent,
+    BikeNotificationWidgetComponent,
     CsvExportComponent,
   ],
   imports: [
