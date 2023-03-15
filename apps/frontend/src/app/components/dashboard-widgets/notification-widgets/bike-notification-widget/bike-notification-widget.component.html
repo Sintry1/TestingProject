@@ -1,16 +1,16 @@
 <div
   class="notification-widget-container"
-  [ngClass]="{ ready: readyCarList.length > 0, overdue: overdueCarList.length > 0 }"
+  [ngClass]="{ ready: readyBikeList.length > 0, overdue: overdueBikeList.length > 0 }"
 >
   <div class="header">
-    <h3>Cars</h3>
+    <h3>Bikes</h3>
     <img
-      *ngIf="overdueCarList.length > 0"
+      *ngIf="overdueBikeList.length > 0"
       src="assets/icons/alerts/critical-alert-icon.svg"
       alt="alert icon"
     />
     <img
-      *ngIf="readyCarList.length > 0 && overdueCarList.length === 0"
+      *ngIf="readyBikeList.length > 0 && overdueBikeList.length === 0"
       src="assets/icons/alerts/warning-alert-icon.svg"
       alt="alert icon"
     />
@@ -27,12 +27,12 @@
   </p>
 
   <div class="data-container">
-    <span routerLink="/car-list">Future <br />({{ futureCarList.length }})</span>
-    <span routerLink="/car-list" [class]="{ ready: readyCarList.length > 0 }">
-      Ready <br />({{ readyCarList.length }})
+    <span routerLink="/bikes">Future <br />({{ futureBikeList.length }})</span>
+    <span routerLink="/bikes" [class]="{ ready: readyBikeList.length > 0 }">
+      Ready <br />({{ readyBikeList.length }})
     </span>
-    <span routerLink="/car-list" [class]="{ overdue: overdueCarList.length > 0 }">
-      Overdue <br />({{ overdueCarList.length }})
+    <span routerLink="/bikes" [class]="{ overdue: overdueBikeList.length > 0 }">
+      Overdue <br />({{ overdueBikeList.length }})
     </span>
   </div>
 </div>
