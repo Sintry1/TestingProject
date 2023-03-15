@@ -28,10 +28,10 @@
 
   <div class="data-container">
     <span routerLink="/bikes">Future <br />({{ futureBikeList.length }})</span>
-    <span routerLink="/bikes" class="ready" *ngIf="readyBikeList.length > 0">
+    <span routerLink="/bikes" [class]="{ ready: readyBikeList.length > 0 }">
       Ready <br />({{ readyBikeList.length }})
     </span>
-    <span routerLink="/bikes" class="overdue" *ngIf="overdueBikeList.length > 0">
+    <span routerLink="/bikes" [class]="{ overdue: overdueBikeList.length > 0 }">
       Overdue <br />({{ overdueBikeList.length }})
     </span>
   </div>
