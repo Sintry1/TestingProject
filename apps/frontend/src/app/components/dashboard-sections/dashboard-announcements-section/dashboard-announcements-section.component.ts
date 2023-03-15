@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AnnouncementSortOptions, IAnnouncement, SortOrder, AnnouncementStatus } from '@omnihost/interfaces';
+import {
+  AnnouncementSortOptions,
+  IAnnouncement,
+  SortOrder,
+  AnnouncementStatus,
+} from '@omnihost/interfaces';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
@@ -58,8 +63,10 @@ export class DashboardAnnouncementsSectionComponent implements OnInit {
     this.isLoading = true;
     this.announcementService.getAnnouncements(this.sortBy, this.sortOrder, this.search).subscribe({
       next: (announcements) => {
-        this.announcementList = announcements.filter(announcement => {
-          return this.getStatus(announcement.showFrom, announcement.showTo) === AnnouncementStatus.ACTIVE;
+        this.announcementList = announcements.filter((announcement) => {
+          return (
+            this.getStatus(announcement.showFrom, announcement.showTo) === AnnouncementStatus.ACTIVE
+          );
         });
         this.isLoading = false;
       },

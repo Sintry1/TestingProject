@@ -65,7 +65,7 @@ export class CarsController {
   ) {
     const fromDate = from ? new Date(Date.parse(from)) : undefined;
     const toDate = to ? new Date(Date.parse(to)) : undefined;
-    
+
     return this.carsService.findAll(fromDate, toDate);
   }
 

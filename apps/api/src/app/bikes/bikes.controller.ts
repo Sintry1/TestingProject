@@ -56,7 +56,7 @@ export class BikesController {
   ) {
     const fromDate = from ? new Date(Date.parse(from)) : undefined;
     const toDate = to ? new Date(Date.parse(to)) : undefined;
-    
+
     return this.bikesService.findAll(fromDate, toDate);
   }
 
