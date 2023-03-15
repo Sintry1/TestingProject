@@ -73,11 +73,7 @@ export class BikeNotificationWidgetComponent implements OnInit {
       const expirationTime = new Date(bike.pickUpTime).getTime();
 
       // Check that the time is within 1hr & check that the time hasn't been passed yet
-      if (expirationTime < now + ONE_HOUR && expirationTime > now) {
-        return true;
-      } else {
-        return false;
-      }
+      return expirationTime < now + ONE_HOUR && expirationTime > now;
     });
 
     this.overdueBikeList = this.originalBikeList.filter((bike) => {
