@@ -1,9 +1,13 @@
 <section class="dialog-container">
+  <div class="title-container">
+    <h1>Table info - {{ displayInfo?.tableName }}</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
+  <hr />
   <table class="info-table">
     <tr class="header">
       <th>Name</th>
       <th>Explanation</th>
-      <button mat-dialog-close type="button" class="close-button">X</button>
     </tr>
     <tr *ngFor="let attribute of displayInfo?.tableInformation">
       <td class="name">{{ attribute.name }}</td>
