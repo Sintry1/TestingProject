@@ -1,0 +1,1 @@
+export const stripUuid = (string: string): string => string.slice(36);
