@@ -11,7 +11,7 @@ import { getRandomInt, uploadFileToLinode } from './utils.service';
 
 @Injectable()
 export class DocumentsSeederService {
-  uploadedFileName = 'document.pdf';
+  uploadedFileName = 'bd53de32-f76e-4b5d-8204-cc7edbfa3946document.pdf';
   constructor(
     @InjectRepository(Document)
     private readonly repo: Repository<Document>

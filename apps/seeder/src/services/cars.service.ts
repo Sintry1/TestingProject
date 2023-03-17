@@ -19,7 +19,7 @@ import {
 
 @Injectable()
 export class CarsSeederService {
-  uploadedFileName = `car.jpg`;
+  uploadedFileName = `218410d6-8a45-485c-9966-5e34ad3c79d4car.jpg`;
 
   constructor(
     @InjectRepository(Car)
@@ -27,7 +27,7 @@ export class CarsSeederService {
   ) {}
 
   create(): Array<Promise<Car>> {
-    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/218410d6-8a45-485c-9966-5e34ad3c79d4stock-car.jpg'));
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-car.jpg'));
     uploadFileToLinode(fileBuffer, this.uploadedFileName);
 
     return this.generate().map(async (car: ICar) => {
