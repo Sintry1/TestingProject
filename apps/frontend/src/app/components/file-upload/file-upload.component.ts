@@ -107,6 +107,15 @@ export class FileUploadComponent implements OnInit {
   }
 
   /**
+   * Strips the UUID that has been prepended to the filename.
+   * @param string 
+   * @returns string
+   */
+  stripUuid(string: string): string {
+    return string.slice(36);
+  }
+
+  /**
    * Get a formatted file name that is limited to 20 characters + extension.
    * @param filename the original file name.
    * @returns the formatted name.
