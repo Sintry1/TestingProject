@@ -38,6 +38,7 @@ import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { validateFileType } from '../files/files.service';
+import { prependUuid } from '../utils/files.utils';
 import { toBool } from '../utils/query-params.utils';
 import { CarsService } from './cars.service';
 
@@ -134,6 +135,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
@@ -154,6 +156,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })
@@ -175,6 +178,7 @@ export class CarsController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES_AND_VIDEO);
       },
     })

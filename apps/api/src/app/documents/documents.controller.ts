@@ -41,6 +41,7 @@ import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { toBool } from '../utils/query-params.utils';
 import { DocumentsService } from './documents.service';
+import { prependUuid } from '../utils/files.utils';
 
 const FILE_MAX_SIZE = 50000000;
 const FILE_TYPES = /(pdf|docx)\b/;
@@ -119,6 +120,7 @@ export class DocumentsController {
     document: Express.Multer.File,
     @Body() documentData: CreateDocumentRequest
   ) {
+    document.originalname = prependUuid(document.originalname);
     return this.documentsService.createDocument(documentData, document);
   }
 
@@ -168,6 +170,7 @@ export class DocumentsController {
     )
     document: Express.Multer.File
   ) {
+    document.originalname = prependUuid(document.originalname);
     return this.documentsService.updateDocumentFile(documentId, document);
   }
 

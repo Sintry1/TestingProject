@@ -36,6 +36,7 @@ import { Announcement } from '@omnihost/models';
 import 'multer';
 import { Roles } from '../auth/roles.decorator';
 import { validateFileType } from '../files/files.service';
+import { prependUuid } from '../utils/files.utils';
 import { AnnouncementsService } from './announcements.service';
 
 @ApiTags('Announcements')
@@ -108,6 +109,7 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })
@@ -130,6 +132,7 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })
@@ -166,6 +169,7 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })

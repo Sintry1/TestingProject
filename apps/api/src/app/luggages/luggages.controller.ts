@@ -39,6 +39,7 @@ import { JwtAccessAuthGuard } from '../auth/jwt-auth-access.guard';
 import { Roles } from '../auth/roles.decorator';
 import { RequiredQuery } from '../decorators/required-query.decorator';
 import { validateFileType } from '../files/files.service';
+import { prependUuid } from '../utils/files.utils';
 import { toBool } from '../utils/query-params.utils';
 import { LuggagesService } from './luggages.service';
 
@@ -148,6 +149,7 @@ export class LuggagesController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
@@ -169,6 +171,7 @@ export class LuggagesController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
@@ -191,6 +194,7 @@ export class LuggagesController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })

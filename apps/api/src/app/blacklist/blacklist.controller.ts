@@ -31,6 +31,7 @@ import {
 import { Blacklist } from '@omnihost/models';
 import { Roles } from '../auth/roles.decorator';
 import { FilesService, validateFileType } from '../files/files.service';
+import { prependUuid } from '../utils/files.utils';
 import { BlacklistService } from './blacklist.service';
 
 @ApiTags('Blacklist')
@@ -51,6 +52,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 10, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
@@ -93,6 +95,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
@@ -115,6 +118,7 @@ export class BlacklistController {
   @UseInterceptors(
     FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
+        file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
       },
     })
