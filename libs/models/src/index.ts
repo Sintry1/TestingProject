@@ -9,3 +9,4 @@ export * from './lib/reset-password-token.entity';
 export * from './lib/task.entity';
 export * from './lib/token.entity';
 export * from './lib/user.entity';
+export * from './lib/blacklist.entity';

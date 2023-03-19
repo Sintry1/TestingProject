@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
@@ -10,15 +10,20 @@ import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { downloadCsv } from '../../utils/export.util';
+import { toExportFilenameString } from '../../utils/date.util';
 
 @Component({
   selector: 'frontend-bikes',
   templateUrl: './bikes.component.html',
   styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
 })
-export class BikesComponent implements OnInit {
-  originalBikeList: IBike[] = [];
-  filteredBikeList: IBike[] = [];
+export class BikesComponent {
+  originalBikes: IBike[] = [];
+  filteredBikes: IBike[] = [];
+  completedBikes: IBike[] = [];
+  incompleteBikes: IBike[] = [];
   displayDate = new Date();
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
@@ -36,6 +41,25 @@ export class BikesComponent implements OnInit {
     'bikeFormCompleted',
   ];
 
+  bikeHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Nr. of bikes',
+    'Pick up time',
+    'Name',
+    'Room nr.',
+    'Reserved by',
+    'Bike form completed',
+    'Comments',
+    'BB Out',
+    'BB In',
+    'Time out',
+    'Time in',
+  ];
+  exportFilename = 'bikes-data';
+  unwantedExportFields = ['bikeId'];
+
   constructor(
     private readonly bikeService: BikeService,
     private displayDateService: DisplayDateService,
@@ -45,25 +69,23 @@ export class BikesComponent implements OnInit {
   ) {
     this.displayDateService.getDisplayDateSubject().subscribe((date) => {
       this.displayDate = new Date(date);
-      this.fetchBikeList();
+      this.fetchBikes();
     });
   }
 
-  ngOnInit(): void {
-    this.fetchBikeList();
-  }
-
-  fetchBikeList(): void {
+  fetchBikes(): void {
     this.isLoading = true;
 
     this.bikeService.getBike(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (bikes) => {
-        this.originalBikeList = bikes;
-        this.filteredBikeList = filterByCompletedAtAndOrderResults(
-          this.originalBikeList,
+        this.originalBikes = bikes;
+        this.filteredBikes = filterByCompletedAtAndOrderResults(
+          this.originalBikes,
           false,
           this.displayDate
         );
+        this.completedBikes = this.filteredBikes.filter((bike) => bike.completedAt);
+        this.incompleteBikes = this.filteredBikes.filter((bike) => !bike.completedAt);
         this.isLoading = false;
       },
       error: (error) => {
@@ -80,14 +102,15 @@ export class BikesComponent implements OnInit {
     });
   }
 
-  updateBikeFormCompleted(bikeId: string, bikeFormCompleted: boolean): void {
+  updateBikeFormCompleted(bike: IBike): void {
     this.bikeService
-      .updateBike(bikeId, {
-        bikeFormCompleted: !bikeFormCompleted,
+      .updateBike(bike.bikeId, {
+        bikeFormCompleted: !bike.bikeFormCompleted,
       })
       .subscribe({
         next: () => {
           this.snackbar.open('Bike updated!', 'Thanks', { duration: 5000 });
+          bike.bikeFormCompleted = !bike.bikeFormCompleted;
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -102,17 +125,50 @@ export class BikesComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.BIKES,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openCreateBikeDialog() {
-    this.dialog.open(CreateBikeDialogComponent, { width: '600px' });
+  openCreateDialog() {
+    this.dialog.open(CreateBikeDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openDialogEdit(bikeListEntry: IBike) {
+  openEditDialog(BikesEntry: IBike) {
     this.dialog.open(UpdateBikeDialogComponent, {
       width: '600px',
-      data: bikeListEntry,
+      disableClose: true,
+      data: BikesEntry,
+      autoFocus: false,
+    });
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.bikeService.getBikesWithinRange(from, to).subscribe({
+            next: (bikes) => {
+              this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });
+              downloadCsv(
+                bikes,
+                this.bikeHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackbar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
     });
   }
 }

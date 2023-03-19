@@ -47,6 +47,7 @@ services:
       API_POSTGRES_DATABASE: ${API_POSTGRES_DATABASE:-omnihost}
       API_GLOBAL_CORS_ALLOWED_ORIGIN: ${API_GLOBAL_CORS_ALLOWED_ORIGIN}
       API_JWT_SECRET: ${API_JWT_SECRET}
+      API_MANAGER_PASSWORD: ${API_MANAGER_PASSWORD:-'abcDEF123'}
       API_SENDGRID_API_KEY: ${API_SENDGRID_API_KEY:-''}
       API_SENTRY_DSN: ${API_SENTRY_DSN:-''}
       API_SENTRY_TRACING_SAMPLE_RATE: ${API_SENTRY_TRACING_SAMPLE_RATE:-1.0}
@@ -86,7 +87,8 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - ${API_POSTGRES_PORT:-5432}:5432
+      - ${API_POSTGRES_PORT:-5432}:${API_POSTGRES_PORT:-5432}
+    command: -p ${API_POSTGRES_PORT:-5432}
     networks:
       - omnihost-net
 

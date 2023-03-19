@@ -1,0 +1,13 @@
+.alert-container {
+  position: absolute;
+  top: -9px;
+  right: 9px;
+  width: 0;
+}
+
+::ng-deep {
+  .mat-tab-label-content {
+    font-weight: bold;
+    color: var(--main-blue);
+  }
+}

@@ -1,3 +1,4 @@
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -17,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -36,6 +38,7 @@ export const materialModules = [
   MatFormFieldModule,
   MatSnackBarModule,
   MatSelectModule,
+  MatAutocompleteModule,
   MatGridListModule,
   MatTooltipModule,
   MatDialogModule,
@@ -44,4 +47,5 @@ export const materialModules = [
   MatSlideToggleModule,
   MatExpansionModule,
   MatCheckboxModule,
+  MatTabsModule,
 ];

@@ -16,3 +16,7 @@ export const bags = [
 ];
 
 export const luggageComments = ['Fragile', 'Very heavy'];
+
+export const luggageLongtermLocation = ['LR', 'LR1'];
+
+export const luggageCheckInCheckOutLocation = ['LR', 'LR1', 'S1'];

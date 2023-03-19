@@ -1,5 +1,8 @@
-<form [formGroup]="updateDocumentForm" (ngSubmit)="onSubmit()" class="dialog-container">
-  <h1>Update document</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-container">
+  <div class="title-container">
+    <h1>Update Document</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
   <hr />
 
   <div class="dialog-row"></div>

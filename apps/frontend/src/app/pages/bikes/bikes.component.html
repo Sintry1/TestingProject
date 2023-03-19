@@ -3,7 +3,7 @@
     <div>
       <mat-form-field style="width: 150px" class="remove-error-message">
         <mat-label>Sort By</mat-label>
-        <mat-select [(value)]="sortBy" (selectionChange)="fetchBikeList()">
+        <mat-select [(value)]="sortBy" (selectionChange)="fetchBikes()">
           <mat-option value="createdAt">Created at</mat-option>
           <mat-option value="completedAt">Completed at</mat-option>
           <mat-option value="bikeFormCompleted">Missing bike form</mat-option>
@@ -22,84 +22,160 @@
           placeholder="Search ..."
           matInput
           [(ngModel)]="search"
-          (change)="fetchBikeList()"
+          (change)="fetchBikes()"
         />
       </mat-form-field>
     </div>
 
     <div class="table-buttons">
-      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table info</button>
-      <button class="action-btn" (click)="openCreateBikeDialog()" mat-raised-button>
-        Add Bike
+      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table Info</button>
+      <button class="action-btn" (click)="openCreateDialog()" mat-raised-button>Add Bike</button>
+      <button class="secondary-btn" (click)="openCsvExportDialog()" mat-raised-button>
+        <img src="assets/icons/export-icon.svg" alt="export icon" class="export-icon" />
       </button>
     </div>
   </div>
   <hr />
 
-  <div class="table-height">
-    <table mat-table [dataSource]="filteredBikeList" *ngIf="!isLoading">
+  <table mat-table [dataSource]="incompleteBikes" *ngIf="!isLoading">
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.room }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="reservedBy">
+      <th mat-header-cell *matHeaderCellDef>Reserved by</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.reservedBy }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nrOfBikes">
+      <th mat-header-cell *matHeaderCellDef>Nr. of bikes</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.nrOfBikes }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pickUpTime">
+      <th mat-header-cell *matHeaderCellDef>Pick up time</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : '' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="completedAt">
+      <th mat-header-cell *matHeaderCellDef>Returned</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef>Comments</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        {{ item.comments }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bikeFormCompleted">
+      <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
+      <td mat-cell *matCellDef="let item">
+        <label class="checkbox-container car-checkbox">
+          <input
+            type="checkbox"
+            [checked]="item.bikeFormCompleted"
+            (change)="updateBikeFormCompleted(item)"
+          />
+          <span class="checkmark" style="top: 0; margin-left: 20px"></span>
+        </label>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="bikeColumns"></tr>
+    <tr
+      mat-row
+      [ngClass]="row.completedAt ? 'completed' : ''"
+      *matRowDef="let row; columns: bikeColumns"
+    ></tr>
+  </table>
+  <div class="table-spinner-full-size" *ngIf="isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+  </div>
+
+  <h3 *ngIf="incompleteBikes.length === 0" class="no-items-text">No items</h3>
+
+  <div *ngIf="completedBikes.length > 0">
+    <h3 class="completed-heading">Completed items</h3>
+    <hr class="completed-hr" />
+
+    <table mat-table [dataSource]="completedBikes" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.room }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.room }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.name }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.name }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="reservedBy">
         <th mat-header-cell *matHeaderCellDef>Reserved by</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.reservedBy }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.reservedBy }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="nrOfBikes">
         <th mat-header-cell *matHeaderCellDef>Nr. of bikes</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.nrOfBikes }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.nrOfBikes }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="pickUpTime">
         <th mat-header-cell *matHeaderCellDef>Pick up time</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.pickUpTime ? (element.pickUpTime | date : 'dd/MM HH:mm') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : '' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="completedAt">
         <th mat-header-cell *matHeaderCellDef>Returned</th>
-        <td mat-cell *matCellDef="let element" (click)="openDialogEdit(element)">
-          {{ element.completedAt ? (element.completedAt | date : 'dd/MM HH:mm') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td
-          mat-cell
-          *matCellDef="let element"
-          (click)="openDialogEdit(element)"
-          class="comments-field"
-        >
-          {{ element.comments ? element.comments : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+          {{ item.comments }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bikeFormCompleted">
         <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
-        <td mat-cell *matCellDef="let element">
+        <td mat-cell *matCellDef="let item">
           <label class="checkbox-container car-checkbox">
             <input
               type="checkbox"
-              [checked]="element.bikeFormCompleted"
-              (change)="updateBikeFormCompleted(element.bikeId, element.bikeFormCompleted)"
+              [checked]="item.bikeFormCompleted"
+              (change)="updateBikeFormCompleted(item)"
             />
             <span class="checkmark" style="top: 0; margin-left: 20px"></span>
           </label>
@@ -113,7 +189,6 @@
         *matRowDef="let row; columns: bikeColumns"
       ></tr>
     </table>
-
     <div class="table-spinner-full-size" *ngIf="isLoading">
       <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
     </div>

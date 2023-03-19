@@ -1,66 +1,55 @@
-<form [formGroup]="createAssignmentForm" (ngSubmit)="onSubmit()" class="dialog-container">
-  <h1>Add assignment</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="dialog-container">
+  <div class="title-container">
+    <h1>Add Assignment</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
   <hr />
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" />
-      <mat-error
-        *ngIf="createAssignmentForm.get('room')?.invalid && createAssignmentForm.get('room')?.dirty"
-      >
-        Must be a number from 100-999
-      </mat-error>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off">
+    <mat-form-field>
       <mat-label>Task</mat-label>
-      <mat-select formControlName="task">
-        <mat-option *ngFor="let task of bbAssignmentTask" [value]="task">
-          {{ task }}
+      <input #task matInput formControlName="task" [matAutocomplete]="taskOptions" />
+      <mat-autocomplete autoActiveFirstOption #taskOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredTasks | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="createAssignmentForm.get('task')?.invalid && createAssignmentForm.get('task')?.dirty"
-      >
-        Can't be more than 20 characters
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off">
+    <mat-form-field>
       <mat-label>Requested by</mat-label>
-      <mat-select formControlName="requestedBy">
-        <mat-option *ngFor="let requestedBy of bbAssignmentRequestedBy" [value]="requestedBy">
-          {{ requestedBy }}
+      <input matInput formControlName="requestedBy" [matAutocomplete]="requestByOptions" />
+      <mat-autocomplete autoActiveFirstOption #requestByOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRequestedBy | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="
-          createAssignmentForm.get('requestedBy')?.invalid &&
-          createAssignmentForm.get('requestedBy')?.dirty
-        "
-      >
-        Can't be more than 20 characters
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
-    <mat-form-field autocomplete="off">
+    <mat-form-field>
       <mat-label>Performed by</mat-label>
-      <mat-select formControlName="performedBy">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input matInput formControlName="performedBy" [matAutocomplete]="performedByOptions" />
+      <mat-autocomplete autoActiveFirstOption #performedByOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredPerformedBy | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="
-          createAssignmentForm.get('performedBy')?.invalid &&
-          createAssignmentForm.get('performedBy')?.dirty
-        "
-      >
-        Can't be more than 20 characters
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
@@ -95,11 +84,7 @@
       formControlName="comments"
       placeholder="Describe the task"
     ></textarea>
-    <mat-error
-      *ngIf="
-        createAssignmentForm.get('comments')?.invalid && createAssignmentForm.get('comments')?.dirty
-      "
-    >
+    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
       Can't be more than 1000 characters
     </mat-error>
   </mat-form-field>
@@ -107,7 +92,7 @@
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close type="button">Cancel</button>
     <button class="action-btn" mat-raised-button type="submit">
-      <div *ngIf="!isLoading">assignment</div>
+      <div *ngIf="!isLoading">Create</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>

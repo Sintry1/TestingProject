@@ -26,60 +26,177 @@
     </div>
 
     <div class="table-buttons">
-      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table info</button>
-      <button mat-raised-button class="action-btn" (click)="openCheckoutCreateDialog()">
+      <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table Info</button>
+      <button mat-raised-button class="action-btn" (click)="openCreateDialog()">
         Add Check Out
+      </button>
+      <button class="secondary-btn" (click)="openCsvExportDialog()" mat-raised-button>
+        <img src="assets/icons/export-icon.svg" alt="export icon" class="export-icon" />
       </button>
     </div>
   </div>
   <hr />
 
-  <div class="table-height">
-    <table mat-table [dataSource]="checkoutLuggage" *ngIf="!isLoading">
+  <table mat-table [dataSource]="incompleteCheckouts" *ngIf="!isLoading">
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.room }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.name }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="bags">
+      <th mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
+      <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+        <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
+          <span *ngIf="item.files.length > 0" class="file-number">
+            <img class="image-icon" src="assets/icons/view-files-icon.svg" alt="View files icon" />
+            ({{ item.files.length }})
+          </span>
+          <span> {{ item.bags }} </span>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="tagNr">
+      <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.tagNr }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="bbDown">
+      <th mat-header-cell *matHeaderCellDef>BB down</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.bbDown }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.location }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="bbLr">
+      <th mat-header-cell *matHeaderCellDef>BB<br />in LR</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.bbLr }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="completedAt">
+      <th mat-header-cell *matHeaderCellDef>Time out</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '' }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="bbOut">
+      <th mat-header-cell *matHeaderCellDef>BB out</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.bbOut }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef>Comments</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        {{ item.comments }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="checkoutColumns"></tr>
+    <tr
+      mat-row
+      [ngClass]="row.completedAt ? 'completed' : ''"
+      *matRowDef="let row; columns: checkoutColumns"
+    ></tr>
+  </table>
+
+  <h3 *ngIf="incompleteCheckouts.length === 0" class="no-items-text">No items</h3>
+
+  <div *ngIf="completeCheckouts.length > 0">
+    <h3 class="completed-heading">Completed items</h3>
+    <hr class="completed-hr" />
+
+    <table mat-table [dataSource]="completeCheckouts" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
         <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let item">{{ item.room }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.room }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.name }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="bags">
         <th mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
-        <td mat-cell *matCellDef="let item">{{ item.bags }}</td>
+        <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+          <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
+            <span *ngIf="item.files.length > 0" class="file-number">
+              <img
+                class="image-icon"
+                src="assets/icons/view-files-icon.svg"
+                alt="View files icon"
+              />
+              ({{ item.files.length }})
+            </span>
+            <span> {{ item.bags }} </span>
+          </div>
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="tagNr">
         <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
-        <td mat-cell *matCellDef="let item">{{ item.tagNr }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.tagNr }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="bbDown">
         <th mat-header-cell *matHeaderCellDef>BB down</th>
-        <td mat-cell *matCellDef="let item">{{ item.bbDown }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbDown }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="location">
         <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let item">{{ item.location }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.location }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="bbLr">
         <th mat-header-cell *matHeaderCellDef>BB<br />in LR</th>
-        <td mat-cell *matCellDef="let item">{{ item.bbLr }}</td>
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbLr }}
+        </td>
       </ng-container>
+
       <ng-container matColumnDef="completedAt">
         <th mat-header-cell *matHeaderCellDef>Time out</th>
-        <td mat-cell *matCellDef="let item">
-          {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '' }}
         </td>
       </ng-container>
+
       <ng-container matColumnDef="bbOut">
         <th mat-header-cell *matHeaderCellDef>BB out</th>
-        <td mat-cell *matCellDef="let item">
-          {{ item.bbOut ? item.bbOut : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+          {{ item.bbOut }}
         </td>
       </ng-container>
+
       <ng-container matColumnDef="comments">
         <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let item" class="comments-field">
-          {{ item.comments ? item.comments : '-' }}
+        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+          {{ item.comments }}
         </td>
       </ng-container>
 
@@ -88,7 +205,6 @@
         mat-row
         [ngClass]="row.completedAt ? 'completed' : ''"
         *matRowDef="let row; columns: checkoutColumns"
-        (click)="openCheckoutEditDialog(row)"
       ></tr>
     </table>
 

@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -13,6 +12,7 @@ import {
   UploadedFiles,
   UseInterceptors,
 } from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import {
   ApiBearerAuth,
   ApiConsumes,
@@ -26,18 +26,18 @@ import {
   AnnouncementRequest,
   AnnouncementSortOptions,
   DeleteAnnouncementResponse,
+  FileTypePattern,
   GetAnnouncementByIdResponse,
   GetAnnouncementResponse,
   Role,
   SortOrder,
 } from '@omnihost/interfaces';
 import { Announcement } from '@omnihost/models';
-import { Roles } from '../auth/roles.decorator';
-import { AnnouncementsService } from './announcements.service';
-import { FilesInterceptor } from '@nestjs/platform-express';
 import 'multer';
-
-const FILE_TYPES = /(pdf|docx|png|jpg|jpeg)\b/;
+import { Roles } from '../auth/roles.decorator';
+import { validateFileType } from '../files/files.service';
+import { prependUuid } from '../utils/files.utils';
+import { AnnouncementsService } from './announcements.service';
 
 @ApiTags('Announcements')
 @Controller('announcements')
@@ -109,18 +109,8 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        file.originalname = prependUuid(file.originalname);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })
   )
@@ -142,18 +132,8 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        file.originalname = prependUuid(file.originalname);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })
   )
@@ -189,18 +169,8 @@ export class AnnouncementsController {
   @UseInterceptors(
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
-        const nameParts = file.originalname.split('.');
-        const fileType = nameParts[nameParts.length - 1];
-
-        if (!fileType.match(FILE_TYPES)) {
-          req.fileValidationError = `Invalid file type for file: ${file.originalname}`;
-          return callback(
-            new BadRequestException(`Invalid file type for file: ${file.originalname}`),
-            false
-          );
-        }
-
-        return callback(null, true);
+        file.originalname = prependUuid(file.originalname);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
       },
     })
   )

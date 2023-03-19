@@ -4,6 +4,7 @@ import {
   CarSortOptions,
   CreateCarRequest,
   ICar,
+  IGetCarByIdResponse,
   SortOrder,
   UpdateCarRequest,
 } from '@omnihost/interfaces';
@@ -16,6 +17,19 @@ import { environment as env } from '../../environments/environment';
 export class CarService {
   constructor(private http: HttpClient) {}
 
+  public getCarsWithinRange(from?: string, to?: string): Observable<ICar[]> {
+    let query = '';
+    if (from && to) {
+      query = `?from=${from}&to=${to}`;
+    } else if (from) {
+      query = `?from=${from}`;
+    } else if (to) {
+      query = `?to=${to}`;
+    }
+
+    return this.http.get<ICar[]>(`${env.apiUrl}/cars/all${query}`);
+  }
+
   public getCar(
     createdAt: Date,
     sortBy?: CarSortOptions,
@@ -27,6 +41,10 @@ export class CarService {
         env.apiUrl
       }/cars?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
     );
+  }
+
+  public getById(id: string) {
+    return this.http.get<IGetCarByIdResponse>(`${env.apiUrl}/cars/${id}`);
   }
 
   public createCar(params: CreateCarRequest): Observable<ICar> {

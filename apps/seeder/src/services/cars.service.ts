@@ -2,21 +2,34 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ICar } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import { carComments, licensePlates } from '../constants/cars.constant';
-import { bellBoyInitials, carLocation } from '../constants/dropdown-options';
+import { bellBoyInitials, carLocation, rooms } from '../constants/dropdown-options';
 import { names } from '../constants/names.constant';
-import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
+import {
+  getRandom,
+  getRandomBoolean,
+  getRandomChance,
+  getRandomInt,
+  uploadFileToLinode,
+} from './utils.service';
 
 @Injectable()
 export class CarsSeederService {
+  uploadedFileName = `218410d6-8a45-485c-9966-5e34ad3c79d4car.jpg`;
+
   constructor(
     @InjectRepository(Car)
     private readonly repo: Repository<Car>
   ) {}
 
   create(): Array<Promise<Car>> {
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-car.jpg'));
+    uploadFileToLinode(fileBuffer, this.uploadedFileName);
+
     return this.generate().map(async (car: ICar) => {
       try {
         return await this.repo.save(car);
@@ -27,50 +40,52 @@ export class CarsSeederService {
   }
 
   generate() {
-    // Control variables
-    const entriesPerDay = 2;
-    const entriesPerDayRandomFactor = 1; // random +/- value for entires
+    const minutesTimes = [0, 15, 30, 45];
 
-    // Setup the dates for the period of data generation
-    const startDate = new Date(Date.now());
-    startDate.setMonth(startDate.getMonth() - 6); // day six months in the past
-    const endDate = new Date(Date.now());
-    endDate.setMonth(endDate.getMonth() + 2); // day 2 months in the future
-    const currentDate = new Date(Date.now());
-
-    // Generate the data
     const data: ICar[] = [];
-    for (let day = startDate; day <= endDate; day.setDate(day.getDate() + 1)) {
-      const entiresMultiplier = getRandomBoolean() ? -1 : 1;
-      const entries =
-        entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
-      for (let i = 0; i < entries; i++) {
-        const completed =
-          day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
-        const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
-        const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
-        const expirationDate = new Date(day.setHours(getRandomInt(21, 23), getRandomInt(0, 60)));
-        const parkingLocation = getRandom(carLocation);
+    for (let i = -100; i <= 0; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() + i);
+      const thisDay = new Date(date.setHours(8));
+
+      for (let a = 0; a < getRandomInt(5, 15); a++) {
+        const carId = uuidv4();
+        const arrivalDate = new Date(
+          thisDay.setHours(thisDay.getHours() + 1, minutesTimes[getRandomInt(0, 3)])
+        );
+
+        const departureDate = new Date();
+        departureDate.setDate(date.getDate() + getRandomInt(1, 5));
+        departureDate.setHours(getRandomInt(10, 20), minutesTimes[getRandomInt(0, 3)]);
+
+        const pickUpTime = new Date(departureDate.setHours(departureDate.getHours() - 1));
+        let completed = true;
+
+        if (i >= -1) {
+          completed = Math.random() < 0.4;
+        }
+
         data.push({
-          carId: uuidv4(),
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          carId,
+          room: getRandom(rooms),
           tagNr: getRandomInt(1000, 4000).toString(),
-          arrivalDate: morningDate,
-          departureDate: eveningDate,
+          arrivalDate: arrivalDate,
+          departureDate: departureDate,
           name: getRandom(names),
           licensePlate: getRandom(licensePlates),
-          expirationDate: expirationDate,
-          pickUpTime: eveningDate,
-          deliveryTime: eveningDate,
-          bbDown: getRandom(bellBoyInitials), // who took it from hotel to parking
-          bbUp: completed ? getRandom(bellBoyInitials) : null, // who took it from parking to hotel
-          location: parkingLocation,
-          parkingLot: getRandomInt(5, 40).toString(), // random parking lot number
-          bbOut: completed ? getRandom(bellBoyInitials) : null, // who gave it to the guest
+          expirationDate: departureDate,
+          pickUpTime: pickUpTime,
+          deliveryTime: completed ? pickUpTime : null,
+          bbDown: getRandom(bellBoyInitials),
+          bbUp: completed ? getRandom(bellBoyInitials) : null,
+          location: getRandom(carLocation),
+          parkingLot: getRandomInt(5, 40).toString(),
+          bbOut: completed ? getRandom(bellBoyInitials) : null,
           comments: getRandomChance(0.4) ? getRandom(carComments) : null,
-          charged: completed, // if the customer has been billed. All completed cars are billed
-          createdAt: morningDate,
-          completedAt: completed ? eveningDate : null,
+          charged: completed ? true : Math.random() < 0.3,
+          createdAt: arrivalDate,
+          completedAt: completed ? departureDate : null,
+          files: getRandomChance(0.5) ? [this.uploadedFileName] : [],
         });
       }
     }

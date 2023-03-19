@@ -1,14 +1,28 @@
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'luggages'"
+  [existingFiles]="files"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
 <form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
-  <h1>Update Check In</h1>
+  <div class="title-container">
+    <h1>Update Check In</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
   <hr />
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off" class="input">
-      <mat-label class="input-label">Room nr.</mat-label>
-      <input #room type="text" formControlName="room" matInput placeholder="123" />
-      <mat-error *ngIf="form.get('room')?.invalid && form.get('room')?.dirty">
-        Must be a number from 100-999
-      </mat-error>
+    <mat-form-field autocomplete="off">
+      <mat-label>Room nr.</mat-label>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
@@ -42,24 +56,24 @@
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB in LR</mat-label>
-      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input #bbLr matInput formControlName="bbLr" [matAutocomplete]="bbLrOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbLrOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbLr | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('bbLr')?.invalid && form.get('bbLr')?.dirty"> Required </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <mat-select [(value)]="data.location" formControlName="location">
-        <mat-option *ngFor="let location of luggageLocation" [value]="location">
-          {{ location }}
+      <input matInput formControlName="location" [matAutocomplete]="locationOptions" />
+      <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredLocations | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('location')?.invalid && form.get('location')?.dirty">
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
@@ -69,16 +83,15 @@
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
     </mat-form-field>
 
-    <mat-form-field autocomplete="off" class="input">
+    <mat-form-field autocomplete="off">
       <mat-label>BB Up</mat-label>
-      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input #bbOut matInput formControlName="bbOut" [matAutocomplete]="bbOutOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbOutOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbOut | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error *ngIf="form.get('bbOut')?.invalid && form.get('bbOut')?.dirty">
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 

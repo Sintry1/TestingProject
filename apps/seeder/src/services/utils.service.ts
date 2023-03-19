@@ -68,7 +68,7 @@ export async function uploadFileToLinode(dataBuffer: Buffer, filename: string) {
       throw new Error('UploadFailedError');
     }
   } catch (error) {
-    console.warn(`Failed to upload document with name ${filename}`);
+    console.error(`Failed to upload document with name ${filename}`, error);
   }
 }
 

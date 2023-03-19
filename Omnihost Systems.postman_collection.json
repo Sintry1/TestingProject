@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "aea9d5ef-94a9-4f25-989c-8d38feec422a",
+		"_postman_id": "43dc2750-e554-40e1-a62a-4847c71feaa2",
 		"name": "Omnihost Systems",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6628993"
@@ -46,6 +46,44 @@
 							"path": [
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get manager access",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"accessToken\", pm.response.json().accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"abcDEF123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/auth/get-manager-access",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"get-manager-access"
 							]
 						}
 					},
@@ -204,6 +242,108 @@
 			"name": "Luggages",
 			"item": [
 				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Add Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "c71ee320-157d-4397-bb5c-fdc963dfc3b6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"luggage.jpg\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/luggages/:luggageId/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"luggages",
+										":luggageId",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "luggageId",
+											"value": "{{luggageId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Get all checkin",
 					"event": [
 						{
@@ -220,7 +360,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/checkin?createdAt=2023-01-20",
+							"raw": "{{host}}/luggages/checkin?createdAt=2023-02-15",
 							"host": [
 								"{{host}}"
 							],
@@ -231,7 +371,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2023-02-15"
 								}
 							]
 						}
@@ -309,6 +449,31 @@
 					"response": []
 				},
 				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/luggages/id/:luggageId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"luggages",
+								"id",
+								":luggageId"
+							],
+							"variable": [
+								{
+									"key": "luggageId",
+									"value": "{{luggageId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create",
 					"event": [
 						{
@@ -325,13 +490,87 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/luggages",
@@ -351,13 +590,88 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"luggageType\": \"checkin\",\r\n  \"roomReady\": true,\r\n  \"room\": \"420\",\r\n  \"name\": \"TJ\",\r\n  \"arrivalTime\": \"2023-01-25T13:20:45.600Z\",\r\n  \"bags\": \"3+4\",\r\n  \"comments\": \"Bikes, Ski Equipment\",\r\n  \"tagNr\": \"8912\",\r\n  \"location\": \"LB1\",\r\n  \"bbDown\": \"TJ\",\r\n  \"bbLr\": \"TJ\",\r\n  \"bbOut\": \"ML\",\r\n  \"dateNeeded\": \"2023-01-25T13:20:45.600Z\",\r\n  \"completedAt\": \"2023-01-25T13:20:45.600Z\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "luggageType",
+									"value": "checkin",
+									"type": "text"
+								},
+								{
+									"key": "roomReady",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "420",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "arrivalTime",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "bags",
+									"value": "3+4",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Bikes, Ski Equipment",
+									"type": "text"
+								},
+								{
+									"key": "tagNr",
+									"value": "8912",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "LB1",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbLr",
+									"value": "TJ",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "ML",
+									"type": "text"
+								},
+								{
+									"key": "dateNeeded",
+									"value": "2023-01-25T13:20:45.600Z",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T13:20:45.600",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg"
+									]
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/luggages/:luggageId",
@@ -381,125 +695,110 @@
 			]
 		},
 		{
-			"name": "Tasks",
-			"item": [
-				{
-					"name": "Get all",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"taskId\", pm.response.json().tasks[0].taskId);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/tasks?createdAt=2023-01-20&sortBy=time&sortOrder=ASC",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"tasks"
-							],
-							"query": [
-								{
-									"key": "createdAt",
-									"value": "2023-01-20"
-								},
-								{
-									"key": "sortBy",
-									"value": "time"
-								},
-								{
-									"key": "sortOrder",
-									"value": "ASC"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"taskId\", pm.response.json().taskId);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Evening\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/tasks",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"tasks"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Morning\",\n  \"completedAt\": \"2023-01-25T13:55:36.329Z\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/tasks/:taskId",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"tasks",
-								":taskId"
-							],
-							"variable": [
-								{
-									"key": "taskId",
-									"value": "{{taskId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Cars",
 			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Add Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": "/Users/callibogoryja/Downloads/image (5).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/cars/:carID/files/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"cars",
+										":carID",
+										"files",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "carID",
+											"value": "a77f3f61-37f6-4bb0-a63c-a76a890117cd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    \"car.jpg\"\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/cars/:carID/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"cars",
+										":carID",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "carID",
+											"value": "a77f3f61-37f6-4bb0-a63c-a76a890117cd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear Files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/cars/:carID/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"cars",
+										":carID",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "carID",
+											"value": "{{carId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Get all",
 					"event": [
@@ -535,6 +834,30 @@
 					"response": []
 				},
 				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cars/:carId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cars",
+								":carId"
+							],
+							"variable": [
+								{
+									"key": "carId",
+									"value": "{{carId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create",
 					"event": [
 						{
@@ -551,13 +874,99 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"tagNr\": \"1234\",\n  \"room\": \"101\",\n  \"arrivalDate\": \"2023-01-25T14:01:31.436Z\",\n  \"departureDate\": \"2023-01-25T14:01:31.436Z\",\n  \"name\": \"Larsen\",\n  \"licensePlate\": \"AB60789\",\n  \"expirationDate\": \"2023-01-25T14:01:31.436Z\",\n  \"pickUpTime\": \"2023-01-25T14:01:31.436Z\",\n  \"deliveryTime\": \"2023-01-25T14:01:31.436Z\",\n  \"bbDown\": \"EA\",\n  \"bbUp\": \"EA\",\n  \"location\": \"Front\",\n  \"parkingLot\": \"10\",\n  \"bbOut\": \"EA\",\n  \"comments\": \"LUX - 2 bellmen required\",\n  \"charged\": true,\n  \"completedAt\": \"2023-01-25T14:01:31.436Z\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tagNr",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "101",
+									"type": "text"
+								},
+								{
+									"key": "arrivalDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "departureDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Larsen",
+									"type": "text"
+								},
+								{
+									"key": "licensePlate",
+									"value": "AB60789",
+									"type": "text"
+								},
+								{
+									"key": "expirationDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "pickUpTime",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "deliveryTime",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "bbUp",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": " Front",
+									"type": "text"
+								},
+								{
+									"key": "parkingLot",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "LUX - 2 bellmen required",
+									"type": "text"
+								},
+								{
+									"key": "charged",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/crist/Downloads/IMG_9547.jpg"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/cars",
@@ -577,13 +986,106 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"tagNr\": \"1234\",\n  \"room\": \"101\",\n  \"arrivalDate\": \"2023-01-25T14:01:31.436Z\",\n  \"departureDate\": \"2023-01-25T14:01:31.436Z\",\n  \"name\": \"Larsen\",\n  \"licensePlate\": \"AB60789\",\n  \"expirationDate\": \"2023-01-25T14:01:31.436Z\",\n  \"pickUpTime\": \"2023-01-25T14:01:31.436Z\",\n  \"deliveryTime\": \"2023-01-25T14:01:31.436Z\",\n  \"bbDown\": \"EA\",\n  \"bbUp\": \"EA\",\n  \"location\": \"Front\",\n  \"parkingLot\": \"10\",\n  \"bbOut\": \"EA\",\n  \"comments\": \"LUX - 2 bellmen required\",\n  \"charged\": true,\n  \"completedAt\": \"2023-01-25T14:01:31.436Z\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tagNr",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "room",
+									"value": "101",
+									"type": "text"
+								},
+								{
+									"key": "arrivalDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "departureDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Larsen",
+									"type": "text"
+								},
+								{
+									"key": "licensePlate",
+									"value": "AB60789",
+									"type": "text"
+								},
+								{
+									"key": "expirationDate",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "pickUpTime",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "deliveryTime",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "bbDown",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "bbUp",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Front",
+									"type": "text"
+								},
+								{
+									"key": "parkingLot",
+									"value": "1011",
+									"type": "text"
+								},
+								{
+									"key": "bbOut",
+									"value": "EA",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "LUX - 2 bellmen required",
+									"type": "text"
+								},
+								{
+									"key": "charged",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "completedAt",
+									"value": "2023-01-25T14:01:31.436Z",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.17.31.png",
+										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
+										"/C:/Users/crist/Downloads/IMG_9549.jpg",
+										"/C:/Users/crist/Downloads/IMG_9547.jpg"
+									],
+									"disabled": true
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{host}}/cars/:carId",
@@ -720,8 +1222,260 @@
 			]
 		},
 		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"taskId\", pm.response.json().tasks[0].taskId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/tasks?createdAt=2023-01-20&sortBy=time&sortOrder=ASC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks"
+							],
+							"query": [
+								{
+									"key": "createdAt",
+									"value": "2023-01-20"
+								},
+								{
+									"key": "sortBy",
+									"value": "time"
+								},
+								{
+									"key": "sortOrder",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"taskId\", pm.response.json().taskId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Evening\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tasks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Morning\",\n  \"completedAt\": \"2023-01-25T13:55:36.329Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/tasks/:taskId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tasks",
+								":taskId"
+							],
+							"variable": [
+								{
+									"key": "taskId",
+									"value": "{{taskId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Announcements",
 			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Add files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/announcements/:announcementId/files/add",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"announcements",
+										":announcementId",
+										"files",
+										"add"
+									],
+									"variable": [
+										{
+											"key": "announcementId",
+											"value": "{{announcementId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    \"announcement.jpg\"\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/announcements/:announcementId/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"announcements",
+										":announcementId",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "announcementId",
+											"value": "{{announcementId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/announcements/:announcementId/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"announcements",
+										":announcementId",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "announcementId",
+											"value": "{{announcementId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Get all",
 					"event": [
@@ -838,7 +1592,7 @@
 					"response": []
 				},
 				{
-					"name": "Update the data",
+					"name": "Update",
 					"event": [
 						{
 							"listen": "test",
@@ -855,7 +1609,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2023-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2023-02-05T12:53:23.416Z\",\n    \"files\": [\n        \"example.jpg\"\n    ]\n}",
+							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2023-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2023-02-05T12:53:23.416Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -894,136 +1648,6 @@
 							"path": [
 								"announcements",
 								":announcementId"
-							],
-							"variable": [
-								{
-									"key": "announcementId",
-									"value": "{{announcementId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add files",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "files",
-									"type": "file",
-									"src": []
-								}
-							]
-						},
-						"url": {
-							"raw": "{{host}}/announcements/:announcementId/files/add",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"announcements",
-								":announcementId",
-								"files",
-								"add"
-							],
-							"variable": [
-								{
-									"key": "announcementId",
-									"value": "{{announcementId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Remove specfic files from announcement",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    \"file-to-remove.jpg\"\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/announcements/:announcementId/files/remove",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"announcements",
-								":announcementId",
-								"files",
-								"remove"
-							],
-							"variable": [
-								{
-									"key": "announcementId",
-									"value": "{{announcementId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Clear all files from announcements",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.collectionVariables.set(\"announcementId\", pm.response.json().announcementId);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "{{host}}/announcements/:announcementId/files/clear",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"announcements",
-								":announcementId",
-								"files",
-								"clear"
 							],
 							"variable": [
 								{
@@ -1104,39 +1728,6 @@
 					"response": []
 				},
 				{
-					"name": "Update Doc",
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"title\": \"New Years Eve preparations\",\n  \"comments\": \"December 29th - January 2nd\",\n  \"lastViewedAt\": \"2023-01-25T14:27:18.570Z\",\n  \"showOnDashboard\": true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/documents/:documentId",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"documents",
-								":documentId"
-							],
-							"variable": [
-								{
-									"key": "documentId",
-									"value": "{{documentId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create",
 					"event": [
 						{
@@ -1179,6 +1770,39 @@
 							],
 							"path": [
 								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doc",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"New Years Eve preparations\",\n  \"comments\": \"December 29th - January 2nd\",\n  \"lastViewedAt\": \"2023-01-25T14:27:18.570Z\",\n  \"showOnDashboard\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/documents/:documentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"documents",
+								":documentId"
+							],
+							"variable": [
+								{
+									"key": "documentId",
+									"value": "{{documentId}}"
+								}
 							]
 						}
 					},
@@ -1246,7 +1870,7 @@
 			]
 		},
 		{
-			"name": "bikes",
+			"name": "Bikes",
 			"item": [
 				{
 					"name": "Get All",
@@ -1355,6 +1979,282 @@
 			]
 		},
 		{
+			"name": "Blacklist",
+			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Add files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "files",
+											"type": "file",
+											"src": "/Users/callibogoryja/Downloads/tumblr_b8600724ddf242855494ec42b36bbcd0_1a1557c5_1280.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{host}}/blacklist/:blacklistId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blacklist",
+										":blacklistId"
+									],
+									"variable": [
+										{
+											"key": "blacklistId",
+											"value": "{{blacklistId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    \"exmaple.jpg\"\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/blacklist/:blacklistId/files/remove",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blacklist",
+										":blacklistId",
+										"files",
+										"remove"
+									],
+									"variable": [
+										{
+											"key": "blacklistId",
+											"value": "{{blacklistId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear files",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    \"exmaple.jpg\"\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/blacklist/:blacklistId/files/clear",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"blacklist",
+										":blacklistId",
+										"files",
+										"clear"
+									],
+									"variable": [
+										{
+											"key": "blacklistId",
+											"value": "{{blacklistId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"blacklistId\", pm.response.json()[0].blacklistId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/blacklist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blacklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"blacklistId\", pm.response.json().blacklistId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/blacklist/:blacklistId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blacklist",
+								":blacklistId"
+							],
+							"variable": [
+								{
+									"key": "blacklistId",
+									"value": "{{blacklistId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Dominic Smith",
+									"type": "text"
+								},
+								{
+									"key": "comments",
+									"value": "Abusive to staff",
+									"type": "text"
+								},
+								{
+									"key": "expiresAt",
+									"value": "2023-12-12",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/blacklist",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blacklist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/blacklist/:blacklistId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blacklist",
+								":blacklistId"
+							],
+							"variable": [
+								{
+									"key": "blacklistId",
+									"value": "{{blacklistId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Dominic Smith\",\n  \"comments\": \"Abusive to staff\",\n  \"expiresAt\": \"2023-12-12T15:59:12.513Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/blacklist/:blacklistId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"blacklist",
+								":blacklistId"
+							],
+							"variable": [
+								{
+									"key": "blacklistId",
+									"value": "{{blacklistId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Misc",
 			"item": [
 				{
@@ -1452,17 +2352,22 @@
 			"type": "string"
 		},
 		{
-			"key": "taskId",
-			"value": "set-by-get-all-endpoint",
-			"type": "string"
-		},
-		{
 			"key": "carId",
 			"value": "set-by-get-all-endpoint",
 			"type": "string"
 		},
 		{
 			"key": "assignmentId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "taskId",
+			"value": "set-by-get-all-endpoint",
+			"type": "string"
+		},
+		{
+			"key": "announcementId",
 			"value": "set-by-get-all-endpoint",
 			"type": "string"
 		},
@@ -1478,11 +2383,6 @@
 		},
 		{
 			"key": "blacklistId",
-			"value": "set-by-get-all-endpoint",
-			"type": "string"
-		},
-		{
-			"key": "announcementId",
 			"value": "set-by-get-all-endpoint",
 			"type": "string"
 		}

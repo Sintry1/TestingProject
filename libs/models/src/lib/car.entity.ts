@@ -72,4 +72,8 @@ export class Car extends CompletedAt implements ICar {
   @ApiModelProperty({ example: true })
   @Column()
   charged!: boolean;
+
+  @ApiModelProperty({ example: ['ford_gt.pdf', 'the-flintstones-car.png'] })
+  @Column('text', { array: true, default: [] })
+  files!: string[];
 }

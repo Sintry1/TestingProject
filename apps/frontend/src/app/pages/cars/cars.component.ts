@@ -1,12 +1,23 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CarSortOptions, ICar, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  CarSortOptions,
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
+import { toExportFilenameString } from '../../utils/date.util';
+import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
 import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
@@ -14,13 +25,19 @@ import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-d
 @Component({
   selector: 'frontend-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['../../../assets/styles/table.scss', '../../../assets/styles/checkbox.scss'],
+  styleUrls: [
+    '../../../assets/styles/table.scss',
+    '../../../assets/styles/checkbox.scss',
+    './cars.component.scss',
+  ],
 })
-export class CarsComponent implements OnInit {
-  filteredCarList: ICar[] = [];
-  originalCarList: ICar[] = [];
+export class CarsComponent {
+  filteredCars: ICar[] = [];
+  originalCars: ICar[] = [];
+  completedCars: ICar[] = [];
+  incompleteCars: ICar[] = [];
   displayDate = new Date();
-  sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
+  sortBy: CarSortOptions = CarSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   showAll = false;
@@ -36,14 +53,39 @@ export class CarsComponent implements OnInit {
     'expirationDateTime',
     'pickUpDateTime',
     'bbDown',
-    'bbUp',
     'location',
     'parkingLot',
+    'bbUp',
     'deliveryDateTime',
     'bbOut',
     'comments',
     'charged',
   ];
+
+  carHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Tag nr',
+    'Room nr.',
+    'Arrival Date',
+    'Departure Date',
+    'Name',
+    'License plate',
+    'Park expiration',
+    'Pick up time',
+    'Delivery time',
+    'BB Down',
+    'BB Up',
+    'Location',
+    'Parking lot',
+    'BB Out',
+    'Comments',
+    'Charged',
+    'Files',
+  ];
+  exportFilename = 'cars-data';
+  unwantedExportFields = ['carId'];
 
   constructor(
     private readonly carService: CarService,
@@ -53,7 +95,7 @@ export class CarsComponent implements OnInit {
   ) {
     this.displayDateService.getDisplayDateSubject().subscribe((date) => {
       this.displayDate = new Date(date);
-      this.fetchCarList();
+      this.fetchCars();
     });
   }
 
@@ -79,42 +121,44 @@ export class CarsComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CARS,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openCreateCarDialog() {
-    this.dialog.open(CreateCarDialogComponent, { width: '600px' });
+  openCreateDialog() {
+    this.dialog.open(CreateCarDialogComponent, { minWidth: '600px', disableClose: true });
   }
 
-  openDialogEdit(carListEntry: ICar) {
+  openEditDialog(CarsEntry: ICar) {
     this.dialog.open(UpdateCarDialogComponent, {
-      width: '600px',
-      data: carListEntry,
+      minWidth: '600px',
+      disableClose: true,
+      data: CarsEntry,
+      autoFocus: false,
     });
   }
 
-  ngOnInit(): void {
-    this.fetchCarList();
-  }
-
-  fetchCarList(): void {
+  fetchCars(): void {
     this.isLoading = true;
 
     this.carService.getCar(this.displayDate, this.sortBy, this.sortOrder, this.search).subscribe({
       next: (cars) => {
-        this.originalCarList = cars;
-        this.filteredCarList = filterByCompletedAtAndOrderResults(
-          this.originalCarList,
+        this.originalCars = cars;
+        this.filteredCars = filterByCompletedAtAndOrderResults(
+          this.originalCars,
           this.showAll,
           this.displayDate
+          // Need to filter another list to filter out the completed orders and place them in completedCars
         );
+        this.incompleteCars = this.filteredCars.filter((car) => !car.deliveryTime);
+        this.completedCars = this.filteredCars.filter((car) => car.deliveryTime);
         this.isLoading = false;
       },
       error: (error) => {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Check Out data have failed to load, please try checking your connection.',
+          'Car data have failed to load, please try checking your connection.',
           'Okay',
           {
             duration: 10000,
@@ -126,10 +170,65 @@ export class CarsComponent implements OnInit {
 
   toggleShowAll(): void {
     this.showAll = !this.showAll;
-    this.filteredCarList = filterByCompletedAtAndOrderResults(
-      this.originalCarList,
+    this.filteredCars = filterByCompletedAtAndOrderResults(
+      this.originalCars,
       this.showAll,
       this.displayDate
     );
+  }
+
+  isReady(pickupTime: string): boolean {
+    const pickupTimeDate = new Date(pickupTime);
+    const currentTime = new Date();
+    const diffInMs = pickupTimeDate.getTime() - currentTime.getTime();
+
+    return diffInMs >= 0 && diffInMs <= 60 * 60 * 1000; // Check if pickup time is between 0 seconds and 60 minutes from current time
+  }
+
+  isOverdue(pickupTime: string): boolean {
+    const pickupTimeDate = new Date(pickupTime);
+    return pickupTimeDate.getTime() < new Date().getTime();
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+      });
+    } else {
+      this.openEditDialog(element as ICar);
+    }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.carService.getCarsWithinRange(from, to).subscribe({
+            next: (cars) => {
+              this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
+              downloadCsv(
+                cars,
+                this.carHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
+    });
   }
 }

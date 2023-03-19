@@ -1,0 +1,43 @@
+.image-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: scroll;
+
+  .image,
+  .video {
+    height: 500px;
+    width: auto;
+    margin: 10px 5px;
+  }
+
+  &.center-item {
+    justify-content: center;
+  }
+}
+
+.loading-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+hr {
+  border-top: 2px solid grey;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 900;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0 0.5em 0.5em;
+}
