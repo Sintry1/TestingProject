@@ -11,26 +11,24 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    height: 40%;
+    height: 50%;
     width: auto;
     overflow-y: hidden;
     justify-content: space-between;
     align-items: center;
 
-    .spinner {
-      justify-content: center;
-      align-items: center;
-    }
-
     .img-arrows {
-      font-size: 50px;
-      margin: 2px;
+      font-size: 20px;
+      margin: 0 10px;
+      color: gainsboro;
+      cursor: pointer;
     }
 
     .image {
       height: 100%;
+      width: 100%;
       max-width: 50%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
@@ -44,39 +42,37 @@
   }
 
   .text-container {
-    margin: 5px;
     width: 100%;
-    overflow: hidden;
 
     .name-container {
+      margin: 10px 10px 0 10px;
       font-weight: 900;
       white-space: nowrap;
       text-overflow: ellipsis;
       width: 100%;
+    }
 
-      hr {
-        border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
-        border: none;
-        margin-top: 0;
-      }
+    hr {
+      border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
+      border: none;
+      margin-top: 0;
     }
 
     .comments-container {
-      p {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-      }
+      margin: 0 10px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
     }
   }
 
   .expires-container {
     position: absolute;
     max-width: 50%;
-    bottom: 0;
-    left: 5;
+    bottom: 10px;
+    left: 10px;
   }
 
   .action-bar-container {
