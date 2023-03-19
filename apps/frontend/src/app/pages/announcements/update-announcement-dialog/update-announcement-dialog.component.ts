@@ -7,7 +7,7 @@ import { IAnnouncement } from '@omnihost/interfaces';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-announcement-dialog',
@@ -44,13 +44,13 @@ export class UpdateAnnouncementDialogComponent {
       title: new UntypedFormControl(dialogData.componentData.title, [Validators.required]),
       showFrom: new UntypedFormControl(
         dialogData.componentData.showFrom
-          ? toDatetimeInputString(new Date(dialogData.componentData.showFrom))
+          ? toDateInputString(new Date(dialogData.componentData.showFrom))
           : '',
         [Validators.required]
       ),
       showTo: new UntypedFormControl(
         dialogData.componentData.showTo
-          ? toDatetimeInputString(new Date(dialogData.componentData.showTo))
+          ? toDateInputString(new Date(dialogData.componentData.showTo))
           : '',
         [Validators.required]
       ),
