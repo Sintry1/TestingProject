@@ -72,13 +72,13 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         this.commentsInput.nativeElement.focus();
       } else if (this.createBlacklistForm.get('expiresAt')?.invalid) {
         this.expiresAtInput.nativeElement.focus();
-      } else if (!this.containsInvalidFiles) {        
+      } else if (!this.containsInvalidFiles) {
         this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
           duration: 10000,
         });
       }
       // TODO: add a check to see that images have been attached.
-    } else {      
+    } else {
       const managerInfo = this.authService.getManagerInfo();
       if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
         console.warn('Manager access has expired, re-prompting for password');
