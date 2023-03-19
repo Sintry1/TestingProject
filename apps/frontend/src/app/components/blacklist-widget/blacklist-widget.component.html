@@ -11,11 +11,11 @@
     </div>
     <hr />
     <div class="comments-container">
-        {{ blacklist.comments }}
+      {{ blacklist.comments }}
     </div>
     <div class="expires-container">
-        <span style="font-weight: 900">Expiration:</span>
-        {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
+      <span style="font-weight: 900">Expiration:</span>
+      {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
     </div>
   </div>
 
