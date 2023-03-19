@@ -14,7 +14,7 @@
 
   <mat-form-field class="full-width" autocomplete="off">
     <mat-label>Name</mat-label>
-    <input #title type="text" formControlName="name" matInput />
+    <input #name type="text" formControlName="name" matInput />
   </mat-form-field>
 
   <mat-form-field class="full-width">
@@ -34,6 +34,7 @@
       <mat-label>Expiration</mat-label>
       <input
         [min]="today"
+        #expiresAt
         onclick="this.showPicker()"
         formControlName="expiresAt"
         matInput

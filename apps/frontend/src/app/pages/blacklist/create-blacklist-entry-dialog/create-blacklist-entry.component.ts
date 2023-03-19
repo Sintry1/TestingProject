@@ -7,7 +7,7 @@ import { FileUploadComponent } from '../../../components/file-upload/file-upload
 import { AuthService } from '../../../services/auth.service';
 import { BlacklistService } from '../../../services/blacklist.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { toDateObject } from '../../../utils/date.util';
 import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 
 @Component({
@@ -43,7 +43,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
       ]),
-      expiresAt: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
+      expiresAt: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
   }
@@ -55,7 +55,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
       ]),
-      expiresAt: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required]),
+      expiresAt: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
   }
@@ -65,19 +65,20 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (!this.createBlacklistForm.valid) {
+    if (!this.createBlacklistForm.valid && !this.containsInvalidFiles) {
       if (this.createBlacklistForm.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
       } else if (this.createBlacklistForm.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
       } else if (this.createBlacklistForm.get('expiresAt')?.invalid) {
         this.expiresAtInput.nativeElement.focus();
-      } else if (this.containsInvalidFiles) {
+      } else if (!this.containsInvalidFiles) {        
         this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
           duration: 10000,
         });
       }
-    } else {
+      // TODO: add a check to see that images have been attached.
+    } else {      
       const managerInfo = this.authService.getManagerInfo();
       if (!managerInfo || this.authService.isJwtExpired(managerInfo.accessToken)) {
         console.warn('Manager access has expired, re-prompting for password');
