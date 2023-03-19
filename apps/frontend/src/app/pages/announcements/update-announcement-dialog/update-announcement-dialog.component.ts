@@ -7,7 +7,7 @@ import { IAnnouncement } from '@omnihost/interfaces';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { toDateInputString, toDateObject } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-announcement-dialog',
