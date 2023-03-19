@@ -11,7 +11,7 @@ import { getRandomInt, uploadFileToLinode } from './utils.service';
 
 @Injectable()
 export class AnnouncementsSeederService {
-  uploadedFileName = 'announcement.jpg';
+  uploadedFileName = '7ef1822d-72c0-4932-8778-227986b74931announcement.jpg';
 
   constructor(
     @InjectRepository(Announcement)

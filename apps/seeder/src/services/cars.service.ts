@@ -19,7 +19,7 @@ import {
 
 @Injectable()
 export class CarsSeederService {
-  uploadedFileName = `car.jpg`;
+  uploadedFileName = `218410d6-8a45-485c-9966-5e34ad3c79d4car.jpg`;
 
   constructor(
     @InjectRepository(Car)

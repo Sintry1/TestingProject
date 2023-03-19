@@ -85,7 +85,7 @@ export class UpdateDocumentDialogComponent implements OnInit, OnDestroy {
   getDocumentName(): string {
     let fileName;
     if (!this.documentHasChanged) {
-      fileName = this.dialogData.componentData.documentName;
+      fileName = this.dialogData.componentData.documentName.slice(36);
     } else {
       fileName = this.uploadedNewFile?.name || '-';
     }

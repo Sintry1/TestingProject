@@ -25,7 +25,7 @@
       <div *ngFor="let file of existingFiles">
         <div class="selected-file">
           <img src="assets/icons/file.svg" alt="File icon" />
-          <span class="file-name">{{ formatFileName(file) }}</span>
+          <span class="file-name">{{ formatFileName(stripUuid(file)) }}</span>
           <span class="file-size"></span>
           <button (click)="removeExistingFile(file)" class="close-dialog-btn small">X</button>
         </div>

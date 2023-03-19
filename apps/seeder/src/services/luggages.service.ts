@@ -24,7 +24,7 @@ import {
 
 @Injectable()
 export class LuggagesSeederService {
-  uploadedFileName = 'luggage.jpg';
+  uploadedFileName = 'bd53de32-f76e-4b5d-8204-cc7edbfa3946luggage.jpg';
 
   constructor(
     @InjectRepository(Luggage)
