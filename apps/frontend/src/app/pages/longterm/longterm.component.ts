@@ -95,12 +95,10 @@ export class LongtermComponent {
       .getLongTerm(this.displayDate, this.sortBy, this.sortOrder, this.search)
       .subscribe({
         next: (luggage) => {
-          const longTermLuggage = luggage.filter(
-            (item) => item.luggageType === LuggageType.LONG_TERM
-          );
-          this.originalLuggage = longTermLuggage;
+          console.log(luggage);
+          this.originalLuggage = luggage;
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
-            longTermLuggage,
+            luggage,
             this.showAll,
             this.displayDate
           );
