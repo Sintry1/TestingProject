@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
@@ -18,6 +19,7 @@ export class TasksComponent {
   morningTasks: ITask[] = [];
   eveningTasks: ITask[] = [];
   displayDate = new Date();
+  defaultTabIndex = this.getDefaultTabIndex();
 
   isLoading = false;
 
@@ -54,6 +56,15 @@ export class TasksComponent {
         });
       },
     });
+  }
+
+  getDefaultTabIndex(): number {
+    const hour = new Date().getHours();
+    if (hour >= 15) {
+      return 1;
+    } else {
+      return 0;
+    }
   }
 
   openTableInfo(): void {
