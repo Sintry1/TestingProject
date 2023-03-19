@@ -92,7 +92,7 @@ export class BikesComponent {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Bike data has failed to load, please try checking your connection.',
+          'Bike data has failed to load, please check your connection and reload the page.',
           'Okay',
           {
             duration: 10000,

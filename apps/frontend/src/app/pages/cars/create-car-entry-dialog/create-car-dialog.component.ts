@@ -128,7 +128,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to create, please try again.', 'Okay', {
+          this.snackBar.open('Failed to add car, please try again.', 'Okay', {
             duration: 15000,
           });
           this.isLoading = false;
@@ -148,7 +148,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
       this.dialog.closeAll();
       this.isLoading = false;
     } else {
-      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+      this.snackBar.open('Failed to add files, please try again.', 'Okay', {
         duration: 10000,
       });
       this.isLoading = false;

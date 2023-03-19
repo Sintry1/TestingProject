@@ -99,9 +99,13 @@ export class CheckinComponent {
         error: (error) => {
           this.isLoading = false;
           SentryService.logError(error);
-          this.snackBar.open('Check In data have failed to load, please reload the page.', 'Okay', {
-            duration: 10000,
-          });
+          this.snackBar.open(
+            'Check In data has failed to load, please check your connection and reload the page.',
+            'Okay',
+            {
+              duration: 10000,
+            }
+          );
         },
       });
   }

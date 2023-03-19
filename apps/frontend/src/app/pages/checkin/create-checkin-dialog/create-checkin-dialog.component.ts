@@ -122,7 +122,7 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to create, please try again.', 'Okay', {
+          this.snackBar.open('Failed to create check in item, please try again.', 'Okay', {
             duration: 10000,
           });
           this.isLoading = false;
@@ -135,7 +135,7 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
    */
   finalizeSubmission($event: 'success' | 'fail') {
     if ($event === 'success') {
-      this.snackBar.open('Check In luggage item created!', 'Thanks', {
+      this.snackBar.open('Luggage item created!', 'Thanks', {
         duration: 5000,
       });
       document.location.reload();

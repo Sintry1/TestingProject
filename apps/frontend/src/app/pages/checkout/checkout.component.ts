@@ -99,13 +99,9 @@ export class CheckoutComponent {
         error: (error) => {
           this.isLoading = false;
           SentryService.logError(error);
-          this.snackBar.open(
-            'Check Out data have failed to load, please reload the page.',
-            'Okay',
-            {
-              duration: 10000,
-            }
-          );
+          this.snackBar.open('Check Out data has failed to load, please reload the page.', 'Okay', {
+            duration: 10000,
+          });
         },
       });
   }
@@ -155,7 +151,7 @@ export class CheckoutComponent {
         export: (from?: string, to?: string) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.CHECKOUT, from, to).subscribe({
             next: (luggages) => {
-              this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', {
+              this.snackBar.open('Exporting Luggage Check out data...', 'Thanks', {
                 duration: 5000,
               });
               downloadCsv(

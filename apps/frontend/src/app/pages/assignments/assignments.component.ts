@@ -80,7 +80,7 @@ export class AssignmentsComponent {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Assignment data have failed to load, please try reloading the page.',
+          'Assignments have failed to load, please check your connection and reload the page.',
           'Okay',
           {
             duration: 10000,

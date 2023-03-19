@@ -111,7 +111,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to create unwanted guest, please try again.', 'Okay', {
+          this.snackBar.open('Failed to add unwanted guest, please try again.', 'Okay', {
             duration: 10000,
           });
           this.isLoading = false;
@@ -124,7 +124,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
    */
   finalizeSubmission($event: 'success' | 'fail') {
     if ($event === 'success') {
-      this.snackBar.open('Announcement item created!', 'Thanks', {
+      this.snackBar.open('Unwanted guest item created!', 'Thanks', {
         duration: 5000,
       });
       this.dialog.closeAll();

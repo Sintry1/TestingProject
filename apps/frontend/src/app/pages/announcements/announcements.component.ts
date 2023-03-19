@@ -60,7 +60,7 @@ export class AnnouncementsComponent implements OnInit {
         this.isLoading = false;
         SentryService.logError(error);
         this.snackBar.open(
-          'Announcement data has failed to load, please try checking your connection.',
+          'Announcements have failed to load, please check your connection and reload the page.',
           'Okay',
           {
             duration: 10000,

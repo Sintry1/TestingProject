@@ -40,9 +40,13 @@ export class BlacklistComponent implements OnInit {
       },
       error: (error) => {
         console.error(error);
-        this.snackBar.open('Unwanted guests has failed to load', 'Okay', {
-          duration: 10000,
-        });
+        this.snackBar.open(
+          'Unwanted guests have failed to load. Please check your connection and reload the page.',
+          'Okay',
+          {
+            duration: 10000,
+          }
+        );
         this.isLoading = false;
       },
     });

@@ -111,7 +111,7 @@ export class LongtermComponent {
         error: (error) => {
           this.isLoading = false;
           SentryService.logError(error);
-          this.snackBar.open('Luggages have failed to load', 'Okay', {
+          this.snackBar.open('Luggage has failed to load', 'Okay', {
             duration: 10000,
           });
         },
@@ -172,7 +172,7 @@ export class LongtermComponent {
         export: (from?: string, to?: string) => {
           this.luggageService.getLuggagesWithinRange(LuggageType.LONG_TERM, from, to).subscribe({
             next: (luggages) => {
-              this.snackBar.open('Exporting Luggage Longterm data...', 'Thanks', {
+              this.snackBar.open('Exporting Longterm data...', 'Thanks', {
                 duration: 5000,
               });
               downloadCsv(

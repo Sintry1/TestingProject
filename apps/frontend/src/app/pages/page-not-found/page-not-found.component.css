@@ -15,4 +15,14 @@
 
 .m-1 {
   margin: 1rem;
+  justify-content: center;
+}
+
+#not-found-text {
+  max-width: 400px;
+  text-align: center;
+}
+
+#mailto {
+  align-self: center;
 }

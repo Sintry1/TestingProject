@@ -161,7 +161,7 @@ export class UpdateCarDialogComponent extends DropdownSelection {
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
-          this.snackBar.open('Failed to update, please try again.', 'Okay', {
+          this.snackBar.open('Failed to update car, please try again.', 'Okay', {
             duration: 15000,
           });
           this.isLoading = false;

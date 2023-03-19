@@ -51,9 +51,13 @@ export class TasksComponent {
       error: (error) => {
         this.isLoading = false;
         SentryService.logError(error);
-        this.snackBar.open('Tasks have failed to load', 'Okay', {
-          duration: 10000,
-        });
+        this.snackBar.open(
+          'Tasks have failed to load, please check your connection and reload the page.',
+          'Okay',
+          {
+            duration: 10000,
+          }
+        );
       },
     });
   }
