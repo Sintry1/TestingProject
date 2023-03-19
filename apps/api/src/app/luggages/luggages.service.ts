@@ -9,7 +9,7 @@ import {
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
 import 'multer';
-import { Between, ILike, LessThan, Repository, MoreThanOrEqual, LessThanOrEqual } from 'typeorm';
+import { Between, ILike, Repository, MoreThanOrEqual, LessThanOrEqual, IsNull } from 'typeorm';
 import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
 
@@ -58,13 +58,18 @@ export class LuggagesService {
       ),
       completedAt: filterStatus(status),
     };
-    const baseConditionsLongTerm = {
+    const baseConditionsLongTermCompleted = {
       luggageType: LuggageType.LONG_TERM,
+      completedAt:
+        Between<Date>(
+          new Date(createdAt.setUTCHours(0, 0, 0, 0)),
+          new Date(createdAt.setUTCHours(23, 59, 59, 999))
+        ) || IsNull(),
       location,
     };
-    const baseConditionsLongTermExtra = {
-      luggageType: LuggageType.CHECKIN || LuggageType.CHECKOUT,
-      createdAt: LessThan<Date>(new Date(createdAt.setUTCHours(0, 0, 0, 0))),
+    const baseConditionsLongTermExtraIncomplete = {
+      luggageType: LuggageType.LONG_TERM,
+      completedAt: IsNull(),
       location,
     };
 
@@ -75,17 +80,17 @@ export class LuggagesService {
         luggageType === LuggageType.LONG_TERM
           ? // Long term Query
             [
-              { ...baseConditionsLongTerm, bbDown: searchCondition },
-              { ...baseConditionsLongTerm, bbLr: searchCondition },
-              { ...baseConditionsLongTerm, bbOut: searchCondition },
-              { ...baseConditionsLongTerm, room: searchCondition },
-              { ...baseConditionsLongTerm, name: searchCondition },
+              { ...baseConditionsLongTermCompleted, bbDown: searchCondition },
+              { ...baseConditionsLongTermCompleted, bbLr: searchCondition },
+              { ...baseConditionsLongTermCompleted, bbOut: searchCondition },
+              { ...baseConditionsLongTermCompleted, room: searchCondition },
+              { ...baseConditionsLongTermCompleted, name: searchCondition },
 
-              { ...baseConditionsLongTermExtra, bbDown: searchCondition },
-              { ...baseConditionsLongTermExtra, bbLr: searchCondition },
-              { ...baseConditionsLongTermExtra, bbOut: searchCondition },
-              { ...baseConditionsLongTermExtra, room: searchCondition },
-              { ...baseConditionsLongTermExtra, name: searchCondition },
+              { ...baseConditionsLongTermExtraIncomplete, bbDown: searchCondition },
+              { ...baseConditionsLongTermExtraIncomplete, bbLr: searchCondition },
+              { ...baseConditionsLongTermExtraIncomplete, bbOut: searchCondition },
+              { ...baseConditionsLongTermExtraIncomplete, room: searchCondition },
+              { ...baseConditionsLongTermExtraIncomplete, name: searchCondition },
             ]
           : // Checkin or Checkout Query
             [
