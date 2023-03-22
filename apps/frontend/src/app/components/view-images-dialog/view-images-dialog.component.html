@@ -4,7 +4,8 @@
 </div>
 <hr />
 
-<section
+<section>
+  <div
   class="image-list"
   [ngClass]="{ 'center-item': images.length + videos.length === 1 }"
   *ngIf="!isLoading"
@@ -18,9 +19,13 @@
       <source [src]="video" />
     </video>
   </ng-container>
-</section>
-<section *ngIf="text && !isLoading">
-  {{ text }}
+</div>
+<div *ngIf="text && !isLoading">
+  <h3>Title: {{ title.split('-')[1] }}</h3>
+  <hr>
+  <h3>Description</h3>
+  <span style="white-space: pre-wrap;">{{ text }}</span>
+</div>
 </section>
 
 <div *ngIf="isLoading" class="loading-icon">
