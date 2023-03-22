@@ -114,83 +114,82 @@
 
   <h3 *ngIf="incompleteBikes.length === 0" class="no-items-text">No items</h3>
 
-  <div *ngIf="completedBikes.length > 0">
-    <h3 class="completed-heading">Completed items</h3>
-    <hr class="completed-hr" />
+  <h3 class="completed-heading">Completed items</h3>
+  <hr class="completed-hr" />
 
-    <table mat-table [dataSource]="completedBikes" *ngIf="!isLoading">
-      <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.room }}
-        </td>
-      </ng-container>
+  <table mat-table [dataSource]="completedBikes" *ngIf="!isLoading && completedBikes.length > 0">
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.room }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.name }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.name }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="reservedBy">
-        <th mat-header-cell *matHeaderCellDef>Reserved by</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.reservedBy }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="reservedBy">
+      <th mat-header-cell *matHeaderCellDef>Reserved by</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.reservedBy }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="nrOfBikes">
-        <th mat-header-cell *matHeaderCellDef>Nr. of bikes</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.nrOfBikes }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="nrOfBikes">
+      <th mat-header-cell *matHeaderCellDef>Nr. of bikes</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.nrOfBikes }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="pickUpTime">
-        <th mat-header-cell *matHeaderCellDef>Pick up time</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : '' }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="pickUpTime">
+      <th mat-header-cell *matHeaderCellDef>Pick up time</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : '' }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="completedAt">
-        <th mat-header-cell *matHeaderCellDef>Returned</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
-          {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="completedAt">
+      <th mat-header-cell *matHeaderCellDef>Returned</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        {{ item.completedAt ? (item.completedAt | date : 'dd/MM HH:mm') : '' }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="comments">
-        <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
-          {{ item.comments }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef>Comments</th>
+      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        {{ item.comments }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="bikeFormCompleted">
-        <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
-        <td mat-cell *matCellDef="let item">
-          <label class="checkbox-container car-checkbox">
-            <input
-              type="checkbox"
-              [checked]="item.bikeFormCompleted"
-              (change)="updateBikeFormCompleted(item)"
-            />
-            <span class="checkmark" style="top: 0; margin-left: 20px"></span>
-          </label>
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="bikeFormCompleted">
+      <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
+      <td mat-cell *matCellDef="let item">
+        <label class="checkbox-container car-checkbox">
+          <input
+            type="checkbox"
+            [checked]="item.bikeFormCompleted"
+            (change)="updateBikeFormCompleted(item)"
+          />
+          <span class="checkmark" style="top: 0; margin-left: 20px"></span>
+        </label>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="bikeColumns"></tr>
-      <tr
-        mat-row
-        [ngClass]="row.completedAt ? 'completed' : ''"
-        *matRowDef="let row; columns: bikeColumns"
-      ></tr>
-    </table>
-    <div class="table-spinner-full-size" *ngIf="isLoading">
-      <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
-    </div>
+    <tr mat-header-row *matHeaderRowDef="bikeColumns"></tr>
+    <tr
+      mat-row
+      [ngClass]="row.completedAt ? 'completed' : ''"
+      *matRowDef="let row; columns: bikeColumns"
+    ></tr>
+  </table>
+  <h3 *ngIf="completedBikes.length === 0" class="no-items-text">No items</h3>
+  <div class="table-spinner-full-size" *ngIf="isLoading">
+    <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
   </div>
 </main>
