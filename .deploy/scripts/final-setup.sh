@@ -45,12 +45,16 @@ echo "You have set up credentials for Docker"
 echo
 
 echo "================================"
-echo "Install NVM and Node"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install node
-echo "Node installed and set up"
+if [[ $lowercaseEnv != "production" ]]; then
+    echo "Install NVM and Node"
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm install node
+    echo "Node installed and set up"
+else
+    echo "Skipping NVM and Node setup since this is the production environment"
+fi
 echo
 
 echo "================================"

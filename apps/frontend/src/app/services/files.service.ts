@@ -77,7 +77,7 @@ export class FilesService {
         return {
           maxFileSize: 50000000,
           maxFilesNumber: 5,
-          allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES,
+          allowedExtensions: FileTypePattern.DOCUMENT_AND_PICTURES_AND_VIDEO,
         };
       case 'blacklist':
         return {

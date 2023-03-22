@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask, TableInfoOptions } from '@omnihost/interfaces';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';

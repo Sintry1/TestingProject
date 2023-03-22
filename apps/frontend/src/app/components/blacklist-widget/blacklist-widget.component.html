@@ -1,30 +1,25 @@
-<div class="blacklist-widget-container">
-  <div class="table-spinner-full-size" *ngIf="isLoading">
-    <mat-icon><mat-spinner class="spinner" diameter="21"></mat-spinner></mat-icon>
-  </div>
+<div class="blacklist-widget-container" *ngIf="!isLoading">
   <div class="image-container">
-    <ng-container>
-      <span class="img-arrows" (click)="previousImage()">&lt;</span>
-      <img [src]="files[currentImage]" class="image" />
-      <span class="img-arrows" (click)="nextImage()">&gt;</span>
-    </ng-container>
+    <span class="img-arrows" (click)="previousImage()">
+      <span *ngIf="files.length !== 1">&lt;</span>
+    </span>
+    <img [src]="files[currentImage]" class="image" />
+    <span class="img-arrows" (click)="nextImage()">
+      <span *ngIf="files.length !== 1">&gt;</span>
+    </span>
   </div>
 
   <div class="text-container">
     <div class="name-container">
       <h2>{{ displayName() }}</h2>
-      <hr />
     </div>
+    <hr />
     <div class="comments-container">
-      <p>
-        {{ blacklist.comments }}
-      </p>
+      {{ blacklist.comments }}
     </div>
     <div class="expires-container">
-      <p>
-        <span style="font-weight: 900">Expiration:</span>
-        {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
-      </p>
+      <span style="font-weight: 900">Expiration:</span>
+      {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
     </div>
   </div>
 
