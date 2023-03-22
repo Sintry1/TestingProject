@@ -52,7 +52,7 @@ export class AnnouncementsSeederService {
         title: announcement.title,
         showFrom,
         showTo,
-        files: [`announcement.jpg`],
+        files: [this.uploadedFileName],
       });
     });
 

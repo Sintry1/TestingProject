@@ -110,7 +110,7 @@ export class AnnouncementsController {
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         file.originalname = prependUuid(file.originalname);
-        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES_AND_VIDEO);
       },
     })
   )
@@ -133,7 +133,7 @@ export class AnnouncementsController {
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         file.originalname = prependUuid(file.originalname);
-        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES_AND_VIDEO);
       },
     })
   )
@@ -170,7 +170,7 @@ export class AnnouncementsController {
     FilesInterceptor('files', 5, {
       fileFilter(req, file, callback) {
         file.originalname = prependUuid(file.originalname);
-        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES);
+        return validateFileType(req, file, callback, FileTypePattern.DOCUMENT_AND_PICTURES_AND_VIDEO);
       },
     })
   )

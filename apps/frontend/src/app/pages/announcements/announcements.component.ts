@@ -95,6 +95,14 @@ export class AnnouncementsComponent implements OnInit {
     });
   }
 
+  displayComments(comments: string) {
+    if (comments.length > 120) {
+      return comments.substring(0, 115) + ' (...)';
+    } else {
+      return comments;
+    }
+  }
+
   getStatus(showFrom?: Date | null, showTo?: Date | null): string {
     const today = new Date().getTime();
 
