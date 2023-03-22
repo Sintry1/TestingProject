@@ -4,23 +4,28 @@
 </div>
 <hr />
 
-<section
-  class="image-list"
-  [ngClass]="{ 'center-item': images.length + videos.length === 1 }"
-  *ngIf="!isLoading"
->
-  <ng-container class="image" *ngFor="let image of images">
-    <img [src]="image" alt="An image" class="image" />
-  </ng-container>
+<section>
+  <div
+    class="image-list"
+    [ngClass]="{ 'center-item': images.length + videos.length === 1 }"
+    *ngIf="!isLoading"
+  >
+    <ng-container class="image" *ngFor="let image of images">
+      <img [src]="image" alt="An image" class="image" />
+    </ng-container>
 
-  <ng-container class="image" *ngFor="let video of videos">
-    <video class="video" controls>
-      <source [src]="video" />
-    </video>
-  </ng-container>
-</section>
-<section *ngIf="text && !isLoading">
-  {{ text }}
+    <ng-container class="image" *ngFor="let video of videos">
+      <video class="video" controls>
+        <source [src]="video" />
+      </video>
+    </ng-container>
+  </div>
+  <div *ngIf="text && !isLoading">
+    <h3>Title: {{ title.split('-')[1] }}</h3>
+    <hr />
+    <h3>Description</h3>
+    <span style="white-space: pre-wrap">{{ text }}</span>
+  </div>
 </section>
 
 <div *ngIf="isLoading" class="loading-icon">
