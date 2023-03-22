@@ -150,8 +150,8 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
           this.isLoading = false;
         },
       });
-  }  
-  
+  }
+
   finalizeSubmission($event: 'success' | 'fail') {
     if ($event === 'success') {
       this.snackBar.open('Luggage item updated!', 'Thanks', {

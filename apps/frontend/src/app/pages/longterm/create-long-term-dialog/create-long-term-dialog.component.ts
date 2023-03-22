@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
@@ -16,19 +17,26 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
 @Component({
   selector: 'frontend-create-long-term-dialog',
   templateUrl: './create-long-term-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
+  styleUrls: [
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class CreateLongTermDialogComponent extends DropdownSelection implements OnInit {
   form = new UntypedFormGroup({});
   bbInitials = bellBoyInitials;
   isLoading = false;
   today = new Date().toISOString().split('T')[0];
+  files: string[] = [];
+  containsInvalidFiles = false;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbLr: Observable<string[]> = new Observable<string[]>();
   filteredLocations: Observable<string[]> = new Observable<string[]>();
   filteredBbOut: Observable<string[]> = new Observable<string[]>();
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -122,5 +130,25 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
           this.isLoading = false;
         },
       });
+  }
+
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Check Out luggage item created!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }
