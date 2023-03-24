@@ -28,6 +28,7 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
   guestHasApproved = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
   isLoading = false;
+  luggageId: string;
   files: string[] = [];
   containsInvalidFiles = false;
 
@@ -52,6 +53,8 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
     private dialog: MatDialog
   ) {
     super();
+    this.luggageId = data.luggageId;
+    this.files = data.files;
   }
 
   ngOnInit(): void {
