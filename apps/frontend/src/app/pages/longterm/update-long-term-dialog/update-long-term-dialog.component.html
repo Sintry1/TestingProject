@@ -1,3 +1,11 @@
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'luggages'"
+  [existingFiles]="files"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
 <form
   [formGroup]="form"
   (ngSubmit)="onSubmit()"

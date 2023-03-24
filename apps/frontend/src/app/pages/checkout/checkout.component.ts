@@ -120,7 +120,7 @@ export class CheckoutComponent {
 
   openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       disableClose: true,
       data: luggage,
       autoFocus: false,
@@ -129,7 +129,7 @@ export class CheckoutComponent {
 
   openCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       disableClose: true,
     });
   }
