@@ -28,7 +28,7 @@ import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-
   templateUrl: 'longterm.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-//lol
+//Testing again
 export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
