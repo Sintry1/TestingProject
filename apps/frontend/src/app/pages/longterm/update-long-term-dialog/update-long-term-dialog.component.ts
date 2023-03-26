@@ -13,6 +13,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-long-term-dialog',
@@ -85,7 +86,8 @@ export class UpdateLongTermDialogComponent extends DropdownSelection implements 
       bbOut: new UntypedFormControl(this.data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
       dateOut: new UntypedFormControl(
         this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
     });
 

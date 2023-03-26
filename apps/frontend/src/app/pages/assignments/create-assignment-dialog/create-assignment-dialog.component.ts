@@ -16,6 +16,7 @@ import {
 } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-assignment-dialog',
@@ -61,6 +62,7 @@ export class CreateAssignmentDialogComponent extends DropdownSelection implement
       requestedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
         Validators.required,
         Validators.maxLength(20),
+        valueNotFutureValidator(),
       ]),
       completedAt: new UntypedFormControl(''),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),

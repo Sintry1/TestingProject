@@ -57,7 +57,11 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
   ngOnInit(): void {
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
-      dateIn: new UntypedFormControl(toDatetimeInputString(new Date()), [Validators.required], valueNotFutureValidator()),
+      dateIn: new UntypedFormControl(
+        toDatetimeInputString(new Date()),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       name: new UntypedFormControl('', [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', []),

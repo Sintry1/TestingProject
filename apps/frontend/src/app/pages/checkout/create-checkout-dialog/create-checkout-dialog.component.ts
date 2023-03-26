@@ -13,6 +13,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-checkout-dialog',
@@ -69,7 +70,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
         valueInArrayValidator(this.bellboyListAndGuest)
       ),
       bbOut: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
-      completedAt: new UntypedFormControl('', []),
+      completedAt: new UntypedFormControl('', [], valueNotFutureValidator()),
       location: new UntypedFormControl(
         '',
         [Validators.required],

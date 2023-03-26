@@ -12,6 +12,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-car-dialog',
@@ -50,13 +51,17 @@ export class CreateCarDialogComponent extends DropdownSelection {
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
-      arrivalDate: new UntypedFormControl(new Date(), [Validators.required]),
+      arrivalDate: new UntypedFormControl(
+        new Date(),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       departureDate: new UntypedFormControl('', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       licensePlate: new UntypedFormControl('', [Validators.required]),
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
-      deliveryTime: new UntypedFormControl('', []),
+      deliveryTime: new UntypedFormControl('', [], valueNotFutureValidator()),
       bbDown: new UntypedFormControl(
         '',
         [Validators.required],
