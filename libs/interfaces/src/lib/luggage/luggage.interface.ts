@@ -5,7 +5,7 @@ export interface ILuggage extends ICompletedAt {
   luggageId: string;
   luggageType: LuggageType;
   roomReady?: boolean;
-  room: string;
+  room?: string;
   name: string;
   arrivalTime?: Date | null;
   bags: string;
@@ -25,7 +25,7 @@ export interface IGetLuggageByIdResponse extends ILuggage {
 
 export interface ICreateLuggageRequest {
   luggageType: LuggageType;
-  room: string;
+  room?: string | null;
   // roomReady?: boolean;
   name: string;
   bags: string;
@@ -43,7 +43,7 @@ export interface ICreateLuggageRequest {
 export interface IUpdateLuggageRequest {
   luggageType?: LuggageType;
   // roomReady?: boolean;
-  room?: string;
+  room?: string | null;
   name?: string;
   arrivalTime?: Date | null;
   bags?: string;

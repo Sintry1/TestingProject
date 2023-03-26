@@ -49,7 +49,7 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
   ) {
     super();
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl('', [Validators.required]),
       arrivalTime: new UntypedFormControl(toTimeInputString(new Date()), [Validators.required]),
       bags: new UntypedFormControl('', [Validators.required]),

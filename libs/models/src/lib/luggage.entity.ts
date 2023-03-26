@@ -18,8 +18,8 @@ export class Luggage extends CompletedAt implements ILuggage {
   roomReady?: boolean;
 
   @ApiModelProperty({ example: '101' })
-  @Column()
-  room!: string;
+  @Column({ nullable: true })
+  room?: string;
 
   @ApiModelProperty({ example: 'Larsen' })
   @Column()
