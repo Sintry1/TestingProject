@@ -6,7 +6,8 @@ import { TaskGenerator } from '@omnihost/task-generator';
 export class TasksJobs {
   constructor(private readonly tasksGenerator: TaskGenerator) {}
 
-  @Cron(CronExpression.EVERY_DAY_AT_5AM)
+  // The timezone for this comes from the Docker container, which won't always match the client timezone.
+  // So instead we just generate them during the night so it is ready in the morning for everyone.
   @Cron(CronExpression.EVERY_DAY_AT_3AM)
   handleCron() {
     this.tasksGenerator.generateDailyTasks();
