@@ -7,23 +7,22 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILoginResponse } from '@omnihost/interfaces';
-import {
-  BehaviorSubject,
-  catchError,
-  EMPTY,
-  finalize,
-  Observable,
-  switchMap,
-  take,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, catchError, EMPTY, finalize, Observable, switchMap, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+
+enum BehaviorSubjectEnum {
+  INITIAL = 'initial',
+  REFRESH_STARTED = 'refreshStarted',
+  REFRESH_STOPPED = 'refreshStopped',
+}
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) {}
   private refreshTokensInProgress = false;
-  private refreshTokenSubject = new BehaviorSubject(null);
+  private refreshTokenSubject = new BehaviorSubject<BehaviorSubjectEnum>(
+    BehaviorSubjectEnum.INITIAL
+  );
 
   /**
    * Add the bearer token to the api request if the user is authenticated.
@@ -70,17 +69,23 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Check if there is a token refresh in progress. If there is, wait for it to finish
     if (this.refreshTokensInProgress) {
+      console.log('Refreshing Token');
       return this.refreshTokenSubject.pipe(
-        take(1),
-        switchMap(() => next.handle(this.addAccessToken(request)))
+        switchMap((behaviorStatus) => {
+          if (behaviorStatus === BehaviorSubjectEnum.REFRESH_STOPPED) {
+            return next.handle(this.addAccessToken(request));
+          }
+
+          return new Observable<HttpEvent<unknown>>();
+        })
       );
     }
 
     // Check that the token is not expired, and perform a refresh if it is
     if (this.authService.isJwtExpired(accessInfo.accessToken)) {
       this.refreshTokensInProgress = true;
-      this.refreshTokenSubject.next(null);
-
+      this.refreshTokenSubject.next(BehaviorSubjectEnum.REFRESH_STARTED);
+      console.log('Token Expired');
       return this.authService.refreshAccessInfo().pipe(
         tap((response: ILoginResponse) => {
           this.authService.saveAccessInfo(response);
@@ -91,7 +96,8 @@ export class AuthInterceptor implements HttpInterceptor {
           return EMPTY;
         }),
         switchMap(() => {
-          this.refreshTokenSubject.next(null);
+          console.log('Continuing with original query.');
+          this.refreshTokenSubject.next(BehaviorSubjectEnum.REFRESH_STOPPED);
           return next.handle(this.addAccessToken(request));
         }),
         finalize(() => (this.refreshTokensInProgress = false))
