@@ -134,9 +134,6 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
       .subscribe({
         next: (response) => {
           this.fileUploadRef.submit(response.luggageId);
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);

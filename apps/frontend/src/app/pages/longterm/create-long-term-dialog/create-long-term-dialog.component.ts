@@ -111,16 +111,9 @@ export class CreateLongTermDialogComponent extends DropdownSelection implements 
         location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
         luggageType: LuggageType.LONG_TERM,
       })
-
       .subscribe({
-        next: () => {
-          this.snackBar.open('Long term item created!', 'Thanks', {
-            duration: 5000,
-          });
-
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.luggageId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);

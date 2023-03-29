@@ -134,13 +134,8 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
         comments: this.form.get('comments')?.value,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Luggage item updated!', 'Thanks', {
-            duration: 5000,
-          });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.luggageId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
