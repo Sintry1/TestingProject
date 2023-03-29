@@ -30,7 +30,6 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
   files: string[] = [];
   luggageId: string;
   containsInvalidFiles = false;
-  timeOptions: string[] = [];
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbLr: Observable<string[]> = new Observable<string[]>();
@@ -97,19 +96,6 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     );
     this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
     this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
-
-    for (let i = 0; i < 96; i++) {
-      let hour: any = (i / 4).toFixed(0);
-      let minute: any = (i % 4) * 15;
-      if (hour < 10) {
-        hour = `0${hour}`;
-      }
-      if (minute < 10) {
-        minute = `0${minute}`;
-      }
-      this.timeOptions.push(`${hour}:${minute}`);
-    }
-    console.log(this.timeOptions);
   }
 
   onSubmit(): void {
