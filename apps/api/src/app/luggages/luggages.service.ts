@@ -9,7 +9,7 @@ import {
 } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
 import 'multer';
-import { Between, ILike, Repository, MoreThanOrEqual, LessThanOrEqual, IsNull } from 'typeorm';
+import { Between, ILike, IsNull, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
 
@@ -193,7 +193,6 @@ export class LuggagesService {
 
     return await this.luggageRepo.save(luggage);
   }
-
   async removeLuggageFiles(luggageId: string, fileNames: string[]) {
     const luggage = await this.luggageRepo.findOneByOrFail({ luggageId });
 
@@ -210,7 +209,6 @@ export class LuggagesService {
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
-
     return await this.luggageRepo.save(luggage);
   }
 

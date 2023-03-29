@@ -51,7 +51,7 @@ export class FilesService {
         )
     );
     if (!data.exists) {
-      throw new Error(`The file doesn't exist`);
+      throw new Error(`The file doesn't exist: ${fileName}`);
     }
     return data;
   }
