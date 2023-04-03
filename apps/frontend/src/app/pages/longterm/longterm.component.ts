@@ -125,7 +125,7 @@ export class LongtermComponent {
 
   openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       disableClose: true,
       data: luggage,
       autoFocus: false,
@@ -134,7 +134,7 @@ export class LongtermComponent {
 
   openCreateDialog(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
       disableClose: true,
     });
   }

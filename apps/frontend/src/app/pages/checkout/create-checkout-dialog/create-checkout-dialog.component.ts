@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LuggageType } from '@omnihost/interfaces';
 import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
@@ -16,13 +17,18 @@ import { valueInArrayValidator } from '../../../utils/form-validators/array.vali
 @Component({
   selector: 'frontend-create-checkout-dialog',
   templateUrl: './create-checkout-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
+  styleUrls: [
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
 export class CreateCheckoutDialogComponent extends DropdownSelection {
   form: UntypedFormGroup;
   checked = true;
   isLoading = false;
   bbInitials = bellBoyInitials;
+  containsInvalidFiles = false;
 
   filteredRooms: Observable<string[]> = new Observable<string[]>();
   filteredBbLr: Observable<string[]> = new Observable<string[]>();
@@ -32,6 +38,7 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
 
   bellboyListAndGuest = [...bellBoyInitials, 'Guest'];
 
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -98,6 +105,10 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
         this.locationInput.nativeElement.focus();
       } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
+      } else if (this.containsInvalidFiles) {
+        this.snackBar.open('Remove the invalid files before proceeding!', 'Okay', {
+          duration: 10000,
+        });
       }
     } else {
       this.createCheckout();
@@ -121,10 +132,8 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
         luggageType: LuggageType.CHECKOUT,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Luggage item created!', 'Thanks', {
-            duration: 5000,
-          });
+        next: (response) => {
+          this.fileUploadRef.submit(response.luggageId);
           document.location.reload();
           this.dialog.closeAll();
           this.isLoading = false;
@@ -137,5 +146,25 @@ export class CreateCheckoutDialogComponent extends DropdownSelection {
           this.isLoading = false;
         },
       });
+  }
+
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Check Out luggage item created!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }
