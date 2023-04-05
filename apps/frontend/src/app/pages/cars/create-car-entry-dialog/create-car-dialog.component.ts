@@ -49,7 +49,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
   ) {
     super();
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
       arrivalDate: new UntypedFormControl(
         toDateInputString(new Date()),
