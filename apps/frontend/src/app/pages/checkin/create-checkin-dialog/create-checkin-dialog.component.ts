@@ -62,14 +62,14 @@ export class CreateCheckinDialogComponent extends DropdownSelection {
       bbLr: new UntypedFormControl(
         '',
         [Validators.required],
-        //valueInArrayValidator(bellBoyInitials)
+        valueInArrayValidator(bellBoyInitials)
       ),
       location: new UntypedFormControl(
         '',
         [Validators.required],
-        //valueInArrayValidator(luggageLocation)
+        valueInArrayValidator(luggageLocation)
       ),
-      bbOut: new UntypedFormControl('', [], ),//valueInArrayValidator(bellBoyInitials)),
+      bbOut: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
       completedAt: new UntypedFormControl('', [], valueNotFutureValidator()),
       comments: new UntypedFormControl('', []),
     });
