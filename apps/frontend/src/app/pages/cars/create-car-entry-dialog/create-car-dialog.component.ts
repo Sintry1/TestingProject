@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject } from '../../../utils/date.util';
+import { toDateInputString, toDateObject } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-car-dialog',
@@ -48,15 +49,18 @@ export class CreateCarDialogComponent extends DropdownSelection {
   ) {
     super();
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
-      arrivalDate: new UntypedFormControl(new Date(), [Validators.required]),
+      arrivalDate: new UntypedFormControl(
+        toDateInputString(new Date()),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       departureDate: new UntypedFormControl('', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       licensePlate: new UntypedFormControl('', [Validators.required]),
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
-      deliveryTime: new UntypedFormControl('', []),
       bbDown: new UntypedFormControl(
         '',
         [Validators.required],
@@ -113,7 +117,6 @@ export class CreateCarDialogComponent extends DropdownSelection {
           : '',
         expirationDate: toDateObject(this.form.get('expirationDate')?.value),
         pickUpTime: toDateObject(this.form.get('pickUpTime')?.value),
-        deliveryTime: new Date(this.form.get('deliveryTime')?.value),
         bbDown: this.form.get('bbDown')?.value,
         bbUp: this.form.get('bbUp')?.value ? this.form.get('bbUp')?.value : '',
         location: this.form.get('location')?.value,

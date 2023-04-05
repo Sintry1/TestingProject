@@ -11,6 +11,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bikeListReserved, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 @Component({
   selector: 'frontend-create-bike-dialog',
   templateUrl: './create-bike-dialog.component.html',
@@ -46,7 +47,7 @@ export class CreateBikeDialogComponent extends DropdownSelection {
         valueInArrayValidator(bikeListReserved)
       ),
       comments: new UntypedFormControl('', []),
-      completedAt: new UntypedFormControl('', []),
+      completedAt: new UntypedFormControl('', [], valueNotFutureValidator()),
     });
 
     // Init the filters
