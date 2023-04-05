@@ -17,6 +17,7 @@ import {
 } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-assignment-dialog',
@@ -72,11 +73,14 @@ export class UpdateAssignmentDialogComponent extends DropdownSelection implement
         [],
         valueInArrayValidator(bellBoyInitials)
       ),
-      requestedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.requestedAt)), [
-        Validators.required,
-      ]),
+      requestedAt: new UntypedFormControl(
+        toDatetimeInputString(new Date(this.data.requestedAt)),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       completedAt: new UntypedFormControl(
-        this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : ''
+        this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : '',
+        valueNotFutureValidator()
       ),
     });
 

@@ -13,6 +13,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-checkout-dialog',
@@ -58,7 +59,7 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
     this.luggageId = data.luggageId;
     this.files = data.files;
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
@@ -80,7 +81,8 @@ export class UpdateCheckoutDialogComponent extends DropdownSelection {
       ),
       completedAt: new UntypedFormControl(
         data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
       comments: new UntypedFormControl(data.comments, []),
     });

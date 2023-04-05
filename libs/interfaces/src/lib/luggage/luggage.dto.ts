@@ -20,8 +20,8 @@ export class CreateLuggageRequest implements ICreateLuggageRequest {
   roomReady?: boolean;
 
   @ApiModelProperty({ example: '101' })
-  @IsNotEmpty()
-  room!: string;
+  @IsOptional()
+  room?: string;
 
   @ApiModelProperty({ example: 'EA' })
   @IsNotEmpty()

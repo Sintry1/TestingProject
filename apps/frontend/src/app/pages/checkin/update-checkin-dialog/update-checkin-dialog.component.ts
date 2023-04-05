@@ -13,6 +13,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-checkin-dialog',
@@ -56,11 +57,16 @@ export class UpdateCheckinDialogComponent extends DropdownSelection {
     this.files = data.files;
 
     this.form = new UntypedFormGroup({
-      room: new UntypedFormControl(this.data.room, [], valueInArrayValidator(rooms)),
+      room: new UntypedFormControl(
+        this.data.room,
+        [Validators.required],
+        valueInArrayValidator(rooms)
+      ),
       name: new UntypedFormControl(data.name, [Validators.required]),
       arrivalTime: new UntypedFormControl(
         data.arrivalTime ? toTimeInputString(new Date(data.arrivalTime)) : '',
-        [Validators.required]
+        [Validators.required],
+        valueNotFutureValidator()
       ),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
@@ -77,7 +83,8 @@ export class UpdateCheckinDialogComponent extends DropdownSelection {
       ),
       completedAt: new UntypedFormControl(
         data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
       comments: new UntypedFormControl(data.comments, []),
     });

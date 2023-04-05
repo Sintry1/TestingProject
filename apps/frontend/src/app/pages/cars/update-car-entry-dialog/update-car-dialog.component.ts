@@ -13,6 +13,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-car-dialog',
@@ -64,9 +65,11 @@ export class UpdateCarDialogComponent extends DropdownSelection {
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      arrivalDate: new UntypedFormControl(toDateInputString(new Date(data.arrivalDate)), [
-        Validators.required,
-      ]),
+      arrivalDate: new UntypedFormControl(
+        toDateInputString(new Date(data.arrivalDate)),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       departureDate: new UntypedFormControl(toDateInputString(new Date(data.departureDate)), [
         Validators.required,
       ]),
@@ -82,7 +85,8 @@ export class UpdateCarDialogComponent extends DropdownSelection {
       ),
       deliveryTime: new UntypedFormControl(
         data.deliveryTime ? toDatetimeInputString(new Date(data.deliveryTime)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
       bbDown: new UntypedFormControl(
         data.bbDown,

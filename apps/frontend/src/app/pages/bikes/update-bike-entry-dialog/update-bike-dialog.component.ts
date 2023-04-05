@@ -12,6 +12,7 @@ import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bikeListReserved, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
 import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 @Component({
   selector: 'frontend-update-bike-dialog',
   templateUrl: './update-bike-dialog.component.html',
@@ -55,7 +56,8 @@ export class UpdateBikeDialogComponent extends DropdownSelection {
       comments: new UntypedFormControl(data.comments, []),
       completedAt: new UntypedFormControl(
         data.completedAt ? toDatetimeInputString(new Date(data.completedAt)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
     });
     this.bikeFormCompleted = data.bikeFormCompleted ?? false;
