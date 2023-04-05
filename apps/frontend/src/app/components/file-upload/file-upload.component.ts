@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileTypePattern } from '@omnihost/interfaces';
+import { firstValueFrom } from 'rxjs';
 import { FilesService } from '../../services/files.service';
 import { SentryService } from '../../services/sentry.service';
 
@@ -223,7 +224,7 @@ export class FileUploadComponent implements OnInit {
    * @param id the id of the entity to update.
    * @emits submissionFinishedEvent once the update is complete.
    */
-  submit(id: string) {
+  async submit(id: string) {
     // Exit early if the parent type is incorrect
     if (!this.parentType) {
       this.submissionFinishedEvent.emit('fail');
@@ -240,43 +241,43 @@ export class FileUploadComponent implements OnInit {
       return;
     }
 
-    let removalFinished = true;
-    let uploadFinished = true;
+    let removalFinished = false;
+    let uploadFinished = false;
 
     // Update the existing files
     if (this.removedFiles.length > 0) {
-      removalFinished = false;
-      this.filesService.removeFiles(this.parentType, id, this.removedFiles).subscribe({
-        next: () => {
+      await firstValueFrom(this.filesService.removeFiles(this.parentType, id, this.removedFiles))
+        .then(() => {
           removalFinished = true;
           if (uploadFinished && removalFinished) {
             this.submissionFinishedEvent.emit('success');
           }
-        },
-        error: (error) => {
+        })
+        .catch((error) => {
           SentryService.logError(error);
           this.submissionFinishedEvent.emit('fail');
           this.isLoading = false;
-        },
-      });
+        });
+    } else {
+      removalFinished = true;
     }
 
     // Upload the new files
     if (this.selectedFiles.length > 0) {
-      uploadFinished = false;
-      this.filesService.addFiles(this.parentType, id, this.selectedFiles).subscribe({
-        next: () => {
+      await firstValueFrom(this.filesService.addFiles(this.parentType, id, this.selectedFiles))
+        .then(() => {
           uploadFinished = true;
           if (uploadFinished && removalFinished) {
             this.submissionFinishedEvent.emit('success');
           }
-        },
-        error: (error) => {
+        })
+        .catch((error) => {
           SentryService.logError(error);
           this.submissionFinishedEvent.emit('fail');
           this.isLoading = false;
-        },
-      });
+        });
+    } else {
+      uploadFinished = true;
     }
 
     if (uploadFinished && removalFinished) {
