@@ -73,10 +73,11 @@ export class UpdateAssignmentDialogComponent extends DropdownSelection implement
         [],
         valueInArrayValidator(bellBoyInitials)
       ),
-      requestedAt: new UntypedFormControl(toDatetimeInputString(new Date(this.data.requestedAt)), [
-        Validators.required,
-        valueNotFutureValidator(),
-      ]),
+      requestedAt: new UntypedFormControl(
+        toDatetimeInputString(new Date(this.data.requestedAt)),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       completedAt: new UntypedFormControl(
         this.data.completedAt ? toDatetimeInputString(new Date(this.data.completedAt)) : '',
         valueNotFutureValidator()
