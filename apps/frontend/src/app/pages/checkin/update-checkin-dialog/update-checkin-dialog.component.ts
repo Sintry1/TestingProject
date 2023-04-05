@@ -59,7 +59,6 @@ export class UpdateCheckinDialogComponent extends DropdownSelection {
     this.form = new UntypedFormGroup({
       room: new UntypedFormControl(
         this.data.room,
-        [Validators.required],
         valueInArrayValidator(rooms)
       ),
       name: new UntypedFormControl(data.name, [Validators.required]),
