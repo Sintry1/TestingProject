@@ -69,7 +69,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Check if there is a token refresh in progress. If there is, wait for it to finish
     if (this.refreshTokensInProgress) {
-      console.log('Refreshing Token');
       return this.refreshTokenSubject.pipe(
         switchMap((behaviorStatus) => {
           if (behaviorStatus === BehaviorSubjectEnum.REFRESH_STOPPED) {
@@ -85,7 +84,6 @@ export class AuthInterceptor implements HttpInterceptor {
     if (this.authService.isJwtExpired(accessInfo.accessToken)) {
       this.refreshTokensInProgress = true;
       this.refreshTokenSubject.next(BehaviorSubjectEnum.REFRESH_STARTED);
-      console.log('Token Expired');
       return this.authService.refreshAccessInfo().pipe(
         tap((response: ILoginResponse) => {
           this.authService.saveAccessInfo(response);
@@ -96,7 +94,6 @@ export class AuthInterceptor implements HttpInterceptor {
           return EMPTY;
         }),
         switchMap(() => {
-          console.log('Continuing with original query.');
           this.refreshTokenSubject.next(BehaviorSubjectEnum.REFRESH_STOPPED);
           return next.handle(this.addAccessToken(request));
         }),
