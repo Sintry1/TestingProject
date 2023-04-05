@@ -3,7 +3,6 @@ import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/fo
 export function valueInArrayValidator(array: string[]): AsyncValidatorFn {
   return async (control: AbstractControl): Promise<ValidationErrors | null> => {
     const value = control.value;
-
     if (!value) {
       return null;
     }

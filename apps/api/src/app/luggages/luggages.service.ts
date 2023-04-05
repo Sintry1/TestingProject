@@ -124,11 +124,7 @@ export class LuggagesService {
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
-    if (
-      (luggageData.luggageType === LuggageType.CHECKIN ||
-        luggageData.luggageType === LuggageType.CHECKOUT) &&
-      !luggageData.room
-    ) {
+    if (luggageData.luggageType === LuggageType.CHECKOUT && !luggageData.room) {
       throw new HttpException('Room must have a value.', HttpStatus.BAD_REQUEST);
     }
     return await this.luggageRepo.save({ ...luggageData, files: this.toFileNames(files) });
