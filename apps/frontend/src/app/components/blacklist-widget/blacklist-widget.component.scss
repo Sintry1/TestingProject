@@ -6,6 +6,7 @@
   overflow: hidden;
   height: 390px;
   min-width: 250px;
+  max-width: 500px;
   position: relative;
 
   .image-container {
@@ -28,7 +29,7 @@
     .image {
       height: 100%;
       width: 100%;
-      max-width: 50%;
+      max-width: 80%;
       object-fit: contain;
     }
   }

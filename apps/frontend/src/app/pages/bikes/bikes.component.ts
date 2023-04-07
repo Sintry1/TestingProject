@@ -25,7 +25,7 @@ export class BikesComponent {
   completedBikes: IBike[] = [];
   incompleteBikes: IBike[] = [];
   displayDate = new Date();
-  sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
+  sortBy: BikeSortOptions = BikeSortOptions.PICKUP_TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   isLoading = false;
