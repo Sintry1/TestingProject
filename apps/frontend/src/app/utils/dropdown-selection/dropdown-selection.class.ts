@@ -9,6 +9,6 @@ export class DropdownSelection {
    * @return a generic error message;
    */
   getErrorMessage(): string {
-    return 'Has to be one of the presented values';
+    return 'Please select one of the options';
   }
 }

@@ -182,12 +182,16 @@ export class CarsComponent {
     const currentTime = new Date();
     const diffInMs = pickupTimeDate.getTime() - currentTime.getTime();
 
-    return diffInMs >= 0 && diffInMs <= 60 * 60 * 1000; // Check if pickup time is between 0 seconds and 60 minutes from current time
+    return diffInMs >= 0 && diffInMs <= 30 * 60 * 1000; // Check if pickup time is between 0 seconds and 30 minutes from current time
   }
 
   isOverdue(pickupTime: string): boolean {
-    const pickupTimeDate = new Date(pickupTime);
-    return pickupTimeDate.getTime() < new Date().getTime();
+    if (pickupTime) {
+      const pickupTimeDate = new Date(pickupTime);
+      return pickupTimeDate.getTime() < new Date().getTime();
+    } else {
+      return false;
+    }
   }
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {

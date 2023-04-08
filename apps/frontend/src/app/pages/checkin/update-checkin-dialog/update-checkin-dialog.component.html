@@ -78,11 +78,6 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field class="remove-error-message">
-      <mat-label>Time in room</mat-label>
-      <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
-    </mat-form-field>
-
     <mat-form-field autocomplete="off">
       <mat-label>BB Up</mat-label>
       <input #bbOut matInput formControlName="bbOut" [matAutocomplete]="bbOutOptions" />
@@ -92,6 +87,14 @@
         </mat-option>
       </mat-autocomplete>
       <mat-error> {{ getErrorMessage() }} </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="remove-error-message">
+      <mat-label>Time in room</mat-label>
+      <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
+      <mat-error *ngIf="form.get('completedAt')?.invalid && form.get('completedAt')?.dirty">
+        Can't be in the future
+      </mat-error>
     </mat-form-field>
   </div>
 

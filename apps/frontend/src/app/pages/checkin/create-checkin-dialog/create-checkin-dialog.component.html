@@ -91,6 +91,9 @@
     <mat-form-field class="remove-error-message">
       <mat-label>Time in room</mat-label>
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
+      <mat-error *ngIf="form.get('completedAt')?.invalid && form.get('completedAt')?.dirty">
+        Can't be in the future
+      </mat-error>
     </mat-form-field>
   </div>
 
