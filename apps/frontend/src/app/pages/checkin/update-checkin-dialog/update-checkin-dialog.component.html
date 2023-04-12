@@ -47,9 +47,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
       <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error>
-        Required
-      </mat-error>
+      <mat-error> Required </mat-error>
     </mat-form-field>
   </div>
 
@@ -92,9 +90,7 @@
     <mat-form-field class="remove-error-message">
       <mat-label>Time in room</mat-label>
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
-      <mat-error>
-        Can't be in the future
-      </mat-error>
+      <mat-error> Can't be in the future </mat-error>
     </mat-form-field>
   </div>
 

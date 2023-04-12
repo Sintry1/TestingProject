@@ -89,18 +89,14 @@
     <mat-form-field class="remove-error-message">
       <mat-label>Time in room</mat-label>
       <input onclick="this.showPicker()" matInput type="time" formControlName="completedAt" />
-      <mat-error *ngIf="form.get('completedAt')?.invalid && form.get('completedAt')?.dirty">
-        Can't be in the future
-      </mat-error>
+      <mat-error> Can't be in the future </mat-error>
     </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
     <textarea type="text" formControlName="comments" matInput placeholder="Comments"></textarea>
-    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
-      Can't be more than 1000 characters
-    </mat-error>
+    <mat-error> Can't be more than 1000 characters </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
