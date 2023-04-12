@@ -102,3 +102,9 @@ h1 {
   text-overflow: ellipsis;
   margin: 0 0 0.5em 0.5em;
 }
+
+::ng-deep {
+  input[type="time"] {
+    white-space: normal;
+  }
+}
