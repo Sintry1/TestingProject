@@ -17,8 +17,8 @@ githubRepo="https://github.com/omnihost-systems/hotel-dangleterre.git"
 
 echo "================================"
 echo "Step 1 - getting the needed information"
-until [[ $environment = "TEST" ]] || [[ $environment = "STAGING" ]] || [[ $environment = "DEMO" ]] || [[ $environment = "PRODUCTION" ]]; do
-    read -p "What is the environment this system runs in [TEST, STAGING, DEMO, PRODUCTION]: " environment
+until [[ $environment = "TEST" ]] || [[ $environment = "DEVELOPMENT" ]] || [[ $environment = "DEMO" ]] || [[ $environment = "PRODUCTION" ]]; do
+    read -p "What is the environment this system runs in [TEST, DEVELOPMENT, DEMO, PRODUCTION]: " environment
     echo "$environment"
 done
 echo "You have chosen environment '$environment'"
@@ -79,7 +79,7 @@ echo "Setting the hostname"
 lowercaseEnv=$(echo $environment | tr '[:upper:]' '[:lower:]')
 hostname="$lowercaseEnv-omnihost"
 hostnamectl set-hostname $hostname
-printf "127.0.0.1 staging-omnihost\n" >>/etc/hosts
+printf "127.0.0.1 $hostname\n" >>/etc/hosts
 echo "Hostname set to '$hostname'"
 echo
 
