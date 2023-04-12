@@ -35,7 +35,7 @@ export class CheckoutComponent {
   listNames?: string[];
   isLoading = false;
   displayDate = new Date();
-  sortBy: LuggageSortOptions = LuggageSortOptions.CREATED_AT;
+  sortBy: LuggageSortOptions = LuggageSortOptions.ROOM;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
 

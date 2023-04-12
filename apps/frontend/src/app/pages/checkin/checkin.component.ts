@@ -35,7 +35,7 @@ export class CheckinComponent {
   completeCheckins: ILuggage[] = [];
   isLoading = false;
   displayDate = new Date();
-  sortBy: LuggageSortOptions = LuggageSortOptions.CREATED_AT;
+  sortBy: LuggageSortOptions = LuggageSortOptions.ROOM;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
 
