@@ -1,8 +1,12 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
 import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
-import { IUpdateAssignmentRequest } from '../assignment/assignment.interface';
 import { CompletedAtResponse } from '../base.dto';
-import { ICreateDocumentRequest, IDocument, IGetDocumentByIdResponse } from './document.interface';
+import {
+  ICreateDocumentRequest,
+  IDocument,
+  IGetDocumentByIdResponse,
+  IUpdateDocumentRequest,
+} from './document.interface';
 export class GetDocumentResponse extends CompletedAtResponse implements IDocument {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   documentId!: string;
@@ -46,7 +50,7 @@ export class CreateDocumentRequest implements ICreateDocumentRequest {
   document?: any;
 }
 
-export class UpdateDocumentRequest implements IUpdateAssignmentRequest {
+export class UpdateDocumentRequest implements IUpdateDocumentRequest {
   @ApiModelProperty({ example: 'New Years Eve preparations' })
   @IsOptional()
   title?: string;
