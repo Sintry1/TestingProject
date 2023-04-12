@@ -9,8 +9,8 @@ export function getFrontendUrlFromEnv(): string {
   switch (environment.env) {
     case 'PRODUCTION':
       return 'https://dangleterre.omnihost.app';
-    case 'STAGING':
-      return 'https://staging.dangleterre.omnihost.app';
+    case 'DEVELOPMENT':
+      return 'https://dev.dangleterre.omnihost.app';
     case 'DEMO':
       return 'https://demo.dangleterre.omnihost.app';
     case 'TEST':
