@@ -18,11 +18,11 @@ import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
 
 @Component({
-  selector: 'frontend-view-images-dialog',
-  templateUrl: './view-images-dialog.component.html',
-  styleUrls: ['./view-images-dialog.component.scss'],
+  selector: 'frontend-view-files-dialog',
+  templateUrl: './view-files-dialog.component.html',
+  styleUrls: ['./view-files-dialog.component.scss'],
 })
-export class ViewImagesDialogComponent {
+export class ViewFilesDialogComponent {
   images: string[] = [];
   videos: string[] = [];
   documents: SafeResourceUrl[] = [];
