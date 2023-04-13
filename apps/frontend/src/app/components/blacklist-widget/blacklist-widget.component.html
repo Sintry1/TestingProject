@@ -3,7 +3,7 @@
     <span class="img-arrows" (click)="previousImage()">
       <span *ngIf="files.length !== 1">&lt;</span>
     </span>
-    <img [src]="files[currentImage]" class="image" />
+    <img [src]="getCurrentImage()" class="image" />
     <span class="img-arrows" (click)="nextImage()">
       <span *ngIf="files.length !== 1">&gt;</span>
     </span>
