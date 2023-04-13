@@ -91,9 +91,6 @@ export class ViewFilesDialogComponent {
     this.images = this.filterImages(response.downloadUrls);
     this.videos = this.filterVideos(response.downloadUrls);
     this.documents = this.processDocuments(response.downloadUrls);
-    console.log('images', this.images);
-    console.log('videos', this.videos);
-    console.log('documents', this.documents);
 
     this.isLoading = false;
   }
