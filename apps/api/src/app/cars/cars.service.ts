@@ -8,7 +8,7 @@ import {
 } from '@omnihost/interfaces';
 import { Car } from '@omnihost/models';
 import 'multer';
-import { ILike, LessThanOrEqual, Repository, Between, MoreThanOrEqual } from 'typeorm';
+import { Between, ILike, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 import { FilesService } from '../files/files.service';
 import { filterStatus } from '../utils/query-params.utils';
 
@@ -185,7 +185,7 @@ export class CarsService {
 
   async getFilesLink(fileNames: string[]) {
     try {
-      return await this.toFiles(fileNames);
+      return await this.fileService.getSignedLinkBulk(fileNames);
     } catch (error) {
       Logger.error(error);
       throw new HttpException(
@@ -199,14 +199,6 @@ export class CarsService {
     const fileNames: string[] = [];
     files.forEach((file) => fileNames.push(file.originalname));
     return fileNames;
-  }
-
-  private async toFiles(fileNames: string[]) {
-    const files = [];
-    for (const fileName of fileNames) {
-      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
-    }
-    return files;
   }
 
   private getSortingConditions(
