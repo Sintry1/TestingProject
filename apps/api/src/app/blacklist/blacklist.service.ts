@@ -91,7 +91,7 @@ export class BlacklistService {
 
   async getFilesLink(fileNames: string[]) {
     try {
-      return await this.toFiles(fileNames);
+      return await this.fileService.getSignedLinkBulk(fileNames);
     } catch (error) {
       throw new HttpException(
         "Failed to get the files' links. Please try again later.",
@@ -170,13 +170,5 @@ export class BlacklistService {
     const fileNames: string[] = [];
     files.forEach((file) => fileNames.push(file.originalname));
     return fileNames;
-  }
-
-  private async toFiles(fileNames: string[]) {
-    const files = [];
-    for (const fileName of fileNames) {
-      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
-    }
-    return files;
   }
 }
