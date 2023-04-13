@@ -1,10 +1,10 @@
 <div class="blacklist-widget-container" *ngIf="!isLoading">
   <div class="image-container">
-    <span class="img-arrows" (click)="previousImage()">
+    <span class="img-arrows" (click)="previousImage()" *ngIf="files.length > 1">
       <span *ngIf="files.length !== 1">&lt;</span>
     </span>
     <img [src]="getCurrentImage()" class="image" />
-    <span class="img-arrows" (click)="nextImage()">
+    <span class="img-arrows" (click)="nextImage()" *ngIf="files.length > 1">
       <span *ngIf="files.length !== 1">&gt;</span>
     </span>
   </div>
