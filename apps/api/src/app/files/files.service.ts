@@ -26,7 +26,9 @@ export class FilesService {
     const accessKey = configService.getValue('API_LINODE_PERSONAL_TOKEN', true);
     const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
     const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
-    console.log('Fetching file: ' + fileName);
+    this.logger.verbose(
+      `Fetching signed url with expiration: '${expiresIn}' for filename: '${fileName}'`
+    );
 
     const { data } = await firstValueFrom(
       this.httpService
