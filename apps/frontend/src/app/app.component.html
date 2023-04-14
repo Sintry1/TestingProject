@@ -116,7 +116,13 @@
           [ngClass]="{ 'active-nav': title === 'Announcements' }"
           routerLink="/announcements"
         >
-          <p *ngIf="notificationPresent" class="notification-number">1</p>
+          <p
+            *ngIf="notificationPresent"
+            class="notification-number"
+            [ngClass]="{ 'active-nav': title !== 'Announcements' }"
+          >
+            1
+          </p>
           <mat-icon aria-hidden="false" data-cy="icon">announcement </mat-icon>
           <span
             class="side-nav-item"
