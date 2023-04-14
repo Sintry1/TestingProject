@@ -40,7 +40,6 @@ export class LongtermComponent {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   displayDate = new Date();
-  showAll = false;
   timeZone = 'UTC';
 
   displayedColumns = [
@@ -98,7 +97,7 @@ export class LongtermComponent {
           this.originalLuggage = luggage;
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
             luggage,
-            this.showAll,
+            false,
             this.displayDate
           );
           this.incompleteLongTerm = this.filteredLuggage.filter((luggage) => !luggage.completedAt);
@@ -137,15 +136,6 @@ export class LongtermComponent {
       minWidth: '600px',
       disableClose: true,
     });
-  }
-
-  toggleShowAll(): void {
-    this.showAll = !this.showAll;
-    this.filteredLuggage = filterByCompletedAtAndOrderResults(
-      this.originalLuggage,
-      this.showAll,
-      this.displayDate
-    );
   }
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
