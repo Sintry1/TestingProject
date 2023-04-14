@@ -146,7 +146,7 @@ export class CarsComponent {
         this.originalCars = cars;
         this.filteredCars = filterByCompletedAtAndOrderResults(
           this.originalCars,
-          this.showAll,
+          false,
           this.displayDate
           // Need to filter another list to filter out the completed orders and place them in completedCars
         );
@@ -166,15 +166,6 @@ export class CarsComponent {
         );
       },
     });
-  }
-
-  toggleShowAll(): void {
-    this.showAll = !this.showAll;
-    this.filteredCars = filterByCompletedAtAndOrderResults(
-      this.originalCars,
-      this.showAll,
-      this.displayDate
-    );
   }
 
   isReady(pickupTime: string): boolean {
