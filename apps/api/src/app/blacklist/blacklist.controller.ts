@@ -50,7 +50,7 @@ export class BlacklistController {
   @ApiConsumes('multipart/form-data')
   @HttpCode(201)
   @UseInterceptors(
-    FilesInterceptor('files', 10, {
+    FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
         file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
@@ -93,7 +93,7 @@ export class BlacklistController {
   @ApiResponse({ type: Blacklist })
   @HttpCode(200)
   @UseInterceptors(
-    FilesInterceptor('files', 5, {
+    FilesInterceptor('files', 20, {
       fileFilter(req, file, callback) {
         file.originalname = prependUuid(file.originalname);
         return validateFileType(req, file, callback, FileTypePattern.PICTURES);
