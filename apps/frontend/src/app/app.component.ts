@@ -14,6 +14,7 @@ export class AppComponent {
   title = 'Omnihost Systems';
   sidebarCollapsed = true;
   displayDate = toDateInputString(new Date());
+  notificationPresent = true;
 
   constructor(
     public router: Router,
