@@ -16,7 +16,6 @@ export class TasksNotificationWidgetComponent implements OnInit {
   sortBy: TaskSortOptions = TaskSortOptions.TIME;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  showAll = false;
   nextTask: Date | undefined = undefined;
   timeTillPickup = new Date();
 
