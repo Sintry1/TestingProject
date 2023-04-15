@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
 import { AnnouncementSortOptions, SortOrder } from '@omnihost/interfaces';
@@ -13,11 +13,12 @@ import { toDateInputString, toDateObject } from './utils/date.util';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'Omnihost Systems';
   sidebarCollapsed = true;
   displayDate = toDateInputString(new Date());
   newNotifications = 0;
+  notificationFetchingInterval;
 
   constructor(
     public router: Router,
@@ -30,6 +31,9 @@ export class AppComponent {
       .getDisplayDateSubject()
       .subscribe((date) => (this.displayDate = toDateInputString(new Date(date))));
 
+    this.notificationFetchingInterval = setInterval(() => {
+      this.fetchAnnouncements();
+    }, 1000 * 60); // 15 minutes
     this.fetchAnnouncements();
 
     this.router.events.subscribe(async (val) => {
@@ -80,6 +84,10 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.notificationFetchingInterval);
   }
 
   /**
