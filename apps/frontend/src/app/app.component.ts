@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NavigationEnd, Router } from '@angular/router';
+import { AnnouncementSortOptions, SortOrder } from '@omnihost/interfaces';
+import { AnnouncementsService } from './services/announcements.service';
 import { AuthService } from './services/auth.service';
 import { DisplayDateService } from './services/display-date.service';
+import { SentryService } from './services/sentry.service';
 import { toDateInputString, toDateObject } from './utils/date.util';
 
 @Component({
@@ -14,17 +17,20 @@ export class AppComponent {
   title = 'Omnihost Systems';
   sidebarCollapsed = true;
   displayDate = toDateInputString(new Date());
-  notificationPresent = true;
+  newNotifications = 0;
 
   constructor(
     public router: Router,
     private displayDateService: DisplayDateService,
     private authService: AuthService,
+    private announcementService: AnnouncementsService,
     private snackBar: MatSnackBar
   ) {
     this.displayDateService
       .getDisplayDateSubject()
       .subscribe((date) => (this.displayDate = toDateInputString(new Date(date))));
+
+    this.fetchAnnouncements();
 
     this.router.events.subscribe(async (val) => {
       if (val instanceof NavigationEnd) {
@@ -74,6 +80,41 @@ export class AppComponent {
         }
       }
     });
+  }
+
+  /**
+   * Fetch the announcements and filter how many are fresh (less than 24 hours old)
+   */
+  fetchAnnouncements() {
+    this.announcementService
+      .getAnnouncements(AnnouncementSortOptions.SHOW_FROM, SortOrder.ASCENDING, '')
+      .subscribe({
+        next: (announcements) => {
+          const yesterday = new Date(Date.now());
+          yesterday.setTime(yesterday.getTime() - 24 * 60 * 60 * 1000); // day before now
+
+          this.newNotifications = announcements.filter((announcement) => {
+            if (!announcement.showFrom) {
+              return false;
+            }
+            const from = toDateObject(announcement.showFrom.toString());
+            return (
+              from.getTime() < new Date(Date.now()).getTime() &&
+              from.getTime() > yesterday.getTime()
+            );
+          }).length;
+        },
+        error: (error) => {
+          SentryService.logError(error);
+          this.snackBar.open(
+            'Announcement data has failed to load, please try checking your connection.',
+            'Okay',
+            {
+              duration: 10000,
+            }
+          );
+        },
+      });
   }
 
   /**
