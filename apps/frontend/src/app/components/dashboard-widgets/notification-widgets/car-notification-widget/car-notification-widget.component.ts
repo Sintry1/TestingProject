@@ -39,6 +39,10 @@ export class CarNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
+    if (this.originalCarList.length == 0) {
+      console.warn(`There are no cars to showcase on the dashboard!`);
+      return;
+    }
     let oldestCar = this.originalCarList[0];
 
     for (const car of this.originalCarList) {
