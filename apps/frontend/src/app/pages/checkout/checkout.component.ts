@@ -1,11 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  LuggageType,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { toExportFilenameString } from '../../utils/date.util';
+import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckoutDialogComponent } from './create-checkout-dialog/create-checkout-dialog.component';
 import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-checkout-dialog.component';
@@ -15,8 +28,10 @@ import { UpdateCheckoutDialogComponent } from './update-checkout-dialog/update-c
   templateUrl: './checkout.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent {
   checkoutLuggage: ILuggage[] = [];
+  completeCheckouts: ILuggage[] = [];
+  incompleteCheckouts: ILuggage[] = [];
   listNames?: string[];
   isLoading = false;
   displayDate = new Date();
@@ -37,6 +52,26 @@ export class CheckoutComponent implements OnInit {
     'comments',
   ];
 
+  luggageHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Room nr.',
+    'Name',
+    'Time of arrival',
+    'Nr. of bags',
+    'Comments',
+    'Tag nr',
+    'Location',
+    'BB Down',
+    'BB in LR',
+    'BB Up',
+    'Time in room',
+    'Files',
+  ];
+  exportFilename = 'luggages-checkout-data';
+  unwantedExportFields = ['roomReady', 'luggageType', 'luggageId'];
+
   constructor(
     private readonly luggageService: LuggageService,
     private snackBar: MatSnackBar,
@@ -49,10 +84,6 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchLuggage();
-  }
-
   fetchLuggage(): void {
     this.isLoading = true;
 
@@ -61,6 +92,8 @@ export class CheckoutComponent implements OnInit {
       .subscribe({
         next: (luggage) => {
           this.checkoutLuggage = orderByCompletedStatus(luggage);
+          this.completeCheckouts = this.checkoutLuggage.filter((luggage) => luggage.completedAt);
+          this.incompleteCheckouts = this.checkoutLuggage.filter((luggage) => !luggage.completedAt);
           this.isLoading = false;
         },
         error: (error) => {
@@ -81,19 +114,68 @@ export class CheckoutComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.CHECK_OUT,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openCheckoutEditDialog(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateCheckoutDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
-  openCheckoutCreateDialog(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateCheckoutDialogComponent, {
+      minWidth: '600px',
+      disableClose: true,
+    });
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+        autoFocus: false,
+      });
+    } else {
+      this.openEditDialog(element as ILuggage);
+    }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
       width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.luggageService.getLuggagesWithinRange(LuggageType.CHECKOUT, from, to).subscribe({
+            next: (luggages) => {
+              this.snackBar.open('Exporting Luggage Checkout data...', 'Thanks', {
+                duration: 5000,
+              });
+              downloadCsv(
+                luggages,
+                this.luggageHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
     });
   }
 }

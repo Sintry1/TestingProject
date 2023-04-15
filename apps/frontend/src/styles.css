@@ -5,15 +5,32 @@
 
   /* Border */
   --border: 1px solid rgba(0, 0, 0, 0.2);
+  --border-color: rgba(0, 0, 0, 0.2);
+  --border-color-darker: rgba(0, 0, 0, 0.4);
 
   /* Colors */
   --extra-light-grey: #f1f1f1;
   --danger-red: #f34d4d;
+  --light-red: #fccdcd;
+  --lighter-red: #ffdbdb;
+
   --main-blue: #2f2fa2;
   --main-blue-low-opacity: rgba(47, 47, 162, 0.4);
   --main-blue-lower-opacity: rgba(47, 47, 162, 0.2);
   --main-blue-lowest-opacity: rgba(47, 47, 162, 0.1);
+  --main-blue-opacity-5: rgba(47, 47, 162, 0.05);
+  --main-blue-opacity-10: rgba(47, 47, 162, 0.1);
+  --main-blue-opacity-15: rgba(47, 47, 162, 0.15);
+  --main-blue-opacity-20: rgba(47, 47, 162, 0.2);
   --action-gradient: linear-gradient(192.45deg, #f64c72 0%, #f64c72 0%, #fa7b34 100%);
+  --green: #13be2f;
+  --grey: rgba(0, 0, 0, 0.2);
+  --lightblue: #ebebf6;
+  --light-yellow: #fff971;
+  --lighter-yellow: #fffa95;
+  --extra-light-yellow: #fffdd1;
+  --yellow: #fdf53a;
+  --dark-yellow: #b3ab00;
 }
 
 html,
@@ -26,11 +43,17 @@ body {
   padding: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 * {
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 hr {
+  width: 99%;
   border-top: 2px solid var(--main-blue);
 }
 
@@ -53,6 +76,20 @@ button {
   background: var(--main-blue);
 }
 
+.link {
+  min-width: 10px !important;
+  width: 50px;
+}
+
+.link-icon {
+  position: relative;
+  bottom: 2px;
+}
+
+.export-icon {
+  height: 20px;
+}
+
 .basic-btn {
   color: var(--main-blue);
   background-color: white;
@@ -63,4 +100,39 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
+}
+
+body {
+  overflow: hidden;
+}
+
+.close-dialog-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 30px;
+  background-color: var(--main-blue);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.close-dialog-btn.small {
+  width: 20px;
+  height: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }

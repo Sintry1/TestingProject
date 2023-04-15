@@ -8,6 +8,7 @@ export * from './lib/task/task.dto';
 export * from './lib/document/document.dto';
 export * from './lib/announcement/announcement.dto';
 export * from './lib/base.dto';
+export * from './lib/blacklist/blacklist.dto';
 
 // Interfaces
 export * from './lib/auth.interface';
@@ -23,6 +24,8 @@ export * from './lib/document/document.interface';
 export * from './lib/token.interface';
 export * from './lib/announcement/announcement.interface';
 export * from './lib/reset-password-token/reset-password-token.interface';
+export * from './lib/announcement/announcement.interface';
+export * from './lib/blacklist/blacklist.interface';
 
 // Enums
 export * from './lib/role.enum';
@@ -36,3 +39,5 @@ export * from './lib/assignment/assignment-sort-options.enum';
 export * from './lib/document/document-sort-options.enum';
 export * from './lib/announcement/announcement-sort-options.enum';
 export * from './lib/table-names.enum';
+export * from './lib/file-type-patterns.enum';
+export * from './lib/announcement/announcement-sort-options.enum';

@@ -14,6 +14,19 @@ import { environment as env } from '../../environments/environment';
 export class AssignmentsService {
   constructor(private http: HttpClient) {}
 
+  public getAssignmentsWithinRange(from?: string, to?: string): Observable<IAssignment[]> {
+    let query = '';
+    if (from && to) {
+      query = `?from=${from}&to=${to}`;
+    } else if (from) {
+      query = `?from=${from}`;
+    } else if (to) {
+      query = `?to=${to}`;
+    }
+
+    return this.http.get<IAssignment[]>(`${env.apiUrl}/assignments/all${query}`);
+  }
+
   /**
    * Calls the API to get a list of assignments.
    *

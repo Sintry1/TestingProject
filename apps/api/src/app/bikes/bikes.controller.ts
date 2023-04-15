@@ -40,6 +40,26 @@ import { BikesService } from './bikes.service';
 export class BikesController {
   constructor(private bikesService: BikesService) {}
 
+  @Get('all')
+  @ApiOperation({
+    summary: 'Get a list of all bikes, or bikes from a given range of dates.',
+  })
+  @ApiOkResponse({ type: [Bike] })
+  @ApiQuery({ name: 'from', required: false, example: new Date() })
+  @ApiQuery({ name: 'to', required: false, example: new Date() })
+  @HttpCode(200)
+  async getAllBikes(
+    @Query('from')
+    from: string,
+    @Query('to')
+    to: string
+  ) {
+    const fromDate = from ? new Date(Date.parse(from)) : undefined;
+    const toDate = to ? new Date(Date.parse(to)) : undefined;
+
+    return this.bikesService.findAll(fromDate, toDate);
+  }
+
   @Get()
   @ApiOperation({
     summary: 'Get a list of bikes from the given day.',

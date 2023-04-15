@@ -1,0 +1,14 @@
+<h1>Documents</h1>
+<hr />
+<div class="item-container">
+  <div *ngFor="let document of documentList" class="dashboard-item">
+    <h2>{{ displayTitle(document.title) }}</h2>
+    <button
+      mat-raised-button
+      class="secondary-btn"
+      (click)="openSeeDocumentDialog(document.documentId)"
+    >
+      <img src="assets/icons/link-icon.svg" alt="link icon" class="link-icon" />
+    </button>
+  </div>
+</div>

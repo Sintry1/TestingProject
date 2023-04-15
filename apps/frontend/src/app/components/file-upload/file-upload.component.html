@@ -1,0 +1,57 @@
+<div class="file-container">
+  <ng-container *ngIf="selectedFiles.length === 0 && existingFiles.length === 0">
+    <img src="assets/icons/file-upload.svg" alt="File upload icon" class="file-upload-icon" />
+    <br />
+    <h1 class="">Upload Files</h1>
+    <p class="file-upload-text">Must be a {{ getExtensionsAsFormattedString() }}</p>
+  </ng-container>
+
+  <!-- File selection / upload -->
+  <input
+    style="display: none"
+    #fileUpload
+    type="file"
+    [accept]="allowedExtensionsAsMimeType"
+    multiple
+    (change)="uploadImages($event)"
+  />
+  <button class="file-select-area" (click)="fileUpload.click()" type="button">
+    <span>Click to select files</span>
+  </button>
+
+  <!-- File list -->
+  <ng-container *ngIf="selectedFiles.length > 0 || existingFiles.length > 0">
+    <section class="selected-files-list">
+      <div *ngFor="let file of existingFiles">
+        <div class="selected-file">
+          <img src="assets/icons/file.svg" alt="File icon" />
+          <span class="file-name">{{ formatFileName(stripUuid(file)) }}</span>
+          <span class="file-size"></span>
+          <button (click)="removeExistingFile(file)" class="close-dialog-btn small">X</button>
+        </div>
+        <hr />
+      </div>
+      <div *ngFor="let file of selectedFiles">
+        <div class="selected-file" [ngClass]="isFileValid(file) ? '' : 'invalid-file'">
+          <img src="assets/icons/file.svg" alt="File icon" />
+          <span class="file-name">{{ formatFileName(file.name) }}</span>
+          <span class="file-size">{{ formatFileSize(file.size) }}</span>
+          <button (click)="removeUploadedFile(file)" class="close-dialog-btn small">X</button>
+        </div>
+        <hr />
+      </div>
+    </section>
+  </ng-container>
+
+  <section *ngIf="containsInvalidFiles" class="invalid-files-section">
+    <span class="subtitle">One or more files are invalid!</span>
+    <ul>
+      <li>Max number of files: {{ constraints.maxFilesNumber }}</li>
+      <li>
+        Max size per file:
+        {{ constraints.maxFileSize / 1000000 }} MB
+      </li>
+      <li>Allowed extensions: {{ getFormattedAllowedFileExtensions() }}</li>
+    </ul>
+  </section>
+</div>

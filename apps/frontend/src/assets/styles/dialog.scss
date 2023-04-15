@@ -1,11 +1,10 @@
 h1 {
   color: var(--main-blue);
-  margin-bottom: 0.25em;
+  margin-bottom: 0;
 }
 
 .dialog-container {
   max-height: 80vh;
-  overflow: auto;
   padding: 5px;
 }
 
@@ -85,4 +84,21 @@ h1 {
   border: none;
   padding: 10px;
   margin-right: 10px;
+}
+
+@media (max-width: 1027px) {
+  ::ng-deep.mat-dialog-container {
+    width: 90vw;
+    margin: auto;
+    max-height: 90vh;
+  }
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0 0 0.5em 0.5em;
 }

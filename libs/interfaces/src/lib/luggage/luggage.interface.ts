@@ -5,7 +5,7 @@ export interface ILuggage extends ICompletedAt {
   luggageId: string;
   luggageType: LuggageType;
   roomReady?: boolean;
-  room: string;
+  room?: string;
   name: string;
   arrivalTime?: Date | null;
   bags: string;
@@ -16,11 +16,16 @@ export interface ILuggage extends ICompletedAt {
   bbLr: string; // Who put the luggage in the storage room.
   bbOut?: string; // Who gave the luggage to the guest.
   dateNeeded?: Date | null;
+  files: string[];
+}
+
+export interface IGetLuggageByIdResponse extends ILuggage {
+  downloadUrls: string[];
 }
 
 export interface ICreateLuggageRequest {
   luggageType: LuggageType;
-  room: string;
+  room?: string | null;
   // roomReady?: boolean;
   name: string;
   bags: string;
@@ -37,8 +42,8 @@ export interface ICreateLuggageRequest {
 
 export interface IUpdateLuggageRequest {
   luggageType?: LuggageType;
-  roomReady?: boolean;
-  room?: string;
+  // roomReady?: boolean;
+  room?: string | null;
   name?: string;
   arrivalTime?: Date | null;
   bags?: string;

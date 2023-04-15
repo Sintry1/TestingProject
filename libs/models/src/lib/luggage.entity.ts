@@ -18,8 +18,8 @@ export class Luggage extends CompletedAt implements ILuggage {
   roomReady?: boolean;
 
   @ApiModelProperty({ example: '101' })
-  @Column()
-  room!: string;
+  @Column({ nullable: true })
+  room?: string;
 
   @ApiModelProperty({ example: 'Larsen' })
   @Column()
@@ -60,4 +60,8 @@ export class Luggage extends CompletedAt implements ILuggage {
   @ApiModelProperty({ example: new Date() })
   @Column({ nullable: true })
   dateNeeded?: Date;
+
+  @ApiModelProperty({ example: ['tourDeFrance.pdf', 'selfieFromParis.png'] })
+  @Column('text', { array: true, default: [] })
+  files!: string[];
 }

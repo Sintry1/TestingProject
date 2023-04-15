@@ -1,11 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ILuggage, LuggageSortOptions, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import {
+  IAnnouncement,
+  ICar,
+  ILuggage,
+  LuggageSortOptions,
+  LuggageType,
+  SortOrder,
+  TableInfoOptions,
+} from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
+import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
+import { toExportFilenameString } from '../../utils/date.util';
+import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateLongTermDialogComponent } from './create-long-term-dialog/create-long-term-dialog.component';
 import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-long-term-dialog.component';
@@ -15,9 +28,11 @@ import { UpdateLongTermDialogComponent } from './update-long-term-dialog/update-
   templateUrl: 'longterm.component.html',
   styleUrls: ['../../../assets/styles/table.scss'],
 })
-export class LongtermComponent implements OnInit {
+export class LongtermComponent {
   originalLuggage: ILuggage[] = [];
   filteredLuggage: ILuggage[] = [];
+  completedLongTerm: ILuggage[] = [];
+  incompleteLongTerm: ILuggage[] = [];
   listNames?: string[];
   chosenListName = '';
   isLoading = false;
@@ -26,6 +41,7 @@ export class LongtermComponent implements OnInit {
   search = '';
   displayDate = new Date();
   showAll = false;
+  timeZone = 'UTC';
 
   displayedColumns = [
     'dateIn',
@@ -41,6 +57,26 @@ export class LongtermComponent implements OnInit {
     'comments',
   ];
 
+  luggageHeaders = [
+    'Created At',
+    'Last Updated At',
+    'Completed At',
+    'Room nr.',
+    'Name',
+    'Time of arrival',
+    'Nr. of bags',
+    'Comments',
+    'Tag nr',
+    'Location',
+    'BB Down',
+    'BB in LR',
+    'BB Up',
+    'Time in room',
+    'Files',
+  ];
+  exportFilename = 'luggages-longterm-data';
+  unwantedExportFields = ['roomReady', 'luggageType', 'luggageId'];
+
   constructor(
     private readonly luggageService: LuggageService,
     private snackBar: MatSnackBar,
@@ -51,10 +87,6 @@ export class LongtermComponent implements OnInit {
       this.displayDate = new Date(date);
       this.fetchLuggage();
     });
-  }
-
-  ngOnInit(): void {
-    this.fetchLuggage();
   }
 
   fetchLuggage(): void {
@@ -69,6 +101,8 @@ export class LongtermComponent implements OnInit {
             this.showAll,
             this.displayDate
           );
+          this.incompleteLongTerm = this.filteredLuggage.filter((luggage) => !luggage.completedAt);
+          this.completedLongTerm = this.filteredLuggage.filter((luggage) => luggage.completedAt);
           this.isLoading = false;
         },
         error: (error) => {
@@ -85,19 +119,23 @@ export class LongtermComponent implements OnInit {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.LONG_TERM,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  editLongTermListEntry(luggage: ILuggage): void {
+  openEditDialog(luggage: ILuggage): void {
     this.dialog.open(UpdateLongTermDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
       data: luggage,
+      autoFocus: false,
     });
   }
 
-  createLongTermEntry(): void {
+  openCreateDialog(): void {
     this.dialog.open(CreateLongTermDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      disableClose: true,
     });
   }
 
@@ -108,5 +146,50 @@ export class LongtermComponent implements OnInit {
       this.showAll,
       this.displayDate
     );
+  }
+
+  viewFiles(element: ILuggage | ICar | IAnnouncement) {
+    if (element.files.length > 0) {
+      this.dialog.open(ViewImagesDialogComponent, {
+        width: '600px',
+        disableClose: true,
+        data: element,
+        autoFocus: false,
+      });
+    } else {
+      this.openEditDialog(element as ILuggage);
+    }
+  }
+
+  openCsvExportDialog() {
+    this.dialog.open(CsvExportComponent, {
+      width: '600px',
+      disableClose: true,
+      data: {
+        export: (from?: string, to?: string) => {
+          this.luggageService.getLuggagesWithinRange(LuggageType.LONG_TERM, from, to).subscribe({
+            next: (luggages) => {
+              this.snackBar.open('Exporting Luggage Longterm data...', 'Thanks', {
+                duration: 5000,
+              });
+              downloadCsv(
+                luggages,
+                this.luggageHeaders,
+                this.unwantedExportFields,
+                `${this.exportFilename}${
+                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
+                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
+              );
+            },
+            error: (error: HttpErrorResponse) => {
+              SentryService.logError(error);
+              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
+                duration: 15000,
+              });
+            },
+          });
+        },
+      },
+    });
   }
 }

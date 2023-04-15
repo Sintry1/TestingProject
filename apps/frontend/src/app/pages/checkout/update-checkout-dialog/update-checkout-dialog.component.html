@@ -1,109 +1,104 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="updateCheckoutForm" class="dialog-container">
-  <h1>Update Check Out</h1>
+<frontend-file-upload
+  #fileUpload
+  [parentType]="'luggages'"
+  [existingFiles]="files"
+  (submissionFinishedEvent)="finalizeSubmission($event)"
+  (containsInvalidFilesEvent)="updateFilesStatus($event)"
+></frontend-file-upload>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
+  <div class="title-container">
+    <h1>Update Check Out</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
   <hr />
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Room nr.</mat-label>
-      <input #room type="number" formControlName="room" matInput placeholder="123" />
-      <mat-error
-        *ngIf="updateCheckoutForm.get('name')?.invalid && updateCheckoutForm.get('name')?.dirty"
-      >
-        Required
-      </mat-error>
+      <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
+      <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredRooms | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>Nr of bags</mat-label>
       <input #bags type="text" formControlName="bags" matInput placeholder="1+3" />
-      <mat-error
-        *ngIf="updateCheckoutForm.get('bags')?.invalid && updateCheckoutForm.get('bags')?.dirty"
-      >
-        Required
-      </mat-error>
+      <mat-error *ngIf="form.get('bags')?.invalid && form.get('bags')?.dirty"> Required </mat-error>
     </mat-form-field>
   </div>
 
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Name</mat-label>
     <input #name type="text" formControlName="name" matInput placeholder="John Doe" />
-    <mat-error
-      *ngIf="updateCheckoutForm.get('name')?.invalid && updateCheckoutForm.get('name')?.dirty"
-    >
-      Required
-    </mat-error>
+    <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
       <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error
-        *ngIf="updateCheckoutForm.get('tagNr')?.invalid && updateCheckoutForm.get('tagNr')?.dirty"
-      >
+      <mat-error *ngIf="form.get('tagNr')?.invalid && form.get('tagNr')?.dirty">
         Required
       </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>BB down</mat-label>
-      <mat-select [(value)]="data.bbDown" formControlName="bbDown">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input #bbDown matInput formControlName="bbDown" [matAutocomplete]="bbDownOptions" />
+      <mat-autocomplete #bbDown autoActiveFirstOption #bbDownOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbDown | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="updateCheckoutForm.get('bbDown')?.invalid && updateCheckoutForm.get('bbDown')?.dirty"
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>Location</mat-label>
-      <mat-select [(value)]="data.location" formControlName="location">
-        <mat-option *ngFor="let location of luggageLocation" [value]="location">
-          {{ location }}
+      <input matInput formControlName="location" [matAutocomplete]="locationOptions" />
+      <mat-autocomplete autoActiveFirstOption #locationOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredLocations | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="
-          updateCheckoutForm.get('location')?.invalid && updateCheckoutForm.get('location')?.dirty
-        "
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
       <mat-label>BB in LR</mat-label>
-      <mat-select [(value)]="data.bbLr" formControlName="bbLr">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
-          {{ initials }}
+      <input #bbLr matInput formControlName="bbLr" [matAutocomplete]="bbLrOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbLrOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbLr | async" [value]="option">
+          {{ option }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="updateCheckoutForm.get('bbLr')?.invalid && updateCheckoutForm.get('bbLr')?.dirty"
-      >
-        Required
-      </mat-error>
+      </mat-autocomplete>
+      <mat-error> {{ getErrorMessage() }} </mat-error>
     </mat-form-field>
   </div>
 
   <div class="dialog-row">
     <mat-form-field autocomplete="off">
       <mat-label>BB out</mat-label>
-      <mat-select [(value)]="data.bbOut" formControlName="bbOut">
-        <mat-option *ngFor="let initials of bbInitials" [value]="initials">
+      <!-- <mat-select formControlName="bbOut">
+        <mat-option *ngFor="let initials of filteredBbOut | async" [value]="initials">
           {{ initials }}
         </mat-option>
-      </mat-select>
-      <mat-error
-        *ngIf="updateCheckoutForm.get('bbOut')?.invalid && updateCheckoutForm.get('bbOut')?.dirty"
-      >
-        Required
+      </mat-select> -->
+      <input #bbOut matInput formControlName="bbOut" [matAutocomplete]="bbOutOptions" />
+      <mat-autocomplete autoActiveFirstOption #bbOutOptions="matAutocomplete">
+        <mat-option *ngFor="let option of filteredBbOut | async" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error>
+        {{ getErrorMessage() }}
       </mat-error>
     </mat-form-field>
 
@@ -119,8 +114,8 @@
   </mat-form-field>
 
   <div class="dialog-row">
-    <button mat-raised-button class="secodary-btn" mat-dialog-close>Cancel</button>
-    <button mat-raised-button class="secondary-btn" type="submit">
+    <button mat-raised-button class="secondary-btn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="action-btn" type="submit">
       <div *ngIf="!isLoading">Update</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>

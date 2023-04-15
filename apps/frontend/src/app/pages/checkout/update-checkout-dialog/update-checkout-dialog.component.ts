@@ -4,23 +4,42 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ILuggage } from '@omnihost/interfaces';
+import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { LuggageService } from '../../../services/luggage.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toTimeInputString } from '../../../utils/date.util';
-import { bellBoyInitials, luggageLocation } from '../../../utils/dropdown-selection';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, luggageLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-update-checkout-dialog',
   templateUrl: './update-checkout-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/checkbox.scss', '../../../../assets/styles/dialog.scss'],
+  styleUrls: [
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
-export class UpdateCheckoutDialogComponent {
-  updateCheckoutForm: UntypedFormGroup;
+export class UpdateCheckoutDialogComponent extends DropdownSelection {
+  form: UntypedFormGroup;
   isLoading = false;
+  files: string[] = [];
   luggageId: string;
-  bbInitials = bellBoyInitials;
-  luggageLocation = luggageLocation;
+  containsInvalidFiles = false;
 
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbLr: Observable<string[]> = new Observable<string[]>();
+  filteredBbDown: Observable<string[]> = new Observable<string[]>();
+  filteredLocations: Observable<string[]> = new Observable<string[]>();
+  filteredBbOut: Observable<string[]> = new Observable<string[]>();
+
+  bellboyListAndGuest = [...bellBoyInitials, 'Guest'];
+
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('name') nameInput!: ElementRef;
   @ViewChild('bags') bagsInput!: ElementRef;
@@ -36,39 +55,64 @@ export class UpdateCheckoutDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
+    super();
     this.luggageId = data.luggageId;
-    this.updateCheckoutForm = new UntypedFormGroup({
-      room: new UntypedFormControl(data.room, [Validators.required]),
+    this.files = data.files;
+    this.form = new UntypedFormGroup({
+      room: new UntypedFormControl(data.room, [Validators.required], valueInArrayValidator(rooms)),
       name: new UntypedFormControl(data.name, [Validators.required]),
       bags: new UntypedFormControl(data.bags, [Validators.required]),
       tagNr: new UntypedFormControl(data.tagNr, [Validators.required]),
-      bbLr: new UntypedFormControl(data.bbLr, [Validators.required]),
-      bbDown: new UntypedFormControl(data.bbDown, [Validators.required]),
-      bbOut: new UntypedFormControl(data.bbOut, []),
-      location: new UntypedFormControl(data.location, [Validators.required]),
+      bbLr: new UntypedFormControl(
+        data.bbLr,
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      bbDown: new UntypedFormControl(
+        data.bbDown,
+        [Validators.required],
+        valueInArrayValidator(this.bellboyListAndGuest)
+      ),
+      bbOut: new UntypedFormControl(data.bbOut, [], valueInArrayValidator(bellBoyInitials)),
+      location: new UntypedFormControl(
+        data.location,
+        [Validators.required],
+        valueInArrayValidator(luggageLocation)
+      ),
       completedAt: new UntypedFormControl(
         data.completedAt ? toTimeInputString(new Date(data.completedAt)) : '',
-        []
+        [],
+        valueNotFutureValidator()
       ),
       comments: new UntypedFormControl(data.comments, []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbLr = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbLr'));
+    this.filteredBbDown = filterAutocompleteSelect(
+      this.bellboyListAndGuest,
+      this.form.get('bbDown')
+    );
+    this.filteredLocations = filterAutocompleteSelect(luggageLocation, this.form.get('location'));
+    this.filteredBbOut = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbOut'));
   }
 
   onSubmit(): void {
-    if (!this.updateCheckoutForm.valid) {
-      if (this.updateCheckoutForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bags')?.invalid) {
+      } else if (this.form.get('bags')?.invalid) {
         this.bagsInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bbDown')?.invalid) {
+      } else if (this.form.get('bbDown')?.invalid) {
         this.bbDownInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
-      } else if (this.updateCheckoutForm.get('bbLr')?.invalid) {
+      } else if (this.form.get('bbLr')?.invalid) {
         this.bbLrInput.nativeElement.focus();
       }
     } else {
@@ -80,33 +124,20 @@ export class UpdateCheckoutDialogComponent {
     this.isLoading = true;
     this.service
       .update(this.luggageId, {
-        room: this.updateCheckoutForm.get('room')?.value,
-        name: this.updateCheckoutForm.get('name')?.value,
-        bags: this.updateCheckoutForm.get('bags')?.value,
-        tagNr: this.updateCheckoutForm.get('tagNr')?.value,
-        bbLr: this.updateCheckoutForm.get('bbLr')?.value
-          ? this.updateCheckoutForm.get('bbLr')?.value
-          : '',
-        bbDown: this.updateCheckoutForm.get('bbDown')?.value
-          ? this.updateCheckoutForm.get('bbDown')?.value
-          : '',
-        bbOut: this.updateCheckoutForm.get('bbOut')?.value
-          ? this.updateCheckoutForm.get('bbOut')?.value
-          : '',
-        location: this.updateCheckoutForm.get('location')?.value
-          ? this.updateCheckoutForm.get('location')?.value
-          : '',
-        completedAt: toDateObject(this.updateCheckoutForm.get('completedAt')?.value),
-        comments: this.updateCheckoutForm.get('comments')?.value,
+        room: this.form.get('room')?.value,
+        name: this.form.get('name')?.value,
+        bags: this.form.get('bags')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        bbLr: this.form.get('bbLr')?.value ? this.form.get('bbLr')?.value : '',
+        bbDown: this.form.get('bbDown')?.value ? this.form.get('bbDown')?.value : '',
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        location: this.form.get('location')?.value ? this.form.get('location')?.value : '',
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
+        comments: this.form.get('comments')?.value,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Luggage item updated!', 'Thanks', {
-            duration: 5000,
-          });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.luggageId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -116,5 +147,25 @@ export class UpdateCheckoutDialogComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Luggage item updated!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }

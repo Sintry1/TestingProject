@@ -130,7 +130,7 @@ export class AnnouncementsService {
 
   async getFilesLink(fileNames: string[]) {
     try {
-      return await this.toFiles(fileNames);
+      return await this.fileService.getSignedLinkBulk(fileNames);
     } catch (error) {
       Logger.error(error);
       throw new HttpException(
@@ -175,7 +175,7 @@ export class AnnouncementsService {
       for (const file of announcement.files) {
         if (fileNames.includes(file)) {
           await this.fileService.deleteFile(file);
-          announcement.files = announcement.files.filter((file) => file !== file);
+          announcement.files = announcement.files.filter((fileName) => fileName !== file);
         }
       }
     } catch (error) {
@@ -192,12 +192,12 @@ export class AnnouncementsService {
     const announcement = await this.announcementRepo.findOneByOrFail({ announcementId });
 
     try {
-      for (const document of announcement.files) {
-        await this.fileService.deleteFile(document);
+      for (const file of announcement.files) {
+        await this.fileService.deleteFile(file);
       }
     } catch (error) {
       throw new HttpException(
-        'Failed to clear the documents. Please try again later.',
+        'Failed to clear the files. Please try again later.',
         HttpStatus.INTERNAL_SERVER_ERROR
       );
     }
@@ -210,14 +210,6 @@ export class AnnouncementsService {
     const fileNames: string[] = [];
     files.forEach((file) => fileNames.push(file.originalname));
     return fileNames;
-  }
-
-  private async toFiles(fileNames: string[]) {
-    const files = [];
-    for (const fileName of fileNames) {
-      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
-    }
-    return files;
   }
 
   private getSortingConditions(

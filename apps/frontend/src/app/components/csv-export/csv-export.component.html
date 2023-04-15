@@ -1,0 +1,31 @@
+<form class="csv-export-modal-container" (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div class="title-container">
+    <h1>Export data to CSV</h1>
+    <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
+  </div>
+
+  <hr />
+
+  <div class="dialog-row">
+    <mat-form-field class="remove-error-message">
+      <mat-label>From</mat-label>
+      <input onclick="this.showPicker()" matInput type="date" formControlName="fromTime" />
+    </mat-form-field>
+
+    <mat-form-field class="remove-error-message">
+      <mat-label>Until</mat-label>
+      <input onclick="this.showPicker()" matInput type="date" formControlName="untilTime" />
+    </mat-form-field>
+  </div>
+
+  <div class="dialog-row">
+    <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
+
+    <button class="action-btn" mat-flat-button type="submit">
+      <div *ngIf="!isLoading">Export</div>
+      <div *ngIf="isLoading" class="btn-spinner">
+        <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
+      </div>
+    </button>
+  </div>
+</form>

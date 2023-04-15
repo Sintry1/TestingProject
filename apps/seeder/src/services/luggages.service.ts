@@ -2,21 +2,40 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ILuggage, LuggageType } from '@omnihost/interfaces';
 import { Luggage } from '@omnihost/models';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { bellBoyInitials, luggageLocation } from '../constants/dropdown-options';
-import { bags, luggageComments } from '../constants/luggages.constants';
+import { bellBoyInitials, rooms } from '../constants/dropdown-options';
+import {
+  bags,
+  luggageComments,
+  luggageLongtermLocation,
+  luggageCheckInCheckOutLocation,
+} from '../constants/luggages.constants';
 import { names } from '../constants/names.constant';
-import { getRandom, getRandomBoolean, getRandomChance, getRandomInt } from './utils.service';
+import {
+  getRandom,
+  getRandomBoolean,
+  getRandomChance,
+  getRandomInt,
+  uploadFileToLinode,
+} from './utils.service';
 
 @Injectable()
 export class LuggagesSeederService {
+  uploadedFileName = 'bd53de32-f76e-4b5d-8204-cc7edbfa3946luggage.jpg';
+
   constructor(
     @InjectRepository(Luggage)
     private readonly repo: Repository<Luggage>
   ) {}
 
   create(): Array<Promise<Luggage>> {
+    // The file that will be uploaded to Linode
+    const fileBuffer = fs.readFileSync(path.join(__dirname, '/assets/stock-luggage.jpg'));
+    uploadFileToLinode(fileBuffer, this.uploadedFileName);
+
     return this.generate().map(async (luggage: ILuggage) => {
       try {
         return await this.repo.save(luggage);
@@ -53,17 +72,21 @@ export class LuggagesSeederService {
         }
         for (let i = 0; i < entries; i++) {
           const roomReady =
-            day.getDate() < currentDate.getDate() ? getRandomChance(0.99) : getRandomChance(0.9); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
+            day.getDate() < currentDate.getDate() ? getRandomChance(0.999) : getRandomChance(0.4); // Old entires have 1% chance of not being completed, everything newer than current date has 10% chance
           const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
-          const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
+          const eveningDate = new Date(day.setHours(getRandomInt(14, 16), getRandomInt(0, 60)));
+          const luggageId = uuidv4();
           data.push({
-            luggageId: uuidv4(),
+            luggageId,
             luggageType: luggageType,
-            room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+            room: getRandom(rooms),
             name: getRandom(names),
             bags: getRandom(bags),
             tagNr: getRandomInt(1000, 4000).toString(),
-            location: getRandom(luggageLocation),
+            location:
+              luggageType === 'longTerm'
+                ? getRandom(luggageLongtermLocation)
+                : getRandom(luggageCheckInCheckOutLocation),
             comments: getRandomChance(0.4) ? getRandom(luggageComments) : null,
             roomReady: roomReady,
             createdAt: morningDate,
@@ -73,6 +96,7 @@ export class LuggagesSeederService {
             bbOut: roomReady ? getRandom(bellBoyInitials) : null, // who put it in the quest's room or gave it to the guest
             bbDown: roomReady ? getRandom(bellBoyInitials) : null, // who brought the luggage from luggage room from the guest's room
             completedAt: roomReady ? eveningDate : null,
+            files: getRandomChance(0.2) ? [this.uploadedFileName] : [],
           });
         }
       });

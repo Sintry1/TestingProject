@@ -1,0 +1,31 @@
+<div class="blacklist-widget-container" *ngIf="!isLoading">
+  <div class="image-container">
+    <span class="img-arrows" (click)="previousImage()">
+      <span *ngIf="files.length !== 1">&lt;</span>
+    </span>
+    <img [src]="files[currentImage]" class="image" />
+    <span class="img-arrows" (click)="nextImage()">
+      <span *ngIf="files.length !== 1">&gt;</span>
+    </span>
+  </div>
+
+  <div class="text-container">
+    <div class="name-container">
+      <h2>{{ displayName() }}</h2>
+    </div>
+    <hr />
+    <div class="comments-container">
+      {{ blacklist.comments }}
+    </div>
+    <div class="expires-container">
+      <span style="font-weight: 900">Expiration:</span>
+      {{ blacklist.expiresAt ? (blacklist.expiresAt | date : 'dd/MM/yyyy' : 'GMT') : '' }}
+    </div>
+  </div>
+
+  <div class="action-bar-container">
+    <button mat-raised-button class="secondary-btn" (click)="openEditBlacklist(this.blacklist)">
+      Edit <mat-icon>https</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ITask, TableInfoOptions } from '@omnihost/interfaces';
@@ -12,12 +12,13 @@ import { EditTaskDialogComponent } from './edit-task-dialog/edit-task-dialog.com
 @Component({
   selector: 'frontend-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css', '../../../assets/styles/table.scss'],
+  styleUrls: ['../../../assets/styles/table.scss', './tasks.component.scss'],
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
   morningTasks: ITask[] = [];
   eveningTasks: ITask[] = [];
   displayDate = new Date();
+  defaultTabIndex = this.getDefaultTabIndex();
 
   isLoading = false;
 
@@ -35,19 +36,15 @@ export class TasksComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.fetchTasks();
-  }
-
   fetchTasks(): void {
     this.isLoading = true;
     this.tasksService.getTasks(this.displayDate).subscribe({
-      next: (tasks) => {
+      next: (result) => {
         this.morningTasks = orderByCompletedStatus(
-          tasks.tasks.filter((task) => task.listName === 'Morning')
+          result.tasks.filter((task) => task.listName === 'Morning')
         );
         this.eveningTasks = orderByCompletedStatus(
-          tasks.tasks.filter((task) => task.listName === 'Evening')
+          result.tasks.filter((task) => task.listName === 'Evening')
         );
       },
       error: (error) => {
@@ -60,17 +57,47 @@ export class TasksComponent implements OnInit {
     });
   }
 
+  getDefaultTabIndex(): number {
+    const hour = new Date().getHours();
+    if (hour >= 15) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
   openTableInfo(): void {
     this.dialog.open(TableInfoDialogComponent, {
       data: TableInfoOptions.TASKS,
       width: '600px',
+      disableClose: true,
     });
   }
 
-  openEditTaskDialog(task: ITask): void {
+  isPassed(taskTime: string): boolean {
+    const timeDiff = 60 * 60 * 1000; // 1 hour in milliseconds
+
+    const currentTime = new Date().getTime();
+    const [hours, minutes] = taskTime.split(':').map(Number); // split taskTime into hours and minutes
+    const taskDate = new Date().setHours(hours, minutes, 0, 0); // set the hours and minutes of the taskDate object
+
+    if (
+      currentTime >= new Date().setHours(23, 0, 0, 0) &&
+      taskDate >= new Date().setHours(23, 0, 0, 0)
+    ) {
+      return true;
+    }
+    const timeDiffInMs = currentTime - taskDate; // calculate the time difference in milliseconds
+
+    return timeDiffInMs > timeDiff;
+  }
+
+  openEditDialog(task: ITask): void {
     this.dialog.open(EditTaskDialogComponent, {
       width: '600px',
+      disableClose: true,
       data: task,
+      autoFocus: false,
     });
   }
 }

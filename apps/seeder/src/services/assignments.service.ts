@@ -4,12 +4,13 @@ import { IAssignment } from '@omnihost/interfaces';
 import { Assignment } from '@omnihost/models';
 import { Repository } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
-import { assignmentComments } from '../constants/assignments.constant';
 import {
-  bbAssignmentRequestedBy,
-  bbAssignmentTask,
-  bellBoyInitials,
-} from '../constants/dropdown-options';
+  assignmentCommentsRA,
+  assignmentCommentsRM,
+  assignmentTask,
+  assignmentRequestedBy,
+} from '../constants/assignments.constant';
+import { bellBoyInitials, rooms } from '../constants/dropdown-options';
 import { getRandom, getRandomBoolean, getRandomInt } from './utils.service';
 
 @Injectable()
@@ -47,21 +48,24 @@ export class AssignmentsSeederService {
       const entries =
         entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
       for (let i = 0; i < entries; i++) {
-        const morningDate = new Date(day.setHours(getRandomInt(6, 12), getRandomInt(0, 60)));
-        const eveningDate = new Date(day.setHours(getRandomInt(13, 22), getRandomInt(0, 60)));
-        const task = getRandom(bbAssignmentTask);
-        const requestedBy = getRandom(bbAssignmentRequestedBy);
+        const assignmentDate = new Date(day.setHours(getRandomInt(10, 21), getRandomInt(0, 60)));
+        const isCompleted = Math.random() < 0.9;
+        const task = getRandom(assignmentTask);
+        const requestedBy = getRandom(assignmentRequestedBy);
+        const completedAt = isCompleted
+          ? new Date(assignmentDate.getTime() + getRandomInt(10, 30) * 60 * 1000)
+          : null;
         data.push({
           assignmentId: uuidv4(),
-          room: getRandomInt(100, 500).toString(), // TODO - replace with the rooms array once it is implemented
+          room: getRandom(rooms),
           task: task,
           comments:
-            task === 'Other' || requestedBy === 'Other' ? getRandom(assignmentComments) : null,
+            task === 'RA' ? getRandom(assignmentCommentsRA) : getRandom(assignmentCommentsRM),
           requestedBy: requestedBy,
-          performedBy: getRandom(bellBoyInitials),
-          requestedAt: morningDate,
-          createdAt: morningDate,
-          completedAt: getRandomBoolean() ? eveningDate : null,
+          performedBy: isCompleted ? getRandom(bellBoyInitials) : null,
+          requestedAt: assignmentDate,
+          createdAt: new Date(assignmentDate.getTime() + getRandomInt(3, 30) * 60 * 1000),
+          completedAt: completedAt,
         });
       }
     }

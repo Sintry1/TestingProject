@@ -3,9 +3,11 @@ import {
   Announcement,
   Assignment,
   Bike,
+  Blacklist,
   Car,
   Document,
   Luggage,
+  ResetPasswordToken,
   Task,
   Token,
   User,
@@ -53,7 +55,19 @@ class ConfigService {
       database: this.getValue('API_POSTGRES_DATABASE', false) || 'omnihost',
       dropSchema: true,
 
-      entities: [User, Token, Luggage, Car, Task, Assignment, Document, Bike, Announcement],
+      entities: [
+        User,
+        ResetPasswordToken,
+        Token,
+        Luggage,
+        Car,
+        Task,
+        Assignment,
+        Document,
+        Bike,
+        Announcement,
+        Blacklist,
+      ],
     };
   }
 }

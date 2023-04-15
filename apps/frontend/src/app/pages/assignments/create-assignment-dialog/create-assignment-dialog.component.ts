@@ -3,27 +3,35 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 import { AssignmentsService } from '../../../services/assignments.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import {
   bbAssignmentRequestedBy,
-  bbAssignmentTask,
+  bbAssignmentTasks,
   bellBoyInitials,
+  rooms,
 } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-assignment-dialog',
   templateUrl: './create-assignment-dialog.component.html',
   styleUrls: ['../../../../assets/styles/dialog.scss'],
 })
-export class CreateAssignmentDialogComponent implements OnInit {
-  createAssignmentForm = new UntypedFormGroup({});
+export class CreateAssignmentDialogComponent extends DropdownSelection implements OnInit {
+  form = new UntypedFormGroup({});
   isLoading = false;
   maxDatetime = new Date(new Date().getTime() + 50000);
-  bbInitials = bellBoyInitials;
-  bbAssignmentTask = bbAssignmentTask;
-  bbAssignmentRequestedBy = bbAssignmentRequestedBy;
+
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredTasks: Observable<string[]> = new Observable<string[]>();
+  filteredRequestedBy: Observable<string[]> = new Observable<string[]>();
+  filteredPerformedBy: Observable<string[]> = new Observable<string[]>();
 
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('task') taskInput!: ElementRef;
@@ -37,34 +45,53 @@ export class CreateAssignmentDialogComponent implements OnInit {
     private assignmentService: AssignmentsService,
     private snackBar: MatSnackBar,
     private dialog: MatDialog
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
-    this.createAssignmentForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [Validators.maxLength(50), Validators.pattern('^[0-9]*$')]),
-      task: new UntypedFormControl('', Validators.maxLength(20)),
-      requestedBy: new UntypedFormControl('', [Validators.maxLength(20), Validators.required]),
-      performedBy: new UntypedFormControl('', [Validators.maxLength(20)]),
-      requestedAt: new UntypedFormControl(toDatetimeInputString(new Date()), [
-        Validators.required,
-        Validators.maxLength(20),
-      ]),
+    this.form = new UntypedFormGroup({
+      room: new UntypedFormControl('', [], valueInArrayValidator(rooms)),
+      task: new UntypedFormControl('', [], valueInArrayValidator(bbAssignmentTasks)),
+      requestedBy: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(bbAssignmentRequestedBy)
+      ),
+      performedBy: new UntypedFormControl('', [], valueInArrayValidator(bellBoyInitials)),
+      requestedAt: new UntypedFormControl(
+        toDatetimeInputString(new Date()),
+        [Validators.required, Validators.maxLength(20)],
+        valueNotFutureValidator()
+      ),
       completedAt: new UntypedFormControl(''),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredTasks = filterAutocompleteSelect(bbAssignmentTasks, this.form.get('task'));
+    this.filteredRequestedBy = filterAutocompleteSelect(
+      bbAssignmentRequestedBy,
+      this.form.get('requestedBy')
+    );
+    this.filteredPerformedBy = filterAutocompleteSelect(
+      bellBoyInitials,
+      this.form.get('performedBy')
+    );
   }
 
   onSubmit(): void {
-    if (!this.createAssignmentForm.valid) {
-      if (this.createAssignmentForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('task')?.invalid) {
+      } else if (this.form.get('task')?.invalid) {
         this.taskInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('comments')?.invalid) {
+      } else if (this.form.get('comments')?.invalid) {
         this.commentsInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('requestedBy')?.invalid) {
+      } else if (this.form.get('requestedBy')?.invalid) {
         this.requestedByInput.nativeElement.focus();
-      } else if (this.createAssignmentForm.get('performedBy')?.invalid) {
+      } else if (this.form.get('performedBy')?.invalid) {
         this.performedByInput.nativeElement.focus();
       }
     } else {
@@ -76,17 +103,13 @@ export class CreateAssignmentDialogComponent implements OnInit {
     this.isLoading = true;
     this.assignmentService
       .createAssignment({
-        room: this.createAssignmentForm.get('room')?.value,
-        task: this.createAssignmentForm.get('task')?.value,
-        comments: this.createAssignmentForm.get('comments')?.value,
-        requestedBy: this.createAssignmentForm.get('requestedBy')?.value
-          ? this.createAssignmentForm.get('requestedBy')?.value
-          : '',
-        performedBy: this.createAssignmentForm.get('performedBy')?.value
-          ? this.createAssignmentForm.get('performedBy')?.value
-          : '',
-        requestedAt: toDateObject(this.createAssignmentForm.get('requestedAt')?.value),
-        completedAt: toDateObject(this.createAssignmentForm.get('completedAt')?.value),
+        room: this.form.get('room')?.value,
+        task: this.form.get('task')?.value,
+        comments: this.form.get('comments')?.value,
+        requestedBy: this.form.get('requestedBy')?.value ? this.form.get('requestedBy')?.value : '',
+        performedBy: this.form.get('performedBy')?.value ? this.form.get('performedBy')?.value : '',
+        requestedAt: toDateObject(this.form.get('requestedAt')?.value),
+        completedAt: toDateObject(this.form.get('completedAt')?.value),
       })
       .subscribe({
         next: () => {

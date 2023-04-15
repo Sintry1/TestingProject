@@ -16,6 +16,19 @@ import { environment as env } from '../../environments/environment';
 export class BikeService {
   constructor(private http: HttpClient) {}
 
+  public getBikesWithinRange(from?: string, to?: string): Observable<IBike[]> {
+    let query = '';
+    if (from && to) {
+      query = `?from=${from}&to=${to}`;
+    } else if (from) {
+      query = `?from=${from}`;
+    } else if (to) {
+      query = `?to=${to}`;
+    }
+
+    return this.http.get<IBike[]>(`${env.apiUrl}/bikes/all${query}`);
+  }
+
   public getBike(
     createdAt: Date,
     sortBy?: BikeSortOptions,

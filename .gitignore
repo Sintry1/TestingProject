@@ -42,6 +42,6 @@ Thumbs.db
 
 .env
 .env.test
-.env.staging
+.env.dev
 .env.demo
 .env.production

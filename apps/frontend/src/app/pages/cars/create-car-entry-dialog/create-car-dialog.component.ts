@@ -3,23 +3,37 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
+import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject } from '../../../utils/date.util';
-import { bellBoyInitials, carLocation } from '../../../utils/dropdown-selection';
+import { toDateInputString, toDateObject } from '../../../utils/date.util';
+import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
+import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
+import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
+import { valueInArrayValidator } from '../../../utils/form-validators/array.validator';
+import { valueNotFutureValidator } from '../../../utils/form-validators/date.validator';
 
 @Component({
   selector: 'frontend-create-car-dialog',
   templateUrl: './create-car-dialog.component.html',
-  styleUrls: ['../../../../assets/styles/dialog.scss', '../../../../assets/styles/checkbox.scss'],
+  styleUrls: [
+    '../../../../assets/styles/dialog.scss',
+    '../../../../assets/styles/checkbox.scss',
+    '../../../../assets/styles/file-upload.scss',
+  ],
 })
-export class CreateCarDialogComponent {
-  createCarForm: UntypedFormGroup;
+export class CreateCarDialogComponent extends DropdownSelection {
+  form: UntypedFormGroup;
   checked = true;
   isLoading = false;
-  bbInitials = bellBoyInitials;
-  carLocation = carLocation;
+  containsInvalidFiles = false;
 
+  filteredRooms: Observable<string[]> = new Observable<string[]>();
+  filteredBbDown: Observable<string[]> = new Observable<string[]>();
+  filteredCarLocations: Observable<string[]> = new Observable<string[]>();
+
+  @ViewChild('fileUpload') fileUploadRef!: FileUploadComponent;
   @ViewChild('room') roomInput!: ElementRef;
   @ViewChild('tagNr') tagNrInput!: ElementRef;
   @ViewChild('arrivalDate') arrivalDateInput!: ElementRef;
@@ -33,41 +47,55 @@ export class CreateCarDialogComponent {
     private snackBar: MatSnackBar,
     private dialog: MatDialog
   ) {
-    this.createCarForm = new UntypedFormGroup({
-      room: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[0-9]*$'),
-      ]),
+    super();
+    this.form = new UntypedFormGroup({
+      room: new UntypedFormControl('', [Validators.required], valueInArrayValidator(rooms)),
       tagNr: new UntypedFormControl('', [Validators.required]),
-      arrivalDate: new UntypedFormControl(new Date(), [Validators.required]),
+      arrivalDate: new UntypedFormControl(
+        toDateInputString(new Date()),
+        [Validators.required],
+        valueNotFutureValidator()
+      ),
       departureDate: new UntypedFormControl('', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       licensePlate: new UntypedFormControl('', [Validators.required]),
       expirationDate: new UntypedFormControl('', []),
       pickUpTime: new UntypedFormControl('', []),
-      deliveryTime: new UntypedFormControl('', []),
-      bbDown: new UntypedFormControl('', []),
-      location: new UntypedFormControl('', [Validators.required]),
+      bbDown: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(bellBoyInitials)
+      ),
+      location: new UntypedFormControl(
+        '',
+        [Validators.required],
+        valueInArrayValidator(carLocation)
+      ),
+      parkingLot: new UntypedFormControl('', []),
       comments: new UntypedFormControl('', []),
     });
+
+    // Init the filters
+    this.filteredRooms = filterAutocompleteSelect(rooms, this.form.get('room'));
+    this.filteredBbDown = filterAutocompleteSelect(bellBoyInitials, this.form.get('bbDown'));
+    this.filteredCarLocations = filterAutocompleteSelect(carLocation, this.form.get('location'));
   }
 
   onSubmit() {
-    if (!this.createCarForm.valid) {
-      if (this.createCarForm.get('room')?.invalid) {
+    if (!this.form.valid) {
+      if (this.form.get('room')?.invalid) {
         this.roomInput.nativeElement.focus();
-      } else if (this.createCarForm.get('tagNr')?.invalid) {
+      } else if (this.form.get('tagNr')?.invalid) {
         this.tagNrInput.nativeElement.focus();
-      } else if (this.createCarForm.get('arrivalDate')?.invalid) {
+      } else if (this.form.get('arrivalDate')?.invalid) {
         this.arrivalDateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('departureDate')?.invalid) {
+      } else if (this.form.get('departureDate')?.invalid) {
         this.departureDateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('name')?.invalid) {
+      } else if (this.form.get('name')?.invalid) {
         this.nameInput.nativeElement.focus();
-      } else if (this.createCarForm.get('licensePlate')?.invalid) {
+      } else if (this.form.get('licensePlate')?.invalid) {
         this.licensePlateInput.nativeElement.focus();
-      } else if (this.createCarForm.get('location')?.invalid) {
+      } else if (this.form.get('location')?.invalid) {
         this.locationInput.nativeElement.focus();
       }
     } else {
@@ -79,35 +107,27 @@ export class CreateCarDialogComponent {
     this.isLoading = true;
     this.carService
       .createCar({
-        room: this.createCarForm.get('room')?.value,
-        tagNr: this.createCarForm.get('tagNr')?.value,
-        arrivalDate: toDateObject(this.createCarForm.get('arrivalDate')?.value),
-        departureDate: toDateObject(this.createCarForm.get('departureDate')?.value),
-        name: this.createCarForm.get('name')?.value,
-        licensePlate: this.createCarForm.get('licensePlate')?.value
-          ? this.createCarForm.get('licensePlate')?.value
+        room: this.form.get('room')?.value,
+        tagNr: this.form.get('tagNr')?.value,
+        arrivalDate: toDateObject(this.form.get('arrivalDate')?.value),
+        departureDate: toDateObject(this.form.get('departureDate')?.value),
+        name: this.form.get('name')?.value,
+        licensePlate: this.form.get('licensePlate')?.value
+          ? this.form.get('licensePlate')?.value
           : '',
-        expirationDate: toDateObject(this.createCarForm.get('expirationDate')?.value),
-        pickUpTime: toDateObject(this.createCarForm.get('pickUpTime')?.value),
-        deliveryTime: new Date(this.createCarForm.get('deliveryTime')?.value),
-        bbDown: this.createCarForm.get('bbDown')?.value
-          ? this.createCarForm.get('bbDown')?.value
-          : '',
-        bbUp: this.createCarForm.get('bbUp')?.value ? this.createCarForm.get('bbUp')?.value : '',
-        location: this.createCarForm.get('location')?.value
-          ? this.createCarForm.get('location')?.value
-          : '',
-        parkingLot: this.createCarForm.get('parkingLot')?.value,
-        bbOut: this.createCarForm.get('bbOut')?.value ? this.createCarForm.get('bbOut')?.value : '',
-        comments: this.createCarForm.get('comments')?.value,
+        expirationDate: toDateObject(this.form.get('expirationDate')?.value),
+        pickUpTime: toDateObject(this.form.get('pickUpTime')?.value),
+        bbDown: this.form.get('bbDown')?.value,
+        bbUp: this.form.get('bbUp')?.value ? this.form.get('bbUp')?.value : '',
+        location: this.form.get('location')?.value,
+        parkingLot: this.form.get('parkingLot')?.value,
+        bbOut: this.form.get('bbOut')?.value ? this.form.get('bbOut')?.value : '',
+        comments: this.form.get('comments')?.value,
         charged: false,
       })
       .subscribe({
-        next: () => {
-          this.snackBar.open('Car added!', 'Thanks', { duration: 5000 });
-          document.location.reload();
-          this.dialog.closeAll();
-          this.isLoading = false;
+        next: (response) => {
+          this.fileUploadRef.submit(response.carId);
         },
         error: (error: HttpErrorResponse) => {
           SentryService.logError(error);
@@ -117,5 +137,28 @@ export class CreateCarDialogComponent {
           this.isLoading = false;
         },
       });
+  }
+
+  /**
+   * Handle finished file upload.
+   */
+  finalizeSubmission($event: 'success' | 'fail') {
+    if ($event === 'success') {
+      this.snackBar.open('Car item created!', 'Thanks', {
+        duration: 5000,
+      });
+      document.location.reload();
+      this.dialog.closeAll();
+      this.isLoading = false;
+    } else {
+      this.snackBar.open('Failed to update the files, please try again.', 'Okay', {
+        duration: 10000,
+      });
+      this.isLoading = false;
+    }
+  }
+
+  updateFilesStatus($event: boolean) {
+    this.containsInvalidFiles = $event;
   }
 }
