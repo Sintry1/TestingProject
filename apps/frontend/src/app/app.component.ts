@@ -21,6 +21,9 @@ export class AppComponent {
     private authService: AuthService,
     private snackBar: MatSnackBar
   ) {
+    // Make sure to clear the manager info if it was left over from previous runs of the website
+    this.authService.removeManagerInfo();
+
     this.displayDateService
       .getDisplayDateSubject()
       .subscribe((date) => (this.displayDate = toDateInputString(new Date(date))));
