@@ -99,13 +99,13 @@ jobs:
 
       - name: Build the API image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose build api
 
       - name: Push the API image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose push api
 
@@ -148,13 +148,13 @@ jobs:
 
       - name: Build the Frontend image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose build frontend
 
       - name: Push the Frontend image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose push frontend
 
@@ -197,13 +197,13 @@ jobs:
 
       - name: Build the Sentry Tunnel image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose build sentry-tunnel
 
       - name: Push the Sentry Tunnel image
         env:
-          DEPLOYMENT_ENV: ${{ inputs.environment }}
+          DEPLOYMENT_ENV: ${{ inputs.environment || "prod" }}
         shell: bash
         run: docker-compose push sentry-tunnel
 
