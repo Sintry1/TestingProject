@@ -50,7 +50,7 @@ export class RefreshTokenJwtStrategy extends PassportStrategy(Strategy, 'jwt-ref
         this.logger,
         token
       );
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Unauthorized - please log in again');
     }
   }
 }
