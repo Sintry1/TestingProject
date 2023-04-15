@@ -33,7 +33,7 @@ export class AppComponent implements OnDestroy {
 
     this.notificationFetchingInterval = setInterval(() => {
       this.fetchAnnouncements();
-    }, 1000 * 60); // 15 minutes
+    }, 1000 * 60 * 10); // 10 minutes
     this.fetchAnnouncements();
 
     this.router.events.subscribe(async (val) => {
