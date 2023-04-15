@@ -39,6 +39,10 @@ export class BikeNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
+    if (this.originalBikeList.length == 0) {
+      console.warn(`There are no bikes to showcase on the dashboard!`);
+      return;
+    }
     let oldestBike = this.originalBikeList[0];
 
     for (const bike of this.originalBikeList) {
