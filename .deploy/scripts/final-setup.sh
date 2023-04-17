@@ -20,6 +20,7 @@ echo "Configuring Cron jobs..."
 echo "We will open a file editor. Parse the following lines into it:"
 echo "0 4 * * * date >> /home/developer/logs/cron/docker-cleanup.log"
 echo "0 4 * * * /usr/bin/docker system prune -f >> /home/developer/logs/cron/docker-cleanup.log"
+echo '0 4 * * * /home/developer/hotel-dangleterre/.deploy/scripts/seed.sh >> /home/developer/logs/cron/seeding.log"
 read -p "Press any button once you have copied the two lines above:" temp
 crontab -e
 echo "You have set up the Cron jobs"
