@@ -20,9 +20,10 @@ echo "Configuring Cron jobs..."
 mkdir "/home/developer/logs"
 mkdir "/home/developer/logs/cron"
 echo "We will open a file editor. Parse the following lines into it:"
+echo "PATH="/usr/bin:/bin:/home/developer/.nvm/versions/node/v19.6.0/bin""
 echo "0 4 * * * date >> /home/developer/logs/cron/docker-cleanup.log"
 echo "0 4 * * * /usr/bin/docker system prune -f >> /home/developer/logs/cron/docker-cleanup.log"
-echo "*/5 * * * * /home/developer/hotel-dangleterre/.deploy/scripts/seed-database.sh >> /home/developer/logs/cron/seeding.log"
+echo "0 4 * * * /home/developer/hotel-dangleterre/.deploy/scripts/seed-database.sh >> /home/developer/logs/cron/seeding.log"
 read -p "Press any button once you have copied the two lines above:" temp
 crontab -e
 echo "You have set up the Cron jobs"
@@ -53,7 +54,7 @@ if [[ $lowercaseEnv != "production" ]]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    nvm install node
+    nvm install 19.6.0
     echo "Node installed and set up"
 else
     echo "Skipping NVM and Node setup since this is the production environment"
