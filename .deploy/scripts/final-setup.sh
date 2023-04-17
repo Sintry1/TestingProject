@@ -20,7 +20,7 @@ echo "Configuring Cron jobs..."
 mkdir "/home/developer/logs"
 mkdir "/home/developer/logs/cron"
 cat /home/developer/hotel-dangleterre/.deploy/scripts/cronjob.txt | crontab -
-echo "You have set up the Cron jobs"
+echo "Cron jobs have been set up"
 echo
 
 echo "================================"
