@@ -6,7 +6,6 @@
 
 # This script populates the database with sample data. Only meant to be used in deployment via a cronjob
 # THIS SCRIPT WON'T WORK ON LOCAL DEVELOPMENT ENVIRONMENT!
-/home/developer/.bashrc >>/home/developer/logs/cron/seeding.log
 
 echo "======================================" >>/home/developer/logs/cron/seeding.log
 date >>/home/developer/logs/cron/seeding.log
