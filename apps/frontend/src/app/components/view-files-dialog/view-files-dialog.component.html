@@ -14,10 +14,17 @@
       <img [src]="image" alt="An image" class="image" />
     </ng-container>
 
-    <ng-container class="image" *ngFor="let video of videos">
+    <ng-container class="video" *ngFor="let video of videos">
       <video class="video" controls>
         <source [src]="video" />
       </video>
+    </ng-container>
+
+    <ng-container class="document" *ngFor="let document of documents">
+      <iframe *ngIf="document" class="document" title="Test" [src]="document"></iframe>
+      <div class="table-spinner-full-size" *ngIf="!document">
+        <mat-icon><mat-spinner diameter="21"></mat-spinner></mat-icon>
+      </div>
     </ng-container>
   </div>
   <div *ngIf="text && !isLoading">

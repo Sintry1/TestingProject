@@ -71,6 +71,10 @@ export class BlacklistWidgetComponent implements OnInit {
     });
   }
 
+  getCurrentImage(): string {
+    return this.files[this.currentImage] || 'assets/images/blank-profile-picture.png';
+  }
+
   displayName() {
     if (this.blacklist.name !== undefined) {
       if (this.blacklist.name?.length > 27) {

@@ -102,7 +102,7 @@ export class BlacklistService {
 
   async updateBlacklistFiles(blacklistId: string, files: Express.Multer.File[]) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
-    if (blacklist.files.length + files.length > 5) {
+    if (blacklist.files.length + files.length > 20) {
       return new BadRequestException(
         `File size limit surpassed. An blacklist can have a maximum of 20 files. It currently has ${blacklist.files.length}`
       );

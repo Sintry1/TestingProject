@@ -3,14 +3,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   AnnouncementSortOptions,
+  AnnouncementStatus,
   IAnnouncement,
   SortOrder,
-  AnnouncementStatus,
 } from '@omnihost/interfaces';
 import { AnnouncementsService } from '../../../services/announcements.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
-import { ViewImagesDialogComponent } from '../../view-images-dialog/view-images-dialog.component';
+import { ViewFilesDialogComponent } from '../../view-files-dialog/view-files-dialog.component';
 
 @Component({
   selector: 'frontend-dashboard-announcements-section',
@@ -86,7 +86,7 @@ export class DashboardAnnouncementsSectionComponent implements OnInit {
 
   viewFiles(element: IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, {
+      this.dialog.open(ViewFilesDialogComponent, {
         width: '600px',
         disableClose: true,
         data: element,
