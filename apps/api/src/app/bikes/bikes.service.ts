@@ -7,8 +7,7 @@ import {
   UpdateBikeRequest,
 } from '@omnihost/interfaces';
 import { Bike } from '@omnihost/models';
-import { Between, ILike, MoreThanOrEqual, Repository, LessThanOrEqual } from 'typeorm';
-import { filterStatus } from '../utils/query-params.utils';
+import { Between, ILike, IsNull, LessThanOrEqual, MoreThanOrEqual, Repository } from 'typeorm';
 
 @Injectable()
 export class BikesService {
@@ -43,11 +42,10 @@ export class BikesService {
     sortOrder: SortOrder | undefined
   ) {
     const baseConditions = {
-      createdAt: Between<Date>(
+      completedAt: Between<Date>(
         new Date(createdAt.setUTCHours(0, 0, 0, 0)),
         new Date(createdAt.setUTCHours(23, 59, 59, 999))
       ),
-      completedAt: filterStatus(status),
     };
 
     const searchCondition = search ? ILike(`%${search}%`) : undefined;
@@ -57,6 +55,7 @@ export class BikesService {
         { ...baseConditions, name: searchCondition },
         { ...baseConditions, reservedBy: searchCondition },
         { ...baseConditions, room: searchCondition },
+        { completedAt: IsNull() },
       ],
       order: this.getSortingConditions(sortBy, sortOrder),
     });
