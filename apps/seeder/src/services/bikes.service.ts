@@ -35,7 +35,8 @@ export class BikesSeederService {
     const startDate = new Date(Date.now());
     startDate.setMonth(startDate.getMonth() - 6); // day six months in the past
     const endDate = new Date(Date.now());
-    endDate.setMonth(endDate.getMonth() + 2); // day 2 months in the future
+    endDate.setDate(endDate.getDate() + 2); // day 2 days in the future
+    const currentDate = new Date(Date.now());
 
     const minutesTimes = [0, 15, 30, 45];
 
@@ -46,7 +47,7 @@ export class BikesSeederService {
       const entries =
         entriesPerDay + getRandomInt(0, entriesPerDayRandomFactor) * entiresMultiplier;
       for (let i = 0; i < entries; i++) {
-        const completed = getRandomBoolean();
+        const completed = day < currentDate;
         const morningDate = new Date(
           day.setHours(getRandomInt(8, 12), minutesTimes[getRandomInt(0, 3)])
         );
