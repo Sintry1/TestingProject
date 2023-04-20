@@ -55,7 +55,9 @@ export class BikesService {
         { ...baseConditions, name: searchCondition },
         { ...baseConditions, reservedBy: searchCondition },
         { ...baseConditions, room: searchCondition },
-        { completedAt: IsNull() },
+        { completedAt: IsNull(), name: searchCondition },
+        { completedAt: IsNull(), reservedBy: searchCondition },
+        { completedAt: IsNull(), room: searchCondition },
       ],
       order: this.getSortingConditions(sortBy, sortOrder),
     });
