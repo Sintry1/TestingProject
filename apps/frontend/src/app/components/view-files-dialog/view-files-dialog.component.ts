@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {
   IAnnouncement,
   ICar,
@@ -12,17 +13,19 @@ import {
 } from '@omnihost/interfaces';
 import { AnnouncementsService } from '../../services/announcements.service';
 import { CarService } from '../../services/car.service';
+import { DocumentsService } from '../../services/documents.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
 
 @Component({
-  selector: 'frontend-view-images-dialog',
-  templateUrl: './view-images-dialog.component.html',
-  styleUrls: ['./view-images-dialog.component.scss'],
+  selector: 'frontend-view-files-dialog',
+  templateUrl: './view-files-dialog.component.html',
+  styleUrls: ['./view-files-dialog.component.scss'],
 })
-export class ViewImagesDialogComponent {
+export class ViewFilesDialogComponent {
   images: string[] = [];
   videos: string[] = [];
+  documents: SafeResourceUrl[] = [];
   entity: IGetLuggageByIdResponse | IGetCarByIdResponse | IGetAnnouncementByIdResponse | undefined;
   text: undefined | string = undefined;
   isLoading = true;
@@ -32,7 +35,10 @@ export class ViewImagesDialogComponent {
     private luggageService: LuggageService,
     private carsService: CarService,
     private announcementsService: AnnouncementsService,
+    private documentService: DocumentsService,
     private snackBar: MatSnackBar,
+    private sanitizer: DomSanitizer,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: ILuggage | ICar | IAnnouncement
   ) {
     this.fetchEntity();
@@ -84,6 +90,8 @@ export class ViewImagesDialogComponent {
     this.entity = response;
     this.images = this.filterImages(response.downloadUrls);
     this.videos = this.filterVideos(response.downloadUrls);
+    this.documents = this.processDocuments(response.downloadUrls);
+
     this.isLoading = false;
   }
 
@@ -107,6 +115,23 @@ export class ViewImagesDialogComponent {
       return file.endsWith('.mp4') || file.endsWith('.mov');
     });
   }
+  filterDocuments(urls: string[]): string[] {
+    return urls.filter((url) => {
+      const file = this.getExtensionFromSignedUrl(url);
+      return file.endsWith('.pdf') || file.endsWith('.docx');
+    });
+  }
+  /**
+   * Extract a list of documents from all file urls, and fetch them for displaying.
+   */
+  processDocuments(urls: string[]): SafeResourceUrl[] {
+    const documentUrls = this.filterDocuments(urls);
+    const documents: SafeResourceUrl[] = [];
+    for (const url of documentUrls) {
+      this.fetchDocumentFile(url, documents);
+    }
+    return documents;
+  }
 
   getExtensionFromSignedUrl(url: string): string {
     // Extract the file from the url
@@ -118,5 +143,32 @@ export class ViewImagesDialogComponent {
     } else {
       return '';
     }
+  }
+
+  /**
+   * Fetch the blob object that can be used in an iframe to display the document.
+   * @param url the document url.
+   * @param documents an array reference that holds all document files.
+   */
+  fetchDocumentFile(url: string, documents: SafeResourceUrl[]) {
+    let documentFileUrl;
+    this.documentService.getDocumentFile(url).subscribe({
+      next: (documentFile) => {
+        const documentBlob = new Blob([documentFile], {
+          type: 'application/pdf',
+        });
+        documentFileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          URL.createObjectURL(documentBlob)
+        );
+        documents.push(documentFileUrl);
+        console.log('Added document to array', documents);
+      },
+      error: (error: HttpErrorResponse) => {
+        SentryService.logError(error);
+        this.snackBar.open('The Document File has failed to load', 'Okay', {
+          duration: 10000,
+        });
+      },
+    });
   }
 }

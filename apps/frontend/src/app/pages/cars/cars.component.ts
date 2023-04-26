@@ -12,7 +12,7 @@ import {
 } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
-import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
+import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
@@ -146,7 +146,7 @@ export class CarsComponent {
         this.originalCars = cars;
         this.filteredCars = filterByCompletedAtAndOrderResults(
           this.originalCars,
-          this.showAll,
+          false,
           this.displayDate
           // Need to filter another list to filter out the completed orders and place them in completedCars
         );
@@ -168,15 +168,6 @@ export class CarsComponent {
     });
   }
 
-  toggleShowAll(): void {
-    this.showAll = !this.showAll;
-    this.filteredCars = filterByCompletedAtAndOrderResults(
-      this.originalCars,
-      this.showAll,
-      this.displayDate
-    );
-  }
-
   isReady(pickupTime: string): boolean {
     const pickupTimeDate = new Date(pickupTime);
     const currentTime = new Date();
@@ -196,7 +187,7 @@ export class CarsComponent {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, {
+      this.dialog.open(ViewFilesDialogComponent, {
         width: '600px',
         disableClose: true,
         data: element,

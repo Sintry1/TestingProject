@@ -1,10 +1,10 @@
 <div class="blacklist-widget-container" *ngIf="!isLoading">
   <div class="image-container">
-    <span class="img-arrows" (click)="previousImage()">
+    <span class="img-arrows" (click)="previousImage()" *ngIf="files.length > 1">
       <span *ngIf="files.length !== 1">&lt;</span>
     </span>
-    <img [src]="files[currentImage]" class="image" />
-    <span class="img-arrows" (click)="nextImage()">
+    <img [src]="getCurrentImage()" class="image" />
+    <span class="img-arrows" (click)="nextImage()" *ngIf="files.length > 1">
       <span *ngIf="files.length !== 1">&gt;</span>
     </span>
   </div>
@@ -27,5 +27,10 @@
     <button mat-raised-button class="secondary-btn" (click)="openEditBlacklist(this.blacklist)">
       Edit <mat-icon>https</mat-icon>
     </button>
+  </div>
+</div>
+<div class="blacklist-widget-container loading-icon-wrapper" *ngIf="isLoading">
+  <div class="btn-spinner">
+    <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
   </div>
 </div>
