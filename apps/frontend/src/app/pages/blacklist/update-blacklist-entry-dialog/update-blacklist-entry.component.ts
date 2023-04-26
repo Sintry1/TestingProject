@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
@@ -46,7 +46,6 @@ export class UpdateBlacklistDialogComponent {
       name: new UntypedFormControl(dialogData.componentData.name, [
         Validators.required,
         Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$'),
       ]),
       expiresAt: new UntypedFormControl(
         dialogData.componentData.expiresAt
