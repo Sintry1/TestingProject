@@ -36,6 +36,10 @@ export class TasksNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
+    if (this.fullTasksList.length == 0) {
+      console.warn(`There are no tasks to showcase on the dashboard!`);
+      return;
+    }
     let oldestTask = this.fullTasksList[0];
 
     for (const task of this.fullTasksList) {

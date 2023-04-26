@@ -49,6 +49,9 @@ export class RolesGuard implements CanActivate {
 
     // If the JWT is for role: manager, skip the rest of the validation
     if (jwt.role == Role.manager) {
+      this.logger.debug(
+        `Request is made by a manager user: '${context.switchToHttp().getRequest().route.path}'`
+      );
       return true;
     }
 

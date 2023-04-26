@@ -1,14 +1,15 @@
 import {
+  HTTP_INTERCEPTORS,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILoginResponse } from '@omnihost/interfaces';
-import { BehaviorSubject, catchError, EMPTY, finalize, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, finalize, switchMap, tap } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { ErrorInterceptor } from './error.interceptor';
 
 enum BehaviorSubjectEnum {
   INITIAL = 'initial',
@@ -134,4 +135,5 @@ export class AuthInterceptor implements HttpInterceptor {
 
 export const authInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 ];
