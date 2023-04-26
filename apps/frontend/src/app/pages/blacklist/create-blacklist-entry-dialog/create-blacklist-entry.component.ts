@@ -1,14 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
+import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 import { AuthService } from '../../../services/auth.service';
 import { BlacklistService } from '../../../services/blacklist.service';
 import { SentryService } from '../../../services/sentry.service';
 import { toDateObject } from '../../../utils/date.util';
-import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 
 @Component({
   selector: 'frontend-create-blacklist-entry-dialog',
@@ -38,11 +38,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) public dialogData: { managerAccessRequired: boolean }
   ) {
     this.createBlacklistForm = new UntypedFormGroup({
-      name: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$'),
-      ]),
+      name: new UntypedFormControl('', [Validators.required, Validators.maxLength(50)]),
       expiresAt: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
@@ -50,11 +46,7 @@ export class CreateBlacklistDialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createBlacklistForm = new UntypedFormGroup({
-      name: new UntypedFormControl('', [
-        Validators.required,
-        Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$'),
-      ]),
+      name: new UntypedFormControl('', [Validators.required, Validators.maxLength(50)]),
       expiresAt: new UntypedFormControl('', [Validators.required]),
       comments: new UntypedFormControl('', [Validators.maxLength(1000), Validators.required]),
     });
