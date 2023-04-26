@@ -34,12 +34,12 @@ export const luggageLocation: string[] = [
 ];
 
 export const carLocation: string[] = [
+  'Borgergade',
+  'Landgreven',
   'Front',
   'Front Hotel',
   'Hovedvagtsgade',
-  'Landgreven',
   'Adelgade',
-  'Borgergade',
   'Other',
 ];
 

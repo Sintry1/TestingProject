@@ -17,8 +17,9 @@
   </div>
 
   <p style="font-weight: 900">
-    Next pick up time<br />
-    <span>{{ nextPickUp | date : 'dd/MM HH:mm' }}</span>
+    Next pick up time
+    <span>{{ nextPickUp | date : 'dd/MM HH:mm' }}</span
+    ><br />
     <frontend-countdown
       *ngIf="nextPickUp"
       [nextTime]="nextPickUp"

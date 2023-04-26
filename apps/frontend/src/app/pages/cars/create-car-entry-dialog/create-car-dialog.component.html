@@ -27,9 +27,7 @@
     <mat-form-field autocomplete="off">
       <mat-label>Tag nr.</mat-label>
       <input #tagNr type="number" formControlName="tagNr" matInput placeholder="123" />
-      <mat-error *ngIf="form.get('tagNr')?.invalid && form.get('tagNr')?.dirty">
-        Required
-      </mat-error>
+      <mat-error> Required </mat-error>
     </mat-form-field>
   </div>
 
@@ -54,7 +52,7 @@
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Name</mat-label>
     <input #name type="text" formControlName="name" matInput placeholder="Name" />
-    <mat-error *ngIf="form.get('name')?.invalid && form.get('name')?.dirty"> Required </mat-error>
+    <mat-error> Required </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
@@ -67,9 +65,7 @@
         matInput
         placeholder="AB12345"
       />
-      <mat-error *ngIf="form.get('licensePlate')?.invalid && form.get('licensePlate')?.dirty">
-        Required
-      </mat-error>
+      <mat-error> Required </mat-error>
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
@@ -84,7 +80,7 @@
   </div>
 
   <div class="dialog-row">
-    <mat-form-field class="remove-error-message">
+    <mat-form-field>
       <mat-label>Pick up time</mat-label>
       <input
         onclick="this.showPicker()"
@@ -92,6 +88,7 @@
         type="datetime-local"
         formControlName="pickUpTime"
       />
+      <mat-error> Required </mat-error>
     </mat-form-field>
 
     <mat-form-field autocomplete="off">
@@ -128,9 +125,7 @@
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
     <input #comments type="text" formControlName="comments" matInput placeholder="Comments" />
-    <mat-error *ngIf="form.get('comments')?.invalid && form.get('comments')?.dirty">
-      Required
-    </mat-error>
+    <mat-error> Required </mat-error>
   </mat-form-field>
 
   <div class="dialog-row">
