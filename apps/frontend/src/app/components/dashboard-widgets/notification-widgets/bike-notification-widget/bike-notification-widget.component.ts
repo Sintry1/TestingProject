@@ -16,7 +16,6 @@ export class BikeNotificationWidgetComponent implements OnInit {
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  showAll = false;
   nextPickUp: Date | undefined = undefined;
   timeTillPickup = new Date();
 
