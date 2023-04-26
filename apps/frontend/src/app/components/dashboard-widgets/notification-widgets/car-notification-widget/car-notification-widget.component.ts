@@ -16,7 +16,6 @@ export class CarNotificationWidgetComponent implements OnInit {
   sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  showAll = false;
   nextPickUp: Date | undefined = undefined;
   timeTillPickup = new Date();
 

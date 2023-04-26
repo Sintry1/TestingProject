@@ -13,7 +13,7 @@ import {
 } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
-import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
+import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -40,7 +40,6 @@ export class LongtermComponent {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
   displayDate = new Date();
-  showAll = false;
   timeZone = 'UTC';
 
   displayedColumns = [
@@ -98,7 +97,7 @@ export class LongtermComponent {
           this.originalLuggage = luggage;
           this.filteredLuggage = filterByCompletedAtAndOrderResults(
             luggage,
-            this.showAll,
+            false,
             this.displayDate
           );
           this.incompleteLongTerm = this.filteredLuggage.filter((luggage) => !luggage.completedAt);
@@ -139,18 +138,9 @@ export class LongtermComponent {
     });
   }
 
-  toggleShowAll(): void {
-    this.showAll = !this.showAll;
-    this.filteredLuggage = filterByCompletedAtAndOrderResults(
-      this.originalLuggage,
-      this.showAll,
-      this.displayDate
-    );
-  }
-
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, {
+      this.dialog.open(ViewFilesDialogComponent, {
         width: '600px',
         disableClose: true,
         data: element,
