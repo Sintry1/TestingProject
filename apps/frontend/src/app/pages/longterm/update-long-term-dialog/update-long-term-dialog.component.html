@@ -19,7 +19,7 @@
   <hr />
 
   <div class="dialog-row">
-    <mat-form-field autocomplete="off">
+    <mat-form-field autocomplete="off" data-cy="input-field-room">
       <mat-label>Room nr.</mat-label>
       <input #room matInput type="number" formControlName="room" [matAutocomplete]="roomOptions" />
       <mat-autocomplete autoActiveFirstOption #roomOptions="matAutocomplete">
