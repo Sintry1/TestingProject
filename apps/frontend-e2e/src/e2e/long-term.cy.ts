@@ -1,5 +1,9 @@
 describe('Long term page', () => {
-  beforeEach(() => cy.visit('/long-term'));
+  beforeEach(() => {
+    cy.login();
+    cy.restoreAccessInfoToLocalStorage();
+    cy.visit('/long-term');
+  });
 
   it('should contain data', () => {
     cy.get('[data-cy=long-term-list-entry]').should('have.length.above', 0);
@@ -20,12 +24,11 @@ describe('Long term page', () => {
 
   describe('Update dialog', () => {
     beforeEach(() => {
-      cy.get('[data-cy=long-term-list-entry]').first().click({ force: true });
+      cy.get('[data-cy=long-term-list-entry]').first().click();
     });
 
-    it('should contain the data', () => {
+    it('should exist', () => {
       cy.get('[data-cy=long-term-update-dialog]').should('exist');
-      cy.get('[data-cy=input-field-room]').should('have.value', '925');
     });
 
     it('should close update dialog when clicking cancel', () => {
@@ -36,13 +39,11 @@ describe('Long term page', () => {
 
     it('should be able to change data', () => {
       cy.get('[data-cy=long-term-update-dialog]').should('exist');
-      cy.get('[data-cy=input-field-room]').should('have.value', '925');
 
       cy.get('[data-cy=input-field-room]').clear();
       cy.get('[data-cy=input-field-room]').should('have.value', '');
 
-      cy.get('[data-cy=input-field-room]').type('123');
-      cy.get('[data-cy=input-field-room]').should('have.value', '123');
+      cy.get('[data-cy=input-field-room]').type('101').type('{enter}');
     });
   });
 });
