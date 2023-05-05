@@ -55,21 +55,28 @@ async function bootstrap() {
 
   app.use(Sentry.Handlers.requestHandler());
   app.use(Sentry.Handlers.tracingHandler());
-  Logger.log(
+  Logger.verbose(
     `Sentry initialized in environment: ${environment.env}. Sample rate: ${
       parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0
     }`
   );
 
-  // Swagger Ui
-  const config = new DocumentBuilder()
-    .setTitle('Omnihost Systems API')
-    .setDescription('The auto-generated documentation of the API')
-    .setVersion('0.1')
-    .addBearerAuth()
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  // Disable Swagger Ui when running in a production-like environment
+  if (
+    environment.env != 'PRODUCTION' &&
+    environment.env != 'DEVELOPMENT' &&
+    environment.env != 'DEMO'
+  ) {
+    const config = new DocumentBuilder()
+      .setTitle('Omnihost Systems API')
+      .setDescription('The auto-generated documentation of the API')
+      .setVersion('0.1')
+      .addBearerAuth()
+      .build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
+    Logger.verbose(`Swagger UI is enabled. Access it at '/api' path`);
+  }
 
   await app.listen(port);
 
