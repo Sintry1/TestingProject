@@ -26,6 +26,9 @@ export class FilesService {
     const accessKey = configService.getValue('API_LINODE_PERSONAL_TOKEN', true);
     const clusterId = configService.getValue('API_LINODE_STORAGE_CLUSTER_ID', true);
     const bucketId = configService.getValue('API_LINODE_STORAGE_BUCKET_ID', true);
+    this.logger.verbose(
+      `Fetching signed url with expiration: '${expiresIn}' for filename: '${fileName}'`
+    );
 
     const { data } = await firstValueFrom(
       this.httpService
@@ -54,6 +57,20 @@ export class FilesService {
       throw new Error(`The file doesn't exist: ${fileName}`);
     }
     return data;
+  }
+
+  /**
+   * Makes a parallel series of requests to Linode and creates a list of signed url allowing file access for a limited amount of time.
+   * @param fileNames a list of names of the files to fetch.
+   * @param expiresIn Optional. How long the link should be valid for. In seconds. Between 360 and 86400 seconds.
+   * @returns a list of urls, or throws an error if one of the files doesn't exist.
+   */
+  async getSignedLinkBulk(fileNames: string[], expiresIn = 600): Promise<string[]> {
+    const promises = [];
+    for (const fileName of fileNames) {
+      promises.push(this.getSignedLink(fileName, expiresIn));
+    }
+    return (await Promise.all(promises)).map((file) => file.url);
   }
 
   /**

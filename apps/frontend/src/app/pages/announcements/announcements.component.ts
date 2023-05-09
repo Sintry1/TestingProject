@@ -10,7 +10,7 @@ import {
   SortOrder,
 } from '@omnihost/interfaces';
 import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
-import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
+import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { AnnouncementsService } from '../../services/announcements.service';
 import { SentryService } from '../../services/sentry.service';
 import { toDateObject } from '../../utils/date.util';
@@ -160,7 +160,7 @@ export class AnnouncementsComponent implements OnInit {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, {
+      this.dialog.open(ViewFilesDialogComponent, {
         width: '600px',
         disableClose: true,
         data: element,

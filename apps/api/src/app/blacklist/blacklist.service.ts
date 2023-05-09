@@ -91,7 +91,7 @@ export class BlacklistService {
 
   async getFilesLink(fileNames: string[]) {
     try {
-      return await this.toFiles(fileNames);
+      return await this.fileService.getSignedLinkBulk(fileNames);
     } catch (error) {
       throw new HttpException(
         "Failed to get the files' links. Please try again later.",
@@ -102,7 +102,7 @@ export class BlacklistService {
 
   async updateBlacklistFiles(blacklistId: string, files: Express.Multer.File[]) {
     const blacklist = await this.blacklistRepo.findOneByOrFail({ blacklistId });
-    if (blacklist.files.length + files.length > 5) {
+    if (blacklist.files.length + files.length > 20) {
       return new BadRequestException(
         `File size limit surpassed. An blacklist can have a maximum of 20 files. It currently has ${blacklist.files.length}`
       );
@@ -170,13 +170,5 @@ export class BlacklistService {
     const fileNames: string[] = [];
     files.forEach((file) => fileNames.push(file.originalname));
     return fileNames;
-  }
-
-  private async toFiles(fileNames: string[]) {
-    const files = [];
-    for (const fileName of fileNames) {
-      files.push((await this.fileService.getSignedLink(fileName, 600)).url);
-    }
-    return files;
   }
 }

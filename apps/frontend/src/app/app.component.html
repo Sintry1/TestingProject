@@ -116,7 +116,14 @@
           [ngClass]="{ 'active-nav': title === 'Announcements' }"
           routerLink="/announcements"
         >
-          <mat-icon aria-hidden="false" data-cy="icon">announcement</mat-icon>
+          <p
+            *ngIf="newNotifications"
+            class="notification-number"
+            [ngClass]="{ 'active-nav': title !== 'Announcements' }"
+          >
+            {{ newNotifications }}
+          </p>
+          <mat-icon aria-hidden="false" data-cy="icon">announcement </mat-icon>
           <span
             class="side-nav-item"
             [ngClass]="{ collapsible: sidebarCollapsed }"

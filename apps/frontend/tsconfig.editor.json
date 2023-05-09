@@ -3,6 +3,7 @@
   "include": ["**/*.ts"],
   "compilerOptions": {
     "types": ["jest", "node"],
+    "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true
   }
 }

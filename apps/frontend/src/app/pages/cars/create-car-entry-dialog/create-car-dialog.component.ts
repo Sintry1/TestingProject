@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
 import { CarService } from '../../../services/car.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateInputString, toDateObject } from '../../../utils/date.util';
+import { toDateInputString, toDateObject, toDatetimeInputString } from '../../../utils/date.util';
 import { filterAutocompleteSelect } from '../../../utils/dialog.utils';
 import { bellBoyInitials, carLocation, rooms } from '../../../utils/dropdown-selection';
 import { DropdownSelection } from '../../../utils/dropdown-selection/dropdown-selection.class';
@@ -59,7 +59,7 @@ export class CreateCarDialogComponent extends DropdownSelection {
       departureDate: new UntypedFormControl('', [Validators.required]),
       name: new UntypedFormControl('', [Validators.required]),
       licensePlate: new UntypedFormControl('', [Validators.required]),
-      expirationDate: new UntypedFormControl('', []),
+      expirationDate: new UntypedFormControl(toDatetimeInputString(new Date()), []),
       pickUpTime: new UntypedFormControl('', []),
       bbDown: new UntypedFormControl(
         '',

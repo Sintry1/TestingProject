@@ -16,7 +16,6 @@ export class BikeNotificationWidgetComponent implements OnInit {
   sortBy: BikeSortOptions = BikeSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  showAll = false;
   nextPickUp: Date | undefined = undefined;
   timeTillPickup = new Date();
 
@@ -39,6 +38,10 @@ export class BikeNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
+    if (this.originalBikeList.length == 0) {
+      console.warn(`There are no bikes to showcase on the dashboard!`);
+      return;
+    }
     let oldestBike = this.originalBikeList[0];
 
     for (const bike of this.originalBikeList) {

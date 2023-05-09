@@ -1,5 +1,6 @@
 import { ApiModelProperty } from '@nestjs/swagger/dist/decorators/api-model-property.decorator';
-import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsBoolean, IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 import { CompletedAtResponse } from '../base.dto';
 import {
   ICreateDocumentRequest,
@@ -7,6 +8,7 @@ import {
   IGetDocumentByIdResponse,
   IUpdateDocumentRequest,
 } from './document.interface';
+
 export class GetDocumentResponse extends CompletedAtResponse implements IDocument {
   @ApiModelProperty({ example: '123e4567-e89b-12d3-a456-426614174000' })
   documentId!: string;
@@ -42,7 +44,8 @@ export class CreateDocumentRequest implements ICreateDocumentRequest {
   lastViewedAt?: Date;
 
   @ApiModelProperty({ example: true, default: false })
-  @IsNotEmpty()
+  @IsBoolean()
+  @Transform(({ value }) => value === 'true')
   showOnDashboard!: boolean;
 
   @ApiModelProperty({ type: 'string', format: 'binary', required: true })

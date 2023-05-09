@@ -1,15 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ElementRef, Inject, ViewChild } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBlacklist } from '@omnihost/interfaces';
 import { FileUploadComponent } from '../../../components/file-upload/file-upload.component';
+import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
 import { AuthService } from '../../../services/auth.service';
 import { BlacklistService } from '../../../services/blacklist.service';
 import { SentryService } from '../../../services/sentry.service';
-import { toDateObject, toDatetimeInputString } from '../../../utils/date.util';
-import { ManagerAccessDialogComponent } from '../../../components/manager-access-dialog/manager-access-dialog.component';
+import { toDateInputString, toDateObject } from '../../../utils/date.util';
 
 @Component({
   selector: 'frontend-update-blacklist-entry-dialog',
@@ -46,11 +46,10 @@ export class UpdateBlacklistDialogComponent {
       name: new UntypedFormControl(dialogData.componentData.name, [
         Validators.required,
         Validators.maxLength(50),
-        Validators.pattern('^[a-zA-Z ]*$'),
       ]),
       expiresAt: new UntypedFormControl(
         dialogData.componentData.expiresAt
-          ? toDatetimeInputString(new Date(dialogData.componentData.expiresAt))
+          ? toDateInputString(new Date(dialogData.componentData.expiresAt))
           : '',
         [Validators.required]
       ),

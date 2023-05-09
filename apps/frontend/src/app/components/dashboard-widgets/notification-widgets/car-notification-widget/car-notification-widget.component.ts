@@ -16,7 +16,6 @@ export class CarNotificationWidgetComponent implements OnInit {
   sortBy: CarSortOptions = CarSortOptions.CREATED_AT;
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
-  showAll = false;
   nextPickUp: Date | undefined = undefined;
   timeTillPickup = new Date();
 
@@ -39,6 +38,10 @@ export class CarNotificationWidgetComponent implements OnInit {
   }
 
   getOldest(): void {
+    if (this.originalCarList.length == 0) {
+      console.warn(`There are no cars to showcase on the dashboard!`);
+      return;
+    }
     let oldestCar = this.originalCarList[0];
 
     for (const car of this.originalCarList) {

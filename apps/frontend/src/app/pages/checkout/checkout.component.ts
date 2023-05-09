@@ -13,7 +13,7 @@ import {
 } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
-import { ViewImagesDialogComponent } from '../../components/view-images-dialog/view-images-dialog.component';
+import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
@@ -136,7 +136,7 @@ export class CheckoutComponent {
 
   viewFiles(element: ILuggage | ICar | IAnnouncement) {
     if (element.files.length > 0) {
-      this.dialog.open(ViewImagesDialogComponent, {
+      this.dialog.open(ViewFilesDialogComponent, {
         width: '600px',
         disableClose: true,
         data: element,
