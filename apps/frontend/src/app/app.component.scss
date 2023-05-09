@@ -198,3 +198,7 @@ mat-divider {
   position: absolute;
   left: 35px;
 }
+
+::ng-deep.mat-input-element[type=date] {
+  height: 15px;
+}
