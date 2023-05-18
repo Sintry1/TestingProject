@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as SendGrid from '@sendgrid/mail';
@@ -35,6 +36,44 @@ export class MailService {
   }
 
   /**
+   * Send the export data email.
+   * @param params the email information.
+   * @throws an error if the sending fails.
+   * @returns whether the email sending succeeded.
+   */
+  async sendExportDataEmail(params: {
+    email: string;
+    tableName: string;
+    from: Date;
+    to: Date;
+    data: any[];
+  }): Promise<boolean> {
+    // Convert the data into a CSV for the attachment
+    const csv = this.arrayToCSV(params.data);
+    const attachment = Buffer.from(csv).toString('base64');
+
+    return this.sendMail({
+      to: params.email,
+      from: OmnihostEmails.NOREPLY,
+      subject: 'Export data request',
+      templateId: EmailTemplates.EXPORT_DATA,
+      dynamicTemplateData: {
+        tableName: params.tableName,
+        fromDate: params.from.toLocaleDateString('da-DK'),
+        toDate: params.to.toLocaleDateString('da-DK'),
+      },
+      attachments: [
+        {
+          content: attachment,
+          filename: `exported-${params.tableName}.csv`,
+          type: 'text/csv',
+          disposition: 'attachment',
+        },
+      ],
+    });
+  }
+
+  /**
    * Send an email with provided data.
    * @param data the data needed to send a Sendgrid email.
    * @throws an error if the sending fails.
@@ -68,5 +107,10 @@ export class MailService {
       );
       throw error;
     }
+  }
+  private arrayToCSV(data) {
+    const csv = data.map((row) => Object.values(row));
+    csv.unshift(Object.keys(data[0]));
+    return `"${csv.join('"\n"').replace(/,/g, '","')}"`;
   }
 }
