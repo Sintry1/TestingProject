@@ -40,7 +40,7 @@ export class CheckoutComponent {
     { fieldName: 'name', displayName: 'Name' },
     { fieldName: 'room', displayName: 'Room Nr' },
     { fieldName: 'bags', displayName: 'Nr. of bags' },
-    { fieldName: 'tagNr', displayName: 'tag nr' },
+    { fieldName: 'tagNr', displayName: 'Tag nr' },
     { fieldName: 'location', displayName: 'Location' },
     { fieldName: 'bbLr', displayName: 'BB in LR' },
     { fieldName: 'completedAt', displayName: 'Time out' },

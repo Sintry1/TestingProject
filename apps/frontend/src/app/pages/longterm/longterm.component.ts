@@ -42,8 +42,8 @@ export class LongtermComponent {
   columns = [
     { fieldName: 'name', displayName: 'Name' },
     { fieldName: 'room', displayName: 'Room nr' },
-    { fieldName: 'createdAt', displayName: 'Created At' },
-    { fieldName: 'dateNeeded', displayName: 'Time Needed' },
+    { fieldName: 'createdAt', displayName: 'Date in' },
+    { fieldName: 'dateNeeded', displayName: 'Date Needed' },
     { fieldName: 'nrOfBags', displayName: 'Nr. of bags' },
     { fieldName: 'tagNr', displayName: 'Tag nr' },
     { fieldName: 'location', displayName: 'Location' },

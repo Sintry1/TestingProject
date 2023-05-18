@@ -39,9 +39,9 @@ export class CheckinComponent {
   columns = [
     { fieldName: 'name', displayName: 'Name' },
     { fieldName: 'room', displayName: 'Room nr' },
-    { fieldName: 'arrivalTime', displayName: 'Time of Arrival' },
+    { fieldName: 'arrivalTime', displayName: 'Time of arrival' },
     { fieldName: 'bags', displayName: 'Nr. of bags' },
-    { fieldName: 'tagNr', displayName: 'tag nr' },
+    { fieldName: 'tagNr', displayName: 'Tag nr' },
     { fieldName: 'location', displayName: 'Location' },
     { fieldName: 'bbLr', displayName: 'BB in LR' },
     { fieldName: 'completedAt', displayName: 'Time in Room' },
