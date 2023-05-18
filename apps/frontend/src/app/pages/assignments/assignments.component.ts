@@ -1,15 +1,13 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IAssignment, TableInfoOptions } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { AssignmentsService } from '../../services/assignments.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
-import { toExportFilenameString } from '../../utils/date.util';
-import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateAssignmentDialogComponent } from './create-assignment-dialog/create-assignment-dialog.component';
 import { UpdateAssignmentDialogComponent } from './update-assignment-dialog/update-assignment-dialog.component';
@@ -26,29 +24,17 @@ export class AssignmentsComponent {
   displayDate = new Date();
   isLoading = false;
 
-  assignmentColumns = [
-    'room',
-    'task',
-    'comments',
-    'requestedBy',
-    'requestedAt',
-    'performedBy',
-    'completedAt',
+  columns = [
+    { fieldName: 'room', displayName: 'Room nr' },
+    { fieldName: 'task', displayName: 'Task' },
+    { fieldName: 'comments', displayName: 'Comments' },
+    { fieldName: 'requestedBy', displayName: 'Requested by' },
+    { fieldName: 'requestedAt', displayName: 'Requested at' },
+    { fieldName: 'performedBy', displayName: 'Performed by' },
+    { fieldName: 'completedAt', displayName: 'Performed at' },
   ];
 
-  assignmentHeaders = [
-    'Created At',
-    'Last Updated At',
-    'Performed At',
-    'Room nr.',
-    'Task',
-    'Comments',
-    'Requested by',
-    'Performed by',
-    'Requested at',
-  ];
-  exportFilename = 'assignments-data';
-  unwantedExportFields = ['assignmentId'];
+  columnHeaders = this.columns.map((field) => field.fieldName);
 
   constructor(
     private assignmentsService: AssignmentsService,
@@ -112,30 +98,16 @@ export class AssignmentsComponent {
   }
 
   openCsvExportDialog() {
-    this.dialog.open(CsvExportComponent, {
-      width: '600px',
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
       disableClose: true,
       data: {
-        export: (from?: string, to?: string) => {
-          this.assignmentsService.getAssignmentsWithinRange(from, to).subscribe({
-            next: (assignments) => {
-              this.snackBar.open('Exporting Assignments data...', 'Thanks', { duration: 5000 });
-              downloadCsv(
-                assignments,
-                this.assignmentHeaders,
-                this.unwantedExportFields,
-                `${this.exportFilename}${
-                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
-                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
-              );
-            },
-            error: (error: HttpErrorResponse) => {
-              SentryService.logError(error);
-              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
-                duration: 15000,
-              });
-            },
-          });
+        component: CsvExportComponent,
+        width: '600px',
+        disableClose: true,
+        componentData: {
+          tableName: 'assignments',
+          columns: this.columns,
         },
       },
     });

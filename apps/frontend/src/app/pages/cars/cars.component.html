@@ -87,14 +87,14 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="expirationDateTime">
+    <ng-container matColumnDef="expirationDate">
       <th mat-header-cell *matHeaderCellDef>Park<br />exp.</th>
       <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.expirationDate ? (item.expirationDate | date : 'dd/MM HH:mm') : '' }}
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="pickUpDateTime">
+    <ng-container matColumnDef="pickUpTime">
       <th mat-header-cell *matHeaderCellDef>Pick<br />up time</th>
       <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
@@ -129,7 +129,7 @@
       </td>
     </ng-container>
 
-    <ng-container matColumnDef="deliveryDateTime">
+    <ng-container matColumnDef="deliveryTime">
       <th mat-header-cell *matHeaderCellDef>Delivery<br />time</th>
       <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.deliveryTime ? (item.deliveryTime | date : 'dd/MM HH:mm') : '' }}
@@ -164,7 +164,7 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="carColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
     <tr
       mat-row
       [ngClass]="{
@@ -172,7 +172,7 @@
         overdue: isOverdue(row.pickUpTime) && !row.completedAt,
         ready: isReady(row.pickUpTime) && !row.completedAt
       }"
-      *matRowDef="let row; columns: carColumns"
+      *matRowDef="let row; columns: columnHeaders"
     ></tr>
   </table>
 
@@ -236,14 +236,14 @@
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="expirationDateTime">
+      <ng-container matColumnDef="expirationDate">
         <th mat-header-cell *matHeaderCellDef>Park<br />exp.</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.expirationDate ? (item.expirationDate | date : 'dd/MM HH:mm') : '' }}
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="pickUpDateTime">
+      <ng-container matColumnDef="pickUpTime">
         <th mat-header-cell *matHeaderCellDef>Pick<br />up time</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.pickUpTime ? (item.pickUpTime | date : 'dd/MM HH:mm') : 'Call down' }}
@@ -278,7 +278,7 @@
         </td>
       </ng-container>
 
-      <ng-container matColumnDef="deliveryDateTime">
+      <ng-container matColumnDef="deliveryTime">
         <th mat-header-cell *matHeaderCellDef>Delivery<br />time</th>
         <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.deliveryTime ? (item.deliveryTime | date : 'dd/MM HH:mm') : '' }}
@@ -313,11 +313,11 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="carColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
       <tr
         mat-row
         [ngClass]="row.completedAt ? 'completed' : ''"
-        *matRowDef="let row; columns: carColumns"
+        *matRowDef="let row; columns: columnHeaders"
       ></tr>
     </table>
 

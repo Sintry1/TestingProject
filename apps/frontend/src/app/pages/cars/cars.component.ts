@@ -11,13 +11,12 @@ import {
   TableInfoOptions,
 } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { CarService } from '../../services/car.service';
 import { DisplayDateService } from '../../services/display-date.service';
 import { SentryService } from '../../services/sentry.service';
-import { toExportFilenameString } from '../../utils/date.util';
-import { downloadCsv } from '../../utils/export.util';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateCarDialogComponent } from './create-car-entry-dialog/create-car-dialog.component';
 import { UpdateCarDialogComponent } from './update-car-entry-dialog/update-car-dialog.component';
@@ -43,50 +42,26 @@ export class CarsComponent {
   showAll = false;
   isLoading = false;
 
-  carColumns = [
-    'room',
-    'tagNr',
-    'arrivalDate',
-    'departureDate',
-    'name',
-    'licensePlate',
-    'expirationDateTime',
-    'pickUpDateTime',
-    'bbDown',
-    'location',
-    'parkingLot',
-    'bbUp',
-    'deliveryDateTime',
-    'bbOut',
-    'comments',
-    'charged',
+  columns = [
+    { fieldName: 'room', displayName: 'Room nr' },
+    { fieldName: 'tagNr', displayName: 'Tag nr' },
+    { fieldName: 'arrivalDate', displayName: 'Arrival Date' },
+    { fieldName: 'departureDate', displayName: 'Departure Date' },
+    { fieldName: 'name', displayName: 'Name' },
+    { fieldName: 'licensePlate', displayName: 'License plate' },
+    { fieldName: 'expirationDate', displayName: 'Park expiration' },
+    { fieldName: 'pickUpTime', displayName: 'Pick up time' },
+    { fieldName: 'bbDown', displayName: 'BB Down' },
+    { fieldName: 'location', displayName: 'Location' },
+    { fieldName: 'parkingLot', displayName: 'Lot' },
+    { fieldName: 'bbUp', displayName: 'BB Up' },
+    { fieldName: 'deliveryTime', displayName: 'Delivery time' },
+    { fieldName: 'bbOut', displayName: 'BB Out' },
+    { fieldName: 'comments', displayName: 'Comments' },
+    { fieldName: 'charged', displayName: 'Charged' },
   ];
 
-  carHeaders = [
-    'Created At',
-    'Last Updated At',
-    'Completed At',
-    'Tag nr',
-    'Room nr.',
-    'Arrival Date',
-    'Departure Date',
-    'Name',
-    'License plate',
-    'Park expiration',
-    'Pick up time',
-    'Delivery time',
-    'BB Down',
-    'BB Up',
-    'Location',
-    'Parking lot',
-    'BB Out',
-    'Comments',
-    'Charged',
-    'Files',
-  ];
-  exportFilename = 'cars-data';
-  unwantedExportFields = ['carId'];
-
+  columnHeaders = this.columns.map((field) => field.fieldName);
   constructor(
     private readonly carService: CarService,
     private displayDateService: DisplayDateService,
@@ -198,30 +173,16 @@ export class CarsComponent {
   }
 
   openCsvExportDialog() {
-    this.dialog.open(CsvExportComponent, {
-      width: '600px',
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
       disableClose: true,
       data: {
-        export: (from?: string, to?: string) => {
-          this.carService.getCarsWithinRange(from, to).subscribe({
-            next: (cars) => {
-              this.snackBar.open('Exporting Cars data...', 'Thanks', { duration: 5000 });
-              downloadCsv(
-                cars,
-                this.carHeaders,
-                this.unwantedExportFields,
-                `${this.exportFilename}${
-                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
-                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
-              );
-            },
-            error: (error: HttpErrorResponse) => {
-              SentryService.logError(error);
-              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
-                duration: 15000,
-              });
-            },
-          });
+        component: CsvExportComponent,
+        width: '600px',
+        disableClose: true,
+        componentData: {
+          tableName: 'cars',
+          columns: this.columns,
         },
       },
     });
