@@ -44,7 +44,7 @@ export class ExportService {
 
     // Fetch the data
     const data = await repo.find({
-      where: [dateRange, extraFilters],
+      where: { ...dateRange, ...extraFilters },
       order: { createdAt: 'DESC' },
     });
 

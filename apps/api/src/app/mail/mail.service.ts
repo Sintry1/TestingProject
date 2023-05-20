@@ -59,13 +59,19 @@ export class MailService {
       templateId: EmailTemplates.EXPORT_DATA,
       dynamicTemplateData: {
         tableName: params.tableName,
-        fromDate: params.from.toLocaleDateString('da-DK'),
-        toDate: params.to.toLocaleDateString('da-DK'),
+        fromDate: `${params.from.getUTCDate()}/${
+          params.from.getUTCMonth() + 1
+        }/${params.from.getUTCFullYear()}`,
+        toDate: `${params.to.getUTCDate()}/${
+          params.to.getUTCMonth() + 1
+        }/${params.to.getUTCFullYear()}`,
       },
       attachments: [
         {
           content: attachment,
-          filename: `exported-${params.tableName}.csv`,
+          filename: `exported_${params.tableName}_${params.from.getUTCDate()}-${
+            params.from.getUTCMonth() + 1
+          }_${params.to.getUTCDate()}-${params.to.getUTCMonth() + 1}.csv`,
           type: 'text/csv',
           disposition: 'attachment',
         },
@@ -133,6 +139,7 @@ export class MailService {
         throw error;
       }
     });
+
     try {
       if (data.length !== 0) {
         csv.unshift(Object.keys(data[0]));
