@@ -101,11 +101,11 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="bikeColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
     <tr
       mat-row
       [ngClass]="row.completedAt ? 'completed' : ''"
-      *matRowDef="let row; columns: bikeColumns"
+      *matRowDef="let row; columns: columnHeaders"
     ></tr>
   </table>
   <div class="table-spinner-full-size" *ngIf="isLoading">
@@ -182,11 +182,11 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="bikeColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
       <tr
         mat-row
         [ngClass]="row.completedAt ? 'completed' : ''"
-        *matRowDef="let row; columns: bikeColumns"
+        *matRowDef="let row; columns: columnHeaders"
       ></tr>
     </table>
     <div class="table-spinner-full-size" *ngIf="isLoading">

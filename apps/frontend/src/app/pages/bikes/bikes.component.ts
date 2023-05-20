@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BikeSortOptions, IBike, SortOrder, TableInfoOptions } from '@omnihost/interfaces';
+import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { BikeService } from '../../services/bikes.service';
 import { DisplayDateService } from '../../services/display-date.service';
@@ -10,9 +12,6 @@ import { SentryService } from '../../services/sentry.service';
 import { filterByCompletedAtAndOrderResults } from '../../utils/order.util';
 import { CreateBikeDialogComponent } from './create-bike-entry-dialog/create-bike-dialog.component';
 import { UpdateBikeDialogComponent } from './update-bike-entry-dialog/update-bike-dialog.component';
-import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
-import { downloadCsv } from '../../utils/export.util';
-import { toExportFilenameString } from '../../utils/date.util';
 
 @Component({
   selector: 'frontend-bikes',
@@ -30,35 +29,18 @@ export class BikesComponent {
   search = '';
   isLoading = false;
 
-  bikeColumns = [
-    'room',
-    'name',
-    'reservedBy',
-    'nrOfBikes',
-    'pickUpTime',
-    'completedAt',
-    'comments',
-    'bikeFormCompleted',
+  columns = [
+    { fieldName: 'room', displayName: 'Room nr' },
+    { fieldName: 'name', displayName: 'Name' },
+    { fieldName: 'reservedBy', displayName: 'Reserved By' },
+    { fieldName: 'nrOfBikes', displayName: 'Nr. of bikes' },
+    { fieldName: 'pickUpTime', displayName: 'Pick up time' },
+    { fieldName: 'completedAt', displayName: 'Returned' },
+    { fieldName: 'comments', displayName: 'Comments' },
+    { fieldName: 'bikeFormCompleted', displayName: 'Bike form completed' },
   ];
 
-  bikeHeaders = [
-    'Created At',
-    'Last Updated At',
-    'Completed At',
-    'Nr. of bikes',
-    'Pick up time',
-    'Name',
-    'Room nr.',
-    'Reserved by',
-    'Bike form completed',
-    'Comments',
-    'BB Out',
-    'BB In',
-    'Time out',
-    'Time in',
-  ];
-  exportFilename = 'bikes-data';
-  unwantedExportFields = ['bikeId'];
+  columnHeaders = this.columns.map((field) => field.fieldName);
 
   constructor(
     private readonly bikeService: BikeService,
@@ -143,30 +125,16 @@ export class BikesComponent {
   }
 
   openCsvExportDialog() {
-    this.dialog.open(CsvExportComponent, {
-      width: '600px',
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
       disableClose: true,
       data: {
-        export: (from?: string, to?: string) => {
-          this.bikeService.getBikesWithinRange(from, to).subscribe({
-            next: (bikes) => {
-              this.snackbar.open('Exporting Bike data...', 'Thanks', { duration: 5000 });
-              downloadCsv(
-                bikes,
-                this.bikeHeaders,
-                this.unwantedExportFields,
-                `${this.exportFilename}${
-                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
-                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
-              );
-            },
-            error: (error: HttpErrorResponse) => {
-              SentryService.logError(error);
-              this.snackbar.open('Failed to export the data, please try again.', 'Okay', {
-                duration: 15000,
-              });
-            },
-          });
+        component: CsvExportComponent,
+        width: '600px',
+        disableClose: true,
+        componentData: {
+          tableName: 'bikes',
+          columns: this.columns,
         },
       },
     });

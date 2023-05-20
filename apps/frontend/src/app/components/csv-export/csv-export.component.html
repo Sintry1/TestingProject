@@ -1,20 +1,40 @@
 <form class="csv-export-modal-container" (ngSubmit)="onSubmit()" [formGroup]="form">
   <div class="title-container">
-    <h1>Export data to CSV</h1>
+    <h1>Export data to CSV and send it by Email</h1>
     <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
   </div>
 
   <hr />
 
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input #email formControlName="email" type="email" matInput placeholder="user@example.com" />
+    <mat-error> Must be a valid email! </mat-error>
+  </mat-form-field>
+
   <div class="dialog-row">
     <mat-form-field class="remove-error-message">
       <mat-label>From</mat-label>
-      <input onclick="this.showPicker()" matInput type="date" formControlName="fromTime" />
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="date"
+        formControlName="fromDate"
+        autocomplete="off"
+        #fromDate
+      />
     </mat-form-field>
 
     <mat-form-field class="remove-error-message">
       <mat-label>Until</mat-label>
-      <input onclick="this.showPicker()" matInput type="date" formControlName="untilTime" />
+      <input
+        onclick="this.showPicker()"
+        matInput
+        type="date"
+        formControlName="toDate"
+        autocomplete="off"
+        #toDate
+      />
     </mat-form-field>
   </div>
 
@@ -22,7 +42,7 @@
     <button class="secondary-btn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
 
     <button class="action-btn" mat-flat-button type="submit">
-      <div *ngIf="!isLoading">Export</div>
+      <div *ngIf="!isLoading">Export and Email</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>
       </div>

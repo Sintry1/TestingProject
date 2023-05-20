@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import * as SendGrid from '@sendgrid/mail';
@@ -35,6 +36,50 @@ export class MailService {
   }
 
   /**
+   * Send the export data email.
+   * @param params the email information.
+   * @throws an error if the sending fails.
+   * @returns whether the email sending succeeded.
+   */
+  async sendExportDataEmail(params: {
+    email: string;
+    tableName: string;
+    from: Date;
+    to: Date;
+    data: any[];
+  }): Promise<boolean> {
+    // Convert the data into a CSV for the attachment
+    const csv = this.arrayToCSV(params.data);
+    const attachment = Buffer.from(csv).toString('base64');
+
+    return this.sendMail({
+      to: params.email,
+      from: OmnihostEmails.NOREPLY,
+      subject: 'Export data request',
+      templateId: EmailTemplates.EXPORT_DATA,
+      dynamicTemplateData: {
+        tableName: params.tableName,
+        fromDate: `${params.from.getUTCDate()}/${
+          params.from.getUTCMonth() + 1
+        }/${params.from.getUTCFullYear()}`,
+        toDate: `${params.to.getUTCDate()}/${
+          params.to.getUTCMonth() + 1
+        }/${params.to.getUTCFullYear()}`,
+      },
+      attachments: [
+        {
+          content: attachment,
+          filename: `exported_${params.tableName}_${params.from.getUTCDate()}-${
+            params.from.getUTCMonth() + 1
+          }_${params.to.getUTCDate()}-${params.to.getUTCMonth() + 1}.csv`,
+          type: 'text/csv',
+          disposition: 'attachment',
+        },
+      ],
+    });
+  }
+
+  /**
    * Send an email with provided data.
    * @param data the data needed to send a Sendgrid email.
    * @throws an error if the sending fails.
@@ -68,5 +113,48 @@ export class MailService {
       );
       throw error;
     }
+  }
+  private arrayToCSV(data) {
+    // Verify that there is data to parse
+    if (!Array.isArray(data)) {
+      SentryService.log(
+        `error`,
+        'A non-array value was passed for conversion to CSV',
+        this.logger,
+        data
+      );
+      throw new Error(`The provided JSON data is not an array`);
+    }
+
+    const csv = data.map((row) => {
+      try {
+        return Object.values(row);
+      } catch (error) {
+        SentryService.log(
+          'error',
+          `Failed to part data into a CSV format for data export. Data row: ${row}`,
+          this.logger,
+          error
+        );
+        throw error;
+      }
+    });
+
+    try {
+      if (data.length !== 0) {
+        csv.unshift(Object.keys(data[0]));
+      }
+    } catch (error) {
+      console.warn(`Failed to parse CSV data with unshift command:`, csv);
+      SentryService.log(
+        'error',
+        `Failed to process the CSV data with the unshift method`,
+        this.logger,
+        error
+      );
+      throw error;
+    }
+
+    return `"${csv.join('"\n"').replace(/,/g, '","')}"`;
   }
 }

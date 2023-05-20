@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -7,18 +6,16 @@ import {
   ICar,
   ILuggage,
   LuggageSortOptions,
-  LuggageType,
   SortOrder,
   TableInfoOptions,
 } from '@omnihost/interfaces';
 import { CsvExportComponent } from '../../components/csv-export/csv-export.component';
+import { ManagerAccessDialogComponent } from '../../components/manager-access-dialog/manager-access-dialog.component';
 import { TableInfoDialogComponent } from '../../components/table-info-dialog/table-info-dialog.component';
 import { ViewFilesDialogComponent } from '../../components/view-files-dialog/view-files-dialog.component';
 import { DisplayDateService } from '../../services/display-date.service';
 import { LuggageService } from '../../services/luggage.service';
 import { SentryService } from '../../services/sentry.service';
-import { toExportFilenameString } from '../../utils/date.util';
-import { downloadCsv } from '../../utils/export.util';
 import { orderByCompletedStatus } from '../../utils/order.util';
 import { CreateCheckinDialogComponent } from './create-checkin-dialog/create-checkin-dialog.component';
 import { UpdateCheckinDialogComponent } from './update-checkin-dialog/update-checkin-dialog.component';
@@ -39,39 +36,20 @@ export class CheckinComponent {
   sortOrder: SortOrder = SortOrder.ASCENDING;
   search = '';
 
-  checkinColumns = [
-    'room',
-    // 'roomReady',
-    'name',
-    'arrivalTime',
-    'bags',
-    'tagNr',
-    'bbLr',
-    'location',
-    'completedAt',
-    'bbOut',
-    'comments',
+  columns = [
+    { fieldName: 'name', displayName: 'Name' },
+    { fieldName: 'room', displayName: 'Room nr' },
+    { fieldName: 'arrivalTime', displayName: 'Time of arrival' },
+    { fieldName: 'bags', displayName: 'Nr. of bags' },
+    { fieldName: 'tagNr', displayName: 'Tag nr' },
+    { fieldName: 'location', displayName: 'Location' },
+    { fieldName: 'bbLr', displayName: 'BB in LR' },
+    { fieldName: 'completedAt', displayName: 'Time in Room' },
+    { fieldName: 'bbOut', displayName: 'BB Up' },
+    { fieldName: 'comments', displayName: 'Comments' },
   ];
 
-  luggageHeaders = [
-    'Created At',
-    'Last Updated At',
-    'Completed At',
-    'Room nr.',
-    'Name',
-    'Time of arrival',
-    'Nr. of bags',
-    'Comments',
-    'Tag nr',
-    'Location',
-    'BB Down',
-    'BB in LR',
-    'BB Up',
-    'Time in room',
-    'Files',
-  ];
-  exportFilename = 'luggages-checkin-data';
-  unwantedExportFields = ['roomReady', 'luggageType', 'luggageId'];
+  columnHeaders = this.columns.map((field) => field.fieldName);
 
   constructor(
     private readonly luggageService: LuggageService,
@@ -144,30 +122,16 @@ export class CheckinComponent {
   }
 
   openCsvExportDialog() {
-    this.dialog.open(CsvExportComponent, {
-      width: '600px',
+    this.dialog.open(ManagerAccessDialogComponent, {
+      width: '400px',
       disableClose: true,
       data: {
-        export: (from?: string, to?: string) => {
-          this.luggageService.getLuggagesWithinRange(LuggageType.CHECKIN, from, to).subscribe({
-            next: (luggages) => {
-              this.snackBar.open('Exporting Luggage Checkin data...', 'Thanks', { duration: 5000 });
-              downloadCsv(
-                luggages,
-                this.luggageHeaders,
-                this.unwantedExportFields,
-                `${this.exportFilename}${
-                  from ? '-from-' + toExportFilenameString(new Date(from)) : ''
-                }${to ? '-to-' + toExportFilenameString(new Date(to)) : ''}`
-              );
-            },
-            error: (error: HttpErrorResponse) => {
-              SentryService.logError(error);
-              this.snackBar.open('Failed to export the data, please try again.', 'Okay', {
-                duration: 15000,
-              });
-            },
-          });
+        component: CsvExportComponent,
+        width: '600px',
+        disableClose: true,
+        componentData: {
+          tableName: 'checkin',
+          columns: this.columns,
         },
       },
     });

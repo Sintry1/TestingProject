@@ -54,11 +54,11 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="assignmentColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
     <tr
       mat-row
       [ngClass]="row.completedAt ? 'completed' : ''"
-      *matRowDef="let row; columns: assignmentColumns"
+      *matRowDef="let row; columns: columnHeaders"
       (click)="openEditDialog(row)"
     ></tr>
   </table>
@@ -111,11 +111,11 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="assignmentColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
       <tr
         mat-row
         [ngClass]="row.completedAt ? 'completed' : ''"
-        *matRowDef="let row; columns: assignmentColumns"
+        *matRowDef="let row; columns: columnHeaders"
         (click)="openEditDialog(row)"
       ></tr>
     </table>

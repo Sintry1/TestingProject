@@ -105,11 +105,11 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="checkoutColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
     <tr
       mat-row
       [ngClass]="row.completedAt ? 'completed' : ''"
-      *matRowDef="let row; columns: checkoutColumns"
+      *matRowDef="let row; columns: columnHeaders"
     ></tr>
   </table>
 
@@ -200,11 +200,11 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="checkoutColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="columnHeaders"></tr>
       <tr
         mat-row
         [ngClass]="row.completedAt ? 'completed' : ''"
-        *matRowDef="let row; columns: checkoutColumns"
+        *matRowDef="let row; columns: columnHeaders"
       ></tr>
     </table>
 

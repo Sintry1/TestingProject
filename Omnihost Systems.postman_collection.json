@@ -360,7 +360,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/checkin?createdAt=2023-02-15",
+							"raw": "{{host}}/luggages/checkin?createdAt=2023-02-15Z",
 							"host": [
 								"{{host}}"
 							],
@@ -371,7 +371,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-02-15"
+									"value": "2023-02-15Z"
 								}
 							]
 						}
@@ -2291,6 +2291,39 @@
 								}
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Export",
+			"item": [
+				{
+					"name": "Export data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"info@omnihost.app\",\n    \"from\": \"2023-05-08\",\n    \"to\": \"2023-05-18\",\n    \"mappingParams\": [\n        {\n            \"fieldName\": \"room\",\n            \"exportName\": \"Room nr\"\n        },\n        {\n            \"fieldName\": \"tagNr\",\n            \"exportName\": \"Tag nr\"\n        },\n        {\n            \"fieldName\": \"arrivalDate\",\n            \"exportName\": \"Arrival Date\"\n        },\n        {\n            \"fieldName\": \"departureDate\",\n            \"exportName\": \"Departure Date\"\n        },\n        {\n            \"fieldName\": \"name\",\n            \"exportName\": \"Name\"\n        },\n        {\n            \"fieldName\": \"licensePlate\",\n            \"exportName\": \"License plate\"\n        },\n        {\n            \"fieldName\": \"expirationDate\",\n            \"exportName\": \"Park expiration\"\n        },\n        {\n            \"fieldName\": \"pickUpTime\",\n            \"exportName\": \"Pick up time\"\n        },\n        {\n            \"fieldName\": \"bbDown\",\n            \"exportName\": \"BB Down\"\n        },\n        {\n            \"fieldName\": \"location\",\n            \"exportName\": \"Location\"\n        },\n        {\n            \"fieldName\": \"parkingLot\",\n            \"exportName\": \"Lot\"\n        },\n        {\n            \"fieldName\": \"bbUp\",\n            \"exportName\": \"BB Up\"\n        },\n        {\n            \"fieldName\": \"deliveryTime\",\n            \"exportName\": \"Delivery time\"\n        },\n        {\n            \"fieldName\": \"bbOut\",\n            \"exportName\": \"BB Out\"\n        },\n        {\n            \"fieldName\": \"comments\",\n            \"exportName\": \"Comments\"\n        },\n        {\n            \"fieldName\": \"charged\",\n            \"exportName\": \"Charged\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/export/cars",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"export",
+								"cars"
+							]
+						},
+						"description": "Send data for the given period from the given table to the specified email."
 					},
 					"response": []
 				}

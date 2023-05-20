@@ -9,6 +9,7 @@ export * from './lib/document/document.dto';
 export * from './lib/announcement/announcement.dto';
 export * from './lib/base.dto';
 export * from './lib/blacklist/blacklist.dto';
+export * from './lib/export/export.dto';
 
 // Interfaces
 export * from './lib/auth.interface';
@@ -26,6 +27,7 @@ export * from './lib/announcement/announcement.interface';
 export * from './lib/reset-password-token/reset-password-token.interface';
 export * from './lib/announcement/announcement.interface';
 export * from './lib/blacklist/blacklist.interface';
+export * from './lib/export/export.interface';
 
 // Enums
 export * from './lib/role.enum';
