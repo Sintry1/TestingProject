@@ -109,8 +109,45 @@ export class MailService {
     }
   }
   private arrayToCSV(data) {
-    const csv = data.map((row) => Object.values(row));
-    csv.unshift(Object.keys(data[0]));
+    // Verify that there is data to parse
+    if (!Array.isArray(data)) {
+      SentryService.log(
+        `error`,
+        'A non-array value was passed for conversion to CSV',
+        this.logger,
+        data
+      );
+      throw new Error(`The provided JSON data is not an array`);
+    }
+
+    const csv = data.map((row) => {
+      try {
+        return Object.values(row);
+      } catch (error) {
+        SentryService.log(
+          'error',
+          `Failed to part data into a CSV format for data export. Data row: ${row}`,
+          this.logger,
+          error
+        );
+        throw error;
+      }
+    });
+    try {
+      if (data.length !== 0) {
+        csv.unshift(Object.keys(data[0]));
+      }
+    } catch (error) {
+      console.warn(`Failed to parse CSV data with unshift command:`, csv);
+      SentryService.log(
+        'error',
+        `Failed to process the CSV data with the unshift method`,
+        this.logger,
+        error
+      );
+      throw error;
+    }
+
     return `"${csv.join('"\n"').replace(/,/g, '","')}"`;
   }
 }
