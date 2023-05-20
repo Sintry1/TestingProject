@@ -4,6 +4,7 @@ import {
   HttpException,
   InternalServerErrorException,
   Logger,
+  NotFoundException,
   Param,
   Post,
   UseGuards,
@@ -26,6 +27,7 @@ export class ExportController {
 
   @Post(':tableName')
   async export(@Param('tableName') tableName: string, @Body() body: ExportDataDto) {
+    this.logger.log(`Exporting data for table '${tableName}'`);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let data: any[];
     // Export the data
@@ -47,6 +49,13 @@ export class ExportController {
         throw error;
       }
       throw new InternalServerErrorException(`Failed to export data for the '${tableName}' table.`);
+    }
+
+    if (data.length == 0) {
+      this.logger.warn(
+        `The provided data range has no data to export in the '${tableName}' table!`
+      );
+      throw new NotFoundException(`The provided data range has no data to export!`);
     }
 
     SentryService.log(
