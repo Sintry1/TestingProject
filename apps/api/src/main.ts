@@ -49,7 +49,7 @@ async function bootstrap() {
     dsn: process.env.API_SENTRY_DSN || '',
     environment: environment.env,
     debug: false,
-    tracesSampleRate: parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0,
+    tracesSampleRate: parseFloat(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0,
     integrations: [new Integrations.Postgres(), new Sentry.Integrations.Http({ tracing: true })],
   });
 
@@ -57,7 +57,7 @@ async function bootstrap() {
   app.use(Sentry.Handlers.tracingHandler());
   Logger.verbose(
     `Sentry initialized in environment: ${environment.env}. Sample rate: ${
-      parseInt(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0
+      parseFloat(process.env.API_SENTRY_TRACING_SAMPLE_RATE) || 1.0
     }`
   );
 
