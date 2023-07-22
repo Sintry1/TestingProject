@@ -10,7 +10,7 @@ RUN sed -i '/angular/d' package.json
 # Install python because Mac M1 seems to be missing it
 RUN apk --no-cache add --virtual .builds-deps build-base python3
 RUN npm i --omit=dev
-RUN npm i @nx/webpack
+RUN npm i @nrwl/webpack@15.9.4
 
 
 RUN npx nx build api --configuration=production
