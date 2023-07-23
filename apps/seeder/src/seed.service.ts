@@ -3,6 +3,7 @@ import { Connection, DataSource } from 'typeorm';
 import { AnnouncementsSeederService } from './services/announcements.service';
 import { AssignmentsSeederService } from './services/assignments.service';
 import { BikesSeederService } from './services/bikes.service';
+import { BlacklistSeederService } from './services/blacklist.service';
 import { CarsSeederService } from './services/cars.service';
 import { DocumentsSeederService } from './services/documents.service';
 import { LuggagesSeederService } from './services/luggages.service';
@@ -22,6 +23,7 @@ export class SeedService {
     private readonly documentService: DocumentsSeederService,
     private readonly bikesService: BikesSeederService,
     private readonly announcementsService: AnnouncementsSeederService,
+    private readonly blacklistService: BlacklistSeederService,
     private dataSource: DataSource
   ) {}
 
@@ -41,6 +43,7 @@ export class SeedService {
     await this.seedDocuments();
     await this.seedBikes();
     await this.seedAnnouncements();
+    await this.seedBlacklist();
   }
 
   // ====================================
@@ -200,6 +203,17 @@ export class SeedService {
       this.logger.debug(`✅ Announcements created: ${response.length} 🧔📢`);
     } catch (error) {
       this.logger.warn(`❌ Announcements failed to seed 🌱`);
+      this.logger.error(error);
+    }
+  }
+
+  async seedBlacklist() {
+    try {
+      this.logger.debug(`✔ Seeding Blacklist... 🚫`);
+      const response = await Promise.all(this.blacklistService.create());
+      this.logger.debug(`✅ Blacklists created: ${response.length} 🚫`);
+    } catch (error) {
+      this.logger.warn(`❌ Blacklists failed to seed 🌱`);
       this.logger.error(error);
     }
   }
