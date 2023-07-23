@@ -1,5 +1,9 @@
 .item-container {
   .announcement-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     border: var(--border);
     border-radius: 5px;
     padding: 10px 10px;
