@@ -1,6 +1,28 @@
 table {
   width: 100%;
   box-shadow: none;
+
+  .narrow {
+    min-width: 50px;
+    width: 10vw;
+  }
+
+  .wide,
+  th, // Default value for header and data cells
+  td {
+    min-width: 100px;
+    width: 20vw;
+  }
+
+  .extra-wide {
+    min-width: 200px;
+    width: 40vw;
+  }
+
+  .default-width {
+    min-width: 80px;
+    width: fit-content;
+  }
 }
 
 .no-items-text {
