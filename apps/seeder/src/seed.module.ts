@@ -4,6 +4,7 @@ import {
   Announcement,
   Assignment,
   Bike,
+  Blacklist,
   Car,
   Document,
   Luggage,
@@ -16,6 +17,7 @@ import { SeedService } from './seed.service';
 import { AnnouncementsSeederService } from './services/announcements.service';
 import { AssignmentsSeederService } from './services/assignments.service';
 import { BikesSeederService } from './services/bikes.service';
+import { BlacklistSeederService } from './services/blacklist.service';
 import { CarsSeederService } from './services/cars.service';
 import { DocumentsSeederService } from './services/documents.service';
 import { LuggagesSeederService } from './services/luggages.service';
@@ -38,6 +40,7 @@ export class SeedModule {
           Document,
           Bike,
           Announcement,
+          Blacklist,
         ]),
       ],
       providers: [
@@ -51,6 +54,7 @@ export class SeedModule {
         DocumentsSeederService,
         BikesSeederService,
         AnnouncementsSeederService,
+        BlacklistSeederService,
         TaskGenerator,
       ],
       exports: [SeedService],
