@@ -40,8 +40,8 @@
 
   <table mat-table [dataSource]="incompleteCheckins" *ngIf="!isLoading">
     <ng-container matColumnDef="room">
-      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.room }}
       </td>
     </ng-container>
@@ -52,14 +52,14 @@
       </td>
     </ng-container>
     <ng-container matColumnDef="arrivalTime">
-      <th mat-header-cell *matHeaderCellDef>Time of<br />arrival</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Time of<br />arrival</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.arrivalTime ? (item.arrivalTime | date : 'HH:mm') : '' }}
       </td>
     </ng-container>
     <ng-container matColumnDef="bags">
-      <th mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
-      <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="viewFiles(item)">
         <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
           <span *ngIf="item.files.length > 0" class="file-number">
             <img class="image-icon" src="assets/icons/view-files-icon.svg" alt="View files icon" />
@@ -70,41 +70,47 @@
       </td>
     </ng-container>
     <ng-container matColumnDef="tagNr">
-      <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Tag nr.</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.tagNr }}
       </td>
     </ng-container>
     <ng-container matColumnDef="bbLr">
-      <th mat-header-cell *matHeaderCellDef>BB in LR</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>BB in LR</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.bbLr }}
       </td>
     </ng-container>
     <ng-container matColumnDef="location">
-      <th mat-header-cell *matHeaderCellDef>Location</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Location</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.location }}
       </td>
     </ng-container>
     <ng-container matColumnDef="completedAt">
-      <th mat-header-cell *matHeaderCellDef>
+      <th class="narrow" mat-header-cell *matHeaderCellDef>
         Time in<br />
         room
       </th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '' }}
       </td>
     </ng-container>
     <ng-container matColumnDef="bbOut">
-      <th mat-header-cell *matHeaderCellDef>BB up</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>BB up</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.bbOut }}
       </td>
     </ng-container>
     <ng-container matColumnDef="comments">
-      <th mat-header-cell *matHeaderCellDef>Comments</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+      <th class="extra-wide" mat-header-cell *matHeaderCellDef>Comments</th>
+      <td
+        class="extra-wide"
+        mat-cell
+        *matCellDef="let item"
+        (click)="openEditDialog(item)"
+        class="comments-field"
+      >
         {{ item.comments }}
       </td>
     </ng-container>
@@ -125,8 +131,8 @@
 
     <table mat-table [dataSource]="completeCheckins" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Room nr.</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.room }}
         </td>
       </ng-container>
@@ -139,15 +145,15 @@
       </ng-container>
 
       <ng-container matColumnDef="arrivalTime">
-        <th mat-header-cell *matHeaderCellDef>Time of<br />arrival</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Time of<br />arrival</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.arrivalTime ? (item.arrivalTime | date : 'HH:mm') : '' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bags">
-        <th mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
-        <td mat-cell *matCellDef="let item" (click)="viewFiles(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Nr. of<br />bags</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="viewFiles(item)">
           <div [ngClass]="item.files.length > 0 ? 'view-files-wrapper' : ''">
             <span *ngIf="item.files.length > 0" class="file-number">
               <img
@@ -163,46 +169,52 @@
       </ng-container>
 
       <ng-container matColumnDef="tagNr">
-        <th mat-header-cell *matHeaderCellDef>Tag nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Tag nr.</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.tagNr }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbLr">
-        <th mat-header-cell *matHeaderCellDef>BB in LR</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>BB in LR</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.bbLr }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="location">
-        <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Location</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.location }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="completedAt">
-        <th mat-header-cell *matHeaderCellDef>
+        <th class="narrow" mat-header-cell *matHeaderCellDef>
           Time in<br />
           room
         </th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.completedAt ? (item.completedAt | date : 'HH:mm') : '' }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bbOut">
-        <th mat-header-cell *matHeaderCellDef>BB up</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>BB up</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.bbOut }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="comments">
-        <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        <th class="extra-wide" mat-header-cell *matHeaderCellDef>Comments</th>
+        <td
+          class="extra-wide"
+          mat-cell
+          *matCellDef="let item"
+          (click)="openEditDialog(item)"
+          class="comments-field"
+        >
           {{ item.comments }}
         </td>
       </ng-container>

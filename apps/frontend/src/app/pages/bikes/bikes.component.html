@@ -39,8 +39,8 @@
 
   <table mat-table [dataSource]="incompleteBikes" *ngIf="!isLoading">
     <ng-container matColumnDef="room">
-      <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+      <th class="narrow" mat-header-cell *matHeaderCellDef>Room nr.</th>
+      <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
         {{ item.room }}
       </td>
     </ng-container>
@@ -81,15 +81,23 @@
     </ng-container>
 
     <ng-container matColumnDef="comments">
-      <th mat-header-cell *matHeaderCellDef>Comments</th>
-      <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+      <th class="extra-wide" mat-header-cell *matHeaderCellDef>Comments</th>
+      <td
+        class="extra-wide"
+        mat-cell
+        *matCellDef="let item"
+        (click)="openEditDialog(item)"
+        class="comments-field"
+      >
         {{ item.comments }}
       </td>
     </ng-container>
 
     <ng-container matColumnDef="bikeFormCompleted">
-      <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
-      <td mat-cell *matCellDef="let item">
+      <th class="default-width" mat-header-cell *matHeaderCellDef style="width: 80px">
+        Bike form <br />completed
+      </th>
+      <td class="default-width" mat-cell *matCellDef="let item">
         <label class="checkbox-container car-checkbox">
           <input
             type="checkbox"
@@ -120,8 +128,8 @@
 
     <table mat-table [dataSource]="completedBikes" *ngIf="!isLoading">
       <ng-container matColumnDef="room">
-        <th mat-header-cell *matHeaderCellDef>Room nr.</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
+        <th class="narrow" mat-header-cell *matHeaderCellDef>Room nr.</th>
+        <td class="narrow" mat-cell *matCellDef="let item" (click)="openEditDialog(item)">
           {{ item.room }}
         </td>
       </ng-container>
@@ -162,15 +170,23 @@
       </ng-container>
 
       <ng-container matColumnDef="comments">
-        <th mat-header-cell *matHeaderCellDef>Comments</th>
-        <td mat-cell *matCellDef="let item" (click)="openEditDialog(item)" class="comments-field">
+        <th class="extra-wide" mat-header-cell *matHeaderCellDef>Comments</th>
+        <td
+          class="extra-wide"
+          mat-cell
+          *matCellDef="let item"
+          (click)="openEditDialog(item)"
+          class="comments-field"
+        >
           {{ item.comments }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="bikeFormCompleted">
-        <th mat-header-cell *matHeaderCellDef style="width: 80px">Bike form <br />completed</th>
-        <td mat-cell *matCellDef="let item">
+        <th class="default-width" mat-header-cell *matHeaderCellDef style="width: 80px">
+          Bike form <br />completed
+        </th>
+        <td class="default-width" mat-cell *matCellDef="let item">
           <label class="checkbox-container car-checkbox">
             <input
               type="checkbox"
