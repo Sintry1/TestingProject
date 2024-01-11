@@ -45,3 +45,8 @@ Thumbs.db
 .env.dev
 .env.demo
 .env.production
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/TestingProject/v17
+/.vs/TestingProject/FileContentIndex
