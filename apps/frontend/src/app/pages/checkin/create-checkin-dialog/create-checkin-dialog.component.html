@@ -5,7 +5,7 @@
   (containsInvalidFilesEvent)="updateFilesStatus($event)"
 ></frontend-file-upload>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container" data-cy="create-checkin-dialog">
   <div class="title-container">
     <h1>Create Check In</h1>
     <button mat-dialog-close type="button" class="close-dialog-btn">X</button>

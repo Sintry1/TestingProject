@@ -6,7 +6,7 @@
   (containsInvalidFilesEvent)="updateFilesStatus($event)"
 ></frontend-file-upload>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="dialog-container" data-cy="update-checkin-dialog">
   <div class="title-container">
     <h1>Update Check In</h1>
     <button mat-dialog-close type="button" class="close-dialog-btn">X</button>
@@ -96,11 +96,11 @@
 
   <mat-form-field autocomplete="off" class="full-width">
     <mat-label>Comments</mat-label>
-    <input type="text" formControlName="comments" matInput placeholder="Comments" />
+    <input type="text" formControlName="comments" matInput placeholder="Comments" data-cy="input-comments-field"/>
   </mat-form-field>
 
   <div class="dialog-row">
-    <button class="secondary-btn" mat-raised-button mat-dialog-close>Cancel</button>
+    <button class="secondary-btn" mat-raised-button mat-dialog-close data-cy="update-dialog-cancel-button">Cancel</button>
     <button mat-raised-button type="submit" class="action-btn">
       <div *ngIf="!isLoading">Update</div>
       <div *ngIf="isLoading" class="btn-spinner">

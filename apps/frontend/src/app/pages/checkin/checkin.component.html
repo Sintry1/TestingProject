@@ -28,10 +28,10 @@
 
     <div class="table-buttons">
       <button mat-raised-button class="basic-btn" (click)="openTableInfo()">Table Info</button>
-      <button mat-raised-button class="action-btn" (click)="openCreateDialog()">
+      <button mat-raised-button class="action-btn" (click)="openCreateDialog()" data-cy="create-checkin-dialog-button">
         Add Check In
       </button>
-      <button class="secondary-btn" (click)="openCsvExportDialog()" mat-raised-button>
+      <button class="secondary-btn" (click)="openCsvExportDialog()" mat-raised-button data-cy="export-csv-button">
         <img src="assets/icons/export-icon.svg" alt="export icon" class="export-icon" />
       </button>
     </div>
@@ -120,6 +120,7 @@
       mat-row
       [ngClass]="row.completedAt ? 'completed' : ''"
       *matRowDef="let row; columns: columnHeaders"
+      data-cy="checkin-list-entry"
     ></tr>
   </table>
 

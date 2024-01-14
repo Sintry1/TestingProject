@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { LuggageType } from '@omnihost/interfaces';
