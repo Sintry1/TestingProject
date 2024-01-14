@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { TestBed} from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AssignmentsService } from './assignments.service';
@@ -30,6 +31,7 @@ describe('AssignmentsService', () => {
     expect(service).toBeTruthy();
   });
 
+  //"it" indicates the start of a test, this is the angular's syntax for unit test starts
   it('should get assignments within range', () => {
     // Arrange: Set up input data and expected output data.
     const from = '2024-01-01';
@@ -58,7 +60,7 @@ describe('AssignmentsService', () => {
     });
 
     // Assert: Check that the HTTP request is as expected.
-    const req = httpMock.expectOne(`${service['env'].apiUrl}/assignments/all?from=${from}&to=${to}`);
+    const req = httpMock.expectOne(`http://localhost:3333/assignments/all?from=${from}&to=${to}`);
     expect(req.request.method).toBe('GET');
     // Provide a mock response.
     req.flush(mockAssignments);
@@ -91,7 +93,7 @@ describe('AssignmentsService', () => {
     });
 
     // Assert: Check that the HTTP request is as expected.
-    const req = httpMock.expectOne(`${service['env'].apiUrl}/assignments?createdAt=${createdAt.toISOString()}`);
+    const req = httpMock.expectOne(`http://localhost:3333/assignments?createdAt=${createdAt.toISOString()}`);
     expect(req.request.method).toBe('GET');
     // Provide a mock response.
     req.flush(mockAssignments);
@@ -127,7 +129,7 @@ describe('AssignmentsService', () => {
     });
 
     // Assert: Check that the HTTP request is as expected.
-    const req = httpMock.expectOne(`${service['env'].apiUrl}/assignments`);
+    const req = httpMock.expectOne(`http://localhost:3333/assignments`);
     expect(req.request.method).toBe('POST');
     // Provide a mock response.
     req.flush(mockCreatedAssignment);
@@ -164,7 +166,7 @@ describe('AssignmentsService', () => {
     });
 
     // Assert: Check that the HTTP request is as expected.
-    const req = httpMock.expectOne(`${service['env'].apiUrl}/assignments/${assignmentId}`);
+    const req = httpMock.expectOne(`http://localhost:3333/assignments/${assignmentId}`);
     expect(req.request.method).toBe('PATCH');
     // Provide a mock response.
     req.flush(mockUpdatedAssignment);
@@ -188,7 +190,7 @@ describe('AssignmentsService', () => {
     });
 
     // Assert: Check that the HTTP request is as expected.
-    const req = httpMock.expectOne(`${service['env'].apiUrl}/assignments/${assignmentId}`);
+    const req = httpMock.expectOne(`http://localhost:3333/assignments/${assignmentId}`);
     expect(req.request.method).toBe('GET');
     // Provide a mock response.
     req.flush(mockAssignment);
