@@ -40,6 +40,10 @@ Thumbs.db
 
 .angular
 
+# Nx cache
+/nx
+/.nx
+
 .env
 .env.test
 .env.dev
