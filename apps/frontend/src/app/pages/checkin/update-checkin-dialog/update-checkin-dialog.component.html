@@ -101,7 +101,7 @@
 
   <div class="dialog-row">
     <button class="secondary-btn" mat-raised-button mat-dialog-close data-cy="update-dialog-cancel-button">Cancel</button>
-    <button mat-raised-button type="submit" class="action-btn">
+    <button mat-raised-button type="submit" class="action-btn" data-cy="update-dialog-confirm-button">
       <div *ngIf="!isLoading">Update</div>
       <div *ngIf="isLoading" class="btn-spinner">
         <mat-icon><mat-spinner diameter="21" color="white"></mat-spinner></mat-icon>

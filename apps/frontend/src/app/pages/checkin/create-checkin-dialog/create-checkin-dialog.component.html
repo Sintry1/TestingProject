@@ -100,7 +100,7 @@
   </mat-form-field>
 
   <div class="dialog-row">
-    <button mat-raised-button class="secondary-btn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="secondary-btn" mat-dialog-close data-cy="create-dialog-cancel-button">Cancel</button>
     <button mat-raised-button class="action-btn" type="submit">
       <div *ngIf="!isLoading">Create</div>
       <div *ngIf="isLoading" class="btn-spinner">
