@@ -395,7 +395,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/checkout?createdAt=2024-01-20",
+							"raw": "{{host}}/luggages/checkout?createdAt=2024-01-15",
 							"host": [
 								"{{host}}"
 							],
@@ -406,7 +406,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2024-01-20"
+									"value": "2024-01-15"
 								}
 							]
 						}
@@ -430,7 +430,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/longTerm?createdAt=2024-01-20",
+							"raw": "{{host}}/luggages/longTerm?createdAt=2024-01-15",
 							"host": [
 								"{{host}}"
 							],
@@ -441,7 +441,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2024-01-20"
+									"value": "2024-01-15"
 								}
 							]
 						}
@@ -816,7 +816,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/cars?createdAt=2024-01-20",
+							"raw": "{{host}}/cars?createdAt=2024-01-15",
 							"host": [
 								"{{host}}"
 							],
@@ -826,7 +826,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2024-01-20"
+									"value": "2024-01-15"
 								}
 							]
 						}
@@ -1128,7 +1128,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/assignments?createdAt=2024-01-20&status=1",
+							"raw": "{{host}}/assignments?createdAt=2024-01-15&status=1",
 							"host": [
 								"{{host}}"
 							],
@@ -1138,7 +1138,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2024-01-20"
+									"value": "2024-01-15"
 								},
 								{
 									"key": "status",
@@ -1241,7 +1241,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/tasks?createdAt=2024-01-20&sortBy=time&sortOrder=ASC",
+							"raw": "{{host}}/tasks?createdAt=2024-01-15&sortBy=time&sortOrder=ASC",
 							"host": [
 								"{{host}}"
 							],
@@ -1251,7 +1251,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2024-01-20"
+									"value": "2024-01-15"
 								},
 								{
 									"key": "sortBy",
