@@ -360,7 +360,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/checkin?createdAt=2023-02-15Z",
+							"raw": "{{host}}/luggages/checkin?createdAt=2024-02-15Z",
 							"host": [
 								"{{host}}"
 							],
@@ -371,7 +371,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-02-15Z"
+									"value": "2024-02-15Z"
 								}
 							]
 						}
@@ -395,7 +395,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/checkout?createdAt=2023-01-20",
+							"raw": "{{host}}/luggages/checkout?createdAt=2024-01-20",
 							"host": [
 								"{{host}}"
 							],
@@ -406,7 +406,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2024-01-20"
 								}
 							]
 						}
@@ -430,7 +430,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/luggages/longTerm?createdAt=2023-01-20",
+							"raw": "{{host}}/luggages/longTerm?createdAt=2024-01-20",
 							"host": [
 								"{{host}}"
 							],
@@ -441,7 +441,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2024-01-20"
 								}
 							]
 						}
@@ -514,7 +514,7 @@
 								},
 								{
 									"key": "arrivalTime",
-									"value": "2023-01-25T13:20:45.600Z",
+									"value": "2024-01-25T13:20:45.600Z",
 									"type": "text"
 								},
 								{
@@ -554,12 +554,12 @@
 								},
 								{
 									"key": "dateNeeded",
-									"value": "2023-01-25T13:20:45.600Z",
+									"value": "2024-01-25T13:20:45.600Z",
 									"type": "text"
 								},
 								{
 									"key": "completedAt",
-									"value": "2023-01-25T13:20:45.600",
+									"value": "2024-01-25T13:20:45.600",
 									"type": "text"
 								},
 								{
@@ -614,7 +614,7 @@
 								},
 								{
 									"key": "arrivalTime",
-									"value": "2023-01-25T13:20:45.600Z",
+									"value": "2024-01-25T13:20:45.600Z",
 									"type": "text"
 								},
 								{
@@ -654,19 +654,19 @@
 								},
 								{
 									"key": "dateNeeded",
-									"value": "2023-01-25T13:20:45.600Z",
+									"value": "2024-01-25T13:20:45.600Z",
 									"type": "text"
 								},
 								{
 									"key": "completedAt",
-									"value": "2023-01-25T13:20:45.600",
+									"value": "2024-01-25T13:20:45.600",
 									"type": "text"
 								},
 								{
 									"key": "files",
 									"type": "file",
 									"src": [
-										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/Screenshot 2024-02-02 at 15.16.10.png",
 										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
 										"/C:/Users/crist/Downloads/IMG_9549.jpg"
 									]
@@ -816,7 +816,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/cars?createdAt=2023-01-20",
+							"raw": "{{host}}/cars?createdAt=2024-01-20",
 							"host": [
 								"{{host}}"
 							],
@@ -826,7 +826,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2024-01-20"
 								}
 							]
 						}
@@ -888,12 +888,12 @@
 								},
 								{
 									"key": "arrivalDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "departureDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
@@ -908,17 +908,17 @@
 								},
 								{
 									"key": "expirationDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "pickUpTime",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "deliveryTime",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
@@ -958,7 +958,7 @@
 								},
 								{
 									"key": "completedAt",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
@@ -1000,12 +1000,12 @@
 								},
 								{
 									"key": "arrivalDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "departureDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
@@ -1020,17 +1020,17 @@
 								},
 								{
 									"key": "expirationDate",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "pickUpTime",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "deliveryTime",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
@@ -1070,15 +1070,15 @@
 								},
 								{
 									"key": "completedAt",
-									"value": "2023-01-25T14:01:31.436Z",
+									"value": "2024-01-25T14:01:31.436Z",
 									"type": "text"
 								},
 								{
 									"key": "files",
 									"type": "file",
 									"src": [
-										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.17.31.png",
-										"/C:/Users/crist/Downloads/Screenshot 2023-02-02 at 15.16.10.png",
+										"/C:/Users/crist/Downloads/Screenshot 2024-02-02 at 15.17.31.png",
+										"/C:/Users/crist/Downloads/Screenshot 2024-02-02 at 15.16.10.png",
 										"/C:/Users/crist/Downloads/IMG_9549-2.jpg",
 										"/C:/Users/crist/Downloads/IMG_9549.jpg",
 										"/C:/Users/crist/Downloads/IMG_9547.jpg"
@@ -1128,7 +1128,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/assignments?createdAt=2023-01-20&status=1",
+							"raw": "{{host}}/assignments?createdAt=2024-01-20&status=1",
 							"host": [
 								"{{host}}"
 							],
@@ -1138,7 +1138,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2024-01-20"
 								},
 								{
 									"key": "status",
@@ -1167,7 +1167,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2023-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2023-01-25T14:07:39.927Z\"\n}",
+							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2024-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2024-01-25T14:07:39.927Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1193,7 +1193,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2023-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2023-01-25T14:07:39.927Z\"\n}",
+							"raw": "{\n  \"room\": \"101\",\n  \"task\": \"EA\",\n  \"comments\": \"Room move\",\n  \"requestedBy\": \"Reception\",\n  \"performedBy\": \"EA\",\n  \"requestedAt\": \"2024-01-25T14:07:39.927Z\",\n  \"completedAt\": \"2024-01-25T14:07:39.927Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1241,7 +1241,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/tasks?createdAt=2023-01-20&sortBy=time&sortOrder=ASC",
+							"raw": "{{host}}/tasks?createdAt=2024-01-20&sortBy=time&sortOrder=ASC",
 							"host": [
 								"{{host}}"
 							],
@@ -1251,7 +1251,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-20"
+									"value": "2024-01-20"
 								},
 								{
 									"key": "sortBy",
@@ -1310,7 +1310,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Morning\",\n  \"completedAt\": \"2023-01-25T13:55:36.329Z\"\n}",
+							"raw": "{\n  \"time\": \"07:00\",\n  \"task\": \"Sign-in your radio. Take out bench, ashtray, (refresh sand if needed) & bikes.\",\n  \"initials\": \"EA\",\n  \"listName\": \"Morning\",\n  \"completedAt\": \"2024-01-25T13:55:36.329Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1564,12 +1564,12 @@
 								},
 								{
 									"key": "showTo",
-									"value": "2023-02-05T12:27:45.378Z",
+									"value": "2024-02-05T12:27:45.378Z",
 									"type": "text"
 								},
 								{
 									"key": "showFrom",
-									"value": "2023-02-05T12:27:45.378Z",
+									"value": "2024-02-05T12:27:45.378Z",
 									"type": "text"
 								},
 								{
@@ -1609,7 +1609,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2023-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2023-02-05T12:53:23.416Z\"\n}",
+							"raw": "{\n    \"title\": \"Tour de France\",\n    \"comments\": \"Tour de France is so cool, yo. Please don't miss it.\",\n    \"showTo\": \"2024-02-05T12:53:23.416Z\",\n    \"showFrom\": \"2024-02-05T12:53:23.416Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1782,7 +1782,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"title\": \"New Years Eve preparations\",\n  \"comments\": \"December 29th - January 2nd\",\n  \"lastViewedAt\": \"2023-01-25T14:27:18.570Z\",\n  \"showOnDashboard\": true\n}",
+							"raw": "{\n  \"title\": \"New Years Eve preparations\",\n  \"comments\": \"December 29th - January 2nd\",\n  \"lastViewedAt\": \"2024-01-25T14:27:18.570Z\",\n  \"showOnDashboard\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1889,7 +1889,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/bikes?createdAt=2023-01-18",
+							"raw": "{{host}}/bikes?createdAt=2024-01-18",
 							"host": [
 								"{{host}}"
 							],
@@ -1899,7 +1899,7 @@
 							"query": [
 								{
 									"key": "createdAt",
-									"value": "2023-01-18"
+									"value": "2024-01-18"
 								}
 							]
 						}
@@ -1924,7 +1924,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2023-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2023-01-25T14:30:32.871Z\"\n}",
+							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2024-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2024-01-25T14:30:32.871Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1950,7 +1950,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2023-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2023-01-25T14:30:32.871Z\"\n}",
+							"raw": "{\n  \"nrOfBikes\": \"1\",\n  \"pickUpTime\": \"2024-01-25T14:30:32.871Z\",\n  \"name\": \"Larsen\",\n  \"room\": \"101\",\n  \"reservedBy\": \"Reception\",\n  \"bikeFormCompleted\": true,\n  \"comments\": \"E-Bike\",\n  \"completedAt\": \"2024-01-25T14:30:32.871Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2173,7 +2173,7 @@
 								},
 								{
 									"key": "expiresAt",
-									"value": "2023-12-12",
+									"value": "2024-12-12",
 									"type": "text"
 								},
 								{
@@ -2226,7 +2226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Dominic Smith\",\n  \"comments\": \"Abusive to staff\",\n  \"expiresAt\": \"2023-12-12T15:59:12.513Z\"\n}",
+							"raw": "{\n  \"name\": \"Dominic Smith\",\n  \"comments\": \"Abusive to staff\",\n  \"expiresAt\": \"2024-12-12T15:59:12.513Z\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2306,7 +2306,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"info@omnihost.app\",\n    \"from\": \"2023-05-08\",\n    \"to\": \"2023-05-18\",\n    \"mappingParams\": [\n        {\n            \"fieldName\": \"room\",\n            \"exportName\": \"Room nr\"\n        },\n        {\n            \"fieldName\": \"tagNr\",\n            \"exportName\": \"Tag nr\"\n        },\n        {\n            \"fieldName\": \"arrivalDate\",\n            \"exportName\": \"Arrival Date\"\n        },\n        {\n            \"fieldName\": \"departureDate\",\n            \"exportName\": \"Departure Date\"\n        },\n        {\n            \"fieldName\": \"name\",\n            \"exportName\": \"Name\"\n        },\n        {\n            \"fieldName\": \"licensePlate\",\n            \"exportName\": \"License plate\"\n        },\n        {\n            \"fieldName\": \"expirationDate\",\n            \"exportName\": \"Park expiration\"\n        },\n        {\n            \"fieldName\": \"pickUpTime\",\n            \"exportName\": \"Pick up time\"\n        },\n        {\n            \"fieldName\": \"bbDown\",\n            \"exportName\": \"BB Down\"\n        },\n        {\n            \"fieldName\": \"location\",\n            \"exportName\": \"Location\"\n        },\n        {\n            \"fieldName\": \"parkingLot\",\n            \"exportName\": \"Lot\"\n        },\n        {\n            \"fieldName\": \"bbUp\",\n            \"exportName\": \"BB Up\"\n        },\n        {\n            \"fieldName\": \"deliveryTime\",\n            \"exportName\": \"Delivery time\"\n        },\n        {\n            \"fieldName\": \"bbOut\",\n            \"exportName\": \"BB Out\"\n        },\n        {\n            \"fieldName\": \"comments\",\n            \"exportName\": \"Comments\"\n        },\n        {\n            \"fieldName\": \"charged\",\n            \"exportName\": \"Charged\"\n        }\n    ]\n}",
+							"raw": "{\n    \"email\": \"info@omnihost.app\",\n    \"from\": \"2024-05-08\",\n    \"to\": \"2024-05-18\",\n    \"mappingParams\": [\n        {\n            \"fieldName\": \"room\",\n            \"exportName\": \"Room nr\"\n        },\n        {\n            \"fieldName\": \"tagNr\",\n            \"exportName\": \"Tag nr\"\n        },\n        {\n            \"fieldName\": \"arrivalDate\",\n            \"exportName\": \"Arrival Date\"\n        },\n        {\n            \"fieldName\": \"departureDate\",\n            \"exportName\": \"Departure Date\"\n        },\n        {\n            \"fieldName\": \"name\",\n            \"exportName\": \"Name\"\n        },\n        {\n            \"fieldName\": \"licensePlate\",\n            \"exportName\": \"License plate\"\n        },\n        {\n            \"fieldName\": \"expirationDate\",\n            \"exportName\": \"Park expiration\"\n        },\n        {\n            \"fieldName\": \"pickUpTime\",\n            \"exportName\": \"Pick up time\"\n        },\n        {\n            \"fieldName\": \"bbDown\",\n            \"exportName\": \"BB Down\"\n        },\n        {\n            \"fieldName\": \"location\",\n            \"exportName\": \"Location\"\n        },\n        {\n            \"fieldName\": \"parkingLot\",\n            \"exportName\": \"Lot\"\n        },\n        {\n            \"fieldName\": \"bbUp\",\n            \"exportName\": \"BB Up\"\n        },\n        {\n            \"fieldName\": \"deliveryTime\",\n            \"exportName\": \"Delivery time\"\n        },\n        {\n            \"fieldName\": \"bbOut\",\n            \"exportName\": \"BB Out\"\n        },\n        {\n            \"fieldName\": \"comments\",\n            \"exportName\": \"Comments\"\n        },\n        {\n            \"fieldName\": \"charged\",\n            \"exportName\": \"Charged\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
