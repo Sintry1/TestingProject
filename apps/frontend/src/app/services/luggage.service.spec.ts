@@ -89,28 +89,35 @@ describe('LuggageService', () => {
         },
       ],
     },
-    // Add more test cases as needed
   ];
-
   for (const testCase of testCases) {
-    it(testCase.description, () => {
+    it(testCase.description, (done) => { // Add the done parameter
       const { createdAt, sortBy, sortOrder, search, expectedLuggages } = testCase;
-
+  
+      // Log the expected and actual URLs to the console
+      const expectedUrl = `http://localhost:3333/luggages/checkin?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`;
+  
       // Act: Make the service method call and subscribe to the observable
       service.getCheckin(createdAt, sortBy, sortOrder, search).subscribe(
         // Assert: Check that the response matches the expected data
         (luggages) => {
-          expect(luggages).toEqual(expectedLuggages);
+          try {
+            expect(luggages).toEqual(expectedLuggages);
+            done(); // Call done to signal that the asynchronous test is done
+          } catch (error) {
+            done.fail(error as string | { message: string } | undefined);
+          }
         },
-        fail
+        (error: string | { message: string } | undefined) => {
+          done.fail(error);
+        }
       );
-
+  
       // Assert: Verify that the HTTP request was made correctly
-      const req = httpTestingController.expectOne(
-        `apiUrl/luggages/checkin?createdAt=${createdAt.toISOString()}&sortBy=${sortBy}&sortOrder=${sortOrder}&search=${search}`
-      );
+      const req = httpTestingController.expectOne(expectedUrl);
+  
       expect(req.request.method).toEqual('GET');
-
+  
       // Act: Provide the mock data for the HTTP response
       req.flush(expectedLuggages);
     });
