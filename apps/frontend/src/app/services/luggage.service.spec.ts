@@ -181,25 +181,6 @@ describe('LuggageService', () => {
       bbLr: 'Employee1',
     };
 
-    const mockFiles: Express.Multer.File[] = [
-      { 
-        fieldname: 'file1', 
-        originalname: 'file1.jpg', 
-        encoding: '7bit', 
-        mimetype: 'image/jpeg', 
-        buffer: Buffer.from('file1 content'), 
-        size: 100 
-      },
-      { 
-        fieldname: 'file2', 
-        originalname: 'file2.jpg', 
-        encoding: '7bit', 
-        mimetype: 'image/jpeg', 
-        buffer: Buffer.from('file2 content'), 
-        size: 120 
-      },
-    ] as Express.Multer.File[];
-
     it('should create luggage and return the created luggage', (done) => {
       // Arrange
       const expectedUrl = `http://localhost:3333/luggages`;

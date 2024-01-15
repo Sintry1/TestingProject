@@ -3,7 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AssignmentsService } from './assignments.service';
 import { CreateAssignmentRequest, UpdateAssignmentRequest, IAssignment } from '@omnihost/interfaces';
-import { Observable } from 'rxjs';
 
 describe('AssignmentsService', () => {
   let service: AssignmentsService;
