@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { LuggageType } from '@omnihost/interfaces';
-import { Luggage } from '@omnihost/models';
+import { ICreateLuggageRequest, ILuggage, LuggageType } from '@omnihost/interfaces';
 import { LuggageSortOptions, SortOrder } from '@omnihost/interfaces';
 import { LuggageService } from '../services/luggage.service';
+import 'multer';
 
 describe('LuggageService', () => {
   let service: LuggageService;
@@ -103,7 +103,6 @@ describe('LuggageService', () => {
         bbLr: 'Employee1',
         files: ['file1.jpg', 'file2.jpg'],
         downloadUrls: ['http://localhost:3333/file1.jpg', 'http://localhost:3333/file2.jpg'],
-        // Add other properties as needed
       },
     },
   ];
@@ -171,4 +170,73 @@ describe('LuggageService', () => {
       }
     });
   }
+
+  describe('create', () => {
+    const createLuggageRequest: ICreateLuggageRequest = {
+      luggageType: LuggageType.CHECKIN,
+      name: 'John Doe',
+      bags: '2',
+      tagNr: 'ABC123',
+      location: 'Storage Room',
+      bbLr: 'Employee1',
+    };
+
+    const mockFiles: Express.Multer.File[] = [
+      { 
+        fieldname: 'file1', 
+        originalname: 'file1.jpg', 
+        encoding: '7bit', 
+        mimetype: 'image/jpeg', 
+        buffer: Buffer.from('file1 content'), 
+        size: 100 
+      },
+      { 
+        fieldname: 'file2', 
+        originalname: 'file2.jpg', 
+        encoding: '7bit', 
+        mimetype: 'image/jpeg', 
+        buffer: Buffer.from('file2 content'), 
+        size: 120 
+      },
+    ] as Express.Multer.File[];
+
+    it('should create luggage and return the created luggage', (done) => {
+      // Arrange
+      const expectedUrl = `http://localhost:3333/luggages`;
+      const expectedResponse: ILuggage = {
+        luggageId: 'newLuggageId',
+        luggageType: LuggageType.CHECKIN,
+        name: 'John Doe',
+        bags: '2',
+        tagNr: 'ABC123',
+        location: 'Storage Room',
+        bbLr: 'Employee1',
+        files: ['file1.jpg', 'file2.jpg'],
+      };
+
+      // Act
+      service.create(createLuggageRequest).subscribe(
+        // Assert
+        (createdLuggage) => {
+          try {
+            expect(createdLuggage).toEqual(expectedResponse);
+            done();
+          } catch (error) {
+            done.fail(error as string | { message: string } | undefined);
+          }
+        },
+        (error: string | { message: string } | undefined) => {
+          done.fail(error);
+        }
+      );
+
+      // Assert
+      const req = httpTestingController.expectOne(expectedUrl);
+      expect(req.request.method).toEqual('POST');
+      expect(req.request.body).toEqual(createLuggageRequest);
+
+      // Provide the mock data for the HTTP response
+      req.flush(expectedResponse);
+    });
+  });
 });
